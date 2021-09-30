@@ -14,7 +14,17 @@ This is omitted from fortify to prevent it being overwritten, but allows for it 
 
 In the future, a config file may be a better route if there are multiple instances of images being required.
 
-3. Enable or disable the login/register with username or email by using the `username_alt` setting in the `config/fortify.php` file
+4. Disable auto-discovery for all fortify packages. This step is required so that we can control the loading order of `laravel/fortify` and `arkecosystem/foundation`.
+
+```json
+"extra": {
+    "laravel": {
+        "dont-discover": ["laravel/fortify"]
+    }
+},
+```
+
+5. Enable or disable the login/register with username or email by using the `username_alt` setting in the `config/fortify.php` file
 
 ```php
 <?php
@@ -32,7 +42,7 @@ return [
 
 **Note:** Currently fortify is intended to be used with `'username' => 'email'` in your config, as it expect the `email` property to be set when creating a new user.
 
-7. Register databags in your `AppServiceProvider` that are used by the auth pages
+6. Register databags in your `AppServiceProvider` that are used by the auth pages
 
 ```php
 use Konceiver\DataBags\DataBag;
