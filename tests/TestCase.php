@@ -46,11 +46,13 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
+            // Third-Party
             LaravelFortifyServiceProvider::class,
             MarkdownServiceProvider::class,
+            LivewireServiceProvider::class,
+            // First-Party
             FortifyServiceProvider::class,
             HermesServiceProvider::class,
-            LivewireServiceProvider::class,
             NewsletterServiceProvider::class,
             UserInterfaceServiceProvider::class,
             // CommonMarkServiceProvider::class, // TODO: custom finder from this causes component tests to fail

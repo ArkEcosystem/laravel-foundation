@@ -14,14 +14,7 @@ This is omitted from fortify to prevent it being overwritten, but allows for it 
 
 In the future, a config file may be a better route if there are multiple instances of images being required.
 
-5. Register the service providers in this exact order. This will ensure that our package can overwrite any bindings that `laravel/fortify` created.
-
-```php
-Laravel\Fortify\FortifyServiceProvider::class,
-ARKEcosystem\Foundation\Providers\FortifyServiceProvider::class,
-```
-
-6. Enable or disable the login/register with username or email by using the `username_alt` setting in the `config/fortify.php` file
+3. Enable or disable the login/register with username or email by using the `username_alt` setting in the `config/fortify.php` file
 
 ```php
 <?php

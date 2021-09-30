@@ -15,11 +15,14 @@ class FoundationServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(UserInterfaceServiceProvider::class);
+        // Third-Party
         $this->app->register(MarkdownServiceProvider::class);
+        $this->app->register(FortifyServiceProvider::class);
+
+        // First-Party
+        $this->app->register(StanServiceProvider::class);
         $this->app->register(CommonMarkServiceProvider::class);
         $this->app->register(HermesServiceProvider::class);
-        $this->app->register(FortifyServiceProvider::class);
-        $this->app->register(StanServiceProvider::class);
+        $this->app->register(UserInterfaceServiceProvider::class);
     }
 }
