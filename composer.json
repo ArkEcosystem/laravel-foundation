@@ -1,0 +1,111 @@
+{
+    "name": "arkecosystem/foundation",
+    "description": "User-Interface Scaffolding for Laravel. Powered by TailwindCSS.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ItsANameToo",
+            "email": "itsanametoo@protonmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/unicorn-fail/configuration.git"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "calebporzio/sushi": "^2.1",
+        "danharrin/livewire-rate-limiting": "^0.3.0",
+        "ergebnis/phpstan-rules": "^0.15.3",
+        "fakerphp/faker": "^1.15",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "google/recaptcha": "^1.2",
+        "graham-campbell/analyzer": "^3.0",
+        "guzzlehttp/guzzle": "^7.3",
+        "illuminate/bus": "^8.0",
+        "illuminate/contracts": "^8.0",
+        "illuminate/http": "^8.0",
+        "illuminate/mail": "^8.0",
+        "illuminate/support": "^8.0",
+        "illuminate/view": "^8.0",
+        "jasonmccreary/laravel-test-assertions": "^2.0",
+        "jenssegers/agent": "^2.6",
+        "johnkary/phpunit-speedtrap": "^4.0",
+        "laravel/fortify": "^1.8",
+        "league/commonmark": "^2.0",
+        "livewire/livewire": "^2.6",
+        "lukeraymonddowning/honey": "^0.3.4",
+        "mockery/mockery": "^1.4",
+        "nunomaduro/collision": "^5.5",
+        "nunomaduro/larastan": "^0.7",
+        "nunomaduro/laravel-mojito": "^0.2",
+        "orchestra/testbench": "^6.9",
+        "pestphp/pest": "^1.11",
+        "pestphp/pest-plugin-faker": "^1.0",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "pestphp/pest-plugin-livewire": "^1.0",
+        "pestphp/pest-plugin-parallel": "^0.3.1",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^0.12.6",
+        "phpstan/phpstan-strict-rules": "^0.12.10",
+        "phpunit/phpunit": "^9.5",
+        "pragmarx/google2fa-laravel": "^1.3",
+        "rector/rector": "^0.11.38",
+        "ruafozy/mersenne-twister": "^1.3",
+        "spatie/laravel-flash": "^1.7",
+        "spatie/laravel-medialibrary": "^9.7",
+        "spatie/laravel-newsletter": "^4.10",
+        "spatie/laravel-package-tools": "^1.9",
+        "spatie/laravel-personal-data-export": "^3.0",
+        "spatie/laravel-schemaless-attributes": "^1.8",
+        "spatie/pest-plugin-snapshots": "^1.1",
+        "spatie/regex": "^2.0",
+        "spatie/yaml-front-matter": "^2.0",
+        "teamtnt/laravel-scout-tntsearch-driver": "^10.0",
+        "unicorn-fail/emoji": "1.0.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "ARKEcosystem\\Foundation\\": "src/"
+        },
+        "files": [
+            "src/UserInterface/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "Database\\Factories\\": "database/factories/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ARKEcosystem\\Foundation\\Providers\\UserInterfaceServiceProvider",
+                "ARKEcosystem\\Foundation\\Providers\\CommonMarkServiceProvider",
+                "ARKEcosystem\\Foundation\\Providers\\HermesServiceProvider",
+                "ARKEcosystem\\Foundation\\Providers\\FortifyServiceProvider",
+                "ARKEcosystem\\Foundation\\Providers\\StanServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "format": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
+        "test": [
+            "./vendor/bin/pest --parallel"
+        ],
+        "test:coverage": [
+            "./vendor/bin/pest --coverage --min=100 --coverage-html=.coverage --coverage-clover=coverage.xml"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
