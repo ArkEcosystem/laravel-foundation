@@ -1,0 +1,198 @@
+.button-generic {
+    @apply px-5 py-3 font-semibold text-center rounded transition-default leading-tight;
+}
+
+.button-primary {
+    @apply text-white button-generic bg-theme-primary-600;
+}
+
+.button-primary:hover {
+    @apply bg-theme-primary-700;
+}
+
+.button-tag {
+    @apply break-words button-secondary;
+    @apply py-0.5 px-3 text-left !important;
+}
+
+.button-outline {
+    @apply border-2 button-generic border-theme-primary-100 text-theme-primary-600;
+}
+
+.button-tag-outline {
+    @apply button-outline;
+    @apply py-0.5 px-3 !important;
+}
+
+.button-primary:disabled,
+.button-secondary:disabled,
+.button-cancel:disabled,
+.button-icon:disabled,
+.button-icon-rounded:disabled,
+.button-disabled,
+a.disabled {
+    @apply shadow-none cursor-not-allowed pointer-events-none bg-theme-secondary-200 text-theme-secondary-400;
+}
+
+.button-outline:disabled,
+.button-outline.button-disabled,
+.button-tag-outline:disabled,
+.button-tag-outline.button-disabled {
+    @apply shadow-none cursor-not-allowed pointer-events-none border-theme-secondary-200 text-theme-secondary-400;
+}
+
+.dark .button-primary:disabled,
+.dark .button-secondary:disabled,
+.dark .button-cancel:disabled,
+.dark .button-icon:disabled,
+.dark .button-icon-rounded:disabled,
+.dark .button-disabled,
+.dark a.disabled {
+    @apply bg-theme-secondary-800 text-theme-secondary-700;
+}
+
+.dark .button-outline:disabled,
+.dark .button-outline.button-disabled,
+.dark .button-tag-outline:disabled,
+.dark .button-tag-outline.button-disabled {
+    @apply border-theme-secondary-800 text-theme-secondary-700;
+}
+
+.button-secondary {
+    @apply button-generic bg-theme-primary-100 text-theme-primary-600;
+}
+
+.button-cancel {
+    @apply button-generic bg-theme-danger-100 text-theme-danger-400;
+}
+
+.button-icon {
+    @apply button-secondary;
+}
+
+.button-icon-cancel {
+    @apply button-cancel;
+}
+
+.button-icon-primary,
+.button-icon,
+.button-icon-cancel {
+    @apply flex items-center justify-center p-0;
+}
+
+.button-icon-primary {
+    @apply button-primary;
+}
+
+.button-icon-rounded {
+    @apply button-icon rounded-xl;
+}
+.dark .button-icon,
+.dark .button-icon-rounded,
+.dark .button-secondary,
+.dark .button-tag {
+    @apply bg-theme-secondary-800 text-theme-secondary-200;
+}
+
+.dark .button-outline,
+.dark .button-tag-outline {
+    @apply border-theme-secondary-800 text-theme-secondary-200;
+}
+
+.button-icon:hover,
+.button-secondary:hover,
+.button-icon-rounded:hover,
+.button-tag:hover {
+    @apply text-white bg-theme-primary-700;
+}
+
+.button-outline:hover,
+.button-tag-outline:hover {
+    @apply text-white border-transparent bg-theme-primary-700;
+}
+
+.dark .button-icon:hover,
+.dark .button-icon-rounded:hover,
+.dark .button-secondary:hover,
+.dark .button-tag:hover {
+    @apply bg-theme-primary-700 text-theme-secondary-200;
+}
+
+.dark .button-outline:hover,
+.dark .button-tag-outline:hover {
+    @apply border-theme-primary-700 text-theme-secondary-200;
+}
+
+.button-icon-primary:hover {
+    @apply bg-theme-primary-700;
+}
+
+.button-cancel:hover,
+.button-icon-cancel:hover {
+    @apply text-white bg-theme-danger-400;
+}
+
+a.button-generic,
+a.button-primary,
+a.button-secondary {
+    @apply inline-block;
+}
+
+.button-pagination-page-indicator {
+    @apply px-2 py-2.5 font-semibold text-center transition-default bg-theme-primary-100 text-theme-primary-600;
+}
+
+.button-pagination-page-indicator .button-pagination-search,
+.button-pagination-page-indicator .button-pagination-ellipsis {
+    @apply transition-opacity duration-100 ease-in-out;
+}
+.button-pagination-page-indicator .button-pagination-search {
+    @apply absolute mt-1;
+}
+
+.button-pagination-page-indicator:hover .button-pagination-search,
+.button-pagination-page-indicator .button-pagination-ellipsis {
+    @apply opacity-100;
+}
+.button-pagination-page-indicator:hover .button-pagination-ellipsis,
+.button-pagination-page-indicator .button-pagination-search {
+    @apply opacity-0;
+}
+
+.dark .button-pagination-page-indicator {
+    @apply bg-theme-secondary-800 text-theme-secondary-200;
+}
+
+.button-pagination-page-indicator--selected {
+    @apply px-2 py-2.5 font-semibold text-center transition-default text-theme-primary-600 bg-theme-primary-200;
+}
+
+.dark .button-pagination-page-indicator--selected {
+    @apply px-2 py-2.5 font-semibold text-center transition-default bg-theme-secondary-600 text-theme-secondary-200;
+}
+
+.button-pagination-page-indicator:hover {
+    @apply text-white rounded bg-theme-primary-700;
+    transform: scale(1.2);
+}
+
+.dark .button-pagination-page-indicator:hover:not([disabled]) {
+    @apply bg-theme-primary-600;
+}
+
+.dark .button-primary:hover,
+.dark .button-secondary:hover,
+.dark .button-icon:hover,
+.dark .button-icon-rounded:hover,
+.dark .button-icon-primary:hover {
+    @apply shadow-none;
+}
+
+.view-option-button {
+    @apply relative;
+}
+.view-option-button.active:not(:focus-visible)::before {
+    content: "";
+    @apply absolute bottom-0 left-0 right-0 bg-theme-primary-600;
+    height: 3px;
+}

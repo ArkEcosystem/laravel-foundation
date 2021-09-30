@@ -1,0 +1,162 @@
+.swiper-container {
+    @apply w-full h-full mx-auto mt-8;
+}
+.swiper-container:not(.slider-pagination-bottom) {
+    @apply mt-8;
+}
+.swiper-container.slider-pagination-bottom {
+    @apply mt-5 mb-8;
+}
+
+.swiper-container:not(.slider-pagination-bottom) .swiper-wrapper {
+    @apply mb-8;
+}
+
+.swiper-container .swiper-pagination {
+    @apply relative;
+    bottom: 0;
+}
+
+.swiper-container:not(.slider-pagination-bottom) .swiper-pagination {
+    @apply flex items-center;
+}
+
+.swiper-container.slider-pagination-bottom .swiper-pagination {
+    @apply mt-5;
+}
+
+@screen xl {
+    .swiper-container.slider-multirow > .swiper-wrapper {
+        @apply flex-wrap;
+    }
+}
+
+.swiper-container .swiper-pagination-bullets {
+    @apply space-x-3;
+}
+
+.swiper-container-horizontal
+    > .swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    @apply mx-0;
+}
+
+@screen sm {
+    .swiper-container.slider-show-view-all:not(.slider-pagination-bottom)
+        .swiper-pagination-bullets
+        .swiper-pagination-bullet:last-child {
+        @apply relative mr-6;
+    }
+
+    .swiper-container.slider-show-view-all:not(.slider-pagination-bottom)
+        .swiper-pagination-bullets
+        .swiper-pagination-bullet:last-child:before {
+        @apply absolute w-px -mt-2 bg-theme-secondary-300;
+        content: "";
+        right: calc(-1.5rem + -1px);
+        height: calc(100% + 1rem);
+    }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    @apply pb-12;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 1.75rem;
+}
+
+div.swipwer-button-prev,
+div.swiper-button-next {
+    @apply text-theme-primary-500;
+}
+span.swiper-pagination-bullet {
+    @apply opacity-100;
+    background-color: rgba(62, 157, 255, 0.2);
+}
+span.swiper-pagination-bullet-active {
+    @apply bg-theme-primary-500;
+}
+
+.slider-title {
+    @apply relative items-end flex-1 mb-0 truncate;
+}
+
+.swiper-pagination-bullet:only-child {
+    @apply hidden;
+}
+
+/**
+ * Before swiper is loaded it uses grid classes to show the content properly.
+ * The following are for showing only the amount of elements that fit on
+ * different breakpoints.
+ */
+.swiper-wrapper.grid .swiper-slide:nth-child(n + 2) {
+    @apply hidden;
+}
+
+@screen sm {
+    .swiper-wrapper.grid.sm\:grid-cols-1 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.sm\:grid-cols-2 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.sm\:grid-cols-3 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.sm\:grid-cols-4 .swiper-slide:nth-child(n + 0) {
+        @apply block;
+    }
+
+    .swiper-wrapper.grid.sm\:grid-cols-1 .swiper-slide:nth-child(n + 2),
+    .swiper-wrapper.grid.sm\:grid-cols-2 .swiper-slide:nth-child(n + 3),
+    .swiper-wrapper.grid.sm\:grid-cols-3 .swiper-slide:nth-child(n + 4),
+    .swiper-wrapper.grid.sm\:grid-cols-4 .swiper-slide:nth-child(n + 5) {
+        @apply hidden;
+    }
+}
+
+@screen md {
+    .swiper-wrapper.grid.md\:grid-cols-1 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.md\:grid-cols-2 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.md\:grid-cols-3 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.md\:grid-cols-4 .swiper-slide:nth-child(n + 0) {
+        @apply block;
+    }
+
+    .swiper-wrapper.grid.md\:grid-cols-1 .swiper-slide:nth-child(n + 2),
+    .swiper-wrapper.grid.md\:grid-cols-2 .swiper-slide:nth-child(n + 3),
+    .swiper-wrapper.grid.md\:grid-cols-3 .swiper-slide:nth-child(n + 4),
+    .swiper-wrapper.grid.md\:grid-cols-4 .swiper-slide:nth-child(n + 5) {
+        @apply hidden;
+    }
+}
+
+@screen lg {
+    .swiper-wrapper.grid.lg\:grid-cols-1 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.lg\:grid-cols-2 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.lg\:grid-cols-3 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.lg\:grid-cols-4 .swiper-slide:nth-child(n + 0) {
+        @apply block;
+    }
+
+    .swiper-wrapper.grid.lg\:grid-cols-1 .swiper-slide:nth-child(n + 2),
+    .swiper-wrapper.grid.lg\:grid-cols-2 .swiper-slide:nth-child(n + 3),
+    .swiper-wrapper.grid.lg\:grid-cols-3 .swiper-slide:nth-child(n + 4),
+    .swiper-wrapper.grid.lg\:grid-cols-4 .swiper-slide:nth-child(n + 5) {
+        @apply hidden;
+    }
+}
+
+@screen xl {
+    .swiper-wrapper.grid.xl\:grid-cols-1 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.xl\:grid-cols-2 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.xl\:grid-cols-3 .swiper-slide:nth-child(n + 0),
+    .swiper-wrapper.grid.xl\:grid-cols-4 .swiper-slide:nth-child(n + 0) {
+        @apply block;
+    }
+
+    .swiper-wrapper.grid.xl\:grid-cols-1 .swiper-slide:nth-child(n + 2),
+    .swiper-wrapper.grid.xl\:grid-cols-2 .swiper-slide:nth-child(n + 3),
+    .swiper-wrapper.grid.xl\:grid-cols-3 .swiper-slide:nth-child(n + 4),
+    .swiper-wrapper.grid.xl\:grid-cols-4 .swiper-slide:nth-child(n + 5) {
+        @apply hidden;
+    }
+}
