@@ -39,7 +39,6 @@
         "laravel/fortify": "^1.8",
         "league/commonmark": "^2.0",
         "livewire/livewire": "^2.6",
-        "lukeraymonddowning/honey": "^0.3.4",
         "mockery/mockery": "^1.4",
         "nunomaduro/collision": "^5.5",
         "nunomaduro/larastan": "^0.7",

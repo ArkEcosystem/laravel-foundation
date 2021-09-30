@@ -108,6 +108,8 @@ window.Modal = Modal;
 
 ### WYSIWYG Markdown editor
 
+> Important: you will need to have `php-tidy` installed for the Markdown parsing. Ensure this is installed on any servers before implementing the markdown editor
+
 1. Install the npm dependencies
 
 ```bash
@@ -259,26 +261,6 @@ Note: You can change the the URL by using the `endpoint` prop.
 ```
 
 6. The component accepts a `usersInContext` prop that expects an array of usernames. These usernames will be sent in the search query request as  `context` and can be used to show those users first in the response. Useful to show the user in the conversation first.
-
-### Honeypot
-
-1. Install dependency
-
-```bash
-composer require lukeraymonddowning/honey
-```
-
-2. Setup honeypot
-
-```bash
-php artisan honey:install
-```
-
-3. Database Migration
-
-```bash
-php artisan migrate
-```
 
 #### Livewire modals
 
