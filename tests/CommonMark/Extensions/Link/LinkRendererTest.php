@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\CommonMark\Extensions\Link\LinkRenderer;
-use ARKEcosystem\Foundation\Providers\CommonMarkServiceProvider;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
 use League\CommonMark\Node\Inline\Text;

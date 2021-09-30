@@ -23,13 +23,13 @@ Since this package relies on a few 3rd party packages, you will need to have the
 
 ```js
 mix.webpackConfig({
-        resolve: {
-            alias: {
-                '@ui': path.resolve(__dirname, 'vendor/arkecosystem/foundation/resources/assets/')
-            }
+    resolve: {
+        alias: {
+            '@ui': path.resolve(__dirname, 'vendor/arkecosystem/foundation/resources/assets/')
         }
-    })
-    ...
+    }
+})
+...
 ```
 
 **Protip**: instead of running step 3 manually, you can add the following to your `post-autoload-dump` property in `composer.json`:

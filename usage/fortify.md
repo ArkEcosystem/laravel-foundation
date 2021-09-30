@@ -5,17 +5,8 @@
 ## Installation
 
 1. Publish all the assets / views with `php artisan vendor:publish --provider="ARKEcosystem\Foundation\Providers\FortifyServiceProvider" --tag=config --tag=images`.
-2. Disable auto-discovery for all fortify packages. This step is required so that we can control the loading order of `laravel/fortify` and `arkecosystem/foundation`.
 
-```json
-"extra": {
-    "laravel": {
-        "dont-discover": ["arkecosystem/foundation", "laravel/fortify"]
-    }
-},
-```
-
-4. Required Image
+2. Required Image
 
 Projects require an image to be provided: `resources/images/auth/verify-email.svg`
 

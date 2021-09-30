@@ -86,10 +86,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ARKEcosystem\\Foundation\\Providers\\UserInterfaceServiceProvider",
-                "ARKEcosystem\\Foundation\\Providers\\HermesServiceProvider",
-                "ARKEcosystem\\Foundation\\Providers\\FortifyServiceProvider",
-                "ARKEcosystem\\Foundation\\Providers\\StanServiceProvider"
+                "ARKEcosystem\\Foundation\\Providers\\FoundationServiceProvider"
             ]
         }
     },

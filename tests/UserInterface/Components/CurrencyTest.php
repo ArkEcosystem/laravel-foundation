@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use function Spatie\Snapshots\assertMatchesSnapshot;
 use ARKEcosystem\Foundation\UserInterface\Components\Currency;
+use function Spatie\Snapshots\assertMatchesSnapshot;
 
 it('should format the given value', function (): void {
     assertMatchesSnapshot((new Currency('USD'))->render()(['slot' => 10]));

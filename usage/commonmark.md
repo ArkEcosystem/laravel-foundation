@@ -5,22 +5,6 @@
 ## Installation
 
 1. Publish all the assets / views with `php artisan vendor:publish --provider="ARKEcosystem\Foundation\Providers\CommonMarkServiceProvider" --tag=config`.
-2. Disable auto-discovery for all fortify packages. This step is required so that we can control the loading order of `graham-campbell/markdown` and `arkecosystem/foundation`.
-
-```json
-"extra": {
-    "laravel": {
-        "dont-discover": ["arkecosystem/foundation", "graham-campbell/markdown"]
-    }
-},
-```
-
-4. Register the service providers in this exact order. This will ensure that our package can overwrite any bindings that `graham-campbell/markdown` created.
-
-```php
-GrahamCampbell\Markdown\MarkdownServiceProvider::class,
-ARKEcosystem\Foundation\Providers\CommonMarkServiceProvider::class,
-```
 
 ## Usage
 
