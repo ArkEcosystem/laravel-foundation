@@ -53,12 +53,12 @@
             </div>
         </div>
 
-        <div class="flex flex-col-reverse items-center justify-between space-y-4 md:space-y-0 md:flex-row">
+        <div class="flex flex-col-reverse justify-between items-center space-y-4 md:flex-row md:space-y-0">
             <div class="flex-1 mt-8 md:mt-0">
                 <a href="{{ route('login') }}" class="link">@lang('ui::actions.cancel')</a>
             </div>
 
-            <button type="submit" class="w-full button-secondary md:w-auto">
+            <button type="submit" class="w-full md:w-auto button-secondary">
                 @lang('ui::actions.reset_password')
             </button>
         </div>

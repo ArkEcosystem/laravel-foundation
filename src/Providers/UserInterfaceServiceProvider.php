@@ -7,7 +7,6 @@ namespace ARKEcosystem\Foundation\Providers;
 use ARKEcosystem\Foundation\UserInterface\Components\Currency;
 use ARKEcosystem\Foundation\UserInterface\Components\DataBag;
 use ARKEcosystem\Foundation\UserInterface\Components\FlashMessage;
-use ARKEcosystem\Foundation\UserInterface\Components\HoneyPot;
 use ARKEcosystem\Foundation\UserInterface\Components\Number;
 use ARKEcosystem\Foundation\UserInterface\Components\Percentage;
 use ARKEcosystem\Foundation\UserInterface\Components\ShortCurrency;
@@ -296,9 +295,6 @@ class UserInterfaceServiceProvider extends ServiceProvider
 
             // Font Loader
             $blade->component('ark::font-loader', 'ark-font-loader');
-
-            // Honey Pot
-            $blade->component('honey-pot', HoneyPot::class);
 
             // Formatting
             $blade->component('currency', Currency::class);

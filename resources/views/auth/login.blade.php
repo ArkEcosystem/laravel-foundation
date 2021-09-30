@@ -79,12 +79,12 @@
                     @if($hasForgotPassword)
                         <div class="flex-1 mt-8 sm:mt-0">
                             <a href="{{ route('password.request') }}"
-                               class="link font-semibold">@lang('ui::auth.sign-in.forgot_password')</a>
+                               class="font-semibold link">@lang('ui::auth.sign-in.forgot_password')</a>
                         </div>
                     @endif
                 </div>
 
-                <button type="submit" class="w-full button-secondary sm:w-auto">
+                <button type="submit" class="w-full sm:w-auto button-secondary">
                     @lang('ui::actions.sign_in')
                 </button>
             </div>
@@ -92,7 +92,7 @@
     </x:ark-fortify::form-wrapper>
 
     @if(Route::has('register'))
-        <div class="text-center mb-8">
+        <div class="mb-8 text-center">
             <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.register-now"/>
         </div>
     @endif

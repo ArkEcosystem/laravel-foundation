@@ -16,7 +16,7 @@
 @section('content')
     <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.component-heading" />
 
-    <div class="sm:max-w-xl py-8 mx-auto">
+    <div class="py-8 mx-auto sm:max-w-xl">
         <livewire:auth.register-form />
 
         <div class="text-center">

@@ -21,12 +21,12 @@
         </div>
     </div>
 
-    <div class="flex flex-col-reverse items-center justify-between sm:flex-row">
-        <button @click="recovery = true" type="button" class="w-full mt-4 font-semibold link sm:w-auto sm:mt-0">
+    <div class="flex flex-col-reverse justify-between items-center sm:flex-row">
+        <button @click="recovery = true" type="button" class="mt-4 w-full font-semibold sm:mt-0 sm:w-auto link">
             @lang('ui::actions.enter_recovery_code')
         </button>
 
-        <button type="submit" class="w-full button-secondary sm:w-auto">
+        <button type="submit" class="w-full sm:w-auto button-secondary">
             @lang('ui::actions.sign_in')
         </button>
     </div>

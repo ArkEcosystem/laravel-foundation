@@ -16,7 +16,7 @@
 @section('content')
     <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.component-heading"/>
 
-    <div class="max-w-xl py-8 mx-auto">
+    <div class="py-8 mx-auto max-w-xl">
         <div class="px-8">
             <x-ark-flash/>
         </div>
@@ -37,12 +37,12 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col-reverse items-center justify-between space-y-4 md:space-y-0 md:flex-row">
+                <div class="flex flex-col-reverse justify-between items-center space-y-4 md:flex-row md:space-y-0">
                     <div class="flex-1 mt-8 md:mt-0">
                         <a href="{{ route('login') }}" class="link">@lang('ui::actions.cancel')</a>
                     </div>
 
-                    <button type="submit" class="w-full button-secondary md:w-auto">
+                    <button type="submit" class="w-full md:w-auto button-secondary">
                         @lang('ui::auth.forgot-password.reset_link')
                     </button>
                 </div>

@@ -18,7 +18,7 @@
 
 <div dusk="two-factor-authentication-form">
     @if (! $this->enabled)
-        <div class="flex flex-col w-full space-y-8">
+        <div class="flex flex-col space-y-8 w-full">
             <div class="flex flex-col">
                 <span class="header-4">
                     @lang('ui::pages.user-settings.2fa_title')
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="flex w-full mt-8 space-y-4 sm:hidden">
+            <div class="flex mt-8 space-y-4 w-full sm:hidden">
                 <div class="w-full">
                     <x-ark-input
                         type="number"
@@ -56,18 +56,18 @@
             <hr class="flex my-8 border-t sm:hidden border-theme-primary-100">
 
             <div class="flex flex-col items-center sm:flex-row sm:items-start sm:mt-8">
-                <div class="flex flex-col items-center justify-center border rounded-xl border-theme-secondary-400 sm:mr-10">
-                    <div class="px-2 py-2">
+                <div class="flex flex-col justify-center items-center rounded-xl border sm:mr-10 border-theme-secondary-400">
+                    <div class="py-2 px-2">
                         {!! $this->twoFactorQrCodeSvg !!}
                     </div>
-                    <div class="w-full py-2 mt-1 text-center border-t border-theme-secondary-400 bg-theme-secondary-100 rounded-b-xl">
+                    <div class="py-2 mt-1 w-full text-center rounded-b-xl border-t border-theme-secondary-400 bg-theme-secondary-100">
                         <span class="text-theme-secondary-900">{{ $this->state['two_factor_secret'] }}</span>
                     </div>
                 </div>
 
-                <div class="hidden w-1 h-64 mr-10 sm:flex bg-theme-primary-100"></div>
+                <div class="hidden mr-10 w-1 h-64 sm:flex bg-theme-primary-100"></div>
 
-                <div class="flex-col hidden sm:flex">
+                <div class="hidden flex-col sm:flex">
                     <span class="text-lg font-bold leading-7 text-theme-secondary-900">
                         @lang('ui::pages.user-settings.2fa_not_enabled_title')
                     </span>
@@ -80,7 +80,7 @@
                         ])
                     </div>
 
-                    <div class="hidden w-full mt-8 md:flex">
+                    <div class="hidden mt-8 w-full md:flex">
                         <div class="w-full">
                             <x-ark-input
                                 type="number"
@@ -96,7 +96,7 @@
                 </div>
             </div>
 
-            <div class="hidden w-full mt-8 space-y-4 sm:flex md:hidden">
+            <div class="hidden mt-8 space-y-4 w-full sm:flex md:hidden">
                 <div class="w-full">
                     <x-ark-input
                         type="number"
@@ -112,7 +112,7 @@
             <div class="flex mt-8 sm:justify-end">
                 <button
                     type="button"
-                    class="w-full button-secondary sm:w-auto"
+                    class="w-full sm:w-auto button-secondary"
                     wire:click="enableTwoFactorAuthentication"
                     dusk="enable-two-factor-authentication"
                 >
@@ -125,7 +125,7 @@
             <span class="header-4">@lang('ui::pages.user-settings.2fa_title')</span>
             <span class="mt-4">@lang('ui::pages.user-settings.2fa_description')</span>
 
-            <div class="flex flex-col items-center mt-4 space-y-4 sm:mt-8 sm:items-start sm:flex-row sm:space-y-0 sm:space-x-6">
+            <div class="flex flex-col items-center mt-4 space-y-4 sm:flex-row sm:items-start sm:mt-8 sm:space-y-0 sm:space-x-6">
                 <img src="{{ asset('/images/profile/2fa.svg') }}" class="w-24 h-24" alt="">
                 <div class="flex flex-col">
                     <span class="text-lg font-bold leading-7 text-theme-secondary-900">
@@ -141,14 +141,14 @@
                 </div>
             </div>
 
-            <div class="flex flex-col w-full mt-8 space-y-3 sm:flex-row sm:justify-end sm:space-y-0 sm:space-x-3">
-                <button type="button" class="w-full button-secondary sm:w-auto" wire:click="showConfirmPassword">
+            <div class="flex flex-col mt-8 space-y-3 w-full sm:flex-row sm:justify-end sm:space-y-0 sm:space-x-3">
+                <button type="button" class="w-full sm:w-auto button-secondary" wire:click="showConfirmPassword">
                     @lang('ui::actions.recovery_codes')
                 </button>
 
                 <button
                     type="submit"
-                    class="w-full button-primary sm:w-auto"
+                    class="w-full sm:w-auto button-primary"
                     wire:click="showDisableConfirmPassword"
                     dusk="disable-two-factor-authentication"
                 >

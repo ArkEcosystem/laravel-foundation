@@ -97,7 +97,7 @@
         </div>
 
         <div class="text-right">
-            <button type="submit" class="w-full button-secondary sm:w-auto">
+            <button type="submit" class="w-full sm:w-auto button-secondary">
                 @lang('ui::actions.sign_up')
             </button>
         </div>

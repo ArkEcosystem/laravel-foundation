@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e956455283a69f1063fc1457330534f0",
+    "content-hash": "f04a87e07c13af4e1d12dbfa9b39b247",
     "packages": [
         {
             "name": "amphp/amp",
@@ -3564,6 +3564,19 @@
                 "reference": "4c7579b93543e4346287f4a46b93aab46209722f",
                 "shasum": ""
             },
+            "archive": {
+                "exclude": [
+                    "/.editorconfig",
+                    "/.github",
+                    "/.gitattributes",
+                    "/.gitignore",
+                    "/.scrutinizer.yml",
+                    "/tests",
+                    "/php*.dist",
+                    "/psalm.xml",
+                    "/scripts"
+                ]
+            },
             "require": {
                 "dflydev/dot-access-data": "^3.0",
                 "ext-mbstring": "*",
@@ -3600,19 +3613,6 @@
                 "psr-4": {
                     "League\\Configuration\\Tests\\Unit\\": "tests/unit"
                 }
-            },
-            "archive": {
-                "exclude": [
-                    "/.editorconfig",
-                    "/.github",
-                    "/.gitattributes",
-                    "/.gitignore",
-                    "/.scrutinizer.yml",
-                    "/tests",
-                    "/php*.dist",
-                    "/psalm.xml",
-                    "/scripts"
-                ]
             },
             "scripts": {
                 "fix": [
@@ -3958,68 +3958,6 @@
                 }
             ],
             "time": "2021-09-25T22:50:47+00:00"
-        },
-        {
-            "name": "lukeraymonddowning/honey",
-            "version": "0.3.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lukeraymonddowning/honey.git",
-                "reference": "3b46c5ad77fd32b38c18b556421c810184ac641b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lukeraymonddowning/honey/zipball/3b46c5ad77fd32b38c18b556421c810184ac641b",
-                "reference": "3b46c5ad77fd32b38c18b556421c810184ac641b",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.3|^7.2",
-                "illuminate/support": "^7.0|^8.0",
-                "php": "^7.4|^8.0"
-            },
-            "require-dev": {
-                "livewire/livewire": "^2.3",
-                "orchestra/testbench": "^6.4"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Lukeraymonddowning\\Honey\\Providers\\HoneyServiceProvider"
-                    ],
-                    "aliases": {
-                        "Honey": "Lukeraymonddowning\\Honey\\Facades\\Honey"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Lukeraymonddowning\\Honey\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "luke",
-                    "email": "lukeraymonddowning@gmail.com"
-                }
-            ],
-            "description": "Reduce spam on your Laravel site.",
-            "support": {
-                "issues": "https://github.com/lukeraymonddowning/honey/issues",
-                "source": "https://github.com/lukeraymonddowning/honey/tree/0.3.4"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/lukeraymonddowning",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-07-07T08:08:09+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
@@ -9308,6 +9246,79 @@
             "time": "2020-11-27T07:26:26+00:00"
         },
         {
+            "name": "spatie/laravel-honeypot",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-honeypot.git",
+                "reference": "e13ee4ee3225313f18191c51fdd28f75075c69c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/e13ee4ee3225313f18191c51fdd28f75075c69c0",
+                "reference": "e13ee4ee3225313f18191c51fdd28f75075c69c0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8.0",
+                "illuminate/encryption": "^8.0",
+                "illuminate/http": "^8.0",
+                "illuminate/support": "^8.0",
+                "illuminate/validation": "^8.0",
+                "nesbot/carbon": "^2.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.6",
+                "symfony/http-foundation": "^5.1.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "spatie/phpunit-snapshot-assertions": "^4.0",
+                "spatie/test-time": "^1.2.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Honeypot\\HoneypotServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Honeypot\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Preventing spam submitted through forms",
+            "homepage": "https://github.com/spatie/laravel-honeypot",
+            "keywords": [
+                "laravel-honeypot",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-honeypot/issues",
+                "source": "https://github.com/spatie/laravel-honeypot/tree/4.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2021-04-13T17:50:21+00:00"
+        },
+        {
             "name": "spatie/laravel-medialibrary",
             "version": "9.7.4",
             "source": {
@@ -14078,5 +14089,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }
