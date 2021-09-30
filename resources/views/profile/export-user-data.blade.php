@@ -9,7 +9,7 @@
 
         <div class="flex justify-end mt-8">
             <div @if($this->rateLimitReached()) data-tippy-content="@lang('ui::messages.export_limit_reached')" @endif >
-                <button @if($this->rateLimitReached()) disabled @endif wire:loading.attr="disabled" type="submit" class="w-full button-secondary sm:w-auto" wire:click="export">
+                <button @if($this->rateLimitReached()) disabled @endif wire:loading.attr="disabled" type="submit" class="w-full sm:w-auto button-secondary" wire:click="export">
                     @lang('ui::actions.export_personal_data')
                 </button>
             </div>

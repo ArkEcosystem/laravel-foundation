@@ -8,7 +8,7 @@
         keydown-enter="subscribe"
         autocomplete="email"
         input-class="w-full"
-        container-class="p-1 overflow-hidden bg-white rounded"
+        container-class="overflow-hidden p-1 bg-white rounded"
         :errors="$errors"
         :hide-label="true"
     >

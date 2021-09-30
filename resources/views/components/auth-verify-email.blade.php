@@ -1,12 +1,12 @@
-<div class="flex max-w-xl p-8 mx-auto my-6 bg-white rounded-lg">
-    <div class="flex flex-col w-full text-center space-y-6">
+<div class="flex p-8 my-6 mx-auto max-w-xl bg-white rounded-lg">
+    <div class="flex flex-col space-y-6 w-full text-center">
         <div class="space-y-4">
             <h1>@lang('ui::auth.verify.page_header')</h1>
 
             <p>@lang('ui::auth.verify.link_description')</p>
         </div>
 
-        <img class="mb-5 mx-12" src="/images/auth/verify-email.svg" alt="" />
+        <img class="mx-12 mb-5" src="/images/auth/verify-email.svg" alt="" />
 
         <form wire:click.prevent="resend" wire:poll>
             <p class="text-sm text-theme-secondary-600 lg:no-wrap-span-children">

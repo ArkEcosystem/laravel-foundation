@@ -1,5 +1,5 @@
 <div x-data="{isTyping: false}" dusk="update-password-form" @updated-password.window="isTyping = false">
-    <div class="flex flex-col space-y-4 mt-4">
+    <div class="flex flex-col mt-4 space-y-4">
         <div>
             <x-ark-flash />
         </div>
@@ -53,11 +53,11 @@
             />
         </div>
 
-        <div class="flex w-full mt-8 sm:justify-end">
+        <div class="flex mt-8 w-full sm:justify-end">
             <button
                 dusk="update-password-form-submit"
                 type="submit"
-                class="w-full button-secondary sm:w-auto"
+                class="w-full sm:w-auto button-secondary"
             >
                 @lang('ui::actions.update')
             </button>

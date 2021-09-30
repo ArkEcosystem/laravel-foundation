@@ -40,7 +40,7 @@
                                     {{ $session->ip_address }},
 
                                     @if ($session->is_current_device)
-                                        <span class="text-green-500 font-semibold">@lang('ui::generic.this_device')</span>
+                                        <span class="font-semibold text-green-500">@lang('ui::generic.this_device')</span>
                                     @else
                                         @lang('ui::generic.last_active') {{ $session->last_active }}
                                     @endif
@@ -74,7 +74,7 @@
                 <div class="mt-4" x-data="{}" x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
                     <x-jet-input
                         type="password"
-                        class="mt-1 block w-3/4"
+                        class="block mt-1 w-3/4"
                         :placeholder="trans('ui::forms.password')"
                         x-ref="password"
                         wire:model.defer="password"

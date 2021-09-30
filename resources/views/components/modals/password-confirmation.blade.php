@@ -17,7 +17,7 @@
 
     <x-slot name="description">
         <div class="flex flex-col">
-            <div class="flex justify-center w-full mt-8">
+            <div class="flex justify-center mt-8 w-full">
                 <img
                     src="{{ asset($image) }}"
                     class="h-28"
@@ -52,7 +52,7 @@
     </x-slot>
 
     <x-slot name="buttons">
-        <div class="flex flex-col-reverse justify-end w-full space-y-4 space-y-reverse sm:flex-row sm:space-y-0 sm:space-x-3">
+        <div class="flex flex-col-reverse justify-end space-y-4 space-y-reverse w-full sm:flex-row sm:space-y-0 sm:space-x-3">
             <button
                 type="button"
                 dusk="confirm-password-form-cancel"
@@ -66,7 +66,7 @@
                 type="submit"
                 form="password-confirmation"
                 dusk="confirm-password-form-submit"
-                class="inline-flex items-center justify-center button-primary"
+                class="inline-flex justify-center items-center button-primary"
                 wire:click="{{ $actionMethod }}"
             >
                 @lang('ui::actions.confirm')
