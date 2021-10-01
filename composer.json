@@ -66,7 +66,7 @@
         "spatie/pest-plugin-snapshots": "^1.1",
         "spatie/regex": "^2.0",
         "spatie/yaml-front-matter": "^2.0",
-        "teamtnt/laravel-scout-tntsearch-driver": "^10.0",
+        "teamtnt/laravel-scout-tntsearch-driver": "^11.0",
         "unicorn-fail/emoji": "1.0.x-dev"
     },
     "autoload": {
