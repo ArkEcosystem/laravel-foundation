@@ -95,6 +95,9 @@
             "vendor/bin/php-cs-fixer fix"
         ],
         "test": [
+            "./vendor/bin/pest"
+        ],
+        "test:fast": [
             "./vendor/bin/pest --parallel"
         ],
         "test:coverage": [
