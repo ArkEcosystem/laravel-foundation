@@ -6,8 +6,8 @@
             :readonly="$readonly"
             :image="$this->user->photo"
             wire:model="imageSingle"
-            :upload-text="__('fortify::forms.upload-avatar.upload_avatar')"
-            :delete-tooltip="__('fortify::forms.upload-avatar.delete_avatar')"
+            :upload-text="__('ui::forms.upload-avatar.upload_avatar')"
+            :delete-tooltip="__('ui::forms.upload-avatar.delete_avatar')"
             :with-crop="$withCrop"
             :crop-options="$cropOptions"
         />
