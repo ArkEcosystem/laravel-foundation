@@ -12,16 +12,16 @@ final class YouTubeRenderer
     {
         $video = new HtmlElement('iframe', [
             'width'           => '100%',
-            'height'          => 480,
+            'height'          => '480',
             'src'             => 'https://www.youtube.com/embed/'.$url->getId(),
-            'frameborder'     => 0,
-            'allowfullscreen' => 1,
+            'frameborder'     => '0',
+            'allowfullscreen' => '1',
             // Noise
-            'showinfo'        => 0,
-            'controls'        => 0,
-            'autoplay'        => 0,
-            'modestbranding'  => 1,
-            'autohide'        => 1,
+            'showinfo'        => '0',
+            'controls'        => '0',
+            'autoplay'        => '0',
+            'modestbranding'  => '1',
+            'autohide'        => '1',
         ]);
 
         $container = new HtmlElement('div', ['class' => 'video-container']);
