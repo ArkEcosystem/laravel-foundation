@@ -49,6 +49,9 @@ use League\CommonMark\Extension\CommonMark\Renderer\Block\ThematicBreakRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\EmphasisRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\HtmlInlineRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\StrongRenderer;
+use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
+use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
+use League\CommonMark\MarkdownConverterInterface;
 use League\CommonMark\Node\Block\Document;
 use League\CommonMark\Node\Block\Paragraph;
 use League\CommonMark\Node\Inline\Newline;
@@ -137,7 +140,8 @@ final class CommonMarkServiceProvider extends ServiceProvider
     private function registerCommonMarkEnvironment(): void
     {
         /** @var \League\CommonMark\Environment\Environment */
-        $environment = $this->app->get('markdown.environment');
+        $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+
         $environment->addRenderer(FencedCode::class, new FencedCodeRenderer());
 
         $environment->addBlockStartParser(new BlockQuoteStartParser(), 70);
@@ -193,6 +197,9 @@ final class CommonMarkServiceProvider extends ServiceProvider
             $environment->addRenderer($interface, resolve($implementation), 0);
         }
 
+        $environment->addExtension(new ExternalLinkExtension());
+        $environment->addExtension(new HeadingPermalinkExtension());
+
         $environment->mergeConfig([
             'external_link' => [
                 'internal_hosts'     => config('app.url'),
@@ -202,13 +209,18 @@ final class CommonMarkServiceProvider extends ServiceProvider
                 'noopener'           => 'external',
                 'noreferrer'         => 'external',
             ],
+
+
             'heading_permalink' => [
                 'html_class'      => 'heading-permalink',
                 'id_prefix'       => 'user-content',
                 'insert'          => 'before',
                 'title'           => 'Permalink',
                 'symbol'          => '#',
-                'slug_normalizer' => new SlugNormalizer(),
+            ],
+
+            'slug_normalizer' => [
+                'instance' => new SlugNormalizer(),
             ],
         ]);
     }

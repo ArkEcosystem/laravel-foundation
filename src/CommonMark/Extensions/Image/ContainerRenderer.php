@@ -9,7 +9,7 @@ use League\CommonMark\Util\HtmlElement;
 final class ContainerRenderer
 {
     /** @phpstan-ignore-next-line */
-    public static function render($content, $title): HtmlElement
+    public static function render($content, $title): \Stringable|string|null
     {
         /* @phpstan-ignore-next-line */
         if (empty($title)) {
