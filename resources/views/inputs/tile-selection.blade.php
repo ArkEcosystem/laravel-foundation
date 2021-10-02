@@ -57,7 +57,7 @@
         @unless ($hiddenOptions)
             <div @class([
                 $gridWrapperClass,
-                'tile-selection-list-single'    => $single,
+                'tile-selection-list-single' => $single,
                 'tile-selection-list' => ! $single,
             ])>
                 @foreach ($options as $option)
