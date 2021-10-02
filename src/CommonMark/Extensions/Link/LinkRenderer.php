@@ -23,7 +23,7 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
      */
     private ConfigurationInterface $config;
 
-    public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
+    public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable|string|null
     {
         Link::assertInstanceOf($node);
 
