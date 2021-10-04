@@ -197,8 +197,9 @@ final class CommonMarkServiceProvider extends ServiceProvider
             $environment->addRenderer($interface, resolve($implementation), 0);
         }
 
-        $environment->addExtension(new ExternalLinkExtension());
-        $environment->addExtension(new HeadingPermalinkExtension());
+        foreach (Config::get('markdown.extensions', []) as $extension) {
+            $environment->addExtension(resolve($extension));
+        }
 
         $environment->mergeConfig([
             'external_link' => [
@@ -209,8 +210,6 @@ final class CommonMarkServiceProvider extends ServiceProvider
                 'noopener'           => 'external',
                 'noreferrer'         => 'external',
             ],
-
-
             'heading_permalink' => [
                 'html_class'      => 'heading-permalink',
                 'id_prefix'       => 'user-content',
@@ -218,7 +217,6 @@ final class CommonMarkServiceProvider extends ServiceProvider
                 'title'           => 'Permalink',
                 'symbol'          => '#',
             ],
-
             'slug_normalizer' => [
                 'instance' => new SlugNormalizer(),
             ],

@@ -51,7 +51,6 @@ return [
 
     'extensions' => [
         AutolinkExtension::class,
-        AutolinkExtension::class,
         ExternalLinkExtension::class,
         HeadingPermalinkExtension::class,
         SmartPunctExtension::class,
