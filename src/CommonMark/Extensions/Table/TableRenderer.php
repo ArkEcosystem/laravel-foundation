@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\CommonMark\Extensions\Table;
 
-use ARKEcosystem\Foundation\CommonMark\Emoji;
 use League\CommonMark\Extension\Table\Table;
 use League\CommonMark\Node\Node;
 use League\CommonMark\Renderer\ChildNodeRendererInterface;
@@ -27,7 +26,7 @@ final class TableRenderer implements NodeRendererInterface, XmlNodeRendererInter
         $table = new HtmlElement('table', $attrs, $separator.\trim($children).$separator);
 
         try {
-            $table->setContents(Emoji::convert($table->getContents()));
+            $table->setContents($table->getContents());
         } catch (\Throwable) {
             $table->setContents($table->getContents());
         }

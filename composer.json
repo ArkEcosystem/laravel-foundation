@@ -11,16 +11,11 @@
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/unicorn-fail/configuration.git"
-        }
-    ],
     "require": {
         "php": "^8.0",
         "calebporzio/sushi": "^2.3",
         "danharrin/livewire-rate-limiting": "^0.3",
+        "elgigi/commonmark-emoji": "^2.0",
         "ergebnis/phpstan-rules": "^0.15",
         "fakerphp/faker": "^1.16",
         "friendsofphp/php-cs-fixer": "^3.1",
@@ -66,8 +61,7 @@
         "spatie/pest-plugin-snapshots": "^1.1",
         "spatie/regex": "^2.0",
         "spatie/yaml-front-matter": "^2.0",
-        "teamtnt/laravel-scout-tntsearch-driver": "^11.5",
-        "unicorn-fail/emoji": "1.0.x-dev"
+        "teamtnt/laravel-scout-tntsearch-driver": "^11.5"
     },
     "autoload": {
         "psr-4": {
