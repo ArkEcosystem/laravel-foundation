@@ -210,8 +210,6 @@ final class CommonMarkServiceProvider extends ServiceProvider
                 'noopener'           => 'external',
                 'noreferrer'         => 'external',
             ],
-
-
             'heading_permalink' => [
                 'html_class'      => 'heading-permalink',
                 'id_prefix'       => 'user-content',
@@ -219,7 +217,6 @@ final class CommonMarkServiceProvider extends ServiceProvider
                 'title'           => 'Permalink',
                 'symbol'          => '#',
             ],
-
             'slug_normalizer' => [
                 'instance' => new SlugNormalizer(),
             ],
