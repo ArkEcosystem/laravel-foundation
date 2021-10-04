@@ -18,7 +18,7 @@ jobs:
         run: npx @faustbrian/node-composer-check-updates --caret-minor
 
       - name: Install dependencies
-        run: composer install --ignore-platform-reqs
+        run: composer update --ignore-platform-reqs
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
