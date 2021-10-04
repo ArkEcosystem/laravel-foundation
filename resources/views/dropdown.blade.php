@@ -14,6 +14,7 @@
     'closeOnBlur'            => true,
     'onClose'                => null,
     'disabled'               => false,
+    'disabledTooltip'        => false,
 ])
 
 <div
@@ -45,13 +46,12 @@
     @if($wrapperClass) class="{{ $wrapperClass }}" @endif
     @if($dusk) dusk="{{ $dusk }}" @endif
 >
-    <div>
+    <div @if($buttonTooltip && $disabledTooltip === false) data-tippy-content="{{ $buttonTooltip }}" @endif>
         <button
             type="button"
             :class="{ '{{ $buttonClassExpanded }}' : {{ $dropdownProperty }} }"
             class="flex items-center focus:outline-none dropdown-button transition-default {{ $buttonClass }}"
             @if($disabled) disabled @else @click="{{ $dropdownProperty }} = !{{ $dropdownProperty }}" @endif
-            @if($buttonTooltip) data-tippy-content="{{ $buttonTooltip }}" @endif
         >
             @if($button ?? false)
                 {{ $button }}
