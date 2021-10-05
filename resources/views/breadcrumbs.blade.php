@@ -8,7 +8,7 @@
                         href="{{ route($crumb['route'], empty($crumb['params']) ? [] : $crumb['params']) }}"
                     >
                         @if($loop->first && count($crumbs) > 1)
-                            @svg('arrow-left', 'inline-block h-6 mr-3 my-auto')
+                            <x-ark-icon name="arrow-left" size="md" class=" inline-block mr-3 my-auto" />
                         @endif
 
                         <span>{{ $crumb['label'] }}</span>
