@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\UserInterface\Eloquent\Concerns;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
+use Spatie\SchemalessAttributes\SchemalessAttributes;
 
+/**
+ * @property SchemalessAttributes $extra_attributes
+ */
 trait HasSchemalessAttributes
 {
     /**
@@ -97,7 +100,7 @@ trait HasSchemalessAttributes
      *
      * @return self
      */
-    public static function updateOrCreateWithMeta(array $attributes, array $values): Model
+    public static function updateOrCreateWithMeta(array $attributes, array $values): self
     {
         $model = static::withExtraAttributes($attributes)->first();
 
