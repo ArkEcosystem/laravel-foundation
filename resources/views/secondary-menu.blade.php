@@ -5,7 +5,7 @@
             type="button"
             class="inline-flex relative justify-start items-center py-3 px-4 w-full rounded border border-theme-secondary-200"
         >
-            @svg('menu-open', 'h-4 w-4 text-theme-secondary-900 mr-3')
+            <x-ark-icon name="menu-open" size="sm" class="text-theme-secondary-900 mr-3" />
             <span class="font-semibold text-theme-secondary-900">{{ $title }}</span>
         </button>
     </div>
