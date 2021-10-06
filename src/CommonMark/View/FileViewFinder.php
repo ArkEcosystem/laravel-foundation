@@ -19,10 +19,12 @@ final class FileViewFinder extends Finder
     protected function getPossibleViewFiles($name)
     {
         return array_map(function ($extension) use ($name) : string {
-            $regex = Regex::match('/\d.\d/', $name);
+            // Match number with optional decimals
+            $regex = Regex::match('/^\d*(\.\d*)?$/', $name);
 
             if ($regex->hasMatch()) {
                 $name = rtrim(explode($regex->result(), $name)[0], '.');
+
 
                 return str_replace('.', '/', $name).'/'.$regex->result().'.'.$extension;
             }
