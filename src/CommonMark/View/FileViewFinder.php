@@ -22,7 +22,7 @@ final class FileViewFinder extends Finder
     protected function findInPaths($name, $paths)
     {
         // Match number with optional decimals
-        $regex = Regex::match('/^\d*(\.\d*)?$/', $name);
+        $regex = Regex::match('/\d.\d/', $name);
         $isNumericName = $regex->hasMatch();
 
         foreach ((array) $paths as $path) {
@@ -44,7 +44,7 @@ final class FileViewFinder extends Finder
 
     protected function getPossibleViewFilesForNumericName(string $name, string $path): array
     {
-        $regex = Regex::match('/^\d*(\.\d*)?$/', $name);
+        $regex = Regex::match('/\d.\d/', $name);
 
         return array_map(function ($extension) use ($path, $name, $regex) : string {
             $name = rtrim(explode($regex->result(), $name)[0], '.');
