@@ -21,13 +21,11 @@ final class FileViewFinder extends Finder
      */
     protected function findInPaths($name, $paths)
     {
-        // Match number with optional decimals
         $regex = Regex::match('/\d.\d/', $name);
-        $isNumericName = $regex->hasMatch();
 
         foreach ((array) $paths as $path) {
-            if ($isNumericName) {
-                $possibleViewFiles = $this->getPossibleViewFilesForNumericName($name, $path);
+            if ($regex->hasMatch()) {
+                $possibleViewFiles = $this->getPossibleViewFilesConsideringNumbersWithDecimals($name, $path);
             } else {
                 $possibleViewFiles = $this->getPossibleViewFiles($name);
             }
@@ -42,22 +40,24 @@ final class FileViewFinder extends Finder
         throw new InvalidArgumentException("View [{$name}] not found.");
     }
 
-    protected function getPossibleViewFilesForNumericName(string $name, string $path): array
+    protected function getPossibleViewFilesConsideringNumbersWithDecimals(string $name, string $path): array
     {
         $regex = Regex::match('/\d.\d/', $name);
 
         return array_map(function ($extension) use ($path, $name, $regex) : string {
-            $name = rtrim(explode($regex->result(), $name)[0], '.');
+            $number = $regex->result();
+            $nameWithoutNumber = rtrim(explode($number, $name)[0], '.');
 
-            $file =  str_replace('.', '/', $name).'/'.$regex->result().'.'.$extension;
+            $file =  str_replace('.', '/', $nameWithoutNumber).'/'.$number.'.'.$extension;
 
             // Only return the file if it exists, that prevents applying this
-            // custom logic to numbers returned from custom render functions
+            // custom path to numbers returned from custom render functions
             // like `src/UserInterface/Components/Number.php`
             if ($this->files->exists($path.'/'.$file)) {
                 return $file;
             }
 
+            // If file doesnt exists, return the original path
             return str_replace('.', '/', $name).'.'.$extension;
         }, $this->extensions);
     }
