@@ -1,0 +1,8 @@
+parameters:
+    paths:
+        - app
+    excludePaths:
+    level: 8
+    ignoreErrors:
+    - '#is not allowed to extend#'
+    checkMissingIterableValueType: false
