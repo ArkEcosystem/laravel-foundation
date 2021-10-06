@@ -1,4 +1,24 @@
-# Simple Examples
+# Development
+
+## Schemaless Attributes
+
+In order to use the `HasSchemalessAttributes` trait, you will need to ensure the model has the correct casting applied:
+
+```php
+<?php
+
+use ...;
+use Spatie\SchemalessAttributes\Casts\SchemalessAttributes;
+
+class User extends Model
+{
+    protected $casts = [
+        'extra_attributes' => SchemalessAttributes::class,
+    ];
+}
+```
+
+# Component Examples
 
 This file contains basic examples and explains the parameters that can be used for the components.
 
