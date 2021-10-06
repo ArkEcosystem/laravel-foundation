@@ -34,7 +34,6 @@ $initialText = $grouped
     <div
         class="relative input-rich-select {{ $wrapperClass }}"
         x-data="RichSelect({{ $xData }}, {{ json_encode($options) }}, '{{ $initialValue }}', '{{ $initialText }}', {{ $grouped ? 'true' : 'false'}}@if($dispatchEvent), '{{ $dispatchEvent }}' @endif)"
-        x-init="init()"
     >
         <input x-ref="input" {{ $attributes }} type="hidden" @input="onInput($dispatch, $event)" @isset($initialValue) value="{{ $initialValue }}" @endisset />
 
@@ -118,7 +117,7 @@ $initialText = $grouped
                     @else
                     <template x-for="(groupName, index) in Object.keys(options)" :key="index">
                         <div>
-                            <span x-show="groupName" class="flex items-center px-8 pt-8 w-full text-sm font-bold leading-5 text-left text-theme-secondary-500" x-text="groupName"></span>
+                            <span x-show="groupName" class="flex items-center w-full px-8 pt-8 text-sm font-bold leading-5 text-left text-theme-secondary-500" x-text="groupName"></span>
 
                             <template x-for="(optionValue, index2) in Object.keys(options[groupName])" :key="`${index}-${index2}`">
                                 <div
