@@ -7,7 +7,7 @@
 @php
     $availableSizes = ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'base'];
 
-    if (!$size || in_array($size, $availableSizes)) {
+    if (empty($size) || in_array($size, $availableSizes)) {
         $size = [
             '2xs'  => 'w-2 h-2',
             'xs'   => 'w-3 h-3',
@@ -20,7 +20,7 @@
         ][$size ?? 'base'];
     }
 
-    if (!$style) {
+    if (!empty($style)) {
         $style = [
             'secondary' => 'text-theme-secondary-500',
             'success'   => 'text-theme-success-500',
