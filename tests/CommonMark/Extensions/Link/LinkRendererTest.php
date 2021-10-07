@@ -18,24 +18,31 @@ it('should render internal links', function (string $url) {
     $environment = new Environment();
     $environment->addRenderer(Text::class, new TextRenderer());
 
-    assertMatchesSnapshot((string) $subject->render(new Link($url, 'Label', 'Title'), new HtmlRenderer($environment)));
+    $element = $subject->render(new Link($url, 'Label', 'Title'), new HtmlRenderer($environment));
+
+    $this->expect($element->getAttribute('target'))->not->toBe('_blank');
+    assertMatchesSnapshot((string) $element);
 })->with([
     'https://ourapp.com',
     '#heading',
     '/path/segment',
+    'mailto:test@ark.io',
 ]);
 
-// it('should render external links', function (string $url) {
-//     $subject = new LinkRenderer();
-//     $subject->setConfiguration(new Configuration());
+it('should render external links', function (string $url) {
+    $subject = new LinkRenderer();
+    $subject->setConfiguration(new Configuration());
 
-//     $environment = new Environment();
-//     $environment->addRenderer(Text::class, new TextRenderer());
+    $environment = new Environment();
+    $environment->addRenderer(Text::class, new TextRenderer());
 
-//     assertMatchesSnapshot((string) $subject->render(new Link($url, 'Label', 'Title'), new HtmlRenderer($environment)));
-// })->with([
-//     'https://google.com',
-//     'unsupported/relative/url', // is valid, but currently not supported
-//     'ftp://google.com',
-//     '//google.com',
-// ]);
+    $element = $subject->render(new Link($url, 'Label', 'Title'), new HtmlRenderer($environment));
+
+    $this->expect($element->getAttribute('target'))->toBe('_blank');
+    assertMatchesSnapshot((string) $element);
+})->with([
+    'https://google.com',
+    'unsupported/relative/url', // is valid, but currently not supported
+    'ftp://google.com',
+    '//google.com',
+]);
