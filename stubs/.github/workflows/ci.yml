@@ -6,7 +6,7 @@ on:
       - "main"
       - "develop"
   pull_request:
-    types: [ ready_for_review, synchronize, opened ]
+    types: [ready_for_review, synchronize, ]
 
 jobs:
   conflicts:
@@ -22,7 +22,7 @@ jobs:
         uses: olivernybroe/action-conflict-finder@v1.1
 
   unit:
-    needs: [ conflicts ]
+    needs: [conflicts]
 
     runs-on: ubuntu-latest
 
