@@ -22,7 +22,6 @@ final class HeadingPermalinkRenderer implements NodeRendererInterface, XmlNodeRe
 {
     public const DEFAULT_SYMBOL = '¶';
 
-    /** @psalm-readonly-allow-private-mutation */
     private ConfigurationInterface $config;
 
     public function setConfiguration(ConfigurationInterface $configuration): void
@@ -30,13 +29,6 @@ final class HeadingPermalinkRenderer implements NodeRendererInterface, XmlNodeRe
         $this->config = $configuration;
     }
 
-    /**
-     * @param HeadingPermalink $node
-     *
-     * {@inheritDoc}
-     *
-     * @psalm-suppress MoreSpecificImplementedParamType
-     */
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
     {
         HeadingPermalink::assertInstanceOf($node);
@@ -55,7 +47,7 @@ final class HeadingPermalinkRenderer implements NodeRendererInterface, XmlNodeRe
 
         $attrs = $node->data->getData('attributes');
         $attrs->set('id', $idPrefix . $slug);
-        // $attrs->set('name', $slug);
+        $attrs->set('name', $slug);
         $attrs->set('href', '#' . $fragmentPrefix . $slug);
         $attrs->append('class', $this->config->get('heading_permalink/html_class'));
         $attrs->set('aria-hidden', 'true');
@@ -72,13 +64,6 @@ final class HeadingPermalinkRenderer implements NodeRendererInterface, XmlNodeRe
         return 'heading_permalink';
     }
 
-    /**
-     * @param HeadingPermalink $node
-     *
-     * @return array<string, scalar>
-     *
-     * @psalm-suppress MoreSpecificImplementedParamType
-     */
     public function getXmlAttributes(Node $node): array
     {
         HeadingPermalink::assertInstanceOf($node);
