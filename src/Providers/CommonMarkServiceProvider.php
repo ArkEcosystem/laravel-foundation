@@ -49,15 +49,12 @@ use League\CommonMark\Extension\CommonMark\Renderer\Block\ThematicBreakRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\EmphasisRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\HtmlInlineRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\StrongRenderer;
-use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
-use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\MarkdownConverterInterface;
 use League\CommonMark\Node\Block\Document;
 use League\CommonMark\Node\Block\Paragraph;
 use League\CommonMark\Node\Inline\Newline;
 use League\CommonMark\Node\Inline\Text;
 use League\CommonMark\Normalizer\SlugNormalizer;
-use League\CommonMark\Parser\Block\ParagraphParser;
 use League\CommonMark\Parser\Inline\NewlineParser;
 use League\CommonMark\Renderer\Block\DocumentRenderer;
 use League\CommonMark\Renderer\Block\ParagraphRenderer;
@@ -212,7 +209,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
             ],
             'heading_permalink' => [
                 'html_class'      => 'heading-permalink',
-                'id_prefix'       => 'user-content',
+                'id_prefix'       => '',
                 'insert'          => 'before',
                 'title'           => 'Permalink',
                 'symbol'          => '#',
