@@ -47,7 +47,7 @@ final class HeadingPermalinkRenderer implements NodeRendererInterface, XmlNodeRe
 
         $attrs = $node->data->getData('attributes');
         $attrs->set('id', $idPrefix . $slug);
-        // This line is the only difference against the original `league/commonmark`
+        // This line is the only difference from the original `league/commonmark`
         // renderer
         $attrs->set('name', $slug);
         $attrs->set('href', '#' . $fragmentPrefix . $slug);
