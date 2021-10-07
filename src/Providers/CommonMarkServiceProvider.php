@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Providers;
 
+use ARKEcosystem\Foundation\CommonMark\Extensions\HeadingPermalink\HeadingPermalinkRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\FencedCodeRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\IndentedCodeRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Image\ImageRenderer;
@@ -49,6 +50,7 @@ use League\CommonMark\Extension\CommonMark\Renderer\Block\ThematicBreakRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\EmphasisRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\HtmlInlineRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\StrongRenderer;
+use League\CommonMark\Extension\HeadingPermalink\HeadingPermalink;
 use League\CommonMark\MarkdownConverterInterface;
 use League\CommonMark\Node\Block\Document;
 use League\CommonMark\Node\Block\Paragraph;
@@ -140,6 +142,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
         $environment = app(MarkdownConverterInterface::class)->getEnvironment();
 
         $environment->addRenderer(FencedCode::class, new FencedCodeRenderer());
+        $environment->addRenderer(HeadingPermalink::class, new HeadingPermalinkRenderer());
 
         $environment->addBlockStartParser(new BlockQuoteStartParser(), 70);
         $environment->addBlockStartParser(new HeadingStartParser(), 60);
@@ -209,7 +212,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
             ],
             'heading_permalink' => [
                 'html_class'      => 'heading-permalink',
-                'id_prefix'       => '',
+                'id_prefix'       => 'user-content',
                 'insert'          => 'before',
                 'title'           => 'Permalink',
                 'symbol'          => '#',
