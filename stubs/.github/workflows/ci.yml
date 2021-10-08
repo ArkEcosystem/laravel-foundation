@@ -1,4 +1,4 @@
-name: "Static Analysis"
+name: CI
 
 on:
   push:
@@ -9,12 +9,28 @@ on:
     types: [ready_for_review, synchronize, opened]
 
 jobs:
-  phpstan:
+  conflicts:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Merge Conflict finder
+        uses: olivernybroe/action-conflict-finder@v1.1
+
+  unit:
+    needs: [conflicts]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -24,13 +40,13 @@ jobs:
           coverage: pcov
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.composer/cache/files
           key: dependencies-composer-${{ hashFiles('composer.json') }}
 
       - name: Install Composer dependencies
-        run: composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist --optimize-autoloader
+        run: composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist --optimize-autoloader --ignore-platform-reqs
 
-      - name: Run PHPStan
-        run: composer analyse
+      - name: Run Tests
+        run: composer test:coverage

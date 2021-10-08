@@ -53,26 +53,20 @@ code.hljs .hljs-ln-n {
 }
 
 .documentation-content h1 {
-    @apply mb-8 text-2xl font-bold text-theme-secondary-900;
+    @apply mb-8;
 }
 
 .documentation-content h2 {
-    @apply pt-6 mt-6 mb-4 text-xl font-bold border-t text-theme-secondary-900 border-theme-secondary-200;
+    @apply pt-6 mt-6 mb-4 border-t border-theme-secondary-200;
 }
 .documentation-content h3 {
-    @apply mb-4 text-lg font-bold text-theme-secondary-900;
+    @apply mb-4;
 }
 
 /* Header Responsiveness */
 @screen sm {
     .documentation-content h2 {
-        @apply pt-10 mt-10 text-2xl;
-    }
-}
-
-@screen md {
-    .documentation-content h1 {
-        @apply text-4xl;
+        @apply pt-10 mt-10;
     }
 }
 
