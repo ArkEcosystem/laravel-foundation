@@ -59,7 +59,7 @@
         "spatie/laravel-personal-data-export": "^3.0",
         "spatie/laravel-schemaless-attributes": "^2.0",
         "spatie/pest-plugin-snapshots": "^1.1",
-        "spatie/regex": "^2.0",
+        "spatie/regex": "^3.0",
         "spatie/yaml-front-matter": "^2.0",
         "teamtnt/laravel-scout-tntsearch-driver": "^11.5"
     },

@@ -1,5 +1,9 @@
 # Laravel Foundation
 
+<p align="center">
+    <img src="/banner.png" />
+</p>
+
 > Scaffolding for Laravel. Powered by TailwindCSS and Livewire.
 
 [List of the available components](https://github.com/ArkEcosystem/laravel-foundation/usage/ui.md#available-components)
