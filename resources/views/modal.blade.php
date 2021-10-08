@@ -22,7 +22,7 @@
     x-data="Modal.livewire({{ $xData }})"
     x-init="init"
     @if(!$closeButtonOnly && $wireClose)
-        wire:click.self="{{ $wireClose }}"
+        @mousedown.self="$wire.{{ $wireClose }}()"
     @endif
     class="flex overflow-y-auto fixed inset-0 z-50 md:py-10 md:px-8"
     @if(!$closeButtonOnly && $escToClose)

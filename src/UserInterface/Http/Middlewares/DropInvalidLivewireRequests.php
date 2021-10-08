@@ -7,7 +7,7 @@ namespace ARKEcosystem\Foundation\UserInterface\Http\Middlewares;
 use Closure;
 use Illuminate\Http\Request;
 use Livewire\Exceptions\ComponentNotFoundException;
-use Livewire\LivewireManager;
+use Livewire\Livewire;
 
 final class DropInvalidLivewireRequests
 {
@@ -41,7 +41,7 @@ final class DropInvalidLivewireRequests
     private function isValidComponent(string $component) : bool
     {
         try {
-            return app(LivewireManager::class)->getClass($component) !== null;
+            return Livewire::getClass($component) !== null;
         } catch (ComponentNotFoundException $e) {
             return false;
         }
