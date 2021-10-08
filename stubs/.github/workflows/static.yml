@@ -33,4 +33,4 @@ jobs:
         run: composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist --optimize-autoloader
 
       - name: Run PHPStan
-        run: ./vendor/bin/phpstan analyse --memory-limit=2G
+        run: composer analyse

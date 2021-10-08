@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Providers;
 
+use ARKEcosystem\Foundation\CommonMark\Extensions\HeadingPermalink\HeadingPermalinkRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\FencedCodeRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\IndentedCodeRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Image\ImageRenderer;
@@ -49,12 +50,13 @@ use League\CommonMark\Extension\CommonMark\Renderer\Block\ThematicBreakRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\EmphasisRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\HtmlInlineRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\StrongRenderer;
+use League\CommonMark\Extension\HeadingPermalink\HeadingPermalink;
+use League\CommonMark\MarkdownConverterInterface;
 use League\CommonMark\Node\Block\Document;
 use League\CommonMark\Node\Block\Paragraph;
 use League\CommonMark\Node\Inline\Newline;
 use League\CommonMark\Node\Inline\Text;
 use League\CommonMark\Normalizer\SlugNormalizer;
-use League\CommonMark\Parser\Block\ParagraphParser;
 use League\CommonMark\Parser\Inline\NewlineParser;
 use League\CommonMark\Renderer\Block\DocumentRenderer;
 use League\CommonMark\Renderer\Block\ParagraphRenderer;
@@ -137,8 +139,10 @@ final class CommonMarkServiceProvider extends ServiceProvider
     private function registerCommonMarkEnvironment(): void
     {
         /** @var \League\CommonMark\Environment\Environment */
-        $environment = $this->app->get('markdown.environment');
+        $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+
         $environment->addRenderer(FencedCode::class, new FencedCodeRenderer());
+        $environment->addRenderer(HeadingPermalink::class, new HeadingPermalinkRenderer());
 
         $environment->addBlockStartParser(new BlockQuoteStartParser(), 70);
         $environment->addBlockStartParser(new HeadingStartParser(), 60);
@@ -193,6 +197,10 @@ final class CommonMarkServiceProvider extends ServiceProvider
             $environment->addRenderer($interface, resolve($implementation), 0);
         }
 
+        foreach (Config::get('markdown.extensions', []) as $extension) {
+            $environment->addExtension(resolve($extension));
+        }
+
         $environment->mergeConfig([
             'external_link' => [
                 'internal_hosts'     => config('app.url'),
@@ -208,7 +216,9 @@ final class CommonMarkServiceProvider extends ServiceProvider
                 'insert'          => 'before',
                 'title'           => 'Permalink',
                 'symbol'          => '#',
-                'slug_normalizer' => new SlugNormalizer(),
+            ],
+            'slug_normalizer' => [
+                'instance' => new SlugNormalizer(),
             ],
         ]);
     }

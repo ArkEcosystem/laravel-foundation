@@ -6,7 +6,7 @@ use ARKEcosystem\Foundation\UserInterface\Http\Middlewares\DropInvalidLivewireRe
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Livewire\Exceptions\ComponentNotFoundException;
-use Livewire\LivewireManager;
+use Livewire\Livewire;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 function mockRequest(string $routeName = 'testing::dummy', array $payload = []) : Request
@@ -49,9 +49,7 @@ it('drops if component is not found', function () {
         ],
     ]);
 
-    $this->mock(LivewireManager::class, function ($mock) {
-        $mock->shouldReceive('getClass')->with('dummy-name')->andThrow(ComponentNotFoundException::class);
-    });
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andThrow(ComponentNotFoundException::class);
 
     try {
         $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
@@ -77,9 +75,7 @@ it('drops if fingerprint ID is missing', function () {
         ],
     ]);
 
-    $this->mock(LivewireManager::class, function ($mock) {
-        $mock->shouldReceive('getClass')->with('dummy-name')->andReturn('done');
-    });
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn('done');
 
     try {
         $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
@@ -105,9 +101,7 @@ it('drops if fingerprint component name is missing', function () {
         ],
     ]);
 
-    $this->mock(LivewireManager::class, function ($mock) {
-        $mock->shouldReceive('getClass')->with('dummy-name')->andReturn('done');
-    });
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn('done');
 
     try {
         $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
@@ -133,9 +127,7 @@ it('drops if fingerprint method is missing', function () {
         ],
     ]);
 
-    $this->mock(LivewireManager::class, function ($mock) {
-        $mock->shouldReceive('getClass')->with('dummy-name')->andReturn('done');
-    });
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn('done');
 
     try {
         $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
@@ -161,9 +153,7 @@ it('drops if fingerprint path is missing', function () {
         ],
     ]);
 
-    $this->mock(LivewireManager::class, function ($mock) {
-        $mock->shouldReceive('getClass')->with('dummy-name')->andReturn('done');
-    });
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn('done');
 
     try {
         $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
@@ -189,9 +179,7 @@ it('drops if checksum is missing', function () {
         ],
     ]);
 
-    $this->mock(LivewireManager::class, function ($mock) {
-        $mock->shouldReceive('getClass')->with('dummy-name')->andReturn('done');
-    });
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn('done');
 
     try {
         $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
@@ -217,9 +205,7 @@ it('drops if html hash is missing', function () {
         ],
     ]);
 
-    $this->mock(LivewireManager::class, function ($mock) {
-        $mock->shouldReceive('getClass')->with('dummy-name')->andReturn('done');
-    });
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn('done');
 
     try {
         $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');

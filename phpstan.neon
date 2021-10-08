@@ -1,6 +1,7 @@
 parameters:
     paths:
-        - src
+        - ../../../app
+    excludePaths:
     level: 8
     ignoreErrors:
         - '#is not allowed to extend#'
