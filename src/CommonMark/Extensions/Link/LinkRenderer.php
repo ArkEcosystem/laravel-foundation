@@ -111,6 +111,11 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
             return true;
         }
 
+        // Emails
+        if (str_starts_with($url, 'mailto:')) {
+            return true;
+        }
+
         return false;
     }
 }

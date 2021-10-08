@@ -35,3 +35,30 @@ Require with composer: `composer require arkecosystem/foundation`
 - [Fortify](/examples/fortify.md)
 - [Hermes](/examples/hermes.md)
 - [UI](/examples/ui.md)
+
+## Composer Scripts
+
+Add those scripts to `composer.json`
+
+```
+"scripts": [
+    "analyse": [
+        "vendor/bin/phpstan analyse --configuration=vendor/arkecosystem/foundation/phpstan.neon --memory-limit=2G"
+    ],
+    "format": [
+        "vendor/bin/php-cs-fixer fix --config=vendor/arkecosystem/foundation/.php-cs-fixer.php"
+    ],
+    "refactor": [
+        "./vendor/bin/rector process --config=vendor/arkecosystem/foundation/rector.php"
+    ],
+    "test": [
+        "./vendor/bin/pest"
+    ],
+    "test:fast": [
+        "./vendor/bin/pest --parallel"
+    ],
+    "test:coverage": [
+        "./vendor/bin/pest --coverage --min=100 --coverage-html=.coverage --coverage-clover=coverage.xml"
+    ]
+],
+```
