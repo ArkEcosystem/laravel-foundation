@@ -15,9 +15,8 @@ final class FileViewFinder extends Finder
      *
      * @param  string  $name
      * @param  array  $paths
-     * @return string
-     *
      * @throws \InvalidArgumentException
+     * @return string
      */
     protected function findInPaths($name, $paths)
     {
