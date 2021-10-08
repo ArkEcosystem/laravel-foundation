@@ -8,21 +8,23 @@ use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
+    $dir = getcwd();
+
     $parameters = $containerConfigurator->parameters();
 
     $parameters->set(Option::PATHS, [
-        __DIR__.'/app',
+        $dir.'/app',
     ]);
     $parameters->set(Option::SKIP, [
-        __DIR__.'/app/Providers',
-        __DIR__.'/app/Exceptions',
+        $dir.'/app/Providers',
+        $dir.'/app/Exceptions',
     ]);
     $parameters->set(Option::AUTO_IMPORT_NAMES, true);
     $parameters->set(Option::IMPORT_SHORT_CLASSES, true);
     $parameters->set(Option::IMPORT_DOC_BLOCKS, false);
 
-    if (file_exists(getcwd().'/phpstan.neon')) {
-        $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, getcwd().'/phpstan.neon');
+    if (file_exists($dir.'/vendor/arkecosystem/foundation/phpstan.neon')) {
+        $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, $dir.'/vendor/arkecosystem/foundation/phpstan.neon');
     }
 
     $containerConfigurator->import(SetList::CARBON_2);
