@@ -25,7 +25,6 @@ const RichSelect = (
             this.optionsCount = Object.keys(this.options).length;
         }
 
-        console.log(this.options);
         return this.optionsCount;
     },
     optionsCount: null,
