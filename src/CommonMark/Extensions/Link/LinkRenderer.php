@@ -23,7 +23,7 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
      */
     private ConfigurationInterface $config;
 
-    public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
+    public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable|string|null
     {
         Link::assertInstanceOf($node);
 
@@ -108,6 +108,11 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
 
         // Relative links, but not protocol relative
         if (str_starts_with($url, '/') && ! str_starts_with($url, '//')) {
+            return true;
+        }
+
+        // Emails
+        if (str_starts_with($url, 'mailto:')) {
             return true;
         }
 

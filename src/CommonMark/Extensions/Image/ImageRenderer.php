@@ -21,7 +21,7 @@ final class ImageRenderer implements NodeRendererInterface, XmlNodeRendererInter
      */
     protected ConfigurationInterface $config;
 
-    public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
+    public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable|string|null
     {
         Image::assertInstanceOf($node);
 
@@ -34,7 +34,7 @@ final class ImageRenderer implements NodeRendererInterface, XmlNodeRendererInter
             $attrs['src'] = $node->getUrl();
         }
 
-        $alt          = $node->renderNodes($node->children());
+        $alt          = $childRenderer->renderNodes($node->children());
         $alt          = \preg_replace('/\<[^>]*alt="([^"]*)"[^>]*\>/', '$1', $alt);
         $attrs['alt'] = \preg_replace('/\<[^>]*\>/', '', $alt);
 

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\CommonMark\Extensions\Table\TableExtension;
+use ElGigi\CommonMarkEmoji\EmojiExtension;
 use League\CommonMark\Extension\Autolink\AutolinkExtension;
 use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
@@ -51,13 +52,13 @@ return [
 
     'extensions' => [
         AutolinkExtension::class,
-        AutolinkExtension::class,
         ExternalLinkExtension::class,
         HeadingPermalinkExtension::class,
         SmartPunctExtension::class,
         StrikethroughExtension::class,
         TableExtension::class,
         TaskListExtension::class,
+        EmojiExtension::class,
     ],
 
     /*
