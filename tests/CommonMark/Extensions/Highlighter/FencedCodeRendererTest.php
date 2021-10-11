@@ -3,14 +3,12 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\FencedCodeRenderer;
-use League\CommonMark\Extension\CommonMark\Node\Block\FencedCode;
-use League\CommonMark\Tests\Unit\Renderer\FakeChildNodeRenderer;
-use League\CommonMark\Util\HtmlElement;
-
 use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\Node\Block\FencedCode;
 use League\CommonMark\Node\Block\Document;
 use League\CommonMark\Renderer\HtmlRenderer;
 use League\CommonMark\Renderer\NodeRendererInterface;
+use League\CommonMark\Util\HtmlElement;
 
 beforeEach(function () {
     $this->block = new FencedCode(3, '`', 0);
