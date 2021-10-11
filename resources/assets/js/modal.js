@@ -17,7 +17,7 @@ const Modal = {
         disableFocusTrap: false,
     },
 
-    onModalOpened(scrollable, settings = {}) {
+    disableBodyScroll(scrollable, settings = {}) {
         settings = Object.assign({}, this.defaultSettings, settings);
 
         if (settings.reserveScrollBarGap) {
@@ -31,15 +31,9 @@ const Modal = {
         disableBodyScroll(scrollable, {
             reserveScrollBarGap: !!settings.reserveScrollBarGap,
         });
-
-        if (settings.disableFocusTrap) {
-            scrollable.focus();
-        } else {
-            this.trapFocus(scrollable);
-        }
     },
 
-    onModalClosed(scrollable, settings = {}) {
+    enableBodyScroll(scrollable, settings = {}) {
         settings = Object.assign({}, this.defaultSettings, settings);
 
         if (settings.reserveScrollBarGap) {
@@ -51,6 +45,20 @@ const Modal = {
         }
 
         enableBodyScroll(scrollable);
+    },
+
+    onModalOpened(scrollable, settings = {}) {
+        this.disableBodyScroll(scrollable, settings);
+
+        if (settings.disableFocusTrap) {
+            scrollable.focus();
+        } else {
+            this.trapFocus(scrollable);
+        }
+    },
+
+    onModalClosed(scrollable, settings = {}) {
+        this.enableBodyScroll(scrollable, settings);
 
         this.releaseTrappedFocus();
 
