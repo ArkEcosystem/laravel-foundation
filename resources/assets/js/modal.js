@@ -18,7 +18,7 @@ const Modal = {
     },
 
     onModalOpened(scrollable, settings = {}) {
-        settings = Object.assign({}, this.defaultSettings, settings)
+        settings = Object.assign({}, this.defaultSettings, settings);
 
         if (settings.reserveScrollBarGap) {
             this.reserveModalScrollBarGap(scrollable);
@@ -40,7 +40,7 @@ const Modal = {
     },
 
     onModalClosed(scrollable, settings = {}) {
-        settings = Object.assign({}, this.defaultSettings, settings)
+        settings = Object.assign({}, this.defaultSettings, settings);
 
         if (settings.reserveScrollBarGap) {
             this.restoreModalScrollBarGap(scrollable);
@@ -78,11 +78,7 @@ const Modal = {
         this.trappedElement = null;
     },
 
-    alpine(
-        extraData = {},
-        modalName = "",
-        eventSettings = {}
-    ) {
+    alpine(extraData = {}, modalName = "", eventSettings = {}) {
         return {
             name: modalName,
             shown: false,
