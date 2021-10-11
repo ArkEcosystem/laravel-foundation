@@ -288,7 +288,7 @@ aside .heading-permalink {
 .documentation-content h3 .heading-permalink,
 .documentation-content h4 .heading-permalink,
 main .documentation-content .heading-permalink {
-    @apply mr-3 text-theme-info-600 transition-default;
+    @apply mr-3 text-theme-primary-600 transition-default;
 }
 
 .documentation-content h2 .heading-permalink:hover,
