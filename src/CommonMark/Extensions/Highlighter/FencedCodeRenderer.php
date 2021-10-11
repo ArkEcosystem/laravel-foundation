@@ -31,7 +31,7 @@ final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRenderer
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
     {
         $language = $this->getSpecifiedLanguage($node);
-        if ($language && in_array(strtolower($language), ['blade', 'html'])) {
+        if (in_array(strtolower($language), ['blade', 'html'])) {
             $node = $this->parseEncodedHtml($node);
         }
 
@@ -84,7 +84,7 @@ final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRenderer
         }
     }
 
-    private function getSpecifiedLanguage(FencedCode $block): ?string
+    private function getSpecifiedLanguage(FencedCode $block): string
     {
         $infoWords = $block->getInfoWords();
 
