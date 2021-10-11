@@ -41,8 +41,8 @@ it('should render', function () {
     expect($result->getContents(false)->getAllAttributes())->toBe(['class' => 'hljs']);
 });
 
-it('should parse encoded html characters', function ($type) {
-    $this->block->setInfo($type);
+it('should parse encoded html characters', function () {
+    $this->block->setInfo('html');
     $this->block->setLiteral('&lt;span&gt;test&lt;/span&gt;');
 
     $result = $this->renderer->render($this->block, $this->htmlRenderer);
@@ -50,19 +50,16 @@ it('should parse encoded html characters', function ($type) {
     expect($result)->toBeInstanceOf(HtmlElement::class);
     expect($result->getTagName())->toBe('div');
     expect($result->getContents(false)->getTagName())->toBe('pre');
-    expect($result->getContents())->toContain('<code class="hljs-copy language-'.$type.'">');
+    expect($result->getContents())->toContain('<code class="hljs-copy language-html">');
     expect($result->getContents())->toContain('&lt;span&gt;test&lt;/span&gt;');
     expect($result->getAllAttributes())->toBe([
         'class' => 'p-4 mb-6 rounded-xl bg-theme-secondary-800 overflow-x-auto',
     ]);
     expect($result->getContents(false)->getAllAttributes())->toBe(['class' => 'hljs']);
-})->with([
-    'blade',
-    'html',
-]);
+});
 
-it('should do nothing if no encoded html characters', function ($type) {
-    $this->block->setInfo($type);
+it('should do nothing if no encoded html characters', function () {
+    $this->block->setInfo('html');
     $this->block->setLiteral('this is a test');
 
     $result = $this->renderer->render($this->block, $this->htmlRenderer);
@@ -70,28 +67,8 @@ it('should do nothing if no encoded html characters', function ($type) {
     expect($result)->toBeInstanceOf(HtmlElement::class);
     expect($result->getTagName())->toBe('div');
     expect($result->getContents(false)->getTagName())->toBe('pre');
-    expect($result->getContents())->toContain('<code class="hljs-copy language-'.$type.'">');
+    expect($result->getContents())->toContain('<code class="hljs-copy language-html">');
     expect($result->getContents())->toContain('this is a test');
-    expect($result->getAllAttributes())->toBe([
-        'class' => 'p-4 mb-6 rounded-xl bg-theme-secondary-800 overflow-x-auto',
-    ]);
-    expect($result->getContents(false)->getAllAttributes())->toBe(['class' => 'hljs']);
-})->with([
-    'blade',
-    'html',
-]);
-
-it('should not parse encoded characters if not html type', function () {
-    $this->block->setInfo('php');
-    $this->block->setLiteral('echo "&lt;span&gt;test&lt;/span&gt;";');
-
-    $result = $this->renderer->render($this->block, $this->htmlRenderer);
-
-    expect($result)->toBeInstanceOf(HtmlElement::class);
-    expect($result->getTagName())->toBe('div');
-    expect($result->getContents(false)->getTagName())->toBe('pre');
-    expect($result->getContents())->toContain('<code class="hljs-copy language-php">');
-    expect($result->getContents())->toContain('echo &quot;&amp;lt;span&amp;gt;test&amp;lt;/span&amp;gt;&quot;;');
     expect($result->getAllAttributes())->toBe([
         'class' => 'p-4 mb-6 rounded-xl bg-theme-secondary-800 overflow-x-auto',
     ]);
