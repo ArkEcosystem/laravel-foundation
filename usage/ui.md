@@ -269,6 +269,13 @@ To use the Livewire modals, use the `ARKEcosystem\UserInterface\Http\Livewire\Co
 
 **Important**: If you need to use a different variable to close the modal, or you can't make use of the trait for a reason, make sure to emit the `modalClosed` event as that is required for proper handling of the modals on the frontend! If you fail to emit this event, the browser window will not be scrollable after the modal disappears.
 
+You can disable the focus trap by passing a parameter in the second argument:
+```php
+<div x-data="Modal.livewire({{ $extraData }}, [\"disableFocusTrap\" => true])">
+    <!--...-->
+</div>
+```
+
 #### Alpine modals
 
 **Important**: for the modals to work properly, they expect a `nav` element inside a `header` element to be used for the header component. If you use the navbar from the UI lib (see `navbar.blade.php`) these elements are already used, but for custom navbars you may need to make adjustments.
@@ -345,6 +352,19 @@ Note that it is also possible to hook into the lifecycle methods of the modal. Y
 import Modal from "@ui/js/modal";
 
 window.Modal = Modal;
+```
+
+You can disable the focus trap by passing a parameter in the third argument:
+```js
+import Modal from "@ui/js/modal";
+
+window.Modal = Modal;
+
+Modal.alpine(
+    {}, // extra data 
+    '', // modal name 
+    { disableFocusTrap: true } // <-- disable focus trap
+)
 ```
 
 ### Tooltips
