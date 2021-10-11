@@ -5,7 +5,7 @@ import {
     getAxisThemeConfig,
 } from "./chart-theme";
 
-import { Chart, registerables } from 'chart.js';
+import { Chart, registerables } from "chart.js";
 
 Chart.register(...registerables);
 
@@ -191,7 +191,7 @@ const CustomChart = (
                         external: this.tooltip,
                         displayColors: false,
                         callbacks: {
-                            title: (items) => { },
+                            title: (items) => {},
                             label: (context) =>
                                 this.getCurrencyValue(context.raw),
                             labelTextColor: (context) =>
