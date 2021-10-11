@@ -31,7 +31,7 @@ final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRenderer
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
     {
         $language = $this->getSpecifiedLanguage($node);
-        if (in_array(strtolower($language), ['blade', 'html'])) {
+        if (in_array(strtolower($language), ['blade', 'html'], true)) {
             $node = $this->parseEncodedHtml($node);
         }
 
