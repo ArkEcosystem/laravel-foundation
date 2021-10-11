@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\Concerns;
 
 use League\CommonMark\Node\Node;
