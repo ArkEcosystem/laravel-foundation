@@ -9,6 +9,7 @@ use League\CommonMark\Extension\CommonMark\Renderer\Block\FencedCodeRenderer as 
 use League\CommonMark\Node\Node;
 use League\CommonMark\Renderer\ChildNodeRendererInterface;
 use League\CommonMark\Renderer\NodeRendererInterface;
+use League\CommonMark\Util\Html5EntityDecoder;
 use League\CommonMark\Util\HtmlElement;
 use League\CommonMark\Util\Xml;
 use League\CommonMark\Xml\XmlNodeRendererInterface;
@@ -29,15 +30,17 @@ final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRenderer
 
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
     {
+        $language = $this->getSpecifiedLanguage($node);
+        if ($language && in_array(strtolower($language), ['blade', 'html'])) {
+            $node = $this->parseEncodedHtml($node);
+        }
+
         $element = $this->baseRenderer->render($node, $childRenderer);
 
         $this->configureLineNumbers($element);
 
         $element->setContents(
-            $this->highlighter->highlight(
-                $element->getContents(),
-                $this->getSpecifiedLanguage($node)
-            )
+            $this->highlighter->highlight($element->getContents(), $language)
         );
 
         $container = new HtmlElement('div', ['class' => 'p-4 mb-6 rounded-xl bg-theme-secondary-800 overflow-x-auto']);
@@ -87,9 +90,29 @@ final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRenderer
 
         /* @phpstan-ignore-next-line */
         if (empty($infoWords) || empty($infoWords[0])) {
-            return null;
+            return 'plaintext';
         }
 
         return Xml::escape($infoWords[0]);
+    }
+
+    private function parseEncodedHtml(Node $node): Node
+    {
+        $content        = $node->getLiteral();
+        $hasEncodedHtml = preg_match_all('/&(\w+|\d+);/', $content, $matches);
+        if ($hasEncodedHtml === false || $hasEncodedHtml === 0) {
+            return $node;
+        }
+
+        $entitiesToUpdate = [];
+        foreach (array_unique($matches[0]) as $element) {
+            $entitiesToUpdate[$element] = Html5EntityDecoder::decode($element);
+        }
+
+        $content = str_replace(array_keys($entitiesToUpdate), $entitiesToUpdate, $content);
+
+        $node->setLiteral($content);
+
+        return $node;
     }
 }
