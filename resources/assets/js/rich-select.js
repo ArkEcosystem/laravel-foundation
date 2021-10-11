@@ -105,7 +105,7 @@ const RichSelect = (
     onArrowDown() {
         const optionsCount = this.getOptionsCount();
         this.selected =
-            this.selected + 1 > optionsCount - 1 ? 1 : this.selected + 1;
+            this.selected + 1 > optionsCount - 1 ? 0 : this.selected + 1;
         this.scrollToSelectedOption();
     },
     scrollToSelectedOption() {
