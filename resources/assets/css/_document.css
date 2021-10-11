@@ -295,7 +295,7 @@ main .documentation-content .heading-permalink {
 .documentation-content h3 .heading-permalink:hover,
 .documentation-content h4 .heading-permalink:hover,
 main .documentation-content .heading-permalink:hover {
-    @apply no-underline text-theme-danger-400;
+    @apply no-underline text-theme-primary-400;
 }
 
 /* Gallery Grid */
