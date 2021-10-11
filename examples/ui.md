@@ -745,22 +745,28 @@ Here follow you can see an example on how to use it:
 1. Install the npm dependencies
 
 ```bash
-yarn add chart.js@^2.9.4
+yarn add chart.js@^3.5.1
 ```
 
-1. On `resource/app/js/app.js` add:
+Or if you need to update to the latest major version instead
+
+```bash
+yarn upgrade chart.js -L
+```
+
+2. On `resource/app/js/app.js` add:
 ```js
 import CustomChart from "@ui/js/chart.js";
 
 window.CustomChart = CustomChart;
 ```
 
-1. On `webpack.mix.js` extract `chart.js` module:
+3. On `webpack.mix.js` extract `chart.js` module:
 ```js
 mix.extract(['chart.js']);
 ```
 
-1. use the component:
+4. Use the component:
 
 ```html
 <x-ark-chart
