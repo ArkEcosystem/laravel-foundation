@@ -30,17 +30,15 @@ final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRenderer
 
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
     {
-        $language = $this->getSpecifiedLanguage($node);
-        if (in_array(strtolower($language), ['blade', 'html'], true)) {
-            $node = $this->parseEncodedHtml($node);
-        }
-
-        $element = $this->baseRenderer->render($node, $childRenderer);
+        $element = $this->baseRenderer->render($this->parseEncodedHtml($node), $childRenderer);
 
         $this->configureLineNumbers($element);
 
         $element->setContents(
-            $this->highlighter->highlight($element->getContents(), $language)
+            $this->highlighter->highlight(
+                $element->getContents(),
+                $this->getSpecifiedLanguage($node)
+            )
         );
 
         $container = new HtmlElement('div', ['class' => 'p-4 mb-6 rounded-xl bg-theme-secondary-800 overflow-x-auto']);
