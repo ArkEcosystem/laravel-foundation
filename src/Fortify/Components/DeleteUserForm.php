@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Components;
 
+use ARKEcosystem\Foundation\Fortify\Components\Concerns\InteractsWithUser;
 use ARKEcosystem\Foundation\Fortify\Contracts\DeleteUser;
 use ARKEcosystem\Foundation\Fortify\Mail\SendFeedback;
 use ARKEcosystem\Foundation\UserInterface\Http\Livewire\Concerns\HasModal;
+use ARKEcosystem\Foundation\UserInterface\Rules\CurrentPassword;
 use Illuminate\Contracts\Auth\StatefulGuard;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Livewire\Component;
@@ -16,21 +17,11 @@ use Livewire\Component;
 class DeleteUserForm extends Component
 {
     use HasModal;
+    use InteractsWithUser;
 
-    public string $username;
-
-    public string $usernameConfirmation = '';
+    public string $confirmedPassword = '';
 
     public string $feedback = '';
-
-    protected $rules = [
-        'feedback' => 'present|string|min:5|max:500',
-    ];
-
-    public function mount()
-    {
-        $this->username = Auth::user()->username;
-    }
 
     public function confirmUserDeletion()
     {
@@ -40,22 +31,30 @@ class DeleteUserForm extends Component
         $this->openModal();
     }
 
-    public function hasConfirmedName(): bool
+    protected function rules(): array
     {
-        return $this->username === $this->usernameConfirmation;
+        return [
+            'confirmedPassword' => ['required', new CurrentPassword($this->user)],
+            'feedback' => 'present|string|min:5|max:500',
+        ];
+    }
+
+    public function updated(string $property): void
+    {
+        $this->clearValidation($property);
     }
 
     public function deleteUser(DeleteUser $deleter, StatefulGuard $auth)
     {
-        if ($this->hasConfirmedName()) {
-            $redirect = $this->sendFeedback();
+        $this->validate();
 
-            $deleter->delete(Auth::user()->fresh());
+        $redirect = $this->sendFeedback();
 
-            $auth->logout();
+        $deleter->delete($this->user->fresh());
 
-            $this->redirect($redirect);
-        }
+        $auth->logout();
+
+        $this->redirect($redirect);
     }
 
     private function sendFeedback(): string
