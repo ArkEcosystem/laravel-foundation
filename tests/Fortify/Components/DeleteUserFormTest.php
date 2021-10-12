@@ -76,6 +76,29 @@ it('cant delete user with an incorrect password', function () {
     $this->assertNotNull(Auth::user());
 });
 
+it('clears the error when updating the value', function () {
+    $user = createUserModel();
+
+    $this->mock(DeleteUser::class)
+        ->shouldReceive('delete');
+
+    Livewire::actingAs($user)
+        ->test(DeleteUserForm::class)
+        ->assertViewIs('ark-fortify::profile.delete-user-form')
+        ->call('confirmUserDeletion')
+        ->assertSee(trans('ui::pages.user-settings.delete_account_description'))
+        ->set('confirmedPassword', 'invalid-password')
+        ->set('feedback', 'ab')
+        ->call('deleteUser')
+        ->assertHasErrors('confirmedPassword')
+        ->assertHasErrors('feedback')
+        ->set('confirmedPassword', 'updted-password')
+        ->set('feedback', 'abcde')
+        ->assertHasNoErrors();
+
+    $this->assertNotNull(Auth::user());
+});
+
 it('cant delete user without a password', function () {
     $user = createUserModel();
 
