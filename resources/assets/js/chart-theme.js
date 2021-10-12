@@ -178,7 +178,7 @@ export function getFontConfig(type, mode) {
                 size: 14,
                 weight: 600,
                 lineHeight: 1.2,
-                style: 'normal',
+                style: "normal",
             },
         },
     };
