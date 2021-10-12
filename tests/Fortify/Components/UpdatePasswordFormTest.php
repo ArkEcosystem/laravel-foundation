@@ -6,6 +6,7 @@ namespace Tests\Components;
 
 use ARKEcosystem\Foundation\Fortify\Components\UpdatePasswordForm;
 use Illuminate\Contracts\Validation\UncompromisedVerifier;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 use function Tests\createUserModel;
 
@@ -123,6 +124,32 @@ it('handles password being leaked', function () {
             'min'        => false,
             'leak'       => false,
         ]);
+});
+
+it('handles password being same', function () {
+    $user = createUserModel();
+
+    $user->update(['password' => Hash::make('abcd1234ABCD%')]);
+
+    Livewire::actingAs($user->fresh())
+        ->test(UpdatePasswordForm::class)
+        ->assertSet('currentPassword', '')
+        ->assertSet('password', '')
+        ->assertSet('password_confirmation', '')
+        ->assertViewIs('ark-fortify::profile.update-password-form')
+        ->set('currentPassword', 'abcd1234ABCD%')
+        ->set('password', 'abcd1234ABCD%')
+        ->set('password_confirmation', 'abcd1234ABCD%')
+        ->assertSet('passwordRules', [
+            'lowercase'  => true,
+            'uppercase'  => true,
+            'numbers'    => true,
+            'symbols'    => true,
+            'min'        => true,
+            'leak'       => true,
+        ])
+        ->call('updatePassword')
+        ->assertHasErrors('password', trans('ui::validation.password_current'));
 });
 
 it('clears password values', function () {
