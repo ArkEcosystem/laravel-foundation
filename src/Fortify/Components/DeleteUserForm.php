@@ -35,7 +35,7 @@ class DeleteUserForm extends Component
     {
         return [
             'confirmedPassword' => ['required', new CurrentPassword($this->user)],
-            'feedback' => 'present|string|min:5|max:500',
+            'feedback'          => 'present|string|min:5|max:500',
         ];
     }
 
