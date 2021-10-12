@@ -46,7 +46,7 @@
     @if($wrapperClass) class="{{ $wrapperClass }}" @endif
     @if($dusk) dusk="{{ $dusk }}" @endif
 >
-    <div @if($buttonTooltip && $disabledTooltip === false) data-tippy-content="{{ $buttonTooltip }}" @endif>
+    <div @if($buttonTooltip && !$disabledTooltip) data-tippy-content="{{ $buttonTooltip }}" @endif>
         <button
             type="button"
             :class="{ '{{ $buttonClassExpanded }}' : {{ $dropdownProperty }} }"
