@@ -5,7 +5,7 @@ import {
     getAxisThemeConfig,
 } from "./chart-theme";
 
-import { Chart, registerables } from "chart.js";
+import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 
@@ -138,7 +138,6 @@ const CustomChart = (
                 axes.push({
                     display: grid && key === 0,
                     type: "linear",
-                    position: "right",
                     ticks: {
                         ...getFontConfig("axis", theme.mode),
                         padding: 15,
@@ -191,7 +190,7 @@ const CustomChart = (
                         external: this.tooltip,
                         displayColors: false,
                         callbacks: {
-                            title: (items) => {},
+                            title: (items) => { },
                             label: (context) =>
                                 this.getCurrencyValue(context.raw),
                             labelTextColor: (context) =>
@@ -207,7 +206,10 @@ const CustomChart = (
                     axis: "x",
                 },
                 scales: {
-                    y: this.loadYAxes(),
+                    y: {
+                        ...this.loadYAxes()[0],
+                        position: 'right',
+                    },
                     x: {
                         display: grid,
                         type: "category",
@@ -218,7 +220,7 @@ const CustomChart = (
                             padding: 10,
                             ...getFontConfig("axis", theme.mode),
                         },
-                        gridLines: {
+                        grid: {
                             display: grid,
                             drawBorder: false,
                             color: getAxisThemeConfig(theme.mode).x.color,

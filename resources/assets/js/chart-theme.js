@@ -174,8 +174,12 @@ export function getInfoFromThemeName(name, mode) {
 export function getFontConfig(type, mode) {
     const _default = {
         axis: {
-            fontSize: 14,
-            fontStyle: 600,
+            font: {
+                size: 14,
+                weight: 600,
+                lineHeight: 1.2,
+                style: 'normal',
+            },
         },
     };
 
@@ -183,11 +187,11 @@ export function getFontConfig(type, mode) {
         axis: {
             light: {
                 ..._default.axis,
-                fontColor: "rgba(165,173,185,1)", // theme-secondary-500
+                color: "rgba(165,173,185,1)", // theme-secondary-500
             },
             dark: {
                 ..._default.axis,
-                fontColor: "rgba(99,114,130,1)", // theme-secondary-700
+                color: "rgba(99,114,130,1)", // theme-secondary-700
             },
         },
         tooltip: {
