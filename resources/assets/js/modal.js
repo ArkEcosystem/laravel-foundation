@@ -14,9 +14,12 @@ const Modal = {
     defaultSettings: {
         reserveScrollBarGap: true,
         reserveNavScrollBarGap: true,
+        disableFocusTrap: false,
     },
 
-    onModalOpened(scrollable, settings = Modal.defaultSettings) {
+    onModalOpened(scrollable, settings = {}) {
+        settings = Object.assign({}, this.defaultSettings, settings);
+
         if (settings.reserveScrollBarGap) {
             this.reserveModalScrollBarGap(scrollable);
         }
@@ -29,10 +32,16 @@ const Modal = {
             reserveScrollBarGap: !!settings.reserveScrollBarGap,
         });
 
-        this.trapFocus(scrollable);
+        if (settings.disableFocusTrap) {
+            scrollable.focus();
+        } else {
+            this.trapFocus(scrollable);
+        }
     },
 
-    onModalClosed(scrollable, settings = Modal.defaultSettings) {
+    onModalClosed(scrollable, settings = {}) {
+        settings = Object.assign({}, this.defaultSettings, settings);
+
         if (settings.reserveScrollBarGap) {
             this.restoreModalScrollBarGap(scrollable);
         }
@@ -69,11 +78,7 @@ const Modal = {
         this.trappedElement = null;
     },
 
-    alpine(
-        extraData = {},
-        modalName = "",
-        eventSettings = Modal.defaultSettings
-    ) {
+    alpine(extraData = {}, modalName = "", eventSettings = {}) {
         return {
             name: modalName,
             shown: false,
@@ -146,7 +151,7 @@ const Modal = {
         };
     },
 
-    livewire(extraData = {}, eventSettings = Modal.defaultSettings) {
+    livewire(extraData = {}, eventSettings = {}) {
         return {
             init() {
                 const scrollable = this.getScrollable();
