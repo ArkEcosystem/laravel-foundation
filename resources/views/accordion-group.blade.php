@@ -13,7 +13,9 @@
                             {{ ${"title_{$i}"} }}
                         </span>
                         <span class="flex items-center ml-6 h-7">
-                            <span :class="{ 'rotate-180': openPanel === {{ $i }} }" class="transition duration-150 ease-in-out transform">@svg('chevron-down', 'h-3 w-3')</span>
+                            <span :class="{ 'rotate-180': openPanel === {{ $i }} }" class="transition duration-150 ease-in-out transform">
+                                <x-ark-icon name="chevron-down" size="xs" />
+                            </span>
                         </span>
                     </button>
                 </dt>

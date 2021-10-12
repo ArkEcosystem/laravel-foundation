@@ -42,7 +42,7 @@
 
                 <a href="{{ $discordUrl }}" target="_blank" rel="noopener nofollow noreferrer" class="button-secondary">
                     <div class="flex justify-center items-center space-x-2 w-full">
-                        @svg('brands.outline.discord', 'w-5 h-5')
+                        <x-ark-icon name="brands.outline.discord" />
                         <span>@lang('ui::actions.discord')</span>
                     </div>
                 </a>

@@ -8,7 +8,7 @@
         <div class="flex flex-row justify-end mt-8">
             <button type="submit" class="inline-flex justify-center items-center space-x-2 w-full sm:w-auto button-cancel"
                 wire:click="confirmUserDeletion">
-                @svg('trash', 'h-4 w-4')
+                <x-ark-icon name="trash" size="sm" />
                 <span>@lang('ui::actions.delete_account')</span>
             </button>
         </div>
