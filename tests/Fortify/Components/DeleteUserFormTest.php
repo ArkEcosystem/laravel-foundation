@@ -27,9 +27,10 @@ it('can interact with the form', function () {
         ->assertViewIs('ark-fortify::profile.delete-user-form')
         ->call('confirmUserDeletion')
         ->assertSee(trans('ui::pages.user-settings.delete_account_description'))
-        ->set('usernameConfirmation', $user->username)
+        ->set('confirmedPassword', 'password')
         ->call('deleteUser')
         ->assertRedirect('/');
+
     $this->assertNull(Auth::user());
 });
 
@@ -46,7 +47,7 @@ it('can interact with the form and leave a feedback', function () {
         ->assertViewIs('ark-fortify::profile.delete-user-form')
         ->call('confirmUserDeletion')
         ->assertSee(trans('ui::pages.user-settings.delete_account_description'))
-        ->set('usernameConfirmation', $user->username)
+        ->set('confirmedPassword', 'password')
         ->set('feedback', 'my feedback here')
         ->call('deleteUser')
         ->assertRedirect(URL::temporarySignedRoute('profile.feedback.thank-you', now()->addMinutes(15)));
@@ -58,7 +59,7 @@ it('can interact with the form and leave a feedback', function () {
     });
 });
 
-it('cant delete user without filling in the username', function () {
+it('cant delete user with an incorrect password', function () {
     $user = createUserModel();
 
     $this->mock(DeleteUser::class)
@@ -70,7 +71,23 @@ it('cant delete user without filling in the username', function () {
         ->call('confirmUserDeletion')
         ->assertSee(trans('ui::pages.user-settings.delete_account_description'))
         ->call('deleteUser')
-        ->set('usernameConfirmation', 'invalid-username')
+        ->set('confirmedPassword', 'invalid-password')
         ->call('deleteUser');
+    $this->assertNotNull(Auth::user());
+});
+
+it('cant delete user without a password', function () {
+    $user = createUserModel();
+
+    $this->mock(DeleteUser::class)
+        ->shouldReceive('delete');
+
+    Livewire::actingAs($user)
+        ->test(DeleteUserForm::class)
+        ->assertViewIs('ark-fortify::profile.delete-user-form')
+        ->call('confirmUserDeletion')
+        ->assertSee(trans('ui::pages.user-settings.delete_account_description'))
+        ->call('deleteUser');
+
     $this->assertNotNull(Auth::user());
 });
