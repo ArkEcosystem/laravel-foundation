@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\Providers;
 
 use ARKEcosystem\Foundation\CommonMark\Extensions\HeadingPermalink\HeadingPermalinkRenderer;
+use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\CodeRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\FencedCodeRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\IndentedCodeRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Image\ImageRenderer;
@@ -22,6 +23,7 @@ use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
 use League\CommonMark\Extension\CommonMark\Node\Block\ListBlock;
 use League\CommonMark\Extension\CommonMark\Node\Block\ListItem;
 use League\CommonMark\Extension\CommonMark\Node\Block\ThematicBreak;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Emphasis;
 use League\CommonMark\Extension\CommonMark\Node\Inline\HtmlInline;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
@@ -175,7 +177,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
         $environment->addRenderer(Paragraph::class, new ParagraphRenderer(), 0);
         $environment->addRenderer(ThematicBreak::class, new ThematicBreakRenderer(), 0);
 
-        // $environment->addRenderer(Code::class, new CodeRenderer(), 0);
+        $environment->addRenderer(Code::class, new CodeRenderer(), 0);
         $environment->addRenderer(Emphasis::class, new EmphasisRenderer(), 0);
         $environment->addRenderer(HtmlInline::class, new HtmlInlineRenderer(), 0);
         $environment->addRenderer(Image::class, new ImageRenderer(), 0);
@@ -184,6 +186,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
         $environment->addRenderer(Text::class, new TextRenderer(), 0);
 
         $inlineRenderers = array_merge([
+            Code::class       => CodeRenderer::class,
             Emphasis::class   => EmphasisRenderer::class,
             HtmlInline::class => HtmlInlineRenderer::class,
             Image::class      => ImageRenderer::class,
