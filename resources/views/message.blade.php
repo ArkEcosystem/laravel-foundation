@@ -11,9 +11,9 @@
 
             <div class="w-32 font-semibold text-right text-theme-secondary-500">
                 @if($message['isYours'] && $message['isRead'])
-                    @svg('read', 'inline w-3 mr-2')
+                    <x-ark-icon name="read" size="xs" class="inline mr-2" />
                 @elseif($message['isYours'])
-                    @svg('checkmark', 'inline w-3 mr-2')
+                    <x-ark-icon name="checkmark" size="xs" class="inline mr-2" />
                 @endif
 
                 <span class="text-xs">{{ $message['date'] }}</span>

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter;
 
+use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\Concerns\DecodesHtmlEntities;
 use League\CommonMark\Extension\CommonMark\Node\Block\FencedCode;
 use League\CommonMark\Extension\CommonMark\Renderer\Block\FencedCodeRenderer as BaseFencedCodeRenderer;
 use League\CommonMark\Node\Node;
@@ -15,6 +16,8 @@ use League\CommonMark\Xml\XmlNodeRendererInterface;
 
 final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRendererInterface
 {
+    use DecodesHtmlEntities;
+
     /** @var \ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\CodeBlockHighlighter */
     private $highlighter;
 
@@ -29,7 +32,10 @@ final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRenderer
 
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
     {
-        $element = $this->baseRenderer->render($node, $childRenderer);
+        $element = $this->baseRenderer->render(
+            $this->parseEncodedHtml($node),
+            $childRenderer
+        );
 
         $this->configureLineNumbers($element);
 
@@ -81,13 +87,13 @@ final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRenderer
         }
     }
 
-    private function getSpecifiedLanguage(FencedCode $block): ?string
+    private function getSpecifiedLanguage(FencedCode $block): string
     {
         $infoWords = $block->getInfoWords();
 
         /* @phpstan-ignore-next-line */
         if (empty($infoWords) || empty($infoWords[0])) {
-            return null;
+            return 'plaintext';
         }
 
         return Xml::escape($infoWords[0]);

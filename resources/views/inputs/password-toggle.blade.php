@@ -53,8 +53,8 @@
                 ])
                 @click="toggle()"
             >
-                <span x-show="!show">@svg('view', 'w-5 h-5')</span>
-                <span x-show="show" x-cloak>@svg('hide', 'w-5 h-5')</span>
+                <span x-show="!show"><x-ark-icon name="view" /></span>
+                <span x-show="show" x-cloak><x-ark-icon name="hide" /></span>
             </button>
 
             {{--error--}}

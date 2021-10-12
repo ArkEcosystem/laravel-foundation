@@ -495,9 +495,9 @@ You can also get an alert with more padding and large icon by specifying `large`
 ```php
 <div class="relative">
     <x-settings-dropdown button-class="icon-button w-10 h-10">
-        <button class="settings-dropdown-entry">@lang('actions.start')@svg('plus', 'h-3 w-3 ml-2')</button>
-        <button class="settings-dropdown-entry">@lang('actions.stop')@svg('minus', 'h-3 w-3 ml-2')</button>
-        <button class="settings-dropdown-entry">@lang('actions.reboot')@svg('reload', 'h-3 w-3 ml-2')</button>
+        <button class="settings-dropdown-entry">@lang('actions.start')<x-ark-icon name="plus" size="xs" calss="ml-2" /></button>
+        <button class="settings-dropdown-entry">@lang('actions.stop')<x-ark-icon name="minus" size="xs" calss="ml-2" /></button>
+        <button class="settings-dropdown-entry">@lang('actions.reboot')<x-ark-icon name="reload" size="xs" calss="ml-2" /></button>
     </x-settings-dropdown>
 </div>
 ```

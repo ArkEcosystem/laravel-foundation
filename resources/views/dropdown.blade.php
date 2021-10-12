@@ -56,7 +56,7 @@
             @if($button ?? false)
                 {{ $button }}
             @else
-                @svg('vertical-dots', 'h-5 w-5')
+                <x-ark-icon name="vertical-dots" />
             @endif
         </button>
     </div>

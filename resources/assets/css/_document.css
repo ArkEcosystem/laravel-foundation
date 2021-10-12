@@ -85,6 +85,11 @@ code.hljs .hljs-ln-n {
     @apply mb-6;
 }
 
+.documentation-content .accordion table,
+.documentation-content .accordion .table-wrapper {
+    @apply mb-0;
+}
+
 .documentation-content p {
     @apply mb-6 leading-7;
 }
@@ -288,14 +293,14 @@ aside .heading-permalink {
 .documentation-content h3 .heading-permalink,
 .documentation-content h4 .heading-permalink,
 main .documentation-content .heading-permalink {
-    @apply mr-3 text-theme-info-600 transition-default;
+    @apply mr-3 text-theme-primary-600 transition-default;
 }
 
 .documentation-content h2 .heading-permalink:hover,
 .documentation-content h3 .heading-permalink:hover,
 .documentation-content h4 .heading-permalink:hover,
 main .documentation-content .heading-permalink:hover {
-    @apply no-underline text-theme-danger-400;
+    @apply no-underline text-theme-primary-700;
 }
 
 /* Gallery Grid */

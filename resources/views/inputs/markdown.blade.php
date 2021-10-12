@@ -70,12 +70,12 @@ $icons = [
                 <div>
                     @for($i=1; $i<=4; $i++)
                         <template x-ref="iconH{{ $i }}">
-                            @svg('wysiwyg.H' . $i, 'inline h-5')
+                            <x-ark-icon name="wysiwyg.H{{ $i }}" class="inline" />
                         </template>
                     @endfor
                     @foreach($icons as $ref => $iconName)
                         <template x-ref="{{ $ref }}">
-                            @svg('wysiwyg.' . $iconName, 'inline h-4')
+                            <x-ark-icon name="wysiwyg{{ $iconName }}" size="sm" class="inline" />
                         </template>
                     @endforeach
                 </div>
