@@ -85,6 +85,11 @@ code.hljs .hljs-ln-n {
     @apply mb-6;
 }
 
+.documentation-content .accordion table,
+.documentation-content .accordion .table-wrapper {
+    @apply mb-0;
+}
+
 .documentation-content p {
     @apply mb-6 leading-7;
 }
