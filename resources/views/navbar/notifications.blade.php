@@ -6,8 +6,7 @@
         dropdown-content-classes="bg-white dark:bg-theme-secondary-800 dark:text-theme-secondary-200 rounded-xl shadow-2xl"
     >
         <x-slot name="button">
-            @svg('notification', 'h-5 w-5 transition-default text-theme-secondary-600 group-hover:text-theme-primary-700')
-
+            <x-ark-icon name="notification" class="transition-default text-theme-secondary-600 group-hover:text-theme-primary-700" />
             @isset($notificationsIndicator)
                 {{ $notificationsIndicator }}
             @else

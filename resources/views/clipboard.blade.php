@@ -12,6 +12,6 @@
             x-on:click="copy('{{ $value }}')"
         @endif
     >
-        @svg('copy', 'h-4 w-4')
+        <x-ark-icon name="copy" size="sm" />
     </button>
 </div>

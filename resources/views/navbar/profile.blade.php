@@ -33,7 +33,7 @@
                     dusk="dropdown-entry-{{ Str::slug($menuItem['label']) }}"
                 >
                     @if($menuItem['icon'] ?? false)
-                        @svg($menuItem['icon'], 'inline w-5 mr-4')
+                        <x-ark-icon :name="$menuItem['icon']" class="inline mr-4" />
                     @endif
 
                     <span class="flex-1">{{ $menuItem['label'] }}</span>
@@ -53,7 +53,7 @@
                 @endforeach
             >
                 @if($menuItem['icon'] ?? false)
-                    @svg($menuItem['icon'], 'inline w-5 mr-4')
+                    <x-ark-icon :name="$menuItem['icon']" calss="inline mr-4" />
                 @endif
 
                 <span class="flex-1">{{ $menuItem['label'] }}</span>
