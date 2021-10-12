@@ -19,10 +19,10 @@ return [
     ],
 
     // Fortify
-    'password_doesnt_match'            => 'The provided password does not match your current password.',
-    'password_doesnt_match_records'    => 'This password does not match our records.',
-    'password_reset_link_invalid'      => 'Your password reset link expired or is invalid.',
-    'password_leaked'                  => 'Your password appears to have been leaked.',
+    'password_doesnt_match'             => 'The provided password does not match your current password.',
+    'password_doesnt_match_records'     => 'This password does not match our records.',
+    'password_reset_link_invalid'       => 'Your password reset link expired or is invalid.',
+    'password_leaked'                   => 'Your password appears to have been leaked.',
     'password_current'                  => 'You cannot use your existing password',
 
     'messages' => [
