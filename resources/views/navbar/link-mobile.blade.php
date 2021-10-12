@@ -9,7 +9,7 @@
         ])
     >
         @if($icon ?? false)
-            @svg($icon, 'w-6 mr-4')
+            <x-ark-icon :name="$icon" size="md" class="mr-4" />
         @endif
 
         {{ $customIcon ?? false }}

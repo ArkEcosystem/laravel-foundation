@@ -5,5 +5,5 @@
 ])
 
 <div class="cursor-pointer flex items-center justify-center absolute top-0 opacity-90 transition-default bg-theme-secondary-900 {{ $dimensions }} {{ $class }}">
-    @svg('oval', $spinnerDimensions.' text-white')
+    <x-ark-icon name="oval" class=" {{ $spinnerDimensions }} text-white" />
 </div>

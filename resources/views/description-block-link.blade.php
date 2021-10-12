@@ -23,7 +23,7 @@
                 <div class="flex items-center space-x-2 link">
                     <span>{{ $title }}</span>
 
-                    @svg('link', 'h-4 w-4 flex-shrink-0 mr-2')
+                    <x-ark-icon name="link" size="sm" class="flex-shrink-0 mr-2" />
                 </div>
             </span>
         @else
