@@ -37,6 +37,7 @@ return [
     'email_address'            => 'Email Address',
     'email'                    => 'Email',
     'name'                     => 'Name',
+    'your_password'            => 'Your Password',
     'new_password'             => 'New Password',
     'password'                 => 'Password',
     'username'                 => 'Username',
