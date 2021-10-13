@@ -24,6 +24,12 @@
 
     @foreach ($profileMenu as $menuItem)
         @if ($menuItem['isPost'] ?? false)
+            @if($menuItem['hasDivider'] ?? false)
+                <div class="mx-8">
+                    <x-ark-divider />
+                </div>
+            @endif
+
             <form method="POST" action="{{ route($menuItem['route']) }}">
                 @csrf
 
@@ -42,6 +48,12 @@
                 </button>
             </form>
         @else
+            @if($menuItem['hasDivider'] ?? false)
+                <div class="mx-8">
+                    <x-ark-divider />
+                </div>
+            @endif
+
             <a
                 @isset($menuItem['href'])
                     href="{{ $menuItem['href'] }}"
