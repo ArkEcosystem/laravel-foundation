@@ -14,7 +14,7 @@
                 min="1"
                 max="{{ $paginator->lastPage() }}"
                 name="{{ $pageName }}"
-                placeholder="Enter the page"
+                placeholder="{{ trans('ui::actions.enter_the_page') }}"
                 class="py-2 px-3 w-full bg-transparent dark:text-theme-secondary-200"
                 x-on:blur="blurHandler"
             />
@@ -33,7 +33,7 @@
             class="button-pagination-page-indicator button-pagination-page-indicator--search"
             :class="{ 'opacity-0': search }"
             x-on:click="toggleSearch"
-        ><span>Page {{ $paginator->currentPage() }} of {{ $paginator->lastPage() }}</span></button>
+        ><span>@lang('ui::generic.page') {{ $paginator->currentPage() }} @lang('ui::generic.of') {{ $paginator->lastPage() }}</span></button>
     </div>
 
     <div class="flex space-x-3">
@@ -51,7 +51,7 @@
         >
             <div class="flex items-center">
                 <x-ark-icon class="inline-block lg:hidden" name="chevron-left" size="xs" />
-                <span class="hidden lg:flex">Previous</span>
+                <span class="hidden lg:flex">@lang('ui::generic.previous')</span>
             </div>
         </button>
 
@@ -64,7 +64,7 @@
                     min="1"
                     max="{{ $paginator->lastPage() }}"
                     name="{{ $pageName }}"
-                    placeholder="Enter the page number"
+                    placeholder="{{ trans('ui::actions.enter_the_page_number') }}"
                     class="py-2 px-3 w-full bg-transparent dark:text-theme-secondary-200"
                     x-on:blur="blurHandler"
                 />
@@ -119,7 +119,7 @@
                     type="button"
                     class="button-pagination-page-indicator button-pagination-page-indicator--search"
                     :class="{ 'opacity-0': search }"
-                ><span>Page {{ $paginator->currentPage() }} of {{ $paginator->lastPage() }}</span></button>
+                ><span>@lang('ui::generic.page') {{ $paginator->currentPage() }} @lang('ui::generic.of') {{ $paginator->lastPage() }}</span></button>
             </div>
         </div>
 
@@ -129,7 +129,7 @@
             class="items-center button-secondary pagination-button-mobile" @if($paginator->currentPage() === $paginator->lastPage()) disabled @endif
         >
             <div class="flex items-center">
-                <span class="hidden lg:flex">Next</span>
+                <span class="hidden lg:flex">@lang('ui::generic.next')</span>
                 <x-ark-icon class="inline-block lg:hidden" name="chevron-right" size="xs" />
             </div>
         </button>
