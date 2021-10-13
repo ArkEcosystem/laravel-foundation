@@ -12,6 +12,13 @@
         'lg' => 'lg:ml-6 lg:flex',
         'xl' => 'xl:ml-6 xl:flex',
     ][$breakpoint];
+
+    $extraBreakpointClasses = [
+        'sm' => 'sm:flex',
+        'md' => 'md:flex',
+        'lg' => 'lg:flex',
+        'xl' => 'xl:flex',
+    ][$breakpoint];
 @endphp
 
 @if(is_array($navigation))
@@ -89,7 +96,9 @@
         @endforeach
     </div>
 
-    {{ $navigationExtra }}
+    <div @class(['hidden', $extraBreakpointClasses])>
+        {{ $navigationExtra }}
+    </div>
 @else
     {{ $navigation }}
 @endif
