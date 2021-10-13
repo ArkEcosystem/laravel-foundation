@@ -32,11 +32,13 @@
                     class="focus-visible:rounded focus-visible:ring-inset dropdown-entry"
                     dusk="dropdown-entry-{{ Str::slug($menuItem['label']) }}"
                 >
-                    @if($menuItem['icon'] ?? false)
-                        <x-ark-icon :name="$menuItem['icon']" class="inline mr-4" />
-                    @endif
+                    <div class="flex space-x-3">
+                        @if($menuItem['icon'] ?? false)
+                            <x-ark-icon :name="$menuItem['icon']" class="inline" />
+                        @endif
 
-                    <span class="flex-1">{{ $menuItem['label'] }}</span>
+                        <span class="flex-1">{{ $menuItem['label'] }}</span>
+                    </div>
                 </button>
             </form>
         @else
@@ -52,11 +54,13 @@
                     {{ $attribute }}="{{ $attributeValue }}"
                 @endforeach
             >
-                @if($menuItem['icon'] ?? false)
-                    <x-ark-icon :name="$menuItem['icon']" calss="inline mr-4" />
-                @endif
+                <div class="flex space-x-3">
+                    @if($menuItem['icon'] ?? false)
+                        <x-ark-icon :name="$menuItem['icon']" calss="inline" />
+                    @endif
 
-                <span class="flex-1">{{ $menuItem['label'] }}</span>
+                    <span class="flex-1">{{ $menuItem['label'] }}</span>
+                </div>
             </a>
         @endif
     @endforeach
