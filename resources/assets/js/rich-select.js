@@ -12,16 +12,20 @@ const RichSelect = (
             $dispatch(dispatchEvent, $event.target.value);
         }
     },
-    init() {
-        this.$nextTick(() => {
-            if (grouped) {
-                this.optionsCount = Object.keys(this.options)
-                    .map((groupName) => Object.keys(this.options[groupName]))
-                    .flat().length;
-            } else {
-                this.optionsCount = Object.keys(this.options).length;
-            }
-        });
+    getOptionsCount() {
+        if (this.optionsCount !== null) {
+            return this.optionsCount;
+        }
+
+        if (grouped) {
+            this.optionsCount = Object.keys(this.options)
+                .map((groupName) => Object.keys(this.options[groupName]))
+                .flat().length;
+        } else {
+            this.optionsCount = Object.keys(this.options).length;
+        }
+
+        return this.optionsCount;
     },
     optionsCount: null,
     open: false,
@@ -93,13 +97,15 @@ const RichSelect = (
         this.$refs.button.focus();
     },
     onArrowUp() {
+        const optionsCount = this.getOptionsCount();
         this.selected =
-            this.selected - 1 < 0 ? this.optionsCount - 1 : this.selected - 1;
+            this.selected - 1 < 0 ? optionsCount - 1 : this.selected - 1;
         this.scrollToSelectedOption();
     },
     onArrowDown() {
+        const optionsCount = this.getOptionsCount();
         this.selected =
-            this.selected + 1 > this.optionsCount - 1 ? 1 : this.selected + 1;
+            this.selected + 1 > optionsCount - 1 ? 0 : this.selected + 1;
         this.scrollToSelectedOption();
     },
     scrollToSelectedOption() {
