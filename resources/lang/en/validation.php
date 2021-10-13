@@ -23,7 +23,7 @@ return [
     'password_doesnt_match_records'    => 'This password does not match our records.',
     'password_reset_link_invalid'      => 'Your password reset link expired or is invalid.',
     'password_leaked'                  => 'Your password appears to have been leaked.',
-    'password_current'                 => 'You cannot use your existing password',
+    'password_current'                 => 'You cannot use your existing password.',
 
     'messages' => [
         'one_time_password'                                   => 'We were not able to enable two-factor authentication with this one-time password.',
