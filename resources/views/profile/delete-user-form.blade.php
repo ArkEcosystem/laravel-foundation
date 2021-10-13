@@ -32,20 +32,10 @@
                 <form class="mt-8">
                     <div class="space-y-2">
                         <x-ark-input
-                            input-class="text-center"
-                            type="text"
-                            name="username"
-                            model="username"
-                            :label="trans('ui::forms.confirm_username')"
-                            readonly
-                        />
-                        <x-ark-input
-                            type="text"
-                            name="username_confirmation"
-                            model="usernameConfirmation"
-                            :placeholder="trans('ui::forms.delete-user.confirmation_placeholder')"
-                            :errors="$errors"
-                            hide-label
+                            type="password"
+                            name="confirmedPassword"
+                            model="confirmedPassword"
+                            :label="trans('ui::forms.your_password')"
                         />
                     </div>
                     <div class="mt-4">
@@ -67,7 +57,13 @@
                         @lang('ui::actions.cancel')
                     </button>
 
-                    <button type="button" dusk="delete-user-form-submit" class="inline-flex justify-center items-center button-cancel" wire:click="deleteUser" {{ ! $this->hasConfirmedName() ? 'disabled' : ''}}>
+                    <button
+                        wire:click="deleteUser"
+                        type="button"
+                        dusk="delete-user-form-submit"
+                        class="inline-flex justify-center items-center button-cancel"
+                        @unless($this->getErrorBag()->isEmpty()) disabled @endunless
+                    >
                         <x-ark-icon name="trash" size="sm"/>
                         <span class="ml-2">@lang('ui::actions.delete')</span>
                     </button>

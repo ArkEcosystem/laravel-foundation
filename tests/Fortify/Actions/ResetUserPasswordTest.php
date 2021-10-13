@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Fortify\Actions\ResetUserPassword;
 use Illuminate\Contracts\Validation\UncompromisedVerifier;
+use Illuminate\Support\Facades\Hash;
 use function Tests\createUserModel;
 use function Tests\expectValidationError;
 
@@ -55,4 +56,15 @@ it('should throw an exception if the password confirmation does not match', func
         'password'              => 'Pas3w05d&123456',
         'password_confirmation' => 'password',
     ]), 'password', 'The password confirmation does not match.');
+});
+
+it('should throw an exception if the password is the same', function () {
+    $user = createUserModel();
+
+    $user->update(['password' => Hash::make('Pas3w05d&123456')]);
+
+    expectValidationError(fn () => resolve(ResetUserPassword::class)->reset($user->fresh(), [
+        'password'              => 'Pas3w05d&123456',
+        'password_confirmation' => 'Pas3w05d&123456',
+    ]), 'password', 'You cannot use your existing password.');
 });

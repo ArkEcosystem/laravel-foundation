@@ -29,6 +29,10 @@ class UpdateUserPassword implements UpdatesUserPasswords
             if (! Hash::check($input['current_password'], $user->password)) {
                 $validator->errors()->add('current_password', trans('ui::validation.password_doesnt_match'));
             }
+
+            if (Hash::check($input['password'], $user->password)) {
+                $validator->errors()->add('password', trans('ui::validation.password_current'));
+            }
         })->validateWithBag('updatePassword');
 
         $user->forceFill([
