@@ -66,5 +66,5 @@ it('should throw an exception if the password is the same', function () {
     expectValidationError(fn () => resolve(ResetUserPassword::class)->reset($user->fresh(), [
         'password'              => 'Pas3w05d&123456',
         'password_confirmation' => 'Pas3w05d&123456',
-    ]), 'password', 'You cannot use your existing password');
+    ]), 'password', 'You cannot use your existing password.');
 });
