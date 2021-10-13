@@ -1,6 +1,7 @@
 @props([
-    'breakpoint' => 'md',
-    'navigation' => [],
+    'breakpoint'      => 'md',
+    'navigation'      => [],
+    'navigationExtra' => null,
 ])
 
 @php
@@ -87,6 +88,8 @@
             @endisset
         @endforeach
     </div>
+
+    {{ $navigationExtra }}
 @else
     {{ $navigation }}
 @endif
