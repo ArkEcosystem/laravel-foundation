@@ -32,7 +32,7 @@
                     class="focus-visible:rounded focus-visible:ring-inset dropdown-entry"
                     dusk="dropdown-entry-{{ Str::slug($menuItem['label']) }}"
                 >
-                    <div class="flex space-x-3">
+                    <div class="flex items-center space-x-3">
                         @if($menuItem['icon'] ?? false)
                             <x-ark-icon :name="$menuItem['icon']" class="inline" />
                         @endif
@@ -54,7 +54,7 @@
                     {{ $attribute }}="{{ $attributeValue }}"
                 @endforeach
             >
-                <div class="flex space-x-3">
+                <div class="flex items-center space-x-3">
                     @if($menuItem['icon'] ?? false)
                         <x-ark-icon :name="$menuItem['icon']" calss="inline" />
                     @endif
