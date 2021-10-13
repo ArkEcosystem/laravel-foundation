@@ -1,6 +1,6 @@
 <x-ark-dropdown
-    wrapper-class="ml-3 whitespace-nowrap md:relative"
-    :dropdown-classes="'mt-4 '.($profileMenuClass ?? 'w-full md:w-auto')"
+    wrapper-class="whitespace-nowrap md:relative"
+    :dropdown-classes="'w-full md:w-auto mt-4 '.($profileMenuClass ?? null)"
     dropdown-content-classes="bg-white rounded-xl shadow-lg dark:bg-theme-secondary-800 dark:text-theme-secondary-200 py-4"
     button-class="overflow-hidden rounded-xl border-2 border-transparent hover:border-theme-primary-600"
     dusk="navbar-profile-dropdown"
