@@ -180,6 +180,5 @@ it('resets password validation on typing', function () {
         ->set('password_confirmation', 'password')
         ->assertHasErrors('password')
         ->set('password', 'password12!A%.-')
-        ->assertHasNoErrors('password')
-        ;
+        ->assertHasNoErrors('password');
 });
