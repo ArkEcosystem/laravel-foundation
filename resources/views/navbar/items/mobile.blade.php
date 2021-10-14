@@ -1,6 +1,7 @@
 @props([
-    'breakpoint' => 'md',
-    'navigation' => [],
+    'breakpoint'      => 'md',
+    'navigation'      => [],
+    'navigationExtra' => null,
 ])
 
 @php
@@ -40,5 +41,7 @@
                 :icon="isset($navItem['icon']) ? $navItem['icon'] : false"
             />
         @endforeach
+
+        {{ $navigationExtra }}
     </div>
 </div>

@@ -1,6 +1,7 @@
 @props([
-    'breakpoint' => 'md',
-    'navigation' => [],
+    'breakpoint'      => 'md',
+    'navigation'      => [],
+    'navigationExtra' => null,
 ])
 
 @php
@@ -10,6 +11,13 @@
         'md' => 'md:ml-6 md:flex',
         'lg' => 'lg:ml-6 lg:flex',
         'xl' => 'xl:ml-6 xl:flex',
+    ][$breakpoint];
+
+    $extraBreakpointClasses = [
+        'sm' => 'sm:flex',
+        'md' => 'md:flex',
+        'lg' => 'lg:flex',
+        'xl' => 'xl:flex',
     ][$breakpoint];
 @endphp
 
@@ -86,6 +94,10 @@
                 </a>
             @endisset
         @endforeach
+    </div>
+
+    <div @class(['hidden', $extraBreakpointClasses])>
+        {{ $navigationExtra }}
     </div>
 @else
     {{ $navigation }}
