@@ -7,13 +7,13 @@
 @section('content')
 
 <x-ark-container>
-    <div class="flex flex-col items-center mx-auto w-full text-center">
-        <x-ark-icon name="fortify-profile.feedback.thank-you" class="w-full h-full" />
+    <div class="flex flex-col items-center w-full mx-auto text-center">
+        <x-ark-icon name="fortify-profile.feedback.thank-you" size="w-auto" />
 
-        <h1 class="px-8 mt-8 max-w-xs sm:max-w-none">@lang('ui::pages.feedback_thank_you.title')</h1>
-        <p class="mt-4 max-w-xs leading-relaxed sm:px-4 sm:max-w-lg lg:px-0 lg:max-w-none">@lang('ui::pages.feedback_thank_you.description')</p>
+        <h1 class="max-w-xs px-8 mt-8 sm:max-w-none">@lang('ui::pages.feedback_thank_you.title')</h1>
+        <p class="max-w-xs mt-4 leading-relaxed sm:px-4 sm:max-w-lg lg:px-0 lg:max-w-none">@lang('ui::pages.feedback_thank_you.description')</p>
 
-        <a href="{{ route('home') }}" class="mt-8 w-full sm:w-auto button-secondary">@lang('ui::pages.feedback_thank_you.home_page')</a>
+        <a href="{{ route('home') }}" class="w-full mt-8 sm:w-auto button-secondary">@lang('ui::pages.feedback_thank_you.home_page')</a>
     </div>
 </x-ark-container>
 
