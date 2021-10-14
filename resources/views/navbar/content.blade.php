@@ -7,11 +7,13 @@
         @include('ark::navbar.notifications', ['class' => $notificationsButtonClasses ?? '' ])
     @endisset
 
-    @isset($profile)
-        {{ $profile }}
-    @else
-        @include('ark::navbar.profile')
-    @endisset
+    <div @class(['ml-3' => isset($navbarNotifications) || isset($notifications)])>
+        @isset($profile)
+            {{ $profile }}
+        @else
+            @include('ark::navbar.profile')
+        @endisset
+    </div>
 @else
     <div class="flex items-center sm:space-x-6">
         @if(Route::has('register'))
