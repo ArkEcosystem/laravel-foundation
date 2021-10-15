@@ -131,7 +131,7 @@ input[type="password"]::-ms-reveal {
 }
 .input-wrapper-with-prefix .input-prefix,
 .input-wrapper-with-suffix .input-suffix {
-    @apply select-none bg-theme-primary-50 text-theme-secondary-500 border-theme-secondary-300;
+    @apply select-none text-theme-secondary-500 border-theme-secondary-300;
 }
 
 /* Radio buttons */

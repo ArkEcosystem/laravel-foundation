@@ -1,5 +1,5 @@
 <x-ark-dropdown
-    wrapper-class="ml-3 whitespace-nowrap md:relative"
+    wrapper-class="whitespace-nowrap md:relative"
     :dropdown-classes="'w-full md:w-auto mt-4 '.($profileMenuClass ?? null)"
     dropdown-content-classes="bg-white rounded-xl shadow-lg dark:bg-theme-secondary-800 dark:text-theme-secondary-200 py-4"
     button-class="overflow-hidden rounded-xl border-2 border-transparent hover:border-theme-primary-600"
@@ -24,6 +24,12 @@
 
     @foreach ($profileMenu as $menuItem)
         @if ($menuItem['isPost'] ?? false)
+            @if($menuItem['hasDivider'] ?? false)
+                <div class="mx-8">
+                    <x-ark-divider />
+                </div>
+            @endif
+
             <form method="POST" action="{{ route($menuItem['route']) }}">
                 @csrf
 
@@ -32,14 +38,22 @@
                     class="focus-visible:rounded focus-visible:ring-inset dropdown-entry"
                     dusk="dropdown-entry-{{ Str::slug($menuItem['label']) }}"
                 >
-                    @if($menuItem['icon'] ?? false)
-                        <x-ark-icon :name="$menuItem['icon']" class="inline mr-4" />
-                    @endif
+                    <div class="flex items-center space-x-3">
+                        @if($menuItem['icon'] ?? false)
+                            <x-ark-icon :name="$menuItem['icon']" class="inline" />
+                        @endif
 
-                    <span class="flex-1">{{ $menuItem['label'] }}</span>
+                        <span class="flex-1">{{ $menuItem['label'] }}</span>
+                    </div>
                 </button>
             </form>
         @else
+            @if($menuItem['hasDivider'] ?? false)
+                <div class="mx-8">
+                    <x-ark-divider />
+                </div>
+            @endif
+
             <a
                 @isset($menuItem['href'])
                     href="{{ $menuItem['href'] }}"
@@ -52,11 +66,13 @@
                     {{ $attribute }}="{{ $attributeValue }}"
                 @endforeach
             >
-                @if($menuItem['icon'] ?? false)
-                    <x-ark-icon :name="$menuItem['icon']" calss="inline mr-4" />
-                @endif
+                <div class="flex items-center space-x-3">
+                    @if($menuItem['icon'] ?? false)
+                        <x-ark-icon :name="$menuItem['icon']" calss="inline" />
+                    @endif
 
-                <span class="flex-1">{{ $menuItem['label'] }}</span>
+                    <span class="flex-1">{{ $menuItem['label'] }}</span>
+                </div>
             </a>
         @endif
     @endforeach

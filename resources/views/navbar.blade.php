@@ -51,7 +51,7 @@
                     </div>
 
                     @if(! isset($noSeparator))
-                        <span class="{{ $separatorClasses ?? 'hidden pr-2 border-l ml-7 h-7 border-theme-secondary-300 dark:border-theme-secondary-800 ' . $separatorBreakpointClass }}"></span>
+                        <span class="{{ $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 border-theme-secondary-300 dark:border-theme-secondary-800 ' . $separatorBreakpointClass }}"></span>
                     @endif
 
                     <div class="flex inset-y-0 right-0 items-center">
