@@ -4378,12 +4378,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/larastan.git",
-                "reference": "92e474ddb6b4805e307570120701232cc7a9ce00"
+                "reference": "60f19f8ffaaf1cbabcc127d94fc8d41e7bf7ecb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/92e474ddb6b4805e307570120701232cc7a9ce00",
-                "reference": "92e474ddb6b4805e307570120701232cc7a9ce00",
+                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/60f19f8ffaaf1cbabcc127d94fc8d41e7bf7ecb2",
+                "reference": "60f19f8ffaaf1cbabcc127d94fc8d41e7bf7ecb2",
                 "shasum": ""
             },
             "require": {
@@ -4449,7 +4449,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/larastan/issues",
-                "source": "https://github.com/nunomaduro/larastan/tree/master"
+                "source": "https://github.com/nunomaduro/larastan/tree/v0.7.13"
             },
             "funding": [
                 {
@@ -4469,7 +4469,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-10-13T13:13:26+00:00"
+            "time": "2021-10-14T07:30:49+00:00"
         },
         {
             "name": "nunomaduro/laravel-mojito",
