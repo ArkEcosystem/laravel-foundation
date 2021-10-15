@@ -48,3 +48,14 @@ if (! function_exists('clearZalgoText')) {
         return preg_replace("|[\p{M}]|uis", '', $zalgo);
     }
 }
+
+if (! function_exists('call_user_func_safe')) {
+    function call_user_func_safe(array $callback): mixed
+    {
+        if (is_callable($callback)) {
+            return call_user_func($callback);
+        }
+
+        throw new RuntimeException("Method [$callback[1]] is not callable.");
+    }
+}

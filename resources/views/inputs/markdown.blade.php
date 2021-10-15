@@ -75,7 +75,7 @@ $icons = [
                     @endfor
                     @foreach($icons as $ref => $iconName)
                         <template x-ref="{{ $ref }}">
-                            <x-ark-icon name="wysiwyg{{ $iconName }}" size="sm" class="inline" />
+                            <x-ark-icon name="wysiwyg.{{ $iconName }}" size="sm" class="inline" />
                         </template>
                     @endforeach
                 </div>

@@ -63,7 +63,7 @@ return [
 
     'delete-user' => [
         'title'                    => 'Delete Account',
-        'confirmation'             => 'Deleting your account will also delete all Projects you own from MarketSquare, and these actions are permanent. Confirm your username below or click Cancel to go back.',
+        'confirmation'             => 'Deleting your account will also delete all Projects you own from MarketSquare, and these actions are permanent. Confirm this action by filling in your password below or click Cancel to go back.',
         'confirmation_placeholder' => 'Enter your username to confirm deletion',
     ],
 
