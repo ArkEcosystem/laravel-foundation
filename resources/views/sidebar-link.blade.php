@@ -4,6 +4,7 @@
     'params' => [],
     'attributes' => [],
     'icon' => null,
+    'iconAlignment' => 'right',
     'href' => null,
 ])
 
@@ -24,9 +25,14 @@
             {{ $attribute }}="{{ $attributeValue }}"
         @endforeach
     >
+
+        @if ($icon && $iconAlignment === 'left')
+            <x-ark-icon class="text-theme-primary-600" size="sm" :name="$icon" />
+        @endif
+
         <span>{{ $name }}</span>
 
-        @if ($icon)
+        @if ($icon && $iconAlignment === 'right')
             <x-ark-icon class="text-theme-primary-600" size="sm" :name="$icon" />
         @endif
     </a>
