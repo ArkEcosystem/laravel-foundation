@@ -56,6 +56,16 @@ final class DropInvalidLivewireRequests
      */
     private function containsValidPayload(Request $request) : bool
     {
+        /**
+         * The file upload request on Livewire doesn't contain `fingerprint` or
+         * `serverMemo` but a signed URL instead that we can validate using the
+         * built-in `hasValidSignature` method.
+         * (`/livewire/upload-file?expires={timestamp}&signature={signature}`)
+         */
+        if ($request->hasValidSignature()) {
+            return true;
+        }
+
         return $request->filled(['fingerprint.id', 'fingerprint.method', 'fingerprint.name', 'fingerprint.path'])
             && $request->filled(['serverMemo.checksum', 'serverMemo.htmlHash']);
     }
