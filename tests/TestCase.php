@@ -8,6 +8,7 @@ use ARKEcosystem\Foundation\Providers\CommonMarkServiceProvider;
 use ARKEcosystem\Foundation\Providers\FortifyServiceProvider;
 use ARKEcosystem\Foundation\Providers\HermesServiceProvider;
 use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
+use ARKEcosystem\Foundation\Providers\RulesServiceProvider;
 use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
 use Illuminate\Support\Facades\View;
 use Laravel\Fortify\FortifyServiceProvider as LaravelFortifyServiceProvider;
@@ -54,6 +55,7 @@ class TestCase extends Orchestra
             FortifyServiceProvider::class,
             HermesServiceProvider::class,
             NewsletterServiceProvider::class,
+            RulesServiceProvider::class,
             UserInterfaceServiceProvider::class,
             // CommonMarkServiceProvider::class, // TODO: custom finder from this causes component tests to fail
         ];
