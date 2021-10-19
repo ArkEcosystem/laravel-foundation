@@ -33,7 +33,7 @@
             class="button-pagination-page-indicator button-pagination-page-indicator--search"
             :class="{ 'opacity-0': search }"
             x-on:click="toggleSearch"
-        ><span>@lang('ui::generic.page') {{ $paginator->currentPage() }} @lang('ui::generic.of') {{ $paginator->lastPage() }}</span></button>
+        ><span>@lang('ui::generic.pagination.current_to', ['currentPage' => $paginator->currentPage(), 'lastPage' => $paginator->lastPage()])</span></button>
     </div>
 
     <div class="flex space-x-3">
@@ -128,7 +128,7 @@
                     type="button"
                     class="button-pagination-page-indicator button-pagination-page-indicator--search"
                     :class="{ 'opacity-0': search }"
-                ><span>@lang('ui::generic.page') {{ $paginator->currentPage() }} @lang('ui::generic.of') {{ $paginator->lastPage() }}</span></button>
+                ><span>@lang('ui::generic.pagination.current_to', ['currentPage' => $paginator->currentPage(), 'lastPage' => $paginator->lastPage()])</span></button>
             </div>
         </div>
 
