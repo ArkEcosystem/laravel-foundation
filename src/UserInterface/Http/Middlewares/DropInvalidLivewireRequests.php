@@ -17,6 +17,10 @@ final class DropInvalidLivewireRequests
             return $next($request);
         }
 
+        if ($this->usesAValidSignature($request)) {
+            return $next($request);
+        }
+
         if (! $this->containsValidPayload($request)) {
             // Throwing 404 Not Found for some reason doesn't work as Livewire doesn't know how to intercept the 404,
             // as it actually expects a response.(I guess as this wasn't working before with 404).
@@ -29,6 +33,25 @@ final class DropInvalidLivewireRequests
         }
 
         return $next($request);
+    }
+
+    /**
+     * The file upload request on Livewire doesn't contain `fingerprint` or
+     * `serverMemo` but a signed URL instead that we can validate using the
+     * built-in `hasValidSignature` method.
+     * (`/livewire/upload-file?expires={timestamp}&signature={signature}`)
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return bool
+     */
+    private function usesAValidSignature(Request $request) : bool
+    {
+        if ($request->filled(['expires', 'signature'])) {
+            return $request->hasValidSignature();
+        }
+
+        return false;
     }
 
     /**
@@ -56,16 +79,6 @@ final class DropInvalidLivewireRequests
      */
     private function containsValidPayload(Request $request) : bool
     {
-        /*
-         * The file upload request on Livewire doesn't contain `fingerprint` or
-         * `serverMemo` but a signed URL instead that we can validate using the
-         * built-in `hasValidSignature` method.
-         * (`/livewire/upload-file?expires={timestamp}&signature={signature}`)
-         */
-        if ($request->hasValidSignature()) {
-            return true;
-        }
-
         return $request->filled(['fingerprint.id', 'fingerprint.method', 'fingerprint.name', 'fingerprint.path'])
             && $request->filled(['serverMemo.checksum', 'serverMemo.htmlHash']);
     }
