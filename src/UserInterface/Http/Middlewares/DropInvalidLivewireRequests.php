@@ -39,7 +39,7 @@ final class DropInvalidLivewireRequests
      * The file upload request on Livewire doesn't contain `fingerprint` or
      * `serverMemo` but a signed URL instead that we can validate using the
      * built-in `hasValidSignature` method.
-     * (`/livewire/upload-file?expires={timestamp}&signature={signature}`)
+     * (`/livewire/upload-file?expires={timestamp}&signature={signature}`).
      *
      * @param \Illuminate\Http\Request $request
      *
