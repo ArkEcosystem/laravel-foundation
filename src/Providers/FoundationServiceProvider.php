@@ -25,6 +25,7 @@ class FoundationServiceProvider extends ServiceProvider
         $this->app->register(CommonMarkServiceProvider::class);
         $this->app->register(HermesServiceProvider::class);
         $this->app->register(FortifyServiceProvider::class);
+        $this->app->register(RulesServiceProvider::class);
         $this->app->register(UserInterfaceServiceProvider::class);
     }
 }

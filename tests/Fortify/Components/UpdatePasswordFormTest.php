@@ -165,3 +165,20 @@ it('clears password values', function () {
         ->assertSet('password', '')
         ->assertSet('password_confirmation', '');
 });
+
+it('resets password validation on typing', function () {
+    $user = createUserModel();
+
+    Livewire::actingAs($user)
+        ->test(UpdatePasswordForm::class)
+        ->assertSet('currentPassword', '')
+        ->assertSet('password', '')
+        ->assertSet('password_confirmation', '')
+        ->assertViewIs('ark-fortify::profile.update-password-form')
+        ->set('currentPassword', 'password')
+        ->set('password', 'password')
+        ->set('password_confirmation', 'password')
+        ->assertHasErrors('password')
+        ->set('password', 'password12!A%.-')
+        ->assertHasNoErrors('password');
+});
