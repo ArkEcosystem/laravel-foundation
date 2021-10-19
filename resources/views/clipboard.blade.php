@@ -1,7 +1,12 @@
 <div
     x-data="clipboard()"
     x-init="initClipboard()"
+    class="{{ $wrapperClass ?? '' }}"
 >
+    @if ($text ?? false)
+        {{ $text }}
+    @endif
+
     <button
         type="button"
         class="clipboard @unless($noStyling ?? false) button-icon @endif {{ $class ?? 'h-10 w-12' }}"
