@@ -20,6 +20,6 @@ final class ServiceName implements Rule
 
     public function message()
     {
-        return trans("ui::validation.custom.{$this->service}_name");
+        return trans("ui::validation.social.{$this->service}_name");
     }
 }

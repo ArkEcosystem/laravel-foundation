@@ -42,6 +42,6 @@ final class ServiceLink implements Rule
 
     public function message()
     {
-        return trans('ui::validation.custom.'.Str::snake($this->service).'_url');
+        return trans('ui::validation.social.'.Str::snake($this->service).'_url');
     }
 }
