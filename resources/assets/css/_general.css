@@ -78,15 +78,6 @@ h4,
 }
 
 /* Header Responsiveness */
-@screen sm {
-    h3,
-    h4,
-    .header-3,
-    .header-4 {
-        @apply text-xl;
-    }
-}
-
 @screen md {
     h1,
     .header-1 {

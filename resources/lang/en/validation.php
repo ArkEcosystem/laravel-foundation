@@ -42,4 +42,32 @@ return [
             'blacklisted'                     => 'This :attribute is unavailable.',
         ],
     ],
+
+    // Social Rules
+    'social' => [
+        'video' => [
+            'url' => 'The given video URL is not properly formatted. A valid URL must start with http[s]://',
+        ],
+        'website' => [
+            'url' => 'The given website URL is not properly formatted. A valid URL must start with http[s]://',
+        ],
+        'bitbucket_url' => 'The given URL is not a valid Bitbucket URL',
+        'discord_url'   => 'The given URL is not a valid Discord URL',
+        'facebook_url'  => 'The given URL is not a valid Facebook profile URL',
+        'github_url'    => 'The given URL is not a valid Github URL',
+        'gitlab_url'    => 'The given URL is not a valid Gitlab URL',
+        'hive_url'      => 'The given URL is not a valid Hive URL',
+        'instagram_url' => 'The given URL is not a valid Instagram URL',
+        'linkedin_url'  => 'The given URL is not a valid LinkedIn profile URL',
+        'medium_url'    => 'The given URL is not a valid medium profile URL',
+        'reddit_url'    => 'The given URL is not a valid Reddit URL',
+        'slack_url'     => 'The given URL is not a valid Slack URL',
+        'telegram_url'  => 'The given URL is not a valid Telegram URL',
+        'twitter_name'  => 'The given name is not a valid Twitter profile name',
+        'twitter_url'   => 'The given URL is not a valid Twitter profile URL',
+        'website_url'   => 'The given website URL is not properly formatted. A valid URL must start with http[s]://',
+        'weibo_url'     => 'The given URL is not a valid Weibo URL',
+        'youtube_url'   => 'The given URL is not a valid YouTube Channel URL',
+    ],
+
 ];
