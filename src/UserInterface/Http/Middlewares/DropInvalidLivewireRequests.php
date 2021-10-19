@@ -47,7 +47,7 @@ final class DropInvalidLivewireRequests
      */
     private function usesAValidSignature(Request $request) : bool
     {
-        if ($request->filled(['expires', 'signature'])) {
+        if ($request->filled('signature')) {
             return $request->hasValidSignature();
         }
 
