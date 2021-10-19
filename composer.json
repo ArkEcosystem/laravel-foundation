@@ -21,7 +21,7 @@
         "friendsofphp/php-cs-fixer": "^3.2",
         "google/recaptcha": "^1.2",
         "graham-campbell/analyzer": "^3.0",
-        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/guzzle": "^7.4",
         "illuminate/bus": "^8.64",
         "illuminate/contracts": "^8.64",
         "illuminate/http": "^8.64",
