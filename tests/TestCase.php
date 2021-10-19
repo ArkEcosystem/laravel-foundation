@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use ARKEcosystem\Foundation\Providers\CommonMarkServiceProvider;
+use ARKEcosystem\Foundation\Providers\FortifyServiceProvider;
+use ARKEcosystem\Foundation\Providers\HermesServiceProvider;
+use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
+use ARKEcosystem\Foundation\Providers\RulesServiceProvider;
+use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
 use Illuminate\Support\Facades\View;
+use Laravel\Fortify\FortifyServiceProvider as LaravelFortifyServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Newsletter\NewsletterServiceProvider;
-use ARKEcosystem\Foundation\Providers\RulesServiceProvider;
-use ARKEcosystem\Foundation\Providers\HermesServiceProvider;
-use ARKEcosystem\Foundation\Providers\FortifyServiceProvider;
-use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
-use ARKEcosystem\Foundation\Providers\CommonMarkServiceProvider;
-use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
-use Laravel\Fortify\FortifyServiceProvider as LaravelFortifyServiceProvider;
 
 /**
  * @coversNothing
