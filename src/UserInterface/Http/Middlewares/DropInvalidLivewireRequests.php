@@ -17,7 +17,7 @@ final class DropInvalidLivewireRequests
             return $next($request);
         }
 
-        if ($this->usesAValidSignature($request)) {
+        if ($this->hasValidSignature($request)) {
             return $next($request);
         }
 
@@ -45,7 +45,7 @@ final class DropInvalidLivewireRequests
      *
      * @return bool
      */
-    private function usesAValidSignature(Request $request) : bool
+    private function hasValidSignature(Request $request) : bool
     {
         if ($request->filled('signature')) {
             return $request->hasValidSignature();
