@@ -6,6 +6,8 @@
     'isArkProduct'  => true,
     'socials'       => null,
     'copyrightSlot' => null,
+    'privacyPolicyUrl' => null,
+    'cookiePolicyUrl' => null,
 ])
 
 <div {{ $attributes->merge(['class' => 'border-t bg-theme-secondary-900 border-theme-secondary-800']) }}>
@@ -16,6 +18,8 @@
             :copy-text="$copyText"
             :socials="$socials"
             :copyright-slot="$copyrightSlot"
+            :privacyPolicyUrl="$privacyPolicyUrl"
+            :cookiePolicyUrl="$cookiePolicyUrl"
             no-border
         />
     </div>
@@ -27,5 +31,7 @@
         :copy-text="$copyText"
         :socials="$socials"
         :copyright-slot="$copyrightSlot"
+        :privacyPolicyUrl="$privacyPolicyUrl"
+        :cookiePolicyUrl="$cookiePolicyUrl"
     />
 </div>

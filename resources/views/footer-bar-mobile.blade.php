@@ -5,6 +5,8 @@
     'copyText'      => null,
     'socials'       => null,
     'copyrightSlot' => null,
+    'privacyPolicyUrl' => null,
+    'cookiePolicyUrl' => null,
 ])
 
 <div class="flex flex-col {{ $class }}">
@@ -13,6 +15,8 @@
         :copy-text="$copyText"
         :class="$copyClass"
         :copyright-slot="$copyrightSlot"
+        :privacyPolicyUrl="$privacyPolicyUrl"
+        :cookiePolicyUrl="$cookiePolicyUrl"
     />
 
     <x-ark-footer-social :networks="$socials" />

@@ -11,4 +11,6 @@ return [
     'profile_avatar_alt'  => 'Profile Avatar',
     'no-results'          => 'We could not find anything matching your search criteria, please try again!',
     'all_rights_reserved' => 'All Rights Reserved',
+    'privacy_policy'      => 'Privacy Policy',
+    'cookie_policy'       => 'Cookie Policy',
 ];
