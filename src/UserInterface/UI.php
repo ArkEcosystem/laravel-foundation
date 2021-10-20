@@ -34,7 +34,7 @@ class UI
 
         // Extracts the query params that will be added to the page form
         $urlParams = collect(Arr::dot(Arr::except(request()->query(), [$pageName])))
-            ->mapWithKeys(function ($value, $key) {
+            ->mapWithKeys(function ($value, string $key) {
                 $parts = explode('.', $key);
                 // Add square brackets to the query params when needed, example: `&state['all']=1`
                 $key = collect($parts)
