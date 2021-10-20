@@ -40,7 +40,6 @@
 
                         <p class="mt-1 text-xs text-theme-secondary-500">
                             {{ strtoupper(implode(', ', $extensions ?? [])) }} @lang('ui::generic.upload.up_to', ['size' => $size ?? 10, 'filesize' => trans('ui::generic.filesize.mb')])
-                            {{ strtoupper(implode(', ', $extensions ?? [])) }} @lang('ui::generic.up_to') {{ $size ?? '10' }}@lang('ui::generic.filesize.mb')
                         </p>
                     </div>
                 </div>
