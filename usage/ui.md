@@ -32,6 +32,24 @@ mix.webpackConfig({
 ...
 ```
 
+> Be sure to set `render_on_redirect => true` in the Livewire configuration file `config/livewire.php`.
+```php
+    /*
+    |--------------------------------------------------------------------------
+    | Render On Redirect
+    |--------------------------------------------------------------------------
+    |
+    | This value determines whether Livewire will render before it's redirected
+    | or not. Setting it to "false" (default) will mean the render method is
+    | skipped when redirecting. And "true" will mean the render method is
+    | run before redirecting. Browsers bfcache can store a potentially
+    | stale view if render is skipped on redirect.
+    |
+    */
+
+    'render_on_redirect' => true,
+```
+
 **Protip**: instead of running step 3 manually, you can add the following to your `post-autoload-dump` property in `composer.json`:
 
 ```json
