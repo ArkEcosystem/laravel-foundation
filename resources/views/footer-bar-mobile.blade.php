@@ -15,8 +15,8 @@
         :copy-text="$copyText"
         :class="$copyClass"
         :copyright-slot="$copyrightSlot"
-        :privacyPolicyUrl="$privacyPolicyUrl"
-        :cookiePolicyUrl="$cookiePolicyUrl"
+        :privacy-policy-url="$privacyPolicyUrl"
+        :cookie-policy-url="$cookiePolicyUrl"
     />
 
     <x-ark-footer-social :networks="$socials" />

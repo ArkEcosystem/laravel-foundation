@@ -18,8 +18,8 @@
             :copy-text="$copyText"
             :socials="$socials"
             :copyright-slot="$copyrightSlot"
-            :privacyPolicyUrl="$privacyPolicyUrl"
-            :cookiePolicyUrl="$cookiePolicyUrl"
+            :privacy-policy-url="$privacyPolicyUrl"
+            :cookie-policy-url="$cookiePolicyUrl"
             no-border
         />
     </div>
@@ -31,7 +31,7 @@
         :copy-text="$copyText"
         :socials="$socials"
         :copyright-slot="$copyrightSlot"
-        :privacyPolicyUrl="$privacyPolicyUrl"
-        :cookiePolicyUrl="$cookiePolicyUrl"
+        :privacy-policy-url="$privacyPolicyUrl"
+        :cookie-policy-url="$cookiePolicyUrl"
     />
 </div>
