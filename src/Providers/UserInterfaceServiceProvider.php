@@ -106,6 +106,10 @@ class UserInterfaceServiceProvider extends ServiceProvider
         );
 
         $this->publishes([
+            __DIR__.'/../../config/livewire.php' => config_path('livewire.php'),
+        ], 'config');
+
+        $this->publishes([
             __DIR__.'/../../resources/views' => resource_path('views/vendor/ark'),
         ], 'views');
 
