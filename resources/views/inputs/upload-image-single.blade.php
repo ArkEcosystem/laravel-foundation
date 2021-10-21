@@ -15,6 +15,7 @@
     'acceptMime'                => (string) config('ui.upload.image-single.accept-mime'),
     'readonly'                  => false,
     'uploadErrorMessage'        => null,
+    'deleteAction'              => 'deleteImageSingle',
     'withCrop'                  => false,
     'cropOptions'               => "{}",
     'cropTitle'                 => trans('ui::modals.crop-image.title'),
@@ -140,7 +141,7 @@
                     wire:loading.attr="disabled"
                     type="button"
                     class="absolute top-0 right-0 p-1 -mt-2 -mr-2 rounded cursor-pointer bg-theme-danger-100 text-theme-danger-500"
-                    wire:click="deleteImageSingle"
+                    wire:click="{{ $deleteAction }}"
                     data-tippy-hover="{{ $deleteTooltip }}"
                 >
                     <x-ark-icon name="close" size="sm"/>
