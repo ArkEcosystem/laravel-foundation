@@ -32,6 +32,9 @@ mix.webpackConfig({
 ...
 ```
 
+6. Make sure to set `render_on_redirect => true` in the Livewire configuration file at `config/livewire.php`. Alternatively, publish the livewire configuration file from this repository.
+
+
 **Protip**: instead of running step 3 manually, you can add the following to your `post-autoload-dump` property in `composer.json`:
 
 ```json
@@ -361,8 +364,8 @@ import Modal from "@ui/js/modal";
 window.Modal = Modal;
 
 Modal.alpine(
-    {}, // extra data 
-    '', // modal name 
+    {}, // extra data
+    '', // modal name
     { disableFocusTrap: true } // <-- disable focus trap
 )
 ```
