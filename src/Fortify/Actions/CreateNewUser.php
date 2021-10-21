@@ -77,7 +77,7 @@ class CreateNewUser implements CreatesNewUsers
 
             if ($usernameAlt === 'username') {
                 $rules[$usernameAlt][] = resolve(Username::class);
-            } else if ($usernameAlt === 'email') {
+            } elseif ($usernameAlt === 'email') {
                 $rules[$usernameAlt][] = 'email';
             }
         }
