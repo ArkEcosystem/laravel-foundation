@@ -28,4 +28,16 @@ class FoundationServiceProvider extends ServiceProvider
         $this->app->register(RulesServiceProvider::class);
         $this->app->register(UserInterfaceServiceProvider::class);
     }
+
+    /**
+     * Register the publishers.
+     *
+     * @return void
+     */
+    public function registerPublishers(): void
+    {
+        $this->publishes([
+            __DIR__.'/../../config/livewire.php' => config_path('livewire.php'),
+        ], 'config');
+    }
 }
