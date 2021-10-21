@@ -3,10 +3,13 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Fortify\Components\VerifyEmail;
+use Illuminate\Support\Facades\Config;
 use Livewire\Livewire;
 use function Tests\createUserModel;
 
 it('can resend a verification email', function (): void {
+    Config::set('livewire.render_on_redirect', true);
+
     Livewire::actingAs(createUserModel())
         ->test(VerifyEmail::class)
         ->call('resend')
