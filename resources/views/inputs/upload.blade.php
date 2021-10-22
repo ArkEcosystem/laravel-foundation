@@ -34,12 +34,12 @@
                                 class="link"
                                 @if ($click ?? false) @click="{{ $click }}" @endif
                             >
-                                Upload a file
+                                @lang('ui::actions.upload_file')
                             </button>
                         </p>
 
                         <p class="mt-1 text-xs text-theme-secondary-500">
-                            {{ strtoupper(implode(', ', $extensions ?? [])) }} up to {{ $size ?? '10' }}MB
+                            {{ strtoupper(implode(', ', $extensions ?? [])) }} @lang('ui::generic.upload.up_to', ['size' => $size ?? 10, 'filesize' => trans('ui::generic.filesize.mb')])
                         </p>
                     </div>
                 </div>

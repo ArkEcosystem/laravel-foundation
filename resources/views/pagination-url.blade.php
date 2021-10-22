@@ -14,7 +14,7 @@
                 min="1"
                 max="{{ $paginator->lastPage() }}"
                 name="{{ $pageName }}"
-                placeholder="Enter the page"
+                placeholder="{{ trans('ui::actions.enter_the_page') }}"
                 class="py-2 px-3 w-full bg-transparent dark:text-theme-secondary-200"
                 x-on:blur="blurHandler"
             />
@@ -29,11 +29,19 @@
             </button>
         </form>
 
-        <button type="button"
+        <button
+            type="button"
             class="button-pagination-page-indicator button-pagination-page-indicator--search"
             :class="{ 'opacity-0': search }"
             x-on:click="toggleSearch"
-        ><span>Page {{ $paginator->currentPage() }} of {{ $paginator->lastPage() }}</span></button>
+        >
+            <span>
+                @lang('ui::generic.pagination.current_to', [
+                    'currentPage' => $paginator->currentPage(),
+                    'lastPage' => $paginator->lastPage()
+                ])
+            </span
+        ></button>
     </div>
 
     <div class="flex space-x-3">
@@ -56,14 +64,14 @@
         @if($paginator->onFirstPage())
             <div class="flex items-center button-generic button-disabled">
                 <div class="flex items-center">
-                    <span class="hidden lg:flex lg:ml-2">Previous</span>
+                    <span class="hidden lg:flex lg:ml-2">@lang('ui::generic.previous')</span>
                 </div>
             </div>
         @else
             <a class="flex" href="{{ $paginator->previousPageUrl() }}">
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
                     <div class="flex items-center">
-                        <span class="hidden lg:flex lg:ml-2">Previous</span>
+                        <span class="hidden lg:flex lg:ml-2">@lang('ui::generic.previous')</span>
                     </div>
                 </div>
             </a>
@@ -78,7 +86,7 @@
                     min="1"
                     max="{{ $paginator->lastPage() }}"
                     name="{{ $pageName }}"
-                    placeholder="Enter the page number"
+                    placeholder="{{ trans('ui::actions.enter_the_page_number') }}"
                     class="py-2 px-3 w-full bg-transparent dark:text-theme-secondary-200"
                     x-on:blur="blurHandler"
                 />
@@ -128,7 +136,14 @@
                     type="button"
                     class="button-pagination-page-indicator button-pagination-page-indicator--search"
                     :class="{ 'opacity-0': search }"
-                ><span>Page {{ $paginator->currentPage() }} of {{ $paginator->lastPage() }}</span></button>
+                >
+                    <span>
+                        @lang('ui::generic.pagination.current_to', [
+                            'currentPage' => $paginator->currentPage(),
+                            'lastPage' => $paginator->lastPage()
+                        ])
+                    </span>
+                </button>
             </div>
         </div>
 
@@ -136,14 +151,14 @@
             <a class="flex" href="{{ $paginator->nextPageUrl() }}">
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
                     <div class="flex items-center">
-                        <span class="hidden lg:flex lg:mr-2">Next</span>
+                        <span class="hidden lg:flex lg:mr-2">@lang('ui::generic.next')</span>
                     </div>
                 </div>
             </a>
         @else
             <div class="flex items-center button-generic button-disabled">
                 <div class="flex items-center">
-                    <span class="hidden lg:flex lg:mr-2">Next</span>
+                    <span class="hidden lg:flex lg:mr-2">@lang('ui::generic.next')</span>
                 </div>
             </div>
         @endif
