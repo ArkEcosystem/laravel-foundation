@@ -114,7 +114,7 @@
                     <x-ark-icon name="upload-cloud" size="lg"/>
                 </div>
 
-                <div class="font-semibold text-theme-secondary-900">{{ $uploadText }}</div>
+                <div class="font-semibold text-theme-secondary-900">{!! $uploadText !!}</div>
 
                 <div class="text-xs font-semibold text-theme-secondary-500">
                     @lang('ui::forms.upload-image.min_size', [$minWidth, $minHeight])
