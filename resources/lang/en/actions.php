@@ -46,4 +46,9 @@ return [
     'recovery_codes'            => 'Recovery Codes',
     'confirm'                   => 'Confirm',
     'resend_email_verification' => 'click here to request another',
+
+    'drag_to_reposition'    => 'Drag to reposition',
+    'upload_file'           => 'Upload a file',
+    'enter_the_page'        => 'Enter the page',
+    'enter_the_page_number' => 'Enter the page number',
 ];
