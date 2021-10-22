@@ -88,7 +88,7 @@
                                 @if($sortable)
                                     <x-ark-icon name="drag" size="lg" class="text-white"/>
                                     <p class="mt-3 text-xs font-semibold text-theme-secondary-500">
-                                        Drag to reposition
+                                        @lang('ui::actions.drag_to_reposition')
                                     </p>
                                 @endif
                             </div>
