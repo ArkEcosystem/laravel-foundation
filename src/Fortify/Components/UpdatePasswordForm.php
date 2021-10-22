@@ -50,11 +50,6 @@ class UpdatePasswordForm extends Component
         $this->emit('toastMessage', [trans('ui::pages.user-settings.password_updated'), 'success']);
     }
 
-    public function updated(string $property): void
-    {
-        $this->clearValidation($property);
-    }
-
     /**
      * Render the component.
      *
