@@ -30,7 +30,7 @@ trait ValidatesPassword
         $this->passwordRules['min']       = $this->passes(Password::min(12), $password);
         $this->passwordRules['numbers']   = $this->passes(Password::min(0)->numbers(), $password);
         $this->passwordRules['symbols']   = $this->passes(Password::min(0)->symbols(), $password);
-        $this->passwordRules['leak']      = $this->passes(Password::min(8)->uncompromised(0)->symbols(), $password);
+        $this->passwordRules['leak']      = $this->passes(Password::min(0)->uncompromised(0), $password);
 
         if (! $this->passwordRules['leak']) {
             $this->addError('password', trans('ui::validation.password_leaked'));
