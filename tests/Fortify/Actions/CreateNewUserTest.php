@@ -281,3 +281,17 @@ it('should work with username authentication', function () {
     $this->assertSame('John Doe', $user->name);
     $this->assertTrue(Hash::check($this->validPassword, $user->password));
 });
+
+it('should validate correctly with alt username set to email', function () {
+    Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
+    Config::set('fortify.username_alt', 'email');
+
+    expect(fn () => (new CreateNewUser())->create([
+        'name'                  => 'John Doe',
+        'username'              => 'alfonsobries',
+        'email'                 => 'johndoe.com',
+        'password'              => $this->validPassword,
+        'password_confirmation' => $this->validPassword,
+        'terms'                 => true,
+    ]))->toThrow('The given data was invalid.');
+});
