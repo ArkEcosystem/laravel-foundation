@@ -106,7 +106,7 @@
 
         @if (!$image && !$readonly)
             <div
-                wire:key="upload-button"
+                wire:key="upload-button-{{ $id }}"
                 class="flex absolute top-2 right-2 bottom-2 left-2 flex-col justify-center items-center space-y-2 rounded-xl cursor-pointer pointer-events-none"
                 role="button"
             >
