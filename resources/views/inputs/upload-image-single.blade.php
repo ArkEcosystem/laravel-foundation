@@ -15,6 +15,7 @@
     'acceptMime'                => (string) config('ui.upload.image-single.accept-mime'),
     'readonly'                  => false,
     'uploadErrorMessage'        => null,
+    'deleteAction'              => 'deleteImageSingle',
     'withCrop'                  => false,
     'cropOptions'               => "{}",
     'cropTitle'                 => trans('ui::modals.crop-image.title'),
@@ -105,7 +106,7 @@
 
         @if (!$image && !$readonly)
             <div
-                wire:key="upload-button"
+                wire:key="upload-button-{{ $id }}"
                 class="flex absolute top-2 right-2 bottom-2 left-2 flex-col justify-center items-center space-y-2 rounded-xl cursor-pointer pointer-events-none"
                 role="button"
             >
@@ -113,7 +114,7 @@
                     <x-ark-icon name="upload-cloud" size="lg"/>
                 </div>
 
-                <div class="font-semibold text-theme-secondary-900">{{ $uploadText }}</div>
+                <div class="font-semibold text-theme-secondary-900">{!! $uploadText !!}</div>
 
                 <div class="text-xs font-semibold text-theme-secondary-500">
                     @lang('ui::forms.upload-image.min_size', [$minWidth, $minHeight])
@@ -140,7 +141,7 @@
                     wire:loading.attr="disabled"
                     type="button"
                     class="absolute top-0 right-0 p-1 -mt-2 -mr-2 rounded cursor-pointer bg-theme-danger-100 text-theme-danger-500"
-                    wire:click="deleteImageSingle"
+                    wire:click="{{ $deleteAction }}"
                     data-tippy-hover="{{ $deleteTooltip }}"
                 >
                     <x-ark-icon name="close" size="sm"/>

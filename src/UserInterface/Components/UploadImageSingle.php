@@ -24,11 +24,11 @@ trait UploadImageSingle
 
     abstract public function deleteImageSingle();
 
-    public function validateImageSingle(): void
+    public function validateImageSingle(string $propertyName = 'imageSingle'): void
     {
         $validator = Validator::make([
-            'imageSingle' => $this->imageSingle,
-        ], $this->imageSingleValidators());
+            $propertyName => $this->$propertyName,
+        ], $this->imageSingleValidators($propertyName));
 
         if ($validator->fails()) {
             foreach ($validator->errors()->all() as $error) {
@@ -39,10 +39,10 @@ trait UploadImageSingle
         }
     }
 
-    public function imageSingleValidators(): array
+    public function imageSingleValidators(string $propertyName = 'imageSingle'): array
     {
         return [
-            'imageSingle' => [
+            $propertyName => [
                 'mimes:'.(string) config('ui.upload.image-single.accept-mime'),
                 'max:'.(string) config('ui.upload.image-single.max-filesize'),
                 Rule::dimensions()
