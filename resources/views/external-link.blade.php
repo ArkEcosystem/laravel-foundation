@@ -1,10 +1,11 @@
 @props([
     'url',
     'text',
-    'class'     => 'link font-semibold inline break-words',
-    'small'     => false,
-    'noIcon'    => false,
-    'tooltip'   => null,
+    'class'         => 'link font-semibold inline break-words',
+    'small'         => false,
+    'noIcon'        => false,
+    'noIconTooltip' => null,
+    'tooltip'       => null,
 ])
 
 <a
@@ -16,7 +17,7 @@
     <span @if($tooltip) data-tippy-content="{{ $tooltip }}" @endif>{{ isset($slot) && trim($slot) ? $slot : $text }}</span>
 
     @unless($noIcon)
-        <div @if($tooltip) data-tippy-content="{{ $tooltip }}" @endif>
+        <div @if($noIconTooltip) data-tippy-content="{{ $noIconTooltip }}" @endif>
             <x-ark-icon
                 name="link"
                 :size="$small ? 'xs' : 'sm'"
