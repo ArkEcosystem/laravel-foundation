@@ -111,7 +111,7 @@ class CreateNewUser implements CreatesNewUsers
 
         if (Fortify::username() === 'email') {
             $rules[] = 'email';
-        } else if (Fortify::username() === 'username') {
+        } elseif (Fortify::username() === 'username') {
             $rules[] = resolve(Username::class);
         }
 
