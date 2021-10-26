@@ -264,6 +264,21 @@ it('should require to have a properly formatted username', function () {
     ]), 'username', trans('ui::validation.messages.username.special_character_start'));
 });
 
+it('should validate username correctly if it is the primary username field', function () {
+    Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
+    Config::set('fortify.username', 'username');
+    Config::set('fortify.username_alt', 'email');
+
+    expectValidationError(fn () => (new CreateNewUser())->create([
+        'name'                  => 'John Doe',
+        'username'              => '_johndoe',
+        'email'                 => 'john@doe.com',
+        'password'              => 'sec$r2t12345',
+        'password_confirmation' => 'sec$r2t12345',
+        'terms'                 => true,
+    ]), 'username', trans('ui::validation.messages.username.special_character_start'));
+});
+
 it('should work with username authentication', function () {
     Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
     Config::set('fortify.username_alt', 'username');
