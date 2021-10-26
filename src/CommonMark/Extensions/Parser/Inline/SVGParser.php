@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\CommonMark\Extensions\Parser\Inline;
 
+use League\CommonMark\Extension\CommonMark\Node\Inline\HtmlInline;
 use League\CommonMark\Parser\Inline\InlineParserInterface;
 use League\CommonMark\Parser\Inline\InlineParserMatch;
 use League\CommonMark\Parser\InlineParserContext;
-use League\CommonMark\Extension\CommonMark\Node\Inline\HtmlInline;
 
 final class SVGParser implements InlineParserInterface
 {
