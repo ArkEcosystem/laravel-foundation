@@ -72,8 +72,14 @@ class CreateNewUser implements CreatesNewUsers
 
         if ($usernameAlt = Config::get('fortify.username_alt')) {
             $rules[$usernameAlt] = [
-                'required', 'string', 'unique:users', resolve(Username::class),
+                'required', 'string', 'unique:users',
             ];
+
+            if ($usernameAlt === 'username') {
+                $rules[$usernameAlt][] = new Username();
+            } elseif ($usernameAlt === 'email') {
+                $rules[$usernameAlt][] = 'email';
+            }
         }
 
         return $rules;
@@ -105,6 +111,8 @@ class CreateNewUser implements CreatesNewUsers
 
         if (Fortify::username() === 'email') {
             $rules[] = 'email';
+        } elseif (Fortify::username() === 'username') {
+            $rules[] = new Username();
         }
 
         return $rules;

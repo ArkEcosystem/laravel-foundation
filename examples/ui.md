@@ -196,14 +196,21 @@ mix
 ```
 
 #### Crop functionality (optional)
+
 1. Import the following scripts inside the `<head>` tag of your template.
+
 ```html
 @push('scripts')
     <x-ark-pages-includes-crop-image-scripts />
 @endpush
 ```
 
-2. Copy the `crop-image.js` script into the public folder:
+2. Add `cropperjs` as a dependency.
+
+`yarn add cropperjs`
+
+3. Copy the `crop-image.js` script into the public folder:
+
 ```js
 mix
     .js('vendor/arkecosystem/foundation/resources/assets/js/crop-image.js', 'public/js/crop-image.js')

@@ -20,7 +20,7 @@
                             class="inline-block mr-1 -mt-1"
                         />
 
-                        An <a href="https://ark.io/" class="underline hover:no-underline focus-visible:rounded">ARK.io</a> Product
+                        An <a href="https://ark.io/" class="underline hover:no-underline focus-visible:rounded">ARK.io</a> @lang('ui::generic.product')
                     </span>
                 </div>
             @endif

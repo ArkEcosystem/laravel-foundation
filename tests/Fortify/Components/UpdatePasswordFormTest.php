@@ -107,6 +107,11 @@ it('handles password being empty string', function () {
 it('handles password being leaked', function () {
     $user = createUserModel();
 
+    $this->mock(UncompromisedVerifier::class)
+        ->shouldReceive('verify')
+        ->with(['value' => 'LeakedPassw0rd!', 'threshold' => 0])
+        ->andReturn(false);
+
     Livewire::actingAs($user)
         ->test(UpdatePasswordForm::class)
         ->assertSet('currentPassword', '')
@@ -114,14 +119,14 @@ it('handles password being leaked', function () {
         ->assertSet('password_confirmation', '')
         ->assertViewIs('ark-fortify::profile.update-password-form')
         ->set('currentPassword', 'password')
-        ->set('password', 'password')
-        ->set('password_confirmation', 'password')
+        ->set('password', 'LeakedPassw0rd!')
+        ->set('password_confirmation', 'LeakedPassw0rd!')
         ->assertSet('passwordRules', [
             'lowercase'  => true,
-            'uppercase'  => false,
-            'numbers'    => false,
-            'symbols'    => false,
-            'min'        => false,
+            'uppercase'  => true,
+            'numbers'    => true,
+            'symbols'    => true,
+            'min'        => true,
             'leak'       => false,
         ]);
 });
@@ -178,6 +183,7 @@ it('resets password validation on typing', function () {
         ->set('currentPassword', 'password')
         ->set('password', 'password')
         ->set('password_confirmation', 'password')
+        ->call('updatePassword')
         ->assertHasErrors('password')
         ->set('password', 'password12!A%.-')
         ->assertHasNoErrors('password');
