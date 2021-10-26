@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6c3d071800b8280dc21590079b338d8",
+    "content-hash": "1e44b6f882644dcd5a7b4d29ddd0b4cb",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -348,12 +348,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "b99e21259c09a6da2614f286b7ad548fec8036a0"
+                "reference": "f267b01852985da79d2f86f3d0610b8b66feb363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/b99e21259c09a6da2614f286b7ad548fec8036a0",
-                "reference": "b99e21259c09a6da2614f286b7ad548fec8036a0",
+                "url": "https://api.github.com/repos/composer/composer/zipball/f267b01852985da79d2f86f3d0610b8b66feb363",
+                "reference": "f267b01852985da79d2f86f3d0610b8b66feb363",
                 "shasum": ""
             },
             "require": {
@@ -439,7 +439,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-20T20:20:33+00:00"
+            "time": "2021-10-25T19:42:03+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -512,16 +512,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.2.5",
+            "version": "3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "31f3ea725711245195f62e54ffa402d8ef2fdba9"
+                "reference": "83e511e247de329283478496f7a1e114c9517506"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/31f3ea725711245195f62e54ffa402d8ef2fdba9",
-                "reference": "31f3ea725711245195f62e54ffa402d8ef2fdba9",
+                "url": "https://api.github.com/repos/composer/semver/zipball/83e511e247de329283478496f7a1e114c9517506",
+                "reference": "83e511e247de329283478496f7a1e114c9517506",
                 "shasum": ""
             },
             "require": {
@@ -573,7 +573,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.2.5"
+                "source": "https://github.com/composer/semver/tree/3.2.6"
             },
             "funding": [
                 {
@@ -589,7 +589,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-24T12:41:47+00:00"
+            "time": "2021-10-25T11:34:17+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -4392,16 +4392,16 @@
         },
         {
             "name": "nunomaduro/larastan",
-            "version": "dev-master",
+            "version": "v0.7.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/larastan.git",
-                "reference": "4f54a8bfca7b30ccb878ba700c8227f329307f19"
+                "reference": "af14aa59e1ef791df12329de09a4ff99eceb9af2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/4f54a8bfca7b30ccb878ba700c8227f329307f19",
-                "reference": "4f54a8bfca7b30ccb878ba700c8227f329307f19",
+                "url": "https://api.github.com/repos/nunomaduro/larastan/zipball/af14aa59e1ef791df12329de09a4ff99eceb9af2",
+                "reference": "af14aa59e1ef791df12329de09a4ff99eceb9af2",
                 "shasum": ""
             },
             "require": {
@@ -4427,7 +4427,6 @@
             "suggest": {
                 "orchestra/testbench": "Using Larastan for analysing a package needs Testbench"
             },
-            "default-branch": true,
             "type": "phpstan-extension",
             "extra": {
                 "branch-alias": {
@@ -4467,7 +4466,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/larastan/issues",
-                "source": "https://github.com/nunomaduro/larastan/tree/master"
+                "source": "https://github.com/nunomaduro/larastan/tree/v0.7.14"
             },
             "funding": [
                 {
@@ -4487,7 +4486,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-10-19T13:40:15+00:00"
+            "time": "2021-10-25T15:56:03+00:00"
         },
         {
             "name": "nunomaduro/laravel-mojito",
@@ -13421,9 +13420,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "nunomaduro/larastan": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
