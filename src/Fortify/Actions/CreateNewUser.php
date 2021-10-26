@@ -76,7 +76,7 @@ class CreateNewUser implements CreatesNewUsers
             ];
 
             if ($usernameAlt === 'username') {
-                $rules[$usernameAlt][] = resolve(Username::class);
+                $rules[$usernameAlt][] = new Username();
             } elseif ($usernameAlt === 'email') {
                 $rules[$usernameAlt][] = 'email';
             }
@@ -112,7 +112,7 @@ class CreateNewUser implements CreatesNewUsers
         if (Fortify::username() === 'email') {
             $rules[] = 'email';
         } elseif (Fortify::username() === 'username') {
-            $rules[] = resolve(Username::class);
+            $rules[] = new Username();
         }
 
         return $rules;
