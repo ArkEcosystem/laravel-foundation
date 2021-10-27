@@ -7,6 +7,7 @@ namespace ARKEcosystem\Foundation\Fortify\Components;
 use ARKEcosystem\Foundation\Fortify\Components\Concerns\ValidatesPassword;
 use ARKEcosystem\Foundation\Fortify\Models;
 use Livewire\Component;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterForm extends Component
 {
@@ -27,6 +28,32 @@ class RegisterForm extends Component
     public string $formUrl;
 
     public ?string $invitationId = null;
+
+    protected array $requiredProperties = [
+        'name',
+        'username',
+        'email',
+        'password',
+        'password_confirmation',
+        'terms',
+    ];
+
+    /** @phpstan-ignore-next-line | should be `protected` for Livewire to work */
+    protected function rules(): array
+    {
+        $action = config('fortify.actions.create_new_user');
+        $rules = collect($action::createValidationRules())
+            ->filter(fn ($value, $key) => property_exists($this, $key))
+            ->toArray();
+
+        if ($this->invitationId !== null) {
+            /** @var CollaboratorInvitation $invitation */
+            $invitation       = $this->getInvitation();
+            $rules['email'][] = 'in:'.$invitation->email;
+        }
+
+        return $rules;
+    }
 
     public function mount()
     {
@@ -54,14 +81,42 @@ class RegisterForm extends Component
 
     public function canSubmit(): bool
     {
-        $requiredProperties = ['name', 'username', 'email', 'password', 'password_confirmation', 'terms'];
-
-        foreach ($requiredProperties as $property) {
+        foreach ($this->requiredProperties as $property) {
             if (! $this->$property) {
                 return false;
             }
         }
 
         return $this->getErrorBag()->count() === 0;
+    }
+
+    public function updated(string $propertyName): void
+    {
+        if ($propertyName === 'password_confirmation') {
+            $this->validateOnly('password', ['password' => 'confirmed']);
+
+            return;
+        }
+
+        $value = $this->{$propertyName};
+        if ($propertyName === 'email') {
+            $value = strtolower($value);
+        }
+
+        $validator = Validator::make([
+            $propertyName => $value,
+        ], [
+            $propertyName => $this->rules()[$propertyName],
+        ]);
+
+        if ($validator->fails()) {
+            $this->setErrorBag(
+                $validator->getMessageBag()->merge($this->getErrorBag())
+            );
+
+            return;
+        }
+
+        $this->resetErrorBag($propertyName);
     }
 }
