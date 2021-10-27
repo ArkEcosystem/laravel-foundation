@@ -42,17 +42,10 @@ class RegisterForm extends Component
     protected function rules(): array
     {
         $action = config('fortify.actions.create_new_user', CreateNewUser::class);
-        $rules  = collect($action::createValidationRules())
+
+        return collect($action::createValidationRules())
             ->filter(fn ($value, $key) => property_exists($this, $key))
             ->toArray();
-
-        if ($this->invitationId !== null) {
-            /** @var CollaboratorInvitation $invitation */
-            $invitation       = $this->getInvitation();
-            $rules['email'][] = 'in:'.$invitation->email;
-        }
-
-        return $rules;
     }
 
     public function mount()
