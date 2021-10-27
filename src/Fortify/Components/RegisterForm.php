@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Components;
 
-use ARKEcosystem\Foundation\Fortify\Components\Concerns\ValidatesPassword;
 use ARKEcosystem\Foundation\Fortify\Actions\CreateNewUser;
+use ARKEcosystem\Foundation\Fortify\Components\Concerns\ValidatesPassword;
 use ARKEcosystem\Foundation\Fortify\Models;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
