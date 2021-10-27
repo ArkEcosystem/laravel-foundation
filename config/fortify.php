@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use ARKEcosystem\Foundation\Fortify\Actions\CreateNewUser;
 use Laravel\Fortify\Features;
 
 return [
@@ -141,6 +142,19 @@ return [
     'models' => [
         'user'       => '',
         'invitation' => '',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Actions
+    |--------------------------------------------------------------------------
+    |
+    | Model mapping which allows overriding of models on a per-project basis.
+    |
+    */
+
+    'actions' => [
+        'create_new_user' => CreateNewUser::class,
     ],
 
     /*
