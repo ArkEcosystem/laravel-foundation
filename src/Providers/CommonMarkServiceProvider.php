@@ -10,6 +10,7 @@ use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\FencedCodeRenderer
 use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\IndentedCodeRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Image\ImageRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Link\LinkRenderer;
+use ARKEcosystem\Foundation\CommonMark\Extensions\Parser\Inline\SVGParser;
 use ARKEcosystem\Foundation\CommonMark\View\BladeEngine;
 use ARKEcosystem\Foundation\CommonMark\View\BladeMarkdownEngine;
 use ARKEcosystem\Foundation\CommonMark\View\FileViewFinder;
@@ -165,6 +166,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
         $environment->addInlineParser(new CloseBracketParser(), 30);
         $environment->addInlineParser(new OpenBracketParser(), 20);
         $environment->addInlineParser(new BangParser(), 10);
+        $environment->addInlineParser(new SVGParser(), 10);
 
         $environment->addRenderer(BlockQuote::class, new BlockQuoteRenderer(), 0);
         $environment->addRenderer(Document::class, new DocumentRenderer(), 0);
