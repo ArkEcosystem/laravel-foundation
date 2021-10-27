@@ -97,7 +97,11 @@
         </div>
 
         <div class="text-right">
-            <button type="submit" class="w-full sm:w-auto button-secondary">
+            <button
+                type="submit"
+                class="w-full sm:w-auto button-secondary"
+                {{ ! $this->canSubmit() ? 'disabled' : '' }}
+            >
                 @lang('ui::actions.sign_up')
             </button>
         </div>
