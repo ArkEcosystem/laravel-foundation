@@ -55,7 +55,6 @@ final class UniqueCaseInsensitive implements Rule
 
     public function message()
     {
-        // return $this->getMessage('username', 'unique_case_insensitive');
         return trans('validation.messages.unique_case_insensitive');
     }
 }
