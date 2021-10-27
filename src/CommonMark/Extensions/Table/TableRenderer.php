@@ -25,11 +25,7 @@ final class TableRenderer implements NodeRendererInterface, XmlNodeRendererInter
 
         $table = new HtmlElement('table', $attrs, $separator.\trim($children).$separator);
 
-        try {
-            $table->setContents($table->getContents());
-        } catch (\Throwable) {
-            $table->setContents($table->getContents());
-        }
+        $table->setContents($table->getContents());
 
         $container = new HtmlElement('div', ['class' => 'table-wrapper overflow-x-auto']);
         $container->setContents($table);
