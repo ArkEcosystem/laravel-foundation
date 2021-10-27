@@ -26,7 +26,7 @@
                         <x-ark-icon name="fortify-modal.delete-account" class="w-2/3 h-auto text-theme-primary-600"/>
                     </div>
                     <div class="mt-4">
-                        @lang('ui::forms.delete-user.confirmation')
+                        @lang('forms.delete-user.confirmation')
                     </div>
                 </div>
                 <form class="mt-8">
