@@ -38,7 +38,6 @@ class RegisterForm extends Component
         'terms',
     ];
 
-    /** @phpstan-ignore-next-line | should be `protected` for Livewire to work */
     protected function rules(): array
     {
         $action = config('fortify.actions.create_new_user');
