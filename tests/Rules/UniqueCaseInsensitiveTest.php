@@ -47,5 +47,5 @@ it('should fail with duplicate case insensitive data', function () {
 });
 
 it('should return validation message', function () {
-    expect($this->subject->message())->toBe('validation.messages.unique_case_insensitive');
+    expect($this->subject->message())->toBe(trans('ui::validation.messages.unique_case_insensitive'));
 });
