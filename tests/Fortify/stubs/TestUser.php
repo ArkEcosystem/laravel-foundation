@@ -20,9 +20,9 @@ final class TestUser extends Model
 
     public ?int $user_id = null;
 
-    protected $guarded = [];
-
     public static $model = null;
+
+    protected $guarded = [];
 
     public static function findByUuid(string $uuid): ?Model
     {

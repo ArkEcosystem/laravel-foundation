@@ -48,16 +48,6 @@ class UserWithoutVerification extends Authenticatable implements ExportsPersonal
     ];
 
     /**
-     * Create a new factory instance for the model.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    protected static function newFactory()
-    {
-        return new UserFactory();
-    }
-
-    /**
      * @codeCoverageIgnore
      */
     public function selectPersonalData(PersonalDataSelection $personalData): void
@@ -74,5 +64,15 @@ class UserWithoutVerification extends Authenticatable implements ExportsPersonal
     public function personalDataExportName(): string
     {
         return 'personal-data-'.Str::slug($this->name).'.zip';
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        return new UserFactory();
     }
 }

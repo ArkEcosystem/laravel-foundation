@@ -85,11 +85,6 @@ class CreateNewUser implements CreatesNewUsers
         return $rules;
     }
 
-    private function buildValidator(array $input): Illuminate
-    {
-        return Validator::make($input, static::createValidationRules());
-    }
-
     public function getUserData(array $input): array
     {
         $userData = [
@@ -116,5 +111,10 @@ class CreateNewUser implements CreatesNewUsers
         }
 
         return $rules;
+    }
+
+    private function buildValidator(array $input): Illuminate
+    {
+        return Validator::make($input, static::createValidationRules());
     }
 }

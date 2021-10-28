@@ -137,6 +137,23 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
     }
 
+    public function registerRoutes(): void
+    {
+        Route::middleware('web')->group(function () {
+            Route::view(config('fortify.routes.feedback_thank_you'), 'ark-fortify::profile.feedback-thank-you')
+                ->name('profile.feedback.thank-you')
+                ->middleware('signed');
+
+            Route::get(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'create'])
+                ->name('two-factor.reset-password')
+                ->middleware('guest');
+
+            Route::post(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'store'])
+                ->name('two-factor.reset-password-store')
+                ->middleware('guest');
+        });
+    }
+
     /**
      * Register the views.
      *
@@ -228,22 +245,5 @@ class FortifyServiceProvider extends ServiceProvider
             SuccessfulPasswordResetLinkRequestResponse::class,
             FortifySuccessfulPasswordResetLinkRequestResponse::class
         );
-    }
-
-    public function registerRoutes(): void
-    {
-        Route::middleware('web')->group(function () {
-            Route::view(config('fortify.routes.feedback_thank_you'), 'ark-fortify::profile.feedback-thank-you')
-                ->name('profile.feedback.thank-you')
-                ->middleware('signed');
-
-            Route::get(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'create'])
-                ->name('two-factor.reset-password')
-                ->middleware('guest');
-
-            Route::post(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'store'])
-                ->name('two-factor.reset-password-store')
-                ->middleware('guest');
-        });
     }
 }
