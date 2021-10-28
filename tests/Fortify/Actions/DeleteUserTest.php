@@ -6,8 +6,6 @@ use ARKEcosystem\Foundation\Fortify\Actions\DeleteUser;
 use ARKEcosystem\Foundation\Fortify\Models\User;
 
 it('should delete a user', function () {
-    Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
-
     $user = User::create([
         'name'     => 'John Doe',
         'username' => 'johndoe',
