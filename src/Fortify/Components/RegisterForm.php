@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Components;
 
-use ARKEcosystem\Foundation\Fortify\Actions\CreateNewUser;
 use ARKEcosystem\Foundation\Fortify\Components\Concerns\ValidatesPassword;
 use ARKEcosystem\Foundation\Fortify\Models;
-use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Livewire\Component;
 
 class RegisterForm extends Component
