@@ -22,6 +22,11 @@ class TwoFactorLoginResponse extends Fortify
             return redirect($request->session()->pull('url.intended'));
         }
 
-        return redirect(config('fortify.home'));
+        $fortifyHome = config('fortify.home');
+        if ($fortifyHome === null) {
+            $fortifyHome = route('home');
+        }
+
+        return redirect($fortifyHome);
     }
 }
