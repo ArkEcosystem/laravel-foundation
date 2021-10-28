@@ -15,13 +15,13 @@ class UpdatePasswordForm extends Component
     use InteractsWithUser;
     use ValidatesPassword;
 
-    protected $listeners = ['passwordUpdated' => 'passwordUpdated'];
-
     public string $currentPassword = '';
 
     public ?string $password = '';
 
     public ?string $password_confirmation = '';
+
+    protected $listeners = ['passwordUpdated' => 'passwordUpdated'];
 
     /**
      * Update the user's password.

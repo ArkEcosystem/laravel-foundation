@@ -50,11 +50,6 @@ final class RegEx
         return false;
     }
 
-    private static function validateYoutubeURL(string $source): bool
-    {
-        return preg_match(config('rules.regex.video_sources.youtube'), $source, $matches) === 1;
-    }
-
     public static function getTwitterUsername(string $source): ? string
     {
         preg_match(config('rules.regex.social_media_link.twitter'), $source, $matches);
@@ -71,5 +66,10 @@ final class RegEx
     public static function getDomainFromHost(string $host): ? string
     {
         return preg_replace(config('rules.regex.www_url_prefix'), '', $host);
+    }
+
+    private static function validateYoutubeURL(string $source): bool
+    {
+        return preg_match(config('rules.regex.video_sources.youtube'), $source, $matches) === 1;
     }
 }

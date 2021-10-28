@@ -70,23 +70,6 @@ class LogoutOtherBrowserSessionsForm extends Component
     }
 
     /**
-     * Delete the other browser session records from storage.
-     *
-     * @return void
-     */
-    protected function deleteOtherSessionRecords()
-    {
-        if (config('session.driver') !== 'database') {
-            return;
-        }
-
-        DB::table(config('session.table', 'sessions'))
-            ->where('user_id', Auth::user()->getKey())
-            ->where('id', '!=', request()->session()->getId())
-            ->delete();
-    }
-
-    /**
      * Get the current sessions.
      *
      * @return \Illuminate\Support\Collection
@@ -113,6 +96,33 @@ class LogoutOtherBrowserSessionsForm extends Component
     }
 
     /**
+     * Render the component.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function render()
+    {
+        return view('ark-fortify::profile.logout-other-browser-sessions-form');
+    }
+
+    /**
+     * Delete the other browser session records from storage.
+     *
+     * @return void
+     */
+    protected function deleteOtherSessionRecords()
+    {
+        if (config('session.driver') !== 'database') {
+            return;
+        }
+
+        DB::table(config('session.table', 'sessions'))
+            ->where('user_id', Auth::user()->getKey())
+            ->where('id', '!=', request()->session()->getId())
+            ->delete();
+    }
+
+    /**
      * Create a new agent instance from the given session.
      *
      * @param mixed $session
@@ -124,15 +134,5 @@ class LogoutOtherBrowserSessionsForm extends Component
         return tap(new Agent(), function ($agent) use ($session) {
             $agent->setUserAgent($session->user_agent);
         });
-    }
-
-    /**
-     * Render the component.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function render()
-    {
-        return view('ark-fortify::profile.logout-other-browser-sessions-form');
     }
 }

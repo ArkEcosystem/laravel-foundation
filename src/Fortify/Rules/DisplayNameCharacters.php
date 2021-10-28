@@ -85,13 +85,13 @@ final class DisplayNameCharacters implements Rule
         return preg_match('/^[\p{L}\p{N}\p{Mn} .,\-\'’&]+$/u', $value) === 0;
     }
 
-    private function withReservedName($attribute, $value): bool
-    {
-        return ! ReservedUsername::passes($attribute, $value);
-    }
-
     public function withRepetitiveSpecialChars(string $value): bool
     {
         return preg_match('/([.,\-\'’&])\1/u', $value) === 1;
+    }
+
+    private function withReservedName($attribute, $value): bool
+    {
+        return ! ReservedUsername::passes($attribute, $value);
     }
 }

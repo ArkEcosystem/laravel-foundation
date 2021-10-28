@@ -28,10 +28,6 @@ class TwoFactorAuthenticationForm extends Component
     use InteractsWithUser;
     use HasModal;
 
-    protected $messages = [
-        'state.otp.digits' => 'One Time Password must be :digits digits.',
-    ];
-
     public bool $showingQrCode = false;
 
     public array $state = [];
@@ -42,12 +38,9 @@ class TwoFactorAuthenticationForm extends Component
 
     public string $confirmedPassword = '';
 
-    protected function rules()
-    {
-        return [
-            'confirmedPassword' => ['required', new CurrentPassword(Auth::user())],
-        ];
-    }
+    protected $messages = [
+        'state.otp.digits' => 'One Time Password must be :digits digits.',
+    ];
 
     public function mount(): void
     {
@@ -132,11 +125,6 @@ class TwoFactorAuthenticationForm extends Component
         $this->closeModal();
     }
 
-    private function generateSecretKey(): void
-    {
-        $this->state['two_factor_secret'] = app(GenerateTwoFactorAuthenticationSecretKey::class)();
-    }
-
     public function showConfirmPassword(): void
     {
         $this->resetValidation();
@@ -174,5 +162,17 @@ class TwoFactorAuthenticationForm extends Component
         $this->closeConfirmPassword();
 
         $this->showRecoveryCodes();
+    }
+
+    protected function rules()
+    {
+        return [
+            'confirmedPassword' => ['required', new CurrentPassword(Auth::user())],
+        ];
+    }
+
+    private function generateSecretKey(): void
+    {
+        $this->state['two_factor_secret'] = app(GenerateTwoFactorAuthenticationSecretKey::class)();
     }
 }
