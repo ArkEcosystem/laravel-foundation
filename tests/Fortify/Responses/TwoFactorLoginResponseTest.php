@@ -7,6 +7,8 @@ namespace Tests\Models\Concerns;
 use ARKEcosystem\Foundation\Fortify\Responses\TwoFactorLoginResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Route;
 use Mockery;
 
 it('can return json', function () {
@@ -47,7 +49,10 @@ it('can return redirect to intended url', function () {
     expect($response->content())->toContain('somewhere');
 });
 
-it('can return redirect home', function () {
+it('can return redirect home named route', function () {
+    Route::get('/home-route')->name('home');
+    Config::set('fortify.home', null);
+
     $session = Mockery::mock(\Illuminate\Session\Store::class);
     $session->shouldReceive('has')
         ->once()
@@ -66,5 +71,30 @@ it('can return redirect home', function () {
 
     expect($response)->toBeInstanceOf(RedirectResponse::class);
     expect($response->status())->toBe(302);
-    expect($response->content())->toContain(config('fortify.home'));
+    expect($response->content())->toContain('/home-route');
+});
+
+it('can return redirect home config override', function () {
+    Route::get('/home-route')->name('home');
+    Config::set('fortify.home', '/home-config');
+
+    $session = Mockery::mock(\Illuminate\Session\Store::class);
+    $session->shouldReceive('has')
+        ->once()
+        ->with('url.intended')
+        ->andReturnFalse();
+
+    $request = Mockery::mock(\Illuminate\Http\Request::class);
+    $request->shouldReceive('wantsJson')
+        ->once()
+        ->andReturnFalse();
+    $request->shouldReceive('session')
+        ->once()
+        ->andReturn($session);
+
+    $response = (new TwoFactorLoginResponse())->toResponse($request);
+
+    expect($response)->toBeInstanceOf(RedirectResponse::class);
+    expect($response->status())->toBe(302);
+    expect($response->content())->toContain('/home-config');
 });
