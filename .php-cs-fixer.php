@@ -112,6 +112,7 @@ $rules = [
     'normalize_index_brace'                 => true,
     'not_operator_with_successor_space'     => true,
     'object_operator_without_whitespace'    => true,
+    'ordered_class_elements'                => true,
     'ordered_imports'                       => ['sort_algorithm' => 'alpha'],
     'php_unit_strict'                       => true,
     'php_unit_test_class_requires_covers'   => true,

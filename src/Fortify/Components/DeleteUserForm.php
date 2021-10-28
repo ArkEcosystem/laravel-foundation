@@ -31,14 +31,6 @@ class DeleteUserForm extends Component
         $this->openModal();
     }
 
-    protected function rules(): array
-    {
-        return [
-            'confirmedPassword' => ['required', new CurrentPassword($this->user)],
-            'feedback'          => 'present|string|min:5|max:500',
-        ];
-    }
-
     public function updated(string $property): void
     {
         $this->clearValidation($property);
@@ -57,6 +49,19 @@ class DeleteUserForm extends Component
         $this->redirect($redirect);
     }
 
+    public function render()
+    {
+        return view('ark-fortify::profile.delete-user-form');
+    }
+
+    protected function rules(): array
+    {
+        return [
+            'confirmedPassword' => ['required', new CurrentPassword($this->user)],
+            'feedback'          => 'present|string|min:5|max:500',
+        ];
+    }
+
     private function sendFeedback(): string
     {
         if ($this->feedback !== '' && $this->validate()) {
@@ -66,10 +71,5 @@ class DeleteUserForm extends Component
         }
 
         return route('home');
-    }
-
-    public function render()
-    {
-        return view('ark-fortify::profile.delete-user-form');
     }
 }

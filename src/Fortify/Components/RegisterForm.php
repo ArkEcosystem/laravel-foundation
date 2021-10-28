@@ -39,13 +39,6 @@ class RegisterForm extends Component
         'terms',
     ];
 
-    protected function rules(): array
-    {
-        return collect(resolve(CreatesNewUsers::class)::createValidationRules())
-            ->filter(fn ($value, $key) => property_exists($this, $key))
-            ->toArray();
-    }
-
     public function mount()
     {
         $this->name     = old('name', '');
@@ -109,5 +102,12 @@ class RegisterForm extends Component
         }
 
         $this->resetErrorBag($propertyName);
+    }
+
+    protected function rules(): array
+    {
+        return collect(resolve(CreatesNewUsers::class)::createValidationRules())
+            ->filter(fn ($value, $key) => property_exists($this, $key))
+            ->toArray();
     }
 }
