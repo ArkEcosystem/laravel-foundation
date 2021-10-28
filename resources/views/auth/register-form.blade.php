@@ -100,7 +100,7 @@
             <button
                 type="submit"
                 class="w-full sm:w-auto button-secondary"
-                {{ ! $this->canSubmit() ? 'disabled' : '' }}
+                @unless ($this->canSubmit()) disabled @endunless
             >
                 @lang('ui::actions.sign_up')
             </button>
