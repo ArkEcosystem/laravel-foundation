@@ -7,6 +7,7 @@ namespace ARKEcosystem\Foundation\Fortify\Components;
 use ARKEcosystem\Foundation\Fortify\Actions\CreateNewUser;
 use ARKEcosystem\Foundation\Fortify\Components\Concerns\ValidatesPassword;
 use ARKEcosystem\Foundation\Fortify\Models;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
@@ -41,9 +42,7 @@ class RegisterForm extends Component
 
     protected function rules(): array
     {
-        $action = config('fortify.actions.create_new_user', CreateNewUser::class);
-
-        return collect($action::createValidationRules())
+        return collect(resolve(CreatesNewUsers::class)::createValidationRules())
             ->filter(fn ($value, $key) => property_exists($this, $key))
             ->toArray();
     }
