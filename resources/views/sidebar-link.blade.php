@@ -33,7 +33,7 @@
         <span>{{ $name }}</span>
 
         @if ($icon && $iconAlignment === 'right')
-            <x-ark-icon class="{{ $isCurrent ? 'text-theme-primary-600' : 'text-theme-primary-300' }} group-hover:text-theme-primary-600" size="w-5 h-5" :name="$icon" />
+            <x-ark-icon class="{{ $isCurrent ? 'text-theme-primary-600' : 'text-theme-primary-300' }} group-hover:text-theme-primary-600" :name="$icon" />
         @endif
     </a>
 </div>
