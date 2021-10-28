@@ -55,6 +55,6 @@ final class UniqueCaseInsensitive implements Rule
 
     public function message()
     {
-        return trans('validation.messages.unique_case_insensitive');
+        return trans('ui::validation.messages.unique_case_insensitive');
     }
 }
