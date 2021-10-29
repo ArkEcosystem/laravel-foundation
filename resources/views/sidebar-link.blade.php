@@ -27,13 +27,13 @@
     >
 
         @if ($icon && $iconAlignment === 'left')
-            <x-ark-icon class="{{ $isCurrent ? 'text-theme-primary-600' : 'text-theme-primary-300' }} group-hover:text-theme-primary-600 mr-1" :name="$icon" />
+            <x-ark-icon class="{{ $isCurrent ? 'text-theme-primary-600' : 'text-theme-primary-300' }} group-hover:text-theme-primary-600 mr-1 transition-default" :name="$icon" />
         @endif
 
         <span>{{ $name }}</span>
 
         @if ($icon && $iconAlignment === 'right')
-            <x-ark-icon class="{{ $isCurrent ? 'text-theme-primary-600' : 'text-theme-primary-300' }} group-hover:text-theme-primary-600" :name="$icon" />
+            <x-ark-icon class="{{ $isCurrent ? 'text-theme-primary-600' : 'text-theme-primary-300' }} group-hover:text-theme-primary-600 transition-default" :name="$icon" />
         @endif
     </a>
 </div>
