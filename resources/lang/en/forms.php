@@ -72,6 +72,10 @@ return [
         'description'    => 'Manage and logout your active sessions on other browsers and devices.',
         'content'        => 'If necessary, you may logout of all of your other browser sessions across all of your devices. If you feel your account has been compromised, you should also update your password',
         'confirm_logout' => 'Logout Other Browser Sessions',
+        'ip'             => 'IP',
+        'os'             => 'OS',
+        'browser'        => 'Browser',
+        'last_active'    => 'Last active',
     ],
 
     'confirming-logout' => [
