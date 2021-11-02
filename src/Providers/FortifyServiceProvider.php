@@ -99,6 +99,7 @@ class FortifyServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/views/auth'       => resource_path('views/auth'),
             __DIR__.'/../../resources/views/components' => resource_path('views/components'),
             __DIR__.'/../../resources/views/profile'    => resource_path('views/profile'),
+            __DIR__.'/../../resources/views/account'    => resource_path('views/account'),
         ], 'views');
 
         $this->publishes([
@@ -157,7 +158,15 @@ class FortifyServiceProvider extends ServiceProvider
                 ->name('two-factor.reset-password-store')
                 ->middleware('guest');
 
-            if (Features::enabled(Features::resetPasswords())) {
+            if (Features::enabled(Features::updateProfileInformation())) {
+                Route::view(config('fortify.routes.account_settings_account'), 'ark-fortify::account.settings-account')
+                    ->name('account.settings.account');
+            }
+
+            if (Features::enabled(Features::updatePasswords())) {
+                Route::view(config('fortify.routes.account_settings_password'), 'ark-fortify::account.settings-password')
+                    ->name('account.settings.password');
+
                 Route::redirect('/.well-known/change-password', '/forgot-password');
             }
         });
