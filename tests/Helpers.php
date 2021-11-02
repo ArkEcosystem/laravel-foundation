@@ -7,10 +7,12 @@ namespace Tests;
 use ARKEcosystem\Foundation\Fortify\Models\User;
 use Carbon\Carbon;
 use Closure;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\ComponentAttributeBag;
+use function Pest\Faker\faker;
 
 function createAttributes(array $attributes): array
 {
@@ -41,6 +43,18 @@ function createUserModel(string $userClass = User::class)
         'password'          => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token'    => Str::random(10),
         'timezone'          => 'UTC',
+    ]);
+}
+
+function createBrowserSessionForUser(string $ip, User $user, int $unixTime): void
+{
+    DB::table('sessions')->insert([
+        'id' => Str::random(10),
+        'user_id' => $user->id,
+        'ip_address' => $ip,
+        'user_agent' => faker()->userAgent(),
+        'payload' => Str::random(10),
+        'last_activity' => $unixTime,
     ]);
 }
 

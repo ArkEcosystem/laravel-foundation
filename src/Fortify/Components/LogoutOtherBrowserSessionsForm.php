@@ -70,7 +70,7 @@ class LogoutOtherBrowserSessionsForm extends Component
             DB::table('sessions')
                     ->where('user_id', Auth::user()->getKey())
                     ->orderBy('last_activity', 'desc')
-                    ->get()
+                    ->take(3)->get()
         )->map(function ($session) {
             return (object) [
                 'agent'             => $this->createAgent($session),
