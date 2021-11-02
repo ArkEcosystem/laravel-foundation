@@ -11,4 +11,4 @@ it('can interact with the form', function () {
 
     Livewire::actingAs($user)
         ->test(LogoutOtherBrowserSessionsForm::class);
-})->skip('not sure we\'re using this component anyware as it references blade components that don\'t exist');
+});

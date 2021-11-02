@@ -7,30 +7,167 @@
         </x-ark-alert>
     </div>
 
-    <table class="mt-8 w-full text-left table-auto">
-        <thead>
-        <tr class="text-sm font-semibold text-theme-secondary-500 border-b border-theme-secondary-300">
-            <td>
-                <div class="mb-3 border-r border-theme-secondary-300">
-                    @lang('ui::forms.logout-sessions.ip')
+    @if (count($this->sessions) > 0)
+        <table class="mt-8 w-full text-left table-auto hidden md:table">
+            <thead>
+            <tr class="text-sm font-semibold text-theme-secondary-500 border-b border-theme-secondary-300">
+                <td>
+                    <div class="mb-3 border-r border-theme-secondary-300">
+                        @lang('ui::forms.logout-sessions.ip')
+                    </div>
+                </td>
+                <td>
+                    <div class="ml-5 mb-3 border-r border-theme-secondary-300">
+                        @lang('ui::forms.logout-sessions.os')
+                    </div>
+                </td>
+                <td>
+                    <div class="ml-5 mb-3 border-r border-theme-secondary-300">
+                        @lang('ui::forms.logout-sessions.browser')
+                    </div>
+                </td>
+                <td>
+                    <div class="text-right mb-3">
+                        @lang('ui::forms.logout-sessions.last_active')
+                    </div>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($this->sessions as $session)
+                <tr class="text-base text-theme-secondary-700 font-normal @if(!$loop->last) border-b border-theme-secondary-300 border-dashed @endif">
+                    <td>
+                        <div class="my-4 flex items-center space-x-3">
+                            <x-ark-icon name="wysiwyg/monitor"
+                                        class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}" />
+                            <div>
+                                {{ $session->ip_address }}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ml-5">{{ $session->agent->platform() }}</div>
+                    </td>
+                    <td>
+                        <div class="ml-5">{{ $session->agent->browser() }}</div>
+                    </td>
+                    <td>
+                        <div class="text-right">
+                            @if ($session->is_current_device)
+                                <span class="font-semibold text-theme-success-600">@lang('ui::generic.this_device')</span>
+                            @else
+                                @lang('ui::generic.last_active') {{ $session->last_active }}
+                            @endif
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+
+        <div class="w-full md:hidden mt-4 text-base">
+            @foreach ($this->sessions as $session)
+                <div class="space-y-3 border-b border-theme-secondary-300 border-dashed py-4">
+
+                    <div class="flex justify-between">
+                        <div class="font-semibold text-theme-secondary-500">
+                            @lang('ui::forms.logout-sessions.ip')
+                        </div>
+                        <div class="flex items-center space-x-3 text-base text-theme-secondary-700 font-normal">
+                            <x-ark-icon name="wysiwyg/monitor"
+                                        class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}" />
+                            <div>
+                                {{ $session->ip_address }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <div class="font-semibold text-theme-secondary-500">
+                            @lang('ui::forms.logout-sessions.os')
+                        </div>
+                        <div class="text-base text-theme-secondary-700 font-normal">
+                            {{ $session->agent->platform() }}
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <div class="font-semibold text-theme-secondary-500">
+                            @lang('ui::forms.logout-sessions.browser')
+                        </div>
+                        <div class="text-base text-theme-secondary-700 font-normal">
+                            {{ $session->agent->browser() }}
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <div class="font-semibold text-theme-secondary-500">
+                            @lang('ui::forms.logout-sessions.last_active')
+                        </div>
+                        <div class="text-base text-theme-secondary-700 font-normal">
+                            @if ($session->is_current_device)
+                                <span class="font-semibold text-theme-success-600">@lang('ui::generic.this_device')</span>
+                            @else
+                                @lang('ui::generic.last_active') {{ $session->last_active }}
+                            @endif
+                        </div>
+                    </div>
+
                 </div>
-            </td>
-            <td>
-                <div class="ml-5 mb-3 border-r border-theme-secondary-300">
-                    @lang('ui::forms.logout-sessions.os')
+            @endforeach
+        </div>
+    @endif
+    <div class="flex flex-row justify-end mt-8 md:mt-4">
+        <button type="submit" class="inline-flex justify-center items-center space-x-2 w-full sm:w-auto button-cancel"
+                wire:click="confirmLogout">
+            <span>@lang('ui::forms.logout-sessions.confirm_logout')</span>
+        </button>
+    </div>
+
+    @if($this->modalShown)
+        <x-ark-modal title-class="header-2" width-class="max-w-2xl"  wire-close="closeModal">
+            <x-slot name="title">
+                @lang('ui::forms.confirming-logout.title')
+            </x-slot>
+
+            <x-slot name="description">
+                <div class="flex justify-center w-full mt-8">
+                    <x-ark-icon name="fortify-modal.secure" class="w-2/3 h-auto"/>
                 </div>
-            </td>
-            <td>
-                <div class="ml-5 mb-3 border-r border-theme-secondary-300">
-                    @lang('ui::forms.logout-sessions.browser')
+                <div class="flex flex-col mt-8">
+                    <div class="mt-4">
+                        @lang('ui::forms.confirming-logout.content')
+                    </div>
                 </div>
-            </td>
-            <td>
-                <div class="text-right mb-3">
-                    @lang('ui::forms.logout-sessions.last_active')
+                <form class="mt-8">
+                    <div class="space-y-2">
+                        <x-ark-input
+                                type="password"
+                                name="password"
+                                model="password"
+                                :label="trans('ui::forms.password')"
+                        />
+                    </div>
+                </form>
+            </x-slot>
+
+            <x-slot name="buttons">
+                <div class="flex flex-col justify-end w-full sm:flex-row sm:space-x-3">
+                    <button type="button" dusk="delete-other-browser-sessions-cancel" class="mb-4 sm:mb-0 button-secondary" wire:click="closeModal">
+                        @lang('ui::actions.cancel')
+                    </button>
+
+                    <button
+                            wire:click="logoutOtherBrowserSessions"
+                            type="button"
+                            dusk="delete-other-browser-sessions"
+                            class="inline-flex justify-center items-center button-primary"
+                            @unless($this->getErrorBag()->isEmpty()) disabled @endunless
+                    >
+                        <span class="ml-2">@lang('ui::actions.confirm')</span>
+                    </button>
                 </div>
-            </td>
-        </tr>
-        </thead>
-    </table>
+            </x-slot>
+        </x-ark-modal>
+    @endif
 </div>
