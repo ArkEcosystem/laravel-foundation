@@ -24,31 +24,6 @@ abstract class DatabaseNotification extends BaseNotification
     use HasFactory;
     use HasLocalizedTimestamps;
 
-    /**
-     * Register any events for your application.
-     *
-     * @return void
-     */
-    protected static function booted()
-    {
-        // When creating a new DatabaseNotification, we are only allowed to fill
-        // the `data` attribute so there is no easy way to assign the relatable
-        // model. As a workaorund to avoid the need to add more steps that may
-        // complicate the notification creation the lines here take the relatable
-        // info from the data and move it to the proper columns before storing the
-        // model in the database.
-        static::creating(function (self $notification) {
-            $data = Arr::get($notification, 'data');
-            $notification->relatable_id = Arr::get($data, 'relatable_id');
-            $notification->relatable_type = Arr::get($data, 'relatable_type');
-            $notification->relatable_logo_id = Arr::get($data, 'relatable_logo_id');
-            $notification->relatable_logo_type = Arr::get($data, 'relatable_logo_type');
-            unset($data['relatable_type'], $data['relatable_id'], $data['relatable_logo_type'], $data['relatable_logo_id']);
-
-            $notification->data = $data;
-        });
-    }
-
     public function relatable(): MorphTo
     {
         return $this->morphTo('relatable', 'relatable_type', 'relatable_id');
@@ -102,5 +77,30 @@ abstract class DatabaseNotification extends BaseNotification
     {
         /* @phpstan-ignore-next-line  */
         return Str::limit(strip_tags($this->content()), $length ?? 200);
+    }
+
+    /**
+     * Register any events for your application.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        // When creating a new DatabaseNotification, we are only allowed to fill
+        // the `data` attribute so there is no easy way to assign the relatable
+        // model. As a workaorund to avoid the need to add more steps that may
+        // complicate the notification creation the lines here take the relatable
+        // info from the data and move it to the proper columns before storing the
+        // model in the database.
+        static::creating(function (self $notification) {
+            $data = Arr::get($notification, 'data');
+            $notification->relatable_id = Arr::get($data, 'relatable_id');
+            $notification->relatable_type = Arr::get($data, 'relatable_type');
+            $notification->relatable_logo_id = Arr::get($data, 'relatable_logo_id');
+            $notification->relatable_logo_type = Arr::get($data, 'relatable_logo_type');
+            unset($data['relatable_type'], $data['relatable_id'], $data['relatable_logo_type'], $data['relatable_logo_id']);
+
+            $notification->data = $data;
+        });
     }
 }

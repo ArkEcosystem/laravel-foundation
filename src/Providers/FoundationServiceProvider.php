@@ -27,5 +27,6 @@ class FoundationServiceProvider extends ServiceProvider
         $this->app->register(FortifyServiceProvider::class);
         $this->app->register(RulesServiceProvider::class);
         $this->app->register(UserInterfaceServiceProvider::class);
+        $this->app->register(StringMacroServiceProvider::class);
     }
 }

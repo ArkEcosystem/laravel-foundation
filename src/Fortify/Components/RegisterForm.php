@@ -6,6 +6,8 @@ namespace ARKEcosystem\Foundation\Fortify\Components;
 
 use ARKEcosystem\Foundation\Fortify\Components\Concerns\ValidatesPassword;
 use ARKEcosystem\Foundation\Fortify\Models;
+use Illuminate\Support\Facades\Validator;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Livewire\Component;
 
 class RegisterForm extends Component
@@ -27,6 +29,15 @@ class RegisterForm extends Component
     public string $formUrl;
 
     public ?string $invitationId = null;
+
+    protected array $requiredProperties = [
+        'name',
+        'username',
+        'email',
+        'password',
+        'password_confirmation',
+        'terms',
+    ];
 
     public function mount()
     {
@@ -54,14 +65,49 @@ class RegisterForm extends Component
 
     public function canSubmit(): bool
     {
-        $requiredProperties = ['name', 'username', 'email', 'password', 'password_confirmation', 'terms'];
-
-        foreach ($requiredProperties as $property) {
+        foreach ($this->requiredProperties as $property) {
             if (! $this->$property) {
                 return false;
             }
         }
 
         return $this->getErrorBag()->count() === 0;
+    }
+
+    public function updated(string $propertyName): void
+    {
+        if ($propertyName === 'password_confirmation') {
+            $this->validateOnly('password', ['password' => 'confirmed']);
+
+            return;
+        }
+
+        $value = $this->{$propertyName};
+        if ($propertyName === 'email') {
+            $value = strtolower($value);
+        }
+
+        $validator = Validator::make([
+            $propertyName => $value,
+        ], [
+            $propertyName => $this->rules()[$propertyName],
+        ]);
+
+        if ($validator->fails()) {
+            $this->setErrorBag(
+                $validator->getMessageBag()->merge($this->getErrorBag())
+            );
+
+            return;
+        }
+
+        $this->resetErrorBag($propertyName);
+    }
+
+    protected function rules(): array
+    {
+        return collect(resolve(CreatesNewUsers::class)::createValidationRules())
+            ->filter(fn ($value, $key) => property_exists($this, $key))
+            ->toArray();
     }
 }

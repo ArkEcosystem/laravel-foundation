@@ -52,6 +52,34 @@ class MarkdownServiceProvider extends ServiceProvider
     }
 
     /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->registerEnvironment();
+        $this->registerMarkdown();
+        $this->registerCompiler();
+        $this->registerDirective();
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return string[]
+     */
+    public function provides()
+    {
+        return [
+            'markdown.environment',
+            'markdown',
+            'markdown.compiler',
+            'markdown.directive',
+        ];
+    }
+
+    /**
      * Setup the config.
      *
      * @return void
@@ -140,19 +168,6 @@ class MarkdownServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->registerEnvironment();
-        $this->registerMarkdown();
-        $this->registerCompiler();
-        $this->registerDirective();
-    }
-
-    /**
      * Register the environment class.
      *
      * @return void
@@ -225,20 +240,5 @@ class MarkdownServiceProvider extends ServiceProvider
         });
 
         $this->app->alias('markdown.directive', MarkdownDirective::class);
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return string[]
-     */
-    public function provides()
-    {
-        return [
-            'markdown.environment',
-            'markdown',
-            'markdown.compiler',
-            'markdown.directive',
-        ];
     }
 }

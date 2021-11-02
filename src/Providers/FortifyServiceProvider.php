@@ -6,6 +6,7 @@ namespace ARKEcosystem\Foundation\Providers;
 
 use ARKEcosystem\Foundation\Fortify\Actions\AuthenticateUser;
 use ARKEcosystem\Foundation\Fortify\Actions\CreateNewUser;
+use ARKEcosystem\Foundation\Fortify\Actions\DeleteUser;
 use ARKEcosystem\Foundation\Fortify\Actions\ResetUserPassword;
 use ARKEcosystem\Foundation\Fortify\Actions\UpdateUserPassword;
 use ARKEcosystem\Foundation\Fortify\Actions\UpdateUserProfileInformation;
@@ -21,6 +22,7 @@ use ARKEcosystem\Foundation\Fortify\Components\UpdateProfileInformationForm;
 use ARKEcosystem\Foundation\Fortify\Components\UpdateProfilePhotoForm;
 use ARKEcosystem\Foundation\Fortify\Components\UpdateTimezoneForm;
 use ARKEcosystem\Foundation\Fortify\Components\VerifyEmail;
+use ARKEcosystem\Foundation\Fortify\Contracts\DeleteUser as DeleteUserContract;
 use ARKEcosystem\Foundation\Fortify\Http\Controllers\TwoFactorAuthenticatedPasswordResetController;
 use ARKEcosystem\Foundation\Fortify\Http\Responses\FailedPasswordResetLinkRequestResponse as FortifyFailedPasswordResetLinkRequestResponse;
 use ARKEcosystem\Foundation\Fortify\Http\Responses\SuccessfulPasswordResetLinkRequestResponse as FortifySuccessfulPasswordResetLinkRequestResponse;
@@ -135,6 +137,25 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
+
+        app()->singleton(DeleteUserContract::class, DeleteUser::class);
+    }
+
+    public function registerRoutes(): void
+    {
+        Route::middleware('web')->group(function () {
+            Route::view(config('fortify.routes.feedback_thank_you'), 'ark-fortify::profile.feedback-thank-you')
+                ->name('profile.feedback.thank-you')
+                ->middleware('signed');
+
+            Route::get(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'create'])
+                ->name('two-factor.reset-password')
+                ->middleware('guest');
+
+            Route::post(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'store'])
+                ->name('two-factor.reset-password-store')
+                ->middleware('guest');
+        });
     }
 
     /**
@@ -228,22 +249,5 @@ class FortifyServiceProvider extends ServiceProvider
             SuccessfulPasswordResetLinkRequestResponse::class,
             FortifySuccessfulPasswordResetLinkRequestResponse::class
         );
-    }
-
-    public function registerRoutes(): void
-    {
-        Route::middleware('web')->group(function () {
-            Route::view(config('fortify.routes.feedback_thank_you'), 'ark-fortify::profile.feedback-thank-you')
-                ->name('profile.feedback.thank-you')
-                ->middleware('signed');
-
-            Route::get(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'create'])
-                ->name('two-factor.reset-password')
-                ->middleware('guest');
-
-            Route::post(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'store'])
-                ->name('two-factor.reset-password-store')
-                ->middleware('guest');
-        });
     }
 }
