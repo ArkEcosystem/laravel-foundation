@@ -38,6 +38,7 @@ use Laravel\Fortify\Contracts\FailedTwoFactorLoginResponse as FailedTwoFactorLog
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use Laravel\Fortify\Contracts\SuccessfulPasswordResetLinkRequestResponse;
 use Laravel\Fortify\Contracts\TwoFactorLoginResponse as TwoFactorLoginResponseContract;
+use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 use Livewire\Livewire;
 
@@ -155,6 +156,10 @@ class FortifyServiceProvider extends ServiceProvider
             Route::post(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'store'])
                 ->name('two-factor.reset-password-store')
                 ->middleware('guest');
+
+            if (Features::enabled(Features::resetPasswords())) {
+                Route::redirect('/.well-known/change-password', '/forgot-password');
+            }
         });
     }
 
