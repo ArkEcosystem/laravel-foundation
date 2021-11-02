@@ -164,10 +164,10 @@ class FortifyServiceProvider extends ServiceProvider
             }
 
             if (Features::enabled(Features::updatePasswords())) {
-                Route::view(config('fortify.routes.account_settings_password'), 'ark-fortify::account.settings-password')
-                    ->name('account.settings.password');
+                $slug = (string) config('fortify.routes.account_settings_password');
 
-                Route::redirect('/.well-known/change-password', '/forgot-password');
+                Route::view($slug, 'ark-fortify::account.settings-password')->name('account.settings.password');
+                Route::redirect('/.well-known/change-password', $slug);
             }
         });
     }
