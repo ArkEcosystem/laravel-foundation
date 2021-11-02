@@ -90,6 +90,10 @@ return [
 
     'middleware' => ['web'],
 
+    'middlewares' => [
+        'account_settings' => ['web'],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Rate Limiting

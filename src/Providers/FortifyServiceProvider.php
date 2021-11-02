@@ -100,7 +100,7 @@ class FortifyServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/views/components' => resource_path('views/components'),
             __DIR__.'/../../resources/views/profile'    => resource_path('views/profile'),
             __DIR__.'/../../resources/views/account'    => resource_path('views/account'),
-        ], 'views');
+        ], 'foundation-views');
 
         $this->publishes([
             __DIR__.'/../../resources/images' => resource_path('images'),
@@ -157,7 +157,9 @@ class FortifyServiceProvider extends ServiceProvider
             Route::post(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'store'])
                 ->name('two-factor.reset-password-store')
                 ->middleware('guest');
+        });
 
+        Route::group(['middleware' => config('fortify.middlewares.account_settings', ['web'])], function () {
             if (Features::enabled(Features::updateProfileInformation())) {
                 Route::view(config('fortify.routes.account_settings_account'), 'ark-fortify::account.settings-account')
                     ->name('account.settings.account');
