@@ -31,8 +31,6 @@ class LogoutOtherBrowserSessionsForm extends Component
     {
         $this->password = '';
 
-        $this->dispatchBrowserEvent('confirming-logout-other-browser-sessions');
-
         $this->openModal();
     }
 

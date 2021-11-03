@@ -12,7 +12,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\ComponentAttributeBag;
-use function Pest\Faker\faker;
 
 function createAttributes(array $attributes): array
 {
@@ -53,7 +52,7 @@ function createBrowserSessionForUser(string $ip, User $user, int $unixTime): str
         'id' => $random_id,
         'user_id' => $user->id,
         'ip_address' => $ip,
-        'user_agent' => faker()->userAgent(),
+        'user_agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15',
         'payload' => Str::random(10),
         'last_activity' => $unixTime,
     ]);
