@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class ReservedUsername extends BaseRule
 {
-    public static function passes($attribute, $value): bool
+    public static function passes(string $attribute, mixed $value): bool
     {
         return ! in_array(Str::lower($value), trans('ui::username_blacklist'), true);
     }
