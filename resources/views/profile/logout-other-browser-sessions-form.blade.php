@@ -8,26 +8,26 @@
     </div>
 
     @if (count($this->sessions) > 0)
-        <table class="mt-8 w-full text-left table-auto hidden md:table">
+        <table class="hidden mt-8 w-full text-left table-auto md:table">
             <thead>
-            <tr class="text-sm font-semibold text-theme-secondary-500 border-b border-theme-secondary-300">
+            <tr class="text-sm font-semibold border-b text-theme-secondary-500 border-theme-secondary-300">
                 <td>
                     <div class="mb-3 border-r border-theme-secondary-300">
                         @lang('ui::forms.logout-sessions.ip')
                     </div>
                 </td>
                 <td>
-                    <div class="ml-5 mb-3 border-r border-theme-secondary-300">
+                    <div class="mb-3 ml-5 border-r border-theme-secondary-300">
                         @lang('ui::forms.logout-sessions.os')
                     </div>
                 </td>
                 <td>
-                    <div class="ml-5 mb-3 border-r border-theme-secondary-300">
+                    <div class="mb-3 ml-5 border-r border-theme-secondary-300">
                         @lang('ui::forms.logout-sessions.browser')
                     </div>
                 </td>
                 <td>
-                    <div class="text-right mb-3">
+                    <div class="mb-3 text-right">
                         @lang('ui::forms.logout-sessions.last_active')
                     </div>
                 </td>
@@ -37,7 +37,7 @@
             @foreach ($this->sessions as $session)
                 <tr class="text-base text-theme-secondary-700 font-normal @if(!$loop->last) border-b border-theme-secondary-300 border-dashed @endif">
                     <td>
-                        <div class="my-4 flex items-center space-x-3">
+                        <div class="flex items-center my-4 space-x-3">
                             <x-ark-icon name="wysiwyg/monitor"
                                         class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}" />
                             <div>
@@ -65,15 +65,15 @@
             </tbody>
         </table>
 
-        <div class="w-full md:hidden mt-4 text-base">
+        <div class="mt-4 w-full text-base md:hidden">
             @foreach ($this->sessions as $session)
-                <div class="space-y-3 border-b border-theme-secondary-300 border-dashed py-4">
+                <div class="py-4 space-y-3 border-b border-dashed border-theme-secondary-300">
 
                     <div class="flex justify-between">
                         <div class="font-semibold text-theme-secondary-500">
                             @lang('ui::forms.logout-sessions.ip')
                         </div>
-                        <div class="flex items-center space-x-3 text-base text-theme-secondary-700 font-normal">
+                        <div class="flex items-center space-x-3 text-base font-normal text-theme-secondary-700">
                             <x-ark-icon name="wysiwyg/monitor"
                                         class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}" />
                             <div>
@@ -86,7 +86,7 @@
                         <div class="font-semibold text-theme-secondary-500">
                             @lang('ui::forms.logout-sessions.os')
                         </div>
-                        <div class="text-base text-theme-secondary-700 font-normal">
+                        <div class="text-base font-normal text-theme-secondary-700">
                             {{ $session->agent->platform() }}
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                         <div class="font-semibold text-theme-secondary-500">
                             @lang('ui::forms.logout-sessions.browser')
                         </div>
-                        <div class="text-base text-theme-secondary-700 font-normal">
+                        <div class="text-base font-normal text-theme-secondary-700">
                             {{ $session->agent->browser() }}
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                         <div class="font-semibold text-theme-secondary-500">
                             @lang('ui::forms.logout-sessions.last_active')
                         </div>
-                        <div class="text-base text-theme-secondary-700 font-normal">
+                        <div class="text-base font-normal text-theme-secondary-700">
                             @if ($session->is_current_device)
                                 <span class="font-semibold text-theme-success-600">@lang('ui::generic.this_device')</span>
                             @else
@@ -131,7 +131,7 @@
             </x-slot>
 
             <x-slot name="description">
-                <div class="flex justify-center w-full mt-8">
+                <div class="flex justify-center mt-8 w-full">
                     <x-ark-icon name="fortify-modal.secure" class="w-2/3 h-auto"/>
                 </div>
                 <div class="flex flex-col mt-8">
