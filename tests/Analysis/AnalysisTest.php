@@ -35,7 +35,7 @@ class AnalysisTest extends TestCase
             'ResolverFactoryTest',
             'Tests\Components\RegisterFormTest',
             'Pest\Laravel\actingAs',
-            'Pest\Livewire\livewire'
+            'Pest\Livewire\livewire',
         ];
     }
 }
