@@ -12,8 +12,9 @@ trait HasPagination
 
     public function resolvePage()
     {
-        if(request()->exists('page') && ! is_numeric(request()->query('page'))) {
+        if (request()->exists('page') && ! is_numeric(request()->query('page'))) {
             $this->page = 1;
+
             return $this->page;
         }
         // The "page" query string item should only be available
