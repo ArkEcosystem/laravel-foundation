@@ -75,7 +75,7 @@ class LogoutOtherBrowserSessionsForm extends Component
             return (object) [
                 'agent'             => $this->createAgent($session),
                 'ip_address'        => $session->ip_address,
-                'is_current_device' => $session->id === request()->session()->getId(),
+                'is_current_device' => $session->id === session()->getId(),
                 'last_active'       => Carbon::createFromTimestamp($session->last_activity)->diffForHumans(),
             ];
         });
@@ -89,7 +89,7 @@ class LogoutOtherBrowserSessionsForm extends Component
 
         DB::connection(config('session.connection'))->table(config('session.table', 'sessions'))
             ->where('user_id', Auth::user()->getKey())
-            ->where('id', '!=', request()->session()->getId())
+            ->where('id', '!=', session()->getId())
             ->delete();
     }
 

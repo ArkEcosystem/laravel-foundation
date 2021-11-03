@@ -46,16 +46,18 @@ function createUserModel(string $userClass = User::class)
     ]);
 }
 
-function createBrowserSessionForUser(string $ip, User $user, int $unixTime): void
+function createBrowserSessionForUser(string $ip, User $user, int $unixTime): string
 {
+    $random_id = Str::random(10);
     DB::table('sessions')->insert([
-        'id' => Str::random(10),
+        'id' => $random_id,
         'user_id' => $user->id,
         'ip_address' => $ip,
         'user_agent' => faker()->userAgent(),
         'payload' => Str::random(10),
         'last_activity' => $unixTime,
     ]);
+    return $random_id;
 }
 
 function expectValidationError(Closure $callback, string $key, string $reason)
