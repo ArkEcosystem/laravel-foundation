@@ -51,6 +51,7 @@ it('invalidates an invalid url', function ($url) {
     'https://www.fb.me/',
     'http://www.fb.me/',
     'http://fb.me/',
+    'facebook.com/test'
 ]);
 
 it('has an error message', function () {
