@@ -191,7 +191,7 @@ class Username extends Fortify
         return $value !== strtolower($value);
     }
 
-    protected function withReservedName($attribute, $value): bool
+    protected function withReservedName(string $attribute, mixed $value): bool
     {
         return ! ReservedUsername::passes($attribute, $value);
     }
