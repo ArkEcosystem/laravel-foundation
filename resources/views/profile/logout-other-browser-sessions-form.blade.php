@@ -38,8 +38,11 @@
                 <tr class="text-base text-theme-secondary-700 font-normal @if(!$loop->last) border-b border-theme-secondary-300 border-dashed @endif">
                     <td>
                         <div class="flex items-center my-4 space-x-3">
-                            <x-ark-icon name="wysiwyg/monitor"
-                                        class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}" />
+                            <x-ark-icon
+                                name="wysiwyg/monitor"
+                                class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
+                            />
+
                             <div>
                                 {{ $session->ip_address }}
                             </div>
@@ -74,8 +77,11 @@
                             @lang('ui::forms.logout-sessions.ip')
                         </div>
                         <div class="flex items-center space-x-3 text-base font-normal text-theme-secondary-700">
-                            <x-ark-icon name="wysiwyg/monitor"
-                                        class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}" />
+                            <x-ark-icon
+                                name="wysiwyg/monitor"
+                                class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
+                            />
+
                             <div>
                                 {{ $session->ip_address }}
                             </div>
@@ -118,8 +124,11 @@
         </div>
     @endif
     <div class="flex flex-row justify-end mt-8 md:mt-4">
-        <button type="submit" class="inline-flex justify-center items-center space-x-2 w-full sm:w-auto button-cancel"
-                wire:click="confirmLogout">
+        <button
+            type="submit"
+            class="inline-flex justify-center items-center space-x-2 w-full sm:w-auto button-cancel"
+            wire:click="confirmLogout"
+        >
             <span>@lang('ui::forms.logout-sessions.confirm_logout')</span>
         </button>
     </div>
@@ -142,10 +151,10 @@
                 <form class="mt-8">
                     <div class="space-y-2">
                         <x-ark-input
-                                type="password"
-                                name="password"
-                                model="password"
-                                :label="trans('ui::forms.password')"
+                            type="password"
+                            name="password"
+                            model="password"
+                            :label="trans('ui::forms.password')"
                         />
                     </div>
                 </form>
@@ -158,11 +167,11 @@
                     </button>
 
                     <button
-                            wire:click="logoutOtherBrowserSessions"
-                            type="button"
-                            dusk="delete-other-browser-sessions"
-                            class="inline-flex justify-center items-center button-primary"
-                            @unless($this->getErrorBag()->isEmpty()) disabled @endunless
+                        wire:click="logoutOtherBrowserSessions"
+                        type="button"
+                        dusk="delete-other-browser-sessions"
+                        class="inline-flex justify-center items-center button-primary"
+                        @unless($this->getErrorBag()->isEmpty()) disabled @endunless
                     >
                         <span class="ml-2">@lang('ui::actions.confirm')</span>
                     </button>
