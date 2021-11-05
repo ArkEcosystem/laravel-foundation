@@ -159,7 +159,7 @@ class FortifyServiceProvider extends ServiceProvider
                 ->middleware('guest');
         });
 
-        Route::group(['middleware' => config('fortify.middlewares.account_settings', ['web'])], function () {
+        Route::group(['middleware' => config('fortify.middlewares.account_settings', ['web', 'auth'])], function () {
             if (Features::enabled(Features::updateProfileInformation())) {
                 Route::view(config('fortify.routes.account_settings_account'), 'ark-fortify::account.settings-account')
                     ->name('account.settings.account');

@@ -91,7 +91,7 @@ return [
     'middleware' => ['web'],
 
     'middlewares' => [
-        'account_settings' => ['web'],
+        'account_settings' => ['web', 'auth'],
     ],
 
     /*
