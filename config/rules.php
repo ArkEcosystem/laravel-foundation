@@ -8,7 +8,7 @@ return [
         'social_media_link' => [
             'discord'      => '/(?:https?:)\/\/(?:www\.)?discord\.(gg|com)\/(?:invite\/)?[a-zA-Z0-9-_@]+/m',
             'ecency'       => '/(?:https?:)\/\/(?:www\.)?ecency\.com\/(@[a-zA-Z0-9-_@])/m',
-            'facebook'     => '/^(http|https?:\/\/)?(?:www\.)?(?:facebook|fb|m\.facebook)\.(?:com|me)\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[\w\-]*\/)*([\w\-\.]+)(?:\/)?/i',
+            'facebook'     => '/(?:https?:)\/\/(?:www\.)?(?:facebook|fb|m\.facebook)\.(?:com|me)\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[\w\-]*\/)*([\w\-\.]+)(?:\/)?/i',
             'github'       => '/(?:https?:)\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)(?:\/(?P<repo>[*]+)\/?)?/m',
             'hive'         => '/(?:https?:)\/\/(?:[a-zA-Z0-9-_@]+\.)?hive\.(com|blog)\/[a-zA-Z0-9-_@]+/m',
             'instagram'    => '/(?:https?:)\/\/(?:www\.)?(?:instagram\.com|instagr\.am)\/(?P<username>[a-zA-Z0-9-_@](?:(?:[a-zA-Z0-9-_@]|(?:\.(?!\.))){0,28}(?:[a-zA-Z0-9-_@]))?)/m',
