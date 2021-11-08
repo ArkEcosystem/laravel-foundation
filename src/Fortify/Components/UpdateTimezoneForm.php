@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Carbon\CarbonTimeZone;
 use DateTimeZone;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class UpdateTimezoneForm extends Component
@@ -40,6 +41,7 @@ class UpdateTimezoneForm extends Component
         $formattedTimezones  = [];
         $timezoneIdentifiers = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
 
+
         foreach ($timezoneIdentifiers as $timezoneIdentifier) {
             $timezone = CarbonTimeZone::instance(new DateTimeZone($timezoneIdentifier));
 
@@ -69,7 +71,14 @@ class UpdateTimezoneForm extends Component
 
     public function updateTimezone(): void
     {
-        $this->user->timezone = $this->timezone;
+        $data = $this->validate([
+            'timezone' => [
+                'required',
+                Rule::in(DateTimeZone::listIdentifiers(DateTimeZone::ALL)),
+            ],
+        ]);
+
+        $this->user->timezone = $data['timezone'];
 
         $this->user->save();
 

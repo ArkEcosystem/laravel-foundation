@@ -18,6 +18,23 @@ it('should have UTC as default timezone', function () {
         ->assertSee('(UTC+00:00) UTC');
 });
 
+it('should not accept an invalid timezone', function () {
+    $user = createUserModel();
+
+    $this->actingAs($user);
+
+    $this->assertDatabaseHas('users', [
+        'timezone' => 'UTC',
+    ]);
+
+    Livewire::test(UpdateTimezoneForm::class)
+        ->set('timezone', 'Invalid')
+        ->call('updateTimezone')
+        ->assertHasErrors('timezone');
+
+    expect($user->fresh()->timezone)->toBe('UTC');
+});
+
 it('should be able to update the timezone', function () {
     $this->actingAs(createUserModel());
 
