@@ -76,4 +76,6 @@ it('should render relative paths', function (string $path) {
 })->with([
     '/local/path',
     'path',
+    'path/version/1.2/thing',
+    'docs/core/releases/upgrade/docker/3.0',
 ]);
