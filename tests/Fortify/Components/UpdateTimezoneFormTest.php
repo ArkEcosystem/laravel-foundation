@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Fortify\Components\UpdateTimezoneForm;
+use ARKEcosystem\Foundation\Support\Timezone;
 use Livewire\Livewire;
 use function Tests\createUserModel;
 
@@ -64,27 +65,8 @@ it('should assert that the currentTimezone property is set to UTC by default and
     $realComponent = new UpdateTimezoneForm('1');
     $realComponent->mount();
 
-    $this->assertSame('UTC', $realComponent->getCurrentTimezoneProperty());
-    $this->assertSame($realComponent->getCurrentTimezoneProperty(), $user->timezone);
-    $this->assertIsString($realComponent->getCurrentTimezoneProperty());
-});
-
-it('should return an array of formatted arrays of timezones', function () {
-    $user = createUserModel();
-
-    $this->actingAs($user);
-
-    $realComponent = new UpdateTimezoneForm('1');
-    $realComponent->mount();
-
-    $formattedTimezones = $realComponent->getFormattedTimezones();
-
-    $this->assertIsArray($formattedTimezones);
-    $this->assertIsArray($formattedTimezones[0]);
-
-    $this->assertArrayHasKey('offset', $formattedTimezones[0]);
-    $this->assertArrayHasKey('timezone', $formattedTimezones[0]);
-    $this->assertArrayHasKey('formattedTimezone', $formattedTimezones[0]);
+    $this->assertSame('UTC', $realComponent->timezone);
+    $this->assertSame($realComponent->timezone, $user->timezone);
 });
 
 it('can format a timezone', function () {
