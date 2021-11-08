@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Fortify\Components\UpdateTimezoneForm;
-use ARKEcosystem\Foundation\Support\Timezone;
 use Livewire\Livewire;
 use function Tests\createUserModel;
 
