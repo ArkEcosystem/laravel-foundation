@@ -102,7 +102,7 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
         $path = parse_url($url, PHP_URL_PATH);
 
         if ($this->pathIsADomain($path)) {
-            return 'http://' . $path;
+            return 'http://'.$path;
         }
 
         return $url;
