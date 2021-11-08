@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Components;
 
-use Livewire\Component;
-use Illuminate\Validation\Rule;
-use ARKEcosystem\Foundation\Support\Timezone;
 use ARKEcosystem\Foundation\Fortify\Components\Concerns\InteractsWithUser;
+use ARKEcosystem\Foundation\Support\Timezone;
+use Illuminate\Validation\Rule;
+use Livewire\Component;
 
 class UpdateTimezoneForm extends Component
 {
