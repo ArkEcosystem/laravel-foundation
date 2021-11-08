@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Components;
 
-use ARKEcosystem\Foundation\Fortify\Components\Concerns\InteractsWithUser;
-use Carbon\Carbon;
-use Carbon\CarbonTimeZone;
-use DateTimeZone;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Validation\Rule;
 use Livewire\Component;
+use Illuminate\Validation\Rule;
+use ARKEcosystem\Foundation\Support\Timezone;
+use ARKEcosystem\Foundation\Fortify\Components\Concerns\InteractsWithUser;
 
 class UpdateTimezoneForm extends Component
 {
@@ -23,7 +20,7 @@ class UpdateTimezoneForm extends Component
      */
     public function mount()
     {
-        $this->timezone = $this->currentTimezone;
+        $this->timezone = $this->user->timezone;
     }
 
     /**
@@ -36,45 +33,12 @@ class UpdateTimezoneForm extends Component
         return view('ark-fortify::profile.update-timezone-form');
     }
 
-    public function getFormattedTimezones(): array
-    {
-        $formattedTimezones  = [];
-        $timezoneIdentifiers = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
-
-
-        foreach ($timezoneIdentifiers as $timezoneIdentifier) {
-            $timezone = CarbonTimeZone::instance(new DateTimeZone($timezoneIdentifier));
-
-            array_push($formattedTimezones, [
-                'offset'            => $timezone->getOffset(Carbon::now()),
-                'timezone'          => $timezoneIdentifier,
-                'formattedTimezone' => "(UTC{$timezone->toOffsetName()}) ".str_replace('_', ' ', $timezoneIdentifier),
-            ]);
-        }
-
-        array_multisort(array_column($formattedTimezones, 'offset'), SORT_ASC, $formattedTimezones);
-
-        return $formattedTimezones;
-    }
-
-    public function getTimezonesProperty(): array
-    {
-        return Cache::rememberForever('timezones', fn () => $this->getFormattedTimezones());
-    }
-
-    public function getCurrentTimezoneProperty(): string
-    {
-        $index = array_search($this->user->timezone, array_column($this->timezones, 'timezone'), true);
-
-        return $this->timezones[$index]['timezone'];
-    }
-
     public function updateTimezone(): void
     {
         $data = $this->validate([
             'timezone' => [
                 'required',
-                Rule::in(DateTimeZone::listIdentifiers(DateTimeZone::ALL)),
+                Rule::in(Timezone::list()),
             ],
         ]);
 
