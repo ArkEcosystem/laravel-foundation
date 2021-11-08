@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.5,15.4v-3.2
+		c0-0.2,0.2-0.4,0.4-0.4h12.2c0.2,0,0.4,0.2,0.4,0.4v3.2"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10,9.4v6"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13.5,9.4
+		c-0.4-2-2.3-3.3-4.3-2.9C7.8,6.8,6.6,7.9,6.3,9.4"/>
+	<circle fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="10" cy="3.4" r="2.4"/>
+	
+		<circle fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="10" cy="17.2" r="1.8"/>
+	
+		<circle fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="16.5" cy="17.2" r="1.8"/>
+	
+		<circle fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="3.5" cy="17.2" r="1.8"/>
+</g>
+</svg>

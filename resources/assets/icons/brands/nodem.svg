@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 17.6"><path d="M.1 17.63h3.8v-4.7l7 4.7h7.4L0 5.93l.1 11.7zm20.1 0H24V.03l-11.3 8L.1.03v4.6l12.7 7.9 7.5-5.2v10.3z" fill="currentColor"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="nodem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g transform="translate(-80 -561.17)">
+	<path fill="currentColor" d="M80,578.5h3.2v-3.9l5.8,3.9h6.2L80,568.8V578.5z"/>
+	<path fill="currentColor" d="M96.9,578.5h3.1v-14.6l-9.4,6.6L80,563.9v3.8l10.6,6.5l6.2-4.3C96.9,569.9,96.9,578.5,96.9,578.5z"/>
+</g>
+</svg>

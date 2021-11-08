@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="social-media" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<circle fill="#E5F0F8" cx="12" cy="17.55402" r="12"/>
+<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M39,33.05402l-3.5-5.29999
+	v-6.20001c0-2.40002-4.59998-5-6.29999-6.29999"/>
+<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M31.5,23.05402
+	l-4.29999-3.40002c-0.59998-0.59998-1.59998-0.59998-2.20001,0c-0.59998,0.59998-0.59998,1.5,0,2.09998l4.20001,4.70001V29.354
+	c0,1.40002,2,3.59998,2,3.59998"/>
+<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M29.20001,14.55402v6.68139
+	"/>
+<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18.59998,6.55402h5.29999"
+	/>
+<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M29.20001,28.65399
+	C28.90002,30.15399,27.60004,31.354,26,31.354h-7.70001c-1.79999,0-3.20001-1.40002-3.20001-3.20001l0,0v-4.70001"/>
+<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.09998,25.95398h7.09998
+	"/>
+<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.70001,9.354
+	l3.40002,3.40002"/>
+<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M26.17105,10.6733
+	L23.5,12.45398"/>
+<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.90002,17.45398
+	l3.20001-1.79999"/>
+<circle fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="14.20001" cy="8.25403" r="1.79999"/>
+<circle fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="14.20001" cy="18.05402" r="1.79999"/>
+<circle fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="21.29707" cy="14.15405" r="2.60289"/>
+<circle fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="28.39711" cy="9.25403" r="2.60289"/>
+</svg>

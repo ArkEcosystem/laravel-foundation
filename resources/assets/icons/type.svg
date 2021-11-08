@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="type" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.24022,16
+		c0-0.3,0.30168-0.6,0.60335-0.6l0,0h9.55307C18.69832,15.4,19,15.7,19,16l0,0l0,0v2.4c0,0.3-0.30168,0.6-0.60335,0.6l0,0H8.84358
+		c-0.30168,0-0.60335-0.3-0.60335-0.6l0,0l0,0V16H8.24022z"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.24022,10
+		c0-0.3,0.30168-0.6,0.60335-0.6l0,0h9.55307C18.69832,9.4,19,9.7,19,10l0,0l0,0v2.4c0,0.3-0.30168,0.6-0.60335,0.6l0,0H8.84358
+		c-0.30168,0-0.60335-0.3-0.60335-0.6l0,0l0,0V10H8.24022z"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1,1.7
+		C1,1.3,1.30168,1,1.60335,1l0,0h9.55307c0.30168,0,0.60335,0.3,0.60335,0.6l0,0l0,0V4c0,0.3-0.30168,0.6-0.60335,0.6l0,0H1.70391
+		C1.30168,4.7,1,4.4,1,4.1l0,0l0,0V1.7z"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.82682,4.61962V5.8
+		c0,0.6,0.50279,1.2,1.2067,1.2h3.62011c0.70391,0,1.2067,0.5,1.2067,1.2v1.2"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.17319,13v2.4"/>
+</g>
+</svg>

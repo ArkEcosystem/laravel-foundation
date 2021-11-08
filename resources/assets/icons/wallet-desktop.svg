@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="wallet-desktop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="1" y1="18.20001" x2="19" y2="18.20001"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5.09998,15H3.29999
+		C2.5,15,1.89996,14.39999,2,13.60001l0,0V3.20001c0-0.79999,0.59998-1.39999,1.29999-1.39999h13.40002
+		C17.5,1.80002,18.10004,2.40002,18,3.20001v10.39999C18,14.30002,17.40002,15,16.70001,15l0,0h-1.90002"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="4.29999" y1="4.29999" x2="15.70001" y2="4.29999"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="4.29999" y1="12.39999" x2="4.29999" y2="12.39999"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="15.70001" y1="12.39999" x2="15.70001" y2="12.39999"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" d="M10,7.20001c1.70001,0,3.09998,1.39999,3.09998,3.10001
+		S11.69995,13.40002,10,13.40002s-3.09998-1.39999-3.09998-3.10001l0,0C6.90002,8.60001,8.30005,7.20001,10,7.20001z"/>
+</g>
+</svg>

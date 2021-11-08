@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 90 69"><defs><path d="M0 0h90v69H0z"/></defs><clipPath><use xlink:href="#reddit_svg__A"/></clipPath><g clip-path="url(#reddit_svg__B)"><path d="M9.1 42.5c0-.5 0-1 .1-1.4A10.73 10.73 0 014 31.9c-.1-5.7 4.5-10.5 10.2-10.6 2.2 0 4.3.7 6 2 6.2-4.4 14.3-6.9 22.9-7.2L49 1.6C49.5.4 50.7-.2 51.9.1l14.6 3.5C67.9 1.4 70.3 0 72.9 0c4.3.1 7.7 3.7 7.7 8 .2 4.2-3.1 7.8-7.3 8s-7.7-3-8-7.2l-12.5-3-4.3 10.4c7.9.6 15.4 3.1 21.1 7.2 1.7-1.4 3.9-2.1 6.1-2.1 5.7.1 10.3 4.9 10.2 10.6 0 3.9-2.1 7.5-5.5 9.4v1.2c0 14.6-16 26.5-35.7 26.5S9.1 57.1 9.1 42.5zm23.4 11.2c-.8 1.2-.6 2.8.6 3.7a19.5 19.5 0 0023.6 0c1.1-.9 1.4-2.5.6-3.7-.8-1.1-2.3-1.4-3.5-.7 0 0-.1 0-.1.1-5.2 4-12.4 4-17.6 0-.4-.3-1-.5-1.5-.5-.9 0-1.7.4-2.1 1.1zm20-13.9c.1 2.8 2.5 5 5.3 4.9s5-2.5 4.9-5.3c-.1-2.7-2.4-4.9-5.1-4.9-2.9.1-5.2 2.4-5.1 5.3zm-25.5 0c.1 2.8 2.5 5 5.3 4.9s5-2.5 4.9-5.3c-.1-2.7-2.4-4.9-5.1-4.9-2.9.1-5.2 2.4-5.1 5.3zM70.3 8c-.1 1.4 1 2.6 2.4 2.7s2.6-1 2.7-2.4V8c.1-1.4-1-2.6-2.4-2.7s-2.6 1-2.7 2.4V8zM57.6 39.8zm-25.5 0z" fill="currentColor"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="reddit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	
+		<ellipse fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="10" cy="12.5956" rx="7.38748" ry="5.09137"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12.79526,14.79188
+		C11.99662,15.29103,10.99831,15.49069,10,15.49069s-1.89678-0.19966-2.79526-0.69882"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13.69374,11.39763
+		c0,0.29949-0.29949,0.59899-0.59898,0.59899c-0.29949,0-0.59899-0.29949-0.59899-0.59899
+		c0-0.29949,0.29949-0.59898,0.59899-0.59898C13.39425,10.79865,13.69374,11.09814,13.69374,11.39763"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7.50423,11.39763
+		c0,0.29949-0.29949,0.59899-0.59898,0.59899s-0.59898-0.29949-0.59898-0.59899c0-0.29949,0.29949-0.59898,0.59898-0.59898
+		C7.20474,10.79865,7.50423,11.09814,7.50423,11.39763"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.31321,9.0583
+		c0.50893-0.96652,1.58964-1.34714,2.57342-0.85525c0.99831,0.49915,1.39763,1.59729,0.89848,2.5956
+		c-0.29518,0.59035-0.7843,0.98675-1.46737,1.09364"/>
+	
+		<circle fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="15.98985" cy="4.01015" r="1.69712"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4.68677,9.05826
+		c-0.50894-0.96649-1.58964-1.3471-2.5734-0.85522c-0.99831,0.49915-1.39763,1.59729-0.89848,2.5956
+		c0.29521,0.59041,0.7844,0.98684,1.46758,1.09367"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10.00235,7.50431
+		c0.0264-0.72149,0.34897-5.0769,4.29037-3.79365"/>
+</g>
+</svg>

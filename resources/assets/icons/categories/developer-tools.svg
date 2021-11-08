@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="developer-tools" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.25348,13.6351
+		l6.21727-0.50139c0.70195-0.10028,1.30362,0.50139,1.4039,1.20334c0,0.20056,0,0.50139-0.10028,0.70195l0,0
+		c-0.10028,0.30084-0.40111,0.50139-0.70195,0.60167l-8.62396,3.20891c-0.50139,0.20056-1.10306,0.20056-1.60445,0l-6.61838-2.20613
+		"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5.5376,14.23677h4.71309
+		c0.50139,0,0.90251-0.30084,1.00279-0.80223l0,0c0.20056-0.60167-0.10028-1.20334-0.70195-1.4039l-4.91365-1.30362
+		c-0.50139-0.10028-1.00279-0.20056-1.60446-0.10028l-2.90808,0.50139"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7.34262,2.50418
+		L4.33426,4.81059l3.00836,2.30641"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.76323,2.50418
+		l3.00836,2.30641l-3.00836,2.30641"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.75488,1
+		L10.2507,8.72145"/>
+</g>
+</svg>

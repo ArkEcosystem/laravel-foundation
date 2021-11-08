@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="cards" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<g transform="translate(-792 -692.396)">
+	<circle fill="#E5F0F8" cx="804.9" cy="711.5" r="12.9"/>
+	<g>
+		<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M831,714.3V700
+			c0-1.1-0.9-1.9-1.9-1.9h-21c-1.1,0-1.9,0.9-1.9,1.9v4.8"/>
+		<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M806.2,703.8H831"/>
+		<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M802.3,710.5
+			c0-1.1,0.9-1.9,1.9-1.9h21c1.1,0,1.9,0.9,1.9,1.9v14.3c0,1.1-0.9,1.9-1.9,1.9h-21c-1.1,0-1.9-0.9-1.9-1.9V710.5z"/>
+		<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M802.3,714.3h24.8"/>
+		<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M806.2,720h2.9"/>
+		<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M819,719.1
+			c-0.8-1.1-2.3-1.3-3.3-0.5c-1.1,0.8-1.3,2.3-0.5,3.3s2.3,1.3,3.3,0.5c0.2-0.1,0.3-0.3,0.5-0.5c0.8,1.1,2.3,1.3,3.3,0.5
+			c1.1-0.8,1.3-2.3,0.5-3.3s-2.3-1.3-3.3-0.5C819.3,718.7,819.2,718.9,819,719.1z"/>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="games" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<circle fill="#E5F0F8" cx="11.90002" cy="21.604" r="11.90002"/>
+<g>
+	<g>
+		<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M30,6.604h5.40002
+			c1,0,1.79999,0.79999,1.79999,1.79999v10.79999"/>
+		<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.40002,24.50403
+			h-3.59998c-1,0-1.79999-0.79999-1.79999-1.79999V8.30402c0-1,0.79999-1.79999,1.79999-1.79999h1.79999"/>
+		<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21,24.50403
+			c0-1,0.79999-1.79999,1.79999-1.79999h14.40002c1,0,1.79999,0.79999,1.79999,1.79999v7.20001c0,1-0.79999,1.79999-1.79999,1.79999
+			H22.79999c-1,0-1.79999-0.79999-1.79999-1.79999V24.50403z"/>
+		<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M23.70001,28.104h3.59998
+			"/>
+		<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M25.5,26.30402v3.59998"
+			/>
+		<circle fill="#212225" cx="33.1" cy="29.4" r="1.4"/>
+		<circle fill="#212225" cx="34.90002" cy="26.74992" r="1.4"/>
+	</g>
+	<g>
+		<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21,14.604l3.70001-2.5
+			C23.29999,10.00403,20.5,9.50403,18.5,10.90399c-2.09998,1.40002-2.59998,4.20001-1.20001,6.20001
+			C18.70001,19.20398,21.5,19.70398,23.5,18.30402c0.5-0.29999,0.90002-0.79999,1.20001-1.20001L21,14.604z"/>
+		<circle fill="#007DFF" cx="27.79999" cy="15.07678" r="1.4"/>
+		<circle fill="#007DFF" cx="32.21679" cy="15.07678" r="1.4"/>
+	</g>
+</g>
+</svg>

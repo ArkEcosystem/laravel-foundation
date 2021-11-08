@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="delegate-resignation" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+   x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+  <line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="16.73048" y1="1" x2="6.43049" y2="19"/>
+  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.73048,6.9
+    c1.39999,0,2.70001-1.1,2.70001-2.7c0-1.5-1.20001-2.7-2.70001-2.7S4.03047,2.7,4.03047,4.2l0,0C4.0305,5.7,5.1305,6.9,6.73048,6.9
+    z"/>
+  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.6305,9.8
+    c-0.6-0.3-1.20001-0.5-1.89999-0.5c-2.5,0-4.39999,2-4.39999,4.4"/>
+  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12.96949,17.80001l4-4.10001"/>
+  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16.96949,17.80001l-4-4.10001"/>
+</g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="circle-update" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<circle fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" cx="10" cy="10" r="9"/>
+<g>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.86073,6.03332
+		c-1.02812-0.47383-2.21867-0.55374-3.3274-0.16995C6.8,6.53003,5.6,8.13003,5.6,9.9967v1.2"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.13886,13.96919
+		c1.07494,0.50668,2.3153,0.55251,3.46114,0.09418c1.66667-0.66667,2.8-2.26667,2.8-4.06667v-0.8"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4,9.5967l1.6,1.6
+		l1.73333-1.6"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16,10.7967l-1.6-1.6
+		l-1.73333,1.6"/>
+</g>
+</svg>

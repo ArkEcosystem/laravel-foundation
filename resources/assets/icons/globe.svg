@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="globe" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g transform="translate(0.25 0.406)">
+	<circle fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="9.75" cy="9.6" r="9"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7.55,18.32911
+		c-1.2-1.8-2-5.13511-2-8.73511s0.8-6.92314,2-8.72314"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="0.75" y1="9.6" x2="18.75" y2="9.6"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="2.07327" y1="14.3" x2="17.42673" y2="14.3"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="2.19962" y1="4.7" x2="17.30041" y2="4.7"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.95,0.87084
+		c1.2,1.8,1.9,5.02916,1.9,8.72916s-0.7,6.9291-1.9,8.7291"/>
+</g>
+</svg>

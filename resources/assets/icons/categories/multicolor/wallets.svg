@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="wallets" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<circle fill="#E5F0F8" cx="12" cy="20.83099" r="12"/>
+<g>
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M37.20001,27.53101
+		v1.70001c0,1.90002-1.59998,3.5-3.5,3.5H16.29999c-1.90002,0-3.5-1.59998-3.5-3.5V17.03101c0-1.90002,1.59998-3.5,3.5-3.5h17.40002
+		c1.90002,0,3.5,1.59998,3.5,3.5l0,1.89997"/>
+	<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M32.5,11.03101
+		l-1.40002-2.90002c-0.40002-0.90002-1.5-1.20001-2.29999-0.79999l0,0l-8.20001,4.09998"/>
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M37.20001,27.53101
+		c1,0,1.70001-0.79999,1.70001-1.78105v-5.20001c0-0.91896-0.79999-1.61897-1.70001-1.61897h-4.40002
+		c-2.40002,0-4.39866,1.90002-4.39866,4.30005s1.99863,4.29999,4.39866,4.29999L37.20001,27.53101L37.20001,27.53101z"/>
+	<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M32.79999,23.23102
+		L32.79999,23.23102"/>
+</g>
+</svg>

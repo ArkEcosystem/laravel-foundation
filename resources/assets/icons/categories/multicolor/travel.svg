@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="travel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<circle fill="#E5F0F8" cx="11.70001" cy="18.60602" r="11.70001"/>
+<g>
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.90002,33.50604
+		c0-7.5,6.09998-13.5,13.5-13.5c7.5,0,13.5,6.09998,13.5,13.5"/>
+	<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21.90002,33.50604
+		l-0.29999-1c-0.20001-0.59998-0.70001-1.09998-1.40002-1.09998h-4.88578"/>
+	<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M33.94775,27.20599
+		h-3.74774c-0.59998,0-1.20001,0.40002-1.40002,1.09998l-0.70001,2.79999c-0.20001,0.70001,0.29999,1.5,1,1.70001
+		c0.09998,0,0.20001,0,0.29999,0h1.5l0.09998,0.70001"/>
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M25.40002,10.10602
+		V6.50604"/>
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20,10.10602h11.70001
+		v5.40002H20l-2.70001-2.70001L20,10.10602L20,10.10602z"/>
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M25.40002,20.00604
+		v-4.50006"/>
+	<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.09998,33.50604
+		c0-5.79999,4.79999-10.5,10.59998-10.40002c5.70001,0,10.40002,4.70001,10.40002,10.40002"/>
+</g>
+</svg>

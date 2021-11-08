@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="underline-location" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.19933,7.04391
+		C15.19933,9.87022,9.9,14.198,9.9,14.198S4.60067,9.87022,4.60067,7.04391c0.08832-2.91463,2.56134-5.211,5.47597-5.03436
+		C12.90295,2.09787,15.111,4.30592,15.19933,7.04391z"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1,16.6h18"/>
+</g>
+</svg>

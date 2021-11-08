@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="sliders-vertical" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g transform="translate(174.9 104.2)">
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-159.89999" y1="-95.2" x2="-159.89999" y2="-103.2"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-159.89999" y1="-85.2" x2="-159.89999" y2="-89.2"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-156.89999-92.2
+		c0,1.7-1.39999,3-3,3c-1.7,0-3-1.4-3-3s1.2-3,3-3l0,0C-158.2-95.2-156.89999-93.9-156.89999-92.2L-156.89999-92.2z"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-169.89999" y1="-97.1" x2="-169.89999" y2="-85.2"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-166.89999-100.2
+		c0-1.7-1.39999-3-3-3s-3,1.4-3,3c0,1.7,1.39999,3,3,3C-168.3-97.2-166.89999-98.5-166.89999-100.2
+		C-166.89999-100.1-166.89999-100.2-166.89999-100.2z"/>
+</g>
+</svg>

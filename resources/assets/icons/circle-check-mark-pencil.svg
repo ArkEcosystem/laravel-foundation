@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="circle-check-mark-pencil" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.00697,18.57043L8,19
+		l0.42957-2.88424l7.54812-7.60949c0.67503-0.67503,1.77964-0.67503,2.51604,0c0.67503,0.67503,0.67503,1.77964,0,2.51604
+		L11.00697,18.57043z"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4.99983,15.92965
+		C2.60872,14.54638,1,11.96106,1,9c0-4.41828,3.58172-8,8-8c3.01044,0,5.63251,1.66282,6.99784,4.12011"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12.2,5.88889
+		l-4.44444,6.04444c-0.17778,0.26667-0.53333,0.35556-0.8,0.17778c0,0,0,0-0.08889-0.08889L5.8,10.77778"/>
+</g>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="extension-js" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<g>
+	<path fill="none" stroke="#289548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.32283,29H5.04724
+		C3.92126,29,3,28.14286,3,27.09524V2.90476C3,1.85714,3.92126,1,4.94488,1l0,0h14.12598c0.61417,0,1.02362,0.19048,1.43307,0.57143
+		l7.88189,7.33333C28.79527,9.28571,29,9.7619,29,10.2381v5.71429"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16,21.2V29
+		c0,1.1-0.9,2-2,2h-2"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M23.7,21.2h-2
+		c-1.1,0-2,0.9-2,2c0,2.9,3.9,2.9,3.9,5.8c0,1.1-0.9,2-2,2h-1.7"/>
+</g>
+</svg>

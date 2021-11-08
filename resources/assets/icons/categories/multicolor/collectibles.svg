@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="collectibles" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<circle fill="#E5F0F8" cx="12.59998" cy="19.11298" r="12.59998"/>
+<g>
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M26.5,32.71301
+		L14,25.91302v-13.5l12.5-6.79999L39,12.41302v13.5L26.5,32.71301z"/>
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" d="M16.57423,23.41302L26.5,29.11298"/>
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" d="M26.5,29.11298l9.92577-5.69995"/>
+</g>
+<g>
+	<circle fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" cx="26.5" cy="18.91296" r="3"/>
+	<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" d="M16.64845,14.07435l6.96991,4.00252"/>
+	<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" d="M29.40193,18.15047L36.5,14.07435"/>
+</g>
+</svg>

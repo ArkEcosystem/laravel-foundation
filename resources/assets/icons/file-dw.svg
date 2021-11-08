@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="extension-dw" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+<g>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M27.5,20.9v3.5
+		c0,2.4-0.7,4.6-2,6.6c-1.3-2-2-4.2-2-6.6c0,2.4-0.7,4.6-2,6.6c-1.3-2-2-4.2-2-6.6v-3.5"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12.3,31c2.2,0,4-1.8,4-4
+		v-2c0-2.2-1.8-4.1-4-4.1L12.3,31z"/>
+</g>
+<path fill="none" stroke="#289548" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.32283,29H5.04724
+	C3.92126,29,3,28.14286,3,27.09524V2.90476C3,1.85714,3.92126,1,4.94488,1l0,0h14.12599c0.61417,0,1.02362,0.19048,1.43307,0.57143
+	l7.88189,7.33333C28.79527,9.28571,29,9.7619,29,10.2381v5.71429"/>
+</svg>

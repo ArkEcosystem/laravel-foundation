@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 28"><path d="M36.8 13.4l-4.3-4.2c-.1 0-.2-.1-.4-.4-.2-.1-.4 0-.5.1l-.9.8c-.2.2-.2.6 0 .8l1.2 1.2c.1.1.1.1.1.2 0 .2-.1.4-.4.4h-5.2c-.1 0-.2 0-.2.1H1.3v2H26c.1.2.3.3.6.3h5.1c.1 0 .2.1.2.1.1.1.1.4 0 .5l-1.2 1.2c-.2.2-.2.6 0 .8l.9.8c.2.2.6.2.9 0l4.3-4.2c.1 0 .2-.2.2-.4-.1-.1-.1-.1-.1-.2 0 .2-.1.1-.1.1z"/><g fill="none" stroke="currentColor" stroke-width="2"><path d="M14.3 1.1v25.1M1.4 13.6C1.4 6.7 7.1 1.2 14 1.2s12.6 5.6 12.6 12.4C26.7 20.5 21 26 14.1 26S1.4 20.5 1.4 13.6z"/><path d="M10.7 2.5c.8-.7 1.9-1.4 3.3-1.4s2.5.6 3.3 1.4c.8.7 1.4 1.7 1.9 2.8 1 2.2 1.5 5.1 1.5 8.2s-.6 6-1.5 8.2c-.5 1.1-1.1 2.1-1.9 2.8s-1.9 1.4-3.3 1.4-2.5-.6-3.3-1.4c-.8-.7-1.4-1.7-1.9-2.8-1-2.2-1.5-5.1-1.5-8.2s.6-6 1.5-8.2c.5-1.1 1.1-2.1 1.9-2.8z"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="explorer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g transform="translate(-497 -502.72)">
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M515.40002,512.70001
+		c0,4.79999-3.89999,8.70001-8.70001,8.70001c-4.79999,0-8.70001-3.90002-8.70001-8.70001S501.89999,504,506.70001,504l0,0"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="516" y1="520.79999" x2="513.29999" y2="518.79999"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M509.89999,504.70001
+		c2.39999,1,4.19998,2.89999,5.00003,5.39999"/>
+	<g>
+		<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M502.20001,510.26999l4.39999,2.39999"/>
+		<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M506.60001,512.66998"/>
+		
+			<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="506.60001" y1="512.66998" x2="508.74655" y2="511.5965"/>
+		<path fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" d="M511.20001,510.47
+			c0-0.20001-0.10001-0.29999-0.20001-0.39999c-0.20001-0.10001-3.79999-2.20001-4-2.29999c-0.10001-0.10001-0.29999-0.10001-0.5,0
+			s-3.79999,2.20001-4,2.29999c-0.20001,0.10001-0.29999,0.20001-0.29999,0.39999v4.49997
+			c0,0.20001,0.10001,0.29999,0.20001,0.40002c0.20001,0.09998,3.89999,2.20001,4,2.29999s0.29999,0.09998,0.39999,0
+			c0.10001,0,3.89999-2.20001,4-2.29999c0.20001-0.09998,0.39999-0.20001,0.39999-0.40002
+			C511.20001,514.66998,511.20001,510.47,511.20001,510.47z"/>
+		
+			<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="506.60001" y1="515.07001" x2="506.60001" y2="512.66998"/>
+	</g>
+</g>
+</svg>

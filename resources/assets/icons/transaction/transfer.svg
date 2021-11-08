@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="transfer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g transform="translate(-380.75 -1621.75)">
+	<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="387.5" y1="1624.6" x2="387.5" y2="1638.9"/>
+	<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="381.8" y1="1624.6" x2="393.2" y2="1624.6"/>
+	<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="393.2" y1="1630.4" x2="399.7" y2="1638.5"/>
+	<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" x1="399.7" y1="1630.4" x2="393.2" y2="1638.5"/>
+</g>
+</svg>

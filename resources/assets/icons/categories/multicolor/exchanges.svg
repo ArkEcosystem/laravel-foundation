@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="exchanges" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+<circle fill="#E5F0F8" cx="11.40002" cy="21.53503" r="11.40002"/>
+<g transform="translate(-641 -692.365)">
+	<path fill="none" stroke="#212225" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M658.79999,705.29999
+		c-3.5,0.09998-6.59998,3.29999-6.59998,7.29999l0,0c0,4,3.29999,7.29999,7.29999,7.29999h8.20001L661,725.09998
+		c-0.40002,0.29999-1,0.20001-1.29999-0.20001c-0.09998-0.20001-0.20001-0.40002-0.20001-0.59998v-4.40002"/>
+	<path fill="none" stroke="#007DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M672.70001,704.90002v-4.5
+		c0-0.5-0.40002-0.90002-0.90002-0.90002c-0.20001,0-0.40002,0.09998-0.59998,0.20001L664.5,704.90002H672.70001
+		c4,0,7.29999,3.29999,7.29999,7.29999l0,0c0,3.70001-2.70001,6.70001-6.59998,7.29999"/>
+</g>
+</svg>

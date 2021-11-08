@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="cards" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19,11.2V2.4
+		c0-0.7-0.5-1.2-1.2-1.2H4.6c-0.7,0-1.2,0.5-1.2,1.2v2.9"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.4,4.7H19"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1,8.8
+		c0-0.7,0.5-1.2,1.2-1.2h13.2c0.7,0,1.2,0.5,1.2,1.2v8.8c0,0.7-0.5,1.2-1.2,1.2H2.2c-0.7,0-1.2-0.5-1.2-1.2V8.8z"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1,11.2h15.6"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.8,14.7h2.4"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.5,14.1
+		c-0.5-0.6-1.4-0.8-2.1-0.3c-0.7,0.5-0.8,1.4-0.3,2.1c0.5,0.6,1.4,0.8,2.1,0.3c0.1-0.1,0.2-0.2,0.3-0.3c0.5,0.7,1.4,0.8,2.1,0.3
+		c0.7-0.5,0.8-1.4,0.3-2.1c-0.5-0.7-1.4-0.8-2.1-0.3C11.7,13.9,11.6,14,11.5,14.1z"/>
+</g>
+</svg>

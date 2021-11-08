@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g transform="translate(701.709 490.248)">
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-699.3-484.4h15.2
+		c0.8,0,1.4,0.6,1.4,1.4v10.4c0,0.8-0.6,1.4-1.4,1.4h-15.2c-0.8,0-1.4-0.6-1.4-1.4V-483C-700.7-483.8-700.1-484.4-699.3-484.4z"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-700.5-483.8l1.9-4.7
+		c0.2-0.4,0.6-0.7,1.1-0.7h11.6c0.5,0,0.9,0.3,1.1,0.7l1.9,4.6"/>
+	
+		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-691.7" y1="-484.4" x2="-691.7" y2="-489.2"/>
+</g>
+</svg>

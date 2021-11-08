@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="user-pencil" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g transform="translate(3 3)">
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.98142,15.70642L8,16
+		l0.29721-2.15291l5.54799-5.48012c0.49536-0.4893,1.28793-0.4893,1.78328,0c0.49536,0.4893,0.49536,1.37003,0,1.76147
+		L9.98142,15.70642z"/>
+	<circle fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="7" cy="2" r="4"/>
+	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-1,16
+		c0-4.89874,3.5443-9,8-9c1.05052,0,2.05978,0.23207,2.98654,0.65463"/>
+</g>
+</svg>

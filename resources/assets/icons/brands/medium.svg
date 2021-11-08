@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 70"><g clip-path="url(#medium_svg__B)"><path d="M1 70v-1.6L11.6 55V13L2.2 1.2V0h25.3l20 43.1L65.5 0H90v1.2L82.2 9v52l7.3 7.3V70H54.9v-1.6l7.8-7.3V19.9L42.6 70h-2.5L16.9 19.9v35l10.6 13.4V70H1z" fill="currentColor"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="medium" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
+<g>
+	<circle fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" cx="5.9" cy="10" r="4.8"/>
+	<ellipse fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" cx="14.8" cy="10" rx="1.9" ry="4.5"/>
+	<ellipse cx="19" cy="10" rx="1" ry="5"/>
+</g>
+</svg>
