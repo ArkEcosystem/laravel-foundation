@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="arrow-external" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g transform="translate(0.249 0.666)">
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18.75,5.76417V0.334
-		h-5.43017"/>
-	
-		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="18.75" y1="0.334" x2="6.78352" y2="12.30048"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9.50001,3.33399H2
-		c-0.625,0-1.25,0.625-1.25,1.25v12.50001c0,0.625,0.625,1.25001,1.25,1.25001H14.5c0.625,0,1.25-0.625,1.25-1.25001v-7.5"/>
-</g>
-</svg>
+<svg version="1.1" id="arrow-external" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 20 20" xml:space="preserve"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.999 6.43V1h-5.43M18.999 1L7.033 12.966M9.749 4h-7.5c-.625 0-1.25.625-1.25 1.25v12.5c0 .625.625 1.25 1.25 1.25h12.5c.625 0 1.25-.625 1.25-1.25v-7.5"/></g></svg>

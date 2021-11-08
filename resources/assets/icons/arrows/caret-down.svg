@@ -1,6 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="caret-down" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 10 10" enable-background="new 0 0 10 10" xml:space="preserve">
-<path fill="currentColor" d="M9.09321,1.5H0.9068c-0.75396,0-1.17742,0.859-0.71343,1.44724l4.10799,5.20818
-	c0.36319,0.46045,1.06726,0.45923,1.42881-0.00248l4.07842-5.20818C10.26959,2.35607,9.8457,1.5,9.09321,1.5z"/>
-</svg>
+<svg version="1.1" id="caret-down" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 10 10" xml:space="preserve"><path fill="currentColor" d="M9.093 1.5H.907c-.754 0-1.178.859-.714 1.447l4.108 5.208a.91.91 0 001.43-.002l4.078-5.208c.46-.589.037-1.445-.716-1.445z"/></svg>
