@@ -31,7 +31,7 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
 
         $forbidUnsafeLinks = ! $this->config->exists('allow_unsafe_links') || ! $this->config->get('allow_unsafe_links');
         if (! ($forbidUnsafeLinks && RegexHelper::isLinkPotentiallyUnsafe($node->getUrl()))) {
-            $attrs['href'] = $node->getUrl();
+            $attrs['href'] = $this->getNodeUrl($node);
         }
 
         /* @phpstan-ignore-next-line */
@@ -93,6 +93,31 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
             'destination' => $node->getUrl(),
             'title'       => $node->getTitle() ?? '',
         ];
+    }
+
+    private function getNodeUrl(Node $node): string
+    {
+        $url = $node->getUrl();
+
+        $path = parse_url($url, PHP_URL_PATH);
+
+        if ($this->pathIsADomain($path)) {
+            return 'http://' . $path;
+        }
+
+        return $url;
+    }
+
+    private function pathIsADomain(?string $path): bool
+    {
+        if ($path === null) {
+            return false;
+        }
+
+        // @see https://stackoverflow.com/questions/10306690/what-is-a-regular-expression-which-will-match-a-valid-domain-name-without-a-subd
+        $regex = '/^(((?!-))(xn--|_{1,1})?[a-z0-9-]{0,61}[a-z0-9]{1,1}\.)*(xn--)?([a-z0-9-]{1,30}\.[a-z]{2,})/m';
+
+        return preg_match($regex, $path) === 1;
     }
 
     private function isInternalLink(string $url): bool
