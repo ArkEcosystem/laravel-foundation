@@ -41,7 +41,6 @@ class UpdateTimezoneForm extends Component
         $formattedTimezones  = [];
         $timezoneIdentifiers = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
 
-
         foreach ($timezoneIdentifiers as $timezoneIdentifier) {
             $timezone = CarbonTimeZone::instance(new DateTimeZone($timezoneIdentifier));
 
