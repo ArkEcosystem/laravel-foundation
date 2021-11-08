@@ -56,7 +56,7 @@ it('should render links without schema as links', function (string $host) {
 
     $element = $subject->render(new Link($host, 'Label', 'Title'), new HtmlRenderer($environment));
 
-    $this->expect($element->getAttribute('href'))->toBe('http://' . $host);
+    $this->expect($element->getAttribute('href'))->toBe('http://'.$host);
 })->with([
     'google.com',
     'www.google.com',
