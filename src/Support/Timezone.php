@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Support;
+
 use Carbon\Carbon;
 use Carbon\CarbonTimeZone;
 use DateTimeZone;
