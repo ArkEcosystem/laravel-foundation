@@ -25,14 +25,17 @@ class RegisterFormTest extends Model
     }
 }
 
-it('can interact with the form', function () {
-    Config::set('fortify.models.invitation', RegisterFormTest::class);
+beforeEach(function () {
     Route::get('terms-of-service', function () {
         return view('');
     })->name('terms-of-service');
     Route::get('privacy-policy', function () {
         return view('');
     })->name('privacy-policy');
+});
+
+it('can interact with the form', function () {
+    Config::set('fortify.models.invitation', RegisterFormTest::class);
 
     $invitationUuid = Uuid::uuid();
 
@@ -48,12 +51,6 @@ it('can interact with the form', function () {
 
 it('cannot submit if all required fields are not filled', function () {
     Config::set('fortify.models.invitation', RegisterFormTest::class);
-    Route::get('terms-of-service', function () {
-        return view('');
-    })->name('terms-of-service');
-    Route::get('privacy-policy', function () {
-        return view('');
-    })->name('privacy-policy');
 
     $invitationUuid = Uuid::uuid();
 
