@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10b6d8e1638a9c4bf8dfa67b64bc9174",
+    "content-hash": "89ecbd1f309f473461c711e04aec5b0d",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5842,16 +5842,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "cb317029197236c571c1b9305b8dd12850d8d85c"
+                "reference": "bcea0ae85868a89d5789c75f012c93129f842934"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/cb317029197236c571c1b9305b8dd12850d8d85c",
-                "reference": "cb317029197236c571c1b9305b8dd12850d8d85c",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/bcea0ae85868a89d5789c75f012c93129f842934",
+                "reference": "bcea0ae85868a89d5789c75f012c93129f842934",
                 "shasum": ""
             },
             "require": {
@@ -5882,7 +5882,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.1.1"
+                "source": "https://github.com/phpstan/phpstan/tree/1.1.2"
             },
             "funding": [
                 {
@@ -5902,7 +5902,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-06T22:46:47+00:00"
+            "time": "2021-11-09T12:41:09+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -7355,16 +7355,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "dev-main",
+            "version": "0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "46f79a775075968a445ddf816b0d6c185edc11fb"
+                "reference": "a32cffb2bdd433e1a3268924db82197888258682"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/46f79a775075968a445ddf816b0d6c185edc11fb",
-                "reference": "46f79a775075968a445ddf816b0d6c185edc11fb",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a32cffb2bdd433e1a3268924db82197888258682",
+                "reference": "a32cffb2bdd433e1a3268924db82197888258682",
                 "shasum": ""
             },
             "require": {
@@ -7382,14 +7382,13 @@
                 "rector/rector-prefixed": "*",
                 "rector/rector-symfony": "*"
             },
-            "default-branch": true,
             "bin": [
                 "bin/rector"
             ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "0.11-dev"
+                    "dev-main": "0.12-dev"
                 }
             },
             "autoload": {
@@ -7404,7 +7403,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/main"
+                "source": "https://github.com/rectorphp/rector/tree/0.12.1"
             },
             "funding": [
                 {
@@ -7412,7 +7411,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-08T20:33:54+00:00"
+            "time": "2021-11-09T15:18:41+00:00"
         },
         {
             "name": "ruafozy/mersenne-twister",
