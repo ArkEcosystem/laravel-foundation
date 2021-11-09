@@ -77,3 +77,16 @@ it('cannot submit if all required fields are not filled', function () {
     $instance->set('terms', true);
     expect($instance->instance()->canSubmit())->toBeTrue();
 });
+
+it('should correctly validate password & confirm password fields', function () {
+    Livewire::test(RegisterForm::class)
+        ->set('password', 'Password420007!')
+        ->assertHasNoErrors(['password', 'password_confirmation'])
+        ->set('password_confirmation', 'wrong password')
+        ->assertHasNoErrors('password')
+        ->assertHasErrors('password_confirmation')
+        ->set('password_confirmation', 'Password420007!')
+        ->assertHasNoErrors(['password', 'password_confirmation'])
+        ->set('password', 'invalid password')
+        ->assertHasErrors(['password', 'password_confirmation']);
+});
