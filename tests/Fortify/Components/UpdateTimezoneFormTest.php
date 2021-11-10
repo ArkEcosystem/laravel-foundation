@@ -18,6 +18,23 @@ it('should have UTC as default timezone', function () {
         ->assertSee('(UTC+00:00) UTC');
 });
 
+it('should not accept an invalid timezone', function () {
+    $user = createUserModel();
+
+    $this->actingAs($user);
+
+    $this->assertDatabaseHas('users', [
+        'timezone' => 'UTC',
+    ]);
+
+    Livewire::test(UpdateTimezoneForm::class)
+        ->set('timezone', 'Invalid')
+        ->call('updateTimezone')
+        ->assertHasErrors('timezone');
+
+    expect($user->fresh()->timezone)->toBe('UTC');
+});
+
 it('should be able to update the timezone', function () {
     $this->actingAs(createUserModel());
 
@@ -47,27 +64,8 @@ it('should assert that the currentTimezone property is set to UTC by default and
     $realComponent = new UpdateTimezoneForm('1');
     $realComponent->mount();
 
-    $this->assertSame('UTC', $realComponent->getCurrentTimezoneProperty());
-    $this->assertSame($realComponent->getCurrentTimezoneProperty(), $user->timezone);
-    $this->assertIsString($realComponent->getCurrentTimezoneProperty());
-});
-
-it('should return an array of formatted arrays of timezones', function () {
-    $user = createUserModel();
-
-    $this->actingAs($user);
-
-    $realComponent = new UpdateTimezoneForm('1');
-    $realComponent->mount();
-
-    $formattedTimezones = $realComponent->getFormattedTimezones();
-
-    $this->assertIsArray($formattedTimezones);
-    $this->assertIsArray($formattedTimezones[0]);
-
-    $this->assertArrayHasKey('offset', $formattedTimezones[0]);
-    $this->assertArrayHasKey('timezone', $formattedTimezones[0]);
-    $this->assertArrayHasKey('formattedTimezone', $formattedTimezones[0]);
+    $this->assertSame('UTC', $realComponent->timezone);
+    $this->assertSame($realComponent->timezone, $user->timezone);
 });
 
 it('can format a timezone', function () {

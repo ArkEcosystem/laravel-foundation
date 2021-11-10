@@ -6,10 +6,11 @@
             <x-ark-flash />
         </div>
     </div>
+
     <div class="relative mt-8 space-y-4">
         <x-ark-select :label="trans('ui::actions.select_timezone')" :errors="$errors" name="timezone">
-            @foreach ($this->timezones as $timezone)
-                @if ($timezone['timezone'] === $this->currentTimezone)
+            @foreach (\ARKEcosystem\Foundation\Support\Timezone::formattedList() as $timezone)
+                @if ($timezone['timezone'] === $this->user->timezone)
                     <option value="{{ $timezone['timezone'] }}" selected>{{ $timezone['formattedTimezone'] }}</option>
                 @else
                     <option value="{{ $timezone['timezone'] }}">{{ $timezone['formattedTimezone'] }}</option>
