@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59c72cc944bb98ab7440beaf0c2a08b7",
+    "content-hash": "d0948d0056ac0a9a0f06fd3ba3c37458",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -7355,16 +7355,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.12.1",
+            "version": "0.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "a32cffb2bdd433e1a3268924db82197888258682"
+                "reference": "a46666f4ed5feb5015b7af4f5f48d456729cb937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a32cffb2bdd433e1a3268924db82197888258682",
-                "reference": "a32cffb2bdd433e1a3268924db82197888258682",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a46666f4ed5feb5015b7af4f5f48d456729cb937",
+                "reference": "a46666f4ed5feb5015b7af4f5f48d456729cb937",
                 "shasum": ""
             },
             "require": {
@@ -7403,7 +7403,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.12.1"
+                "source": "https://github.com/rectorphp/rector/tree/0.12.2"
             },
             "funding": [
                 {
@@ -7411,7 +7411,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-09T15:18:41+00:00"
+            "time": "2021-11-10T11:49:56+00:00"
         },
         {
             "name": "ruafozy/mersenne-twister",
