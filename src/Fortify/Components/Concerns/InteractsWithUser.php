@@ -7,6 +7,9 @@ namespace ARKEcosystem\Foundation\Fortify\Components\Concerns;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * @property ?Authenticatable $user
+ */
 trait InteractsWithUser
 {
     public function getUserProperty(): ?Authenticatable
