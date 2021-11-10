@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59c72cc944bb98ab7440beaf0c2a08b7",
+    "content-hash": "3ef96042d2c0e946bfb14e00fe5ff85c",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -6532,149 +6532,6 @@
             "time": "2020-04-05T10:47:18+00:00"
         },
         {
-            "name": "pragmarx/google2fa-laravel",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/antonioribeiro/google2fa-laravel.git",
-                "reference": "ae2d11600df3db11a0c6bdd33ce8ce3c68cf5987"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/antonioribeiro/google2fa-laravel/zipball/ae2d11600df3db11a0c6bdd33ce8ce3c68cf5987",
-                "reference": "ae2d11600df3db11a0c6bdd33ce8ce3c68cf5987",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": ">=5.4.36|^8.0",
-                "php": ">=7.0",
-                "pragmarx/google2fa-qrcode": "^1.0|^2.0|^3.0"
-            },
-            "require-dev": {
-                "bacon/bacon-qr-code": "^2.0",
-                "orchestra/testbench": "3.4.*|3.5.*|3.6.*|3.7.*|4.*|5.*|6.*",
-                "phpunit/phpunit": "~5|~6|~7|~8"
-            },
-            "suggest": {
-                "bacon/bacon-qr-code": "Required to generate inline QR Codes.",
-                "pragmarx/recovery": "Generate recovery codes."
-            },
-            "type": "library",
-            "extra": {
-                "component": "package",
-                "frameworks": [
-                    "Laravel"
-                ],
-                "branch-alias": {
-                    "dev-master": "0.2-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "PragmaRX\\Google2FALaravel\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "Google2FA": "PragmaRX\\Google2FALaravel\\Facade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PragmaRX\\Google2FALaravel\\": "src/",
-                    "PragmaRX\\Google2FALaravel\\Tests\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Antonio Carlos Ribeiro",
-                    "email": "acr@antoniocarlosribeiro.com",
-                    "role": "Creator & Designer"
-                }
-            ],
-            "description": "A One Time Password Authentication package, compatible with Google Authenticator.",
-            "keywords": [
-                "Authentication",
-                "Two Factor Authentication",
-                "google2fa",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/antonioribeiro/google2fa-laravel/issues",
-                "source": "https://github.com/antonioribeiro/google2fa-laravel/tree/v2.0.1"
-            },
-            "time": "2021-08-17T18:45:39+00:00"
-        },
-        {
-            "name": "pragmarx/google2fa-qrcode",
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/antonioribeiro/google2fa-qrcode.git",
-                "reference": "ce4d8a729b6c93741c607cfb2217acfffb5bf76b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/antonioribeiro/google2fa-qrcode/zipball/ce4d8a729b6c93741c607cfb2217acfffb5bf76b",
-                "reference": "ce4d8a729b6c93741c607cfb2217acfffb5bf76b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1",
-                "pragmarx/google2fa": ">=4.0"
-            },
-            "require-dev": {
-                "bacon/bacon-qr-code": "^2.0",
-                "chillerlan/php-qrcode": "^1.0|^2.0|^3.0|^4.0",
-                "khanamiryan/qrcode-detector-decoder": "^1.0",
-                "phpunit/phpunit": "~4|~5|~6|~7|~8|~9"
-            },
-            "suggest": {
-                "bacon/bacon-qr-code": "For QR Code generation, requires imagick",
-                "chillerlan/php-qrcode": "For QR Code generation"
-            },
-            "type": "library",
-            "extra": {
-                "component": "package",
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PragmaRX\\Google2FAQRCode\\": "src/",
-                    "PragmaRX\\Google2FAQRCode\\Tests\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Antonio Carlos Ribeiro",
-                    "email": "acr@antoniocarlosribeiro.com",
-                    "role": "Creator & Designer"
-                }
-            ],
-            "description": "QR Code package for Google2FA",
-            "keywords": [
-                "2fa",
-                "Authentication",
-                "Two Factor Authentication",
-                "google2fa",
-                "qr code",
-                "qrcode"
-            ],
-            "support": {
-                "issues": "https://github.com/antonioribeiro/google2fa-qrcode/issues",
-                "source": "https://github.com/antonioribeiro/google2fa-qrcode/tree/v3.0.0"
-            },
-            "time": "2021-08-15T12:53:48+00:00"
-        },
-        {
             "name": "psr/cache",
             "version": "3.0.0",
             "source": {
@@ -7355,16 +7212,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.12.1",
+            "version": "0.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "a32cffb2bdd433e1a3268924db82197888258682"
+                "reference": "a46666f4ed5feb5015b7af4f5f48d456729cb937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a32cffb2bdd433e1a3268924db82197888258682",
-                "reference": "a32cffb2bdd433e1a3268924db82197888258682",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/a46666f4ed5feb5015b7af4f5f48d456729cb937",
+                "reference": "a46666f4ed5feb5015b7af4f5f48d456729cb937",
                 "shasum": ""
             },
             "require": {
@@ -7403,7 +7260,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.12.1"
+                "source": "https://github.com/rectorphp/rector/tree/0.12.2"
             },
             "funding": [
                 {
@@ -7411,7 +7268,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-09T15:18:41+00:00"
+            "time": "2021-11-10T11:49:56+00:00"
         },
         {
             "name": "ruafozy/mersenne-twister",
