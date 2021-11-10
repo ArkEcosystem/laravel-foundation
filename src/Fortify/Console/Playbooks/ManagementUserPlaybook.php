@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Console\Playbooks;
 
-use ARKEcosystem\Foundation\Fortify\Console\Commands\CreateUser;
-use ARKEcosystem\Foundation\Fortify\Support\Enums\UserRole;
 use Illuminate\Support\Facades\Artisan;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\Fortify\Policies;
 
 use ARKEcosystem\Foundation\Fortify\Models\User;
-use Illuminate\Database\Eloquent\Model;
 
 abstract class Policy
 {

@@ -6,8 +6,6 @@ namespace ARKEcosystem\Foundation\Fortify\Console\Playbooks;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Hash;
 
 class DemoPlaybook extends Playbook
 {

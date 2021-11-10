@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Nova;
 
-use ARKEcosystem\Foundation\Fortify\Nova\Fields\RoleBooleanGroup;
 use ARKEcosystem\Foundation\Fortify\Models\Permission as PermissionModel;
+use ARKEcosystem\Foundation\Fortify\Nova\Fields\RoleBooleanGroup;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Laravel\Nova\Http\Requests\NovaRequest;
