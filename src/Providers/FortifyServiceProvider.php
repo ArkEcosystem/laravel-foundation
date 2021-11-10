@@ -22,11 +22,15 @@ use ARKEcosystem\Foundation\Fortify\Components\UpdateProfileInformationForm;
 use ARKEcosystem\Foundation\Fortify\Components\UpdateProfilePhotoForm;
 use ARKEcosystem\Foundation\Fortify\Components\UpdateTimezoneForm;
 use ARKEcosystem\Foundation\Fortify\Components\VerifyEmail;
+use ARKEcosystem\Foundation\Fortify\Console\Commands\CreateUserCommand;
+use ARKEcosystem\Foundation\Fortify\Console\Commands\RunPlaybookCommand;
 use ARKEcosystem\Foundation\Fortify\Contracts\DeleteUser as DeleteUserContract;
 use ARKEcosystem\Foundation\Fortify\Http\Controllers\TwoFactorAuthenticatedPasswordResetController;
 use ARKEcosystem\Foundation\Fortify\Http\Responses\FailedPasswordResetLinkRequestResponse as FortifyFailedPasswordResetLinkRequestResponse;
 use ARKEcosystem\Foundation\Fortify\Http\Responses\SuccessfulPasswordResetLinkRequestResponse as FortifySuccessfulPasswordResetLinkRequestResponse;
 use ARKEcosystem\Foundation\Fortify\Models;
+use ARKEcosystem\Foundation\Fortify\Nova\Permission as NovaPermission;
+use ARKEcosystem\Foundation\Fortify\Nova\Role as NovaRole;
 use ARKEcosystem\Foundation\Fortify\Responses\FailedTwoFactorLoginResponse;
 use ARKEcosystem\Foundation\Fortify\Responses\RegisterResponse;
 use ARKEcosystem\Foundation\Fortify\Responses\TwoFactorLoginResponse;
@@ -39,6 +43,7 @@ use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use Laravel\Fortify\Contracts\SuccessfulPasswordResetLinkRequestResponse;
 use Laravel\Fortify\Contracts\TwoFactorLoginResponse as TwoFactorLoginResponseContract;
 use Laravel\Fortify\Fortify;
+use Laravel\Nova\Nova;
 use Livewire\Livewire;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -71,6 +76,10 @@ class FortifyServiceProvider extends ServiceProvider
         $this->registerAuthentication();
 
         $this->registerRoutes();
+
+        $this->registerCommands();
+
+        $this->registerNovaResources();
     }
 
     /**
@@ -249,5 +258,21 @@ class FortifyServiceProvider extends ServiceProvider
             SuccessfulPasswordResetLinkRequestResponse::class,
             FortifySuccessfulPasswordResetLinkRequestResponse::class
         );
+    }
+
+    private function registerCommands()
+    {
+        $this->commands([
+            CreateUserCommand::class,
+            RunPlaybookCommand::class,
+        ]);
+    }
+
+    private function registerNovaResources()
+    {
+        Nova::resources([
+            NovaPermission::class,
+            NovaRole::class,
+        ]);
     }
 }
