@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use Laravel\Nova\Nova;
 use Spatie\Permission\Models\Permission as SpatieModel;
 
-final class Permission extends SpatieModel
+class Permission extends SpatieModel
 {
     public static function getCacheKey(string $name, string $guardName): string
     {

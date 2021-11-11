@@ -11,7 +11,7 @@ use Illuminate\Notifications\Notification;
 /**
  * @codeCoverageIgnore
  */
-final class AccountCreated extends Notification
+class AccountCreated extends Notification
 {
     use Queueable;
 
