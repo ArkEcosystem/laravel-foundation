@@ -78,6 +78,8 @@ class FortifyServiceProvider extends ServiceProvider
         $this->registerRoutes();
 
         $this->registerCommands();
+
+        $this->registerContracts();
     }
 
     /**
@@ -147,7 +149,6 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         app()->singleton(DeleteUserContract::class, DeleteUser::class);
-        app()->singleton(UserRoleContract::class, UserRole::class);
     }
 
     public function registerRoutes(): void
@@ -280,5 +281,10 @@ class FortifyServiceProvider extends ServiceProvider
             CreateUserCommand::class,
             RunPlaybookCommand::class,
         ]);
+    }
+
+    private function registerContracts()
+    {
+        app()->singleton(UserRoleContract::class, UserRole::class);
     }
 }
