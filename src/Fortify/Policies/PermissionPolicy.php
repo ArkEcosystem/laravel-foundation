@@ -6,7 +6,6 @@ namespace ARKEcosystem\Foundation\Fortify\Policies;
 
 use ARKEcosystem\Foundation\Fortify\Contracts\UserRole;
 use ARKEcosystem\Foundation\Fortify\Models\Permission;
-use ARKEcosystem\Foundation\Fortify\Models\User;
 
 class PermissionPolicy
 {
@@ -17,7 +16,7 @@ class PermissionPolicy
      *
      * @return bool
      */
-    public function viewAny(User $user)
+    public function viewAny($user)
     {
         return $this->isSuperAdmin($user);
     }
@@ -30,7 +29,7 @@ class PermissionPolicy
      *
      * @return bool
      */
-    public function view(User $user, Permission $permission)
+    public function view($user, Permission $permission)
     {
         return $this->isSuperAdmin($user);
     }
@@ -38,11 +37,11 @@ class PermissionPolicy
     /**
      * Determine whether the user can create the model.
      *
-     * @param User $user
+     * @param $user
      *
      * @return bool
      */
-    public function create(User $user)
+    public function create($user)
     {
         return $this->isSuperAdmin($user);
     }
@@ -55,7 +54,7 @@ class PermissionPolicy
      *
      * @return bool
      */
-    public function update(User $user, Permission $permission)
+    public function update($user, Permission $permission)
     {
         return $this->isSuperAdmin($user);
     }
@@ -68,7 +67,7 @@ class PermissionPolicy
      *
      * @return bool
      */
-    public function delete(User $user, Permission $permission)
+    public function delete($user, Permission $permission)
     {
         return $this->isSuperAdmin($user);
     }
@@ -81,7 +80,7 @@ class PermissionPolicy
      *
      * @return bool
      */
-    public function restore(User $user, Permission $permission)
+    public function restore($user, Permission $permission)
     {
         return $this->isSuperAdmin($user);
     }
@@ -94,12 +93,12 @@ class PermissionPolicy
      *
      * @return bool
      */
-    public function forceDelete(User $user, Permission $permission)
+    public function forceDelete($user, Permission $permission)
     {
         return $this->isSuperAdmin($user);
     }
 
-    private function isSuperAdmin(User $user): bool
+    private function isSuperAdmin($user): bool
     {
         return $user->hasRole([
             app(UserRole::class)::SUPER_ADMIN,

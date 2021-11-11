@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\Fortify\Policies;
 
 use ARKEcosystem\Foundation\Fortify\Contracts\UserRole;
-use ARKEcosystem\Foundation\Fortify\Models\User;
 use Spatie\Permission\Models\Role;
 
 class RolePolicy
@@ -17,7 +16,7 @@ class RolePolicy
      *
      * @return bool
      */
-    public function viewAny(User $user)
+    public function viewAny($user)
     {
         return $this->isSuperAdmin($user);
     }
@@ -30,7 +29,7 @@ class RolePolicy
      *
      * @return bool
      */
-    public function view(User $user, Role $role)
+    public function view($user, Role $role)
     {
         return $this->isSuperAdmin($user);
     }
@@ -42,7 +41,7 @@ class RolePolicy
      *
      * @return bool
      */
-    public function create(User $user)
+    public function create($user)
     {
         return $this->isSuperAdmin($user);
     }
@@ -55,7 +54,7 @@ class RolePolicy
      *
      * @return bool
      */
-    public function update(User $user, Role $role)
+    public function update($user, Role $role)
     {
         return $this->isSuperAdmin($user);
     }
@@ -68,7 +67,7 @@ class RolePolicy
      *
      * @return bool
      */
-    public function delete(User $user, Role $role)
+    public function delete($user, Role $role)
     {
         return $this->isSuperAdmin($user);
     }
@@ -81,7 +80,7 @@ class RolePolicy
      *
      * @return bool
      */
-    public function restore(User $user, Role $role)
+    public function restore($user, Role $role)
     {
         return $this->isSuperAdmin($user);
     }
@@ -94,12 +93,12 @@ class RolePolicy
      *
      * @return bool
      */
-    public function forceDelete(User $user, Role $role)
+    public function forceDelete($user, Role $role)
     {
         return $this->isSuperAdmin($user);
     }
 
-    private function isSuperAdmin(User $user): bool
+    private function isSuperAdmin($user): bool
     {
         return $user->hasRole([
             app(UserRole::class)::SUPER_ADMIN,

@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Policies;
 
-use ARKEcosystem\Foundation\Fortify\Models\User;
-
 class UserPolicy extends Policy
 {
     protected string $resourceName = 'users';
 
-    public function delete(User $user, $model): bool
+    public function delete($user, $model): bool
     {
         /** @var User $model */
         if ($user->id === $model->id) {
@@ -20,7 +18,7 @@ class UserPolicy extends Policy
         return parent::delete($user, $model);
     }
 
-    public function create(User $user): bool
+    public function create($user): bool
     {
         return false;
     }
