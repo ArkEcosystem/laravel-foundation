@@ -38,6 +38,7 @@ use Laravel\Fortify\Contracts\FailedTwoFactorLoginResponse as FailedTwoFactorLog
 use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use Laravel\Fortify\Contracts\SuccessfulPasswordResetLinkRequestResponse;
 use Laravel\Fortify\Contracts\TwoFactorLoginResponse as TwoFactorLoginResponseContract;
+use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 use Livewire\Livewire;
 
@@ -98,7 +99,8 @@ class FortifyServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/views/auth'       => resource_path('views/auth'),
             __DIR__.'/../../resources/views/components' => resource_path('views/components'),
             __DIR__.'/../../resources/views/profile'    => resource_path('views/profile'),
-        ], 'views');
+            __DIR__.'/../../resources/views/account'    => resource_path('views/account'),
+        ], 'foundation-views');
 
         $this->publishes([
             __DIR__.'/../../resources/images' => resource_path('images'),
@@ -155,6 +157,20 @@ class FortifyServiceProvider extends ServiceProvider
             Route::post(config('fortify.routes.two_factor_reset_password'), [TwoFactorAuthenticatedPasswordResetController::class, 'store'])
                 ->name('two-factor.reset-password-store')
                 ->middleware('guest');
+        });
+
+        Route::group(['middleware' => config('fortify.middlewares.account_settings', ['web', 'auth'])], function () {
+            if (Features::enabled(Features::updateProfileInformation())) {
+                Route::view(config('fortify.routes.account_settings_account'), 'ark-fortify::account.settings-account')
+                    ->name('account.settings.account');
+            }
+
+            if (Features::enabled(Features::updatePasswords())) {
+                $slug = (string) config('fortify.routes.account_settings_password');
+
+                Route::view($slug, 'ark-fortify::account.settings-password')->name('account.settings.password');
+                Route::redirect('/.well-known/change-password', $slug);
+            }
         });
     }
 
