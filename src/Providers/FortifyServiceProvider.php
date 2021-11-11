@@ -30,8 +30,6 @@ use ARKEcosystem\Foundation\Fortify\Http\Controllers\TwoFactorAuthenticatedPassw
 use ARKEcosystem\Foundation\Fortify\Http\Responses\FailedPasswordResetLinkRequestResponse as FortifyFailedPasswordResetLinkRequestResponse;
 use ARKEcosystem\Foundation\Fortify\Http\Responses\SuccessfulPasswordResetLinkRequestResponse as FortifySuccessfulPasswordResetLinkRequestResponse;
 use ARKEcosystem\Foundation\Fortify\Models;
-use ARKEcosystem\Foundation\Fortify\Nova\Permission as NovaPermission;
-use ARKEcosystem\Foundation\Fortify\Nova\Role as NovaRole;
 use ARKEcosystem\Foundation\Fortify\Responses\FailedTwoFactorLoginResponse;
 use ARKEcosystem\Foundation\Fortify\Responses\RegisterResponse;
 use ARKEcosystem\Foundation\Fortify\Responses\TwoFactorLoginResponse;
@@ -46,7 +44,6 @@ use Laravel\Fortify\Contracts\SuccessfulPasswordResetLinkRequestResponse;
 use Laravel\Fortify\Contracts\TwoFactorLoginResponse as TwoFactorLoginResponseContract;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
-use Laravel\Nova\Nova;
 use Livewire\Livewire;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -81,8 +78,6 @@ class FortifyServiceProvider extends ServiceProvider
         $this->registerRoutes();
 
         $this->registerCommands();
-
-        $this->registerNovaResources();
     }
 
     /**
@@ -284,14 +279,6 @@ class FortifyServiceProvider extends ServiceProvider
         $this->commands([
             CreateUserCommand::class,
             RunPlaybookCommand::class,
-        ]);
-    }
-
-    private function registerNovaResources()
-    {
-        Nova::resources([
-            NovaPermission::class,
-            NovaRole::class,
         ]);
     }
 }
