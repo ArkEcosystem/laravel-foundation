@@ -7,3 +7,4 @@ parameters:
         - '#is not allowed to extend#'
         - '#Constructor in ([\w\\]+) has parameter ([\$\w]+) with default value.#'
     checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false
