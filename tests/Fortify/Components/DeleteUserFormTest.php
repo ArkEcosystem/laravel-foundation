@@ -118,9 +118,6 @@ it('cant delete user without a password', function () {
 it('displays alert when set', function () {
     $user = createUserModel();
 
-    $this->mock(DeleteUser::class)
-        ->shouldReceive('delete');
-
     Livewire::actingAs($user)
         ->test(DeleteUserForm::class)
         ->set('modalShown', true)
