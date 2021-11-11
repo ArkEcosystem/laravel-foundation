@@ -90,6 +90,10 @@ return [
 
     'middleware' => ['web'],
 
+    'middlewares' => [
+        'account_settings' => ['web', 'auth'],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Rate Limiting
@@ -168,6 +172,8 @@ return [
     'routes' => [
         'feedback_thank_you'        => env('ROUTE_FEEDBACK_THANK_YOU', '/feedback/thank-you'),
         'two_factor_reset_password' => env('ROUTE_TWO_RESET_PASSWORD', '/two-factor/reset-password/{token}'),
+        'account_settings_account'  => env('ROUTE_ACCOUNT_SETTINGS_ACCOUNT', '/account/settings/account'),
+        'account_settings_password' => env('ROUTE_ACCOUNT_SETTINGS_PASSWORD', '/account/settings/password'),
     ],
 
 ];
