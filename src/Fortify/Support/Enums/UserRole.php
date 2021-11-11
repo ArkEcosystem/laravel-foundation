@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Support\Enums;
 
-final class UserRole
+class UserRole
 {
     public const SUPER_ADMIN = 'super-admin';
 

@@ -25,6 +25,7 @@ use ARKEcosystem\Foundation\Fortify\Components\VerifyEmail;
 use ARKEcosystem\Foundation\Fortify\Console\Commands\CreateUserCommand;
 use ARKEcosystem\Foundation\Fortify\Console\Commands\RunPlaybookCommand;
 use ARKEcosystem\Foundation\Fortify\Contracts\DeleteUser as DeleteUserContract;
+use ARKEcosystem\Foundation\Fortify\Contracts\UserRole as UserRoleContract;
 use ARKEcosystem\Foundation\Fortify\Http\Controllers\TwoFactorAuthenticatedPasswordResetController;
 use ARKEcosystem\Foundation\Fortify\Http\Responses\FailedPasswordResetLinkRequestResponse as FortifyFailedPasswordResetLinkRequestResponse;
 use ARKEcosystem\Foundation\Fortify\Http\Responses\SuccessfulPasswordResetLinkRequestResponse as FortifySuccessfulPasswordResetLinkRequestResponse;
@@ -34,6 +35,7 @@ use ARKEcosystem\Foundation\Fortify\Nova\Role as NovaRole;
 use ARKEcosystem\Foundation\Fortify\Responses\FailedTwoFactorLoginResponse;
 use ARKEcosystem\Foundation\Fortify\Responses\RegisterResponse;
 use ARKEcosystem\Foundation\Fortify\Responses\TwoFactorLoginResponse;
+use ARKEcosystem\Foundation\Fortify\Support\Enums\UserRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -148,6 +150,7 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         app()->singleton(DeleteUserContract::class, DeleteUser::class);
+        app()->singleton(UserRoleContract::class, UserRole::class);
     }
 
     public function registerRoutes(): void

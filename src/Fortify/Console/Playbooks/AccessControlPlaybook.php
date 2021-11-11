@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\Fortify\Console\Playbooks;
 
 use ARKEcosystem\Foundation\Fortify\Models\Permission;
-use ARKEcosystem\Foundation\Fortify\Support\Enums\UserRole;
+use ARKEcosystem\Foundation\Fortify\Contracts\UserRole;
 use ARKEcosystem\Foundation\Fortify\Support\Services\PermissionMapping;
 use Spatie\Permission\Guard;
 use Spatie\Permission\Models\Role;
@@ -31,7 +31,7 @@ final class AccessControlPlaybook extends Playbook
 
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        foreach (UserRole::toArray() as $role) {
+        foreach (app(UserRole::class)::toArray() as $role) {
             Role::create(['name' => $role]);
         }
 
