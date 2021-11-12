@@ -15,7 +15,7 @@
                         <x-ark-tables.header name="ui::pages.logout-sessions.ip" class="text-sm font-semibold"/>
                         <x-ark-tables.header name="ui::pages.logout-sessions.os" class="text-sm font-semibold"/>
                         <x-ark-tables.header name="ui::pages.logout-sessions.browser" class="text-sm font-semibold"/>
-                        <x-ark-tables.header name="ui::pages.logout-sessions.last_active" class="text-right text-sm font-semibold"/>
+                        <x-ark-tables.header name="ui::pages.logout-sessions.last_active" class="text-sm font-semibold text-right"/>
                     </x-ark-tables.row>
                 </thead>
 
