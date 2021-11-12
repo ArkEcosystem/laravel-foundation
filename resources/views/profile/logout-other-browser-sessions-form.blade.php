@@ -8,7 +8,7 @@
     </div>
 
     @if (count($this->sessions) > 0)
-        <table class=" mt-8 w-full text-left table-auto md:table">
+        <table class="mt-8 w-full text-left table-auto md:table">
             <thead>
             <tr class="text-sm font-semibold border-b text-theme-secondary-500 border-theme-secondary-300">
                 <td>
