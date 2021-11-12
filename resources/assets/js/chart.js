@@ -5,6 +5,10 @@ import {
     getAxisThemeConfig,
 } from "./chart-theme";
 
+import { Chart, registerables } from "chart.js";
+
+Chart.register(...registerables);
+
 /**
  * @param {String} id
  * @param {Array} values
@@ -91,6 +95,7 @@ const CustomChart = (
                 }
 
                 datasets.push({
+                    fill: true,
                     stack: "combined",
                     label: value.name || "",
                     data: value.data || value,
@@ -133,7 +138,6 @@ const CustomChart = (
                 axes.push({
                     display: grid && key === 0,
                     type: "linear",
-                    position: "right",
                     ticks: {
                         ...getFontConfig("axis", theme.mode),
                         padding: 15,
@@ -170,19 +174,30 @@ const CustomChart = (
 
             const options = {
                 spanGaps: true,
-                parsing: false,
                 normalized: true,
                 responsive: true,
                 maintainAspectRatio: false,
                 showScale: grid,
                 animation: { duration: 300, easing: "easeOutQuad" },
-                legend: { display: false },
-                layout: {
-                    padding: {
-                        left: 0,
-                        right: 0,
-                        top: 0,
-                        bottom: 0,
+                interaction: {
+                    mode: "nearest",
+                    intersect: false,
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        enabled: tooltips,
+                        external: this.tooltip,
+                        displayColors: false,
+                        callbacks: {
+                            title: (items) => {},
+                            label: (context) =>
+                                this.getCurrencyValue(context.raw),
+                            labelTextColor: (context) =>
+                                getFontConfig("tooltip", theme.mode).fontColor,
+                        },
+                        backgroundColor: getFontConfig("tooltip", theme.mode)
+                            .backgroundColor,
                     },
                 },
                 hover: {
@@ -190,44 +205,27 @@ const CustomChart = (
                     intersect: false,
                     axis: "x",
                 },
-                tooltips: {
-                    enabled: tooltips,
-                    mode: "nearest",
-                    intersect: false,
-                    axis: "x",
-                    external: this.tooltip,
-                    displayColors: false,
-                    stacked: false,
-                    callbacks: {
-                        title: (items) => {},
-                        label: (context) =>
-                            this.getCurrencyValue(context.value),
-                        labelTextColor: (context) =>
-                            getFontConfig("tooltip", theme.mode).fontColor,
-                    },
-                    backgroundColor: getFontConfig("tooltip", theme.mode)
-                        .backgroundColor,
-                },
                 scales: {
-                    yAxes: this.loadYAxes(),
-                    xAxes: [
-                        {
+                    y: {
+                        ...this.loadYAxes()[0],
+                        position: "right",
+                    },
+                    x: {
+                        display: grid,
+                        type: "category",
+                        labels: labels,
+                        ticks: {
                             display: grid,
-                            type: "category",
-                            labels: labels,
-                            ticks: {
-                                display: grid,
-                                includeBounds: true,
-                                padding: 10,
-                                ...getFontConfig("axis", theme.mode),
-                            },
-                            gridLines: {
-                                display: grid,
-                                drawBorder: false,
-                                color: getAxisThemeConfig(theme.mode).x.color,
-                            },
+                            includeBounds: true,
+                            padding: 10,
+                            ...getFontConfig("axis", theme.mode),
                         },
-                    ],
+                        grid: {
+                            display: grid,
+                            drawBorder: false,
+                            color: getAxisThemeConfig(theme.mode).x.color,
+                        },
+                    },
                 },
             };
 
