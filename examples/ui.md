@@ -752,7 +752,7 @@ Here follow you can see an example on how to use it:
 1. Install the npm dependencies
 
 ```bash
-yarn add chart.js@^3.5.1
+yarn add chart.js@^3.6.0
 ```
 
 Or if you need to update to the latest major version instead
