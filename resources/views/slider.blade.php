@@ -9,6 +9,7 @@
     'hideBullets'     => false,
     'topPagination'   => false,
     'paginationClass' => '',
+    'headerClass'     => 'flex flex-col mb-6 space-y-4 sm:space-y-0 sm:flex-row sm:items-center',
     'rows'            => 1,
     'columns'         => 5,
     'breakpoints'     => null,
