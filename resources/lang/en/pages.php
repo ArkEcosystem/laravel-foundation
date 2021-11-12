@@ -65,12 +65,12 @@ return [
 
     'logout-sessions' => [
         'title'          => 'Browser Sessions',
-        'description'    => 'Manage and logout your active sessions on other browsers and devices.',
+        'description'    => 'Manage and logout your active sessions on other browsers and devices. Your most recent sessions are shown below.',
         'content'        => 'If necessary, you may logout of all of your other browser sessions across all of your devices. If you feel your account has been compromised, you should also update your password',
         'confirm_logout' => 'Logout Other Browser Sessions',
         'ip'             => 'IP',
         'os'             => 'OS',
         'browser'        => 'Browser',
-        'last_active'    => 'Last active',
+        'last_active'    => 'Last Active',
     ],
 ];
