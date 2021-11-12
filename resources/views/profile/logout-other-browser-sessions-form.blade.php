@@ -8,65 +8,50 @@
     </div>
 
     @if (count($this->sessions) > 0)
-        <table class="mt-8 w-full text-left table-auto md:table">
-            <thead>
-            <tr class="text-sm font-semibold border-b text-theme-secondary-500 border-theme-secondary-300">
-                <td>
-                    <div class="mb-3 border-r border-theme-secondary-300">
-                        @lang('ui::pages.logout-sessions.ip')
-                    </div>
-                </td>
-                <td>
-                    <div class="mb-3 ml-5 border-r border-theme-secondary-300">
-                        @lang('ui::pages.logout-sessions.os')
-                    </div>
-                </td>
-                <td>
-                    <div class="mb-3 ml-5 border-r border-theme-secondary-300">
-                        @lang('ui::pages.logout-sessions.browser')
-                    </div>
-                </td>
-                <td>
-                    <div class="mb-3 text-right">
-                        @lang('ui::pages.logout-sessions.last_active')
-                    </div>
-                </td>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach ($this->sessions as $session)
-                <tr class="text-base text-theme-secondary-700 font-normal @if(!$loop->last) border-b border-theme-secondary-300 border-dashed @endif">
-                    <td>
-                        <div class="flex items-center my-4 space-x-3">
+        <div class="hidden mt-8 md:flex">
+            <x-ark-tables.table class="w-full">
+                <thead>
+                    <x-ark-tables.row>
+                        <x-ark-tables.header name="ui::pages.logout-sessions.ip" class="text-sm font-semibold"/>
+                        <x-ark-tables.header name="ui::pages.logout-sessions.os" class="text-sm font-semibold"/>
+                        <x-ark-tables.header name="ui::pages.logout-sessions.browser" class="text-sm font-semibold"/>
+                        <x-ark-tables.header name="ui::pages.logout-sessions.last_active" class="text-right text-sm font-semibold"/>
+                    </x-ark-tables.row>
+                </thead>
+
+                @foreach ($this->sessions as $session)
+                    <x-ark-tables.row>
+
+                        <x-ark-tables.cell>
                             <x-ark-icon
                                 name="wysiwyg/monitor"
                                 class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
                             />
-
-                            <div>
+                            <div class="ml-3">
                                 {{ $session->ip_address }}
                             </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ml-5">{{ $session->agent->platform() }}</div>
-                    </td>
-                    <td>
-                        <div class="ml-5">{{ $session->agent->browser() }}</div>
-                    </td>
-                    <td>
-                        <div class="text-right">
+                        </x-ark-tables.cell>
+
+                        <x-ark-tables.cell>
+                            {{ $session->agent->platform() }}
+                        </x-ark-tables.cell>
+
+                        <x-ark-tables.cell>
+                            {{ $session->agent->browser() }}
+                        </x-ark-tables.cell>
+
+                        <x-ark-tables.cell class="text-right">
                             @if ($session->is_current_device)
                                 <span class="font-semibold text-theme-success-600">@lang('ui::generic.this_device')</span>
                             @else
                                 @lang('ui::generic.last_active') {{ $session->last_active }}
                             @endif
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+                        </x-ark-tables.cell>
+
+                    </x-ark-tables.row>
+                @endforeach
+            </x-ark-tables.table>
+        </div>
 
         <div class="mt-4 w-full text-base md:hidden">
             @foreach ($this->sessions as $session)
@@ -81,7 +66,6 @@
                                 name="wysiwyg/monitor"
                                 class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
                             />
-
                             <div>
                                 {{ $session->ip_address }}
                             </div>
@@ -134,14 +118,14 @@
     </div>
 
     @if($this->modalShown)
-        <x-ark-modal title-class="header-2" width-class="max-w-2xl"  wire-close="closeModal">
+        <x-ark-modal title-class="header-2" width-class="max-w-2xl" wire-close="closeModal">
             <x-slot name="title">
                 @lang('ui::forms.confirming-logout.title')
             </x-slot>
 
             <x-slot name="description">
                 <div class="flex justify-center mt-8 w-full">
-                    <x-ark-icon name="fortify-modal.secure" class="w-2/3 h-auto"/>
+                    <x-ark-icon name="fortify-modal.secure" class="w-2/3 h-auto" />
                 </div>
                 <div class="flex flex-col mt-8">
                     <div class="mt-4">
@@ -162,8 +146,12 @@
 
             <x-slot name="buttons">
                 <div class="flex flex-col justify-end w-full sm:flex-row sm:space-x-3">
-                    <button type="button" dusk="delete-other-browser-sessions-cancel" class="mb-4 sm:mb-0 button-secondary" wire:click="closeModal">
-                        @lang('ui::actions.cancel')
+                    <button
+                        type="button"
+                        dusk="delete-other-browser-sessions-cancel"
+                        class="mb-4 sm:mb-0 button-secondary"
+                        wire:click="closeModal">
+                            @lang('ui::actions.cancel')
                     </button>
 
                     <button
