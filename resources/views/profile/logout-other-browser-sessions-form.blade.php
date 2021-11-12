@@ -1,34 +1,34 @@
 <div dusk="logout-other-browser-sessions">
     <div class="flex flex-col">
-        <span class="header-4">@lang('ui::forms.logout-sessions.title')</span>
-        <span class="mt-4">@lang('ui::forms.logout-sessions.description')</span>
+        <span class="header-4">@lang('ui::pages.logout-sessions.title')</span>
+        <span class="mt-4">@lang('ui::pages.logout-sessions.description')</span>
         <x-ark-alert class="mt-8">
-            @lang('ui::forms.logout-sessions.content')
+            @lang('ui::pages.logout-sessions.content')
         </x-ark-alert>
     </div>
 
     @if (count($this->sessions) > 0)
-        <table class="hidden mt-8 w-full text-left table-auto md:table">
+        <table class=" mt-8 w-full text-left table-auto md:table">
             <thead>
             <tr class="text-sm font-semibold border-b text-theme-secondary-500 border-theme-secondary-300">
                 <td>
                     <div class="mb-3 border-r border-theme-secondary-300">
-                        @lang('ui::forms.logout-sessions.ip')
+                        @lang('ui::pages.logout-sessions.ip')
                     </div>
                 </td>
                 <td>
                     <div class="mb-3 ml-5 border-r border-theme-secondary-300">
-                        @lang('ui::forms.logout-sessions.os')
+                        @lang('ui::pages.logout-sessions.os')
                     </div>
                 </td>
                 <td>
                     <div class="mb-3 ml-5 border-r border-theme-secondary-300">
-                        @lang('ui::forms.logout-sessions.browser')
+                        @lang('ui::pages.logout-sessions.browser')
                     </div>
                 </td>
                 <td>
                     <div class="mb-3 text-right">
-                        @lang('ui::forms.logout-sessions.last_active')
+                        @lang('ui::pages.logout-sessions.last_active')
                     </div>
                 </td>
             </tr>
@@ -74,7 +74,7 @@
 
                     <div class="flex justify-between">
                         <div class="font-semibold text-theme-secondary-500">
-                            @lang('ui::forms.logout-sessions.ip')
+                            @lang('ui::pages.logout-sessions.ip')
                         </div>
                         <div class="flex items-center space-x-3 text-base font-normal text-theme-secondary-700">
                             <x-ark-icon
@@ -90,7 +90,7 @@
 
                     <div class="flex justify-between">
                         <div class="font-semibold text-theme-secondary-500">
-                            @lang('ui::forms.logout-sessions.os')
+                            @lang('ui::pages.logout-sessions.os')
                         </div>
                         <div class="text-base font-normal text-theme-secondary-700">
                             {{ $session->agent->platform() }}
@@ -99,7 +99,7 @@
 
                     <div class="flex justify-between">
                         <div class="font-semibold text-theme-secondary-500">
-                            @lang('ui::forms.logout-sessions.browser')
+                            @lang('ui::pages.logout-sessions.browser')
                         </div>
                         <div class="text-base font-normal text-theme-secondary-700">
                             {{ $session->agent->browser() }}
@@ -108,7 +108,7 @@
 
                     <div class="flex justify-between">
                         <div class="font-semibold text-theme-secondary-500">
-                            @lang('ui::forms.logout-sessions.last_active')
+                            @lang('ui::pages.logout-sessions.last_active')
                         </div>
                         <div class="text-base font-normal text-theme-secondary-700">
                             @if ($session->is_current_device)
@@ -129,7 +129,7 @@
             class="inline-flex justify-center items-center space-x-2 w-full sm:w-auto button-cancel"
             wire:click="confirmLogout"
         >
-            <span>@lang('ui::forms.logout-sessions.confirm_logout')</span>
+            <span>@lang('ui::pages.logout-sessions.confirm_logout')</span>
         </button>
     </div>
 

@@ -67,17 +67,6 @@ return [
         'confirmation_placeholder' => 'Enter your username to confirm deletion',
     ],
 
-    'logout-sessions' => [
-        'title'          => 'Browser Sessions',
-        'description'    => 'Manage and logout your active sessions on other browsers and devices.',
-        'content'        => 'If necessary, you may logout of all of your other browser sessions across all of your devices. If you feel your account has been compromised, you should also update your password',
-        'confirm_logout' => 'Logout Other Browser Sessions',
-        'ip'             => 'IP',
-        'os'             => 'OS',
-        'browser'        => 'Browser',
-        'last_active'    => 'Last active',
-    ],
-
     'confirming-logout' => [
         'title'          => 'Logout Other Browser Sessions',
         'content'        => 'Please enter your password to confirm you would like to logout of your other browser sessions across all of your devices.',
