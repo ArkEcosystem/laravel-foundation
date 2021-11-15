@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Policies;
 
-use Illuminate\Database\Eloquent\Model;
-
 abstract class Policy
 {
     protected string $resourceName;
