@@ -8904,16 +8904,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "9.8.3",
+            "version": "9.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "687e769a7ba17e49d183947fe058e357ed3c615f"
+                "reference": "7e0064d0842c216a51d083b73fef9569897dc8e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/687e769a7ba17e49d183947fe058e357ed3c615f",
-                "reference": "687e769a7ba17e49d183947fe058e357ed3c615f",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/7e0064d0842c216a51d083b73fef9569897dc8e4",
+                "reference": "7e0064d0842c216a51d083b73fef9569897dc8e4",
                 "shasum": ""
             },
             "require": {
@@ -8993,7 +8993,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.8.3"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.8.4"
             },
             "funding": [
                 {
@@ -9005,7 +9005,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-18T22:57:53+00:00"
+            "time": "2021-11-12T15:47:55+00:00"
         },
         {
             "name": "spatie/laravel-newsletter",
