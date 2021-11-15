@@ -7,6 +7,7 @@ use ARKEcosystem\Foundation\Fortify\Models;
 use Illuminate\Contracts\Validation\UncompromisedVerifier;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
+
 use function Tests\expectValidationError;
 use Tests\Fortify\stubs\TestUser;
 
@@ -219,7 +220,7 @@ it('handles the invitation parameter', function () {
     $this->assertSame($user->id, $invitation->user_id);
 });
 
-it('marks the user email as verified if has an invitation', function () {
+it('does not marks the user email as verified if has an invitation', function () {
     Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
     Config::set('fortify.models.invitation', TestUser::class);
 
@@ -233,10 +234,10 @@ it('marks the user email as verified if has an invitation', function () {
         'invitation'            => 'uuid-uuid-uuid-uuid',
     ]);
 
-    $this->assertNotNull($user->email_verified_at);
+    $this->assertNull($user->email_verified_at);
 });
 
-it('doesnt mark the user email as verified if no ivitation ', function () {
+it('doesnt mark the user email as verified if no invitation ', function () {
     Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
 
     $user = (new CreateNewUser())->create([
