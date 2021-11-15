@@ -180,7 +180,7 @@ class AuthServiceProvider
 'permission' => ARKEcosystem\Foundation\Fortify\Models\Permission::class,
 ```
 
-7. Setup permissions and roles in `database/seeders/app/permissions.json`. Take a look at the [examples/fortify/permissions.json](example).
+7. Setup permissions and roles in `database/seeders/app/permissions.json`. Take a look at the [example](/examples/fortify/permissions.json).
 
 ### Required images
 
