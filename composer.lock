@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "678ea0f71b2f374bb7c02fcdb62d0ec5",
+    "content-hash": "e029aebc95d5a6dbfd8e6405addbf365",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -14546,20 +14546,20 @@
         },
         {
             "name": "vyuldashev/nova-permission",
-            "version": "v2.11.1",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vyuldashev/nova-permission.git",
-                "reference": "6004bef5a535d1de07cb60d20ee79d2c42a07781"
+                "reference": "6dfbc44b88206ff4362e1084177e1698d46b5aaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vyuldashev/nova-permission/zipball/6004bef5a535d1de07cb60d20ee79d2c42a07781",
-                "reference": "6004bef5a535d1de07cb60d20ee79d2c42a07781",
+                "url": "https://api.github.com/repos/vyuldashev/nova-permission/zipball/6dfbc44b88206ff4362e1084177e1698d46b5aaf",
+                "reference": "6dfbc44b88206ff4362e1084177e1698d46b5aaf",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2|^8.0",
+                "php": "^7.4|^8.0",
                 "spatie/laravel-permission": "^3.0|^4.0"
             },
             "type": "library",
@@ -14590,9 +14590,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vyuldashev/nova-permission/issues",
-                "source": "https://github.com/vyuldashev/nova-permission/tree/v2.11.1"
+                "source": "https://github.com/vyuldashev/nova-permission/tree/v3.0.1"
             },
-            "time": "2021-02-14T02:21:41+00:00"
+            "time": "2021-06-21T00:52:48+00:00"
         }
     ],
     "aliases": [],

@@ -112,7 +112,7 @@
     "require-dev": {
         "laravel/nova": "^3.30",
         "spatie/laravel-permission": "^3.16",
-        "vyuldashev/nova-permission": "^2.11"
+        "vyuldashev/nova-permission": "^3.0"
     },
     "suggest": {
         "laravel/nova": "Needed for backend management of data",
