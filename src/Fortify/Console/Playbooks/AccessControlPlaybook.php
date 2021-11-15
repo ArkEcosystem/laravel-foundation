@@ -32,7 +32,7 @@ final class AccessControlPlaybook extends Playbook
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         foreach (app(UserRole::class)::toArray() as $role) {
-            Role::findOrCreate($role);
+            Role::firstOrCreate(['name' => $role]);
         }
 
         $guardName   = Guard::getDefaultName(Permission::class);
