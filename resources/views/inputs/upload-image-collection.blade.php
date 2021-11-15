@@ -47,7 +47,7 @@
             multiple
         />
 
-        <div class="flex flex-col justify-center items-center space-y-2 w-full h-full rounded-xl bg-theme-primary-50 dark:bg-black dark:group-hover:bg-theme-secondary-800 transition-default">
+        <div class="flex flex-col justify-center items-center space-y-2 w-full h-full rounded-xl dark:bg-black bg-theme-primary-50 transition-default dark:group-hover:bg-theme-secondary-800">
             <div class="text-theme-primary-500">
                 <x-ark-icon name="upload-cloud" size="lg"/>
             </div>
