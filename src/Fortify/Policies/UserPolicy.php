@@ -10,7 +10,6 @@ class UserPolicy extends Policy
 
     public function delete($user, $model): bool
     {
-        /** @var User $model */
         if ($user->id === $model->id) {
             return false;
         }
