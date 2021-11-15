@@ -113,5 +113,10 @@
         "laravel/nova": "^3.30",
         "spatie/laravel-permission": "^3.16",
         "vyuldashev/nova-permission": "^2.11"
+    },
+    "suggest": {
+        "laravel/nova": "Needed for backend management of data",
+        "spatie/laravel-permission": "Needed for nova permissions & roles",
+        "vyuldashev/nova-permission": "Needed for nova permissions & roles"
     }
 }
