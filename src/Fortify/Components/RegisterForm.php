@@ -74,9 +74,8 @@ class RegisterForm extends Component
         return $this->getErrorBag()->count() === 0;
     }
 
-    public function updated(string $propertyName): void
+    public function updated(string $propertyName, mixed $value): void
     {
-        $value = $this->{$propertyName};
         if ($propertyName === 'email') {
             $value = strtolower($value);
         }
