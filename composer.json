@@ -86,6 +86,12 @@
             ]
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "scripts": {
         "format": [
             "vendor/bin/php-cs-fixer fix"
@@ -102,5 +108,10 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "require-dev": {
+        "laravel/nova": "^3.30",
+        "spatie/laravel-permission": "^3.16",
+        "vyuldashev/nova-permission": "^2.11"
     }
 }
