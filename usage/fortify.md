@@ -126,7 +126,7 @@ private function registerDataBags(): void
 yarn prod
 ```
 
-### Nova
+### Nova & Permissions
 
 1. Install required packages:
 
@@ -157,7 +157,7 @@ class AppServiceProvider
 }
 ```
 
-5. Add the policies to the `AuthServiceProvider`:
+5. Add the Role & Permission policies to the `AuthServiceProvider`:
 
 ```php
 use ARKEcosystem\Foundation\Fortify\Models\Permission;
@@ -174,13 +174,13 @@ class AuthServiceProvider
 }
 ```
 
-6. Set Permission class in the `config/permission.php` file:
+6. Set the Permission model in the `config/permission.php` file:
 
 ```php
 'permission' => ARKEcosystem\Foundation\Fortify\Models\Permission::class,
 ```
 
-7. Setup permissions and roles in `database/seeders/app/permissions.json`. Take a look at the (examples/fortify/permissions.json)[example].
+7. Setup permissions and roles in `database/seeders/app/permissions.json`. Take a look at the [examples/fortify/permissions.json](example).
 
 ### Required images
 

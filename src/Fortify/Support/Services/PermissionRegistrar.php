@@ -33,7 +33,6 @@ final class PermissionRegistrar extends PermissionPermissionRegistrar
 
             if ($onlyOne) {
                 $query->limit(1);
-                // return collect($query->get()->first());
             }
 
             return $query->get();

@@ -39,10 +39,10 @@ final class CreateUserCommand extends Command
      */
     public function handle(): void
     {
-        $domain       = strtolower(Arr::first(Arr::wrap($this->option('domain'))));
-        $name         = strtolower(Arr::first(Arr::wrap($this->argument('name'))));
-        $email        = $name.'@'.$domain;
-        $roles        = (array) $this->option('role');
+        $domain = strtolower(Arr::first(Arr::wrap($this->option('domain'))));
+        $name   = strtolower(Arr::first(Arr::wrap($this->argument('name'))));
+        $email  = $name.'@'.$domain;
+        $roles  = (array) $this->option('role');
 
         $isProduction = app()->environment() === 'production';
 
