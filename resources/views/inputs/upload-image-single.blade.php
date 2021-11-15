@@ -74,14 +74,14 @@
 >
     <div @class([
         'rounded-xl w-full h-full focus-within:border-theme-primary-500',
-        'p-2 border-2 border-dashed border-theme-primary-100' => ! $image,
+        'p-2 border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800' => ! $image,
     ])>
         <div
             @if ($image)
             style="background-image: url('{{ $image }}')"
             @endif
             @class([
-                'inline-block w-full h-full bg-center bg-no-repeat bg-cover rounded-xl bg-theme-primary-50',
+                'inline-block w-full h-full bg-center bg-no-repeat bg-cover rounded-xl bg-theme-primary-50 dark:bg-black dark:hover:bg-theme-secondary-800 transition-default',
                 'cursor-pointer hover:bg-theme-primary-100 transition-default' => ! $readonly,
             ])
             @unless($readonly)
@@ -114,7 +114,7 @@
                     <x-ark-icon name="upload-cloud" size="lg"/>
                 </div>
 
-                <div class="font-semibold text-theme-secondary-900">{!! $uploadText !!}</div>
+                <div class="font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">{!! $uploadText !!}</div>
 
                 <div class="text-xs font-semibold text-theme-secondary-500">
                     @lang('ui::forms.upload-image.min_size', [$minWidth, $minHeight])

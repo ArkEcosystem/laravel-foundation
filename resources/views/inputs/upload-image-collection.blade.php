@@ -37,7 +37,7 @@
     x-on:livewire-upload-error="isUploading = false; livewire.emit('uploadError', '{{ $uploadErrorMessage }}');"
     class="relative z-0 space-y-8"
 >
-    <div class="rounded-xl p-2 border-2 border-dashed border-theme-primary-100 relative {{ $dimensions }}">
+    <div class="rounded-xl p-2 border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800 relative {{ $dimensions }} group">
         <input
             id="image-collection-upload-{{ $id }}"
             type="file"
@@ -47,12 +47,12 @@
             multiple
         />
 
-        <div class="flex flex-col justify-center items-center space-y-2 w-full h-full rounded-xl bg-theme-primary-50">
+        <div class="flex flex-col justify-center items-center space-y-2 w-full h-full rounded-xl bg-theme-primary-50 dark:bg-black dark:group-hover:bg-theme-secondary-800 transition-default">
             <div class="text-theme-primary-500">
                 <x-ark-icon name="upload-cloud" size="lg"/>
             </div>
 
-            <div class="font-semibold text-theme-secondary-900">{!! $uploadText !!}</div>
+            <div class="font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">{!! $uploadText !!}</div>
 
             <div
                 class="flex flex-col space-y-1 text-xs font-semibold text-center sm:flex-row sm:space-y-0 sm:space-x-1 text-theme-secondary-500 chunk-header">
