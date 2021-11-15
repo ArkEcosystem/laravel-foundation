@@ -417,11 +417,11 @@
     @apply flex-row;
 }
 
-.tile-link-icon:not(.tile-link-disabled) {
+.tile-link-icon {
     @apply dark:text-theme-secondary-600 dark:group-hover:text-theme-secondary-200;
 }
 
-.tile-link-title:not(.tile-link-disabled) {
+.tile-link-title {
     @apply dark:text-theme-secondary-200;
 }
 
@@ -480,11 +480,15 @@
 }
 
 .tile-link-disabled:not(.tile-links-show-more) {
-    @apply text-theme-secondary-500;
+    @apply text-theme-secondary-500 dark:text-theme-secondary-700;
 }
 
 .tile-link-disabled.tile-link-border {
-    @apply border-theme-secondary-200;
+    @apply border-theme-secondary-200 dark:border-theme-secondary-800;
+}
+
+.tile-link-disabled .tile-link-title {
+    @apply dark:text-theme-secondary-700;
 }
 
 /* Contact components */
