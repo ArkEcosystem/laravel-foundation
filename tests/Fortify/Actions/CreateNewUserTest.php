@@ -7,7 +7,6 @@ use ARKEcosystem\Foundation\Fortify\Models;
 use Illuminate\Contracts\Validation\UncompromisedVerifier;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
-
 use function Tests\expectValidationError;
 use Tests\Fortify\stubs\TestUser;
 
