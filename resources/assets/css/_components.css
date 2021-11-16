@@ -333,7 +333,7 @@
 }
 
 .tile-selection-option {
-    @apply relative border-2 cursor-pointer select-none rounded-xl border-theme-primary-100 h-30 transition-default;
+    @apply relative border-2 cursor-pointer select-none rounded-xl border-theme-primary-100 h-30 transition-default dark:border-theme-secondary-800;
 }
 
 .tile-selection-single {
@@ -347,7 +347,7 @@
 
 .tile-selection-option:not(.tile-selection--checked):hover,
 .tile-selection-single:not(.tile-selection--checked):hover {
-    @apply border-transparent;
+    @apply border-transparent dark:border-theme-success-400;
 }
 
 .tile-selection-select-all {
@@ -358,7 +358,7 @@
 .tile-selection-checkbox:focus,
 .tile-selection-select-all-checkbox,
 .tile-selection-select-all-checkbox:focus {
-    @apply border-2 rounded border-theme-primary-100;
+    @apply border-2 rounded border-theme-primary-100 dark:bg-transparent dark:border-theme-secondary-600 dark:group-hover:border-theme-success-600;
 }
 
 .tile-selection-select-all-checkbox {
@@ -374,7 +374,7 @@
 }
 
 .tile-selection--checked {
-    @apply border-theme-success-500 bg-theme-success-50;
+    @apply border-theme-success-500 bg-theme-success-50 dark:border-theme-success-600 dark:bg-theme-success-900;
 }
 .tile-selection-select-all-checkbox:checked,
 .tile-selection-checkbox:checked {
@@ -398,7 +398,7 @@
 }
 
 .tile-link {
-    @apply relative bg-white cursor-pointer select-none rounded-xl h-30 transition-default;
+    @apply relative bg-white cursor-pointer select-none rounded-xl h-30 transition-default dark:bg-theme-secondary-900;
 }
 .tile-link:not(.tile-link-disabled) {
     @apply cursor-pointer;
@@ -417,6 +417,14 @@
     @apply flex-row;
 }
 
+.tile-link-icon {
+    @apply dark:text-theme-secondary-600 dark:group-hover:text-theme-secondary-200;
+}
+
+.tile-link-title {
+    @apply dark:text-theme-secondary-200;
+}
+
 .tile-links-show-more {
     @apply font-semibold text-center bg-white rounded-xl tile-link text-theme-primary-600;
 }
@@ -425,7 +433,7 @@
 }
 
 .tile-link-border {
-    @apply border-2 border-theme-primary-100;
+    @apply border-2 border-theme-primary-100 dark:border-theme-secondary-800;
 }
 
 .tile-link-sm,
@@ -472,11 +480,15 @@
 }
 
 .tile-link-disabled:not(.tile-links-show-more) {
-    @apply text-theme-secondary-500;
+    @apply text-theme-secondary-500 dark:text-theme-secondary-700;
 }
 
 .tile-link-disabled.tile-link-border {
-    @apply border-theme-secondary-200;
+    @apply border-theme-secondary-200 dark:border-theme-secondary-800;
+}
+
+.tile-link-disabled .tile-link-title {
+    @apply dark:text-theme-secondary-700;
 }
 
 /* Contact components */
