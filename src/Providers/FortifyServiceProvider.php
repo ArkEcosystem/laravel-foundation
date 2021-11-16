@@ -168,7 +168,7 @@ class FortifyServiceProvider extends ServiceProvider
 
         if (Features::enabled(Features::updatePasswords())) {
             Route::group(['middleware' => config('fortify.middlewares.account_settings.update_password', ['web', 'auth'])], function () {
-                $slug = (string)config('fortify.routes.account_settings_password');
+                $slug = (string) config('fortify.routes.account_settings_password');
 
                 Route::view($slug, 'ark-fortify::account.settings-password')->name('account.settings.password');
                 Route::redirect('/.well-known/change-password', $slug);

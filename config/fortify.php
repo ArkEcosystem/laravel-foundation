@@ -92,7 +92,7 @@ return [
 
     'middlewares' => [
         'account_settings' => [
-            'update_profile' => ['web', 'auth'],
+            'update_profile'  => ['web', 'auth'],
             'update_password' => ['web', 'auth'],
         ],
     ],
