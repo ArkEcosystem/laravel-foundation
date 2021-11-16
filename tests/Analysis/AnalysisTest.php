@@ -29,10 +29,13 @@ class AnalysisTest extends TestCase
             'Tests\createAttributes',
             'Tests\createViewAttributes',
             'Tests\expectValidationError',
+            'Tests\createBrowserSessionForUser',
             'Spatie\Snapshots\assertMatchesSnapshot',
             // TODO
             'ResolverFactoryTest',
             'Tests\Components\RegisterFormTest',
+            'Pest\Laravel\actingAs',
+            'Pest\Livewire\livewire',
         ];
     }
 }
