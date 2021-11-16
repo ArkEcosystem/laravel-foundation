@@ -374,7 +374,7 @@
 }
 
 .tile-selection--checked {
-    @apply border-theme-success-500 bg-theme-success-50 dark:border-theme-success-600 dark:bg-theme-success-900;
+    @apply border-theme-success-500 bg-theme-success-50 dark:text-theme-secondary-200 dark:border-theme-success-600 dark:bg-theme-success-900;
 }
 .tile-selection-select-all-checkbox:checked,
 .tile-selection-checkbox:checked {
