@@ -18,15 +18,25 @@ const tooltipSettings = {
     },
 };
 
-const initTippy = (parentEl = document.body) => {
-    tippy(parentEl.querySelectorAll("[data-tippy-content]"), tooltipSettings);
+let tippyInstances = [];
 
-    tippy(parentEl.querySelectorAll("[data-tippy-hover]"), {
-        ...tooltipSettings,
-        touch: "hold",
-        trigger: "mouseenter",
-        content: (reference) => reference.dataset.tippyHover,
-    });
+const initTippy = (parentEl = document.body) => {
+    Array.from(parentEl.querySelectorAll("[data-tippy-content], [data-tippy-hover]"))
+        .forEach(el => {
+            const instanceSettings = {...tooltipSettings };
+
+            if (el.getAttribute('data-tippy-hover')) {
+                instanceSettings.touch = 'hold';
+                instanceSettings.trigger = 'mouseenter';
+                instanceSettings.content = (reference) => reference.dataset.tippyHover;
+            }
+
+            if (el._tippy) {
+                el._tippy.setProps(instanceSettings);
+            } else {
+                tippyInstances.push(tippy(el, instanceSettings));
+            }
+        });
 };
 
 const destroyTippy = (parentEl = document.body) => {
@@ -41,8 +51,31 @@ const destroyTippy = (parentEl = document.body) => {
                 return;
             }
 
-            el._tippy.destroy();
+            if (!el.parentNode) {
+                el._tippy.destroy();
+
+            }
         });
+};
+
+const destroyOutdatedTippyInstances = () => {
+    const filteredTippyInstances = [];
+
+    tippyInstances.forEach((instance) => {
+        const el = instance.reference;
+
+        if (
+            // The element is still in the DOM
+            !! el.parentNode
+            // The element still has the tippy attribute
+            && (el.getAttribute("data-tippy-hover") || el.getAttribute("data-tippy-content"))) {
+            filteredTippyInstances.push(instance);
+        } else {
+            instance.destroy();
+        }
+    });
+
+    tippyInstances = filteredTippyInstances;
 };
 
 initTippy();
@@ -70,13 +103,11 @@ window.initClipboard = () => {
 };
 
 if (typeof Livewire !== "undefined") {
-    Livewire.hook("message.received", (message, component) =>
-        destroyTippy(component.el)
-    );
+    Livewire.hook("message.processed", (message, component) => {
+        destroyOutdatedTippyInstances(component.el)
 
-    Livewire.hook("message.processed", (message, component) =>
-        initTippy(component.el)
-    );
+        initTippy(component.el);
+    });
 }
 
 window.tippy = tippy;
