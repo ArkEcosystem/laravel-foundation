@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Support\Services;
 
-use ARKEcosystem\Foundation\Fortify\Contracts\UserRole;
+use ARKEcosystem\Foundation\Fortify\Facades\UserRole;
 use ARKEcosystem\Foundation\Fortify\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -40,7 +40,7 @@ final class PermissionMapping
             }
 
             $toInsert = collect();
-            if ($role->name === app(UserRole::class)::SUPER_ADMIN) {
+            if ($role->name === UserRole::SUPER_ADMIN) {
                 $toInsert = $permissions;
             } else {
                 $toInsert = $permissions->whereIn('name', $permissionMapping[$role->name]);

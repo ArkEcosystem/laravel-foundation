@@ -25,7 +25,6 @@ use ARKEcosystem\Foundation\Fortify\Components\VerifyEmail;
 use ARKEcosystem\Foundation\Fortify\Console\Commands\CreateUserCommand;
 use ARKEcosystem\Foundation\Fortify\Console\Commands\RunPlaybookCommand;
 use ARKEcosystem\Foundation\Fortify\Contracts\DeleteUser as DeleteUserContract;
-use ARKEcosystem\Foundation\Fortify\Contracts\UserRole as UserRoleContract;
 use ARKEcosystem\Foundation\Fortify\Http\Controllers\TwoFactorAuthenticatedPasswordResetController;
 use ARKEcosystem\Foundation\Fortify\Http\Responses\FailedPasswordResetLinkRequestResponse as FortifyFailedPasswordResetLinkRequestResponse;
 use ARKEcosystem\Foundation\Fortify\Http\Responses\SuccessfulPasswordResetLinkRequestResponse as FortifySuccessfulPasswordResetLinkRequestResponse;
@@ -79,7 +78,7 @@ class FortifyServiceProvider extends ServiceProvider
 
         $this->registerCommands();
 
-        $this->registerContracts();
+        $this->registerFacades();
     }
 
     /**
@@ -283,8 +282,10 @@ class FortifyServiceProvider extends ServiceProvider
         ]);
     }
 
-    private function registerContracts()
+    private function registerFacades()
     {
-        $this->app->singleton(UserRoleContract::class, UserRole::class);
+        $this->app->bind('user-role', function() {
+            return UserRole::class;
+        });
     }
 }
