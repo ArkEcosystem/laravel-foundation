@@ -7,6 +7,7 @@ namespace Tests;
 use ARKEcosystem\Foundation\Fortify\Models\User;
 use Carbon\Carbon;
 use Closure;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\Validation\ValidationException;
@@ -42,6 +43,21 @@ function createUserModel(string $userClass = User::class)
         'remember_token'    => Str::random(10),
         'timezone'          => 'UTC',
     ]);
+}
+
+function createBrowserSessionForUser(string $ip, User $user, int $unixTime): string
+{
+    $random_id = Str::random(10);
+    DB::table('sessions')->insert([
+        'id'            => $random_id,
+        'user_id'       => $user->id,
+        'ip_address'    => $ip,
+        'user_agent'    => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15',
+        'payload'       => Str::random(10),
+        'last_activity' => $unixTime,
+    ]);
+
+    return $random_id;
 }
 
 function expectValidationError(Closure $callback, string $key, string $reason)
