@@ -21,22 +21,24 @@ const tooltipSettings = {
 let tippyInstances = [];
 
 const initTippy = (parentEl = document.body) => {
-    Array.from(parentEl.querySelectorAll("[data-tippy-content], [data-tippy-hover]"))
-        .forEach(el => {
-            const instanceSettings = {...tooltipSettings };
+    Array.from(
+        parentEl.querySelectorAll("[data-tippy-content], [data-tippy-hover]")
+    ).forEach((el) => {
+        const instanceSettings = { ...tooltipSettings };
 
-            if (el.getAttribute('data-tippy-hover')) {
-                instanceSettings.touch = 'hold';
-                instanceSettings.trigger = 'mouseenter';
-                instanceSettings.content = (reference) => reference.dataset.tippyHover;
-            }
+        if (el.getAttribute("data-tippy-hover")) {
+            instanceSettings.touch = "hold";
+            instanceSettings.trigger = "mouseenter";
+            instanceSettings.content = (reference) =>
+                reference.dataset.tippyHover;
+        }
 
-            if (el._tippy) {
-                el._tippy.setProps(instanceSettings);
-            } else {
-                tippyInstances.push(tippy(el, instanceSettings));
-            }
-        });
+        if (el._tippy) {
+            el._tippy.setProps(instanceSettings);
+        } else {
+            tippyInstances.push(tippy(el, instanceSettings));
+        }
+    });
 };
 
 const destroyTippy = (parentEl = document.body) => {
@@ -53,7 +55,6 @@ const destroyTippy = (parentEl = document.body) => {
 
             if (!el.parentNode) {
                 el._tippy.destroy();
-
             }
         });
 };
@@ -66,9 +67,11 @@ const destroyOutdatedTippyInstances = () => {
 
         if (
             // The element is still in the DOM
-            !! el.parentNode
+            !!el.parentNode &&
             // The element still has the tippy attribute
-            && (el.getAttribute("data-tippy-hover") || el.getAttribute("data-tippy-content"))) {
+            (el.getAttribute("data-tippy-hover") ||
+                el.getAttribute("data-tippy-content"))
+        ) {
             filteredTippyInstances.push(instance);
         } else {
             instance.destroy();
@@ -104,7 +107,7 @@ window.initClipboard = () => {
 
 if (typeof Livewire !== "undefined") {
     Livewire.hook("message.processed", (message, component) => {
-        destroyOutdatedTippyInstances(component.el)
+        destroyOutdatedTippyInstances(component.el);
 
         initTippy(component.el);
     });
