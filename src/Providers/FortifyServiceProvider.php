@@ -285,6 +285,6 @@ class FortifyServiceProvider extends ServiceProvider
 
     private function registerContracts()
     {
-        app()->singleton(UserRoleContract::class, UserRole::class);
+        $this->app->singleton(UserRoleContract::class, UserRole::class);
     }
 }
