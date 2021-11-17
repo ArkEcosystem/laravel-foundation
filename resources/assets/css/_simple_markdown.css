@@ -1,0 +1,126 @@
+/* General */
+.simple-markdown {
+    @apply break-words text-theme-secondary-700;
+}
+
+/* Paragraph */
+.simple-markdown p {
+    @apply leading-7;
+}
+.simple-markdown p + p {
+    @apply mt-0;
+}
+
+/* Permalink */
+.simple-markdown .heading-permalink {
+    @apply hidden;
+}
+
+/* Lists */
+.simple-markdown ul {
+    @apply pl-4 mb-0 list-disc list-outside;
+}
+
+.simple-markdown ol {
+    @apply pl-4 mb-0 list-decimal list-outside;
+}
+
+.simple-markdown ul ul,
+.simple-markdown ol ul {
+    @apply mb-0 ml-4 list-outside;
+    list-style-type: circle;
+}
+
+.simple-markdown ol ol,
+.simple-markdown ul ol {
+    @apply mb-0 ml-4 list-outside;
+    list-style-type: lower-latin;
+}
+
+.simple-markdown ul > li,
+.simple-markdown ol > li {
+    @apply pb-2;
+}
+
+/* Blockquote */
+.simple-markdown blockquote {
+    @apply pl-6 italic leading-7 border-l-2 text-theme-secondary-500;
+}
+
+.simple-markdown h3 {
+    @apply mt-4;
+}
+.simple-markdown h4 {
+    @apply mt-2;
+}
+
+.simple-markdown ul {
+    @apply mb-2;
+}
+
+.simple-markdown p {
+    @apply pb-2;
+}
+
+/* Link */
+.simple-markdown a[target="_blank"]:hover {
+    @apply no-underline;
+}
+.simple-markdown a[target="_blank"]:hover > span {
+    @apply underline;
+}
+
+/* Table */
+.simple-markdown table {
+    @apply w-full text-left;
+}
+
+.simple-markdown table thead {
+    @apply text-sm font-semibold text-theme-secondary-500;
+}
+
+.simple-markdown table thead tr {
+    @apply text-left border-b border-theme-secondary-300;
+}
+
+.simple-markdown table thead th {
+    @apply relative px-3 py-3;
+}
+
+.simple-markdown table thead th:not(:last-child)::after {
+    content: "";
+    height: 50%;
+    @apply absolute right-0 border-l border-theme-secondary-300;
+}
+
+.simple-markdown table tbody td {
+    @apply px-3 py-4 leading-5;
+}
+
+.simple-markdown table tbody tr {
+    @apply border-b border-dashed border-theme-secondary-300;
+}
+
+.simple-markdown table tbody tr:last-child {
+    @apply border-0;
+}
+
+/* Table Scrollbar */
+.simple-markdown .table-wrapper {
+    scrollbar-color: #e5f0f8 #bad6f0;
+}
+
+.simple-markdown .table-wrapper::-webkit-scrollbar {
+    @apply rounded-lg bg-theme-primary-100;
+    width: 6px;
+    height: 6px;
+}
+
+.simple-markdown .table-wrapper {
+    @apply custom-scroll;
+}
+
+/* Cookie policy table specifics */
+.simple-markdown .cookie-policy-table tbody > tr > td:nth-of-type(3) {
+    min-width: 32rem;
+}
