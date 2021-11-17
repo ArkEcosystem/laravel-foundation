@@ -284,7 +284,7 @@ class FortifyServiceProvider extends ServiceProvider
 
     private function registerFacades()
     {
-        $this->app->bind('user-role', function() {
+        $this->app->bind('user-role', function () {
             return UserRole::class;
         });
     }

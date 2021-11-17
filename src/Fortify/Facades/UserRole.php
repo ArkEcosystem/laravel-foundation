@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Facade;
 
 class UserRole extends Facade
 {
-    protected static function getFacadeAccessor() { 
-        return 'user-role'; 
+    protected static function getFacadeAccessor()
+    {
+        return 'user-role';
     }
 }
