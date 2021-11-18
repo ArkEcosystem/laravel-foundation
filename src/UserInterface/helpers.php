@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\UserInterface\Components\SvgLazy;
+use ARKEcosystem\Foundation\UserInterface\Support\Enums\FlashType;
 
 if (! function_exists('svgLazy')) {
     function svgLazy(string $name, $class = ''): SvgLazy
@@ -57,5 +58,13 @@ if (! function_exists('call_user_func_safe')) {
         }
 
         throw new RuntimeException("Method [$callback[1]] is not callable.");
+    }
+}
+
+if (! function_exists('alert')) {
+    /** @param FlashType::* $type */
+    function alert(string $key, $type): void
+    {
+        flash(trans($key), $type);
     }
 }
