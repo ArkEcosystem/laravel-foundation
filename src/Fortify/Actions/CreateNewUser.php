@@ -54,7 +54,7 @@ class CreateNewUser implements CreatesNewUsers
     public static function createValidationRules(): array
     {
         $rules = [
-            'name'              => [
+            'name' => [
                 'required',
                 'max:'.Constants::MAX_DISPLAY_NAME_CHARACTERS,
                 'min:'.Constants::MIN_DISPLAY_NAME_CHARACTERS,
@@ -62,10 +62,11 @@ class CreateNewUser implements CreatesNewUsers
                 new OneLetter(),
                 new StartsWithLetterOrNumber(),
             ],
-            Fortify::username() => static::usernameRules(),
-            'password'          => static::passwordRules(),
-            'terms'             => ['required', 'accepted'],
-            'invitation'        => ['sometimes', 'required', 'string'],
+            Fortify::username()     => static::usernameRules(),
+            'password'              => static::passwordRules(),
+            'password_confirmation' => static::passwordConfirmationRules(),
+            'terms'                 => ['required', 'accepted'],
+            'invitation'            => ['sometimes', 'required', 'string'],
         ];
 
         if ($usernameAlt = Config::get('fortify.username_alt')) {

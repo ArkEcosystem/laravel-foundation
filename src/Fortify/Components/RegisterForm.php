@@ -74,24 +74,25 @@ class RegisterForm extends Component
         return $this->getErrorBag()->count() === 0;
     }
 
-    public function updated(string $propertyName): void
+    public function updated(string $propertyName, mixed $value): void
     {
-        if ($propertyName === 'password_confirmation') {
-            $this->validateOnly('password', ['password' => 'confirmed']);
-
-            return;
-        }
-
-        $value = $this->{$propertyName};
         if ($propertyName === 'email') {
             $value = strtolower($value);
         }
 
-        $validator = Validator::make([
-            $propertyName => $value,
-        ], [
-            $propertyName => $this->rules()[$propertyName],
-        ]);
+        $values = [$propertyName => $value];
+        $rules  = [$propertyName => $this->rules()[$propertyName]];
+
+        if ($propertyName === 'password') {
+            $values['password_confirmation'] = $this->password_confirmation;
+            $rules['password_confirmation']  = $this->rules()['password_confirmation'];
+
+            $this->resetErrorBag([$propertyName, 'password_confirmation']);
+        } elseif ($propertyName === 'password_confirmation') {
+            $values['password'] = $this->password;
+        }
+
+        $validator = Validator::make($values, $rules);
 
         if ($validator->fails()) {
             $this->setErrorBag(
