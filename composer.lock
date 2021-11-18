@@ -2804,16 +2804,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.71.0",
+            "version": "v8.72.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d822426d75ecf8e8ccd3ccd404db7202d1a9875e"
+                "reference": "5168f8589195a5f48b9c41ad2eec77a6c15f14f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d822426d75ecf8e8ccd3ccd404db7202d1a9875e",
-                "reference": "d822426d75ecf8e8ccd3ccd404db7202d1a9875e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5168f8589195a5f48b9c41ad2eec77a6c15f14f3",
+                "reference": "5168f8589195a5f48b9c41ad2eec77a6c15f14f3",
                 "shasum": ""
             },
             "require": {
@@ -2972,7 +2972,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-11-16T15:00:50+00:00"
+            "time": "2021-11-17T15:15:08+00:00"
         },
         {
             "name": "laravel/scout",
@@ -4686,16 +4686,16 @@
         },
         {
             "name": "orchestra/testbench-core",
-            "version": "v6.27.0",
+            "version": "v6.27.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench-core.git",
-                "reference": "5e2c6211090d49e24c292edd2eb4138b7409160e"
+                "reference": "d0e98c101bc57e8bb0121603bb84aff7c800a44e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/5e2c6211090d49e24c292edd2eb4138b7409160e",
-                "reference": "5e2c6211090d49e24c292edd2eb4138b7409160e",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/d0e98c101bc57e8bb0121603bb84aff7c800a44e",
+                "reference": "d0e98c101bc57e8bb0121603bb84aff7c800a44e",
                 "shasum": ""
             },
             "require": {
@@ -4772,7 +4772,7 @@
                     "type": "liberapay"
                 }
             ],
-            "time": "2021-11-09T22:53:16+00:00"
+            "time": "2021-11-17T02:37:48+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -4843,16 +4843,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v1.20.0",
+            "version": "v1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "ba06c5a76d95bbdef93aa4e05b489c3335b6c8c1"
+                "reference": "11eb1903c2ecf83149e7c65b8160bc44a823ac39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/ba06c5a76d95bbdef93aa4e05b489c3335b6c8c1",
-                "reference": "ba06c5a76d95bbdef93aa4e05b489c3335b6c8c1",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/11eb1903c2ecf83149e7c65b8160bc44a823ac39",
+                "reference": "11eb1903c2ecf83149e7c65b8160bc44a823ac39",
                 "shasum": ""
             },
             "require": {
@@ -4920,7 +4920,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v1.20.0"
+                "source": "https://github.com/pestphp/pest/tree/v1.21.0"
             },
             "funding": [
                 {
@@ -4948,7 +4948,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-09-25T12:52:12+00:00"
+            "time": "2021-11-17T10:54:00+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -8716,26 +8716,26 @@
         },
         {
             "name": "spatie/image-optimizer",
-            "version": "1.5.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image-optimizer.git",
-                "reference": "1b3585c3da2cc8872141fce40fbd17e07e6655d1"
+                "reference": "8bad7f04fd7d31d021b4752ee89f8a450dad8017"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/1b3585c3da2cc8872141fce40fbd17e07e6655d1",
-                "reference": "1b3585c3da2cc8872141fce40fbd17e07e6655d1",
+                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/8bad7f04fd7d31d021b4752ee89f8a450dad8017",
+                "reference": "8bad7f04fd7d31d021b4752ee89f8a450dad8017",
                 "shasum": ""
             },
             "require": {
                 "ext-fileinfo": "*",
-                "php": "^7.2|^8.0",
+                "php": "^7.3|^8.0",
                 "psr/log": "^1.0 | ^2.0 | ^3.0",
                 "symfony/process": "^4.2|^5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.0|^9.0",
+                "phpunit/phpunit": "^8.5.21|^9.4.4",
                 "symfony/var-dumper": "^4.2|^5.0"
             },
             "type": "library",
@@ -8764,9 +8764,9 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/image-optimizer/issues",
-                "source": "https://github.com/spatie/image-optimizer/tree/1.5.0"
+                "source": "https://github.com/spatie/image-optimizer/tree/1.6.1"
             },
-            "time": "2021-10-11T15:44:16+00:00"
+            "time": "2021-11-17T10:36:45+00:00"
         },
         {
             "name": "spatie/laravel-flash",
@@ -8904,16 +8904,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "9.8.4",
+            "version": "9.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "7e0064d0842c216a51d083b73fef9569897dc8e4"
+                "reference": "71ce715b5be60fe73bbcd6b8dba23ac9b78c9b62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/7e0064d0842c216a51d083b73fef9569897dc8e4",
-                "reference": "7e0064d0842c216a51d083b73fef9569897dc8e4",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/71ce715b5be60fe73bbcd6b8dba23ac9b78c9b62",
+                "reference": "71ce715b5be60fe73bbcd6b8dba23ac9b78c9b62",
                 "shasum": ""
             },
             "require": {
@@ -8993,7 +8993,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.8.4"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.9.0"
             },
             "funding": [
                 {
@@ -9005,7 +9005,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-12T15:47:55+00:00"
+            "time": "2021-11-17T09:36:26+00:00"
         },
         {
             "name": "spatie/laravel-newsletter",
@@ -9558,16 +9558,16 @@
         },
         {
             "name": "spatie/ray",
-            "version": "1.30.4",
+            "version": "1.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ray.git",
-                "reference": "a8745c41bf8457680d7bd58904d16c0ad32a1ac7"
+                "reference": "e5374378f00ee2419dae70f95bb640d1782e3c03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ray/zipball/a8745c41bf8457680d7bd58904d16c0ad32a1ac7",
-                "reference": "a8745c41bf8457680d7bd58904d16c0ad32a1ac7",
+                "url": "https://api.github.com/repos/spatie/ray/zipball/e5374378f00ee2419dae70f95bb640d1782e3c03",
+                "reference": "e5374378f00ee2419dae70f95bb640d1782e3c03",
                 "shasum": ""
             },
             "require": {
@@ -9617,7 +9617,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/ray/issues",
-                "source": "https://github.com/spatie/ray/tree/1.30.4"
+                "source": "https://github.com/spatie/ray/tree/1.31.0"
             },
             "funding": [
                 {
@@ -9629,7 +9629,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-11-11T09:43:41+00:00"
+            "time": "2021-11-17T11:59:32+00:00"
         },
         {
             "name": "spatie/regex",
