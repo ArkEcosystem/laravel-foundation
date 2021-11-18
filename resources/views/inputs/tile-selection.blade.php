@@ -13,7 +13,7 @@
     'gridWrapperClass' => null,
     'iconWrapper' => 'flex flex-col justify-center items-center md:space-y-2 h-full',
     'iconBreakpoints' => null,
-    'optionTitleClass' => 'font-semibold',
+    'optionTitleClass' => 'font-semibold dark:text-theme-secondary-200',
     'selectionLimit' => null,
     'selectedOptionsCount' => null,
     'selectedOptionsTooltip' => null,
