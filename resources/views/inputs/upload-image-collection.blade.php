@@ -37,7 +37,7 @@
     x-on:livewire-upload-error="isUploading = false; livewire.emit('uploadError', '{{ $uploadErrorMessage }}');"
     class="relative z-0 space-y-8"
 >
-    <div class="rounded-xl p-2 border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800 relative {{ $dimensions }} group">
+    <div class="rounded-xl p-1.5 border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800 relative {{ $dimensions }} group">
         <input
             id="image-collection-upload-{{ $id }}"
             type="file"
