@@ -23,13 +23,21 @@
                     <x-ark-tables.row>
 
                         <x-ark-tables.cell>
-                            <x-ark-icon
-                                name="wysiwyg/monitor"
-                                class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
-                            />
+                            @if ($session->agent->isDesktop())
+                                <x-ark-icon
+                                    name="wysiwyg/monitor"
+                                    class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
+                                />
+                            @else
+                                <x-ark-icon
+                                    name="mobile-phone"
+                                    class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
+                                />
+                            @endif
                             <div class="ml-3">
                                 {{ $session->ip_address }}
                             </div>
+
                         </x-ark-tables.cell>
 
                         <x-ark-tables.cell>
@@ -62,13 +70,20 @@
                             @lang('ui::pages.logout-sessions.ip')
                         </div>
                         <div class="flex items-center space-x-3 text-base font-normal text-theme-secondary-700">
-                            <x-ark-icon
-                                name="wysiwyg/monitor"
-                                class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
-                            />
                             <div>
                                 {{ $session->ip_address }}
                             </div>
+                            @if ($session->agent->isDesktop())
+                                <x-ark-icon
+                                    name="wysiwyg/monitor"
+                                    class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
+                                />
+                            @else
+                                <x-ark-icon
+                                    name="mobile-phone"
+                                    class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
+                                />
+                            @endif
                         </div>
                     </div>
 
@@ -125,7 +140,7 @@
 
             <x-slot name="description">
                 <div class="flex justify-center mt-8 w-full">
-                    <x-ark-icon name="fortify-modal.secure" class="w-2/3 h-auto" />
+                    <x-ark-icon name="fortify-modal.secure" size="h-28" />
                 </div>
                 <div class="flex flex-col mt-8">
                     <div class="mt-4">
@@ -161,7 +176,7 @@
                         class="inline-flex justify-center items-center button-primary"
                         @unless($this->getErrorBag()->isEmpty()) disabled @endunless
                     >
-                        <span class="ml-2">@lang('ui::actions.confirm')</span>
+                        @lang('ui::actions.confirm')
                     </button>
                 </div>
             </x-slot>
