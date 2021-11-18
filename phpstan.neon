@@ -2,6 +2,8 @@ parameters:
     paths:
         - ../../../app
     excludePaths:
+        - ./../../app/App/Console/Playbooks
+        - ./../../app/App/Nova/*
     level: 8
     ignoreErrors:
         - '#is not allowed to extend#'
