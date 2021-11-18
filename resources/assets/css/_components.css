@@ -333,7 +333,7 @@
 }
 
 .tile-selection-option {
-    @apply relative border-2 cursor-pointer select-none rounded-xl border-theme-primary-100 h-30 transition-default;
+    @apply relative border-2 cursor-pointer select-none rounded-xl border-theme-primary-100 h-30 transition-default dark:border-theme-secondary-800;
 }
 
 .tile-selection-single {
@@ -347,7 +347,7 @@
 
 .tile-selection-option:not(.tile-selection--checked):hover,
 .tile-selection-single:not(.tile-selection--checked):hover {
-    @apply border-transparent;
+    @apply border-transparent dark:border-theme-success-400;
 }
 
 .tile-selection-select-all {
@@ -358,7 +358,7 @@
 .tile-selection-checkbox:focus,
 .tile-selection-select-all-checkbox,
 .tile-selection-select-all-checkbox:focus {
-    @apply border-2 rounded border-theme-primary-100;
+    @apply border-2 rounded border-theme-primary-100 dark:bg-transparent dark:border-theme-secondary-600 dark:group-hover:border-theme-success-600;
 }
 
 .tile-selection-select-all-checkbox {
@@ -374,11 +374,11 @@
 }
 
 .tile-selection--checked {
-    @apply border-theme-success-500 bg-theme-success-50;
+    @apply border-theme-success-500 bg-theme-success-50 dark:text-theme-secondary-200 dark:border-theme-success-600 dark:bg-theme-success-900;
 }
 .tile-selection-select-all-checkbox:checked,
 .tile-selection-checkbox:checked {
-    @apply border-theme-success-500 bg-theme-success-500;
+    @apply border-theme-success-500 bg-theme-success-500 dark:border-theme-success-600 dark:bg-theme-success-600;
 }
 
 /** Tile Links **/
