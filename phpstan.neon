@@ -12,7 +12,6 @@ parameters:
         - '#Method ([\w\\\:_\(\)]+) has parameter ([\$\w]+) with null as default value.#'
         - '#has a nullable return type declaration.#'
         - '#Dynamic call to static method Illuminate\\Database\\Eloquent\\((Builder|Relations|Model)+[\w\\\:\(\)\<\>]+).#'
-        - '#Method [a-zA-Z0-9\\_]+\\Components\\[a-zA-Z0-9\\_]+\:\:rules\(\) is protected, but since the containing class is final, it can be private#'
-        - '#Method [a-zA-Z0-9\\_]+\\Livewire\\[a-zA-Z0-9\\_]+\:\:rules\(\) is protected, but since the containing class is final, it can be private#'
+        - '#Method ([\w\\]+(Livewire|Components)+[\w\\\:\(\)\<\>]+\:\:rules\(\)) is protected, but since the containing class is final, it can be private.#'
     checkMissingIterableValueType: false
     reportUnmatchedIgnoredErrors: false
