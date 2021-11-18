@@ -15,6 +15,7 @@
             x-on:keydown.space.prevent="$event.target.querySelector('input').click()"
         @endif
         @class([
+            'group',
             'tile-selection-single' => $single,
             'tile-selection-option' => ! $single,
             'disabled-tile'         => $isDisabled && ! $option['checked'],
