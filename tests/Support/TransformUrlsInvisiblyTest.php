@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-use ARKEcosystem\Foundation\Support\TransformUrlsInvisibly;
+use ARKEcosystem\Foundation\Support\TransformDotsInUrlsInvisibly;
 
 it('will not change the value when no url is detected', function () {
     $value = 'This is a normal string.';
-    $newValue = (new TransformUrlsInvisibly($value))->getString();
+    $newValue = (new TransformDotsInUrlsInvisibly($value))->getString();
 
     expect($newValue)->toBe($value);
 });
 
 it('will change the url when a url is detected', function () {
     $value = 'Your invitation for test.com has been created.';
-    $newValue = (new TransformUrlsInvisibly($value))->getString();
+    $newValue = (new TransformDotsInUrlsInvisibly($value))->getString();
 
     expect($newValue)->toBe('Your invitation for test<span style="display: none;">.</span>.com has been created.');
 });
 
 it('will change two urls when a url is detected', function ($value, $expectation) {
-    $newValue = (new TransformUrlsInvisibly("Your invitation for {$value} has been created."))->getString();
+    $newValue = (new TransformDotsInUrlsInvisibly("Your invitation for {$value} has been created."))->getString();
 
     expect($newValue)->toBe("Your invitation for {$expectation} has been created.");
 })->with([

@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
  *
  * This class is available through a Str macro: \Str::transformUrlsInvisibly($string, $attributes);
  */
-final class TransformUrlsInvisibly
+final class TransformDotsInUrlsInvisibly
 {
     public function __construct(protected string $value)
     {
