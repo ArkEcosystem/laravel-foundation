@@ -9,5 +9,6 @@ parameters:
         - '#Method ([\w\\\:_\(\)]+) has parameter ([\$\w]+) with a nullable type declaration.#'
         - '#Method ([\w\\\:_\(\)]+) has parameter ([\$\w]+) with null as default value.#'
         - '#Method ([\w\\\:_\(\)]+) has a nullable return type declaration.#'
+        - '#Dynamic call to static method Illuminate\\Database\\Eloquent\\((Builder|Relations|Model)+[\w\\\:\(\)\<\>]+).#'
     checkMissingIterableValueType: false
     reportUnmatchedIgnoredErrors: false
