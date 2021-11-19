@@ -4,12 +4,12 @@ window.clipboard = () => {
         notSupported: false,
 
         copy(value) {
-            const textArea = document.createElement('textarea');
+            const textArea = document.createElement("textarea");
 
             textArea.value = value;
 
             // Prevent keyboard from showing on mobile
-            textArea.setAttribute('readonly', '');
+            textArea.setAttribute("readonly", "");
 
             // fontSize prevents zooming on iOS
             textArea.style.cssText =
@@ -47,7 +47,7 @@ window.clipboard = () => {
             this.copying = true;
             setTimeout(() => (this.copying = false), 1200);
 
-            document.execCommand('copy');
+            document.execCommand("copy");
 
             textArea.remove();
         },
