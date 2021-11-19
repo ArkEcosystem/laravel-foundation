@@ -24,7 +24,18 @@ trait PasswordValidationRules
                 ->numbers()
                 ->symbols()
                 ->uncompromised(),
-            'confirmed',
+        ];
+    }
+
+    /**
+     * Get the validation rules used to validate the confirmed password.
+     *
+     * @return array
+     */
+    protected static function passwordConfirmationRules()
+    {
+        return [
+            'same:password',
         ];
     }
 }
