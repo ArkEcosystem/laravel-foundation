@@ -63,12 +63,14 @@ Add those scripts to `composer.json`
 ],
 ```
 
-## Working on components locally
-This package contains a lot of frontend components, but no frontend views itself. So when you need to work on it, you rely on the frontend from another  project. Usually this can be done by having composer symlink this package, but in this case there is a second step required to ensure you can run `npm run watch`,  `npm run prod` etc. 
+## Working on Components Locally
+
+This package contains a lot of frontend components, but no frontend views itself. So when you need to work on it, you rely on the frontend from another  project. Usually this can be done by having composer symlink this package, but in this case there is a second step required to ensure you can run `yarn watch`,  `yarn prod` etc. 
 
 I'll get into it in detail and will use the marketsquare.io project as an example. Let's assume that both the marketsquare.io and laravel-foundation git repo's are installed in the `/Users/my-user/projects/` folder on our local development machine.
 
-### Step 1 Composer symlink
+### Step 1 - Composer Symlink
+
 In the `composer.json` file from marketsquare.io under "repositories" add the laravel-foundation as a path:
 ```json
 "repositories": [
@@ -80,12 +82,13 @@ In the `composer.json` file from marketsquare.io under "repositories" add the la
 ```
 After that run `composer require arkecosystem/foundation --ignore-platform-reqs -W`. The laravel-foundation package is now symlinked and you can work in your IDE from within your `laravel-foundation` repo.
 
-### Step 2 Symlink node_modules
-If you would run `npm run watch` from within your marketsquare.io repo you'll get a lot of errors because dependencies are not smart enough to know they're in a symlinked directory.
+### Step 2 - Symlink node_modules
+
+If you would run `yarn watch` from within your marketsquare.io repo you'll get a lot of errors because dependencies are not smart enough to know they're in a symlinked directory.
 
 * Delete the `node_modules` directory on `laravel-foundation`.
 * Symlink the `node_modules` directory from marketsquare.io to laravel-foundation by running `ln -s /Users/my-user/projects/marketsquare.io/node_modules node_modules` (from within your laravel-foundation repo).
 
-Now, when you go back to your marketsquare.io repo, you can run `npm run watch`.
+Now, when you go back to your marketsquare.io repo, you can run `yarn watch`.
 
 Don't forget to remove the symlinking after you're done.
