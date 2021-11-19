@@ -145,7 +145,7 @@ it('password should match the confirmation', function () {
         'password'              => $this->validPassword,
         'password_confirmation' => 'password',
         'terms'                 => false,
-    ]), 'password', 'The password confirmation does not match.');
+    ]), 'password_confirmation', 'The password confirmation and password must match.');
 });
 
 it('password should be equal to or longer than 12 characters', function () {

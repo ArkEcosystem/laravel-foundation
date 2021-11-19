@@ -46,3 +46,36 @@ it('should render external links', function (string $url) {
     'ftp://google.com',
     '//google.com',
 ]);
+
+it('should render links without schema as links', function (string $host) {
+    $subject = new LinkRenderer();
+    $subject->setConfiguration(new Configuration());
+
+    $environment = new Environment();
+    $environment->addRenderer(Text::class, new TextRenderer());
+
+    $element = $subject->render(new Link($host, 'Label', 'Title'), new HtmlRenderer($environment));
+
+    $this->expect($element->getAttribute('href'))->toBe('https://'.$host);
+})->with([
+    'google.com',
+    'www.google.com',
+    'google.com/something',
+]);
+
+it('should render relative paths', function (string $path) {
+    $subject = new LinkRenderer();
+    $subject->setConfiguration(new Configuration());
+
+    $environment = new Environment();
+    $environment->addRenderer(Text::class, new TextRenderer());
+
+    $element = $subject->render(new Link($path, 'Label', 'Title'), new HtmlRenderer($environment));
+
+    $this->expect($element->getAttribute('href'))->toBe($path);
+})->with([
+    '/local/path',
+    'path',
+    'path/version/1.2/thing',
+    'docs/core/releases/upgrade/docker/3.0',
+]);

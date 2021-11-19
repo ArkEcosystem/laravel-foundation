@@ -2,8 +2,13 @@ parameters:
     paths:
         - ../../../app
     excludePaths:
+        # MarketSquare
         - ../../../app/App/Console/Playbooks
         - ../../../app/App/Nova/*
+        # Explorer
+        - ../../../app/Console/Playbooks
+        - ../../../app/Console/Commands/RunPlaybookCommand.php
+        - ../../../app/Services/Monitor
     level: 8
     ignoreErrors:
         - '#is not allowed to extend#'
