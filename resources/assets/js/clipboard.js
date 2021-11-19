@@ -4,12 +4,18 @@ window.clipboard = () => {
         notSupported: false,
 
         copy(value) {
-            const textArea = document.createElement("textarea");
-            textArea.value = value;
-            textArea.style.cssText =
-                "position:absolute;top:0;left:0;z-index:-9999;opacity:0;";
+            const textArea = document.createElement('textarea');
 
-            document.body.appendChild(textArea);
+            textArea.value = value;
+
+            // Prevent keyboard from showing on mobile
+            textArea.setAttribute('readonly', '');
+
+            // fontSize prevents zooming on iOS
+            textArea.style.cssText =
+                "position:absolute;top:0;left:0;z-index:-9999;opacity:0;fontSize:12pt;";
+
+            document.body.append(textArea);
 
             const isiOSDevice = navigator.userAgent.match(/ipad|iphone/i);
 
@@ -35,14 +41,15 @@ window.clipboard = () => {
                 textArea.readOnly = readOnly;
             } else {
                 textArea.select();
+                textArea.focus();
             }
 
             this.copying = true;
             setTimeout(() => (this.copying = false), 1200);
 
-            document.execCommand("copy");
+            document.execCommand('copy');
 
-            document.body.removeChild(textArea);
+            textArea.remove();
         },
 
         copyFromInput(identifier) {
