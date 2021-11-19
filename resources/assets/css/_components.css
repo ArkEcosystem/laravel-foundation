@@ -491,6 +491,10 @@
     @apply dark:text-theme-secondary-700;
 }
 
+.tile-link-disabled .tile-link-icon {
+    @apply dark:text-theme-secondary-800;
+}
+
 /* Contact components */
 .contact-header {
     @apply py-8 content-container;
