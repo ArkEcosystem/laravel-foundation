@@ -69,8 +69,8 @@
                         <div class="font-semibold text-theme-secondary-500">
                             @lang('ui::pages.logout-sessions.ip')
                         </div>
-                        <div class="flex items-center space-x-3 text-base font-normal text-theme-secondary-700">
-                            <div>
+                        <div class="w-full flex items-center space-x-3 text-base font-normal text-theme-secondary-700 min-w-0">
+                            <div class="w-full ml-4 truncate text-right">
                                 {{ $session->ip_address }}
                             </div>
                             @if ($session->agent->isDesktop())
