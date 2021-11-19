@@ -65,7 +65,7 @@ Add those scripts to `composer.json`
 
 ## Working on Components Locally
 
-This package contains a lot of frontend components, but no frontend views itself. So when you need to work on it, you rely on the frontend from another  project. Usually this can be done by having composer symlink this package, but in this case there is a second step required to ensure you can run `yarn watch`,  `yarn prod` etc. 
+This package contains a lot of frontend components, but no frontend views itself. So when you need to work on it, you rely on the frontend from another project. Usually this can be done by having composer symlink this package, but in this case there is a second step required to ensure you can run `yarn watch`, `yarn prod` etc. 
 
 I'll get into it in detail and will use the marketsquare.io project as an example. Let's assume that both the marketsquare.io and laravel-foundation git repo's are installed in the `/Users/my-user/projects/` folder on our local development machine.
 
