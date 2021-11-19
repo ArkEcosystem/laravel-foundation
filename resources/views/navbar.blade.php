@@ -33,7 +33,7 @@
         class="fixed top-0 z-30 w-full bg-white border-b border-theme-secondary-300 dark:bg-theme-secondary-900"
         dusk="navigation-bar"
     >
-        <div class="relative z-10 bg-white navbar-container border-theme-secondary-300">
+        <div class="relative z-10 navbar-container border-theme-secondary-300">
             <div class="flex relative justify-between h-21">
                 @include('ark::navbar.logo')
 
