@@ -114,3 +114,14 @@ it('cant delete user without a password', function () {
 
     $this->assertNotNull(Auth::user());
 });
+
+it('displays alert when set', function () {
+    $user = createUserModel();
+
+    Livewire::actingAs($user)
+        ->test(DeleteUserForm::class)
+        ->set('modalShown', true)
+        ->assertDontSee('alert-wrapper')
+        ->set('alert', '<strong>a test alert</strong>with <a href="#">html</a>.')
+        ->assertSee('alert-wrapper');
+});
