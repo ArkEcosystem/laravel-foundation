@@ -19,7 +19,7 @@ it('can interact with the form', function () {
     $two_factor_secret = 'QHBRXHLWOT3B2T3L';
     Livewire::actingAs($user)
         ->test(TwoFactorAuthenticationForm::class)
-        ->assertSee('You have not enabled two factor authentication.')
+        ->assertSee(trans('ui::pages.user-settings.2fa_not_enabled_title'))
         ->set('state.two_factor_secret', $two_factor_secret)
         ->assertSet('enabled', false)
         ->assertSee($two_factor_secret)
@@ -33,7 +33,7 @@ it('can interact with the form', function () {
         ->call('regenerateRecoveryCodes')
         ->assertSee('Two-Factor Authentication Recovery Codes')
         ->call('hideRecoveryCodes')
-        ->assertSee('You have enabled two factor authentication')
+        ->assertSee('You have enabled two-factor authentication')
         ->call('showConfirmPassword')
         ->assertSee('Input your password to show your emergency two-factor recovery codes.')
         ->set('confirmedPassword', 'password')
@@ -44,7 +44,7 @@ it('can interact with the form', function () {
         ->assertSee('Input your password to disable the two-factor authentication method.')
         ->set('confirmedPassword', 'password')
         ->call('disableTwoFactorAuthentication')
-        ->assertSee('You have not enabled two factor authentication');
+        ->assertSee(trans('ui::pages.user-settings.2fa_not_enabled_title'));
 });
 
 it('should not show recovery codes if wrong password', function () {
@@ -58,7 +58,7 @@ it('should not show recovery codes if wrong password', function () {
     $two_factor_secret = 'QHBRXHLWOT3B2T3L';
     Livewire::actingAs($user)
         ->test(TwoFactorAuthenticationForm::class)
-        ->assertSee('You have not enabled two factor authentication.')
+        ->assertSee(trans('ui::pages.user-settings.2fa_not_enabled_title'))
         ->set('state.two_factor_secret', $two_factor_secret)
         ->assertSet('enabled', false)
         ->assertSee($two_factor_secret)
@@ -84,7 +84,7 @@ it('should not disable if wrong password', function () {
     $two_factor_secret = 'QHBRXHLWOT3B2T3L';
     Livewire::actingAs($user)
         ->test(TwoFactorAuthenticationForm::class)
-        ->assertSee('You have not enabled two factor authentication.')
+        ->assertSee(trans('ui::pages.user-settings.2fa_not_enabled_title'))
         ->set('state.two_factor_secret', $two_factor_secret)
         ->assertSet('enabled', false)
         ->assertSee($two_factor_secret)
@@ -96,7 +96,7 @@ it('should not disable if wrong password', function () {
         ->assertSee('Input your password to disable the two-factor authentication method.')
         ->set('confirmedPassword', 'wrong password')
         ->call('disableTwoFactorAuthentication')
-        ->assertDontSee('You have not enabled two factor authentication');
+        ->assertDontSee(trans('ui::pages.user-settings.2fa_not_enabled_title'));
 });
 
 it('shows email after scanning qr-code on mobile device', function (): void {
