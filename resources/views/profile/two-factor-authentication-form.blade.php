@@ -29,9 +29,9 @@
                     </span>
                 </div>
 
-                <div class="flex flex-col items-center sm:divide-x divide-theme-secondary-300 sm:flex-row sm:items-stretch sm:mt-8">
+                <div class="flex flex-col items-center sm:flex-row sm:items-stretch sm:mt-8 sm:divide-x divide-theme-secondary-300">
                     <div class="flex flex-col justify-center rounded-xl border sm:mr-8 border-theme-secondary-400">
-                        <div class="flex flex-1 px-1 py-4 items-center md:py-2 lg:py-1">
+                        <div class="flex flex-1 items-center py-4 px-1 md:py-2 lg:py-1">
                             {!! $this->twoFactorQrCodeSvg !!}
                         </div>
 
@@ -42,7 +42,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col mt-8 sm:mt-0 sm:pl-8">
+                    <div class="flex flex-col mt-8 sm:pl-8 sm:mt-0">
                         <span class="text-lg font-bold leading-7 text-theme-secondary-900">
                             @lang('ui::pages.user-settings.2fa_not_enabled_title')
                         </span>
@@ -81,7 +81,7 @@
                 />
             </div>
 
-            <div class="flex mt-8 pt-8 border-t border-theme-secondary-300 sm:border-t-0 sm:justify-end sm:pt-0">
+            <div class="flex pt-8 mt-8 border-t sm:justify-end sm:pt-0 sm:border-t-0 border-theme-secondary-300">
                 <button
                     type="button"
                     class="w-full sm:w-auto button-secondary"
@@ -116,7 +116,7 @@
             <div class="flex flex-col-reverse mt-8 w-full sm:flex-row sm:justify-end sm:space-x-3">
                 <button
                     type="button"
-                    class="w-full sm:w-auto mt-4 button-secondary sm:mt-0"
+                    class="mt-4 w-full sm:mt-0 sm:w-auto button-secondary"
                     wire:click="showConfirmPassword"
                 >
                     @lang('ui::actions.recovery_codes')
