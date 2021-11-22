@@ -209,8 +209,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::inputs.upload-image-collection', 'ark-upload-image-collection');
             $blade->component('ark::inputs.tags', 'ark-tags');
 
-            $blade->component('ark::pages.contact.content', 'ark-pages-contact-content');
-            $blade->component('ark::pages.contact.header', 'ark-pages-contact-header');
+            $blade->component('ark::pages.contact', 'ark-pages-contact');
 
             $blade->component('ark::pages.includes.header', 'ark-pages-includes-header');
             $blade->component('ark::pages.includes.markdown-scripts', 'ark-pages-includes-markdown-scripts');
