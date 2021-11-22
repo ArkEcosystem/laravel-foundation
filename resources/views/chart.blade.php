@@ -18,7 +18,7 @@
         {{ $labels }},
         '{{ $grid }}',
         '{{ $tooltips }}',
-        {{ $theme }},
+        {{ json_encode($theme->toArray()) }},
         '{{ time() }}',
         '{{ $currency }}',
     )"

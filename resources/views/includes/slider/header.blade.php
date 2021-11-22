@@ -1,6 +1,6 @@
 @if ($title || $hasViewAll)
     <div @class([
-        'flex flex-col mb-6 space-y-4 sm:space-y-0 sm:flex-row sm:items-center',
+        $headerClass,
         'sm:justify-between' => $title,
         'sm:justify-end'     => ! $title,
     ])>

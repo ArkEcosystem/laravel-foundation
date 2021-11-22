@@ -30,7 +30,7 @@ return [
         'some_special_characters'     => "The :attribute can only contain letters, numbers and . & - , '",
         'include_letters'             => 'The :attribute needs at least one letter',
         'start_with_letter_or_number' => 'The :attribute must start with a letter or a number',
-        'unique_case_insensitive'     => 'The :attribute must be unique.',
+        'unique_case_insensitive'     => 'The :attribute has already been taken.',
 
         'username' => [
             'special_character_start'         => 'Username must not start or end with special characters',
@@ -70,5 +70,4 @@ return [
         'weibo_url'     => 'The given URL is not a valid Weibo URL',
         'youtube_url'   => 'The given URL is not a valid YouTube Channel URL',
     ],
-
 ];

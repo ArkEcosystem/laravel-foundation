@@ -752,22 +752,58 @@ Here follow you can see an example on how to use it:
 1. Install the npm dependencies
 
 ```bash
-yarn add chart.js@^2.9.4
+yarn add chart.js@^3.6.0
 ```
 
-1. On `resource/app/js/app.js` add:
+Or if you need to update to the latest major version instead
+
+```bash
+yarn upgrade chart.js -L
+```
+
+When using dates, these additional dependencies will be required :
+
+```bash
+yarn add date-fns
+yarn add chartjs-adapter-date-fns
+```
+
+You will then need to import these in your `.js` chart file :
+
+```js
+import "chartjs-adapter-date-fns";
+import { en } from "date-fns/locale";
+...
+
+ const options = {
+    scales: {
+        x: {
+            type: "time",
+            adapters: {
+                date: {
+                    locale: en,
+                }
+            }
+        }
+    }
+ }
+```
+
+See [this page](https://www.chartjs.org/docs/3.6.0/axes/cartesian/time.html) for more details about time adapters.
+
+2. On `resource/app/js/app.js` add:
 ```js
 import CustomChart from "@ui/js/chart.js";
 
 window.CustomChart = CustomChart;
 ```
 
-1. On `webpack.mix.js` extract `chart.js` module:
+3. On `webpack.mix.js` extract `chart.js` module:
 ```js
 mix.extract(['chart.js']);
 ```
 
-1. use the component:
+4. Use the component:
 
 ```html
 <x-ark-chart
