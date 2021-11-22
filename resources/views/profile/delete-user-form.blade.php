@@ -25,6 +25,22 @@
                     <div class="flex justify-center w-full">
                         <x-ark-icon name="fortify-modal.delete-account" class="w-2/3 h-auto text-theme-primary-600"/>
                     </div>
+
+                    @if($alert)
+                        <div class="mt-4">
+                            <x-ark-alert
+                                type="info"
+                                class="py-8 px-4 mx-auto"
+                                message-class="text-sm"
+                                without-escaping
+                            >
+                                <x-slot name="message">
+                                    {!! $alert !!}
+                                </x-slot>
+                            </x-ark-alert>
+                        </div>
+                    @endif
+
                     <div class="mt-4">
                         @lang('ui::forms.delete-user.confirmation')
                     </div>
