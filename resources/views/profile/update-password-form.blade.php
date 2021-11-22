@@ -3,7 +3,7 @@
     @updated-password.window="isTyping = false"
     dusk="update-password-form"
 >
-    <div class="flex flex-col space-y-4">
+    <div class="flex mt-8 flex-col space-y-4">
         @if (flash()->message)
             <div>
                 <x-ark-flash />
