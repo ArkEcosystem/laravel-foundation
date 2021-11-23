@@ -159,7 +159,7 @@
     > tr
     > td.hoverable-cell.first-cell
     > div.table-cell-bg::before {
-    @apply left-0 -ml-4 border-l rounded-l-md;
+    @apply left-0 -ml-4 border-l rounded-l-xl;
 }
 
 .table-container
@@ -174,7 +174,7 @@
     > tr
     > td.hoverable-cell.last-cell
     > div.table-cell-bg::before {
-    @apply right-0 -mr-4 border-r rounded-r-md;
+    @apply right-0 -mr-4 border-r rounded-r-xl;
 }
 
 .table-container table > tbody > tr > td.hoverable-cell {
