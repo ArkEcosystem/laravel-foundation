@@ -429,6 +429,7 @@
     @apply bg-theme-success-100;
 }
 
+
 .dark
     .table-container
     table
@@ -664,7 +665,7 @@
     > tr[data-info]
     > td.hoverable-cell
     > div.table-cell-bg::after {
-    @apply border-theme-primary-500;
+    @apply border-theme-primary-600;
 }
 
 .dark
@@ -681,7 +682,7 @@
     > tr[data-success]
     > td.hoverable-cell
     > div.table-cell-bg::after {
-    @apply border-theme-success-500;
+    @apply border-theme-success-600;
 }
 
 .dark
