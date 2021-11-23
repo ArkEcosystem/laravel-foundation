@@ -7,7 +7,6 @@ namespace Tests;
 use ARKEcosystem\Foundation\Fortify\Models\User;
 use Carbon\Carbon;
 use Closure;
-use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\ViewErrorBag;
@@ -66,7 +65,7 @@ function expectValidationError(Closure $callback, string $key, string $reason)
     try {
         $callback();
 
-        throw new Exception('No validation error thrown.');
+        test()->fail('No expected validation errors have been thrown.');
     } catch (ValidationException $exception) {
         expect($exception->validator->errors()->has($key))->toBeTrue();
         expect($exception->validator->errors()->get($key))->toContain($reason);
