@@ -23,6 +23,8 @@ class DeleteUserForm extends Component
 
     public string $feedback = '';
 
+    public ?string $alert = null;
+
     public function confirmUserDeletion()
     {
         $this->dispatchBrowserEvent('confirming-delete-user');

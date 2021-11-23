@@ -159,19 +159,21 @@ class FortifyServiceProvider extends ServiceProvider
                 ->middleware('guest');
         });
 
-        Route::group(['middleware' => config('fortify.middlewares.account_settings', ['web', 'auth'])], function () {
-            if (Features::enabled(Features::updateProfileInformation())) {
+        if (Features::enabled(Features::updateProfileInformation())) {
+            Route::group(['middleware' => config('fortify.middlewares.account_settings.update_profile', ['web', 'auth'])], function () {
                 Route::view(config('fortify.routes.account_settings_account'), 'ark-fortify::account.settings-account')
                     ->name('account.settings.account');
-            }
+            });
+        }
 
-            if (Features::enabled(Features::updatePasswords())) {
+        if (Features::enabled(Features::updatePasswords())) {
+            Route::group(['middleware' => config('fortify.middlewares.account_settings.update_password', ['web', 'auth'])], function () {
                 $slug = (string) config('fortify.routes.account_settings_password');
 
                 Route::view($slug, 'ark-fortify::account.settings-password')->name('account.settings.password');
                 Route::redirect('/.well-known/change-password', $slug);
-            }
-        });
+            });
+        }
     }
 
     /**
