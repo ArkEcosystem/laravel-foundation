@@ -60,9 +60,7 @@ const destroyTippy = (parentEl = document.body) => {
 };
 
 const destroyOutdatedTippyInstances = () => {
-    const filteredTippyInstances = [];
-
-    tippyInstances.forEach((instance) => {
+    tippyInstances = tippyInstances.reduce((collection, instance) => {
         const el = instance.reference;
 
         if (
@@ -72,13 +70,13 @@ const destroyOutdatedTippyInstances = () => {
             (el.getAttribute("data-tippy-hover") ||
                 el.getAttribute("data-tippy-content"))
         ) {
-            filteredTippyInstances.push(instance);
+            collection.push(instance);
         } else {
             instance.destroy();
         }
-    });
 
-    tippyInstances = filteredTippyInstances;
+        return collection;
+    }, []);
 };
 
 initTippy();
