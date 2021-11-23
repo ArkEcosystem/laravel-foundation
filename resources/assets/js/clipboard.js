@@ -4,6 +4,28 @@ window.clipboard = () => {
         notSupported: false,
 
         copy(value) {
+            this.copying = true;
+
+            const clipboard = window.navigator.clipboard
+
+            if (clipboard && window.isSecureContext) {
+                clipboard.writeText(value).then(() => this.copying = false, () => {
+                    this.copying = false
+
+                    console.error('Failed to copy contents to the clipboard.')
+                })
+
+                return
+            }
+
+            console.warn('Copying to clipboard requires an HTTPS connection on some browsers and may cause unexpected issues.')
+
+            // Expect most browsers to have the Navigator and support for clipboard... 
+            // But use deprecated execCommand as a last resort...
+            this.copyUsingExec(value)
+        },
+
+        copyUsingExec(value) {
             const textArea = document.createElement("textarea");
 
             textArea.value = value;
