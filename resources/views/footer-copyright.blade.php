@@ -11,7 +11,7 @@
     @if($isArkProduct || $copyrightSlot !== null)
         @if($isArkProduct)
             <span class="hidden mr-1 sm:inline"> | </span>
-            <span class="whitespace-nowrap mr-1">
+            <span class="mr-1 whitespace-nowrap">
                 <x-ark-icon
                     name="ark-logo-red-square"
                     class="inline-block mr-1 -mt-1"
