@@ -7,7 +7,7 @@
         model="email"
         keydown-enter="subscribe"
         autocomplete="email"
-        input-class="w-full"
+        input-class="w-full light"
         container-class="overflow-hidden p-1 bg-white rounded"
         :errors="$errors"
         :hide-label="true"
