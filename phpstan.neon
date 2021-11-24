@@ -18,5 +18,6 @@ parameters:
         - '#has a nullable return type declaration.#'
         - '#Dynamic call to static method Illuminate\\Database\\Eloquent\\((Builder|Relations|Model)+[\w\\\:\(\)\<\>]+).#'
         - '#Method ([\w\\]+(Livewire|Components)+[\w\\\:\(\)\<\>]+\:\:rules\(\)) is protected, but since the containing class is final, it can be private.#'
+        - '#Access to an undefined property Spatie\\Activitylog\\Models\\Activity.#'
     checkMissingIterableValueType: false
     reportUnmatchedIgnoredErrors: false
