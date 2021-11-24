@@ -41,6 +41,8 @@ const CropImage = (
         this.uploadEl = document.getElementById($uploadID);
 
         Livewire.on("discardCroppedImage", () => {
+            Livewire.emit("closeModal", $modalID);
+
             this.discardImage();
         });
 
@@ -48,6 +50,7 @@ const CropImage = (
             Livewire.emit("closeModal", $modalID);
 
             this.saveCroppedImage();
+            this.discardImage();
         });
     },
 
@@ -137,8 +140,6 @@ const CropImage = (
                 this.model = response.url;
             });
         });
-
-        this.discardImage();
     },
 
     discardImage() {
