@@ -91,7 +91,10 @@ return [
     'middleware' => ['web'],
 
     'middlewares' => [
-        'account_settings' => ['web', 'auth'],
+        'account_settings' => [
+            'update_profile'  => ['web', 'auth'],
+            'update_password' => ['web', 'auth'],
+        ],
     ],
 
     /*
