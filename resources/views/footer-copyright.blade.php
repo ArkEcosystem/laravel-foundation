@@ -5,27 +5,26 @@
 ])
 
 <div {{ $attributes->merge(['class' => 'flex flex-col py-6 space-y-2 font-semibold text-sm text-theme-secondary-700 sm:flex-row sm:space-y-0 sm:space-x-1'])}}>
-    <span class="whitespace-nowrap">
+    <span class="break-words">
         {{ date('Y') }} &copy; {{ $copyText }}
-    </span>
 
     @if($isArkProduct || $copyrightSlot !== null)
-        <div class="flex">
-            @if($isArkProduct)
-                <div>
-                    <span class="hidden mr-1 sm:inline"> | </span>
-                    <span class="whitespace-nowrap">
-                        <x-ark-icon
-                            name="ark-logo-red-square"
-                            class="inline-block mr-1 -mt-1"
-                        />
+        @if($isArkProduct)
+            <span class="hidden mr-1 sm:inline"> | </span>
+            <span class="whitespace-nowrap mr-1">
+                <x-ark-icon
+                    name="ark-logo-red-square"
+                    class="inline-block mr-1 -mt-1"
+                />
 
-                        An <a href="https://ark.io/" class="underline hover:no-underline focus-visible:rounded">ARK.io</a> @lang('ui::generic.product')
-                    </span>
-                </div>
-            @endif
+                <span class="hidden sm:inline">@lang('ui::generic.an')</span>
+                <a href="https://ark.io/" class="underline hover:no-underline focus-visible:rounded">ARK.io</a>
+                @lang('ui::generic.product')
+                <span class="sm:hidden">|</span>
+            </span>
+        @endif
 
-            {{ $copyrightSlot }}
-        </div>
+        {{ $copyrightSlot }}
     @endif
+    </span>
 </div>
