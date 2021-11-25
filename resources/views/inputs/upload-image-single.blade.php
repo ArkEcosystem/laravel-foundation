@@ -158,11 +158,6 @@
         name="crop-modal-{{ $id }}"
         class="w-full max-w-2xl text-left"
         title-class="header-2"
-        x-data="{
-            onHidden: () => {
-                Livewire.emit('discardCroppedImage');
-            },
-        }"
         close-button-only
         init
     >
@@ -183,7 +178,7 @@
         @endslot
 
         @slot('buttons')
-            <button type="button" class="{{ $cropCancelButtonClass }}" @click="hide" dusk="crop-cancel-button">
+            <button type="button" class="{{ $cropCancelButtonClass }}" @click="Livewire.emit('discardCroppedImage')" dusk="crop-cancel-button">
                 {{ $cropCancelButton }}
             </button>
 

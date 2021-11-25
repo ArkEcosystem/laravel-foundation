@@ -33,7 +33,7 @@
         "johnkary/phpunit-speedtrap": "^4.0",
         "laravel/fortify": "^1.8",
         "league/commonmark": "^2.0",
-        "livewire/livewire": "^2.7",
+        "livewire/livewire": "^2.8",
         "mockery/mockery": "^1.4",
         "nunomaduro/collision": "^5.10",
         "nunomaduro/larastan": "^1.0",
