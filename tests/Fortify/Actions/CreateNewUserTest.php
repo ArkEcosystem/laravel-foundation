@@ -144,8 +144,8 @@ it('password should match the confirmation', function () {
         'email'                 => 'john@doe.com',
         'password'              => $this->validPassword,
         'password_confirmation' => 'password',
-        'terms'                 => false,
-    ]), 'password', 'The password confirmation does not match.');
+        'terms'                 => true,
+    ]), 'password_confirmation', 'The password confirmation and password must match.');
 });
 
 it('password should be equal to or longer than 12 characters', function () {
@@ -219,7 +219,7 @@ it('handles the invitation parameter', function () {
     $this->assertSame($user->id, $invitation->user_id);
 });
 
-it('marks the user email as verified if has an invitation', function () {
+it('does not mark the user email as verified if it has an invitation', function () {
     Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
     Config::set('fortify.models.invitation', TestUser::class);
 
@@ -233,10 +233,10 @@ it('marks the user email as verified if has an invitation', function () {
         'invitation'            => 'uuid-uuid-uuid-uuid',
     ]);
 
-    $this->assertNotNull($user->email_verified_at);
+    $this->assertNull($user->email_verified_at);
 });
 
-it('doesnt mark the user email as verified if no ivitation ', function () {
+it('does not mark the user email as verified if it has no invitation ', function () {
     Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
 
     $user = (new CreateNewUser())->create([

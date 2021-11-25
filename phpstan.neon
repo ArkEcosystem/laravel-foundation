@@ -2,9 +2,22 @@ parameters:
     paths:
         - ../../../app
     excludePaths:
+        # MarketSquare
+        - ../../../app/App/Console/Playbooks
+        - ../../../app/App/Nova/*
+        # Explorer
+        - ../../../app/Console/Playbooks
+        - ../../../app/Console/Commands/RunPlaybookCommand.php
+        - ../../../app/Services/Monitor
     level: 8
     ignoreErrors:
         - '#is not allowed to extend#'
         - '#Constructor in ([\w\\]+) has parameter ([\$\w]+) with default value.#'
+        - '#Method ([\w\\\:_\(\)]+) has parameter ([\$\w]+) with a nullable type declaration.#'
+        - '#Method ([\w\\\:_\(\)]+) has parameter ([\$\w]+) with null as default value.#'
+        - '#has a nullable return type declaration.#'
+        - '#Dynamic call to static method Illuminate\\Database\\Eloquent\\((Builder|Relations|Model)+[\w\\\:\(\)\<\>]+).#'
+        - '#Method ([\w\\]+(Livewire|Components)+[\w\\\:\(\)\<\>]+\:\:rules\(\)) is protected, but since the containing class is final, it can be private.#'
+        - '#Access to an undefined property Spatie\\Activitylog\\Models\\Activity.#'
     checkMissingIterableValueType: false
     reportUnmatchedIgnoredErrors: false

@@ -45,8 +45,9 @@ it('should throw an exception if the password is not confirmed', function () {
     $user = createUserModel();
 
     expectValidationError(fn () => resolve(ResetUserPassword::class)->reset($user, [
-        'password' => 'Pas3w05d&123456',
-    ]), 'password', 'The password confirmation does not match.');
+        'password'              => 'Pas3w05d&123456',
+        'password_confirmation' => null,
+    ]), 'password_confirmation', 'The password confirmation and password must match.');
 });
 
 it('should throw an exception if the password confirmation does not match', function () {
@@ -55,7 +56,7 @@ it('should throw an exception if the password confirmation does not match', func
     expectValidationError(fn () => resolve(ResetUserPassword::class)->reset($user, [
         'password'              => 'Pas3w05d&123456',
         'password_confirmation' => 'password',
-    ]), 'password', 'The password confirmation does not match.');
+    ]), 'password_confirmation', 'The password confirmation and password must match.');
 });
 
 it('should throw an exception if the password is the same', function () {
