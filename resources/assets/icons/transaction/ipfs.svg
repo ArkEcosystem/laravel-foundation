@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="ipfs" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M10,19l-8.3-4.5v-9L10,1l8.3,4.5v9L10,19z"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M7.20001,8.82749L1.7,5.70001"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12.79999,8.85286L18.3,5.70001"/>
-	<circle fill="none" stroke="currentColor" stroke-width="2" cx="10" cy="9.70001" r="2.79999"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2"><path stroke-linejoin="round" d="M10 19l-8.3-4.5v-9L10 1l8.3 4.5v9L10 19z"/><path stroke-linecap="round" d="M7.2 8.827L1.7 5.7M12.8 8.853L18.3 5.7"/><circle cx="10" cy="9.7" r="2.8"/></g></svg>
