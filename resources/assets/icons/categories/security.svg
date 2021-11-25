@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="security" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10,1V19"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17.3,9.4H2.7"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.3,9.3V1.4"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13.7,17.4V9.6"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.7,3.5v6.1
-		c0,3.9,1.9,7.5,5.6,8.9l0.8,0.3c0.6,0.2,1.2,0.2,1.8,0l0.8-0.3c3.8-1.4,5.6-4.9,5.6-8.9V3.5c0-0.5-0.3-0.9-0.7-1.1
-		c-4.2-1.9-9-1.9-13.3,0C2.9,2.6,2.7,3.1,2.7,3.5z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 1v18M17.3 9.4H2.7M6.3 9.3V1.4M13.7 17.4V9.6M2.7 3.5v6.1c0 3.9 1.9 7.5 5.6 8.9l.8.3c.6.2 1.2.2 1.8 0l.8-.3c3.8-1.4 5.6-4.9 5.6-8.9V3.5c0-.5-.3-.9-.7-1.1-4.2-1.9-9-1.9-13.3 0-.4.2-.6.7-.6 1.1z"/></g></svg>
