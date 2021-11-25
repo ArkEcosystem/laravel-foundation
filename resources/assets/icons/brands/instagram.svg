@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="instagram" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.4,1h7.2
-		c3,0,5.4,2.4,5.4,5.4v7.2c0,3-2.4,5.4-5.4,5.4H6.4c-3,0-5.4-2.4-5.4-5.4V6.4C1,3.4,3.4,1,6.4,1z"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10,13.9c2.2,0,4-1.8,4-4
-		s-1.8-4-4-4s-4,1.8-4,4l0,0C6,12.1,7.8,13.9,10,13.9z"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.9,4.6
-		c0-0.2-0.1-0.3-0.3-0.3s-0.3,0.1-0.3,0.3l0,0c0,0.2,0.1,0.3,0.3,0.3C14.8,4.9,14.9,4.7,14.9,4.6z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 1h7.2c3 0 5.4 2.4 5.4 5.4v7.2c0 3-2.4 5.4-5.4 5.4H6.4c-3 0-5.4-2.4-5.4-5.4V6.4C1 3.4 3.4 1 6.4 1z"/><path d="M10 13.9c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4h0c0 2.2 1.8 4 4 4zM14.9 4.6c0-.2-.1-.3-.3-.3s-.3.1-.3.3h0c0 .2.1.3.3.3.2 0 .3-.2.3-.3z"/></g></svg>

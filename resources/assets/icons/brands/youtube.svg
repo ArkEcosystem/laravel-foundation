@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="youtube" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g transform="translate(-511.753 -748.003)">
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M530.8,754.4
-		c0-1.5-1.2-2.8-2.7-2.8l0,0h-12.5c-1.5,0-2.8,1.2-2.8,2.7l0,0v7.3c0,1.5,1.2,2.8,2.7,2.8l0,0H528c1.5,0,2.8-1.2,2.8-2.7V754.4z
-		 M519.9,761.2v-6.9l5.4,3.5L519.9,761.2z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19.047 6.397c0-1.5-1.2-2.8-2.7-2.8h0-12.5c-1.5 0-2.8 1.2-2.8 2.7h0v7.3c0 1.5 1.2 2.8 2.7 2.8h12.5c1.5 0 2.8-1.2 2.8-2.7v-7.3zm-10.9 6.8v-6.9l5.4 3.5-5.4 3.4z"/></svg>

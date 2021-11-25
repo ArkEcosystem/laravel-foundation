@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="medium" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<circle fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" cx="5.9" cy="10" r="4.8"/>
-	<ellipse fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" cx="14.8" cy="10" rx="1.9" ry="4.5"/>
-	<ellipse cx="19" cy="10" rx="1" ry="5"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><circle fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" cx="5.9" cy="10" r="4.8"/><ellipse fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" cx="14.8" cy="10" rx="1.9" ry="4.5"/><ellipse cx="19" cy="10" rx="1" ry="5"/></svg>

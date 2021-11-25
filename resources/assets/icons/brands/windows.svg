@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="windows" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<rect x="11.4" y="1" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" width="7.6" height="7.6"/>
-	<rect x="11.4" y="11.4" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" width="7.6" height="7.6"/>
-	<rect x="1" y="1" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" width="7.6" height="7.6"/>
-	<rect x="1" y="11.4" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" width="7.6" height="7.6"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"><path d="M11.4 1H19v7.6h-7.6zM11.4 11.4H19V19h-7.6zM1 1h7.6v7.6H1zM1 11.4h7.6V19H1z"/></g></svg>

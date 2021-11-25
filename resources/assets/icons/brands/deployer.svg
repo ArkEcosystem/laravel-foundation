@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="deployer" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<path fill="currentColor" d="M8,16H4v-4h4V16h8V4H4v8H0V0h20v20H8V16z M0,20v-4h4v4H0z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="currentColor" d="M8 16H4v-4h4v4h8V4H4v8H0V0h20v20H8v-4zm-8 4v-4h4v4H0z"/></svg>
