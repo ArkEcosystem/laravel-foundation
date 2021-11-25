@@ -2,6 +2,8 @@
     'error',
     'id',
     'shifted' => false,
+    'tippyTriggerTarget' => false,
+    'tippyToggleFocus' => false,
 ])
 
 <button
@@ -14,6 +16,13 @@
     ])
     data-tippy-content="{{ $error }}"
     onclick="document.getElementById('{{ $id }}').focus()"
+    @if ($tippyTriggerTarget)
+        data-tippy-trigger-target="{{ $tippyTriggerTarget }}"
+        tabindex="-1"
+    @endif
+    @if ($tippyToggleFocus)
+        data-tippy-toggle-focus="true"
+    @endif
 >
     <x-ark-icon name="report" class="text-theme-danger-500" />
     @if($shifted)

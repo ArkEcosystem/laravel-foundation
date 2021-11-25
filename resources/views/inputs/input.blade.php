@@ -1,5 +1,7 @@
 <div {{ $attributes->only('class') }} >
-    <div class="input-group">
+    <div
+        class="input-group"
+    >
         @unless ($hideLabel ?? false)
             @include('ark::inputs.includes.input-label', [
                 'name'            => $name,
@@ -30,6 +32,8 @@
                 @include('ark::inputs.includes.input-error-tooltip', [
                     'error' => $message,
                     'id' => $id ?? $name,
+                    'tippyTriggerTarget' => "input#" . ($id ?? $name),
+                    'tippyToggleFocus' => true,
                 ])
             @enderror
         </div>
