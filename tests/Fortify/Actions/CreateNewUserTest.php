@@ -144,7 +144,7 @@ it('password should match the confirmation', function () {
         'email'                 => 'john@doe.com',
         'password'              => $this->validPassword,
         'password_confirmation' => 'password',
-        'terms'                 => false,
+        'terms'                 => true,
     ]), 'password_confirmation', 'The password confirmation and password must match.');
 });
 
