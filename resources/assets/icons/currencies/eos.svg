@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="eos" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-<g transform="translate(-754.277 -782.976)">
-	<path fill="none" stroke="currentColor" stroke-width="2" d="M777.4,794.1l-7.1,16.9l-7.1-16.9"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" d="M770.3,813.8l9.4-5.5l-2.4-14.2l-7.1-9.4l-7.1,9.4l-2.4,14.2L770.3,813.8z"
-		/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M23.123 11.124l-7.1 16.9-7.1-16.9"/><path d="M16.023 30.824l9.4-5.5-2.4-14.2-7.1-9.4-7.1 9.4-2.4 14.2 9.6 5.5z"/></g></svg>

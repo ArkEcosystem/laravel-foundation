@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="hive" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g transform="translate(-819.581 -247.901)">
-	<path d="M819.6,257.9l5.1-8.8l5.1,8.8l-5.2,8.8L819.6,257.9z M826.8,266.7l4.4-7.8h2.9l-4.4,7.8H826.8z M831.5,266.7l5.2-8.8
-		l-5-8.8h2.9l5,8.8l-5,8.8H831.5z M831.2,256.8l-4.4-7.7h2.9l4.4,7.7H831.2z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M.019 9.999l5.1-8.8 5.1 8.8-5.2 8.8-5-8.8zm7.2 8.8l4.4-7.8h2.9l-4.4 7.8h-2.9zm4.7 0l5.2-8.8-5-8.8h2.9l5 8.8-5 8.8h-3.1zm-.3-9.9l-4.4-7.7h2.9l4.4 7.7h-2.9z"/></svg>

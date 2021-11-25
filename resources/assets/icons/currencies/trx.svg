@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="tron" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-<g transform="translate(-43.043 -40.932)">
-	<path fill="none" stroke="currentColor" stroke-width="2" d="M67.5,46.4l-8.3,7L57,70.5"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" d="M72.7,51.7l-13.6,1.7L46.3,42.7"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" d="M56.8,70.9l15.7-19.2L67.1,46l-21.5-3.7L56.8,70.9z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M24.457 5.468l-8.3 7-2.2 17.1"/><path d="M29.657 10.768l-13.6 1.7-12.8-10.7"/><path d="M13.757 29.968l15.7-19.2-5.4-5.7-21.5-3.7 11.2 28.6z"/></g></svg>
