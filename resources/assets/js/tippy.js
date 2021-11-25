@@ -4,38 +4,40 @@ import "tippy.js/dist/tippy.css";
 const visibleTooltips = [];
 
 const toggleOnFocusPlugin = {
-    name: 'toggleOnFocus',
+    name: "toggleOnFocus",
     fn(instance) {
-      return {
-        onCreate() {
-            const target = instance.props.triggerTarget || instance.reference;
+        return {
+            onCreate() {
+                const target =
+                    instance.props.triggerTarget || instance.reference;
 
-            if (document.activeElement === target) {
-                instance.show();
-            }
-
-            instance.setProps({ trigger: 'manual', touch: true });
-
-            target.addEventListener('focus', () => instance.show());
-            target.addEventListener('blur', () => instance.hide());
-        },
-        onHide(instance) {
-            const target = instance.props.triggerTarget || instance.reference;
-
-            if (document.activeElement === target) {
-                // Some strange behavior with tippy.js (possible conflicting with
-                // Livewire is hidding the tooltip even if returning `false`).
-                // The following line is a workaround to keep the tooltip visible.
-                setTimeout(() => {
+                if (document.activeElement === target) {
                     instance.show();
-                }, 1);
+                }
 
-                return false;
-            }
-        },
-      };
+                instance.setProps({ trigger: "manual", touch: true });
+
+                target.addEventListener("focus", () => instance.show());
+                target.addEventListener("blur", () => instance.hide());
+            },
+            onHide(instance) {
+                const target =
+                    instance.props.triggerTarget || instance.reference;
+
+                if (document.activeElement === target) {
+                    // Some strange behavior with tippy.js (possible conflicting with
+                    // Livewire is hidding the tooltip even if returning `false`).
+                    // The following line is a workaround to keep the tooltip visible.
+                    setTimeout(() => {
+                        instance.show();
+                    }, 1);
+
+                    return false;
+                }
+            },
+        };
     },
-  };
+};
 
 /** Enable tooltips for components with this data attribute, and global config options */
 const tooltipSettings = {
@@ -71,7 +73,9 @@ const initTippy = (parentEl = document.body) => {
         }
 
         if (el.getAttribute("data-tippy-trigger-target")) {
-            instanceSettings.triggerTarget = document.querySelector(el.getAttribute("data-tippy-trigger-target"));
+            instanceSettings.triggerTarget = document.querySelector(
+                el.getAttribute("data-tippy-trigger-target")
+            );
         }
 
         if (el._tippy) {
