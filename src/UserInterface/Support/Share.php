@@ -56,6 +56,6 @@ final class Share
 
     private function buildLink(string $url, array $option): string
     {
-        return urldecode($url .= '?'.http_build_query($option));
+        return urldecode($url.'?'.http_build_query($option));
     }
 }
