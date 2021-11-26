@@ -64,6 +64,8 @@ function expectValidationError(Closure $callback, string $key, string $reason)
 {
     try {
         $callback();
+
+        test()->fail('No expected validation errors have been thrown.');
     } catch (ValidationException $exception) {
         expect($exception->validator->errors()->has($key))->toBeTrue();
         expect($exception->validator->errors()->get($key))->toContain($reason);
