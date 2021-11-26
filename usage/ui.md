@@ -142,7 +142,7 @@ You just need to use the different components as you normally would with a regul
 </x-ark-tables.table>
 ```
 
-We use components because they contain the CSS classes and markdown needed to build the table according to the style guide and because every component contains a set of useful props:
+We use components because they contain the CSS classes and HTML needed to build the table according to the style guide and because every component contains a set of useful props:
 
 #### Table `<x-art-tables.table` props
 
