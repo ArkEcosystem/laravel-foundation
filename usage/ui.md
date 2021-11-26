@@ -147,13 +147,14 @@ We use components because they contain the CSS classes and markdown needed to bu
 #### Table `<x-art-tables.table` props
 
 
-| Props        | Default | Description                                                                      |
-|--------------|---------|----------------------------------------------------------------------------------|
-| sticky       | `false` | If set it will keep the header on top                                            |
-| tableClass   | `null`  | CSS classes to add to the `table` tag                                            |
-| noContainer  | `false` | If set it will remove the container that wraps the table                         |
-| compact      | `true`  | If set it will add the CSS classes related to the compact version of the table   |
-| compactUntil | `md`    | If `compact` is set it will apply the compact version until the given breakpoint |
+| Props        | Default | Description                                                                                                               |
+|--------------|---------|---------------------------------------------------------------------------------------------------------------------------|
+| sticky       | `false` | If set it will keep the header on top                                                                                     |
+| tableClass   | `null`  | CSS classes to add to the `table` tag                                                                                     |
+| noContainer  | `false` | If set it will remove the container that wraps the table                                                                  |
+| compact      | `true`  | If set it will add the CSS classes related to the compact version of the table                                            |
+| compactUntil | `md`    | If `compact` is set it will apply the compact version until the given breakpoint. Use `false` to use only compact version |
+
 
 #### Table `<x-art-tables.row` props
 
