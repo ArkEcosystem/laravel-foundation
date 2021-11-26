@@ -51,10 +51,10 @@ if (! function_exists('clearZalgoText')) {
 }
 
 if (! function_exists('call_user_func_safe')) {
-    function call_user_func_safe(array $callback): mixed
+    function call_user_func_safe(array $callback, mixed ...$args): mixed
     {
         if (is_callable($callback)) {
-            return call_user_func($callback);
+            return call_user_func($callback, ...$args);
         }
 
         throw new RuntimeException("Method [$callback[1]] is not callable.");

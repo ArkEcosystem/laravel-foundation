@@ -6,55 +6,36 @@ namespace ARKEcosystem\Foundation\UserInterface\Support;
 
 final class Share
 {
-    public function __construct(
-        private ?string $url = null,
-        private ?string $title = null
-    ) {
-    }
-
-    public static function page(string $url, ?string $title = null): self
-    {
-        return new static($url, $title);
-    }
-
-    public function facebook(): string
+    public static function facebook(string $url, ?string $title = null): string
     {
         $base = config('share.services.facebook.uri');
 
-        return $this->buildLink($base, [
-            'u' => $this->url,
+        return self::buildLink($base, [
+            'u' => $url,
         ]);
     }
 
-    public function twitter(): string
+    public static function twitter(string $url, ?string $title = null): string
     {
-        if (is_null($this->title)) {
-            $this->title = config('share.services.twitter.text');
-        }
-
         $base = config('share.services.twitter.uri');
 
-        return $this->buildLink($base, [
-            'text' => urlencode($this->title),
-            'url'  => $this->url,
+        return self::buildLink($base, [
+            'text' => urlencode($title ?? config('share.services.twitter.text')),
+            'url'  => $url,
         ]);
     }
 
-    public function reddit(): string
+    public static function reddit(string $url, ?string $title = null): string
     {
-        if (is_null($this->title)) {
-            $this->title = config('share.services.reddit.text');
-        }
-
         $base = config('share.services.reddit.uri');
 
-        return $this->buildLink($base, [
-            'title' => urlencode($this->title),
-            'url'   => $this->url,
+        return self::buildLink($base, [
+            'title' => urlencode($title ?? config('share.services.reddit.text')),
+            'url'   => $url,
         ]);
     }
 
-    private function buildLink(string $url, array $option): string
+    private static function buildLink(string $url, array $option): string
     {
         return urldecode($url.'?'.http_build_query($option));
     }
