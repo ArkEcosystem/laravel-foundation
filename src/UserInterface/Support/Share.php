@@ -9,8 +9,8 @@ final class Share
     public function __construct(
         private ?string $url = null,
         private ?string $title = null
-    )
-    {}
+    ) {
+    }
 
     public static function page(string $url, ?string $title = null): self
     {
