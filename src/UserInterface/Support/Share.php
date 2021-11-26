@@ -29,7 +29,7 @@ final class Share
     public function twitter(): string
     {
         if (is_null($this->title)) {
-            $this->title = config('laravel-share.services.twitter.text');
+            $this->title = config('share.services.twitter.text');
         }
 
         $base = config('share.services.twitter.uri');
@@ -43,7 +43,7 @@ final class Share
     public function reddit(): string
     {
         if (is_null($this->title)) {
-            $this->title = config('laravel-share.services.reddit.text');
+            $this->title = config('share.services.reddit.text');
         }
 
         $base = config('share.services.reddit.uri');
