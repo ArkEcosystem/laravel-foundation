@@ -186,7 +186,7 @@
     > tr
     > td.hoverable-cell
     > div.table-cell-content {
-    @apply relative flex items-center px-3 py-4;
+    @apply relative flex items-center px-3;
 }
 
 .table-container table > tbody > tr > td.hoverable-cell > div.table-cell-bg {
@@ -758,6 +758,63 @@
     > td.hoverable-cell
     > div.table-cell-bg::before {
     @apply bg-transparent;
+}
+
+/* Compact tables */
+.table-container table:not(.table-compact)
+    > tbody
+    > tr
+    > td.hoverable-cell
+    > div.table-cell-content {
+    @apply py-4;
+}
+
+.table-container table.table-compact
+    > tbody
+    > tr
+    > td.hoverable-cell
+    > div.table-cell-content {
+    @apply py-3;
+}
+
+@screen sm {
+    .table-container table.table-compact.table-compact-until-sm
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-content {
+        @apply py-4;
+    }
+}
+
+@screen md {
+    .table-container table.table-compact.table-compact-until-md
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-content {
+        @apply py-4;
+    }
+}
+
+@screen lg {
+    .table-container table.table-compact.table-compact-until-lg
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-content {
+        @apply py-4;
+    }
+}
+
+@screen xl {
+    .table-container table.table-compact.table-compact-until-xl
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-content {
+        @apply py-4;
+    }
 }
 
 /**
