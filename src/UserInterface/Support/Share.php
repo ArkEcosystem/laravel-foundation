@@ -46,7 +46,7 @@ final class Share
             $this->title = config('laravel-share.services.reddit.text');
         }
 
-        $base = config('laravel-share.services.reddit.uri');
+        $base = config('share.services.reddit.uri');
 
         return $this->buildLink($base, [
             'title' => urlencode($this->title),
