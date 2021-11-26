@@ -761,7 +761,8 @@
 }
 
 /* Compact tables */
-.table-container table:not(.table-compact)
+.table-container
+    table:not(.table-compact)
     > tbody
     > tr
     > td.hoverable-cell
@@ -769,7 +770,8 @@
     @apply py-4;
 }
 
-.table-container table.table-compact
+.table-container
+    table.table-compact
     > tbody
     > tr
     > td.hoverable-cell
@@ -778,7 +780,8 @@
 }
 
 @screen sm {
-    .table-container table.table-compact.table-compact-until-sm
+    .table-container
+        table.table-compact.table-compact-until-sm
         > tbody
         > tr
         > td.hoverable-cell
@@ -788,7 +791,8 @@
 }
 
 @screen md {
-    .table-container table.table-compact.table-compact-until-md
+    .table-container
+        table.table-compact.table-compact-until-md
         > tbody
         > tr
         > td.hoverable-cell
@@ -798,7 +802,8 @@
 }
 
 @screen lg {
-    .table-container table.table-compact.table-compact-until-lg
+    .table-container
+        table.table-compact.table-compact-until-lg
         > tbody
         > tr
         > td.hoverable-cell
@@ -808,7 +813,8 @@
 }
 
 @screen xl {
-    .table-container table.table-compact.table-compact-until-xl
+    .table-container
+        table.table-compact.table-compact-until-xl
         > tbody
         > tr
         > td.hoverable-cell
