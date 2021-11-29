@@ -6,37 +6,37 @@ namespace ARKEcosystem\Foundation\Fortify\Policies\Concerns;
 
 trait HasDefaultPolicyRules
 {
-    public function viewAny($user): bool
+    public function viewAny(mixed $user): bool
     {
         return $this->hasPermissionTo($user, 'viewAny');
     }
 
-    public function view($user): bool
+    public function view(mixed $user, mixed $model): bool
     {
         return $this->hasPermissionTo($user, 'view');
     }
 
-    public function create($user): bool
+    public function create(mixed $user): bool
     {
         return $this->hasPermissionTo($user, 'create');
     }
 
-    public function update($user): bool
+    public function update(mixed $user, mixed $model): bool
     {
         return $this->hasPermissionTo($user, 'update');
     }
 
-    public function delete($user): bool
+    public function delete(mixed $user, mixed $model): bool
     {
         return $this->hasPermissionTo($user, 'delete');
     }
 
-    public function restore($user): bool
+    public function restore(mixed $user, mixed $model): bool
     {
         return $this->hasPermissionTo($user, 'restore');
     }
 
-    public function forceDelete($user): bool
+    public function forceDelete(mixed $user, mixed $model): bool
     {
         return $this->hasPermissionTo($user, 'forceDelete');
     }
