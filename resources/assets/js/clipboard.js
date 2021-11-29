@@ -22,13 +22,10 @@ window.clipboard = () => {
 
                 return;
             }
+            
+            console.warn("Using fallback due to lack of navigator support or HTTPS in this browser");
 
-            console.warn(
-                "Copying to clipboard requires an HTTPS connection on some browsers and may cause unexpected issues."
-            );
-
-            // Expect most browsers to have the Navigator and support for clipboard...
-            // But use deprecated execCommand as a last resort...
+            // fallback to execCommand for older browsers and non-https
             this.copyUsingExec(value);
         },
 
