@@ -47,7 +47,7 @@ trait UploadImageCollection
     public function deleteImage(string $imageUrl): void
     {
         $this->imageCollection = collect($this->imageCollection)
-            ->filter(fn(array $image) => $image['url'] !== $imageUrl)
+            ->filter(fn (array $image) => $image['url'] !== $imageUrl)
             ->values()
             ->toArray();
     }
