@@ -100,9 +100,18 @@ class UserInterfaceServiceProvider extends ServiceProvider
             __DIR__.'/../../config/ui.php' => config_path('ui.php'),
         ], 'config');
 
+        $this->publishes([
+            __DIR__.'/../../config/share.php' => config_path('share.php'),
+        ], 'share');
+
         $this->mergeConfigFrom(
             __DIR__.'/../../config/ui.php',
             'ui'
+        );
+
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/share.php',
+            'share'
         );
 
         $this->publishes([
