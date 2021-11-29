@@ -728,6 +728,29 @@ This will insert the following HTML:
 
 **Protip**: You will need lazy.js in order for this to work
 
+### Social share link (generally used for article)
+
+This class generates social share link from a resource url and title.
+
+The available social networks are:
+- facebook
+- twitter
+- reddit
+
+We can also publish the configuration file per-project, by run:
+```bash
+php artisan vendor:publish --provider="ARKEcosystem\\Foundation\\Providers\\UserInterfaceServiceProvider" --tag="share"
+```
+
+Here follow, you can find an example on how to use it.
+```php
+use ARKEcosystem\Foundation\UserInterface\Support;
+
+$link = Share::page('https://my-website.com/blog/article-page', 'Article Title')->reddit();
+
+// $link contains -> 'https://www.reddit.com/submit?title=Article+Title&url=https://my-website.com/blog/article-page'
+```
+
 ## Development
 
 If components require changes or if you want to create additional components, you can do so as follows:
