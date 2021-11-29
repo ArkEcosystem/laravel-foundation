@@ -19,11 +19,12 @@
 <div dusk="two-factor-authentication-form">
     @if (! $this->enabled)
         <div class="flex flex-col space-y-8 w-full">
-            <div class="flex flex-col space-y-8 w-full sm:flex-col">
+            <div class="flex flex-col space-y-6 w-full sm:flex-col">
                 <div class="flex flex-col">
-                    <span class="header-4">
+                    <h3>
                         @lang('ui::pages.user-settings.2fa_title')
-                    </span>
+                    </h3>
+
                     <span class="mt-2">
                         @lang('ui::pages.user-settings.2fa_description')
                     </span>

@@ -10,9 +10,9 @@
             </div>
         @endif
 
-        <span class="header-4">
+        <h3>
             @lang('ui::pages.user-settings.password_information_title')
-        </span>
+        </h3>
 
         <span>
             @lang('ui::forms.update-password.requirements_notice')
