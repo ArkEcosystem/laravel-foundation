@@ -100,9 +100,18 @@ class UserInterfaceServiceProvider extends ServiceProvider
             __DIR__.'/../../config/ui.php' => config_path('ui.php'),
         ], 'config');
 
+        $this->publishes([
+            __DIR__.'/../../config/share.php' => config_path('share.php'),
+        ], 'share');
+
         $this->mergeConfigFrom(
             __DIR__.'/../../config/ui.php',
             'ui'
+        );
+
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/share.php',
+            'share'
         );
 
         $this->publishes([
@@ -209,9 +218,9 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::inputs.upload-image-collection', 'ark-upload-image-collection');
             $blade->component('ark::inputs.tags', 'ark-tags');
 
-            $blade->component('ark::pages.contact.content', 'ark-pages-contact-content');
-            $blade->component('ark::pages.contact.header', 'ark-pages-contact-header');
+            $blade->component('ark::pages.contact', 'ark-pages-contact');
 
+            $blade->component('ark::pages.includes.header', 'ark-pages-includes-header');
             $blade->component('ark::pages.includes.markdown-scripts', 'ark-pages-includes-markdown-scripts');
             $blade->component('ark::pages.includes.crop-image-scripts', 'ark-pages-includes-crop-image-scripts');
             $blade->component('ark::pages.includes.compress-image-scripts', 'ark-pages-includes-compress-image-scripts');
@@ -271,7 +280,6 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::outgoing-link', 'ark-outgoing-link');
             $blade->component('ark::pagination', 'ark-pagination');
             $blade->component('ark::pagination-url', 'ark-pagination-url');
-            $blade->component('ark::policy-header', 'ark-policy-header');
             $blade->component('ark::read-more', 'ark-read-more');
             $blade->component('ark::secondary-menu', 'ark-secondary-menu');
             $blade->component('ark::sidebar-link', 'ark-sidebar-link');

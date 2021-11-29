@@ -6,15 +6,15 @@ namespace ARKEcosystem\Foundation\UserInterface\Support\Enums;
 
 final class FlashType
 {
-    public const INFO    = 'alert-info';
+    public const INFO    = 'info';
 
-    public const SUCCESS = 'alert-success';
+    public const SUCCESS = 'success';
 
-    public const WARNING = 'alert-warning';
+    public const WARNING = 'warning';
 
-    public const DANGER  = 'alert-danger';
+    public const DANGER  = 'danger';
 
-    public const ERROR   = 'alert-error';
+    public const ERROR   = 'error';
 
-    public const HINT    = 'alert-hint';
+    public const HINT    = 'hint';
 }

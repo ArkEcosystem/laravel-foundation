@@ -1,0 +1,18 @@
+{
+    "users": {
+        "ark.io": {
+            "super": ["super-admin"],
+            "admin": ["admin"],
+            "user":  []
+        }
+    },
+    "roles": {
+        "super-admin": [],
+        "admin": {
+            "users": ["viewAny", "view", "update", "create", "restore", "delete"]
+        }
+    },
+    "resources": [
+        "users"
+    ]
+}

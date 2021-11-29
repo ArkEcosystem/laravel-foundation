@@ -28,5 +28,9 @@ class FoundationServiceProvider extends ServiceProvider
         $this->app->register(RulesServiceProvider::class);
         $this->app->register(UserInterfaceServiceProvider::class);
         $this->app->register(StringMacroServiceProvider::class);
+
+        if (class_exists('\Laravel\Nova\Nova')) {
+            $this->app->register(NovaServiceProvider::class);
+        }
     }
 }

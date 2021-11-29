@@ -1,12 +1,18 @@
-<div x-data="{isTyping: false}" dusk="update-password-form" @updated-password.window="isTyping = false">
-    <div class="flex flex-col mt-4 space-y-4">
-        <div>
-            <x-ark-flash />
-        </div>
+<div
+    x-data="{isTyping: false}"
+    @updated-password.window="isTyping = false"
+    dusk="update-password-form"
+>
+    <div class="flex flex-col mt-8 space-y-4">
+        @if (flash()->message)
+            <div>
+                <x-ark-flash />
+            </div>
+        @endif
 
-        <span class="header-4">
+        <h3>
             @lang('ui::pages.user-settings.password_information_title')
-        </span>
+        </h3>
 
         <span>
             @lang('ui::forms.update-password.requirements_notice')
