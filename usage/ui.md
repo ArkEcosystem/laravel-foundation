@@ -188,20 +188,6 @@ We use components because they contain the CSS classes and HTML needed to build 
 | class      | `''`    | Column CSS class                                                                                  |
 | colspan    | `null`  | `td` colspan attribute                                                                            |
 
-
-```bash
-yarn add body-scroll-lock
-yarn add focus-trap
-```
-
-1. Import the modal script in your `resources/js/app.js` file
-
-```js
-import Modal from "@ui/js/modal";
-
-window.Modal = Modal;
-```
-
 ### WYSIWYG Markdown editor
 
 > Important: you will need to have `php-tidy` installed for the Markdown parsing. Ensure this is installed on any servers before implementing the markdown editor
