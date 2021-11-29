@@ -22,8 +22,10 @@ window.clipboard = () => {
 
                 return;
             }
-            
-            console.warn("Using fallback due to lack of navigator support or HTTPS in this browser");
+
+            console.warn(
+                "Using fallback due to lack of navigator support or HTTPS in this browser"
+            );
 
             // fallback to execCommand for older browsers and non-https
             this.copyUsingExec(value);
