@@ -4,12 +4,46 @@ window.clipboard = () => {
         notSupported: false,
 
         copy(value) {
-            const textArea = document.createElement("textarea");
-            textArea.value = value;
-            textArea.style.cssText =
-                "position:absolute;top:0;left:0;z-index:-9999;opacity:0;";
+            this.copying = true;
 
-            document.body.appendChild(textArea);
+            const clipboard = window.navigator.clipboard;
+
+            if (clipboard && window.isSecureContext) {
+                clipboard.writeText(value).then(
+                    () => (this.copying = false),
+                    () => {
+                        this.copying = false;
+
+                        console.error(
+                            "Failed to copy contents to the clipboard."
+                        );
+                    }
+                );
+
+                return;
+            }
+
+            console.warn(
+                "Using fallback due to lack of navigator support or HTTPS in this browser"
+            );
+
+            // fallback to execCommand for older browsers and non-https
+            this.copyUsingExec(value);
+        },
+
+        copyUsingExec(value) {
+            const textArea = document.createElement("textarea");
+
+            textArea.value = value;
+
+            // Prevent keyboard from showing on mobile
+            textArea.setAttribute("readonly", "");
+
+            // fontSize prevents zooming on iOS
+            textArea.style.cssText =
+                "position:absolute;top:0;left:0;z-index:-9999;opacity:0;fontSize:12pt;";
+
+            document.body.append(textArea);
 
             const isiOSDevice = navigator.userAgent.match(/ipad|iphone/i);
 
@@ -35,6 +69,7 @@ window.clipboard = () => {
                 textArea.readOnly = readOnly;
             } else {
                 textArea.select();
+                textArea.focus();
             }
 
             this.copying = true;
@@ -42,7 +77,7 @@ window.clipboard = () => {
 
             document.execCommand("copy");
 
-            document.body.removeChild(textArea);
+            textArea.remove();
         },
 
         copyFromInput(identifier) {
