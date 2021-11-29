@@ -23,7 +23,7 @@
             <x-slot name="description">
                 <div class="flex flex-col">
                     <div class="flex justify-center w-full">
-                        <x-ark-icon name="fortify-modal.delete-account" class="my-8 w-60 h-auto text-theme-primary-600"/>
+                        <x-ark-icon name="fortify-modal.delete-account" class="mt-8 mb-4 w-60 h-auto text-theme-primary-600"/>
                     </div>
 
                     @if($alert)
