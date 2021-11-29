@@ -33,6 +33,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         $resources = [];
 
         foreach ((new Finder())->in($directory)->files() as $file) {
+            /** @var string $resource */
             $resource = 'App\\Nova\\'.ucfirst(Str::replaceLast('.php', '', $file->getRelativePathname()));
 
             if (is_subclass_of($resource, Resource::class) &&
@@ -100,7 +101,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function resources()
     {
-        $this->resourcesIn(app_path('Nova'));
+        self::resourcesIn(app_path('Nova'));
 
         Nova::resources([
             NovaPermission::class,
