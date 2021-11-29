@@ -93,15 +93,17 @@
                                 @endif
                             </div>
 
-                            <button
-                                type="button"
-                                data-action
-                                class="absolute top-0 right-0 p-1 -mt-2 -mr-2 rounded cursor-pointer bg-theme-danger-100 text-theme-danger-500"
-                                wire:click="deleteImage({{ $index }})"
-                                data-tippy-hover="{{ $deleteTooltip }}"
-                            >
-                                <x-ark-icon name="close" size="sm"/>
-                            </button>
+                            <div wire:loading.remove="updateImageOrder">
+                                <button
+                                    type="button"
+                                    data-action
+                                    class="absolute top-0 right-0 p-1 -mt-2 -mr-2 rounded cursor-pointer bg-theme-danger-100 text-theme-danger-500"
+                                    wire:click="deleteImage({{ $index }})"
+                                    data-tippy-hover="{{ $deleteTooltip }}"
+                                >
+                                    <x-ark-icon name="close" size="sm"/>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
