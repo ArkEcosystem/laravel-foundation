@@ -126,6 +126,62 @@ private function registerDataBags(): void
 yarn prod
 ```
 
+### Nova & Permissions
+
+1. Install required packages:
+
+```bash
+composer require laravel/nova spatie/laravel-permission="^3.16" vyuldashev/nova-permission
+```
+
+2. Add or update any policies to extend the base Policy `ARKEcosystem\Foundation\Fortify\Policies\Policy`
+
+3. Setup Playbooks and extend the DemoPlaybook with additional data the project needs
+
+4. If extending the UserRole with additional roles, inject the local UserRole to replace the base version
+
+In `app/App/Providers/AppServiceProvider.php`:
+
+```php
+use ARKEcosystem\Foundation\Fortify\Contracts\UserRole as UserRoleContract;
+use App\Support\Enums\UserRole;
+
+class AppServiceProvider 
+{
+    public function boot(): void
+    {
+        ...
+
+        app()->singleton(UserRoleContract::class, UserRole::class);
+    }
+}
+```
+
+5. Add the Role & Permission policies to the `AuthServiceProvider`:
+
+```php
+use ARKEcosystem\Foundation\Fortify\Models\Permission;
+use ARKEcosystem\Foundation\Fortify\Policies\PermissionPolicy;
+use ARKEcosystem\Foundation\Fortify\Policies\RolePolicy;
+use Spatie\Permission\Models\Role;
+
+class AuthServiceProvider
+{
+    protected $policies = [
+        Role::class       => RolePolicy::class,
+        Permission::class => PermissionPolicy::class,
+    ];
+}
+```
+
+6. Set the Permission model in the `config/permission.php` file:
+
+```php
+'permission' => ARKEcosystem\Foundation\Fortify\Models\Permission::class,
+```
+
+7. Setup permissions and roles in `database/seeders/app/permissions.json`. Take a look at the [example](/examples/fortify/permissions.json).
+
 ### Required images
 
 #### Password Confirmation modal
