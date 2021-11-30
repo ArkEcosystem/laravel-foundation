@@ -73,7 +73,7 @@ class CreateUserCommand extends Command
         }
     }
 
-    private function getUserData(string $name, string $domain): array
+    protected function getUserData(string $name, string $domain): array
     {
         $data = [
             'username'          => $name,
