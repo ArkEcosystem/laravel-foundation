@@ -1,12 +1,1 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<g>
-		<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12.7,4.1H19"/>
-		<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15.9,1v6.2"/>
-	</g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14,12.60022
-		c-0.10154,3.65551-3.04626,6.49868-6.60022,6.39714c-3.65551-0.10154-6.49868-3.04626-6.39714-6.60022
-		C1.10418,8.74163,4.04889,5.89846,7.60286,6c1.11696,0,2.13238,0.30463,3.04626,0.81234"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.7 4.1H19M15.9 1v6.2M14 12.6c-.102 3.656-3.046 6.499-6.6 6.397-3.656-.101-6.499-3.046-6.397-6.6.101-3.655 3.046-6.499 6.6-6.397 1.117 0 2.132.305 3.046.812"/></g></svg>
