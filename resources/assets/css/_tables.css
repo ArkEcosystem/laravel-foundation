@@ -767,7 +767,8 @@
     > tr
     > td.hoverable-cell
     > div.table-cell-content,
-body:not(.table-compact) .table-container
+body:not(.table-compact)
+    .table-container
     > tbody
     > tr
     > td.hoverable-cell
@@ -781,7 +782,8 @@ body:not(.table-compact) .table-container
     > tr
     > td.hoverable-cell
     > div.table-cell-content,
-body.table-compact .table-container
+body.table-compact
+    .table-container
     table
     > tbody
     > tr
