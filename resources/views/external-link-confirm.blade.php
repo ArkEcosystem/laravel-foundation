@@ -109,6 +109,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 e.preventDefault();
 
+                e.stopPropagation();
+
                 Livewire.emit('openModal', 'external-link-confirm', link.getAttribute('href'));
             };
 
