@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="clock-pencil" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11.00697,18.57043L8,19
-		l0.42957-2.88424l7.54812-7.60949c0.67503-0.67503,1.77964-0.67503,2.51604,0c0.67503,0.67503,0.67503,1.77964,0,2.51604
-		L11.00697,18.57043z"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
-		M10.41815,10.41815L9,9V6.06667"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4.99983,15.92965
-		C2.60872,14.54638,1,11.96106,1,9c0-4.41828,3.58172-8,8-8c3.01044,0,5.63251,1.66282,6.99784,4.12011"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path stroke-linejoin="round" d="M11.007 18.57L8 19l.43-2.884 7.548-7.61c.675-.675 1.78-.675 2.516 0 .675.675.675 1.78 0 2.516l-7.487 7.548z"/><path stroke-linejoin="round" stroke-miterlimit="10" d="M10.418 10.418L9 9V6.067"/><path stroke-miterlimit="10" d="M5 15.93A8 8 0 1115.998 5.12"/></g></svg>
