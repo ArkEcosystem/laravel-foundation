@@ -11,7 +11,7 @@ trait HasDefaultPolicyRules
         return $this->hasPermissionTo($user, 'viewAny');
     }
 
-    public function view(mixed $user, mixed $model): bool
+    public function view(mixed $user): bool
     {
         return $this->hasPermissionTo($user, 'view');
     }
@@ -21,22 +21,22 @@ trait HasDefaultPolicyRules
         return $this->hasPermissionTo($user, 'create');
     }
 
-    public function update(mixed $user, mixed $model): bool
+    public function update(mixed $user): bool
     {
         return $this->hasPermissionTo($user, 'update');
     }
 
-    public function delete(mixed $user, mixed $model): bool
+    public function delete(mixed $user): bool
     {
         return $this->hasPermissionTo($user, 'delete');
     }
 
-    public function restore(mixed $user, mixed $model): bool
+    public function restore(mixed $user): bool
     {
         return $this->hasPermissionTo($user, 'restore');
     }
 
-    public function forceDelete(mixed $user, mixed $model): bool
+    public function forceDelete(mixed $user): bool
     {
         return $this->hasPermissionTo($user, 'forceDelete');
     }
