@@ -766,12 +766,23 @@
     > tbody
     > tr
     > td.hoverable-cell
+    > div.table-cell-content,
+body:not(.table-compact) .table-container
+    > tbody
+    > tr
+    > td.hoverable-cell
     > div.table-cell-content {
     @apply py-4;
 }
 
 .table-container
     table.table-compact
+    > tbody
+    > tr
+    > td.hoverable-cell
+    > div.table-cell-content,
+body.table-compact .table-container
+    table
     > tbody
     > tr
     > td.hoverable-cell
@@ -782,6 +793,13 @@
 @screen sm {
     .table-container
         table.table-compact.table-compact-until-sm
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-content,
+    body.table-compact.table-compact-until-sm
+        .table-container
+        table
         > tbody
         > tr
         > td.hoverable-cell
@@ -796,6 +814,13 @@
         > tbody
         > tr
         > td.hoverable-cell
+        > div.table-cell-content,
+    body.table-compact.table-compact-until-md
+        .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell
         > div.table-cell-content {
         @apply py-4;
     }
@@ -807,6 +832,13 @@
         > tbody
         > tr
         > td.hoverable-cell
+        > div.table-cell-content,
+    body..table-compact.table-compact-until-lg
+        .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell
         > div.table-cell-content {
         @apply py-4;
     }
@@ -815,6 +847,13 @@
 @screen xl {
     .table-container
         table.table-compact.table-compact-until-xl
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-content,
+    body.table-compact.table-compact-until-xl
+        .table-container
+        table
         > tbody
         > tr
         > td.hoverable-cell
