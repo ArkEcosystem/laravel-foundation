@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="diploma" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.8,2.2H16
-		c0.7,0,1.2,0.5,1.2,1.2v14.4c0,0.7-0.5,1.2-1.2,1.2H4c-0.7,0-1.2-0.5-1.2-1.2V3.4c0-0.7,0.5-1.2,1.2-1.2h6"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.4,2.2V19"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.8,10.6l-2.4-2.4
-		L10,10.6V2.2C10,1.5,10.5,1,11.2,1h2.4c0.7,0,1.2,0.5,1.2,1.2V10.6L14.8,10.6z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.8 2.2H16c.7 0 1.2.5 1.2 1.2v14.4c0 .7-.5 1.2-1.2 1.2H4c-.7 0-1.2-.5-1.2-1.2V3.4c0-.7.5-1.2 1.2-1.2h6M6.4 2.2V19"/><path d="M14.8 10.6l-2.4-2.4-2.4 2.4V2.2c0-.7.5-1.2 1.2-1.2h2.4c.7 0 1.2.5 1.2 1.2v8.4h0z"/></g></svg>
