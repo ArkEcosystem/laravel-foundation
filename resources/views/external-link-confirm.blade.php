@@ -3,7 +3,6 @@
 <x-ark-js-modal
     name="external-link-confirm"
     class="w-full max-w-2xl text-left rounded-xl"
-    title-class="header-2"
     buttons-style="flex justify-end space-x-3"
     x-data="{
         url: null,
@@ -108,6 +107,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 }
 
                 e.preventDefault();
+
+                e.stopPropagation();
 
                 Livewire.emit('openModal', 'external-link-confirm', link.getAttribute('href'));
             };

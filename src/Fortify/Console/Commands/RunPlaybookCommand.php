@@ -26,7 +26,7 @@ final class RunPlaybookCommand extends Command
 
         $playbookName = $this->argument('playbook');
 
-        if (! $playbookName) {
+        if ($playbookName === null) {
             $availablePlaybooks = $this->getAvailablePlaybooks();
 
             $this->comment('Choose a playbook: '.PHP_EOL);
@@ -93,7 +93,7 @@ final class RunPlaybookCommand extends Command
 
         $playbookName = (string) $helper->ask($this->input, $this->output, $question);
 
-        if (! $playbookName) {
+        if ($playbookName === '') {
             $this->error('Please choose a playbook');
 
             return $this->askPlaybookName($availablePlaybooks);
@@ -104,6 +104,9 @@ final class RunPlaybookCommand extends Command
 
     private function getAvailablePlaybooks(): array
     {
+        /**
+         * @var array
+         */
         $files = scandir(__DIR__.'/../Playbooks');
 
         unset($files[0], $files[1]);
@@ -111,7 +114,7 @@ final class RunPlaybookCommand extends Command
         return array_map(fn (string $file) => str_replace('.php', '', $file), $files);
     }
 
-    private function resolvePlaybookDefinition($class): PlaybookDefinition
+    private function resolvePlaybookDefinition(mixed $class): PlaybookDefinition
     {
         if ($class instanceof PlaybookDefinition) {
             return $class;
