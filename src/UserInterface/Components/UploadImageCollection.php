@@ -44,9 +44,12 @@ trait UploadImageCollection
         ], $this->temporaryImages));
     }
 
-    public function deleteImage(int $index): void
+    public function deleteImage(string $imageUrl): void
     {
-        $this->imageCollection = collect($this->imageCollection)->forget($index)->toArray();
+        $this->imageCollection = collect($this->imageCollection)
+            ->filter(fn (array $image) => $image['url'] !== $imageUrl)
+            ->values()
+            ->toArray();
     }
 
     public function validateImageCollection(): bool
@@ -98,14 +101,17 @@ trait UploadImageCollection
     public function updateImageOrder(array $order): void
     {
         $this->imageCollection = collect($order)->map(function ($item) {
-            return collect($this->imageCollection)->get($item['value']);
+            return collect($this->imageCollection)->firstWhere('url', $item['value']);
         })->toArray();
 
         if (! method_exists($this, 'imagesReordered')) {
             return;
         }
 
-        $orderedIds = collect($this->imageCollection)->map(fn ($item) => data_get($item, 'image.id'))->filter()->toArray();
+        $orderedIds = collect($this->imageCollection)
+            ->map(fn ($item) => data_get($item, 'image.id'))
+            ->filter()
+            ->toArray();
 
         if ($orderedIds !== []) {
             $this->imagesReordered($orderedIds);
