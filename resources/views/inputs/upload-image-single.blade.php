@@ -157,7 +157,6 @@
     <x-ark-js-modal
         name="crop-modal-{{ $id }}"
         class="w-full max-w-2xl text-left"
-        title-class="header-2"
         close-button-only
         init
     >
