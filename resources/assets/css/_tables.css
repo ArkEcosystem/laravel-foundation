@@ -835,7 +835,7 @@ body.table-compact
         > tr
         > td.hoverable-cell
         > div.table-cell-content,
-    body..table-compact.table-compact-until-lg
+    body.table-compact.table-compact-until-lg
         .table-container
         table
         > tbody
