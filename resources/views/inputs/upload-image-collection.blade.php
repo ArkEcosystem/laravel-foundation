@@ -72,8 +72,8 @@
 
     @if (count($images) > 0)
         <div class="flex flex-wrap -m-3" @if($sortable)wire:sortable="updateImageOrder"@endif>
-            @foreach ($images as $index => $image)
-                <div class="p-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6" wire:sortable.item="{{ $index }}" wire:key="image-{{ $index }}">
+            @foreach ($images as $image)
+                <div class="p-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6" wire:sortable.item="{{ $image['url'] }}" wire:key="image-{{ $image['url'] }}">
                     <div class="aspect-w-16 aspect-h-9">
                         <div>
                             <img src="{{ $image['url'] }}" class="object-cover w-full h-full rounded-xl border border-theme-secondary-300" alt="">
@@ -93,17 +93,15 @@
                                 @endif
                             </div>
 
-                            <div wire:loading.remove="updateImageOrder">
-                                <button
-                                    type="button"
-                                    data-action
-                                    class="absolute top-0 right-0 p-1 -mt-2 -mr-2 rounded cursor-pointer bg-theme-danger-100 text-theme-danger-500"
-                                    wire:click="deleteImage({{ $index }})"
-                                    data-tippy-hover="{{ $deleteTooltip }}"
-                                >
-                                    <x-ark-icon name="close" size="sm"/>
-                                </button>
-                            </div>
+                            <button
+                                type="button"
+                                data-action
+                                class="absolute top-0 right-0 p-1 -mt-2 -mr-2 rounded cursor-pointer bg-theme-danger-100 text-theme-danger-500"
+                                wire:click="deleteImage('{{ $image['url'] }}')"
+                                data-tippy-hover="{{ $deleteTooltip }}"
+                            >
+                                <x-ark-icon name="close" size="sm"/>
+                            </button>
                         </div>
                     </div>
                 </div>
