@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="pause" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g transform="translate(-10.773 -10.089)">
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M15.8,11.1v17.9"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M25.8,11.1v17.9"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5.027 1.011v17.9M15.027 1.011v17.9"/></g></svg>

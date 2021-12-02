@@ -1,14 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="play-store" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3.40576,1.6585
-		c-0.80192-0.40096-1.80432,0-2.20528,0.80192C1.10024,2.6609,1,2.96162,1,3.1621v13.73287
-		c0,0.90216,0.70168,1.60384,1.60384,1.60384c0.20048,0,0.5012-0.10024,0.70168-0.20048l14.73527-6.71607
-		c0.80192-0.40096,1.20288-1.40336,0.80192-2.20528c-0.10024-0.30072-0.40096-0.60144-0.80192-0.80192L3.40576,1.6585z"/>
-	
-		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3.76712" y1="1.82928" x2="15.50634" y2="12.7374"/>
-	
-		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3.97823" y1="17.99171" x2="15.52146" y2="7.38441"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.406 1.659c-.802-.401-1.805 0-2.206.801-.1.2-.2.502-.2.702v13.733c0 .902.702 1.604 1.604 1.604.2 0 .501-.1.702-.2l14.735-6.717c.802-.4 1.203-1.403.802-2.205-.1-.3-.401-.601-.802-.802L3.406 1.66zM3.767 1.829l11.739 10.908M3.978 17.992L15.521 7.384"/></g></svg>
