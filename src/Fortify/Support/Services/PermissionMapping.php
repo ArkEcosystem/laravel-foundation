@@ -35,6 +35,7 @@ final class PermissionMapping
         $permissions       = Permission::all()->keyBy('name');
 
         foreach (Role::all() as $role) {
+            /** @var \stdClass $role */
             if (! array_key_exists($role->name, $permissionMapping)) {
                 continue;
             }

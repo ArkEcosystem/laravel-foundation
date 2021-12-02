@@ -48,9 +48,9 @@
                 @endif
 
                 @if ($title)
-                    <h1 class="{{ $titleClass }}">
+                    <h2 class="{{ $titleClass }}">
                         {{ $title }}
-                    </h1>
+                    </h2>
                 @endif
 
                 {{ $description }}
