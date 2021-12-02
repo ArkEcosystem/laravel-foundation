@@ -1,14 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="money-bills" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4.2,11.8L4.2,11.8"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12,8.2L12,8.2"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1.3,12.5
-		c-0.4-0.4-0.4-1.1,0-1.4l7.9-7.9c0.4-0.4,1.1-0.4,1.4,0l4.3,4.3c0.4,0.4,0.4,1.1,0,1.4L7,16.8c-0.4,0.4-1.1,0.4-1.4,0L1.3,12.5z"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.4,3.2l4.3,4.3
-		c0.4,0.4,0.4,1,0,1.4l-8,8"/>
-	
-		<ellipse fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="8.1" cy="9.9" rx="1.8" ry="1.8"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 11.8h0M12 8.2h0M1.3 12.5c-.4-.4-.4-1.1 0-1.4l7.9-7.9c.4-.4 1.1-.4 1.4 0l4.3 4.3c.4.4.4 1.1 0 1.4L7 16.8c-.4.4-1.1.4-1.4 0l-4.3-4.3z"/><path d="M14.4 3.2l4.3 4.3c.4.4.4 1 0 1.4l-8 8"/><circle cx="8.1" cy="9.9" r="1.8"/></g></svg>
