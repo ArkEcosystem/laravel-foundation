@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="wave-pulse" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1,9.71516h2.8
-	c0.5,0,0.9-0.3,1.1-0.7l2.19999-5.13332C7.2835,3.45365,7.90043,3.48409,8.0409,3.92826l3.84025,12.14349
-	c0.14349,0.45375,0.77872,0.47232,0.94848,0.02773L15,10.41516c0.2-0.5,0.6-0.7,1.1-0.7H19"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1 9.715h2.8c.5 0 .9-.3 1.1-.7l2.2-5.133a.502.502 0 01.94.046l3.841 12.144a.502.502 0 00.949.027L15 10.415c.2-.5.6-.7 1.1-.7H19"/></svg>
