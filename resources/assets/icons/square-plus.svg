@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="square-plus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g transform="translate(-446.321 -4966.714)">
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M447.3,4969
-		c0-0.7,0.6-1.3,1.3-1.3H464c0.7,0,1.3,0.6,1.3,1.3v15.4c0,0.7-0.6,1.3-1.3,1.3h-15.4c-0.7,0-1.3-0.6-1.3-1.3L447.3,4969L447.3,4969
-		z"/>
-	<g>
-		<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M452.4,4976.7h7.7"/>
-		<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M456.3,4972.8v7.7"/>
-	</g>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M.979 2.286c0-.7.6-1.3 1.3-1.3h15.4c.7 0 1.3.6 1.3 1.3v15.4c0 .7-.6 1.3-1.3 1.3h-15.4c-.7 0-1.3-.6-1.3-1.3v-15.4h0zM6.079 9.986h7.7M9.979 6.086v7.7"/></g></svg>
