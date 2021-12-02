@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="hard-drive" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15,14.4
-		c-0.2,0-0.3,0.1-0.3,0.3S14.8,15,15,15s0.3-0.1,0.3-0.3l0,0C15.3,14.5,15.2,14.4,15,14.4"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12.3,14.4
-		c-0.2,0-0.3,0.1-0.3,0.3s0.1,0.3,0.3,0.3s0.3-0.1,0.3-0.3l0,0C12.6,14.6,12.6,14.4,12.3,14.4"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19,14.8
-		c0,2-1.5,3.6-3.5,3.6h-0.1H4.6c-2,0-3.6-1.6-3.6-3.6s1.6-3.6,3.6-3.6l0,0h10.8c2,0,3.6,1.5,3.6,3.5C19,14.7,19,14.8,19,14.8z"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18.9,14L16.4,3.5
-		c-0.2-1.1-1.2-1.8-2.3-1.8H5.9c-1.1,0-2.1,0.8-2.3,1.8L1.1,14"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4.6,14.8h2.9"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14.4c-.2 0-.3.1-.3.3s.1.3.3.3.3-.1.3-.3h0c0-.2-.1-.3-.3-.3M12.3 14.4c-.2 0-.3.1-.3.3s.1.3.3.3.3-.1.3-.3h0c0-.1 0-.3-.3-.3"/><path d="M19 14.8c0 2-1.5 3.6-3.5 3.6H4.6c-2 0-3.6-1.6-3.6-3.6s1.6-3.6 3.6-3.6h10.8c2 0 3.6 1.5 3.6 3.5v.1z"/><path d="M18.9 14L16.4 3.5c-.2-1.1-1.2-1.8-2.3-1.8H5.9c-1.1 0-2.1.8-2.3 1.8L1.1 14M4.6 14.8h2.9"/></g></svg>

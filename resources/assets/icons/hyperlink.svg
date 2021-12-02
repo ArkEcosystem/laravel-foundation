@@ -1,14 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<title>hyperlink-2</title>
-<g>
-	
-		<line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="5.8" y1="14.2" x2="14.2" y2="5.8"/>
-	<path fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6.6,10
-		c-1-0.1-2,0.3-2.7,1l-1.8,1.8c-1.4,1.4-1.4,3.7,0,5.1c1.4,1.4,3.7,1.4,5.1,0l0,0l1.8-1.8c0.7-0.7,1.1-1.7,1-2.7"/>
-	<path fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13.4,10
-		c1,0.1,2-0.3,2.7-1l1.8-1.8c1.4-1.4,1.4-3.7,0-5.1c-1.4-1.4-3.7-1.4-5.1,0l-1.8,1.8c-0.7,0.7-1.1,1.7-1,2.7"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.8 14.2l8.4-8.4M6.6 10c-1-.1-2 .3-2.7 1l-1.8 1.8c-1.4 1.4-1.4 3.7 0 5.1 1.4 1.4 3.7 1.4 5.1 0h0L9 16.1c.7-.7 1.1-1.7 1-2.7M13.4 10c1 .1 2-.3 2.7-1l1.8-1.8c1.4-1.4 1.4-3.7 0-5.1-1.4-1.4-3.7-1.4-5.1 0L11 3.9c-.7.7-1.1 1.7-1 2.7"/></g></svg>
