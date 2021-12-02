@@ -166,12 +166,10 @@
 
         @slot('description')
             @if($cropMessage)
-                <div class="mt-3">
-                    {!! $cropMessage !!}
-                </div>
+                <p>{!! $cropMessage !!}</p>
             @endif
 
-            <div class="-mx-8 mt-6 sm:-mx-10 sm:mt-10 h-75">
+            <div class="mt-8 -mx-8 sm:-mx-10 h-75">
                 <img id="image-single-crop-{{ $id }}" src="" alt="">
             </div>
         @endslot
