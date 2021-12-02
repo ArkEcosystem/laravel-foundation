@@ -19,4 +19,6 @@ final class NotificationTypeEnum
     public const MENTION = 'mention';
 
     public const ANNOUNCEMENT = 'announcement';
+    
+    public const VIDEO = 'video';
 }
