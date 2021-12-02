@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="file" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g transform="translate(-80 -445)">
-	<path fill="none" stroke="currentColor" stroke-width="2" d="M88,446v4.27081C88,450.89581,87.51923,451,86.84615,451H83"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M83,462.39999
-		C83,463.29999,83.66663,464,84.42857,464h-0.09521h11.14285C96.33337,464,97,463.20001,97,462.39999v-14.79999
-		C97,446.69998,96.23816,446,95.47621,446l0,0h-7.90472c-0.38097,0-0.76195,0.10001-1.14293,0.39999l-3.04758,3.20001
-		C83,450,83,450.39999,83,450.79999V462.39999z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M8 1v4.27c0 .626-.48.73-1.154.73H3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 17.4c0 .9.667 1.6 1.429 1.6h-.096 11.143c.857 0 1.524-.8 1.524-1.6V2.6c0-.9-.762-1.6-1.524-1.6h0-7.905c-.38 0-.761.1-1.142.4L3.38 4.6C3 5 3 5.4 3 5.8v11.6z"/></g></svg>

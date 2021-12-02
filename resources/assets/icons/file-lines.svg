@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="file-lines" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g transform="translate(797.5 325.569)">
-	<g>
-		
-			<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-790.5" y1="-311.569" x2="-787" y2="-311.569"/>
-		
-			<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-790.5" y1="-314.569" x2="-784.5" y2="-314.569"/>
-		
-			<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="-790.5" y1="-317.569" x2="-784.5" y2="-317.569"/>
-	</g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M-794.5-308.16901
-		c0,0.89999,0.66663,1.60001,1.42859,1.60001h-0.09521h11.14282c0.85718,0,1.5238-0.79999,1.5238-1.60001v-14.79999
-		c0-0.90002-0.76184-1.60001-1.5238-1.60001l0,0h-7.90472c-0.38098,0-0.76196,0.10001-1.14288,0.39999l-3.04761,3.20001
-		C-794.5-320.569-794.5-320.16901-794.5-319.76901V-308.16901z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 14h3.5M7 11h6M7 8h6M3 17.4c0 .9.667 1.6 1.429 1.6h-.096 11.143c.857 0 1.524-.8 1.524-1.6V2.6c0-.9-.762-1.6-1.524-1.6h0-7.905c-.38 0-.761.1-1.142.4L3.38 4.6C3 5 3 5.4 3 5.8v11.6z"/></g></svg>

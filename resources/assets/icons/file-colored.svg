@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="file-colored" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g transform="translate(-80 -445)">
-	<path fill="#DE5846" stroke="currentColor" stroke-width="2" d="M83,451v-0.20001c0-0.39999,0-0.79999,0.38099-1.19998l3.04758-3.20001
-		C86.80955,446.10001,87.19052,446,87.5715,446c0,0,0.4285,0,0.4285,0v4.27081C88,450.89581,87.51923,451,86.84615,451
-		C86.84615,451,83,451,83,451z"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M88,446h7.47621l0,0
-		C96.23816,446,97,446.69998,97,447.60001v14.79999C97,463.20001,96.33337,464,95.47622,464H84.33337h0.09521
-		C83.66663,464,83,463.29999,83,462.39999V451v-0.20001c0-0.39999,0-0.79999,0.38099-1.19998l3.04758-3.20001
-		C86.80955,446.10001,87.19052,446,87.5715,446H88z"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g stroke="currentColor" stroke-width="2"><path fill="var(--icon-color-primary, #DE5846)" d="M3 6v-.2c0-.4 0-.8.381-1.2l3.048-3.2c.38-.3.762-.4 1.143-.4H8v4.27c0 .626-.48.73-1.154.73H3z"/><path fill="none" stroke-linecap="round" stroke-linejoin="round" d="M8 1h7.476C16.238 1 17 1.7 17 2.6v14.8c0 .8-.667 1.6-1.524 1.6H4.333h.096C3.667 19 3 18.3 3 17.4V5.8c0-.4 0-.8.381-1.2l3.048-3.2c.38-.3.762-.4 1.143-.4H8z"/></g></svg>
