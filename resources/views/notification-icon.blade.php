@@ -19,7 +19,7 @@
             @if($media && $media->hasResponsiveImages())
                 {{ $media->img('', ['class' => 'absolute object-cover w-full h-full rounded-xl']) }}
             @elseif($media)
-                <img src="{{ $media->getUrl() }}" class="absolute object-cover w-full h-full rounded-xl" alt="" />
+                <img src="{{ $media->getUrl() }}" class="object-cover absolute w-full h-full rounded-xl" alt="" />
             @elseif($identifier)
                 <x-ark-avatar :identifier="$identifier" class="object-cover absolute w-full h-full rounded-xl" />
             @elseif($defaultLogo)
