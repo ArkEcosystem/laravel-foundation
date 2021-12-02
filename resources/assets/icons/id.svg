@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="id" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7.99312,18.89965
-		c4.51587,0.40141,8.83103-2.60917,8.93138-7.12504c0-0.70247,0-2.60917,0-3.71305
-		c-0.10035-4.51587-4.41551-7.42609-8.93138-7.02468V18.89965z"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2.97549,1.03688V19"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.993 18.9c4.516.401 8.831-2.61 8.931-7.125V8.062c-.1-4.516-4.415-7.427-8.93-7.025V18.9zM2.975 1.037V19"/></g></svg>
