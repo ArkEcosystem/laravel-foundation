@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 /**
  * @codeCoverageIgnore
  */
-final class CreateUserCommand extends Command
+class CreateUserCommand extends Command
 {
     /**
      * The console command name.
@@ -47,15 +47,7 @@ final class CreateUserCommand extends Command
         $isProduction = app()->environment() === 'production';
 
         if ($this->option('silent') === true || $this->confirm("Do you want to create an account as {$email}?")) {
-            $data = [
-                'username'          => $name,
-                'email'             => $name.'@'.$domain,
-                'email_verified_at' => Carbon::now(),
-            ];
-
-            if (Schema::hasColumn('users', 'name')) {
-                $data['name'] = ucwords($name);
-            }
+            $data = $this->getUserData($name, $domain);
 
             $password = null;
             if ($isProduction) {
@@ -79,5 +71,20 @@ final class CreateUserCommand extends Command
                 $user->notify(new AccountCreated($password));
             }
         }
+    }
+
+    protected function getUserData(string $name, string $domain): array
+    {
+        $data = [
+            'username'          => $name,
+            'email'             => $name.'@'.$domain,
+            'email_verified_at' => Carbon::now(),
+        ];
+
+        if (Schema::hasColumn('users', 'name')) {
+            $data['name'] = ucwords($name);
+        }
+
+        return $data;
     }
 }

@@ -157,7 +157,6 @@
     <x-ark-js-modal
         name="crop-modal-{{ $id }}"
         class="w-full max-w-2xl text-left"
-        title-class="header-2"
         close-button-only
         init
     >
@@ -172,7 +171,7 @@
                 </div>
             @endif
 
-            <div class="-mx-8 mt-8 sm:-mx-10 sm:mt-10 h-75">
+            <div class="-mx-8 mt-6 sm:-mx-10 sm:mt-10 h-75">
                 <img id="image-single-crop-{{ $id }}" src="" alt="">
             </div>
         @endslot
