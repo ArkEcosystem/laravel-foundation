@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="user-arrows" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-	 y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve">
-<g transform="translate(0.25 0.25)">
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.75,13.75l2-2l2,2"/>
-	
-		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="16.75" y1="11.75" x2="16.75" y2="17.75"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M13.75,16.75l-2,2l-2-2"/>
-	
-		<line fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="11.75" y1="18.75" x2="11.75" y2="12.75"/>
-	
-		<circle fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" cx="9.75" cy="4.75" r="4"/>
-	<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1.75,18.75
-		c0-4.89874,3.5443-9,8-9c1.05052,0,2.05978,0.23207,2.98654,0.65463"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><g transform="translate(.25 .25)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.75 13.75l2-2 2 2M16.75 11.75v6M13.75 16.75l-2 2-2-2M11.75 18.75v-6"/><circle cx="9.75" cy="4.75" r="4"/><path d="M1.75 18.75c0-4.899 3.544-9 8-9 1.05 0 2.06.232 2.987.655"/></g></svg>
