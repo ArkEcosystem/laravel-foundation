@@ -8,6 +8,7 @@ return [
     'product'     => 'Product',
     'previous'    => 'Previous',
     'next'        => 'Next',
+    'an'          => 'An',
 
     'pagination' => [
         'current_to'   => 'Page :currentPage of :lastPage',
