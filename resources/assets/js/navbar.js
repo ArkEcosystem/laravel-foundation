@@ -86,8 +86,10 @@ const Navbar = {
                 this.open = false;
             },
             closeIfBlurOutside(event) {
-                const focusedElementIsChild = event.relatedTarget
-                    && (this.$refs.menuDropdown.contains(event.relatedTarget) || this.$refs.menuDropdownButton === event.relatedTarget);
+                const focusedElementIsChild =
+                    event.relatedTarget &&
+                    (this.$refs.menuDropdown.contains(event.relatedTarget) ||
+                        this.$refs.menuDropdownButton === event.relatedTarget);
 
                 if (!focusedElementIsChild) {
                     this.closeDropdown();
