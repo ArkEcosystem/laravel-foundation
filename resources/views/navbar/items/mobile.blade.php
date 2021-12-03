@@ -33,13 +33,47 @@
         @endisset
 
         @foreach ($navigation as $navItem)
-            <x-ark-sidebar-link
-                :href="$navItem['href'] ?? null"
-                :route="$navItem['route'] ?? null"
-                :name="$navItem['label']"
-                :params="$navItem['params'] ?? []"
-                :icon="isset($navItem['icon']) ? $navItem['icon'] : false"
-            />
+            @isset($navItem['children'])
+                <div>
+                    <a
+                        href="javascript:void(0)"
+                        class="flex justify-between items-center py-3 px-8 w-full font-semibold border-l-2 border-transparent text-theme-secondary-900"
+                        @click="toggleDropdown('{{ $navItem['label'] }}')"
+                    >
+                        <span :class="{ 'text-theme-primary-600': openDropdown === 'products' }">
+                            @lang('menus.products.title')
+                        </span>
+
+                        <span
+                            class="ml-2 transition duration-150 ease-in-out text-theme-primary-600"
+                            :class="{ 'rotate-180': openDropdown === 'products' }"
+                        >
+                            <x-ark-icon name="chevron-down" size="xs" />
+                        </span>
+                    </a>
+
+                    <div
+                        x-show="openDropdown === '{{ $navItem['label'] }}'"
+                        class="mb-4 ml-8 border-l border-theme-secondary-200"
+                        x-cloak
+                    >
+                        @foreach ($navItem['children'] as $childNavItem)
+                            @include(
+                                'ark::navbar.items.dropdown-item',
+                                array_merge($childNavItem, ['tooltip' => null])
+                            )
+                        @endforeach
+                    </div>
+                </div>
+            @else
+                <x-ark-sidebar-link
+                    :href="$navItem['href'] ?? null"
+                    :route="$navItem['route'] ?? null"
+                    :name="$navItem['label']"
+                    :params="$navItem['params'] ?? []"
+                    :icon="isset($navItem['icon']) ? $navItem['icon'] : false"
+                />
+            @endisset
         @endforeach
 
         {{ $navigationExtra }}
