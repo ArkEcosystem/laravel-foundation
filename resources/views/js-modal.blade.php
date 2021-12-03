@@ -4,7 +4,7 @@
     'class' => '',
     'widthClass' => 'max-w-2xl',
     'title' => null,
-    'titleClass' => 'inline-block pb-4 font-bold dark:text-theme-secondary-200',
+    'titleClass' => 'inline-block pb-3 font-bold dark:text-theme-secondary-200',
     'buttons' => null,
     'buttonsStyle' => 'modal-buttons',
     'closeButtonOnly' => false,

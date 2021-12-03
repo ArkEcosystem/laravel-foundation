@@ -32,7 +32,7 @@
     @endslot
 
     @slot('description')
-        <div class="flex flex-col mt-6 space-y-4 whitespace-normal">
+        <div class="flex flex-col mt-4 space-y-6 whitespace-normal">
             <div class="font-semibold text-theme-secondary-900">
                 <div class="alert-wrapper alert-warning">
                     <div class="alert-icon-wrapper alert-warning-icon flex-no-wrap">
@@ -55,6 +55,7 @@
             <x-ark-checkbox
                 name="confirmation"
                 alpine="toggle"
+                label-classes="text-theme-secondary-700 select-none"
             >
                 @slot('label')
                     @lang('ui::forms.do_not_show_message_again')
