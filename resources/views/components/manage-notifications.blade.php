@@ -32,7 +32,7 @@
                         <div class="py-3">
                             @foreach ($this->getAvailableFilters() as $filter)
                                 <button type="button" class="cursor-pointer focus-visible:ring-inset dropdown-entry" wire:click="$set('activeFilter', '{{ $filter }}')">
-                                    @lang("hermes::menus.notifications-dropdown.{$filter}")
+                                    @lang("ui::menus.notifications-dropdown.{$filter}")
                                 </button>
                             @endforeach
                         </div>
