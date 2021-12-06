@@ -18,7 +18,6 @@
 
 <div
     x-data="Tags({{ $xData }}, '{{ $id ?? $name }}', {{ json_encode($tags) }}, {{ json_encode($allowedTags) }}, '{{ $placeholder }}', {{ $isDisabled ? 'true' : 'false' }}, {{ $addDisabled ? 'true' : 'false' }}, {{ $removeDisabled ? 'true' : 'false' }}, '{{ $disabledInputTooltip }}', {{ $maxTags === null ? 'null' : $maxTags }})"
-    x-init="init()"
     {{ $attributes->merge(['class' => 'relative']) }}
 >
     <div class="input-group">

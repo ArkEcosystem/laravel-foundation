@@ -66,7 +66,6 @@
         {{ $quality }}
     )"
     @endif
-    x-init="init"
     x-on:livewire-upload-start="isUploading = true"
     x-on:livewire-upload-finish="isUploading = false"
     x-on:livewire-upload-error="isUploading = false; livewire.emit('uploadError', '{{ $uploadErrorMessage }}');"
