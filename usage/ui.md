@@ -110,6 +110,84 @@ import Modal from "@ui/js/modal";
 window.Modal = Modal;
 ```
 
+### Tables
+
+To create a table you can use the following components:
+
+- `<x-ark-tables.table>` => creates the `table` tag inside a container
+- `<x-ark-tables.row>` => creates the `tr` tag
+- `<x-ark-tables.header>` => creates the `th` tag
+- `<x-ark-tables.cell>` => creates the `td` tag
+
+You just need to use the different components as you normally would with a regular table.
+
+```html
+<x-ark-tables.table>
+    <thead>
+        <x-ark-tables.row>
+            <x-ark-tables.header>ID</x-ark-tables.header>
+            <x-ark-tables.header class="w-full">Name</x-ark-tables.header>
+            <x-ark-tables.header class="text-right">Email</x-ark-tables.header>
+        </x-ark-tables.row>
+    </thead>
+    <tbody>
+        @foreach($items as $item)
+            <x-ark-tables.row :danger="$loop->index === 0">
+                <x-ark-tables.cell>{{ $item->id }}</x-ark-tables.cell>
+                <x-ark-tables.cell>{{ $item->name }}</x-ark-tables.cell>
+                <x-ark-tables.cell>{{ $item->email }}</x-ark-tables.cell>
+            </x-ark-tables.row>
+        @endforeach
+    </tbody>
+</x-ark-tables.table>
+```
+
+We use components because they contain the CSS classes and HTML needed to build the table according to the style guide and because every component contains a set of useful props:
+
+#### Table `<x-art-tables.table` props
+
+
+| Props        | Default | Description                                                                                                               |
+|--------------|---------|---------------------------------------------------------------------------------------------------------------------------|
+| sticky       | `false` | If set it will keep the header on top                                                                                     |
+| tableClass   | `null`  | CSS classes to add to the `table` tag                                                                                     |
+| noContainer  | `false` | If set it will remove the container that wraps the table                                                                  |
+| compact      | `true`  | If set it will add the CSS classes related to the compact version of the table                                            |
+| compactUntil | `md`    | If `compact` is set it will apply the compact version until the given breakpoint. Use `false` to use only compact version |
+
+
+#### Table `<x-art-tables.row` props
+
+| Props   | Default | Description                                                            |
+|---------|---------|------------------------------------------------------------------------|
+| success | `false` | If set it will add a green background to the row                       |
+| info    | `false` | If set it will add a background according to the main color to the row |
+| danger  | `false` | If set it will add a red background to the row                         |
+| warning | `false` | If set it will add a yeallo background to the row                      |
+| tooltip | `false` | If set it will add a tippy tooltip                                     |
+
+#### Table `<x-art-tables.header` props
+
+| Props      | Default | Description                                                                                       |
+|------------|---------|---------------------------------------------------------------------------------------------------|
+| responsive | `false` | If set it will hide the column according on the breakpoint that is added on the `breakpoint` prop |
+| breakpoint | `lg`    | In which breakpoint it will hide the column                                                       |
+| firstOn    | `null`  | In which screen sizes this column will be the first one (`xl`, `lg`, etc)                         |
+| lastOn     | `null`  | In which screen sizes this column will be the last one (`xl`, `lg`, etc)                          |
+| class      | `''`    | Column CSS class                                                                                  |
+| name       | `''`    | If set it will use the laravel `@lang`  helper to get the value of the column                     |
+
+#### Table `<x-art-tables.cell` props
+
+| Props      | Default | Description                                                                                       |
+|------------|---------|---------------------------------------------------------------------------------------------------|
+| responsive | `false` | If set it will hide the column according on the breakpoint that is added on the `breakpoint` prop |
+| breakpoint | `lg`    | In which breakpoint it will hide the column                                                       |
+| firstOn    | `null`  | In which screen sizes this column will be the first one (`xl`, `lg`, etc)                         |
+| lastOn     | `null`  | In which screen sizes this column will be the last one (`xl`, `lg`, etc)                          |
+| class      | `''`    | Column CSS class                                                                                  |
+| colspan    | `null`  | `td` colspan attribute                                                                            |
+
 ### WYSIWYG Markdown editor
 
 > Important: you will need to have `php-tidy` installed for the Markdown parsing. Ensure this is installed on any servers before implementing the markdown editor

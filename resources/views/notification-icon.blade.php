@@ -16,8 +16,10 @@
 @if($hasRoute)<a href="{{ $notification->route() }}" class="focus-visible:rounded notification-avatar-link">@endif
     <div class="inline-block relative pointer-events-none avatar-wrapper">
         <div class="relative w-11 h-11">
-            @if($media)
+            @if($media && $media->hasResponsiveImages())
                 {{ $media->img('', ['class' => 'absolute object-cover w-full h-full rounded-xl']) }}
+            @elseif($media)
+                <img src="{{ $media->getUrl() }}" class="object-cover absolute w-full h-full rounded-xl" alt="" />
             @elseif($identifier)
                 <x-ark-avatar :identifier="$identifier" class="object-cover absolute w-full h-full rounded-xl" />
             @elseif($defaultLogo)
@@ -58,6 +60,10 @@
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::ANNOUNCEMENT)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-warning-100">
                         <x-ark-icon name="notification" size="sm" class="text-theme-warning-600" />
+                    </div>
+                @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::VIDEO)
+                    <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-secondary-200">
+                        <x-ark-icon name="play" size="xs" class="text-theme-secondary-900" />
                     </div>
                 @endif
             </div>
