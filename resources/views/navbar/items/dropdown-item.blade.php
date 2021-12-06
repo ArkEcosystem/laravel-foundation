@@ -1,5 +1,5 @@
 @props([
-    'name',
+    'label',
     'description' => null,
     'route'       => null,
     'href'        => null,
@@ -36,7 +36,7 @@
             target="_blank"
         @endif
         rel="noopener noreferrer"
-        dusk='navbar-item-{{ Str::slug($name) }}'
+        dusk='navbar-item-{{ Str::slug($label) }}'
     >
         <div
             class="flex items-center block"
@@ -61,7 +61,7 @@
                     'text-theme-primary-600' => ! $disabled && $isCurrent,
                     'group-hover:text-theme-primary-700' => ! $disabled && ! $isCurrent,
                 ])>
-                    <span>{{ $name }}</span>
+                    <span>{{ $label }}</span>
 
                     @if ($external)
                         <x-ark-icon
