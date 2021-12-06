@@ -35,9 +35,7 @@
     @apply space-x-3;
 }
 
-.swiper-horizontal
-    > .swiper-pagination-bullets
-    .swiper-pagination-bullet {
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
     @apply mx-0;
 }
 
