@@ -16,8 +16,10 @@
 @if($hasRoute)<a href="{{ $notification->route() }}" class="focus-visible:rounded notification-avatar-link">@endif
     <div class="inline-block relative pointer-events-none avatar-wrapper">
         <div class="relative w-11 h-11">
-            @if($media)
+            @if($media && $media->hasResponsiveImages())
                 {{ $media->img('', ['class' => 'absolute object-cover w-full h-full rounded-xl']) }}
+            @elseif($media)
+                <img src="{{ $media->getUrl() }}" class="object-cover absolute w-full h-full rounded-xl" alt="" />
             @elseif($identifier)
                 <x-ark-avatar :identifier="$identifier" class="object-cover absolute w-full h-full rounded-xl" />
             @elseif($defaultLogo)

@@ -248,6 +248,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::details-box', 'ark-details-box');
             $blade->component('ark::details-box-mobile', 'ark-details-box-mobile');
             $blade->component('ark::divider', 'ark-divider');
+            $blade->component('ark::documentation', 'ark-documentation');
             $blade->component('ark::dropdown', 'ark-dropdown');
             $blade->component('ark::expandable', 'ark-expandable');
             $blade->component('ark::expandable-item', 'ark-expandable-item');
