@@ -1,44 +1,44 @@
 import Editor from "@toast-ui/editor";
 
-import {
-    simplecastPlugin,
-    youtubePlugin,
-    twitterPlugin,
-    undoPlugin,
-    redoPlugin,
-    underlinePlugin,
-    headingPlugin,
-    previewPlugin,
-    referencePlugin,
-    alertPlugin,
-    linkCollectionPlugin,
-    embedLinkPlugin,
-} from "./plugins/index.js";
+// import {
+//     simplecastPlugin,
+//     youtubePlugin,
+//     twitterPlugin,
+//     undoPlugin,
+//     redoPlugin,
+//     underlinePlugin,
+//     headingPlugin,
+//     previewPlugin,
+//     referencePlugin,
+//     alertPlugin,
+//     linkCollectionPlugin,
+//     embedLinkPlugin,
+// } from "./plugins/index.js";
 
 import { getWordsAndCharactersCount, uploadImage } from "./utils/utils.js";
 
-const AVERAGE_WORDS_READ_PER_MINUTE = 200;
+// const AVERAGE_WORDS_READ_PER_MINUTE = 200;
 
-Editor.setLanguage(["en", "en-US"], {
-    "Unordered list": "Unordered List",
-    "Ordered list": "Ordered List",
-    "Insert link": "Insert link",
-    "Insert CodeBlock": "Insert Code Block",
-    "Insert table": "Insert Table",
-    "Insert image": "Insert Image",
-    "Link text": "Link Text",
-    "Add row": "Add Row",
-    "Add col": "Add Col",
-    "Remove row": "Remove Row",
-    "Remove col": "Remove Col",
-    "Align left": "Align Left",
-    "Align center": "Align Center",
-    "Align right": "Align Right",
-    "Remove table": "Remove Table",
-    "Text color": "Text Color",
-    "Auto scroll enabled": "Auto Scroll Enabled",
-    "Auto scroll disabled": "Auto Scroll Disabled",
-});
+// Editor.setLanguage(["en", "en-US"], {
+//     "Unordered list": "Unordered List",
+//     "Ordered list": "Ordered List",
+//     "Insert link": "Insert link",
+//     "Insert CodeBlock": "Insert Code Block",
+//     "Insert table": "Insert Table",
+//     "Insert image": "Insert Image",
+//     "Link text": "Link Text",
+//     "Add row": "Add Row",
+//     "Add col": "Add Col",
+//     "Remove row": "Remove Row",
+//     "Remove col": "Remove Col",
+//     "Align left": "Align Left",
+//     "Align center": "Align Center",
+//     "Align right": "Align Right",
+//     "Remove table": "Remove Table",
+//     "Text color": "Text Color",
+//     "Auto scroll enabled": "Auto Scroll Enabled",
+//     "Auto scroll disabled": "Auto Scroll Disabled",
+// });
 
 const MarkdownEditor = (
     height = null,
@@ -133,108 +133,148 @@ const MarkdownEditor = (
                   "alert",
                   "embedlink",
               ],
+    undo() {
+        this.editor.mdEditor.commands.undo();
+    },
+    redo() {
+        this.editor.mdEditor.commands.redo();
+    },
+    heading(level) {
+        this.editor.mdEditor.commands.heading({ level });
+    },
+    strong() {
+        this.editor.mdEditor.commands.bold();
+    },
+    emph() {
+        this.editor.mdEditor.commands.italic();
+    },
+    activeButtons: [],
+    isActive(name) {
+        return this.activeButtons.includes(name);
+    },
     init() {
         try {
-            const { input } = this.$refs;
+            const { editor: el, input } = this.$refs;
 
             this.editor = new Editor({
-                el: this.$refs.editor,
-                initialEditType: "markdown",
+                el,
                 usageStatistics: false,
-                hideModeSwitch: true,
-                previewStyle: "tab",
+                initialEditType: 'markdown',
+                previewStyle: 'tab',
                 previewHighlight: false,
+                hideModeSwitch: true,
                 initialValue: input.value,
+                height: this.height,
                 events: {
                     change: () => this.onChangeHandler(),
-                    blur: this.onBlur,
-                    focus: this.onFocus,
-                },
-                toolbarItems: this.toolbarItems,
-                // We dont need any "sanitized" HTML since we dont use the `preview`
-                // mode, so doing this:
-                // 1. Prevents security issues
-                // 2. Makes the editor way faster
-                customHTMLSanitizer: () => "",
-                plugins: this.getPlugins(),
-                hooks: {
-                    addImageBlobHook: (blob, callback) => {
-                        const alt =
-                            document.querySelector("input.te-alt-text-input")
-                                .value || blob.name;
-                        const markdownEditor = this.editor.mdEditor.getEditor();
-                        const loadingLabel = `Uploading ${blob.name}…`;
-                        const loadingPlaceholder = `![${loadingLabel}]()`;
-
-                        const csrfToken = document.querySelector(
-                            'meta[name="csrf-token"]'
-                        ).content;
-
-                        if (!csrfToken) {
-                            throw new Error(
-                                "We were unable to get the csrfToken for this request"
-                            );
-                        }
-
-                        // Show a loading message while the image is uploaded
-                        callback("", loadingLabel);
-
-                        uploadImage(blob, csrfToken).then((response) => {
-                            if (!response.url) {
-                                throw new Error("Received invalid response");
-                            }
-
-                            const currentCursor = markdownEditor.getCursor();
-                            markdownEditor.setValue(
-                                markdownEditor
-                                    .getValue()
-                                    .replace(loadingPlaceholder, "")
-                            );
-                            currentCursor.ch =
-                                currentCursor.ch - loadingPlaceholder.length;
-                            markdownEditor.setCursor(currentCursor);
-
-                            callback(response.url, alt);
-                        });
-
-                        return true;
-                    },
+                    caretChange: () => this.onCaretChangeHandler(),
+                    // blur: this.onBlur,
+                    // focus: this.onFocus,
                 },
             });
 
-            const events = this.editor.eventManager.events;
-            const handlers = events.get("command");
-            handlers.unshift(this.forceHttpsLinkHandler);
-            events.set("command", handlers);
+            this.getWordsAndCharactersCount(this.editor.getMarkdown());
 
-            // Since we dont use the preview and is hidden, the scroll event
-            // creates some exceptions that are fixed by removing these listeners.
-            this.editor.preview.eventManager.removeEventHandler(
-                "previewRenderAfter"
-            );
-            this.editor.preview.eventManager.removeEventHandler("scroll");
+            console.log(this.editor);
 
-            this.editor.getCodeMirror().setOption("lineNumbers", true);
+            // this.editor = new Editor({
+            //     el: this.$refs.editor,
+            //     initialEditType: "markdown",
+            //     usageStatistics: false,
+            //     hideModeSwitch: true,
+            //     previewStyle: "tab",
+            //     previewHighlight: false,
+            //     initialValue: input.value,
+            //     events: {
+            //         change: () => this.onChangeHandler(),
+            //         blur: this.onBlur,
+            //         focus: this.onFocus,
+            //     },
+            //     toolbarItems: this.toolbarItems,
+            //     // We dont need any "sanitized" HTML since we dont use the `preview`
+            //     // mode, so doing this:
+            //     // 1. Prevents security issues
+            //     // 2. Makes the editor way faster
+            //     customHTMLSanitizer: () => "",
+            //     plugins: this.getPlugins(),
+            //     hooks: {
+            //         addImageBlobHook: (blob, callback) => {
+            //             const alt =
+            //                 document.querySelector("input.te-alt-text-input")
+            //                     .value || blob.name;
+            //             const markdownEditor = this.editor.mdEditor.getEditor();
+            //             const loadingLabel = `Uploading ${blob.name}…`;
+            //             const loadingPlaceholder = `![${loadingLabel}]()`;
 
-            this.toolbar = this.editor.getUI().getToolbar();
+            //             const csrfToken = document.querySelector(
+            //                 'meta[name="csrf-token"]'
+            //             ).content;
 
-            this.toolbarItems = this.toolbar.getItems();
+            //             if (!csrfToken) {
+            //                 throw new Error(
+            //                     "We were unable to get the csrfToken for this request"
+            //                 );
+            //             }
 
-            this.addIconsToTheButtons();
+            //             // Show a loading message while the image is uploaded
+            //             callback("", loadingLabel);
 
-            this.initOverlay();
+            //             uploadImage(blob, csrfToken).then((response) => {
+            //                 if (!response.url) {
+            //                     throw new Error("Received invalid response");
+            //                 }
 
-            this.removeScrollSyncButton();
+            //                 const currentCursor = markdownEditor.getCursor();
+            //                 markdownEditor.setValue(
+            //                     markdownEditor
+            //                         .getValue()
+            //                         .replace(loadingPlaceholder, "")
+            //                 );
+            //                 currentCursor.ch =
+            //                     currentCursor.ch - loadingPlaceholder.length;
+            //                 markdownEditor.setCursor(currentCursor);
 
-            this.editor.eventManager.listen("openDropdownToolbar", (e) => {
-                this.hideAllTooltips();
-            });
+            //                 callback(response.url, alt);
+            //             });
 
-            this.adjustHeight();
+            //             return true;
+            //         },
+            //     },
+            // });
 
-            window.onresize = () => {
-                this.adjustHeight();
-            };
+            // const events = this.editor.eventManager.events;
+            // const handlers = events.get("command");
+            // handlers.unshift(this.forceHttpsLinkHandler);
+            // events.set("command", handlers);
+
+            // // Since we dont use the preview and is hidden, the scroll event
+            // // creates some exceptions that are fixed by removing these listeners.
+            // this.editor.preview.eventManager.removeEventHandler(
+            //     "previewRenderAfter"
+            // );
+            // this.editor.preview.eventManager.removeEventHandler("scroll");
+
+            // editor.getCodeMirror().setOption("lineNumbers", true);
+
+            // this.toolbar = this.editor.getUI().getToolbar();
+
+            // this.toolbarItems = this.toolbar.getItems();
+
+            // this.addIconsToTheButtons();
+
+            // this.initOverlay();
+
+            // this.removeScrollSyncButton();
+
+            // this.editor.eventManager.listen("openDropdownToolbar", (e) => {
+            //     this.hideAllTooltips();
+            // });
+
+            // this.adjustHeight();
+
+            // window.onresize = () => {
+            //     this.adjustHeight();
+            // };
         } catch (error) {
             alert("Something went wrong!");
             console.error(error);
@@ -404,7 +444,7 @@ const MarkdownEditor = (
         });
     },
     onChangeHandler() {
-        this.hideAllTooltips();
+        // this.hideAllTooltips();
 
         const { input } = this.$refs;
 
@@ -420,6 +460,29 @@ const MarkdownEditor = (
         input.dispatchEvent(event);
 
         this.getWordsAndCharactersCount(markdown);
+    },
+    onCaretChangeHandler() {
+        this.activeButtons = ['strong', 'heading1', 'heading2', 'heading3', 'heading4', 'emph'].filter(name => {
+            const selection = this.editor?.mdEditor.view.state.selection || {};
+            const { $from, $to } = selection;
+
+            const fromMarks = $from?.marks() || []
+            const toMarks = $to?.marks() || []
+
+            // @TODO: delete these lines
+            fromMarks.forEach(mark => console.log(mark.type.name, 1, mark.attrs))
+            toMarks.forEach(mark => console.log(mark.type.name, 2))
+
+            if (name.startsWith('heading')) {
+                const headingLevel = Number(name.replace('heading', ''));
+
+                return fromMarks.some(mark => mark.type.name === 'heading' && mark.attrs.level === headingLevel)
+                    || toMarks.some(mark => mark.type.name === 'heading' && mark.attrs.level === headingLevel);
+            }
+
+            return fromMarks.some(mark => mark.type.name === name)
+                || toMarks.some(mark => mark.type.name === name);
+        });
     },
     getWordsAndCharactersCount(markdown) {
         this.loadingCharsCount = true;
@@ -468,5 +531,6 @@ const MarkdownEditor = (
 
     ...extraData,
 });
+
 
 window.MarkdownEditor = MarkdownEditor;

@@ -41,6 +41,10 @@ $icons = [
 ]
 @endphp
 
+<div>
+
+</div>
+
 <div class="ark-markdown-editor ark-markdown-editor-{{ $toolbar }} {{ $class ?? '' }}">
     <div class="input-group">
         @unless ($hideLabel ?? false)
@@ -66,8 +70,10 @@ $icons = [
                 x-init="init"
                 class="overflow-hidden bg-white rounded border-2 border-theme-secondary-200"
             >
-                <div x-show="showOverlay" class="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-75" style="display: none"></div>
-                <div>
+
+                {{-- <div x-show="showOverlay" class="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-75" style="display: none"></div> --}}
+
+                {{-- <div>
                     @for($i=1; $i<=4; $i++)
                         <template x-ref="iconH{{ $i }}">
                             <x-ark-icon name="wysiwyg.H{{ $i }}" class="inline" />
@@ -78,6 +84,35 @@ $icons = [
                             <x-ark-icon name="wysiwyg.{{ $iconName }}" size="sm" class="inline" />
                         </template>
                     @endforeach
+                </div> --}}
+
+                <div>
+                    <button type="button" @click="undo" >
+                        undo
+                    </button>
+
+                    <button type="button" @click="redo" >
+                        redo
+                    </button>
+
+                    <button type="button" @click="heading(1)"  :class="{'bg-theme-secondary-500': isActive('heading1')}">
+                        h1
+                    </button>
+                    <button type="button" @click="heading(2)" :class="{'bg-theme-secondary-500': isActive('heading2')}">
+                        h2
+                    </button>
+                    <button type="button" @click="heading(3)" :class="{'bg-theme-secondary-500': isActive('heading3')}">
+                        h3
+                    </button>
+                    <button type="button" @click="heading(4)" :class="{'bg-theme-secondary-500': isActive('heading4')}">
+                        h4
+                    </button>
+                    <button type="button" @click="strong" :class="{'bg-theme-secondary-500': isActive('strong')}">
+                        bold
+                    </button>
+                    <button type="button" @click="emph" :class="{'bg-theme-secondary-500': isActive('emph')}">
+                        italic
+                    </button>
                 </div>
 
                 <textarea
@@ -89,6 +124,7 @@ $icons = [
                 ></textarea>
 
                 <div wire:ignore x-ref="editor"></div>
+
 
                 @if($showCharsCount || $showWordsCount || $showReadingTime)
                     <div x-cloak class="flex justify-end py-3 text-xs bg-white border-t-2 border-theme-secondary-200">
