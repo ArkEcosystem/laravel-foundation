@@ -384,7 +384,6 @@ Inside that component, you can use the `show()` method to show the modal:
 ```html
 <div
     x-data="Modal.alpine({}, 'optionalNameOfTheModal')"
-    x-init="init"
 >
     <button type="button" @click="show">Show modal</button>
 
@@ -412,7 +411,6 @@ Note that it is also possible to hook into the lifecycle methods of the modal. Y
             alert('The modal is about to be shown')
         }
     }"
-    x-init="init"
 >
     <button type="button" @click="show">Show modal</button>
 
