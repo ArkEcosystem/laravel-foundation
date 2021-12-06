@@ -39,7 +39,7 @@
         dusk='navbar-item-{{ Str::slug($name) }}'
     >
         <div
-            class="flex items-center block"
+            class="block flex items-center"
             @if ($tooltip)
                 data-tippy-content="{{ $tooltip }}"
             @endif
@@ -54,7 +54,7 @@
                 ])
             @endif
 
-            <div class="flex flex-col space-y-2 flex-1">
+            <div class="flex flex-col flex-1 space-y-2">
                 <span @class([
                     'flex items-center space-x-2',
                     'text-theme-secondary-500' => $disabled,
