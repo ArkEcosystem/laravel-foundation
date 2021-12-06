@@ -1,54 +1,54 @@
-.swiper-container {
+.swiper {
     @apply w-full h-full mx-auto mt-8;
 }
-.swiper-container:not(.slider-pagination-bottom) {
+.swiper:not(.slider-pagination-bottom) {
     @apply mt-8;
 }
-.swiper-container.slider-pagination-bottom {
+.swiper.slider-pagination-bottom {
     @apply mt-5 mb-8;
 }
 
-.swiper-container:not(.slider-pagination-bottom) .swiper-wrapper {
+.swiper:not(.slider-pagination-bottom) .swiper-wrapper {
     @apply mb-8;
 }
 
-.swiper-container .swiper-pagination {
+.swiper .swiper-pagination {
     @apply relative;
     bottom: 0;
 }
 
-.swiper-container:not(.slider-pagination-bottom) .swiper-pagination {
+.swiper:not(.slider-pagination-bottom) .swiper-pagination {
     @apply flex items-center;
 }
 
-.swiper-container.slider-pagination-bottom .swiper-pagination {
+.swiper.slider-pagination-bottom .swiper-pagination {
     @apply mt-5;
 }
 
 @screen xl {
-    .swiper-container.slider-multirow > .swiper-wrapper {
+    .swiper.slider-multirow > .swiper-wrapper {
         @apply flex-wrap;
     }
 }
 
-.swiper-container .swiper-pagination-bullets {
+.swiper .swiper-pagination-bullets {
     @apply space-x-3;
 }
 
-.swiper-container-horizontal
+.swiper-horizontal
     > .swiper-pagination-bullets
     .swiper-pagination-bullet {
     @apply mx-0;
 }
 
 @screen sm {
-    .swiper-container.slider-show-view-all:not(.slider-pagination-bottom)
+    .swiper.slider-show-view-all:not(.slider-pagination-bottom)
         .swiper-pagination-bullets
         .swiper-pagination-bullet:last-child {
         @apply relative mr-6;
     }
 
-    .swiper-container.slider-show-view-all:not(.slider-pagination-bottom)
+    .swiper.slider-show-view-all:not(.slider-pagination-bottom)
         .swiper-pagination-bullets
         .swiper-pagination-bullet:last-child:before {
         @apply absolute w-px -mt-2 bg-theme-secondary-300;
