@@ -96,22 +96,22 @@ $icons = [
                     </button>
 
                     <button type="button" @click="heading(1)"  :class="{'bg-theme-secondary-500': isActive('heading1')}">
-                        h1
+                        <x-ark-icon name="wysiwyg.H1" class="inline" />
                     </button>
                     <button type="button" @click="heading(2)" :class="{'bg-theme-secondary-500': isActive('heading2')}">
-                        h2
+                        <x-ark-icon name="wysiwyg.H2" class="inline" />
                     </button>
                     <button type="button" @click="heading(3)" :class="{'bg-theme-secondary-500': isActive('heading3')}">
-                        h3
+                        <x-ark-icon name="wysiwyg.H3" class="inline" />
                     </button>
                     <button type="button" @click="heading(4)" :class="{'bg-theme-secondary-500': isActive('heading4')}">
-                        h4
+                        <x-ark-icon name="wysiwyg.H4" class="inline" />
                     </button>
                     <button type="button" @click="strong" :class="{'bg-theme-secondary-500': isActive('strong')}">
-                        bold
+                        <x-ark-icon name="wysiwyg.text-bold" class="inline" />
                     </button>
                     <button type="button" @click="emph" :class="{'bg-theme-secondary-500': isActive('emph')}">
-                        italic
+                        <x-ark-icon name="wysiwyg.text-italic" class="inline" />
                     </button>
                 </div>
 
