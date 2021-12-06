@@ -2,6 +2,7 @@
     'breakpoint'      => 'md',
     'navigation'      => [],
     'navigationExtra' => null,
+    'mobileDropdown'  => 'mobileDropdown',
 ])
 
 @php
@@ -35,12 +36,24 @@
         @foreach ($navigation as $navItem)
             @isset($navItem['children'])
                 <div>
-                    <a
-                        href="javascript:void(0)"
+                    <button
                         class="flex justify-between items-center py-3 px-8 w-full font-semibold border-l-2 border-transparent text-theme-secondary-900"
                         @click="toggleDropdown('{{ $navItem['label'] }}')"
+                        aria-haspopup="true"
+                        aria-controls="{{ $mobileDropdown }}"
+                        x-bind:aria-expanded="openDropdown === '{{ $navItem['label'] }}'"
                     >
                         <span :class="{ 'text-theme-primary-600': openDropdown === 'products' }">
+                            <span class="sr-only">
+                                <span x-show="openDropdown !== '{{ $navItem['label'] }}'">
+                                    @lang('ui::actions.open')
+                                </span>
+
+                                <span x-show="openDropdown === '{{ $navItem['label'] }}'">
+                                    @lang('ui::actions.close')
+                                </span>
+                            </span>
+
                             @lang('menus.products.title')
                         </span>
 
@@ -50,9 +63,10 @@
                         >
                             <x-ark-icon name="chevron-down" size="xs" />
                         </span>
-                    </a>
+                    </button>
 
                     <div
+                        id="{{ $mobileDropdown }}"
                         x-show="openDropdown === '{{ $navItem['label'] }}'"
                         class="mb-4 ml-8 border-l border-theme-secondary-200"
                         x-cloak

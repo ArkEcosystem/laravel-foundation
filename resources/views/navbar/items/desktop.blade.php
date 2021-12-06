@@ -3,6 +3,7 @@
     'navigation'      => [],
     'navigationExtra' => null,
     'dropdownClass'   => 'flex-shrink-0 w-56',
+    'menuDropdown'    => 'menuDropdown',
 ])
 
 @php
@@ -27,23 +28,44 @@
         @foreach ($navigation as $navItem)
             @isset($navItem['children'])
                 <div class="relative h-full">
-                    <a
+                    <button
                         x-ref="menuDropdownButton"
-                        href="javascript:void(0)"
                         @class([
                             'relative inline-flex justify-center items-center px-1 pt-px font-semibold leading-5 border-b-2 border-transparent text-theme-secondary-700 hover:text-theme-secondary-800 hover:border-theme-secondary-300 focus:outline-none transition duration-150 ease-in-out h-full dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400',
                             'ml-8' => ! $loop->first,
                         ])
                         @click="toggleDropdown('{{ $navItem['label'] }}')"
                         @blur="closeIfBlurOutside"
-                        @keydown.enter="toggleDropdown('{{ $navItem['label'] }}')"
+                        {{-- @keydown.enter="toggleDropdown('{{ $navItem['label'] }}')" --}}
+                        aria-haspopup="true"
+                        aria-controls="{{ $menuDropdown }}"
+                        x-bind:aria-expanded="openDropdown === '{{ $navItem['label'] }}'"
                     >
-                        <span :class="{ 'text-theme-primary-600': openDropdown === '{{ $navItem['label'] }}' }">{{ $navItem['label'] }}</span>
-                        <span class="ml-2 transition duration-150 ease-in-out text-theme-primary-600" :class="{ 'rotate-180': openDropdown === '{{ $navItem['label'] }}' }"><x-ark-icon name="chevron-down" size="xs" /></span>
-                    </a>
+                        <span :class="{ 'text-theme-primary-600': openDropdown === '{{ $navItem['label'] }}' }">
+                            <span class="sr-only">
+                                <span x-show="openDropdown !== '{{ $navItem['label'] }}'">
+                                    @lang('ui::actions.open')
+                                </span>
+
+                                <span x-show="openDropdown === '{{ $navItem['label'] }}'">
+                                    @lang('ui::actions.close')
+                                </span>
+                            </span>
+
+                            {{ $navItem['label'] }}
+                        </span>
+
+                        <span
+                            class="ml-2 transition duration-150 ease-in-out text-theme-primary-600"
+                            :class="{ 'rotate-180': openDropdown === '{{ $navItem['label'] }}' }"
+                        >
+                            <x-ark-icon name="chevron-down" size="xs" />
+                        </span>
+                    </button>
 
                     <div
                         x-ref="menuDropdown"
+                        id="{{ $menuDropdown }}"
                         x-show.transition.origin.top="openDropdown === '{{ $navItem['label'] }}'"
                         class="absolute top-0 left-0 z-30 py-4 mt-24 bg-white rounded-xl"
                         x-cloak

@@ -20,7 +20,9 @@
 
     <a
         @if ($disabled)
-            href="javascript:void(0)"
+            href=""
+            aria-disabled="true"
+            tabindex="-1"
         @else
             href="{{ $route ? route($route, $routeParams) : $href }}"
         @endif
@@ -28,7 +30,7 @@
             'font-semibold px-8 py-4 w-full group transition-default',
             'bg-theme-primary-50' => $isCurrent,
             'text-theme-secondary-900 hover:bg-theme-secondary-100' => ! $disabled && ! $isCurrent,
-            'text-theme-secondary-500' => $disabled,
+            'text-theme-secondary-500 pointer-events-none' => $disabled,
         ])
         @if ($external)
             target="_blank"
