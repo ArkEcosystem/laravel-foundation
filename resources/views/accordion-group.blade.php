@@ -19,7 +19,11 @@
                         </span>
                     </button>
                 </dt>
-                <dd class="mt-2" x-show.transition.opacity="openPanel === {{ $i }}" x-cloak>
+                <dd
+                    class="mt-2"
+                    x-show="openPanel === {{ $i }}"
+                    x-transition.opacity
+                    x-cloak>
                     {{ ${"slot_{$i}"} }}
                 </dd>
             </div>
