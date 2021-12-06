@@ -27,7 +27,7 @@
             @endif
 
             @if ($hasViewAll)
-                <div class="leading-5 flex-shrink-0">
+                <div class="flex-shrink-0 leading-5">
                     <a href="{{ $viewAllUrl }}" class="font-semibold link">
                         @lang('ui::actions.view_all')
 
