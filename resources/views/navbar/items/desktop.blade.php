@@ -36,7 +36,6 @@
                         ])
                         @click="toggleDropdown('{{ $navItem['label'] }}')"
                         @blur="closeIfBlurOutside"
-                        {{-- @keydown.enter="toggleDropdown('{{ $navItem['label'] }}')" --}}
                         aria-haspopup="true"
                         aria-controls="{{ $menuDropdown }}"
                         x-bind:aria-expanded="openDropdown === '{{ $navItem['label'] }}'"
