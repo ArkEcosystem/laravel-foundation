@@ -41,6 +41,8 @@ export default function underlinePlugin(context) {
                         )
                     );
 
+                document.querySelector('.ProseMirror').focus()
+
                 dispatch(transaction);
 
                 return true;
