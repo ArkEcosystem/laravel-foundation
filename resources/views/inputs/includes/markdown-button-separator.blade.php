@@ -1,1 +1,1 @@
-<span class="border-l border-theme-secondary-200 h-6 mx-2"></span>
+<span class="mx-2 h-6 border-l border-theme-secondary-200"></span>

@@ -86,7 +86,7 @@ $icons = [
                     @endforeach
                 </div> --}}
 
-                <div class="flex items-center whitespace-nowrap items-center mx-4 border-b border-theme-secondary-200">
+                <div class="flex items-center mx-4 whitespace-nowrap border-b border-theme-secondary-200">
                     @include('ark::inputs.includes.markdown-button', ['iconName' => 'undo', 'onClick' => 'undo'])
 
                     @include('ark::inputs.includes.markdown-button', ['iconName' => 'redo', 'onClick' => 'redo'])
