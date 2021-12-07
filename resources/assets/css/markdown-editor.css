@@ -41,10 +41,30 @@
     @apply border-b border-theme-secondary-200 absolute w-full block ml-5 bottom-0 left-0;
     width: calc(100% - 2.5rem);
 }
-.ark-markdown-editor .toastui-editor-toolbar {
+
+.ark-markdown-editor .toastui-editor-toolbar{
+    @apply h-auto;
+}
+
+.ark-markdown-editor .toastui-editor-toolbar:not(.ark-markdown-editor-toolbar) {
+    @apply h-auto;
+    /* @apply h-0 overflow-visible; */
+}
+.ark-markdown-editor .toastui-editor-defaultUI {
+    @apply block;
+}
+
+.ark-markdown-editor .toastui-editor-defaultUI-toolbar {
     @apply hidden;
 }
 
+.ark-markdown-editor .toastui-editor-popup {
+    top: auto !important;
+}
+
+.ark-markdown-editor .toastui-editor-toolbar-icons {
+    @apply bg-none;
+}
 /*
 .ark-markdown-editor .te-md-container .CodeMirror,
 .ark-markdown-editor .te-md-container .te-preview .tui-editor-contents,

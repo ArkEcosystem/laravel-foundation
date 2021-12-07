@@ -68,60 +68,51 @@ $icons = [
                     {{ $xData }}
                 )"
                 x-init="init"
-                class="overflow-hidden bg-white rounded border-2 border-theme-secondary-200"
+                class=" bg-white rounded border-2 border-theme-secondary-200"
             >
 
                 {{-- <div x-show="showOverlay" class="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-75" style="display: none"></div> --}}
 
-                {{-- <div>
-                    @for($i=1; $i<=4; $i++)
-                        <template x-ref="iconH{{ $i }}">
-                            <x-ark-icon name="wysiwyg.H{{ $i }}" class="inline" />
-                        </template>
-                    @endfor
-                    @foreach($icons as $ref => $iconName)
-                        <template x-ref="{{ $ref }}">
-                            <x-ark-icon name="wysiwyg.{{ $iconName }}" size="sm" class="inline" />
-                        </template>
-                    @endforeach
-                </div> --}}
+                <div class="flex items-center mx-4 whitespace-nowrap border-b border-theme-secondary-200 toastui-editor-toolbar ark-markdown-editor-toolbar">
+                    <div class="toastui-editor-toolbar-group">
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'undo', 'onClick' => 'undo'])
 
-                <div class="flex items-center mx-4 whitespace-nowrap border-b border-theme-secondary-200">
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'undo', 'onClick' => 'undo'])
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'redo', 'onClick' => 'redo'])
 
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'redo', 'onClick' => 'redo'])
+                        @include('ark::inputs.includes.markdown-button-separator')
 
-                    @include('ark::inputs.includes.markdown-button-separator')
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-bold', 'onClick' => 'strong', 'nodeName' => 'strong'])
 
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-bold', 'onClick' => 'strong', 'nodeName' => 'strong'])
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-italic', 'onClick' => 'emph', 'nodeName' => 'emph'])
 
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-italic', 'onClick' => 'emph', 'nodeName' => 'emph'])
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-strike-through', 'onClick' => 'strike', 'nodeName' => 'strike'])
 
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-strike-through', 'onClick' => 'strike', 'nodeName' => 'strike'])
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-underline', 'onClick' => 'underline', 'nodeName' => 'underline'])
 
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-underline', 'onClick' => 'underline', 'nodeName' => 'underline'])
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'open-quote', 'onClick' => 'blockQuote', 'nodeName' => 'blockQuote'])
 
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'open-quote', 'onClick' => 'blockQuote', 'nodeName' => 'blockQuote'])
+                        @include('ark::inputs.includes.markdown-button-separator')
 
-                    @include('ark::inputs.includes.markdown-button-separator')
+                        @for($i=1; $i<=4; $i++)
+                            @include('ark::inputs.includes.markdown-button', [
+                                'iconName' => 'H' . $i,
+                                'onClick' => 'heading(' . $i . ')',
+                                'nodeName' => 'heading' . $i,
+                            ])
+                        @endfor
 
-                    @for($i=1; $i<=4; $i++)
-                        @include('ark::inputs.includes.markdown-button', [
-                            'iconName' => 'H' . $i,
-                            'onClick' => 'heading(' . $i . ')',
-                            'nodeName' => 'heading' . $i,
-                        ])
-                    @endfor
+                        @include('ark::inputs.includes.markdown-button-separator')
 
-                    @include('ark::inputs.includes.markdown-button-separator')
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'list-bullets', 'onClick' => 'bulletList', 'nodeName' => 'bulletList'])
 
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'list-bullets', 'onClick' => 'bulletList', 'nodeName' => 'bulletList'])
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'list-numbers', 'onClick' => 'orderedList', 'nodeName' => 'orderedList'])
 
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'list-numbers', 'onClick' => 'orderedList', 'nodeName' => 'orderedList'])
+                        {{-- @TODO: definde the nodeName --}}
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'table', 'onClick' => 'table', 'nodeName' => 'blockQuote', 'name' => 'table'])
 
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'table', 'onClick' => 'blockQuote', 'nodeName' => 'blockQuote'])
-
-                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'image-file-landscape', 'onClick' => 'blockQuote', 'nodeName' => 'blockQuote'])
+                        {{-- @TODO: definde the nodeName --}}
+                        @include('ark::inputs.includes.markdown-button', ['iconName' => 'image-file-landscape', 'onClick' => 'image', 'nodeName' => 'blockQuote', 'name' => 'image'])
+                    </div>
 
                 </div>
 

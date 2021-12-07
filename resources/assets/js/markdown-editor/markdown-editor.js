@@ -167,6 +167,15 @@ const MarkdownEditor = (
     orderedList() {
         this.editor.mdEditor.commands.orderedList();
     },
+    orderedList() {
+        this.editor.mdEditor.commands.orderedList();
+    },
+    table() {
+        this.editor.eventEmitter.emit('openPopup', 'table', {});
+    },
+    image() {
+        this.editor.eventEmitter.emit('openPopup', 'image', {});
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -494,7 +503,6 @@ const MarkdownEditor = (
             "orderedList",
         ].filter((name) => {
             const selection = this.editor?.mdEditor.view.state.selection || {};
-
             const { $from, $to } = selection;
 
             if (["bulletList", "orderedList"].includes(name)) {
@@ -513,15 +521,6 @@ const MarkdownEditor = (
 
             const fromMarks = $from?.marks() || [];
             const toMarks = $to?.marks() || [];
-
-            // @TODO: delete these lines
-            fromMarks.forEach((mark) => {
-                console.log("from", mark.type.name, mark.attrs);
-            });
-
-            toMarks.forEach((mark) => {
-                console.log("to", mark.type.name, mark.attrs);
-            });
 
             if (name.startsWith("heading")) {
                 const headingLevel = Number(name.replace("heading", ""));
