@@ -159,8 +159,8 @@ const MarkdownEditor = (
             this.editor = new Editor({
                 el,
                 usageStatistics: false,
-                initialEditType: 'markdown',
-                previewStyle: 'tab',
+                initialEditType: "markdown",
+                previewStyle: "tab",
                 previewHighlight: false,
                 hideModeSwitch: true,
                 initialValue: input.value,
@@ -463,26 +463,47 @@ const MarkdownEditor = (
         this.getWordsAndCharactersCount(markdown);
     },
     onCaretChangeHandler() {
-        this.activeButtons = ['strong', 'heading1', 'heading2', 'heading3', 'heading4', 'emph'].filter(name => {
+        this.activeButtons = [
+            "strong",
+            "heading1",
+            "heading2",
+            "heading3",
+            "heading4",
+            "emph",
+        ].filter((name) => {
             const selection = this.editor?.mdEditor.view.state.selection || {};
             const { $from, $to } = selection;
 
-            const fromMarks = $from?.marks() || []
-            const toMarks = $to?.marks() || []
+            const fromMarks = $from?.marks() || [];
+            const toMarks = $to?.marks() || [];
 
             // @TODO: delete these lines
-            fromMarks.forEach(mark => console.log(mark.type.name, 1, mark.attrs))
-            toMarks.forEach(mark => console.log(mark.type.name, 2))
+            fromMarks.forEach((mark) =>
+                console.log(mark.type.name, 1, mark.attrs)
+            );
+            toMarks.forEach((mark) => console.log(mark.type.name, 2));
 
-            if (name.startsWith('heading')) {
-                const headingLevel = Number(name.replace('heading', ''));
+            if (name.startsWith("heading")) {
+                const headingLevel = Number(name.replace("heading", ""));
 
-                return fromMarks.some(mark => mark.type.name === 'heading' && mark.attrs.level === headingLevel)
-                    || toMarks.some(mark => mark.type.name === 'heading' && mark.attrs.level === headingLevel);
+                return (
+                    fromMarks.some(
+                        (mark) =>
+                            mark.type.name === "heading" &&
+                            mark.attrs.level === headingLevel
+                    ) ||
+                    toMarks.some(
+                        (mark) =>
+                            mark.type.name === "heading" &&
+                            mark.attrs.level === headingLevel
+                    )
+                );
             }
 
-            return fromMarks.some(mark => mark.type.name === name)
-                || toMarks.some(mark => mark.type.name === name);
+            return (
+                fromMarks.some((mark) => mark.type.name === name) ||
+                toMarks.some((mark) => mark.type.name === name)
+            );
         });
     },
     getWordsAndCharactersCount(markdown) {
@@ -532,6 +553,5 @@ const MarkdownEditor = (
 
     ...extraData,
 });
-
 
 window.MarkdownEditor = MarkdownEditor;
