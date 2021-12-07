@@ -1,6 +1,5 @@
 import Editor from "@toast-ui/editor";
 
-
 import {
     // simplecastPlugin,
     // youtubePlugin,
@@ -498,15 +497,16 @@ const MarkdownEditor = (
 
             const { $from, $to } = selection;
 
-            if (['bulletList', 'orderedList'].includes(name)) {
-                const endIndex = $to?.index(0)
-                const textContent = $from?.doc.child(endIndex)?.textContent || '';
+            if (["bulletList", "orderedList"].includes(name)) {
+                const endIndex = $to?.index(0);
+                const textContent =
+                    $from?.doc.child(endIndex)?.textContent || "";
 
-                if (name === 'bulletList') {
+                if (name === "bulletList") {
                     return reList.test(textContent);
                 }
 
-                if (name === 'orderedList') {
+                if (name === "orderedList") {
                     return reOrderedList.test(textContent);
                 }
             }
@@ -514,14 +514,14 @@ const MarkdownEditor = (
             const fromMarks = $from?.marks() || [];
             const toMarks = $to?.marks() || [];
 
-                  // @TODO: delete these lines
-                  fromMarks.forEach((mark) => {
-                    console.log("from", mark.type.name, mark.attrs)
-                })
+            // @TODO: delete these lines
+            fromMarks.forEach((mark) => {
+                console.log("from", mark.type.name, mark.attrs);
+            });
 
-                toMarks.forEach((mark) => {
-                    console.log("to", mark.type.name, mark.attrs)
-                })
+            toMarks.forEach((mark) => {
+                console.log("to", mark.type.name, mark.attrs);
+            });
 
             if (name.startsWith("heading")) {
                 const headingLevel = Number(name.replace("heading", ""));
