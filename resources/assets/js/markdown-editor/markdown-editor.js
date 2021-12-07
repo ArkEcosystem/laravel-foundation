@@ -1,19 +1,19 @@
 import Editor from "@toast-ui/editor";
 
-// import {
-//     simplecastPlugin,
-//     youtubePlugin,
-//     twitterPlugin,
-//     undoPlugin,
-//     redoPlugin,
-//     underlinePlugin,
-//     headingPlugin,
-//     previewPlugin,
-//     referencePlugin,
-//     alertPlugin,
-//     linkCollectionPlugin,
-//     embedLinkPlugin,
-// } from "./plugins/index.js";
+import {
+    // simplecastPlugin,
+    // youtubePlugin,
+    // twitterPlugin,
+    // undoPlugin,
+    // redoPlugin,
+    underlinePlugin,
+    // headingPlugin,
+    // previewPlugin,
+    // referencePlugin,
+    // alertPlugin,
+    // linkCollectionPlugin,
+    // embedLinkPlugin,
+} from "./plugins/index.js";
 
 import { getWordsAndCharactersCount, uploadImage } from "./utils/utils.js";
 
@@ -148,6 +148,12 @@ const MarkdownEditor = (
     emph() {
         this.editor.mdEditor.commands.italic();
     },
+    strike() {
+        this.editor.mdEditor.commands.strike();
+    },
+    underline() {
+        this.editor.mdEditor.commands.underline();
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -172,6 +178,9 @@ const MarkdownEditor = (
                     // blur: this.onBlur,
                     // focus: this.onFocus,
                 },
+                plugins: [
+                    underlinePlugin,
+                ]
             });
 
             this.getWordsAndCharactersCount(this.editor.getMarkdown());
@@ -470,6 +479,7 @@ const MarkdownEditor = (
             "heading3",
             "heading4",
             "emph",
+            "strike",
         ].filter((name) => {
             const selection = this.editor?.mdEditor.view.state.selection || {};
             const { $from, $to } = selection;

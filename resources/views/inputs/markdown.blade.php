@@ -93,17 +93,13 @@ $icons = [
 
                     @include('ark::inputs.includes.markdown-button-separator')
 
-                    @include('ark::inputs.includes.markdown-button', [
-                        'iconName' => 'text-bold',
-                        'onClick' => 'strong',
-                        'nodeName' => 'strong',
-                    ])
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-bold', 'onClick' => 'strong', 'nodeName' => 'strong'])
 
-                    @include('ark::inputs.includes.markdown-button', [
-                        'iconName' => 'text-italic',
-                        'onClick' => 'emph',
-                        'nodeName' => 'emph',
-                    ])
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-italic', 'onClick' => 'emph', 'nodeName' => 'emph'])
+
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-strike-through', 'onClick' => 'strike', 'nodeName' => 'strike'])
+
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-underline', 'onClick' => 'underline', 'nodeName' => 'underline'])
 
                     @include('ark::inputs.includes.markdown-button-separator')
 
