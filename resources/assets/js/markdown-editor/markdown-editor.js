@@ -154,6 +154,9 @@ const MarkdownEditor = (
     underline() {
         this.editor.mdEditor.commands.underline();
     },
+    blockQuote() {
+        this.editor.mdEditor.commands.blockQuote();
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -478,6 +481,7 @@ const MarkdownEditor = (
             "heading4",
             "emph",
             "strike",
+            "blockQuote",
         ].filter((name) => {
             const selection = this.editor?.mdEditor.view.state.selection || {};
             const { $from, $to } = selection;

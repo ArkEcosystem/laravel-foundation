@@ -101,6 +101,8 @@ $icons = [
 
                     @include('ark::inputs.includes.markdown-button', ['iconName' => 'text-underline', 'onClick' => 'underline', 'nodeName' => 'underline'])
 
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'open-quote', 'onClick' => 'blockQuote', 'nodeName' => 'blockQuote'])
+
                     @include('ark::inputs.includes.markdown-button-separator')
 
                     @for($i=1; $i<=4; $i++)
