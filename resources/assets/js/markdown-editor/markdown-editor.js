@@ -178,9 +178,7 @@ const MarkdownEditor = (
                     // blur: this.onBlur,
                     // focus: this.onFocus,
                 },
-                plugins: [
-                    underlinePlugin,
-                ]
+                plugins: [underlinePlugin],
             });
 
             this.getWordsAndCharactersCount(this.editor.getMarkdown());
