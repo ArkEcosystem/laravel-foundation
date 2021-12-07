@@ -86,33 +86,34 @@ $icons = [
                     @endforeach
                 </div> --}}
 
-                <div>
-                    <button type="button" @click="undo" >
-                        undo
-                    </button>
+                <div class="flex items-center whitespace-nowrap items-center mx-4 border-b border-theme-secondary-200">
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'undo', 'onClick' => 'undo'])
 
-                    <button type="button" @click="redo" >
-                        redo
-                    </button>
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'redo', 'onClick' => 'redo'])
 
-                    <button type="button" @click="heading(1)"  :class="{'bg-theme-secondary-500': isActive('heading1')}">
-                        <x-ark-icon name="wysiwyg.H1" class="inline" />
-                    </button>
-                    <button type="button" @click="heading(2)" :class="{'bg-theme-secondary-500': isActive('heading2')}">
-                        <x-ark-icon name="wysiwyg.H2" class="inline" />
-                    </button>
-                    <button type="button" @click="heading(3)" :class="{'bg-theme-secondary-500': isActive('heading3')}">
-                        <x-ark-icon name="wysiwyg.H3" class="inline" />
-                    </button>
-                    <button type="button" @click="heading(4)" :class="{'bg-theme-secondary-500': isActive('heading4')}">
-                        <x-ark-icon name="wysiwyg.H4" class="inline" />
-                    </button>
-                    <button type="button" @click="strong" :class="{'bg-theme-secondary-500': isActive('strong')}">
-                        <x-ark-icon name="wysiwyg.text-bold" class="inline" />
-                    </button>
-                    <button type="button" @click="emph" :class="{'bg-theme-secondary-500': isActive('emph')}">
-                        <x-ark-icon name="wysiwyg.text-italic" class="inline" />
-                    </button>
+                    @include('ark::inputs.includes.markdown-button-separator')
+
+                    @include('ark::inputs.includes.markdown-button', [
+                        'iconName' => 'text-bold',
+                        'onClick' => 'strong',
+                        'nodeName' => 'strong',
+                    ])
+
+                    @include('ark::inputs.includes.markdown-button', [
+                        'iconName' => 'text-italic',
+                        'onClick' => 'emph',
+                        'nodeName' => 'emph',
+                    ])
+
+                    @include('ark::inputs.includes.markdown-button-separator')
+
+                    @for($i=1; $i<=4; $i++)
+                        @include('ark::inputs.includes.markdown-button', [
+                            'iconName' => 'H' . $i,
+                            'onClick' => 'heading(' . $i . ')',
+                            'nodeName' => 'heading' . $i,
+                        ])
+                    @endfor
                 </div>
 
                 <textarea

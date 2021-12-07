@@ -165,6 +165,7 @@ const MarkdownEditor = (
                 hideModeSwitch: true,
                 initialValue: input.value,
                 height: this.height,
+                toolbarItems: [],
                 events: {
                     change: () => this.onChangeHandler(),
                     caretChange: () => this.onCaretChangeHandler(),

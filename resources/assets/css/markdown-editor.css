@@ -4,8 +4,48 @@
 
 /* purgecss start ignore */
 @import "@toast-ui/editor/dist/toastui-editor.css";
-@import "codemirror/lib/codemirror.css";
 
+.ark-markdown-editor .ProseMirror {
+    @apply pl-18 py-5 pr-5 h-full;
+}
+
+.ark-markdown-editor .toastui-editor-main-container:before {
+    content: "";
+    @apply border-l border-theme-secondary-200 absolute h-full block ml-13 mt-5;
+    height: calc(100% - 2.5rem);
+}
+
+.ark-markdown-editor .ProseMirror > div {
+    counter-increment: line;
+}
+
+.ark-markdown-editor .ProseMirror > div:before {
+    content: counter(line);
+    @apply p-0 text-xs text-center text-theme-secondary-500 w-11 absolute -ml-16 flex justify-end pr-5 items-center;
+}
+
+.ark-markdown-editor .toastui-editor-defaultUI {
+    @apply border-none
+}
+
+.ark-markdown-editor .toastui-editor-tabs {
+    display: none;
+}
+
+.ark-markdown-editor .toastui-editor-defaultUI-toolbar {
+    @apply bg-white border-none relative;
+}
+
+.ark-markdown-editor .toastui-editor-defaultUI-toolbar:before {
+    content: "";
+    @apply border-b border-theme-secondary-200 absolute w-full block ml-5 bottom-0 left-0;
+    width: calc(100% - 2.5rem);
+}
+.ark-markdown-editor .toastui-editor-toolbar {
+    @apply hidden;
+}
+
+/*
 .ark-markdown-editor .te-md-container .CodeMirror,
 .ark-markdown-editor .te-md-container .te-preview .tui-editor-contents,
 .ark-markdown-editor .tui-editor .te-md-splitter {
@@ -345,6 +385,6 @@
     .ark-markdown-editor .tui-editor .te-md-splitter {
         display: none !important;
     }
-}
+} */
 
 /* purgecss end ignore */
