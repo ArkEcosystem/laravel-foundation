@@ -25,7 +25,7 @@
 }
 
 .ark-markdown-editor .toastui-editor-defaultUI {
-    @apply border-none
+    @apply border-none;
 }
 
 .ark-markdown-editor .toastui-editor-tabs {
