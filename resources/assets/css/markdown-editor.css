@@ -42,7 +42,7 @@
     width: calc(100% - 2.5rem);
 }
 
-.ark-markdown-editor .toastui-editor-toolbar{
+.ark-markdown-editor .toastui-editor-toolbar {
     @apply h-auto;
 }
 

@@ -171,10 +171,10 @@ const MarkdownEditor = (
         this.editor.mdEditor.commands.orderedList();
     },
     table() {
-        this.editor.eventEmitter.emit('openPopup', 'table', {});
+        this.editor.eventEmitter.emit("openPopup", "table", {});
     },
     image() {
-        this.editor.eventEmitter.emit('openPopup', 'image', {});
+        this.editor.eventEmitter.emit("openPopup", "image", {});
     },
     activeButtons: [],
     isActive(name) {
