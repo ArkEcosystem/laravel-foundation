@@ -112,6 +112,17 @@ $icons = [
                             'nodeName' => 'heading' . $i,
                         ])
                     @endfor
+
+                    @include('ark::inputs.includes.markdown-button-separator')
+
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'list-bullets', 'onClick' => 'bulletList', 'nodeName' => 'bulletList'])
+
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'list-numbers', 'onClick' => 'orderedList', 'nodeName' => 'orderedList'])
+
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'table', 'onClick' => 'blockQuote', 'nodeName' => 'blockQuote'])
+
+                    @include('ark::inputs.includes.markdown-button', ['iconName' => 'image-file-landscape', 'onClick' => 'blockQuote', 'nodeName' => 'blockQuote'])
+
                 </div>
 
                 <textarea

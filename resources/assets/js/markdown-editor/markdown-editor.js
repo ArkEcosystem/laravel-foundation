@@ -1,5 +1,6 @@
 import Editor from "@toast-ui/editor";
 
+
 import {
     // simplecastPlugin,
     // youtubePlugin,
@@ -39,6 +40,10 @@ import { getWordsAndCharactersCount, uploadImage } from "./utils/utils.js";
 //     "Auto scroll enabled": "Auto Scroll Enabled",
 //     "Auto scroll disabled": "Auto Scroll Disabled",
 // });
+
+// Based on: https://github.com/nhn/tui.editor/blob/16e0b88ba2cac0631ffdf8777a22bb696380d2fb/apps/editor/src/markdown/helper/list.ts#L62
+const reList = /(^\s*)([-*+])/;
+const reOrderedList = /(^\s*)([\d])+\.( \[[ xX]])? /;
 
 const MarkdownEditor = (
     height = null,
@@ -157,6 +162,12 @@ const MarkdownEditor = (
     blockQuote() {
         this.editor.mdEditor.commands.blockQuote();
     },
+    bulletList() {
+        this.editor.mdEditor.commands.bulletList();
+    },
+    orderedList() {
+        this.editor.mdEditor.commands.orderedList();
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -174,19 +185,17 @@ const MarkdownEditor = (
                 hideModeSwitch: true,
                 initialValue: input.value,
                 height: this.height,
-                toolbarItems: [],
                 events: {
                     change: () => this.onChangeHandler(),
                     caretChange: () => this.onCaretChangeHandler(),
                     // blur: this.onBlur,
                     // focus: this.onFocus,
+                    // toolbarItems: [],
                 },
                 plugins: [underlinePlugin],
             });
 
             this.getWordsAndCharactersCount(this.editor.getMarkdown());
-
-            console.log(this.editor);
 
             // this.editor = new Editor({
             //     el: this.$refs.editor,
@@ -482,18 +491,37 @@ const MarkdownEditor = (
             "emph",
             "strike",
             "blockQuote",
+            "bulletList",
+            "orderedList",
         ].filter((name) => {
             const selection = this.editor?.mdEditor.view.state.selection || {};
+
             const { $from, $to } = selection;
+
+            if (['bulletList', 'orderedList'].includes(name)) {
+                const endIndex = $to?.index(0)
+                const textContent = $from?.doc.child(endIndex)?.textContent || '';
+
+                if (name === 'bulletList') {
+                    return reList.test(textContent);
+                }
+
+                if (name === 'orderedList') {
+                    return reOrderedList.test(textContent);
+                }
+            }
 
             const fromMarks = $from?.marks() || [];
             const toMarks = $to?.marks() || [];
 
-            // @TODO: delete these lines
-            fromMarks.forEach((mark) =>
-                console.log(mark.type.name, 1, mark.attrs)
-            );
-            toMarks.forEach((mark) => console.log(mark.type.name, 2));
+                  // @TODO: delete these lines
+                  fromMarks.forEach((mark) => {
+                    console.log("from", mark.type.name, mark.attrs)
+                })
+
+                toMarks.forEach((mark) => {
+                    console.log("to", mark.type.name, mark.attrs)
+                })
 
             if (name.startsWith("heading")) {
                 const headingLevel = Number(name.replace("heading", ""));
