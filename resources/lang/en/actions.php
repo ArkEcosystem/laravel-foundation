@@ -14,7 +14,7 @@ return [
     'read_more'     => 'Read More',
     'back'          => 'Back',
     'open'          => 'Open',
-    'back'          => 'Close',
+    'close'         => 'Close',
 
     // Hermes
     'mark_all_as_read'   => 'Mark all as read',
