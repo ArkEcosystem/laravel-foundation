@@ -12,7 +12,7 @@ import {
     // referencePlugin,
     // alertPlugin,
     // linkCollectionPlugin,
-    // embedLinkPlugin,
+    embedLinkPlugin,
 } from "./plugins/index.js";
 
 import { getWordsAndCharactersCount, uploadImage } from "./utils/utils.js";
@@ -185,6 +185,9 @@ const MarkdownEditor = (
     link() {
         this.editor.eventEmitter.emit("openPopup", "link", {});
     },
+    embedLink() {
+        Livewire.emit('openModal', 'embed-link-modal');
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -209,7 +212,10 @@ const MarkdownEditor = (
                     // focus: this.onFocus,
                     // toolbarItems: [],
                 },
-                plugins: [underlinePlugin],
+                plugins: [
+                    underlinePlugin,
+                    // embedLinkPlugin,
+                ],
                 hooks: {
                     addImageBlobHook: (blob, callback) => {
                         const alt =
