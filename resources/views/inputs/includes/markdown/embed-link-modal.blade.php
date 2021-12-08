@@ -17,7 +17,7 @@
                     type="text"
                     name="caption"
                     label="Caption"
-                    class="w-full mt-4"
+                    class="mt-4 w-full"
                 />
             </form>
         @endslot
