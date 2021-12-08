@@ -501,6 +501,7 @@ const MarkdownEditor = (
             "blockQuote",
             "bulletList",
             "orderedList",
+            "table",
         ].filter((name) => {
             const selection = this.editor?.mdEditor.view.state.selection || {};
             const { $from, $to } = selection;
@@ -538,6 +539,16 @@ const MarkdownEditor = (
                     )
                 );
             }
+
+            if (name === 'table') {
+                return (
+                    fromMarks.some((mark) => mark.type.name === name || mark.type.name === 'tableCell') ||
+                    toMarks.some((mark) => mark.type.name === name || mark.type.name === 'tableCell')
+                );
+            }
+
+            // fromMarks.forEach((mark) => console.log("from", mark.type.name));
+            // toMarks.forEach((mark) => console.log("to", mark.type.name));
 
             return (
                 fromMarks.some((mark) => mark.type.name === name) ||

@@ -32,10 +32,9 @@
 
         @include('ark::inputs.includes.markdown-button', ['iconName' => 'list-numbers', 'onClick' => 'orderedList', 'nodeName' => 'orderedList'])
 
-        {{-- @TODO: definde the nodeName --}}
-        @include('ark::inputs.includes.markdown-button', ['iconName' => 'table', 'onClick' => 'table', 'nodeName' => 'blockQuote', 'name' => 'table'])
+        @include('ark::inputs.includes.markdown-button', ['iconName' => 'table', 'onClick' => 'table', 'nodeName' => 'table', 'name' => 'table'])
 
-        {{-- @TODO: definde the nodeName --}}
-        @include('ark::inputs.includes.markdown-button', ['iconName' => 'image-file-landscape', 'onClick' => 'image', 'nodeName' => 'blockQuote', 'name' => 'image'])
+        {{-- @TODO: Detect images --}}
+        @include('ark::inputs.includes.markdown-button', ['iconName' => 'image-file-landscape', 'onClick' => 'image', 'nodeName' => 'image', 'name' => 'image'])
     </div>
 </div>
