@@ -186,7 +186,7 @@ const MarkdownEditor = (
         this.editor.eventEmitter.emit("openPopup", "link", {});
     },
     embedLink() {
-        Livewire.emit('openModal', 'embed-link-modal');
+        Livewire.emit("openModal", "embed-link-modal");
     },
     activeButtons: [],
     isActive(name) {
