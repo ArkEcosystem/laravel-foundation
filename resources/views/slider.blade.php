@@ -98,7 +98,7 @@
     <div class="relative @unless($hideNavigation) px-10 @endunless">
         <div
             id="swiper-{{ $id }}"
-            class="swiper-container
+            class="swiper
                 @unless ($topPagination) slider-pagination-bottom @endunless
                 @if ($hasViewAll) slider-show-view-all @endif
                 @if ($shadowSpacing) px-5 @endif
