@@ -15,7 +15,11 @@ import {
     // embedLinkPlugin,
 } from "./plugins/index.js";
 
-import { getWordsAndCharactersCount, uploadImage, initModalhandler } from "./utils/utils.js";
+import {
+    getWordsAndCharactersCount,
+    uploadImage,
+    initModalhandler,
+} from "./utils/utils.js";
 
 // const AVERAGE_WORDS_READ_PER_MINUTE = 200;
 
@@ -384,43 +388,32 @@ const MarkdownEditor = (
         Livewire.emit("openModal", modelName);
     },
     initModals() {
-        initModalhandler(
-            this.editor,
-            "embedLinkModal",
-            (formData) => {
-                const url = formData.get("url");
-                const caption = formData.get("caption");
-                return `<livewire:embed-link url="${url}" caption="${caption}" />`;
-            }
-        );
+        initModalhandler(this.editor, "embedLinkModal", (formData) => {
+            const url = formData.get("url");
+            const caption = formData.get("caption");
+            return `<livewire:embed-link url="${url}" caption="${caption}" />`;
+        });
 
-        initModalhandler(
-            this.editor,
-            "embedTweetModal",
-            (formData) => {
-                const urlOrCode = formData.get("url");
+        initModalhandler(this.editor, "embedTweetModal", (formData) => {
+            const urlOrCode = formData.get("url");
 
-                const tweetId = urlOrCode.startsWith("https://twitter.com")
-                    ? urlOrCode.split("https://twitter.com/")[1]
-                    : urlOrCode;
+            const tweetId = urlOrCode.startsWith("https://twitter.com")
+                ? urlOrCode.split("https://twitter.com/")[1]
+                : urlOrCode;
 
-                return `![](twitter:${tweetId})`;
-            }
-        );
+            return `![](twitter:${tweetId})`;
+        });
 
-        initModalhandler(
-            this.editor,
-            "embedPodcastModal",
-            (formData) => {
-                const urlOrCode = formData.get("url");
+        initModalhandler(this.editor, "embedPodcastModal", (formData) => {
+            const urlOrCode = formData.get("url");
 
-                const regExp = /^.*simplecast.com\/(\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b)/;
-                const match = urlOrCode.match(regExp);
-                const simpleCastId = match && match.length === 2 ? match[1] : urlOrCode;
+            const regExp = /^.*simplecast.com\/(\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b)/;
+            const match = urlOrCode.match(regExp);
+            const simpleCastId =
+                match && match.length === 2 ? match[1] : urlOrCode;
 
-                return `![](simplecast:${simpleCastId})`;
-            }
-        );
+            return `![](simplecast:${simpleCastId})`;
+        });
     },
     adjustHeight() {
         const hasPreview = this.editor.getCurrentPreviewStyle() === "vertical";
