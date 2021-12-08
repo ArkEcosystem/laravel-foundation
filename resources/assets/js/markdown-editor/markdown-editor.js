@@ -186,7 +186,7 @@ const MarkdownEditor = (
         this.editor.eventEmitter.emit("openPopup", "link", {});
     },
     embedLink() {
-        Livewire.emit('openModal', 'embed-link-modal');
+        Livewire.emit("openModal", "embed-link-modal");
     },
     activeButtons: [],
     isActive(name) {
@@ -212,9 +212,7 @@ const MarkdownEditor = (
                     // focus: this.onFocus,
                     // toolbarItems: [],
                 },
-                plugins: [
-                    underlinePlugin,
-                ],
+                plugins: [underlinePlugin],
                 hooks: {
                     addImageBlobHook: (blob, callback) => {
                         const alt =
@@ -377,19 +375,21 @@ const MarkdownEditor = (
         }
     },
     initEmbedLinkModal() {
-        Livewire.on('embedLink', (e) => {
+        Livewire.on("embedLink", (e) => {
             const form = e.target;
             const formData = new FormData(form);
-            const url = formData.get('url');
-            const caption = formData.get('caption');
+            const url = formData.get("url");
+            const caption = formData.get("caption");
 
             const replacement = `<livewire:embed-link url="${url}" caption="${caption}" />`;
 
             const currentSelection = this.editor.getSelection();
 
-            this.editor.replaceSelection(`<livewire:embed-link url="${url}" caption="${caption}" />`);
+            this.editor.replaceSelection(
+                `<livewire:embed-link url="${url}" caption="${caption}" />`
+            );
 
-            Livewire.emit('closeModal', 'embed-link-modal');
+            Livewire.emit("closeModal", "embed-link-modal");
 
             form.reset();
 
@@ -397,17 +397,13 @@ const MarkdownEditor = (
                 document.querySelector(".ProseMirror").focus();
 
                 this.editor.setSelection(
-                    [
-                        currentSelection[0][0],
-                        currentSelection[0][1],
-                    ],
+                    [currentSelection[0][0], currentSelection[0][1]],
                     [
                         currentSelection[0][0],
                         currentSelection[0][1] + replacement.length,
                     ]
                 );
             }, 1);
-
         });
     },
     adjustHeight() {
