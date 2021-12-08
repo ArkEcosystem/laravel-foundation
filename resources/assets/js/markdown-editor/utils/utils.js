@@ -2,7 +2,7 @@ export const initModalhandler = (editor, modalName, getReplacement) => {
     Livewire.on(modalName, (e) => {
         const form = e.target;
         const formData = new FormData(form);
-        const replacement = getReplacement(formData)
+        const replacement = getReplacement(formData);
 
         const currentSelection = editor.getSelection();
 
@@ -24,7 +24,7 @@ export const initModalhandler = (editor, modalName, getReplacement) => {
             );
         }, 500);
     });
-}
+};
 
 const handleFetchSuccessResponse = (response) => {
     const { status } = response;

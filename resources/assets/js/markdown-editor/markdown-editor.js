@@ -15,7 +15,11 @@ import {
     // embedLinkPlugin,
 } from "./plugins/index.js";
 
-import { getWordsAndCharactersCount, uploadImage, initModalhandler } from "./utils/utils.js";
+import {
+    getWordsAndCharactersCount,
+    uploadImage,
+    initModalhandler,
+} from "./utils/utils.js";
 
 // const AVERAGE_WORDS_READ_PER_MINUTE = 200;
 
@@ -378,15 +382,11 @@ const MarkdownEditor = (
         Livewire.emit("openModal", modelName);
     },
     initEmbedLinkModal() {
-        initModalhandler(
-            this.editor,
-            "embedLinkModal",
-            (formData) => {
-                const url = formData.get("url");
-                const caption = formData.get("caption");
-                return `<livewire:embed-link url="${url}" caption="${caption}" />`;
-            }
-        );
+        initModalhandler(this.editor, "embedLinkModal", (formData) => {
+            const url = formData.get("url");
+            const caption = formData.get("caption");
+            return `<livewire:embed-link url="${url}" caption="${caption}" />`;
+        });
     },
     adjustHeight() {
         const hasPreview = this.editor.getCurrentPreviewStyle() === "vertical";
