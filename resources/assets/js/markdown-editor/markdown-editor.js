@@ -176,6 +176,9 @@ const MarkdownEditor = (
     image() {
         this.editor.eventEmitter.emit("openPopup", "image", {});
     },
+    link() {
+        this.editor.eventEmitter.emit("openPopup", "link", {});
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -554,6 +557,7 @@ const MarkdownEditor = (
             "bulletList",
             "orderedList",
             "table",
+            "link",
         ].filter((name) => {
             const selection = this.editor?.mdEditor.view.state.selection || {};
             const { $from, $to } = selection;
@@ -607,8 +611,8 @@ const MarkdownEditor = (
                 );
             }
 
-            // fromMarks.forEach((mark) => console.log("from", mark.type.name));
-            // toMarks.forEach((mark) => console.log("to", mark.type.name));
+            fromMarks.forEach((mark) => console.log("from", mark.type.name));
+            toMarks.forEach((mark) => console.log("to", mark.type.name));
 
             return (
                 fromMarks.some((mark) => mark.type.name === name) ||
