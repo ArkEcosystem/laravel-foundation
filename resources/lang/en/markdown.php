@@ -17,6 +17,13 @@ return [
                 'url' => 'Tweet URL',
                 'url_placeholder' => 'https://twitter.com/arkecosystem/status/20',
             ]
+        ],
+        'embedPodcast' => [
+            'title' => 'Embed Tweet',
+            'form' => [
+                'url' => 'Tweet URL',
+                'url_placeholder' => 'https://twitter.com/arkecosystem/status/20',
+            ]
         ]
     ]
 ];

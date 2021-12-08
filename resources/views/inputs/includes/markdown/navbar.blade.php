@@ -49,5 +49,7 @@
         @include('ark::inputs.includes.markdown.button', ['iconName' => 'image-link', 'onClick' => 'embedLink'])
 
         @include('ark::inputs.includes.markdown.button', ['iconName' => 'social-media-twitter', 'onClick' => 'embedTweet'])
+
+        @include('ark::inputs.includes.markdown.button', ['iconName' => 'social-music-podcast', 'onClick' => 'embedPodcast'])
     </div>
 </div>

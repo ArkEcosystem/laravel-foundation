@@ -191,6 +191,9 @@ const MarkdownEditor = (
     embedTweet() {
         this.openModal("embedTweetModal");
     },
+    embedPodcast() {
+        this.openModal("embedPodcastModal");
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -403,6 +406,21 @@ const MarkdownEditor = (
                 const tweetId = el.pathname.substr(1);
 
                 return `![](twitter:${tweetId})`;
+            }
+        );
+
+        initModalhandler(
+            this.editor,
+            "embedPodcastModal",
+            (formData) => {
+                const url = formData.get("url");
+
+                // Use a HTML anchor to extract the tweet from the url
+                const el = document.createElement('a');
+                el.href = url;
+                const simpleCastId = el.pathname.substr(1);
+
+                return `![](simplecast:${simpleCastId})`;
             }
         );
     },
