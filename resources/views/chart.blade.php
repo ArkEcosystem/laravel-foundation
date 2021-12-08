@@ -22,7 +22,6 @@
         '{{ time() }}',
         '{{ $currency }}',
     )"
-    @stats-period-updated.window="updateChart"
     wire:key="{{ $id.time() }}"
     {{ $attributes->only('class') }}
 >
