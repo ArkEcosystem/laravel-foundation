@@ -18,26 +18,26 @@
         'bg-theme-primary-600' => $isCurrent,
     ])></div>
 
-    <a
-        @if ($disabled)
-            href=""
-            aria-disabled="true"
-            tabindex="-1"
-        @else
+    @unless ($disabled)
+        <a
             href="{{ $route ? route($route, $routeParams) : $href }}"
-        @endif
-        @class([
-            'font-semibold px-8 py-4 w-full group transition-default',
-            'bg-theme-primary-50' => $isCurrent,
-            'text-theme-secondary-900 hover:bg-theme-secondary-100' => ! $disabled && ! $isCurrent,
-            'text-theme-secondary-500 pointer-events-none' => $disabled,
-        ])
-        @if ($external)
-            target="_blank"
-        @endif
-        rel="noopener noreferrer"
-        dusk='navbar-item-{{ Str::slug($label) }}'
-    >
+            @class([
+                'font-semibold px-8 py-4 w-full group transition-default',
+                'bg-theme-primary-50' => $isCurrent,
+                'text-theme-secondary-900 hover:bg-theme-secondary-100' => ! $disabled && ! $isCurrent,
+            ])
+            @if ($external)
+                target="_blank"
+            @endif
+            rel="noopener noreferrer"
+            dusk="navbar-item-{{ Str::slug($label) }}"
+        >
+    @else
+        <div
+            class="font-semibold px-8 py-4 w-full group text-theme-secondary-500 pointer-events-none"
+            dusk="navbar-item-{{ Str::slug($label) }}"
+        >
+    @endunless
         <div
             class="block flex items-center"
             @if ($tooltip)
@@ -83,5 +83,9 @@
                 @endif
             </div>
         </div>
-    </a>
+    @unless ($disabled)
+        </a>
+    @else
+        </div>
+    @endunless
 </div>
