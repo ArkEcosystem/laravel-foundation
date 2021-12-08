@@ -203,7 +203,9 @@ const MarkdownEditor = (
                 plugins: [underlinePlugin],
                 hooks: {
                     addImageBlobHook: (blob, callback) => {
-                        const alt = document.querySelector("#toastuiAltTextInput").value || blob.name;
+                        const alt =
+                            document.querySelector("#toastuiAltTextInput")
+                                .value || blob.name;
                         // const markdownEditor = this.editor.mdEditor.getEditor();
                         const loadingLabel = `Uploading ${blob.name}…`;
 
@@ -232,8 +234,16 @@ const MarkdownEditor = (
                             // Select the placeholder again in case user unselected it.
                             // It will be replaced in the following callback
                             this.editor.setSelection(
-                                [placeholderSelection[1][0], placeholderSelection[1][1] - loadingPlaceholder.length - 2],
-                                [placeholderSelection[1][0], placeholderSelection[1][1]]
+                                [
+                                    placeholderSelection[1][0],
+                                    placeholderSelection[1][1] -
+                                        loadingPlaceholder.length -
+                                        2,
+                                ],
+                                [
+                                    placeholderSelection[1][0],
+                                    placeholderSelection[1][1],
+                                ]
                             );
 
                             callback(response.url, alt);
@@ -582,10 +592,18 @@ const MarkdownEditor = (
                 );
             }
 
-            if (name === 'table') {
+            if (name === "table") {
                 return (
-                    fromMarks.some((mark) => mark.type.name === name || mark.type.name === 'tableCell') ||
-                    toMarks.some((mark) => mark.type.name === name || mark.type.name === 'tableCell')
+                    fromMarks.some(
+                        (mark) =>
+                            mark.type.name === name ||
+                            mark.type.name === "tableCell"
+                    ) ||
+                    toMarks.some(
+                        (mark) =>
+                            mark.type.name === name ||
+                            mark.type.name === "tableCell"
+                    )
                 );
             }
 
