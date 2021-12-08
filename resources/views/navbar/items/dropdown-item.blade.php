@@ -34,7 +34,7 @@
         >
     @else
         <div
-            class="font-semibold px-8 py-4 w-full group text-theme-secondary-500 pointer-events-none"
+            class="py-4 px-8 w-full font-semibold pointer-events-none group text-theme-secondary-500"
             dusk="navbar-item-{{ Str::slug($label) }}"
         >
     @endunless
