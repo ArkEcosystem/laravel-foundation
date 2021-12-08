@@ -49,7 +49,3 @@
         @include('ark::inputs.includes.markdown.button', ['iconName' => 'image-link', 'onClick' => 'embedLink', 'nodeName' => 'embedLink'])
     </div>
 </div>
-
-@push('footer')
-    @include('ark::inputs.includes.markdown.embed-link-modal')
-@endpush
