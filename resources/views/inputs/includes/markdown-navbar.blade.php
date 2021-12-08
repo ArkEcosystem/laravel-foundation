@@ -34,7 +34,16 @@
 
         @include('ark::inputs.includes.markdown-button', ['iconName' => 'table', 'onClick' => 'table', 'nodeName' => 'table', 'name' => 'table'])
 
-        {{-- @TODO: Detect images --}}
         @include('ark::inputs.includes.markdown-button', ['iconName' => 'image-file-landscape', 'onClick' => 'image', 'nodeName' => 'image', 'name' => 'image'])
+
+        @include('ark::inputs.includes.markdown-button-separator')
+
+        @include('ark::inputs.includes.markdown-button', ['iconName' => 'hyperlink', 'onClick' => 'link', 'nodeName' => 'link', 'name' => 'link'])
+
+        {{-- @TODO --}}
+        @include('ark::inputs.includes.markdown-button', ['iconName' => 'programming-browser-1', 'onClick' => 'image', 'nodeName' => 'image', 'name' => 'image'])
+
+        {{-- @TODO --}}
+        @include('ark::inputs.includes.markdown-button', ['iconName' => 'programming-browser', 'onClick' => 'image', 'nodeName' => 'image', 'name' => 'image'])
     </div>
 </div>
