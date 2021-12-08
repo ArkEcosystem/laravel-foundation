@@ -160,6 +160,8 @@ const CustomChart = (
         init() {
             if (this.chart) {
                 this.chart.destroy();
+            } else if (Chart.getChart(this.getCanvas())) {
+                Chart.getChart(this.getCanvas()).destroy();
             }
 
             this.$watch("time", () => this.updateChart());
