@@ -3,6 +3,34 @@
 declare(strict_types=1);
 
 return [
+    'navbar' => [
+        'tooltips' => [
+            'more' => 'More',
+            'undo' => 'Undo',
+            'redo' => 'Redo',
+            'bold' => 'Bold',
+            'underline' => 'Underline',
+            'italic' => 'Italic',
+            'strike' => 'Strike',
+            'blockquote' => 'Blockquote',
+            'heading' => 'Heading :level',
+            'ordered_list' => 'Ordered List',
+            'unordered_list' => 'Unordered List',
+            'table' => 'Insert Table',
+            'image' => 'Insert Image',
+            'image' => 'Insert Image',
+            'link' => 'Insert Link',
+            'inline_code' => 'Inline Code',
+            'code_block' => 'Insert Code Block',
+            'embed_link' => 'Embed Link',
+            'embed_tweet' => 'Embed Tweet',
+            'simplecast' => 'Embed Simplecast',
+            'youtube' => 'Embed YouTube',
+            'link_collection' => 'Embed Link Collection',
+            'page_reference' => 'Embed Page Reference',
+            'alert' => 'Embed Alert',
+        ],
+    ],
     'modals' => [
         'embedLink' => [
             'title' => 'Add Embed Link',
@@ -22,6 +50,38 @@ return [
             'title' => 'Embed Simplecast Podcast',
             'form' => [
                 'url' => 'Simplecast URL or ID',
+            ]
+        ],
+        'embedYoutube' => [
+            'title' => 'Embed YouTube video',
+            'form' => [
+                'url' => 'Youtube URL or Video ID',
+            ]
+        ],
+        'linkCollection' => [
+            'title' => 'Link Collection',
+            'form' => [
+                'name' => 'Name',
+                'path' => 'Path',
+            ]
+        ],
+        'pageReference' => [
+            'title' => 'Add Page Reference',
+            'form' => [
+                'url' => 'Reference path or URL',
+            ]
+        ],
+        'alert' => [
+            'title' => 'Add Alert',
+            'form' => [
+                'type' => 'Alert type',
+                'types' => [
+                    'info' => 'Info',
+                    'success' => 'Success',
+                    'warning' => 'Warning',
+                    'danger' => 'Danger',
+                ],
+                'text' => 'Alert text',
             ]
         ]
     ]
