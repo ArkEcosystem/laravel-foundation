@@ -383,9 +383,31 @@ const MarkdownEditor = (
             const url = formData.get('url');
             const caption = formData.get('caption');
 
+            const replacement = `<livewire:embed-link url="${url}" caption="${caption}" />`;
+
+            const currentSelection = this.editor.getSelection();
+
             this.editor.replaceSelection(`<livewire:embed-link url="${url}" caption="${caption}" />`);
+
             Livewire.emit('closeModal', 'embed-link-modal');
+
             form.reset();
+
+            setTimeout(() => {
+                document.querySelector(".ProseMirror").focus();
+
+                this.editor.setSelection(
+                    [
+                        currentSelection[0][0],
+                        currentSelection[0][1],
+                    ],
+                    [
+                        currentSelection[0][0],
+                        currentSelection[0][1] + replacement.length,
+                    ]
+                );
+            }, 1);
+
         });
     },
     adjustHeight() {
