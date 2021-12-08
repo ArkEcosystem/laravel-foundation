@@ -28,8 +28,8 @@
             ])
             @if ($external)
                 target="_blank"
+                rel="noopener noreferrer"
             @endif
-            rel="noopener noreferrer"
             dusk="navbar-item-{{ Str::slug($label) }}"
         >
     @else
