@@ -793,6 +793,7 @@ See [this page](https://www.chartjs.org/docs/3.6.0/axes/cartesian/time.html) for
 
 2. On `resource/app/js/app.js` add:
 ```js
+import { Chart } from "chart.js";
 import CustomChart from "@ui/js/chart.js";
 
 window.CustomChart = CustomChart;
