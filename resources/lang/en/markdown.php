@@ -10,6 +10,13 @@ return [
                 'url' => 'URL',
                 'caption' => 'Caption',
             ]
+        ],
+        'embedTweet' => [
+            'title' => 'Embed Tweet',
+            'form' => [
+                'url' => 'Tweet URL',
+                'url_placeholder' => 'https://twitter.com/arkecosystem/status/20',
+            ]
         ]
     ]
 ];

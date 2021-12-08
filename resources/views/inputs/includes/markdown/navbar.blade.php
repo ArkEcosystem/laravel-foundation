@@ -46,6 +46,8 @@
 
         @include('ark::inputs.includes.markdown.button-separator')
 
-        @include('ark::inputs.includes.markdown.button', ['iconName' => 'image-link', 'onClick' => 'embedLink', 'nodeName' => 'embedLink'])
+        @include('ark::inputs.includes.markdown.button', ['iconName' => 'image-link', 'onClick' => 'embedLink'])
+
+        @include('ark::inputs.includes.markdown.button', ['iconName' => 'social-media-twitter', 'onClick' => 'embedTweet'])
     </div>
 </div>

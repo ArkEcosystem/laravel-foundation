@@ -188,6 +188,9 @@ const MarkdownEditor = (
     embedLink() {
         this.openModal("embedLinkModal");
     },
+    embedTweet() {
+        this.openModal("embedTweetModal");
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -268,7 +271,7 @@ const MarkdownEditor = (
 
             this.getWordsAndCharactersCount(this.editor.getMarkdown());
 
-            this.initEmbedLinkModal();
+            this.initModals();
 
             console.log(this.editor);
             // this.editor = new Editor({
@@ -377,7 +380,7 @@ const MarkdownEditor = (
     openModal(modelName) {
         Livewire.emit("openModal", modelName);
     },
-    initEmbedLinkModal() {
+    initModals() {
         initModalhandler(
             this.editor,
             "embedLinkModal",
@@ -385,6 +388,21 @@ const MarkdownEditor = (
                 const url = formData.get("url");
                 const caption = formData.get("caption");
                 return `<livewire:embed-link url="${url}" caption="${caption}" />`;
+            }
+        );
+
+        initModalhandler(
+            this.editor,
+            "embedTweetModal",
+            (formData) => {
+                const url = formData.get("url");
+
+                // Use a HTML anchor to extract the tweet from the url
+                const el = document.createElement('a');
+                el.href = url;
+                const tweetId = el.pathname.substr(1);
+
+                return `![](twitter:${tweetId})`;
             }
         );
     },
