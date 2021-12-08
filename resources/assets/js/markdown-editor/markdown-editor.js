@@ -12,7 +12,7 @@ import {
     // referencePlugin,
     // alertPlugin,
     // linkCollectionPlugin,
-    embedLinkPlugin,
+    // embedLinkPlugin,
 } from "./plugins/index.js";
 
 import { getWordsAndCharactersCount, uploadImage } from "./utils/utils.js";
@@ -186,7 +186,7 @@ const MarkdownEditor = (
         this.editor.eventEmitter.emit("openPopup", "link", {});
     },
     embedLink() {
-        Livewire.emit("openModal", "embed-link-modal");
+        Livewire.emit('openModal', 'embed-link-modal');
     },
     activeButtons: [],
     isActive(name) {
@@ -214,7 +214,6 @@ const MarkdownEditor = (
                 },
                 plugins: [
                     underlinePlugin,
-                    // embedLinkPlugin,
                 ],
                 hooks: {
                     addImageBlobHook: (blob, callback) => {
@@ -270,6 +269,8 @@ const MarkdownEditor = (
             });
 
             this.getWordsAndCharactersCount(this.editor.getMarkdown());
+
+            this.initEmbedLinkModal();
 
             console.log(this.editor);
             // this.editor = new Editor({
@@ -374,6 +375,18 @@ const MarkdownEditor = (
             alert("Something went wrong!");
             console.error(error);
         }
+    },
+    initEmbedLinkModal() {
+        Livewire.on('embedLink', (e) => {
+            const form = e.target;
+            const formData = new FormData(form);
+            const url = formData.get('url');
+            const caption = formData.get('caption');
+
+            this.editor.replaceSelection(`<livewire:embed-link url="${url}" caption="${caption}" />`);
+            Livewire.emit('closeModal', 'embed-link-modal');
+            form.reset();
+        });
     },
     adjustHeight() {
         const hasPreview = this.editor.getCurrentPreviewStyle() === "vertical";
