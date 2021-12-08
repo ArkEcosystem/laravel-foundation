@@ -73,7 +73,7 @@ $icons = [
 
                 {{-- <div x-show="showOverlay" class="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-75" style="display: none"></div> --}}
 
-                @include('ark::inputs.includes.markdown-navbar')
+                @include('ark::inputs.includes.markdown.navbar')
 
                 <textarea
                     x-ref="input"
