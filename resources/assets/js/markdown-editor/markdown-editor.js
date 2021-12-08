@@ -15,7 +15,7 @@ import {
     // embedLinkPlugin,
 } from "./plugins/index.js";
 
-import { getWordsAndCharactersCount, uploadImage } from "./utils/utils.js";
+import { getWordsAndCharactersCount, uploadImage, initModalhandler } from "./utils/utils.js";
 
 // const AVERAGE_WORDS_READ_PER_MINUTE = 200;
 
@@ -186,7 +186,7 @@ const MarkdownEditor = (
         this.editor.eventEmitter.emit("openPopup", "link", {});
     },
     embedLink() {
-        Livewire.emit("openModal", "embed-link-modal");
+        this.openModal("embedLinkModal");
     },
     activeButtons: [],
     isActive(name) {
@@ -374,37 +374,19 @@ const MarkdownEditor = (
             console.error(error);
         }
     },
+    openModal(modelName) {
+        Livewire.emit("openModal", modelName);
+    },
     initEmbedLinkModal() {
-        Livewire.on("embedLink", (e) => {
-            const form = e.target;
-            const formData = new FormData(form);
-            const url = formData.get("url");
-            const caption = formData.get("caption");
-
-            const replacement = `<livewire:embed-link url="${url}" caption="${caption}" />`;
-
-            const currentSelection = this.editor.getSelection();
-
-            this.editor.replaceSelection(
-                `<livewire:embed-link url="${url}" caption="${caption}" />`
-            );
-
-            Livewire.emit("closeModal", "embed-link-modal");
-
-            form.reset();
-
-            setTimeout(() => {
-                document.querySelector(".ProseMirror").focus();
-
-                this.editor.setSelection(
-                    [currentSelection[0][0], currentSelection[0][1]],
-                    [
-                        currentSelection[0][0],
-                        currentSelection[0][1] + replacement.length,
-                    ]
-                );
-            }, 1);
-        });
+        initModalhandler(
+            this.editor,
+            "embedLinkModal",
+            (formData) => {
+                const url = formData.get("url");
+                const caption = formData.get("caption");
+                return `<livewire:embed-link url="${url}" caption="${caption}" />`;
+            }
+        );
     },
     adjustHeight() {
         const hasPreview = this.editor.getCurrentPreviewStyle() === "vertical";
