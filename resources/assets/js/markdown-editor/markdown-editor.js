@@ -201,10 +201,52 @@ const MarkdownEditor = (
                     // toolbarItems: [],
                 },
                 plugins: [underlinePlugin],
+                hooks: {
+                    addImageBlobHook: (blob, callback) => {
+                        const alt = document.querySelector("#toastuiAltTextInput").value || blob.name;
+                        // const markdownEditor = this.editor.mdEditor.getEditor();
+                        const loadingLabel = `Uploading ${blob.name}…`;
+
+                        const loadingPlaceholder = `![${loadingLabel}]()`;
+
+                        const csrfToken = document.querySelector(
+                            'meta[name="csrf-token"]'
+                        ).content;
+
+                        if (!csrfToken) {
+                            throw new Error(
+                                "We were unable to get the csrfToken for this request"
+                            );
+                        }
+
+                        // Show a loading message while the image is uploaded
+                        callback("", loadingLabel);
+
+                        const placeholderSelection = this.editor.getSelection();
+
+                        uploadImage(blob, csrfToken).then((response) => {
+                            if (!response.url) {
+                                throw new Error("Received invalid response");
+                            }
+
+                            // Select the placeholder again in case user unselected it.
+                            // It will be replaced in the following callback
+                            this.editor.setSelection(
+                                [placeholderSelection[1][0], placeholderSelection[1][1] - loadingPlaceholder.length - 2],
+                                [placeholderSelection[1][0], placeholderSelection[1][1]]
+                            );
+
+                            callback(response.url, alt);
+                        });
+
+                        return true;
+                    },
+                },
             });
 
             this.getWordsAndCharactersCount(this.editor.getMarkdown());
 
+            console.log(this.editor);
             // this.editor = new Editor({
             //     el: this.$refs.editor,
             //     initialEditType: "markdown",
