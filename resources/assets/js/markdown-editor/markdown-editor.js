@@ -170,6 +170,12 @@ const MarkdownEditor = (
     orderedList() {
         this.editor.mdEditor.commands.orderedList();
     },
+    code() {
+        this.editor.mdEditor.commands.code();
+    },
+    codeBlock() {
+        this.editor.mdEditor.commands.codeBlock();
+    },
     table() {
         this.editor.eventEmitter.emit("openPopup", "table", {});
     },
@@ -558,6 +564,8 @@ const MarkdownEditor = (
             "orderedList",
             "table",
             "link",
+            "code",
+            "codeBlock",
         ].filter((name) => {
             const selection = this.editor?.mdEditor.view.state.selection || {};
             const { $from, $to } = selection;

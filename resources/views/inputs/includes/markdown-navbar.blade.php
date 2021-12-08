@@ -40,10 +40,9 @@
 
         @include('ark::inputs.includes.markdown-button', ['iconName' => 'hyperlink', 'onClick' => 'link', 'nodeName' => 'link', 'name' => 'link'])
 
-        {{-- @TODO --}}
-        @include('ark::inputs.includes.markdown-button', ['iconName' => 'programming-browser-1', 'onClick' => 'image', 'nodeName' => 'image', 'name' => 'image'])
+        @include('ark::inputs.includes.markdown-button', ['iconName' => 'programming-browser-1', 'onClick' => 'code', 'nodeName' => 'code'])
 
         {{-- @TODO --}}
-        @include('ark::inputs.includes.markdown-button', ['iconName' => 'programming-browser', 'onClick' => 'image', 'nodeName' => 'image', 'name' => 'image'])
+        @include('ark::inputs.includes.markdown-button', ['iconName' => 'programming-browser', 'onClick' => 'codeBlock', 'nodeName' => 'codeBlock'])
     </div>
 </div>
