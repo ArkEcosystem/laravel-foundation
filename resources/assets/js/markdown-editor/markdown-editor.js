@@ -398,12 +398,11 @@ const MarkdownEditor = (
             this.editor,
             "embedTweetModal",
             (formData) => {
-                const url = formData.get("url");
+                const urlOrCode = formData.get("url");
 
-                // Use a HTML anchor to extract the tweet from the url
-                const el = document.createElement('a');
-                el.href = url;
-                const tweetId = el.pathname.substr(1);
+                const tweetId = urlOrCode.startsWith("https://twitter.com")
+                    ? urlOrCode.split("https://twitter.com/")[1]
+                    : urlOrCode;
 
                 return `![](twitter:${tweetId})`;
             }
@@ -413,12 +412,11 @@ const MarkdownEditor = (
             this.editor,
             "embedPodcastModal",
             (formData) => {
-                const url = formData.get("url");
+                const urlOrCode = formData.get("url");
 
-                // Use a HTML anchor to extract the tweet from the url
-                const el = document.createElement('a');
-                el.href = url;
-                const simpleCastId = el.pathname.substr(1);
+                const regExp = /^.*simplecast.com\/(\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b)/;
+                const match = urlOrCode.match(regExp);
+                const simpleCastId = match && match.length === 2 ? match[1] : urlOrCode;
 
                 return `![](simplecast:${simpleCastId})`;
             }

@@ -10,7 +10,6 @@
                 type="text"
                 name="url"
                 :label="trans('ui::markdown.modals.embedPodcast.form.url')"
-                :placeholder="trans('ui::markdown.modals.embedPodcast.form.url_placeholder')"
                 class="w-full"
             />
         </form>

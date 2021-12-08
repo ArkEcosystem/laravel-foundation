@@ -19,10 +19,9 @@ return [
             ]
         ],
         'embedPodcast' => [
-            'title' => 'Embed Tweet',
+            'title' => 'Embed Simplecast Podcast',
             'form' => [
-                'url' => 'Tweet URL',
-                'url_placeholder' => 'https://twitter.com/arkecosystem/status/20',
+                'url' => 'Simplecast URL or ID',
             ]
         ]
     ]
