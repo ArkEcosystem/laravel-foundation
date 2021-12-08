@@ -1,5 +1,5 @@
 <div class="whitespace-nowrap toastui-editor-toolbar ark-markdown-editor-toolbar">
-    <div class="toastui-editor-toolbar-group flex items-center mx-4 border-b border-theme-secondary-200">
+    <div class="flex items-center mx-4 border-b toastui-editor-toolbar-group border-theme-secondary-200">
         @include('ark::inputs.includes.markdown-button', ['iconName' => 'undo', 'onClick' => 'undo'])
 
         @include('ark::inputs.includes.markdown-button', ['iconName' => 'redo', 'onClick' => 'redo'])
