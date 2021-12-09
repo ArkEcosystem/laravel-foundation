@@ -18,7 +18,6 @@ return [
             'unordered_list'  => 'Unordered List',
             'table'           => 'Insert Table',
             'image'           => 'Insert Image',
-            'image'           => 'Insert Image',
             'link'            => 'Insert Link',
             'inline_code'     => 'Inline Code',
             'code_block'      => 'Insert Code Block',
