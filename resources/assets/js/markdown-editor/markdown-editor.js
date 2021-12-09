@@ -175,7 +175,7 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
 
             // Disables the scroll sync used on the preview since we dont use it
             // and it throws some expections
-            this.editor.scrollSync.active = false
+            this.editor.scrollSync.active = false;
 
             console.log(this.editor);
 
