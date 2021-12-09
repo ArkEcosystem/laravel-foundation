@@ -59,7 +59,7 @@
 
         @include('ark::inputs.includes.markdown.button-separator')
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'alert', 'iconName' => 'alert-triangle', 'onClick' => 'embedAlert'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'alert', 'iconName' => 'alert-triangle', 'onClick' => 'alertModal'])
 
         {{-- @TODO define action --}}
         @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'embedlinkCollection'])

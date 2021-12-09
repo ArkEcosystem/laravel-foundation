@@ -201,6 +201,9 @@ const MarkdownEditor = (
     linkCollection() {
         this.openModal("linkCollectionModal");
     },
+    alertModal() {
+        this.openModal("alertModal");
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -433,6 +436,13 @@ const MarkdownEditor = (
             return `<x-link-collection\n\tlinks="[\n\t\t${links.join(
                 ",\n\t\t"
             )},\n\t]"\n/>`;
+        });
+
+        initModalhandler(this.editor, "alertModal", (formData) => {
+            const type = formData.get("type");
+            const text = formData.get("text");
+
+            return `<x-alert type="${type}">${text}</x-alert>`;
         });
     },
     adjustHeight() {
