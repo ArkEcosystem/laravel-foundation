@@ -177,23 +177,15 @@ const MarkdownEditor = (
                 },
             });
 
+            // Disables the scroll sync used on the preview since we dont use it
+            // and it throws some expections
+            this.editor.scrollSync.active = false
+
+            console.log(this.editor);
+
             this.getWordsAndCharactersCount(this.editor.getMarkdown());
 
             this.initModals();
-
-            // @TODO: check if this is needed
-            // const events = this.editor.eventManager.events;
-            // const handlers = events.get("command");
-            // handlers.unshift(this.forceHttpsLinkHandler);
-            // events.set("command", handlers);
-
-            // @TODO: check if this is needed
-            // // Since we dont use the preview and is hidden, the scroll event
-            // // creates some exceptions that are fixed by removing these listeners.
-            // this.editor.preview.eventManager.removeEventHandler(
-            //     "previewRenderAfter"
-            // );
-            // this.editor.preview.eventManager.removeEventHandler("scroll");
 
 
             // @TODO: check if this is needed
@@ -268,7 +260,7 @@ const MarkdownEditor = (
             return `<livewire:page-reference page="${url}" />`;
         });
     },
-    // @TODO: check this function
+    // @TODO: add this logic to the custom link modal
     forceHttpsLinkHandler: (event, data) => {
         if (event === "AddLink") {
             if (/^\/\//.test(data.url)) {
