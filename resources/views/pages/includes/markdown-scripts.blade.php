@@ -5,3 +5,4 @@
 @include('ark::inputs.includes.markdown.embed-tweet-modal')
 @include('ark::inputs.includes.markdown.embed-podcast-modal')
 @include('ark::inputs.includes.markdown.link-collection-modal')
+@include('ark::inputs.includes.markdown.alert-modal')
