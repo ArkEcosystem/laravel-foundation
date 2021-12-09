@@ -491,6 +491,21 @@ You can also get an alert with more padding and large icon by specifying `large`
 <x-icon name="chevron-down" size="xs" class="md:h-3 md:w-2" />
 ```
 
+### Chevron Down/Up component
+
+Shows the chevron icon which rotates based on specific criteria
+
+```blade
+<div x-data="{ containerOpen: false }">
+    <x-ark-chevron-open-close is-open="containerOpen === true" />
+</button>
+```
+
+| Parameter  | Description                                                | Required |
+| ---------- | ---------------------------------------------------------- | -------- |
+| is-open    | JS statement relating to the Alpine parent                 | yes      |
+| size       | Size of the chevron icon in relation to the icon component | no      |
+
 ### Simple Footer
 
 > Only contains date, copyright notice and an ARK.io link
