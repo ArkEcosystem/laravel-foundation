@@ -451,7 +451,7 @@ const MarkdownEditor = (
         initModalhandler(this.editor, "pageReferenceModal", (formData) => {
             const url = formData.get("url");
 
-            return `<x-alert type="${type}">${url}</x-alert>`;
+            return `<livewire:page-reference page="${url}" />`;
         });
     },
     adjustHeight() {
