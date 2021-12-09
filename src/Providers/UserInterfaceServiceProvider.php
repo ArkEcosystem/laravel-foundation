@@ -240,6 +240,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::avatar', 'ark-avatar');
             $blade->component('ark::breadcrumbs', 'ark-breadcrumbs');
             $blade->component('ark::clipboard', 'ark-clipboard');
+            $blade->component('ark::chevron-open-close', 'ark-chevron-open-close');
             $blade->component('ark::code', 'ark-code');
             $blade->component('ark::code-lines', 'ark-code-lines');
             $blade->component('ark::container', 'ark-container');
