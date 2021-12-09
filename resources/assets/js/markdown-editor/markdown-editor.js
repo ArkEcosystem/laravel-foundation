@@ -204,6 +204,9 @@ const MarkdownEditor = (
     alertModal() {
         this.openModal("alertModal");
     },
+    pageReference() {
+        this.openModal("pageReferenceModal");
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -443,6 +446,12 @@ const MarkdownEditor = (
             const text = formData.get("text");
 
             return `<x-alert type="${type}">${text}</x-alert>`;
+        });
+
+        initModalhandler(this.editor, "pageReferenceModal", (formData) => {
+            const url = formData.get("url");
+
+            return `<x-alert type="${type}">${url}</x-alert>`;
         });
     },
     adjustHeight() {

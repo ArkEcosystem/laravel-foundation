@@ -61,9 +61,7 @@
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'alert', 'iconName' => 'alert-triangle', 'onClick' => 'alertModal'])
 
-        {{-- @TODO define action --}}
-        @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'embedlinkCollection'])
-
+        @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'pageReference'])
     </div>
 
     <span class="block relative z-0 -mt-0.5 h-0 border-b border-theme-secondary-200"></span>
