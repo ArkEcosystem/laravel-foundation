@@ -35,7 +35,7 @@
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'table', 'iconName' => 'table', 'onClick' => 'table', 'nodeName' => 'table'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'image', 'iconName' => 'image-file-landscape', 'onClick' => 'image', 'nodeName' => 'image'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'image', 'iconName' => 'image-file-landscape', 'onClick' => 'image'])
 
         @include('ark::inputs.includes.markdown.button-separator')
 

@@ -67,7 +67,7 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
         this.editor.eventEmitter.emit("openPopup", "table", {});
     },
     image() {
-        this.editor.eventEmitter.emit("openPopup", "image", {});
+        this.openModal("imageModal");
     },
     link() {
         this.editor.eventEmitter.emit("openPopup", "link", {});
@@ -197,12 +197,17 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
         Livewire.emit("openModal", modelName);
     },
     initModals() {
-        initModalhandler(this.editor, "embedLinkModal", (formData) => {
-            const url = formData.get("url");
-            const caption = formData.get("caption");
-            return `<livewire:embed-link url="${url}" caption="${caption}" />`;
-        });
+        initModalhandler(this.editor, "imageModal", (formData) => {
 
+            const source = formData.get("source");
+            const image = formData.get("image");
+            const description = formData.get("description");
+
+            console.log(source, image, description);
+
+
+            return ``;
+        });
         initModalhandler(this.editor, "embedTweetModal", (formData) => {
             const urlOrCode = formData.get("url");
 

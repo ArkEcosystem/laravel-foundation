@@ -70,6 +70,16 @@ return [
                 'url' => 'Reference path or URL',
             ],
         ],
+        'image' => [
+            'title' => 'Insert Image',
+            'form'  => [
+                'source' => 'Select image source',
+                'file' => 'File',
+                'link' => 'Link',
+                'image' => 'Image',
+                'description' => 'Description',
+            ],
+        ],
         'alert' => [
             'title' => 'Add Alert',
             'form'  => [
