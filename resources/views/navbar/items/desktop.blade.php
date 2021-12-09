@@ -3,7 +3,7 @@
     'navigation'      => [],
     'navigationExtra' => null,
     'dropdownClass'   => 'flex-shrink-0 w-56',
-    'menuDropdown'    => 'menuDropdown',
+    'menuDropdownId'  => 'menuDropdown',
 ])
 
 @php
@@ -37,7 +37,7 @@
                         @click="toggleDropdown('{{ $navItem['label'] }}')"
                         @blur="closeIfBlurOutside"
                         aria-haspopup="true"
-                        aria-controls="{{ $menuDropdown }}"
+                        aria-controls="{{ $menuDropdownId }}"
                         x-bind:aria-expanded="openDropdown === '{{ $navItem['label'] }}'"
                     >
                         <span :class="{ 'text-theme-primary-600': openDropdown === '{{ $navItem['label'] }}' }">
@@ -64,7 +64,7 @@
 
                     <div
                         x-ref="menuDropdown"
-                        id="{{ $menuDropdown }}"
+                        id="{{ $menuDropdownId }}"
                         x-show.transition.origin.top="openDropdown === '{{ $navItem['label'] }}'"
                         class="absolute top-0 left-0 z-30 py-4 mt-24 bg-white rounded-xl"
                         x-cloak
