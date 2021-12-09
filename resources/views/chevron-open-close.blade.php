@@ -5,7 +5,7 @@
 
 <div class="inline-flex">
     <span
-        {{ $attributes->class('transition duration-150 ease-in-out transform') }}
+        {{ $attributes->class('transition duration-150 ease-in-out') }}
         :class="{ 'rotate-180': {{ $isOpen }} }"
     >
         <x-ark-icon name="chevron-down" :size="$size" />
