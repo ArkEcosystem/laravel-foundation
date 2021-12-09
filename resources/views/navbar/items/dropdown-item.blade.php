@@ -56,7 +56,7 @@
 
             <div class="flex flex-col flex-1 space-y-2">
                 <span @class([
-                    'flex items-center space-x-2',
+                    'flex items-center space-x-2 transition-default',
                     'text-theme-secondary-500' => $disabled,
                     'text-theme-primary-600' => ! $disabled && $isCurrent,
                     'group-hover:text-theme-primary-700' => ! $disabled && ! $isCurrent,
