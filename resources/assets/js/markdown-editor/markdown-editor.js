@@ -409,25 +409,26 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
         }, 500);
     },
     adjustNavbar() {
-        const scroll = document.querySelector('.ark-markdown-editor-toolbar > div');
+        const scroll = document.querySelector(
+            ".ark-markdown-editor-toolbar > div"
+        );
         const items = Array.from(scroll.children);
 
-        items.forEach(item => {
+        items.forEach((item) => {
             item.style.display = null;
         });
 
         const navbarItems = [];
 
-        for(var i = items.length - 1; i >= 0; i--) {
-            items[i].style.display = 'none';
+        for (var i = items.length - 1; i >= 0; i--) {
+            items[i].style.display = "none";
             const isScrolled = scroll.scrollWidth > scroll.clientWidth;
-            if (! isScrolled) {
+            if (!isScrolled) {
                 break;
             } else {
                 navbarItems.push(items[i]);
             }
         }
-
     },
 
     // Default handlers
