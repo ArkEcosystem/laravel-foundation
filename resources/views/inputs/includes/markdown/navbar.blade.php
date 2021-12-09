@@ -54,6 +54,17 @@
         @include('ark::inputs.includes.markdown.button', ['name' => 'embed_tweet', 'iconName' => 'social-media-twitter', 'onClick' => 'embedTweet'])
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'simplecast', 'iconName' => 'social-music-podcast', 'onClick' => 'embedPodcast'])
+
+        {{-- @TODO define action --}}
+        @include('ark::inputs.includes.markdown.button', ['name' => 'link_collection', 'iconName' => 'app-window-link', 'onClick' => 'embedPodcast'])
+
+        @include('ark::inputs.includes.markdown.button-separator')
+
+        {{-- @TODO define action --}}
+        @include('ark::inputs.includes.markdown.button', ['name' => 'alert', 'iconName' => 'alert-triangle', 'onClick' => 'embedPodcast'])
+        {{-- @TODO define action --}}
+        @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'embedPodcast'])
+
     </div>
 
     <span class="border-b border-theme-secondary-200 block h-0 relative z-0 -mt-0.5"></span>

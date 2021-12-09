@@ -14,37 +14,6 @@
     'charsLimit' => false,
 ])
 
-@php
-$icons = [
-    'iconBold' => 'text-bold',
-    'iconItalic' => 'text-italic',
-    'iconStrike' => 'text-strike-through',
-    'iconUnderline' => 'text-underline',
-    'iconQuote' => 'open-quote',
-    'iconUl' => 'list-bullets',
-    'iconOl' => 'list-numbers',
-    'iconTable' => 'table',
-    'iconImage' => 'image-file-landscape',
-    'iconLink' => 'hyperlink',
-    'iconCode' => 'programming-browser-1',
-    'iconCodeblock' => 'programming-browser',
-    'iconYoutube' => 'social-video-youtube-clip',
-    'iconTwitter' => 'social-media-twitter',
-    'iconPodcast' => 'social-music-podcast',
-    'iconLinkcollection' => 'app-window-link',
-    'iconEmbedLink' => 'image-link',
-    'iconReference' => 'page-reference',
-    'iconAlert' => 'alert-triangle',
-    'iconUndo' => 'undo',
-    'iconRedo' => 'redo',
-    'iconPreview' => 'monitor',
-]
-@endphp
-
-<div>
-
-</div>
-
 <div class="ark-markdown-editor ark-markdown-editor-{{ $toolbar }} {{ $class ?? '' }}">
     <div class="input-group">
         @unless ($hideLabel ?? false)
@@ -71,8 +40,6 @@ $icons = [
                 class="bg-white rounded border-2 border-theme-secondary-200"
             >
 
-                {{-- <div x-show="showOverlay" class="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-75" style="display: none"></div> --}}
-
                 @include('ark::inputs.includes.markdown.navbar')
 
                 <textarea
@@ -84,7 +51,6 @@ $icons = [
                 ></textarea>
 
                 <div wire:ignore x-ref="editor"></div>
-
 
                 @if($showCharsCount || $showWordsCount || $showReadingTime)
                     <div x-cloak class="flex justify-end py-3 text-xs bg-white border-t-2 border-theme-secondary-200">
