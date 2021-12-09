@@ -24,9 +24,10 @@
                                     {{ ucfirst($this->activeFilter) }}
                                 </span>
 
-                                <span :class="{ 'rotate-180': dropdownOpen }" class="transition duration-150 ease-in-out text-theme-primary-600">
-                                    <x-ark-icon name="chevron-down" size="xs" />
-                                </span>
+                                <x-ark-chevron-open-close
+                                    is-open="dropdownOpen"
+                                    class="text-theme-primary-600"
+                                />
                             </div>
                         @endslot
                         <div class="py-3">
