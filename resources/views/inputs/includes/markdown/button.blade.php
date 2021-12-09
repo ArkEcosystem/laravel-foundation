@@ -16,6 +16,7 @@
             :class="isActive('{{ $nodeName }}') ? 'border-theme-primary-600 text-theme-primary-600' : 'text-theme-secondary-900'"
         @endif
         data-tippy-content="{{ $tooltip ?? trans('ui::markdown.navbar.tooltips.' . $name) }}"
+        data-tippy-offset="[0,-15]"
     >
         <x-ark-icon :name="'wysiwyg.' . $iconName" class="inline" size="sm" />
     </button>
