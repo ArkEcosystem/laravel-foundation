@@ -430,7 +430,9 @@ const MarkdownEditor = (
                 return `[${name}](${paths[index]})`;
             });
 
-            return `<x-link-collection\n\tlinks="[\n\t\t${links.join(',\n\t\t')},\n\t]"\n/>`;
+            return `<x-link-collection\n\tlinks="[\n\t\t${links.join(
+                ",\n\t\t"
+            )},\n\t]"\n/>`;
         });
     },
     adjustHeight() {
