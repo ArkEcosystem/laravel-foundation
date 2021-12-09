@@ -146,7 +146,7 @@ const CustomChart = (
                         callback: (value, index, data) =>
                             this.getCurrencyValue(value),
                     },
-                    gridLines: {
+                    grid: {
                         display: grid && key === 0,
                         drawBorder: false,
                         color: getAxisThemeConfig(theme.mode).y.color,
