@@ -198,13 +198,11 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
     },
     initModals() {
         initModalhandler(this.editor, "imageModal", (formData) => {
-
             const source = formData.get("source");
             const image = formData.get("image");
             const description = formData.get("description");
 
             console.log(source, image, description);
-
 
             return ``;
         });
