@@ -13,7 +13,10 @@
                             {{ ${"title_{$i}"} }}
                         </span>
                         <span class="flex items-center ml-6 h-7">
-                            <x-ark-chevron-open-close is-open="openPanel === {{ $i }}" />
+                            <x-ark-chevron-open-close
+                                is-open="openPanel === {{ $i }}"
+                                class="transform"
+                            />
                         </span>
                     </button>
                 </dt>

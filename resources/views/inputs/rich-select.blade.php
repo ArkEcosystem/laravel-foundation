@@ -55,10 +55,9 @@ $initialText = $grouped
             <span x-show="!text" class="block truncate text-theme-secondary-500 dark:text-theme-secondary-700">@if(isset($placeholder) && $placeholder) {{ $placeholder }} @else &nbsp; @endif</span>
             @endif
 
-
             <x-ark-chevron-open-close
                 is-open="open"
-                class="{{ $iconClass }} pointer-events-none"
+                class="{{ $iconClass }} transform pointer-events-none"
                 size="2xs"
             />
         </button>
