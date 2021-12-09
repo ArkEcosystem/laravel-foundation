@@ -326,8 +326,12 @@ const MarkdownEditor = (
 
             if (["bulletList", "orderedList"].includes(name)) {
                 const endIndex = $to?.index(0);
-                const textContent =
-                    $from?.doc.child(endIndex)?.textContent || "";
+                let textContent = ';'
+
+                try {
+                    textContent =
+                        $from?.doc.child(endIndex)?.textContent || "";
+                } catch (e) {}
 
                 if (name === "bulletList") {
                     return reList.test(textContent);
