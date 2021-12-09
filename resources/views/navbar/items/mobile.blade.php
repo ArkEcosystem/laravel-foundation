@@ -43,7 +43,7 @@
                         aria-controls="{{ $mobileDropdown }}"
                         x-bind:aria-expanded="openDropdown === '{{ $navItem['label'] }}'"
                     >
-                        <span :class="{ 'text-theme-primary-600': openDropdown === 'products' }">
+                        <span :class="{ 'text-theme-primary-600': openDropdown === '{{ $navItem['label'] }}' }">
                             <span class="sr-only">
                                 <span x-show="openDropdown !== '{{ $navItem['label'] }}'">
                                     @lang('ui::actions.open')
@@ -54,7 +54,7 @@
                                 </span>
                             </span>
 
-                            @lang('menus.products.title')
+                            {{ $navItem['label'] }}
                         </span>
 
                         <x-ark-chevron-open-close
