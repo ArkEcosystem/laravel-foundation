@@ -14,11 +14,7 @@ const AVERAGE_WORDS_READ_PER_MINUTE = 200;
 const reList = /(^\s*)([-*+])/;
 const reOrderedList = /(^\s*)([\d])+\.( \[[ xX]])? /;
 
-const MarkdownEditor = (
-    height = null,
-    charsLimit = "0",
-    extraData = {}
-) => ({
+const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
     editor: null,
     charsLimit: parseInt(charsLimit),
     charsCount: 0,
@@ -195,7 +191,6 @@ const MarkdownEditor = (
             // );
             // this.editor.preview.eventManager.removeEventHandler("scroll");
 
-
             // @TODO: check if this is needed
             // this.adjustHeight();
 
@@ -326,11 +321,10 @@ const MarkdownEditor = (
 
             if (["bulletList", "orderedList"].includes(name)) {
                 const endIndex = $to?.index(0);
-                let textContent = ';'
+                let textContent = ";";
 
                 try {
-                    textContent =
-                        $from?.doc.child(endIndex)?.textContent || "";
+                    textContent = $from?.doc.child(endIndex)?.textContent || "";
                 } catch (e) {}
 
                 if (name === "bulletList") {
