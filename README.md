@@ -111,12 +111,12 @@ You can copy/paste them in your `.bashrc`, `.aliases` or whatever file you set u
 
 Before jumping into the code, let me explain what you can do with them ([skip to code](/#code)). 
 
-For these examples we use `marketsquare.io` and `laravel-foundation` repos, assuming that both are installed in the same folder (`/Users/john/sites`) on our local development machine.
+For these examples we use `marketsquare.io` and `laravel-foundation` repos, assuming that both are installed in the same folder (`/Users/my-user/projects`) on our local development machine.
 
 #### symlink your current project to laravel-foundation
 ```bash
 # move into marketsquare.io folder
-$ cd /Users/john/sites/marketsquare.io
+$ cd /Users/my-user/projects/marketsquare.io
 
 # symlink to laravel-foundation repo
 $ link:foundation
@@ -127,7 +127,7 @@ That's it!
 The script automatically tries to guess where the `laravel-foundation` repo is located and symlinks the current project to it (in this case `marketsquare.io`).
 
 If the current project and `laravel-foundation` repos are not in the same folder, the script tries to move one level back (`../../`) and tries again. 
-If `laravel-foundation` is not found, the script exits with error code 1. 
+If `laravel-foundation` is not found, the script exits and outputs an error message. 
 
 You can always specify a custom path, by passing it as an argument
 ```bash
@@ -137,7 +137,7 @@ $ link:foundation 'Users/john/repos/laravel-foundation'
 #### remove symlink from your current project
 ```bash
 # move into marketsquare.io folder
-$ cd /Users/john/sites/marketsquare.io
+$ cd /Users/my-user/projects/marketsquare.io
 
 # remove symlink
 $ unlink:foundation
@@ -149,7 +149,7 @@ The script looks for `.symlink_foundation` temp file (created by `link:foundatio
 If not found, it tries to guess where the `laravel-foundation` repo is located and removes the symlink from the current project (in this case `marketsquare.io`).
 
 If the current project and `laravel-foundation` repos are not in the same folder, the script tries to move one level back (`../../`) and tries again. 
-If `laravel-foundation` is not found, the script exits with error code 1. 
+If `laravel-foundation` is not found, the script exits and outputs an error message. 
 
 You can always specify a custom path, by passing it as an argument
 ```bash
@@ -163,7 +163,7 @@ Scripts are self-explanatory, plus they have comments on each line 😉.
 function link:foundation() {
   
     # Check if already symlinked
-    [ -f .symlink_foundation ] && { echo "already symlinked"; exit 1; }
+    [ -f .symlink_foundation ] && { echo "already symlinked"; return; }
 
     # Get path from args or guess it
     if [ "$1" != "" ]; then
@@ -174,7 +174,7 @@ function link:foundation() {
         FOUNDATION="../../laravel-foundation"
     else
         echo "Unable to find `laravel-foundation`"
-        exit 1
+        return
     fi
 
     # Generate random string
@@ -212,7 +212,7 @@ function unlink:foundation() {
         FOUNDATION="../../laravel-foundation"
     else
         echo "Unable to find `laravel-foundation`"
-        exit 1
+        return
     fi
 
     # Remove symlink
