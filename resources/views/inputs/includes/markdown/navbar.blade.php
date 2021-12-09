@@ -1,7 +1,7 @@
-<div class="whitespace-nowrap toastui-editor-toolbar ark-markdown-editor-toolbar relative px-4 flex flex-col">
+<div class="flex relative flex-col px-4 whitespace-nowrap toastui-editor-toolbar ark-markdown-editor-toolbar">
 
 
-    <div class="flex items-center toastui-editor-toolbar-group relative z-10">
+    <div class="flex relative z-10 items-center toastui-editor-toolbar-group">
         @include('ark::inputs.includes.markdown.button', ['name' => 'undo', 'iconName' => 'undo', 'onClick' => 'undo'])
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'redo', 'iconName' => 'redo', 'onClick' => 'redo'])
@@ -56,5 +56,5 @@
         @include('ark::inputs.includes.markdown.button', ['name' => 'simplecast', 'iconName' => 'social-music-podcast', 'onClick' => 'embedPodcast'])
     </div>
 
-    <span class="border-b border-theme-secondary-200 block h-0 relative z-0 -mt-0.5"></span>
+    <span class="block relative z-0 -mt-0.5 h-0 border-b border-theme-secondary-200"></span>
 </div>
