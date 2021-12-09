@@ -7,7 +7,6 @@
     'label' => '',
     'height' => null,
     'toolbar' => 'basic',
-    'plugins' => null,
     'showCharsCount' => true,
     'showWordsCount' => true,
     'showReadingTime' => true,
@@ -32,7 +31,6 @@
             <div
                 x-data="MarkdownEditor(
                     @if($height)'{{ $height }}'@else null @endif,
-                    '{{ $toolbar }}',
                     '{{ $charsLimit }}',
                     {{ $xData }}
                 )"
@@ -40,7 +38,7 @@
                 class="bg-white rounded border-2 border-theme-secondary-200"
             >
 
-                @include('ark::inputs.includes.markdown.navbar')
+                @include('ark::inputs.includes.markdown.navbar', ['toolbar' => $toolbar])
 
                 <textarea
                     x-ref="input"

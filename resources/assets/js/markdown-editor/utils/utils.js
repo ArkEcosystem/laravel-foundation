@@ -1,31 +1,3 @@
-export const initModalhandler = (editor, modalName, getReplacement) => {
-    Livewire.on(modalName, (e) => {
-        const form = e.target;
-        const formData = new FormData(form);
-        const replacement = getReplacement(formData);
-
-        const currentSelection = editor.getSelection();
-
-        editor.replaceSelection(replacement);
-
-        Livewire.emit("closeModal", modalName);
-
-        form.reset();
-
-        setTimeout(() => {
-            document.querySelector(".ProseMirror").focus();
-
-            editor.setSelection(
-                [currentSelection[0][0], currentSelection[0][1]],
-                [
-                    currentSelection[0][0],
-                    currentSelection[0][1] + replacement.length,
-                ]
-            );
-        }, 500);
-    });
-};
-
 const handleFetchSuccessResponse = (response) => {
     const { status } = response;
     if (status === 200) {
@@ -84,4 +56,32 @@ export const getWordsAndCharactersCount = (
     })
         .then((response) => handleFetchSuccessResponse(response))
         .catch((error) => handleFetchErrorResponse(error));
+};
+
+export const initModalhandler = (editor, modalName, getReplacement) => {
+    Livewire.on(modalName, (e) => {
+        const form = e.target;
+        const formData = new FormData(form);
+        const replacement = getReplacement(formData);
+
+        const currentSelection = editor.getSelection();
+
+        editor.replaceSelection(replacement);
+
+        Livewire.emit("closeModal", modalName);
+
+        form.reset();
+
+        setTimeout(() => {
+            document.querySelector(".ProseMirror").focus();
+
+            editor.setSelection(
+                [currentSelection[0][0], currentSelection[0][1]],
+                [
+                    currentSelection[0][0],
+                    currentSelection[0][1] + replacement.length,
+                ]
+            );
+        }, 500);
+    });
 };
