@@ -426,12 +426,11 @@ const MarkdownEditor = (
                 .getAll("path")
                 .filter((name) => name.length > 0);
 
-            // const regExp = /^.*simplecast.com\/(\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b)/;
-            // const match = urlOrCode.match(regExp);
-            // const simpleCastId =
-            //     match && match.length === 2 ? match[1] : urlOrCode;
+            const links = names.map((name, index) => {
+                return `[${name}](${paths[index]})`;
+            });
 
-            return `![](simplecast:${"xxx"})`;
+            return `<x-link-collection\n\tlinks="[\n\t\t${links.join(',\n\t\t')},\n\t]"\n/>`;
         });
     },
     adjustHeight() {
