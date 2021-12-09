@@ -55,15 +55,14 @@
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'simplecast', 'iconName' => 'social-music-podcast', 'onClick' => 'embedPodcast'])
 
-        {{-- @TODO define action --}}
-        @include('ark::inputs.includes.markdown.button', ['name' => 'link_collection', 'iconName' => 'app-window-link', 'onClick' => 'embedPodcast'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'link_collection', 'iconName' => 'app-window-link', 'onClick' => 'linkCollection'])
 
         @include('ark::inputs.includes.markdown.button-separator')
 
         {{-- @TODO define action --}}
         @include('ark::inputs.includes.markdown.button', ['name' => 'alert', 'iconName' => 'alert-triangle', 'onClick' => 'embedPodcast'])
         {{-- @TODO define action --}}
-        @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'embedPodcast'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'embedlinkCollection'])
 
     </div>
 

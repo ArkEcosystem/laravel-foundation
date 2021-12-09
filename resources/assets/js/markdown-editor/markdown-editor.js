@@ -198,6 +198,9 @@ const MarkdownEditor = (
     embedPodcast() {
         this.openModal("embedPodcastModal");
     },
+    linkCollection() {
+        this.openModal("linkCollectionModal");
+    },
     activeButtons: [],
     isActive(name) {
         return this.activeButtons.includes(name);
@@ -413,6 +416,19 @@ const MarkdownEditor = (
                 match && match.length === 2 ? match[1] : urlOrCode;
 
             return `![](simplecast:${simpleCastId})`;
+        });
+
+        initModalhandler(this.editor, "linkCollectionModal", (formData) => {
+            const names = formData.getAll("name").filter(name => name.length > 0);
+            const paths = formData.getAll("path").filter(name => name.length > 0);
+
+
+            // const regExp = /^.*simplecast.com\/(\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b)/;
+            // const match = urlOrCode.match(regExp);
+            // const simpleCastId =
+            //     match && match.length === 2 ? match[1] : urlOrCode;
+
+            return `![](simplecast:${'xxx'})`;
         });
     },
     adjustHeight() {
