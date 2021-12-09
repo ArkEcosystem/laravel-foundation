@@ -183,12 +183,11 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
 
             this.initModals();
 
-            // @TODO: check if this is needed
-            // this.adjustHeight();
+            this.adjustNavbar();
 
-            // window.onresize = () => {
-            //     this.adjustHeight();
-            // };
+            window.onresize = () => {
+                this.adjustNavbar();
+            };
         } catch (error) {
             alert("Something went wrong!");
             console.error(error);
@@ -408,6 +407,27 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
 
             this.loadingCharsCount = false;
         }, 500);
+    },
+    adjustNavbar() {
+        const scroll = document.querySelector('.ark-markdown-editor-toolbar > div');
+        const items = Array.from(scroll.children);
+
+        items.forEach(item => {
+            item.style.display = null;
+        });
+
+        const navbarItems = [];
+
+        for(var i = items.length - 1; i >= 0; i--) {
+            items[i].style.display = 'none';
+            const isScrolled = scroll.scrollWidth > scroll.clientWidth;
+            if (! isScrolled) {
+                break;
+            } else {
+                navbarItems.push(items[i]);
+            }
+        }
+
     },
 
     // Default handlers
