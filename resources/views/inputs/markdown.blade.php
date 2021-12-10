@@ -41,6 +41,8 @@
 
                 @include('ark::inputs.includes.markdown.navbar', ['toolbar' => $toolbar])
 
+                @include('ark::inputs.includes.markdown.navbar', ['toolbar' => $toolbar, 'mobile' => true])
+
                 <textarea
                     x-ref="input"
                     style="display: none"

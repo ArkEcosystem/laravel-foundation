@@ -1,4 +1,12 @@
-<div class="flex relative flex-col px-4 whitespace-nowrap toastui-editor-toolbar ark-markdown-editor-toolbar">
+@props(['mobile' => false])
+
+<div
+    @class([
+        'toastui-editor-toolbar ark-markdown-editor-toolbar ',
+        'flex relative flex-col px-4 whitespace-nowrap' => !$mobile,
+        'ark-markdown-editor-toolbar-mobile' => $mobile,
+    ])
+>
     <div class="flex overflow-hidden relative z-10 items-center toastui-editor-toolbar-group">
         @include('ark::inputs.includes.markdown.button', ['name' => 'undo', 'iconName' => 'undo', 'onClick' => 'undo'])
 
@@ -62,5 +70,7 @@
         @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'pageReference'])
     </div>
 
-    <span class="block relative z-0 -mt-0.5 h-0 border-b border-theme-secondary-200"></span>
+    @unless ($mobile)
+        <span class="block relative z-0 -mt-0.5 h-0 border-b border-theme-secondary-200"></span>
+    @endunless
 </div>
