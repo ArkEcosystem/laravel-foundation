@@ -121,63 +121,64 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
                 // 2. Makes the editor way faster
                 customHTMLSanitizer: () => "",
                 hooks: {
-                    addImageBlobHook: (blob, callback) => {
-                        const alt =
-                            document.querySelector("#toastuiAltTextInput")
-                                .value || blob.name;
-                        // const markdownEditor = this.editor.mdEditor.getEditor();
-                        const loadingLabel = `Uploading ${blob.name}…`;
+                    // The following hook is not currently used since I added a new modal for handling the image.
+                    // That modal doesn't have the file upload logic implemented yet but is very likely that we can
+                    // reuse most of the logic here so I am going to leave the code here for future reference.
+                    // addImageBlobHook: (blob, callback) => {
+                    //     const alt =
+                    //         document.querySelector("#toastuiAltTextInput")
+                    //             .value || blob.name;
+                    //     // const markdownEditor = this.editor.mdEditor.getEditor();
+                    //     const loadingLabel = `Uploading ${blob.name}…`;
 
-                        const loadingPlaceholder = `![${loadingLabel}]()`;
+                    //     const loadingPlaceholder = `![${loadingLabel}]()`;
 
-                        const csrfToken = document.querySelector(
-                            'meta[name="csrf-token"]'
-                        ).content;
+                    //     const csrfToken = document.querySelector(
+                    //         'meta[name="csrf-token"]'
+                    //     ).content;
 
-                        if (!csrfToken) {
-                            throw new Error(
-                                "We were unable to get the csrfToken for this request"
-                            );
-                        }
+                    //     if (!csrfToken) {
+                    //         throw new Error(
+                    //             "We were unable to get the csrfToken for this request"
+                    //         );
+                    //     }
 
-                        // Show a loading message while the image is uploaded
-                        callback("", loadingLabel);
+                    //     // Show a loading message while the image is uploaded
+                    //     callback("", loadingLabel);
 
-                        const placeholderSelection = this.editor.getSelection();
+                    //     const placeholderSelection = this.editor.getSelection();
 
-                        uploadImage(blob, csrfToken).then((response) => {
-                            if (!response.url) {
-                                throw new Error("Received invalid response");
-                            }
+                    //     uploadImage(blob, csrfToken).then((response) => {
+                    //         if (!response.url) {
+                    //             throw new Error("Received invalid response");
+                    //         }
 
-                            // Select the placeholder again in case user unselected it.
-                            // It will be replaced in the following callback
-                            this.editor.setSelection(
-                                [
-                                    placeholderSelection[1][0],
-                                    placeholderSelection[1][1] -
-                                        loadingPlaceholder.length -
-                                        2,
-                                ],
-                                [
-                                    placeholderSelection[1][0],
-                                    placeholderSelection[1][1],
-                                ]
-                            );
+                    //         // Select the placeholder again in case user unselected it.
+                    //         // It will be replaced in the following callback
+                    //         this.editor.setSelection(
+                    //             [
+                    //                 placeholderSelection[1][0],
+                    //                 placeholderSelection[1][1] -
+                    //                     loadingPlaceholder.length -
+                    //                     2,
+                    //             ],
+                    //             [
+                    //                 placeholderSelection[1][0],
+                    //                 placeholderSelection[1][1],
+                    //             ]
+                    //         );
 
-                            callback(response.url, alt);
-                        });
+                    //         callback(response.url, alt);
+                    //     });
 
-                        return true;
-                    },
+                    //     return true;
+                    // },
                 },
             });
 
             // Disables the scroll sync used on the preview since we dont use it
             // and it throws some expections
             this.editor.scrollSync.active = false;
-
-            console.log(this.editor);
 
             this.getWordsAndCharactersCount(this.editor.getMarkdown());
 
@@ -198,13 +199,10 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
     },
     initModals() {
         initModalhandler(this.editor, "imageModal", (formData) => {
-            const source = formData.get("source");
             const image = formData.get("image");
             const description = formData.get("description");
 
-            console.log(source, image, description);
-
-            return ``;
+            return `![${description || image}](${image})`;
         });
         initModalhandler(this.editor, "embedTweetModal", (formData) => {
             const urlOrCode = formData.get("url");

@@ -3,13 +3,19 @@
     name="imageModal"
     :title="trans('ui::markdown.modals.image.title')"
     width-class="max-w-lg"
-    x-data="{
-        source: 'file'
-    }"
+    {{-- @TODO: Image upload handling related code --}}
+    {{-- x-data="{
+        source: 'file',
+        imageHandler(e) {
+            e.preventDefault();
+            const files = e.target.files;
+        }
+    }" --}}
 >
     @slot('description')
         <form id="imageModalForm" @submit.prevent="Livewire.emit('imageModal', $event)">
-            <div class="w-full mb-4">
+            {{-- @TODO: Add file upload --}}
+            {{-- <div class="w-full mb-4">
                 <div class="input-group">
                     <label for="image" class="items-center input-label">@lang('ui::markdown.modals.image.form.source')</label>
 
@@ -35,38 +41,43 @@
                     </div>
                 </div>
                 <input type="hidden" name="source" x-bind:value="source" />
-            </div>
-            <template x-if="source === 'link'">
-                <x-ark-input
-                    type="text"
-                    name="image"
-                    :label="trans('ui::markdown.modals.image.form.image')"
-                    class="w-full"
-                />
-            </template>
-            <template x-if="source === 'file'">
-                <div class="relative w-full h-36">
-                    <div class="rounded-xl w-full h-full focus-within:border-theme-primary-500 p-1.5 border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800">
-                        <div class="inline-block w-full h-full bg-center bg-no-repeat bg-cover rounded-xl bg-theme-primary-50 dark:bg-black dark:hover:bg-theme-secondary-800 transition-default cursor-pointer hover:bg-theme-primary-100 transition-default" role="button">
-                            <input id="image-single-upload-profile-image" type="file" class="sr-only" accept="image/jpg,image/jpeg,image/png,jpg,png" @change="validateImage">
-                        </div>
+            </div> --}}
 
-                        <div class="flex absolute top-2 right-2 bottom-2 left-2 flex-col justify-center items-center space-y-2 rounded-xl cursor-pointer pointer-events-none" role="button">
-                            <div class="text-theme-primary-500">
-                                <x-ark-icon name="upload-cloud" size="lg"/>
+            <x-ark-input
+                type="text"
+                name="image"
+                :label="trans('ui::markdown.modals.image.form.image')"
+                class="w-full"
+            />
+
+            {{-- @TODO: Add file upload --}}
+            {{-- <template x-if="source === 'file'">
+                <div>
+                    <label for="image" class="items-center input-label">
+                        @lang('ui::markdown.modals.image.form.image')
+                    </label>
+                    <div class="relative w-full h-36 input-wrapper">
+                        <label class="block rounded-xl w-full h-full focus-within:border-theme-primary-500 p-1.5 border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800">
+                            <div class="inline-block w-full h-full bg-center bg-no-repeat bg-cover rounded-xl bg-theme-primary-50 dark:bg-black dark:hover:bg-theme-secondary-800 transition-default cursor-pointer hover:bg-theme-primary-100 transition-default" role="button">
+                                <input id="image" type="file" class="sr-only" accept="image/jpg,image/jpeg,image/png,jpg,png" @change="imageHandler">
                             </div>
 
-                            <div class="link font-semibold">Browse files</div>
+                            <div class="flex absolute top-2 right-2 bottom-2 left-2 flex-col justify-center items-center space-y-2 rounded-xl cursor-pointer pointer-events-none" role="button">
+                                <div class="text-theme-primary-500">
+                                    <x-ark-icon name="upload-cloud" size="lg"/>
+                                </div>
 
-                            <div class="text-xs font-semibold text-theme-secondary-500">
-                                Max size {{ \ARKEcosystem\Foundation\Support\FileUpload::maxSizeFormatted() }}
+                                <div class="link font-semibold">@lang('ui::markdown.modals.image.form.browse_files')</div>
+
+                                <div class="text-xs font-semibold text-theme-secondary-500">
+                                    @lang('ui::markdown.modals.image.form.file_restrictions', ['maxSize' => \ARKEcosystem\Foundation\Support\FileUpload::maxSizeFormatted()])
+                                </div>
                             </div>
-                        </div>
+                        </label>
                     </div>
                 </div>
-            </div>
-            </div>
-            </template>
+            </template> --}}
+
             <x-ark-input
                 type="text"
                 name="description"

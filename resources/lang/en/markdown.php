@@ -78,6 +78,8 @@ return [
                 'link' => 'Link',
                 'image' => 'Image',
                 'description' => 'Description',
+                'browse_files' => 'Browse files',
+                'file_restrictions' => 'Max size :maxSize',
             ],
         ],
         'alert' => [
