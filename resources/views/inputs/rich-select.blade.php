@@ -60,7 +60,7 @@ $initialText = $grouped
                 :class="{ 'rotate-180': open }"
             >
                 <x-ark-icon
-                    name="chevron-down"
+                    name="arrows.chevron-down-small"
                     size="2xs"
                 />
             </span>
