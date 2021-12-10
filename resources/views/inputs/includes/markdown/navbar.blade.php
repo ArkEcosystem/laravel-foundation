@@ -6,6 +6,10 @@
         'flex relative flex-col px-4 whitespace-nowrap' => !$mobile,
         'ark-markdown-editor-toolbar-mobile' => $mobile,
     ])
+    @if($mobile)
+        x-cloak
+        x-show="showMobileMenu"
+    @endif
 >
     <div
         @class([
@@ -13,10 +17,7 @@
             'overflow-hidden z-10 relative' => !$mobile,
             'flex-wrap z-20 bg-white rounded-xl absolute shadow-2xl border-none -mx-4 px-5 py-6 right-0' => $mobile,
         ])
-        @if($mobile)
-            x-cloak
-            x-show="showMobileMenu"
-        @endif
+
     >
         @include('ark::inputs.includes.markdown.button', ['name' => 'undo', 'iconName' => 'undo', 'onClick' => 'undo'])
 

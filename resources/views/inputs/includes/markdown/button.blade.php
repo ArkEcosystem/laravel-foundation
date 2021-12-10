@@ -11,6 +11,7 @@
     @if ($mobile)
         style="display: none"
     @endif
+    @click="showMobileMenu=false"
 >
     <button
         type="button"

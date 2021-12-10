@@ -13,7 +13,7 @@
     'charsLimit' => false,
 ])
 
-<div id="markdown-editor-{{ $id ?? $name }}" class="ark-markdown-editor ark-markdown-editor-{{ $toolbar }} {{ $class ?? '' }}">
+<div id="markdown-editor-{{ $id ?? $name }}" class="ark-markdown-editor with-line-numbers ark-markdown-editor-{{ $toolbar }} {{ $class ?? '' }}">
     <div class="input-group">
         @unless ($hideLabel ?? false)
             <label
