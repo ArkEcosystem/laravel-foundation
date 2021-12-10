@@ -17,7 +17,7 @@
                 type="text"
                 name="text"
                 :label="trans('ui::markdown.modals.link.form.text')"
-                class="w-full mt-4"
+                class="mt-4 w-full"
             />
         </form>
     @endslot
