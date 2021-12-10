@@ -57,7 +57,7 @@
                             }"
                             class="transition duration-150 ease-in-out transform {{ $circleClass }}"
                         >
-                            <x-ark-icon name="chevron-down" :size="$circleSize" />
+                            <x-ark-icon name="arrows.chevron-down-small" :size="$circleSize" />
                         </span>
                     </span>
                 </button>
