@@ -42,7 +42,9 @@ export default function underlinePlugin(name) {
                             )
                         );
 
-                    document.querySelector(`#markdown-editor-${name} .ProseMirror`).focus();
+                    document
+                        .querySelector(`#markdown-editor-${name} .ProseMirror`)
+                        .focus();
 
                     dispatch(transaction);
 
@@ -50,5 +52,5 @@ export default function underlinePlugin(name) {
                 },
             },
         };
-    }
+    };
 }
