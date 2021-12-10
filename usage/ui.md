@@ -250,7 +250,7 @@ Accepts `full` for all the plugins and `basic` for only text related buttons.
 <meta name="csrf-token" content="{{ csrf_token() }}">
 ```
 
-1. If you use the `full` toolbar you must add the `toolbar="full"` to the markdown scripts.
+8. If you use the `full` toolbar you must add the `toolbar="full"` to the markdown scripts.
 
 ```html
 @push('scripts')
