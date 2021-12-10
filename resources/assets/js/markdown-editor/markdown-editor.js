@@ -1,6 +1,6 @@
 import Editor from "@toast-ui/editor";
 
-import { underlinePlugin } from "./plugins/index.js";
+import underlinePlugin from "./plugins/underline.js";
 
 import {
     getWordsAndCharactersCount,
