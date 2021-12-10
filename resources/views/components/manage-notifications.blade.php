@@ -8,7 +8,7 @@
                     <button type="button" class="flex justify-center items-center w-10 h-10 rounded border border-solid cursor-pointer focus:outline-none text-theme-secondary-400 border-theme-secondary-200 hover:text-theme-primary-500" wire:click="{{ $this->hasAllSelected ? 'deselectAllNotifications' : 'selectAllNotifications' }}">
                         @if($this->hasAllSelected)
                             <div class="flex justify-center items-center w-5 h-5 text-white rounded bg-theme-success-500">
-                                <x-ark-icon name="checkmark" size="2xs" />
+                                <x-ark-icon name="check-mark-bold" size="2xs" />
                             </div>
                         @else
                             <span class="block w-5 h-5 text-white rounded border-2 border-theme-secondary-300"></span>
@@ -25,7 +25,7 @@
                                 </span>
 
                                 <span :class="{ 'rotate-180': dropdownOpen }" class="transition duration-150 ease-in-out text-theme-primary-600">
-                                    <x-ark-icon name="chevron-down" size="xs" />
+                                    <x-ark-icon name="arrows.chevron-down-small" size="xs" />
                                 </span>
                             </div>
                         @endslot
@@ -121,7 +121,7 @@
                                     wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"
                                     class="flex justify-center items-center w-5 h-5 text-white rounded cursor-pointer box-border bg-theme-success-500"
                                 >
-                                    <x-ark-icon name="checkmark" size="2xs" />
+                                    <x-ark-icon name="check-mark-bold" size="2xs" />
                                 </button>
                             @else
                                 <button
@@ -173,7 +173,7 @@
                                                     class="sm:mr-2 focus-visible:rounded transition-default"
                                                     wire:click.stop="$emit('markAsStarred', '{{ $notification->id }}')"
                                                 >
-                                                    <x-ark-icon name="star-outline" size="sm" class="text-theme-secondary-400" />
+                                                    <x-ark-icon name="star" size="sm" class="text-theme-secondary-400" />
                                                 </button>
                                             @endif
                                         </div>
@@ -237,7 +237,7 @@
                         wire:click="applyFilter('')"
                         class="flex items-center space-x-2 whitespace-nowrap button-secondary"
                     >
-                        <x-ark-icon name="reset" />
+                        <x-ark-icon name="arrows.arrow-rotate-left" />
 
                         <span>@lang('ui::actions.reset_filters')</span>
                     </button>
