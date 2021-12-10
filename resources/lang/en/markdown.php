@@ -73,10 +73,10 @@ return [
         'image' => [
             'title' => 'Insert Image',
             'form'  => [
-                'source' => 'Select image source',
-                'file' => 'File',
-                'link' => 'Link',
-                'image' => 'Image',
+                'source'      => 'Select image source',
+                'file'        => 'File',
+                'link'        => 'Link',
+                'image'       => 'Image',
                 'description' => 'Description',
                 'browse_files' => 'Browse files',
                 'file_restrictions' => 'Max size :maxSize',
