@@ -14,7 +14,12 @@ const AVERAGE_WORDS_READ_PER_MINUTE = 200;
 const reList = /(^\s*)([-*+])/;
 const reOrderedList = /(^\s*)([\d])+\.( \[[ xX]])? /;
 
-const MarkdownEditor = (name, height = null, charsLimit = "0", extraData = {}) => ({
+const MarkdownEditor = (
+    name,
+    height = null,
+    charsLimit = "0",
+    extraData = {}
+) => ({
     name: name,
     editor: null,
     charsLimit: parseInt(charsLimit),
@@ -114,9 +119,7 @@ const MarkdownEditor = (name, height = null, charsLimit = "0", extraData = {}) =
                     blur: this.onBlur,
                     focus: this.onFocus,
                 },
-                plugins: [
-                    underlinePlugin(this.name),
-                ],
+                plugins: [underlinePlugin(this.name)],
                 // We dont need any "sanitized" HTML since we dont use the `preview`
                 // mode, so doing this:
                 // 1. Prevents security issues
