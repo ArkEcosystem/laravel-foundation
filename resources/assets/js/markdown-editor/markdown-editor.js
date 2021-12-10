@@ -130,29 +130,22 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
                     //             .value || blob.name;
                     //     // const markdownEditor = this.editor.mdEditor.getEditor();
                     //     const loadingLabel = `Uploading ${blob.name}…`;
-
                     //     const loadingPlaceholder = `![${loadingLabel}]()`;
-
                     //     const csrfToken = document.querySelector(
                     //         'meta[name="csrf-token"]'
                     //     ).content;
-
                     //     if (!csrfToken) {
                     //         throw new Error(
                     //             "We were unable to get the csrfToken for this request"
                     //         );
                     //     }
-
                     //     // Show a loading message while the image is uploaded
                     //     callback("", loadingLabel);
-
                     //     const placeholderSelection = this.editor.getSelection();
-
                     //     uploadImage(blob, csrfToken).then((response) => {
                     //         if (!response.url) {
                     //             throw new Error("Received invalid response");
                     //         }
-
                     //         // Select the placeholder again in case user unselected it.
                     //         // It will be replaced in the following callback
                     //         this.editor.setSelection(
@@ -167,10 +160,8 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
                     //                 placeholderSelection[1][1],
                     //             ]
                     //         );
-
                     //         callback(response.url, alt);
                     //     });
-
                     //     return true;
                     // },
                 },
