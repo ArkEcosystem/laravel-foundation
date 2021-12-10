@@ -35,31 +35,31 @@
             <div class="flex flex-shrink-0 items-center justify-center rounded-full {{ $stateColor }} h-7 w-7">
                 @if ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::DANGER)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-danger-100">
-                        <x-ark-icon name="notifications.danger" size="sm" class="text-theme-danger-400" />
+                        <x-ark-icon name="circle.cross" size="sm" class="text-theme-danger-400" />
                     </div>
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::SUCCESS)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-success-100">
-                        <x-ark-icon name="notifications.success" size="sm" class="text-theme-success-600" />
+                        <x-ark-icon name="circle.plus" size="sm" class="text-theme-success-600" />
                     </div>
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::WARNING)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-warning-100">
-                        <x-ark-icon name="notifications.warning" size="sm" class="text-theme-warning-600" />
+                        <x-ark-icon name="circle.minus" size="sm" class="text-theme-warning-600" />
                     </div>
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::BLOCKED)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-secondary-200">
-                        <x-ark-icon name="notifications.blocked" size="sm" class="text-theme-secondary-900" />
+                        <x-ark-icon name="ban" size="sm" class="text-theme-secondary-900" />
                     </div>
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::COMMENT)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-secondary-200">
-                        <x-ark-icon name="notifications.comment" size="xs" class="text-theme-secondary-900" />
+                        <x-ark-icon name="message-empty" size="xs" class="text-theme-secondary-900" />
                     </div>
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::MENTION)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-secondary-200">
-                        <x-ark-icon name="notifications.mention" size="sm" class="text-theme-secondary-900" />
+                        <x-ark-icon name="at" size="sm" class="text-theme-secondary-900" />
                     </div>
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::ANNOUNCEMENT)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-warning-100">
-                        <x-ark-icon name="notification" size="sm" class="text-theme-warning-600" />
+                        <x-ark-icon name="bell" size="sm" class="text-theme-warning-600" />
                     </div>
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::VIDEO)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full bg-theme-secondary-200">
