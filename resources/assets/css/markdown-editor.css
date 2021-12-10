@@ -15,7 +15,8 @@
         @apply pl-18;
     }
 
-    .ark-markdown-editor.with-line-numbers .toastui-editor-main-container:before {
+    .ark-markdown-editor.with-line-numbers
+        .toastui-editor-main-container:before {
         content: "";
         @apply border-l border-theme-secondary-200 absolute h-full block ml-13 mt-5;
         height: calc(100% - 2.5rem);
