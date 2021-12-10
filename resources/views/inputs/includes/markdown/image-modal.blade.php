@@ -53,16 +53,13 @@
 
                         <div class="flex absolute top-2 right-2 bottom-2 left-2 flex-col justify-center items-center space-y-2 rounded-xl cursor-pointer pointer-events-none" role="button">
                             <div class="text-theme-primary-500">
-                                <svg wire:key="ymTx9WUy" class="fill-current w-8 h-8" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 29.9 22.1" xml:space="preserve"><path d="M17 21.1h6.1c3.4 0 5.7-2.9 5.7-6.2.1-3.3-2.2-6.3-5.5-7-.2-4-3.5-7.1-7.5-6.9h-.1c-4.3 0-6.1 2.2-6.9 4.7-3.4-.8-5.7 1.8-4.8 4.8-1.6.6-3 2.7-3 5.3-.1 2.9 2.3 5.3 5.2 5.4h6.9V15h-2.4c-.5 0-.9-.4-.3-1s3.7-4.1 4.1-4.5c.5-.4.8-.6 1.4 0 .3.3 3.5 3.6 4 4.2s.5 1.2-.4 1.2H17v6.2z" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+                                <x-ark-icon name="upload-cloud" size="lg"/>
                             </div>
 
-                            <div class="font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">Browse files</div>
+                            <div class="link font-semibold">Browse files</div>
 
                             <div class="text-xs font-semibold text-theme-secondary-500">
-                                Min 148 x 148
-                            </div>
-                            <div class="text-xs font-semibold text-theme-secondary-500">
-                                Max filesize 5MB
+                                Max size {{ \ARKEcosystem\Foundation\Support\FileUpload::maxSizeFormatted() }}
                             </div>
                         </div>
                     </div>
