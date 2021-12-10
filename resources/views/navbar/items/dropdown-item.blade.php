@@ -65,7 +65,7 @@
 
                     @if ($external)
                         <x-ark-icon
-                            name="link"
+                            name="chain"
                             size="sm"
                             class="text-theme-primary-500"
                         />
