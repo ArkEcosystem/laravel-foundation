@@ -43,7 +43,7 @@
                     class="modal-close"
                     @click="hide"
                 >
-                    <x-ark-icon name="close" size="md" class="m-auto" />
+                    <x-ark-icon name="cross" size="md" class="m-auto" />
                 </button>
                 @endif
 
