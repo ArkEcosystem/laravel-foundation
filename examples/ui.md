@@ -488,7 +488,7 @@ You can also get an alert with more padding and large icon by specifying `large`
 ### Icon
 
 ```php
-<x-icon name="chevron-down" size="xs" class="md:h-3 md:w-2" />
+<x-icon name="arrows.chevron-down-small" size="xs" class="md:h-3 md:w-2" />
 ```
 
 ### Simple Footer
