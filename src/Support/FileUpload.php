@@ -8,7 +8,7 @@ final class FileUpload
 {
     /**
      * Returns a file size limit in bytes based on the PHP upload_max_filesize
-     * and post_max_size
+     * and post_max_size.
      */
     public static function maxSize(): float
     {
@@ -36,6 +36,19 @@ final class FileUpload
         return static::formatBytes(static::maxSize());
     }
 
+    public static function formatBytes($bytes, $precision = 2): string
+    {
+        $units = ['B', 'KB', 'MB', 'GB', 'TB'];
+
+        $bytes = max($bytes, 0);
+        $pow   = floor(($bytes ? log($bytes) : 0) / log(1024));
+        $pow   = min($pow, count($units) - 1);
+
+        $bytes /= pow(1024, $pow);
+
+        return round($bytes, $precision).$units[$pow];
+    }
+
     private static function parseSize(string $size): float
     {
         // Remove the non-unit characters from the size.
@@ -47,22 +60,8 @@ final class FileUpload
             // Find the position of the unit in the ordered string which is the
             // power of magnitude to multiply a kilobyte by.
             return round($size * pow(1024, stripos('bkmgtpezy', $unit[0])));
-        } else {
-            return round(intval($size));
         }
+
+        return round(intval($size));
     }
-
-    public static function formatBytes($bytes, $precision = 2): string
-    {
-        $units = array('B', 'KB', 'MB', 'GB', 'TB');
-
-        $bytes = max($bytes, 0);
-        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
-        $pow = min($pow, count($units) - 1);
-
-        $bytes /= pow(1024, $pow);
-
-        return round($bytes, $precision) . $units[$pow];
-    }
-
 }
