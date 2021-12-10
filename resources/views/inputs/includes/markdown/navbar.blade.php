@@ -1,4 +1,4 @@
-@props(['mobile' => false])
+@props(['mobile' => false, 'toolbar'])
 
 <div
     @class([
@@ -29,22 +29,24 @@
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'italic', 'iconName' => 'text-italic', 'onClick' => 'emph', 'nodeName' => 'emph'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'strike', 'iconName' => 'text-strike-through', 'onClick' => 'strike', 'nodeName' => 'strike'])
+        @unless ($toolbar === 'basic')
+            @include('ark::inputs.includes.markdown.button', ['name' => 'strike', 'iconName' => 'text-strike-through', 'onClick' => 'strike', 'nodeName' => 'strike'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'underline', 'iconName' => 'text-underline', 'onClick' => 'underline', 'nodeName' => 'underline'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'underline', 'iconName' => 'text-underline', 'onClick' => 'underline', 'nodeName' => 'underline'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'blockquote', 'iconName' => 'open-quote', 'onClick' => 'blockQuote', 'nodeName' => 'blockQuote'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'blockquote', 'iconName' => 'open-quote', 'onClick' => 'blockQuote', 'nodeName' => 'blockQuote'])
 
-        @include('ark::inputs.includes.markdown.button-separator')
+            @include('ark::inputs.includes.markdown.button-separator')
 
-        @for($i=1; $i<=4; $i++)
-            @include('ark::inputs.includes.markdown.button', [
-                'tooltip' =>  trans('ui::markdown.navbar.tooltips.heading', ['level' => $i]),
-                'iconName' => 'H' . $i,
-                'onClick' => 'heading(' . $i . ')',
-                'nodeName' => 'heading' . $i,
-            ])
-        @endfor
+            @for($i=1; $i<=4; $i++)
+                @include('ark::inputs.includes.markdown.button', [
+                    'tooltip' =>  trans('ui::markdown.navbar.tooltips.heading', ['level' => $i]),
+                    'iconName' => 'H' . $i,
+                    'onClick' => 'heading(' . $i . ')',
+                    'nodeName' => 'heading' . $i,
+                ])
+            @endfor
+        @endunless
 
         @include('ark::inputs.includes.markdown.button-separator')
 
@@ -52,33 +54,37 @@
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'unordered_list', 'iconName' => 'list-numbers', 'onClick' => 'orderedList', 'nodeName' => 'orderedList'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'table', 'iconName' => 'table', 'onClick' => 'table', 'nodeName' => 'table'])
+        @unless ($toolbar === 'basic')
+            @include('ark::inputs.includes.markdown.button', ['name' => 'table', 'iconName' => 'table', 'onClick' => 'table', 'nodeName' => 'table'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'image', 'iconName' => 'image-file-landscape', 'onClick' => 'image'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'image', 'iconName' => 'image-file-landscape', 'onClick' => 'image'])
+        @endunless
 
         @include('ark::inputs.includes.markdown.button-separator')
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'link', 'iconName' => 'hyperlink', 'onClick' => 'link', 'nodeName' => 'link'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'inline_code', 'iconName' => 'programming-browser-1', 'onClick' => 'code', 'nodeName' => 'code'])
+        @unless ($toolbar === 'basic')
+            @include('ark::inputs.includes.markdown.button', ['name' => 'inline_code', 'iconName' => 'programming-browser-1', 'onClick' => 'code', 'nodeName' => 'code'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'code_block', 'iconName' => 'programming-browser', 'onClick' => 'codeBlock', 'nodeName' => 'codeBlock'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'code_block', 'iconName' => 'programming-browser', 'onClick' => 'codeBlock', 'nodeName' => 'codeBlock'])
 
-        @include('ark::inputs.includes.markdown.button-separator')
+            @include('ark::inputs.includes.markdown.button-separator')
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'embed_link', 'iconName' => 'image-link', 'onClick' => 'embedLink'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'embed_link', 'iconName' => 'image-link', 'onClick' => 'embedLink'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'embed_tweet', 'iconName' => 'social-media-twitter', 'onClick' => 'embedTweet'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'embed_tweet', 'iconName' => 'social-media-twitter', 'onClick' => 'embedTweet'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'simplecast', 'iconName' => 'social-music-podcast', 'onClick' => 'embedPodcast'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'simplecast', 'iconName' => 'social-music-podcast', 'onClick' => 'embedPodcast'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'link_collection', 'iconName' => 'app-window-link', 'onClick' => 'linkCollection'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'link_collection', 'iconName' => 'app-window-link', 'onClick' => 'linkCollection'])
 
-        @include('ark::inputs.includes.markdown.button-separator')
+            @include('ark::inputs.includes.markdown.button-separator')
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'alert', 'iconName' => 'alert-triangle', 'onClick' => 'alertModal'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'alert', 'iconName' => 'alert-triangle', 'onClick' => 'alertModal'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'pageReference'])
+            @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'pageReference'])
+        @endunless
 
         @unless ($mobile)
             <div class="flex items-center markdown-navbar-more ml-auto flex" style="display: none">
