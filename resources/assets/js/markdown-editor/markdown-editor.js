@@ -4,7 +4,7 @@ import { underlinePlugin } from "./plugins/index.js";
 
 import {
     getWordsAndCharactersCount,
-    uploadImage,
+    // uploadImage,
     initModalhandler,
 } from "./utils/utils.js";
 
@@ -14,7 +14,8 @@ const AVERAGE_WORDS_READ_PER_MINUTE = 200;
 const reList = /(^\s*)([-*+])/;
 const reOrderedList = /(^\s*)([\d])+\.( \[[ xX]])? /;
 
-const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
+const MarkdownEditor = (name, height = null, charsLimit = "0", extraData = {}) => ({
+    name: name,
     editor: null,
     charsLimit: parseInt(charsLimit),
     charsCount: 0,
@@ -113,67 +114,68 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
                     blur: this.onBlur,
                     focus: this.onFocus,
                 },
-                plugins: [underlinePlugin],
-                // @TODO: Check if this is needed
+                plugins: [
+                    underlinePlugin(this.name),
+                ],
                 // We dont need any "sanitized" HTML since we dont use the `preview`
                 // mode, so doing this:
                 // 1. Prevents security issues
                 // 2. Makes the editor way faster
                 customHTMLSanitizer: () => "",
-                hooks: {
-                    // The following hook is not currently used since I added a new modal for handling the image.
-                    // That modal doesn't have the file upload logic implemented yet but is very likely that we can
-                    // reuse most of the logic here so I am going to leave the code here for future reference.
-                    // addImageBlobHook: (blob, callback) => {
-                    //     const alt =
-                    //         document.querySelector("#toastuiAltTextInput")
-                    //             .value || blob.name;
-                    //     // const markdownEditor = this.editor.mdEditor.getEditor();
-                    //     const loadingLabel = `Uploading ${blob.name}…`;
+                // The following hook is not currently used since I added a new modal for handling the image.
+                // That modal doesn't have the file upload logic implemented yet but is very likely that we can
+                // reuse most of the logic here so I am going to leave the code here for future reference.
+                // hooks: {
+                //     addImageBlobHook: (blob, callback) => {
+                //         const alt =
+                //             document.querySelector("#toastuiAltTextInput")
+                //                 .value || blob.name;
+                //         // const markdownEditor = this.editor.mdEditor.getEditor();
+                //         const loadingLabel = `Uploading ${blob.name}…`;
 
-                    //     const loadingPlaceholder = `![${loadingLabel}]()`;
+                //         const loadingPlaceholder = `![${loadingLabel}]()`;
 
-                    //     const csrfToken = document.querySelector(
-                    //         'meta[name="csrf-token"]'
-                    //     ).content;
+                //         const csrfToken = document.querySelector(
+                //             'meta[name="csrf-token"]'
+                //         ).content;
 
-                    //     if (!csrfToken) {
-                    //         throw new Error(
-                    //             "We were unable to get the csrfToken for this request"
-                    //         );
-                    //     }
+                //         if (!csrfToken) {
+                //             throw new Error(
+                //                 "We were unable to get the csrfToken for this request"
+                //             );
+                //         }
 
-                    //     // Show a loading message while the image is uploaded
-                    //     callback("", loadingLabel);
+                //         // Show a loading message while the image is uploaded
+                //         callback("", loadingLabel);
 
-                    //     const placeholderSelection = this.editor.getSelection();
+                //         const placeholderSelection = this.editor.getSelection();
 
-                    //     uploadImage(blob, csrfToken).then((response) => {
-                    //         if (!response.url) {
-                    //             throw new Error("Received invalid response");
-                    //         }
+                //         uploadImage(blob, csrfToken).then((response) => {
+                //             if (!response.url) {
+                //                 throw new Error("Received invalid response");
+                //             }
 
-                    //         // Select the placeholder again in case user unselected it.
-                    //         // It will be replaced in the following callback
-                    //         this.editor.setSelection(
-                    //             [
-                    //                 placeholderSelection[1][0],
-                    //                 placeholderSelection[1][1] -
-                    //                     loadingPlaceholder.length -
-                    //                     2,
-                    //             ],
-                    //             [
-                    //                 placeholderSelection[1][0],
-                    //                 placeholderSelection[1][1],
-                    //             ]
-                    //         );
+                //             // Select the placeholder again in case user unselected it.
+                //             // It will be replaced in the following callback
+                //             this.editor.setSelection(
+                //                 [
+                //                     placeholderSelection[1][0],
+                //                     placeholderSelection[1][1] -
+                //                         loadingPlaceholder.length -
+                //                         2,
+                //                 ],
+                //                 [
+                //                     placeholderSelection[1][0],
+                //                     placeholderSelection[1][1],
+                //                 ]
+                //             );
 
-                    //         callback(response.url, alt);
-                    //     });
+                //             callback(response.url, alt);
+                //         });
 
-                    //     return true;
-                    // },
-                },
+                //         return true;
+                //     },
+                // },
             });
 
             // Disables the scroll sync used on the preview since we dont use it

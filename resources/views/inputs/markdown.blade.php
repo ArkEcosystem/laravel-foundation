@@ -13,7 +13,7 @@
     'charsLimit' => false,
 ])
 
-<div class="ark-markdown-editor ark-markdown-editor-{{ $toolbar }} {{ $class ?? '' }}">
+<div id="markdown-editor-{{ $id ?? $name }}" class="ark-markdown-editor ark-markdown-editor-{{ $toolbar }} {{ $class ?? '' }}">
     <div class="input-group">
         @unless ($hideLabel ?? false)
             <label
@@ -30,6 +30,7 @@
         <div class="input-wrapper">
             <div
                 x-data="MarkdownEditor(
+                    '{{ $id ?? $name }}',
                     @if($height)'{{ $height }}'@else null @endif,
                     '{{ $charsLimit }}',
                     {{ $xData }}
