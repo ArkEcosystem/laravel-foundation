@@ -8,3 +8,4 @@
 @include('ark::inputs.includes.markdown.alert-modal')
 @include('ark::inputs.includes.markdown.page-reference-modal')
 @include('ark::inputs.includes.markdown.image-modal')
+@include('ark::inputs.includes.markdown.link-modal')

@@ -82,6 +82,13 @@ return [
                 'file_restrictions' => 'Max size :maxSize',
             ],
         ],
+        'link' => [
+            'title' => 'Embed link',
+            'form'  => [
+                'url' => 'URL',
+                'text' => 'Link Text',
+            ],
+        ],
         'alert' => [
             'title' => 'Add Alert',
             'form'  => [

@@ -70,7 +70,7 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
         this.openModal("imageModal");
     },
     link() {
-        this.editor.eventEmitter.emit("openPopup", "link", {});
+        this.openModal("linkModal");
     },
     embedLink() {
         this.openModal("embedLinkModal");
@@ -204,6 +204,14 @@ const MarkdownEditor = (height = null, charsLimit = "0", extraData = {}) => ({
 
             return `![${description || image}](${image})`;
         });
+
+        initModalhandler(this.editor, "linkModal", (formData) => {
+            const url = formData.get("url");
+            const text = formData.get("text");
+
+            return `[${text || url}](${url})`;
+        });
+
         initModalhandler(this.editor, "embedTweetModal", (formData) => {
             const urlOrCode = formData.get("url");
 
