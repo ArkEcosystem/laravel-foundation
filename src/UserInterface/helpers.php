@@ -30,10 +30,10 @@ if (! function_exists('alertIcon')) {
     {
         if (in_array($type, ['success', 'error', 'danger', 'hint', 'warning', 'info'], true)) {
             return [
-                'success' => 'circle.checkmark',
-                'error'   => 'circle.cross',
-                'danger'  => 'circle.cross',
-                'hint'    => 'circle.question-mark',
+                'success' => 'circle.check-mark-big',
+                'error'   => 'circle.cross-big',
+                'danger'  => 'circle.cross-big',
+                'hint'    => 'circle.question-mark-big',
                 'warning' => 'circle.exclamation-mark',
                 'info'    => 'circle.info',
             ][$type];
