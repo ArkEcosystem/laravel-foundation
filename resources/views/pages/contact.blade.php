@@ -48,7 +48,7 @@
 
                     <a href="{{ $discordUrl }}" target="_blank" rel="noopener nofollow noreferrer" class="button-secondary">
                         <div class="flex justify-center items-center space-x-2 w-full">
-                            <x-ark-icon name="brands.outline.discord" />
+                            <x-ark-icon name="brands.discord" />
                             <span>@lang('ui::actions.discord')</span>
                         </div>
                     </a>
@@ -60,7 +60,7 @@
 
                 <div class="flex space-x-3">
                     @foreach($contactNetworks as $name => $url)
-                        <x-ark-social-square hover-class="{{ $socialIconHoverClass }}" :url="$url" :icon="'brands.outline.' . $name" />
+                        <x-ark-social-square hover-class="{{ $socialIconHoverClass }}" :url="$url" :icon="'brands.'.$name" />
                     @endforeach
                 </div>
             </div>
