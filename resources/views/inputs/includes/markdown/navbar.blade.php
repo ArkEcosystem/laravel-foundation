@@ -7,7 +7,17 @@
         'ark-markdown-editor-toolbar-mobile' => $mobile,
     ])
 >
-    <div class="flex overflow-hidden relative z-10 items-center toastui-editor-toolbar-group">
+    <div
+        @class([
+            'flex items-center toastui-editor-toolbar-group',
+            'overflow-hidden z-10 relative' => !$mobile,
+            'flex-wrap z-20 bg-white rounded-xl absolute shadow-2xl border-none -mx-4 px-5 py-6 right-0' => $mobile,
+        ])
+        @if($mobile)
+            x-cloak
+            x-show="showMobileMenu"
+        @endif
+    >
         @include('ark::inputs.includes.markdown.button', ['name' => 'undo', 'iconName' => 'undo', 'onClick' => 'undo'])
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'redo', 'iconName' => 'redo', 'onClick' => 'redo'])
@@ -68,6 +78,26 @@
         @include('ark::inputs.includes.markdown.button', ['name' => 'alert', 'iconName' => 'alert-triangle', 'onClick' => 'alertModal'])
 
         @include('ark::inputs.includes.markdown.button', ['name' => 'page_reference', 'iconName' => 'page-reference', 'onClick' => 'pageReference'])
+
+        @unless ($mobile)
+            <div class="flex items-center markdown-navbar-more ml-auto flex" style="display: none">
+                <span class="mx-2 h-5 border-l border-theme-secondary-200"></span>
+
+                <button
+                    type="button"
+                    @click="toggleMobileMenu"
+                    :class="{
+                        'border-transparent flex hover:text-theme-primary-600 items-center mr-2 p-2 rounded': true,
+                        'text-theme-primary-600': showMobileMenu,
+                        'text-theme-secondary-700': !showMobileMenu,
+                    }"
+                    data-tippy-content="{{ $tooltip ?? trans('ui::markdown.navbar.tooltips.more') }}"
+                    data-tippy-offset="[0,-15]"
+                >
+                    <x-ark-icon name="chevron-down" class="inline" size="2xs" />
+                </button>
+            </div>
+        @endunless
     </div>
 
     @unless ($mobile)

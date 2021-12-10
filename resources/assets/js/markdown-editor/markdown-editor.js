@@ -30,6 +30,7 @@ const MarkdownEditor = (
     loadingCharsCount: false,
     loadingCharsTimeout: false,
     loadingCharsAbortController: null,
+    showMobileMenu: false,
     undo() {
         this.editor.mdEditor.commands.undo();
     },
@@ -95,6 +96,9 @@ const MarkdownEditor = (
     },
     pageReference() {
         this.openModal("pageReferenceModal");
+    },
+    toggleMobileMenu() {
+        this.showMobileMenu = !this.showMobileMenu;
     },
     activeButtons: [],
     isActive(name) {
@@ -423,26 +427,63 @@ const MarkdownEditor = (
         }, 500);
     },
     adjustNavbar() {
-        const scroll = document.querySelector(
-            ".ark-markdown-editor-toolbar > div"
-        );
-        const items = Array.from(scroll.children);
+        this.showMobileMenu = false;
 
+        const scroll = document.querySelector(
+            ".ark-markdown-editor-toolbar:not(.ark-markdown-editor-toolbar-mobile) > div"
+        );
+        const mobile = document.querySelector(
+            ".ark-markdown-editor-toolbar-mobile > div"
+        );
+        const items = Array.from(scroll.querySelectorAll(".markdown-navbar-item"));
+        const mobileItems = Array.from(mobile.querySelectorAll(".markdown-navbar-item"));
+        const moreButton = scroll.querySelector(".markdown-navbar-more");
+
+        // Reset display of all items
         items.forEach((item) => {
             item.style.display = null;
         });
+        mobileItems.forEach((item) => {
+            item.style.display = 'none';
+        });
 
-        const navbarItems = [];
+        const hiddenIndex = [];
 
+        // Hide from the last item until the scroll dissapears
         for (var i = items.length - 1; i >= 0; i--) {
-            items[i].style.display = "none";
             const isScrolled = scroll.scrollWidth > scroll.clientWidth;
+
             if (!isScrolled) {
                 break;
-            } else {
-                navbarItems.push(items[i]);
             }
+
+            items[i].style.display = "none";
+            hiddenIndex.push(i);
         }
+
+        if (hiddenIndex.length > 0) {
+            // Show the more button if there are hidden items
+            moreButton.style.display = null;
+
+            // With the moreButton visible the scroll may appear again
+            const isScrolled = scroll.scrollWidth > scroll.clientWidth;
+            if (isScrolled) {
+                // After the more button is shown, maybe we need to hide an extra item
+                const nextItemToHideIndex = hiddenIndex[hiddenIndex.length - 1] - 1;
+                if (nextItemToHideIndex >= 0) {
+                    console.log(items[nextItemToHideIndex])
+                    items[nextItemToHideIndex].style.display = "none";
+                    hiddenIndex.push(nextItemToHideIndex);
+                }
+            }
+        } else {
+            moreButton.style.display = 'none';
+        }
+
+        // Show the hidden items in the mobile navbar
+        hiddenIndex.forEach((index) => {
+            mobileItems[index].style.display = null;
+        });
     },
 
     // Default handlers

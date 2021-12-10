@@ -28,6 +28,7 @@ return [
             'link_collection' => 'Embed Link Collection',
             'page_reference'  => 'Embed Page Reference',
             'alert'           => 'Embed Alert',
+            'more'            => 'More',
         ],
     ],
     'modals' => [

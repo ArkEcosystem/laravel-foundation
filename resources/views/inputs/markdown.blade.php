@@ -39,9 +39,11 @@
                 class="bg-white rounded border-2 border-theme-secondary-200"
             >
 
-                @include('ark::inputs.includes.markdown.navbar', ['toolbar' => $toolbar])
+                <div wire:ignore>
+                    @include('ark::inputs.includes.markdown.navbar', ['toolbar' => $toolbar])
 
-                @include('ark::inputs.includes.markdown.navbar', ['toolbar' => $toolbar, 'mobile' => true])
+                    @include('ark::inputs.includes.markdown.navbar', ['toolbar' => $toolbar, 'mobile' => true])
+                </div>
 
                 <textarea
                     x-ref="input"
