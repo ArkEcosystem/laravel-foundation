@@ -4,11 +4,11 @@ input[type="password"]::-ms-reveal {
 }
 
 .input-label {
-    @apply flex text-sm font-semibold leading-5 text-theme-secondary-700 transition-default;
+    @apply flex text-sm font-semibold leading-5 text-theme-secondary-700 transition-default dark:text-theme-secondary-500;
 }
 
 .input-label--toggle {
-    @apply mr-3 text-base font-semibold leading-5 text-theme-secondary-700 transition-default;
+    @apply mr-3 text-base font-semibold leading-5 text-theme-secondary-700 transition-default dark:text-theme-secondary-500;
 }
 
 .input-wrapper {
