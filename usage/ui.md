@@ -195,7 +195,7 @@ We use components because they contain the CSS classes and HTML needed to build 
 1. Install the npm dependencies
 
 ```bash
-yarn add @toast-ui/editor@^2.5.2 codemirror@^5.62.0
+yarn add @toast-ui/editor@3.1.1
 ```
 
 2. Ensure to import the markdown script inside the `<head>` tag of your template.
@@ -248,6 +248,14 @@ Accepts `full` for all the plugins and `basic` for only text related buttons.
 
 ```html
 <meta name="csrf-token" content="{{ csrf_token() }}">
+```
+
+1. If you use the `full` toolbar you must add the `toolbar="full"` to the markdown scripts.
+
+```html
+@push('scripts')
+    <x-ark-pages-includes-markdown-scripts toolbar="full" />
+@endpush
 ```
 
 ### Tags input
