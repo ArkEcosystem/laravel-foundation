@@ -435,8 +435,12 @@ const MarkdownEditor = (
         const mobile = document.querySelector(
             ".ark-markdown-editor-toolbar-mobile > div"
         );
-        const items = Array.from(scroll.querySelectorAll(".markdown-navbar-item"));
-        const mobileItems = Array.from(mobile.querySelectorAll(".markdown-navbar-item"));
+        const items = Array.from(
+            scroll.querySelectorAll(".markdown-navbar-item")
+        );
+        const mobileItems = Array.from(
+            mobile.querySelectorAll(".markdown-navbar-item")
+        );
         const moreButton = scroll.querySelector(".markdown-navbar-more");
 
         // Reset display of all items
@@ -444,7 +448,7 @@ const MarkdownEditor = (
             item.style.display = null;
         });
         mobileItems.forEach((item) => {
-            item.style.display = 'none';
+            item.style.display = "none";
         });
 
         const hiddenIndex = [];
@@ -469,15 +473,16 @@ const MarkdownEditor = (
             const isScrolled = scroll.scrollWidth > scroll.clientWidth;
             if (isScrolled) {
                 // After the more button is shown, maybe we need to hide an extra item
-                const nextItemToHideIndex = hiddenIndex[hiddenIndex.length - 1] - 1;
+                const nextItemToHideIndex =
+                    hiddenIndex[hiddenIndex.length - 1] - 1;
                 if (nextItemToHideIndex >= 0) {
-                    console.log(items[nextItemToHideIndex])
+                    console.log(items[nextItemToHideIndex]);
                     items[nextItemToHideIndex].style.display = "none";
                     hiddenIndex.push(nextItemToHideIndex);
                 }
             }
         } else {
-            moreButton.style.display = 'none';
+            moreButton.style.display = "none";
         }
 
         // Show the hidden items in the mobile navbar
