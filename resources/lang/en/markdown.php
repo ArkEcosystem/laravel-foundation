@@ -74,19 +74,19 @@ return [
         'image' => [
             'title' => 'Insert Image',
             'form'  => [
-                'source'      => 'Select image source',
-                'file'        => 'File',
-                'link'        => 'Link',
-                'image'       => 'Image',
-                'description' => 'Description',
-                'browse_files' => 'Browse files',
+                'source'            => 'Select image source',
+                'file'              => 'File',
+                'link'              => 'Link',
+                'image'             => 'Image',
+                'description'       => 'Description',
+                'browse_files'      => 'Browse files',
                 'file_restrictions' => 'Max size :maxSize',
             ],
         ],
         'link' => [
             'title' => 'Embed link',
             'form'  => [
-                'url' => 'URL',
+                'url'  => 'URL',
                 'text' => 'Link Text',
             ],
         ],
