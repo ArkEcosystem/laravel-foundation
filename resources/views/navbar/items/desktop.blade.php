@@ -54,7 +54,7 @@
                             {{ $navItem['label'] }}
                         </span>
 
-                        <x-ark-chevron-open-close
+                        <x-ark-chevron-toggle
                             is-open="openDropdown === '{{ $navItem['label'] }}'"
                             class="ml-2 text-theme-primary-600"
                         />

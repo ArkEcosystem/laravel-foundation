@@ -24,7 +24,7 @@
                                     {{ ucfirst($this->activeFilter) }}
                                 </span>
 
-                                <x-ark-chevron-open-close
+                                <x-ark-chevron-toggle
                                     is-open="dropdownOpen"
                                     class="text-theme-primary-600"
                                 />
