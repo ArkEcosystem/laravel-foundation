@@ -501,7 +501,7 @@ Shows the chevron icon which rotates based on specific js/alpine criteria
         is-open="containerOpen === true"
         size="sm"
     />
-</button>
+</div>
 ```
 
 | Parameter  | Description                                                             | Required |
