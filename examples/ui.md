@@ -504,7 +504,7 @@ Shows the chevron icon which rotates based on specific criteria
 | Parameter  | Description                                                | Required |
 | ---------- | ---------------------------------------------------------- | -------- |
 | is-open    | JS statement relating to the Alpine parent                 | yes      |
-| size       | Size of the chevron icon in relation to the icon component | no      |
+| size       | Size of the chevron icon in relation to the icon component | no       |
 
 ### Simple Footer
 
