@@ -49,7 +49,7 @@
     .swiper.slider-show-view-all:not(.slider-pagination-bottom)
         .swiper-pagination-bullets
         .swiper-pagination-bullet:last-child:before {
-        @apply absolute w-px -mt-2 bg-theme-secondary-300;
+        @apply absolute w-px -mt-2 bg-theme-secondary-300 dark:bg-theme-secondary-800;
         content: "";
         right: calc(-1.5rem + -1px);
         height: calc(100% + 1rem);
@@ -71,11 +71,11 @@ div.swiper-button-next {
     @apply text-theme-primary-500;
 }
 span.swiper-pagination-bullet {
-    @apply opacity-100;
+    @apply opacity-100 dark:bg-theme-secondary-600;
     background-color: rgba(62, 157, 255, 0.2);
 }
 span.swiper-pagination-bullet-active {
-    @apply bg-theme-primary-500;
+    @apply bg-theme-primary-500 dark:bg-theme-primary-600;
 }
 
 .slider-title {

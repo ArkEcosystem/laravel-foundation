@@ -19,7 +19,6 @@ it('should render the component', function (): void {
                 [
                     'route'    => 'home',
                     'label'    => 'Home',
-                    'image'    => 'special-icon',
                     'children' => [
                         ['route' => 'post', 'label' => 'Post'],
                     ],
@@ -30,7 +29,6 @@ it('should render the component', function (): void {
             'profileMenuClass' => 'unicorn',
         ]))
         ->contains('http://localhost/post')
-        ->contains('special-icon')
         ->contains('src="https://imgur.com/abc123"')
         ->contains('unicorn');
 });
