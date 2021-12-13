@@ -4,7 +4,7 @@ input[type="password"]::-ms-reveal {
 }
 
 .input-label {
-    @apply flex text-sm font-semibold leading-5 text-theme-secondary-700 transition-default;
+    @apply flex text-sm font-semibold leading-5 text-theme-secondary-700 transition-default dark:text-theme-secondary-500;
 }
 
 .input-label--toggle {
@@ -34,6 +34,10 @@ input[type="password"]::-ms-reveal {
 .input-text.shifted {
     /* Note: need this to override form-input padding */
     padding: 0.75rem 3.25rem 0.75rem 0.75rem;
+}
+
+.dark .input-text::placeholder {
+    @apply text-theme-secondary-700;
 }
 
 .input-rich-select .form-input {
