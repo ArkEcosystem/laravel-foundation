@@ -16,7 +16,7 @@
 @section('content')
     <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.component-heading"/>
 
-    <div class="py-8 space-y-8 mx-auto max-w-xl">
+    <div class="py-8 mx-auto space-y-8 max-w-xl">
         <x-ark-flash />
 
         <x:ark-fortify::form-wrapper class="sm:max-w-xl" :action="route('password.email')">
