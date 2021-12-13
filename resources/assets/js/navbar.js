@@ -18,7 +18,7 @@ const Navbar = {
             selectedChild: null,
             scrollProgress: 0,
             nav: null,
-            dark: document.querySelector('body').classList.contains('dark'),
+            dark: document.querySelector("body").classList.contains("dark"),
             lockBodyBreakpoint: 640,
             onScroll() {
                 const progress = this.getScrollProgress();
