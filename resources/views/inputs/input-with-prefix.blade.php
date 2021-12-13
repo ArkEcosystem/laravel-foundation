@@ -28,7 +28,7 @@
                     'position' => 'left',
                 ])
             @elseif($prefix ?? false)
-                <div @class(['input-prefix', $prefixClass ?? 'bg-theme-primary-50'])>
+                <div @class(['input-prefix', $prefixClass ?? 'bg-theme-primary-50 dark:bg-theme-secondary-800'])>
                     {{ $prefix }}
                 </div>
             @endif

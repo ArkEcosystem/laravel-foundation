@@ -105,7 +105,7 @@ input[type="password"]::-ms-reveal {
 
 .input-text-with-prefix,
 .input-text-with-suffix {
-    @apply block w-full border-0 rounded outline-none appearance-none transition-default border-theme-danger-500;
+    @apply block w-full border-0 rounded outline-none appearance-none transition-default border-theme-danger-500 dark:bg-theme-secondary-900;
 
     /* Note: need this to override form-input padding */
     padding: 0.75rem 1rem;
@@ -113,7 +113,7 @@ input[type="password"]::-ms-reveal {
 
 .input-wrapper-with-prefix,
 .input-wrapper-with-suffix {
-    @apply flex bg-white border rounded border-theme-secondary-300;
+    @apply flex bg-white border rounded border-theme-secondary-300 dark:border-theme-secondary-700 dark:bg-theme-secondary-800;
 }
 
 .input-wrapper-with-prefix .input-prefix-icon {
@@ -124,7 +124,7 @@ input[type="password"]::-ms-reveal {
     @apply text-theme-primary-500;
 }
 .input-wrapper-with-prefix .input-prefix {
-    @apply border-r;
+    @apply border-r dark:border-theme-secondary-700;
 }
 .input-wrapper-with-suffix .input-suffix {
     @apply border-l;
@@ -157,6 +157,14 @@ input[type="password"]::-ms-reveal {
 /* Checkboxes */
 .input-checkbox {
     @apply w-4 h-4 transition duration-150 ease-in-out text-theme-success-600;
+}
+
+.dark .input-checkbox {
+    @apply border border-theme-secondary-600 bg-transparent;
+}
+
+.dark .input-checkbox:checked {
+    @apply bg-theme-success-600;
 }
 
 .input-checkbox[disabled] {
