@@ -121,15 +121,15 @@ input[type="password"]::-ms-reveal {
 
 .input-wrapper-with-prefix,
 .input-wrapper-with-suffix {
-    @apply flex bg-white border rounded border-theme-secondary-300 dark:border-theme-secondary-700 dark:bg-theme-secondary-800;
+    @apply flex bg-white border rounded border-theme-secondary-300 dark:border-theme-secondary-700 dark:bg-theme-secondary-900;
 }
 
 .input-wrapper-with-prefix .input-prefix-icon {
-    @apply text-theme-secondary-500;
+    @apply text-theme-secondary-500 dark:text-theme-secondary-700;
 }
 .input-wrapper-with-prefix--dirty .input-prefix-icon,
 .input-wrapper-with-prefix:focus-within .input-prefix-icon {
-    @apply text-theme-primary-500;
+    @apply text-theme-primary-500 dark:text-theme-primary-600;
 }
 .input-wrapper-with-prefix .input-prefix {
     @apply border-r dark:border-theme-secondary-700;
