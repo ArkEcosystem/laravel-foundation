@@ -250,7 +250,7 @@ input[type="password"]::-ms-reveal {
 }
 
 .taggle_list .taggle {
-    @apply flex items-center pl-2 pr-1 space-x-2 overflow-auto rounded bg-theme-primary-100;
+    @apply flex items-center pl-2 pr-1 space-x-2 overflow-auto rounded bg-theme-primary-100 dark:bg-theme-secondary-800;;
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;
 }
