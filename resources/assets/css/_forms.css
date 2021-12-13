@@ -256,7 +256,7 @@ input[type="password"]::-ms-reveal {
 }
 
 .taggle_list .taggle .close {
-    @apply items-center p-1 text-lg leading-3 no-underline rounded cursor-pointer pointer-events-none right-2 text-theme-secondary-900 bg-theme-primary-200 whitespace-nowrap;
+    @apply items-center p-1 text-lg leading-3 no-underline rounded cursor-pointer pointer-events-none right-2 text-theme-secondary-900 bg-theme-primary-200 whitespace-nowrap dark:bg-theme-secondary-700;
 }
 
 .taggle_list .taggle:hover {
@@ -268,15 +268,15 @@ input[type="password"]::-ms-reveal {
 }
 
 .taggle_list .taggle .close:hover {
-    @apply text-theme-primary-600;
+    @apply text-theme-primary-600 dark:text-theme-secondary-200;
 }
 
 .taggle_placeholder {
-    @apply absolute top-0 left-0 max-w-full p-3 truncate rounded pointer-events-none text-theme-secondary-400;
+    @apply absolute top-0 left-0 max-w-full p-3 truncate rounded pointer-events-none text-theme-secondary-400 dark:text-theme-secondary-700;
 }
 
 .taggle_input {
-    @apply max-w-full my-1 bg-none;
+    @apply max-w-full my-1 bg-transparent;
 }
 
 .taggle_sizer {
@@ -286,11 +286,11 @@ input[type="password"]::-ms-reveal {
 }
 
 .taggle_text {
-    @apply truncate text-theme-primary-600;
+    @apply truncate text-theme-primary-600 dark:text-theme-secondary-200;
 }
 
 .taggle {
-    @apply space-x-2 bg-theme-primary-100;
+    @apply space-x-2 bg-theme-primary-100 dark:bg-theme-secondary-800;
 }
 
 .disabled-tags-input .tags-input-focus {
