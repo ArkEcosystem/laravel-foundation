@@ -181,7 +181,7 @@ code.hljs .hljs-ln-n {
 .documentation-content iframe,
 .documentation-content .typeform-widget,
 .documentation-content .image-container .twitter-tweet {
-    @apply border rounded-xl border-theme-secondary-300 overflow-hidden dark:border-theme-secondary-800 ;
+    @apply border rounded-xl border-theme-secondary-300 overflow-hidden dark:border-theme-secondary-800;
 }
 
 .documentation-content .image-container .twitter-tweet {
