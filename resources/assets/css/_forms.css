@@ -36,7 +36,9 @@ input[type="password"]::-ms-reveal {
     padding: 0.75rem 3.25rem 0.75rem 0.75rem;
 }
 
-.dark .input-text::placeholder {
+.dark .input-text::placeholder,
+.dark .input-text-with-prefix::placeholder,
+.dark .input-text-with-suffix::placeholder {
     @apply text-theme-secondary-700;
 }
 
