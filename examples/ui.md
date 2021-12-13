@@ -491,13 +491,16 @@ You can also get an alert with more padding and large icon by specifying `large`
 <x-icon name="chevron-down" size="xs" class="md:h-3 md:w-2" />
 ```
 
-### Chevron Down/Up component
+### Chevron toggle component
 
-Shows the chevron icon which rotates based on specific criteria
+Shows the chevron icon which rotates based on specific js/alpine criteria
 
 ```blade
 <div x-data="{ containerOpen: false }">
-    <x-ark-chevron-open-close is-open="containerOpen === true" size="sm" />
+    <x-ark-chevron-toggle
+        is-open="containerOpen === true"
+        size="sm"
+    />
 </button>
 ```
 
