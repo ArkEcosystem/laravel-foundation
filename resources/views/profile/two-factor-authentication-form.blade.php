@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="flex flex-col items-center sm:flex-row sm:items-stretch sm:mt-8 sm:divide-x divide-theme-secondary-300 dark:divide-theme-secondary-800">
-                    <div class="flex flex-col justify-center rounded-xl border sm:mr-8 border-theme-secondary-400 dark:border-theme-secondary-800 ">
+                    <div class="flex flex-col justify-center rounded-xl border sm:mr-8 border-theme-secondary-400 dark:border-theme-secondary-800">
                         <div class="flex flex-1 items-center py-4 px-1 md:py-2 lg:py-1 dark:bg-white">
                             {!! $this->twoFactorQrCodeSvg !!}
                         </div>
