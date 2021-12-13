@@ -30,7 +30,7 @@
     <nav
         aria-label="{{ trans('ui::general.primary_navigation') }}"
         x-ref="nav"
-        class="fixed top-0 z-30 w-full bg-white border-b border-theme-secondary-300 dark:bg-theme-secondary-900"
+        class="fixed top-0 z-30 w-full bg-white border-b border-theme-secondary-300 dark:bg-theme-secondary-900 dark:border-theme-secondary-800"
         dusk="navigation-bar"
     >
         <div class="relative z-10 navbar-container border-theme-secondary-300">
