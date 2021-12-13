@@ -18,7 +18,7 @@
     ],
 ])
 
-<div>
+<div {{ $attributes }}>
     <x-ark-pages-includes-header
         :title="trans('ui::pages.contact.title')"
         :description="trans('ui::pages.contact.subtitle')"
