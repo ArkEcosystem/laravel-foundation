@@ -497,14 +497,14 @@ Shows the chevron icon which rotates based on specific criteria
 
 ```blade
 <div x-data="{ containerOpen: false }">
-    <x-ark-chevron-open-close is-open="containerOpen === true" />
+    <x-ark-chevron-open-close is-open="containerOpen === true" size="sm" />
 </button>
 ```
 
-| Parameter  | Description                                                | Required |
-| ---------- | ---------------------------------------------------------- | -------- |
-| is-open    | JS statement relating to the Alpine parent                 | yes      |
-| size       | Size of the chevron icon in relation to the icon component | no       |
+| Parameter  | Description                                                             | Required |
+| ---------- | ----------------------------------------------------------------------- | -------- |
+| is-open    | JS statement relating to the Alpine parent                              | yes      |
+| size       | Size of the chevron icon in relation to the icon component [default=xs] | no       |
 
 ### Simple Footer
 
