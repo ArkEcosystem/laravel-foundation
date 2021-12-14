@@ -207,7 +207,7 @@
 .dark .alert-warning,
 .dark .alert-error,
 .dark .alert-danger,
-.dark .alert-hint{
+.dark .alert-hint {
     @apply bg-theme-secondary-800;
 }
 .dark .alert-info-content,
@@ -215,7 +215,6 @@
 .dark .alert-warning-content,
 .dark .alert-error-content,
 .dark .alert-danger-content,
-.dark .alert-hint-content
-{
+.dark .alert-hint-content {
     @apply text-theme-secondary-500;
 }
