@@ -166,15 +166,11 @@ input[type="password"]::-ms-reveal {
 
 /* Checkboxes */
 .input-checkbox {
-    @apply w-4 h-4 transition duration-150 ease-in-out text-theme-success-600;
-}
-
-.dark .input-checkbox {
-    @apply border border-theme-secondary-600 bg-transparent;
+    @apply w-4 h-4 transition duration-150 ease-in-out text-theme-success-600 border-theme-secondary-300 border-2 dark:border-theme-secondary-800 dark:bg-transparent;
 }
 
 .dark .input-checkbox:checked {
-    @apply bg-theme-success-600;
+    @apply bg-theme-success-600 border-theme-success-600;
 }
 
 .input-checkbox[disabled] {
