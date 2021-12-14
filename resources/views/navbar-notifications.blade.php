@@ -49,11 +49,11 @@
             </div>
         </div>
     @else
-        <div class="p-6 mt-8 text-center rounded-xl border-2 border-theme-secondary-200">
+        <div class="p-6 mt-8 text-center rounded-xl border-2 border-theme-secondary-200 dark:border-theme-secondary-800">
             <span>@lang('ui::menus.notifications.no_notifications')</span>
         </div>
         <div class="py-8 md:px-8">
-            <img src="{{ asset('images/defaults/no-notifications.svg') }}" alt=""/>
+            <x-ark-icon name="app-no-notifications" class="w-full h-full dark:text-theme-secondary-800" />
         </div>
     @endif
 </div>
