@@ -201,3 +201,20 @@
 .alert-simple-hint a:hover {
     @apply underline;
 }
+
+.dark .alert-info,
+.dark .alert-success,
+.dark .alert-warning,
+.dark .alert-error,
+.dark .alert-danger,
+.dark .alert-hint {
+    @apply bg-theme-secondary-800;
+}
+.dark .alert-info-content,
+.dark .alert-success-content,
+.dark .alert-warning-content,
+.dark .alert-error-content,
+.dark .alert-danger-content,
+.dark .alert-hint-content {
+    @apply text-theme-secondary-500;
+}

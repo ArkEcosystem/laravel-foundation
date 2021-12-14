@@ -3,10 +3,10 @@
         <button
             @click="open = !open"
             type="button"
-            class="inline-flex relative justify-start items-center py-3 px-4 w-full rounded border border-theme-secondary-200"
+            class="inline-flex relative justify-start items-center py-3 px-4 w-full rounded border border-theme-secondary-200 dark:border-theme-secondary-800"
         >
-            <x-ark-icon name="menu-open" size="sm" class="mr-3 text-theme-secondary-900" />
-            <span class="font-semibold text-theme-secondary-900">{{ $title }}</span>
+            <x-ark-icon name="menu-open" size="sm" class="mr-3 text-theme-secondary-900 dark:text-theme-secondary-200" />
+            <span class="font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">{{ $title }}</span>
         </button>
     </div>
     <div
@@ -20,7 +20,7 @@
         class="absolute right-0 z-10 mt-2 w-full max-w-full rounded-md shadow-lg origin-top"
         x-cloak
     >
-        <div class="w-full py-4 bg-white rounded-md shadow-lg {{ $navigationClass ?? '' }}">
+        <div class="w-full py-4 bg-white rounded-md shadow-lg dark:bg-theme-secondary-800 {{ $navigationClass ?? '' }}">
             {{ $navigation }}
         </div>
     </div>

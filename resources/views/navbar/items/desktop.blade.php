@@ -54,12 +54,10 @@
                             {{ $navItem['label'] }}
                         </span>
 
-                        <span
-                            class="ml-2 transition duration-150 ease-in-out text-theme-primary-600"
-                            :class="{ 'rotate-180': openDropdown === '{{ $navItem['label'] }}' }"
-                        >
-                            <x-ark-icon name="chevron-down" size="xs" />
-                        </span>
+                        <x-ark-chevron-toggle
+                            is-open="openDropdown === '{{ $navItem['label'] }}'"
+                            class="ml-2 text-theme-primary-600"
+                        />
                     </button>
 
                     <div
