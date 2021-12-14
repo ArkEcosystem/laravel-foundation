@@ -6,19 +6,19 @@
 @import "@toast-ui/editor/dist/toastui-editor.css";
 
 .ark-markdown-editor .ProseMirror {
-    @apply p-5 h-full;
+    @apply p-5 h-full text-theme-secondary-700 dark:text-theme-secondary-500;
 }
 
 /* Line number */
 @screen md {
     .ark-markdown-editor.with-line-numbers .ProseMirror {
-        @apply pl-18;
+        @apply pl-18 ;
     }
 
     .ark-markdown-editor.with-line-numbers
         .toastui-editor-main-container:before {
         content: "";
-        @apply border-l border-theme-secondary-200 absolute h-full block ml-13 mt-5;
+        @apply border-l border-theme-secondary-200 absolute h-full block ml-13 mt-5 dark:border-theme-secondary-700;
         height: calc(100% - 2.5rem);
     }
 

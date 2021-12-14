@@ -2,8 +2,8 @@
 
 <div
     @class([
-        'toastui-editor-toolbar ark-markdown-editor-toolbar ',
-        'flex relative flex-col px-4 whitespace-nowrap' => !$mobile,
+        'toastui-editor-toolbar ark-markdown-editor-toolbar dark:bg-theme-secondary-800',
+        'flex relative flex-col whitespace-nowrap' => !$mobile,
         'ark-markdown-editor-toolbar-mobile' => $mobile,
     ])
     @if($mobile)
@@ -13,9 +13,9 @@
 >
     <div
         @class([
-            'flex items-center toastui-editor-toolbar-group',
+            'flex items-center toastui-editor-toolbar-group px-2',
             'overflow-hidden z-10 relative' => !$mobile,
-            'flex-wrap z-20 bg-white rounded-xl absolute shadow-2xl border-none -mx-4 px-5 py-6 right-0' => $mobile,
+            'flex-wrap z-20 bg-white dark:bg-theme-secondary-800 rounded-xl absolute shadow-2xl border-none -mx-4 px-5 py-6 right-0' => $mobile,
         ])
 
     >
@@ -88,7 +88,7 @@
 
         @unless ($mobile)
             <div class="flex items-center ml-auto markdown-navbar-more" style="display: none">
-                <span class="mx-2 h-5 border-l border-theme-secondary-200"></span>
+                <span class="mx-2 h-5 border-l border-theme-secondary-200 dark:border-theme-secondary-700"></span>
 
                 <button
                     type="button"
@@ -96,7 +96,7 @@
                     :class="{
                         'border-transparent flex hover:text-theme-primary-600 items-center mr-2 p-2 rounded': true,
                         'text-theme-primary-600': showMobileMenu,
-                        'text-theme-secondary-700': !showMobileMenu,
+                        'text-theme-secondary-700 dark:text-theme-secondary-200': !showMobileMenu,
                     }"
                     data-tippy-content="{{ $tooltip ?? trans('ui::markdown.navbar.tooltips.more') }}"
                     data-tippy-offset="[0,-15]"
@@ -108,6 +108,6 @@
     </div>
 
     @unless ($mobile)
-        <span class="block relative z-0 -mt-0.5 h-0 border-b border-theme-secondary-200"></span>
+        <span class="block relative z-0 -mt-0.5 h-0 border-b border-theme-secondary-200 dark:border-theme-secondary-700"></span>
     @endunless
 </div>
