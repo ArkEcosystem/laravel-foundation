@@ -64,7 +64,7 @@
                         x-ref="menuDropdown"
                         id="{{ $menuDropdownId }}"
                         x-show.transition.origin.top="openDropdown === '{{ $navItem['label'] }}'"
-                        class="absolute top-0 left-0 z-30 py-4 mt-24 bg-white rounded-xl"
+                        class="absolute top-0 left-0 z-30 py-4 mt-24 bg-white rounded-xl shadow-navbar-dropdown"
                         x-cloak
                     >
                         <div class="flex">

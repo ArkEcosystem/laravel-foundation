@@ -15,8 +15,18 @@
     ][$breakpoint];
 @endphp
 
-<div x-cloak :class="{'block': open, 'hidden': !open}" class="border-t-2 border-theme-secondary-200 {{ $breakpointClass }}">
-    <div class="pt-2 pb-4 rounded-b-lg">
+<div
+    @class([
+        'border-t-2 border-theme-secondary-200 fixed bottom-0 top-21 w-full pointer-events-none',
+        $breakpointClass
+    ])
+    :class="{
+        block: open,
+        hidden: !open,
+    }"
+    x-cloak
+>
+    <div class="overflow-y-auto pt-2 pb-4 max-h-full bg-white rounded-b-lg pointer-events-auto">
         @if(isset($navbarNotificationsMobile) || isset($notifications))
             <div class="flex justify-center items-center py-0.5 px-2 my-4 mx-8 rounded border shadow-sm md:hidden border-theme-secondary-300">
                 @isset($navbarNotificationsMobile)
