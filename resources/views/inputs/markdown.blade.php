@@ -36,7 +36,7 @@
                     {{ $xData }}
                 )"
                 x-init="init"
-                class="bg-white rounded border border-theme-secondary-200 dark:border-theme-secondary-700 dark:bg-theme-secondary-900 overflow-hidden"
+                class="overflow-hidden bg-white rounded border border-theme-secondary-200 dark:border-theme-secondary-700 dark:bg-theme-secondary-900"
             >
 
                 <div wire:ignore>
