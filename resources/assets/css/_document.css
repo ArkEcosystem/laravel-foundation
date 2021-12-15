@@ -57,8 +57,9 @@ code.hljs .hljs-ln-n {
 }
 
 .documentation-content h2 {
-    @apply pt-6 mt-6 mb-4 border-t border-theme-secondary-200;
+    @apply pt-6 mt-6 mb-4 border-t border-theme-secondary-200 dark:border-theme-secondary-800;
 }
+
 .documentation-content h3 {
     @apply mb-4;
 }
