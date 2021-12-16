@@ -48,7 +48,7 @@
             <span>@lang('ui::menus.notifications.no_notifications')</span>
         </div>
         <div class="py-8 md:px-8">
-            <img src="{{ asset('images/defaults/no-notifications.svg') }}" alt=""/>
+            @svg('no-notifications', 'h-36 light-dark-icon')
         </div>
     @endif
 </div>
