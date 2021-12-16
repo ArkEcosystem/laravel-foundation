@@ -71,6 +71,9 @@ a.disabled {
 .button-cancel {
     @apply button-generic bg-theme-danger-100 text-theme-danger-400;
 }
+.dark .button-cancel {
+    @apply bg-theme-danger-400 text-white hover:bg-theme-danger-500;
+}
 
 .button-icon {
     @apply button-secondary;
