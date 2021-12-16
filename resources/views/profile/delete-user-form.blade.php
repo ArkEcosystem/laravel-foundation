@@ -1,6 +1,6 @@
 <div>
     <div class="flex flex-col">
-        <span class="header-4">@lang('ui::pages.user-settings.delete_account_title')</span>
+        <h3>@lang('ui::pages.user-settings.delete_account_title')</h3>
         <span class="mt-4">
             @lang('ui::pages.user-settings.delete_account_description')
         </span>
