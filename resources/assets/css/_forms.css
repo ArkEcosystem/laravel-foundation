@@ -300,8 +300,12 @@ input[type="password"]::-ms-reveal {
 }
 
 .disabled-tags-input .tags-input-focus {
-    @apply border-theme-secondary-200;
+    @apply border-theme-secondary-200 dark:border-theme-secondary-800;
     box-shadow: 0 0 0 1px var(--theme-color-secondary-200);
+}
+
+.dark .disabled-tags-input .tags-input-focus {
+    box-shadow: 0 0 0 1px var(--theme-color-secondary-800);
 }
 
 .disabled-tags-input .taggle > .close {
@@ -312,7 +316,7 @@ input[type="password"]::-ms-reveal {
 .disabled-tags-input .taggle_list,
 .disabled-tags-input .taggle_placeholder,
 .disabled-tags-input > div {
-    @apply bg-theme-secondary-100;
+    @apply bg-theme-secondary-100 dark:bg-theme-secondary-900;
 }
 
 .disabled-tags-input:not(.disabled-tags-input-add) .taggle_list .taggle {

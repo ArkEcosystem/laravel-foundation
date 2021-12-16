@@ -1,6 +1,6 @@
 <div>
     <div class="flex flex-col">
-        <span class="header-4">@lang('ui::pages.user-settings.delete_account_title')</span>
+        <h3>@lang('ui::pages.user-settings.delete_account_title')</h3>
         <span class="mt-4">
             @lang('ui::pages.user-settings.delete_account_description')
         </span>
@@ -23,7 +23,7 @@
             <x-slot name="description">
                 <div class="flex flex-col">
                     <div class="flex justify-center w-full">
-                        <x-ark-icon name="fortify-modal.delete-account" class="mt-8 mb-4 w-60 h-auto text-theme-primary-600"/>
+                        <x-ark-icon name="fortify-modal.delete-account" class="mt-8 mb-4 w-60 h-auto text-theme-primary-600 light-dark-icon"/>
                     </div>
 
                     @if($alert)
