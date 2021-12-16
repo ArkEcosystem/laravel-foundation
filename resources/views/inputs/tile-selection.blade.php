@@ -75,7 +75,7 @@
 
     @if (! $hiddenOptions && count($options) > ($mobileShowRows * 2))
         <div
-            class="py-3 font-semibold text-center rounded sm:hidden button-secondary cursor-pointer"
+            class="py-3 font-semibold text-center rounded cursor-pointer sm:hidden button-secondary"
             x-bind:class="{ hidden: ! mobileHidden }"
             @click="mobileHidden = false"
         >
