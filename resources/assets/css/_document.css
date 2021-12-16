@@ -49,7 +49,7 @@ code.hljs .hljs-ln-n {
 
 /* Documentation Content */
 .documentation-content {
-    @apply break-words;
+    @apply break-words text-theme-secondary-700 dark:text-theme-secondary-500;
 }
 
 .documentation-content h1 {
