@@ -418,7 +418,7 @@
 }
 
 .tile-link-icon {
-    @apply dark:text-theme-secondary-600 dark:group-hover:text-theme-secondary-200;
+    @apply transition-default dark:text-theme-secondary-600 dark:group-hover:text-theme-secondary-200;
 }
 
 .tile-link-title {
