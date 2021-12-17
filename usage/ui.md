@@ -882,7 +882,7 @@ The script should be inserted on each page in the `head` section. In our case, p
 
         <title>...</title>
         
-        <!-- place the script right after <title> to avoid FOUC -->
+        <!-- place the script right after <title> to avoid FOUC (https://en.wikipedia.org/wiki/Flash_of_unstyled_content) -->
         <x-ark-dark-theme-script />
         
         ...
