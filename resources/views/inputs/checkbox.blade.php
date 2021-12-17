@@ -48,7 +48,7 @@
         </div>
 
         <div @class([
-            'text-sm leading-5 theme-secondary-700',
+            'text-sm leading-5 dark:text-theme-secondary-500 text-theme-secondary-700',
             'pr-7' => $right,
             'pl-7' => ! $right,
         ])>

@@ -14,6 +14,7 @@ module.exports = {
                 20: "20px",
             },
             boxShadow: {
+                "navbar-dropdown": "0px 15px 35px 0 rgba(33, 34, 37, 0.08)",
                 "lg-smooth":
                     "0 10px 15px -3px rgba(0, 0, 0, 0.025), 0 4px 6px -2px rgba(0, 0, 0, 0.025)",
                 "header-smooth": " 0px 2px 10px 0px rgba(192, 200, 207, 0.22)",
@@ -31,6 +32,7 @@ module.exports = {
                 "8xl": "85rem",
                 "1/2": "50%",
                 "2/3": "66%",
+                doc: "51.25rem",
             },
             height: {
                 "21": "5.25rem",
@@ -51,6 +53,7 @@ module.exports = {
             },
             inset: {
                 "13": "3.25rem",
+                "21": "5.25rem",
             },
         },
 

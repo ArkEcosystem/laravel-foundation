@@ -4,7 +4,7 @@
     'contentClass' => 'flex flex-col items-center text-center space-y-4 contact-header',
 ])
 
-<div {{ $attributes->class('bg-theme-secondary-100') }}>
+<div {{ $attributes->class('bg-theme-secondary-100 dark:bg-black') }}>
     <div @class([$contentClass])>
         <h1 class="mb-0">{{ $title }}</h1>
 

@@ -26,6 +26,7 @@
 
 .button-primary:disabled,
 .button-secondary:disabled,
+.button-tertiary:disabled,
 .button-cancel:disabled,
 .button-icon:disabled,
 .button-icon-rounded:disabled,
@@ -43,6 +44,7 @@ a.disabled {
 
 .dark .button-primary:disabled,
 .dark .button-secondary:disabled,
+.dark .button-tertiary:disabled,
 .dark .button-cancel:disabled,
 .dark .button-icon:disabled,
 .dark .button-icon-rounded:disabled,
@@ -62,8 +64,15 @@ a.disabled {
     @apply button-generic bg-theme-primary-100 text-theme-primary-600;
 }
 
+.button-tertiary {
+    @apply button-generic bg-theme-secondary-800 hover:bg-theme-secondary-900 text-white;
+}
+
 .button-cancel {
     @apply button-generic bg-theme-danger-100 text-theme-danger-400;
+}
+.dark .button-cancel {
+    @apply bg-theme-danger-400 text-white hover:bg-theme-danger-500;
 }
 
 .button-icon {
@@ -134,7 +143,8 @@ a.disabled {
 
 a.button-generic,
 a.button-primary,
-a.button-secondary {
+a.button-secondary,
+a.button-tertiary {
     @apply inline-block;
 }
 
@@ -182,6 +192,7 @@ a.button-secondary {
 
 .dark .button-primary:hover,
 .dark .button-secondary:hover,
+.dark .button-tertiary:hover,
 .dark .button-icon:hover,
 .dark .button-icon-rounded:hover,
 .dark .button-icon-primary:hover {

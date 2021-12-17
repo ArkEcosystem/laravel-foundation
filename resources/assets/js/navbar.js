@@ -78,6 +78,23 @@ const Navbar = {
                     onNavbarOpened(scrollable || nav);
                 }
             },
+            toggleDropdown(name) {
+                this.openDropdown = this.openDropdown === name ? null : name;
+            },
+            closeDropdown() {
+                this.openDropdown = null;
+                this.open = false;
+            },
+            closeIfBlurOutside(event) {
+                const focusedElementIsChild =
+                    event.relatedTarget &&
+                    (this.$refs.menuDropdown.contains(event.relatedTarget) ||
+                        this.$refs.menuDropdownButton === event.relatedTarget);
+
+                if (!focusedElementIsChild) {
+                    this.closeDropdown();
+                }
+            },
             hide() {
                 this.open = false;
             },

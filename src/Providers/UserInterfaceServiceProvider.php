@@ -240,6 +240,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::avatar', 'ark-avatar');
             $blade->component('ark::breadcrumbs', 'ark-breadcrumbs');
             $blade->component('ark::clipboard', 'ark-clipboard');
+            $blade->component('ark::chevron-toggle', 'ark-chevron-toggle');
             $blade->component('ark::code', 'ark-code');
             $blade->component('ark::code-lines', 'ark-code-lines');
             $blade->component('ark::container', 'ark-container');
@@ -248,6 +249,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::details-box', 'ark-details-box');
             $blade->component('ark::details-box-mobile', 'ark-details-box-mobile');
             $blade->component('ark::divider', 'ark-divider');
+            $blade->component('ark::documentation', 'ark-documentation');
             $blade->component('ark::dropdown', 'ark-dropdown');
             $blade->component('ark::expandable', 'ark-expandable');
             $blade->component('ark::expandable-item', 'ark-expandable-item');
@@ -308,6 +310,9 @@ class UserInterfaceServiceProvider extends ServiceProvider
 
             // Font Loader
             $blade->component('ark::font-loader', 'ark-font-loader');
+
+            // Scripts
+            $blade->component('ark::scripts.dark-theme-script', 'ark-dark-theme-script');
 
             // Formatting
             $blade->component('currency', Currency::class);

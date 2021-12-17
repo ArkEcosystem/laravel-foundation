@@ -26,6 +26,6 @@
 >
     <x-ark-icon name="report" class="text-theme-danger-500" />
     @if($shifted)
-        <div class="w-px h-5 transform translate-x-4 bg-theme-secondary-300">&nbsp;</div>
+        <div class="w-px h-5 transform translate-x-4 bg-theme-secondary-300 dark:bg-theme-secondary-800">&nbsp;</div>
     @endif
 </button>

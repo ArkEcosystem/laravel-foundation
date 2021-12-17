@@ -39,13 +39,11 @@ it('should render the component with children', function (): void {
                 [
                     'route'    => 'home',
                     'label'    => 'Home',
-                    'image'    => 'special-icon',
                     'children' => [
                         ['route' => 'post', 'label' => 'Post'],
                     ],
                 ],
             ],
         ]))
-        ->contains('http://localhost/post')
-        ->contains('special-icon');
+        ->contains('http://localhost/post');
 });

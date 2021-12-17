@@ -110,6 +110,84 @@ import Modal from "@ui/js/modal";
 window.Modal = Modal;
 ```
 
+### Tables
+
+To create a table you can use the following components:
+
+- `<x-ark-tables.table>` => creates the `table` tag inside a container
+- `<x-ark-tables.row>` => creates the `tr` tag
+- `<x-ark-tables.header>` => creates the `th` tag
+- `<x-ark-tables.cell>` => creates the `td` tag
+
+You just need to use the different components as you normally would with a regular table.
+
+```html
+<x-ark-tables.table>
+    <thead>
+        <x-ark-tables.row>
+            <x-ark-tables.header>ID</x-ark-tables.header>
+            <x-ark-tables.header class="w-full">Name</x-ark-tables.header>
+            <x-ark-tables.header class="text-right">Email</x-ark-tables.header>
+        </x-ark-tables.row>
+    </thead>
+    <tbody>
+        @foreach($items as $item)
+            <x-ark-tables.row :danger="$loop->index === 0">
+                <x-ark-tables.cell>{{ $item->id }}</x-ark-tables.cell>
+                <x-ark-tables.cell>{{ $item->name }}</x-ark-tables.cell>
+                <x-ark-tables.cell>{{ $item->email }}</x-ark-tables.cell>
+            </x-ark-tables.row>
+        @endforeach
+    </tbody>
+</x-ark-tables.table>
+```
+
+We use components because they contain the CSS classes and HTML needed to build the table according to the style guide and because every component contains a set of useful props:
+
+#### Table `<x-art-tables.table` props
+
+
+| Props        | Default | Description                                                                                                               |
+|--------------|---------|---------------------------------------------------------------------------------------------------------------------------|
+| sticky       | `false` | If set it will keep the header on top                                                                                     |
+| tableClass   | `null`  | CSS classes to add to the `table` tag                                                                                     |
+| noContainer  | `false` | If set it will remove the container that wraps the table                                                                  |
+| compact      | `true`  | If set it will add the CSS classes related to the compact version of the table                                            |
+| compactUntil | `md`    | If `compact` is set it will apply the compact version until the given breakpoint. Use `false` to use only compact version |
+
+
+#### Table `<x-art-tables.row` props
+
+| Props   | Default | Description                                                            |
+|---------|---------|------------------------------------------------------------------------|
+| success | `false` | If set it will add a green background to the row                       |
+| info    | `false` | If set it will add a background according to the main color to the row |
+| danger  | `false` | If set it will add a red background to the row                         |
+| warning | `false` | If set it will add a yeallo background to the row                      |
+| tooltip | `false` | If set it will add a tippy tooltip                                     |
+
+#### Table `<x-art-tables.header` props
+
+| Props      | Default | Description                                                                                       |
+|------------|---------|---------------------------------------------------------------------------------------------------|
+| responsive | `false` | If set it will hide the column according on the breakpoint that is added on the `breakpoint` prop |
+| breakpoint | `lg`    | In which breakpoint it will hide the column                                                       |
+| firstOn    | `null`  | In which screen sizes this column will be the first one (`xl`, `lg`, etc)                         |
+| lastOn     | `null`  | In which screen sizes this column will be the last one (`xl`, `lg`, etc)                          |
+| class      | `''`    | Column CSS class                                                                                  |
+| name       | `''`    | If set it will use the laravel `@lang`  helper to get the value of the column                     |
+
+#### Table `<x-art-tables.cell` props
+
+| Props      | Default | Description                                                                                       |
+|------------|---------|---------------------------------------------------------------------------------------------------|
+| responsive | `false` | If set it will hide the column according on the breakpoint that is added on the `breakpoint` prop |
+| breakpoint | `lg`    | In which breakpoint it will hide the column                                                       |
+| firstOn    | `null`  | In which screen sizes this column will be the first one (`xl`, `lg`, etc)                         |
+| lastOn     | `null`  | In which screen sizes this column will be the last one (`xl`, `lg`, etc)                          |
+| class      | `''`    | Column CSS class                                                                                  |
+| colspan    | `null`  | `td` colspan attribute                                                                            |
+
 ### WYSIWYG Markdown editor
 
 > Important: you will need to have `php-tidy` installed for the Markdown parsing. Ensure this is installed on any servers before implementing the markdown editor
@@ -775,3 +853,114 @@ If you need to add, replace or delete an icon:
 ## Tailwind Configuration
 
 There are a few tailwind configuration additions on which the components rely (e.g. colors and additional shadows) and are therefore expected to use the tailwind config in this repository as basis (you can import it and extend it further if needed).
+
+## Dark Color Theme
+
+Dark color theme is more and more used on website today and many operating systems feature this functionality.
+Users might indicate their preference through the operating system setting or by interacting with a theme switcher component.
+
+Since we use Tailwind css with `class` strategy to manage dark mode. 
+This strategy had a down-side of not be able to manage the operating system preference.
+To by-pass this problem, we can use vanilla javascript and controlling both strategies.
+
+### Script
+
+```html
+<x-ark-dark-theme-script />
+```
+
+The script is enabled by default, you can disable the script by adding `DARK_MODE_ENABLE=false` on your `.env` file.
+
+#### How to integrate
+The script should be inserted on each page in the `head` section. In our case, placing the script in the `app.blade.php` can do the trick.
+
+```html
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        ...
+
+        <title>...</title>
+        
+        <!-- place the script right after <title> to avoid FOUC (https://en.wikipedia.org/wiki/Flash_of_unstyled_content) -->
+        <x-ark-dark-theme-script />
+        
+        ...
+    </head>
+    ...
+</html>
+```
+
+#### What it does
+
+Basically, it uses vanilla javascript to listen to events and uses Local Storage to store the user choice. If the value is not found on Local Storage, it takes the preference from the O.S.
+
+| events          | description                                           |
+|-----------------|-------------------------------------------------------|
+| setThemeMode    | It turns the given mode on                            |
+| setOSThemeMode  | It uses the OS preference                             |
+| toggleThemeMode | It toggles the theme from light to dark and viceversa |
+
+#### How to use
+
+This script can be used with Livewire and/or AlpineJs.
+
+**Example using Livewire**
+
+```php
+use Livewire\Livewire;
+
+class ThemeSwitcher extends Livewire
+{
+    ...
+    
+    public function dark(): void
+    {
+        $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'dark']);
+    }
+    
+    public function light(): void
+    {
+        $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'light']);
+    }
+    
+    public function os(): void
+    {
+        $this->dispatchBrowserEvent('setOSThemeMode');
+    }
+    
+    public function toggle(): void
+    {
+        $this->dispatchBrowserEvent('toggleThemeMode');
+    }
+}
+```
+
+**Example of Theme Preference Setting page using AlpineJs**
+
+```html
+<section>
+    <h2>Theme preference</h2>
+    
+    <button type="button" @click="$dispatch('setThemeMode', {'theme': 'dark'})">Dark</button>
+    <button type="button" @click="$dispatch('setThemeMode', {'theme': 'light'})">Light</button>
+    <button type="button" @click="$dispatch('setOSThemeMode')">System default</button>
+</section>
+```
+
+**Example of Theme Switcher component using AlpineJs**
+
+```html
+<div x-data="{ isDarkTheme: false }">
+    <span id="set-dark-mode">Enable/Disable Dark mode</span> 
+    <button 
+        role="switch" 
+        aria-labelledby="set-dark-mode" 
+        x-bind:aria-checked="isDarkTheme" 
+        @click="$dispatch('setThemeMode', {'theme': isDarkTheme ? 'dark' : 'light'})"
+    >
+      <span x-show="isDarkTheme">on</span>
+      <span x-show="!isDarkTheme">off</span>
+    </button>
+</div>
+```

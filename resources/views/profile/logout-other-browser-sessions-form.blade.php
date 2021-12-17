@@ -63,7 +63,7 @@
 
         <div class="mt-4 w-full text-base md:hidden">
             @foreach ($this->sessions as $session)
-                <div class="py-4 space-y-3 border-b border-dashed border-theme-secondary-300">
+                <div class="py-4 space-y-3 border-b border-dashed border-theme-secondary-300 dark:border-theme-secondary-800">
 
                     <div class="flex justify-between">
                         <div class="font-semibold text-theme-secondary-500">

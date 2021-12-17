@@ -4,7 +4,7 @@ input[type="password"]::-ms-reveal {
 }
 
 .input-label {
-    @apply flex text-sm font-semibold leading-5 text-theme-secondary-700 transition-default;
+    @apply flex text-sm font-semibold leading-5 text-theme-secondary-700 transition-default dark:text-theme-secondary-500;
 }
 
 .input-label--toggle {
@@ -36,6 +36,12 @@ input[type="password"]::-ms-reveal {
     padding: 0.75rem 3.25rem 0.75rem 0.75rem;
 }
 
+.dark .input-text::placeholder,
+.dark .input-text-with-prefix::placeholder,
+.dark .input-text-with-suffix::placeholder {
+    @apply text-theme-secondary-700;
+}
+
 .input-rich-select .form-input {
     /* Note: need this to override form-input padding */
     padding: 0.75rem 1rem;
@@ -62,6 +68,10 @@ input[type="password"]::-ms-reveal {
 .input-text-with-prefix:read-only,
 .input-text-with-suffix:read-only {
     @apply cursor-not-allowed border-theme-secondary-400 bg-theme-secondary-100;
+}
+
+.dark .form-select {
+    @apply bg-theme-secondary-900 border-theme-secondary-700 text-theme-secondary-200;
 }
 
 /** Input with icon button **/
@@ -105,7 +115,7 @@ input[type="password"]::-ms-reveal {
 
 .input-text-with-prefix,
 .input-text-with-suffix {
-    @apply block w-full border-0 rounded outline-none appearance-none transition-default border-theme-danger-500;
+    @apply block w-full border-0 rounded outline-none appearance-none transition-default border-theme-danger-500 dark:bg-theme-secondary-900;
 
     /* Note: need this to override form-input padding */
     padding: 0.75rem 1rem;
@@ -113,18 +123,18 @@ input[type="password"]::-ms-reveal {
 
 .input-wrapper-with-prefix,
 .input-wrapper-with-suffix {
-    @apply flex bg-white border rounded border-theme-secondary-300;
+    @apply flex bg-white border rounded border-theme-secondary-300 dark:border-theme-secondary-700 dark:bg-theme-secondary-900;
 }
 
 .input-wrapper-with-prefix .input-prefix-icon {
-    @apply text-theme-secondary-500;
+    @apply text-theme-secondary-500 dark:text-theme-secondary-700;
 }
 .input-wrapper-with-prefix--dirty .input-prefix-icon,
 .input-wrapper-with-prefix:focus-within .input-prefix-icon {
-    @apply text-theme-primary-500;
+    @apply text-theme-primary-500 dark:text-theme-primary-600;
 }
 .input-wrapper-with-prefix .input-prefix {
-    @apply border-r;
+    @apply border-r dark:border-theme-secondary-700;
 }
 .input-wrapper-with-suffix .input-suffix {
     @apply border-l;
@@ -156,7 +166,11 @@ input[type="password"]::-ms-reveal {
 
 /* Checkboxes */
 .input-checkbox {
-    @apply w-4 h-4 transition duration-150 ease-in-out text-theme-success-600;
+    @apply w-4 h-4 transition duration-150 ease-in-out text-theme-success-600 border-theme-secondary-300 border-2 dark:border-theme-secondary-800 dark:bg-transparent;
+}
+
+.dark .input-checkbox:checked {
+    @apply bg-theme-success-600 border-theme-success-600;
 }
 
 .input-checkbox[disabled] {
@@ -242,13 +256,13 @@ input[type="password"]::-ms-reveal {
 }
 
 .taggle_list .taggle {
-    @apply flex items-center pl-2 pr-1 space-x-2 overflow-auto rounded bg-theme-primary-100;
+    @apply flex items-center pl-2 pr-1 space-x-2 overflow-auto rounded bg-theme-primary-100 dark:bg-theme-secondary-800;
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;
 }
 
 .taggle_list .taggle .close {
-    @apply items-center p-1 text-lg leading-3 no-underline rounded cursor-pointer pointer-events-none right-2 text-theme-secondary-900 bg-theme-primary-200 whitespace-nowrap;
+    @apply items-center p-1 text-lg leading-3 no-underline rounded cursor-pointer pointer-events-none right-2 text-theme-secondary-900 bg-theme-primary-200 whitespace-nowrap dark:bg-theme-secondary-700;
 }
 
 .taggle_list .taggle:hover {
@@ -260,15 +274,15 @@ input[type="password"]::-ms-reveal {
 }
 
 .taggle_list .taggle .close:hover {
-    @apply text-theme-primary-600;
+    @apply text-theme-primary-600 dark:text-theme-secondary-200;
 }
 
 .taggle_placeholder {
-    @apply absolute top-0 left-0 max-w-full p-3 truncate rounded pointer-events-none text-theme-secondary-400;
+    @apply absolute top-0 left-0 max-w-full p-3 truncate rounded pointer-events-none text-theme-secondary-400 dark:text-theme-secondary-700;
 }
 
 .taggle_input {
-    @apply max-w-full my-1 bg-none;
+    @apply max-w-full my-1 bg-transparent;
 }
 
 .taggle_sizer {
@@ -278,16 +292,20 @@ input[type="password"]::-ms-reveal {
 }
 
 .taggle_text {
-    @apply truncate text-theme-primary-600;
+    @apply truncate text-theme-primary-600 dark:text-theme-secondary-200;
 }
 
 .taggle {
-    @apply space-x-2 bg-theme-primary-100;
+    @apply space-x-2 bg-theme-primary-100 dark:bg-theme-secondary-800;
 }
 
 .disabled-tags-input .tags-input-focus {
-    @apply border-theme-secondary-200;
+    @apply border-theme-secondary-200 dark:border-theme-secondary-800;
     box-shadow: 0 0 0 1px var(--theme-color-secondary-200);
+}
+
+.dark .disabled-tags-input .tags-input-focus {
+    box-shadow: 0 0 0 1px var(--theme-color-secondary-800);
 }
 
 .disabled-tags-input .taggle > .close {
@@ -298,7 +316,7 @@ input[type="password"]::-ms-reveal {
 .disabled-tags-input .taggle_list,
 .disabled-tags-input .taggle_placeholder,
 .disabled-tags-input > div {
-    @apply bg-theme-secondary-100;
+    @apply bg-theme-secondary-100 dark:bg-theme-secondary-900;
 }
 
 .disabled-tags-input:not(.disabled-tags-input-add) .taggle_list .taggle {

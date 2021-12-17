@@ -24,15 +24,16 @@
                                     {{ ucfirst($this->activeFilter) }}
                                 </span>
 
-                                <span :class="{ 'rotate-180': dropdownOpen }" class="transition duration-150 ease-in-out text-theme-primary-600">
-                                    <x-ark-icon name="chevron-down" size="xs" />
-                                </span>
+                                <x-ark-chevron-toggle
+                                    is-open="dropdownOpen"
+                                    class="text-theme-primary-600"
+                                />
                             </div>
                         @endslot
                         <div class="py-3">
                             @foreach ($this->getAvailableFilters() as $filter)
                                 <button type="button" class="cursor-pointer focus-visible:ring-inset dropdown-entry" wire:click="$set('activeFilter', '{{ $filter }}')">
-                                    @lang("hermes::menus.notifications-dropdown.{$filter}")
+                                    @lang("ui::menus.notifications-dropdown.{$filter}")
                                 </button>
                             @endforeach
                         </div>
