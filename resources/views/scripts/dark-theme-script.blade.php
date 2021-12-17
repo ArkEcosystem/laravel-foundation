@@ -1,4 +1,4 @@
-@if(config('ui.dark-mode.enabled', false) === true)
+@if(config('ui.dark-mode.enabled') === true)
     <script>
         document.addEventListener('setThemeMode', (e) => {
             localStorage.theme = e.detail.theme; toggleTheme();

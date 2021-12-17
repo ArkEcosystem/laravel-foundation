@@ -869,7 +869,7 @@ To by-pass this problem, we can use vanilla javascript and controlling both stra
 <x-ark-dark-theme-script />
 ```
 
-You can disable the script by adding `DARK_MODE_ENABLE=false` on your `.env` file.
+The script is enabled by default, you can disable the script by adding `DARK_MODE_ENABLE=false` on your `.env` file.
 
 #### How to integrate
 The script should be inserted on each page in the `head` section. In our case, placing the script in the `app.blade.php` can do the trick.
