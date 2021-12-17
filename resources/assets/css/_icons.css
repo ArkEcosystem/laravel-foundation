@@ -10,7 +10,6 @@
     --icon-color-accent-7: var(--theme-color-secondary-200); /* #EEF3F5 */
     --icon-color-accent-8: var(--theme-color-secondary-200); /* #EEF3F5 */
     --icon-color-accent-9: var(--theme-color-primary-100); /* #E5F0F8 */
-    --icon-color-accent-10: var(--theme-color-primary-100); /* #E5F0F8 */
 }
 
 .dark .light-dark-icon {
@@ -25,5 +24,4 @@
     --icon-color-accent-7: var(--theme-color-secondary-800); /* #173E85 */
     --icon-color-accent-8: var(--theme-color-secondary-600); /* #7E8A9C */
     --icon-color-accent-9: var(--theme-color-secondary-900); /* #212225 */
-    --icon-color-accent-10: var(--theme-color-secondary-800); /* #3C4249 */
 }
