@@ -3,10 +3,14 @@
     --icon-color-secondary-2: var(--theme-color-secondary-900); /* #212225 */
     --icon-color-accent: var(--theme-color-secondary-300); /* #DBDEE5 */
     --icon-color-accent-2: var(--theme-color-primary-100); /* #E5F0F8 */
-    --icon-color-accent-3: var(--theme-color-primary-100); /* #E4EFF8 */
+    --icon-color-accent-3: var(--theme-color-primary-100); /* #E5F0F8 */
     --icon-color-accent-4: var(--theme-color-warning-100); /* #FFE6B8 */
     --icon-color-accent-5: var(--theme-color-success-50); /* #F0FDF4 */
     --icon-color-accent-6: var(--theme-color-secondary-200); /* #EEF3F5 */
+    --icon-color-accent-7: var(--theme-color-secondary-200); /* #EEF3F5 */
+    --icon-color-accent-8: var(--theme-color-secondary-200); /* #EEF3F5 */
+    --icon-color-accent-9: var(--theme-color-primary-100); /* #E5F0F8 */
+    --icon-color-accent-10: var(--theme-color-primary-100); /* #E5F0F8 */
 }
 
 .dark .light-dark-icon {
@@ -18,4 +22,8 @@
     --icon-color-accent-4: var(--theme-color-warning-900); /* #EC5C08 */
     --icon-color-accent-5: var(--theme-color-success-800); /* #289548 */
     --icon-color-accent-6: var(--theme-color-primary-900); /* #173E85 */
+    --icon-color-accent-7: var(--theme-color-secondary-800); /* #173E85 */
+    --icon-color-accent-8: var(--theme-color-secondary-600); /* #7E8A9C */
+    --icon-color-accent-9: var(--theme-color-secondary-900); /* #212225 */
+    --icon-color-accent-10: var(--theme-color-secondary-800); /* #3C4249 */
 }
