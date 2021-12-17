@@ -861,3 +861,114 @@ If you need to add, replace or delete an icon:
 ## Tailwind Configuration
 
 There are a few tailwind configuration additions on which the components rely (e.g. colors and additional shadows) and are therefore expected to use the tailwind config in this repository as basis (you can import it and extend it further if needed).
+
+## Dark Color Theme
+
+Dark color theme is more and more used on website today and many operating systems feature this functionality.
+Users might indicate their preference through the operating system setting or by interacting with a theme switcher component.
+
+Since we use Tailwind css with `class` strategy to manage dark mode. 
+This strategy had a down-side of not be able to manage the operating system preference.
+To by-pass this problem, we can use vanilla javascript and controlling both strategies.
+
+### Script
+
+```html
+<x-ark-dark-theme-script />
+```
+
+The script is enabled by default, you can disable the script by adding `DARK_MODE_ENABLE=false` on your `.env` file.
+
+#### How to integrate
+The script should be inserted on each page in the `head` section. In our case, placing the script in the `app.blade.php` can do the trick.
+
+```html
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        ...
+
+        <title>...</title>
+        
+        <!-- place the script right after <title> to avoid FOUC (https://en.wikipedia.org/wiki/Flash_of_unstyled_content) -->
+        <x-ark-dark-theme-script />
+        
+        ...
+    </head>
+    ...
+</html>
+```
+
+#### What it does
+
+Basically, it uses vanilla javascript to listen to events and uses Local Storage to store the user choice. If the value is not found on Local Storage, it takes the preference from the O.S.
+
+| events          | description                                           |
+|-----------------|-------------------------------------------------------|
+| setThemeMode    | It turns the given mode on                            |
+| setOSThemeMode  | It uses the OS preference                             |
+| toggleThemeMode | It toggles the theme from light to dark and viceversa |
+
+#### How to use
+
+This script can be used with Livewire and/or AlpineJs.
+
+**Example using Livewire**
+
+```php
+use Livewire\Livewire;
+
+class ThemeSwitcher extends Livewire
+{
+    ...
+    
+    public function dark(): void
+    {
+        $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'dark']);
+    }
+    
+    public function light(): void
+    {
+        $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'light']);
+    }
+    
+    public function os(): void
+    {
+        $this->dispatchBrowserEvent('setOSThemeMode');
+    }
+    
+    public function toggle(): void
+    {
+        $this->dispatchBrowserEvent('toggleThemeMode');
+    }
+}
+```
+
+**Example of Theme Preference Setting page using AlpineJs**
+
+```html
+<section>
+    <h2>Theme preference</h2>
+    
+    <button type="button" @click="$dispatch('setThemeMode', {'theme': 'dark'})">Dark</button>
+    <button type="button" @click="$dispatch('setThemeMode', {'theme': 'light'})">Light</button>
+    <button type="button" @click="$dispatch('setOSThemeMode')">System default</button>
+</section>
+```
+
+**Example of Theme Switcher component using AlpineJs**
+
+```html
+<div x-data="{ isDarkTheme: false }">
+    <span id="set-dark-mode">Enable/Disable Dark mode</span> 
+    <button 
+        role="switch" 
+        aria-labelledby="set-dark-mode" 
+        x-bind:aria-checked="isDarkTheme" 
+        @click="$dispatch('setThemeMode', {'theme': isDarkTheme ? 'dark' : 'light'})"
+    >
+      <span x-show="isDarkTheme">on</span>
+      <span x-show="!isDarkTheme">off</span>
+    </button>
+</div>
+```
