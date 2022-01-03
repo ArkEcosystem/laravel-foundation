@@ -2,21 +2,26 @@
     @if(Auth::check() && $notificationCount > 0)
         <div class="inline-block py-4 w-full md:py-4" dusk="navigation-notifications">
             @foreach($currentUser->notifications->take(4) as $notification)
-                <div class="flex px-2 py-6 leading-5 {{ ! $loop->last ? 'border-b border-dashed border-theme-secondary-200' : '' }}" dusk="navigation-notification-{{$loop->index}}">
+                <div
+                    @class([
+                        'flex px-2 py-6 leading-5',
+                        'border-b border-dashed border-theme-secondary-200 dark:border-theme-secondary-800' => ! $loop->last
+                    ])
+                    dusk="navigation-notification-{{$loop->index}}">
                     <x-hermes-notification-icon :notification="$notification" :type="$notification->data['type']" />
 
                     <div class="flex overflow-auto flex-col ml-5 space-y-1 w-full">
                         <div class="flex flex-row justify-between">
-                            <span class="flex-grow font-semibold truncate text-theme-secondary-900">
+                            <span class="flex-grow font-semibold truncate text-theme-secondary-900 dark:text-theme-secondary-200">
                                 {{ $notification->title() }}
                             </span>
 
-                            <span class="hidden text-sm whitespace-nowrap md:block md:text-right text-theme-secondary-400">
+                            <span class="hidden text-sm whitespace-nowrap md:block md:text-right text-theme-secondary-400 dark:text-theme-secondary-700">
                                 {{ $notification->created_at_local->diffForHumans() }}
                             </span>
                         </div>
 
-                        <div class="flex flex-col justify-between md:flex-row md:space-x-3">
+                        <div class="flex flex-col justify-between md:flex-row md:space-x-3 dark:text-theme-secondary-500">
                             <span class="notification-truncate">
                                 {{ $notification->content() }}
                             </span>
@@ -44,11 +49,11 @@
             </div>
         </div>
     @else
-        <div class="p-6 mt-8 text-center rounded-xl border-2 border-theme-secondary-200">
+        <div class="p-6 mt-8 text-center rounded-xl border-2 border-theme-secondary-200 dark:border-theme-secondary-800">
             <span>@lang('ui::menus.notifications.no_notifications')</span>
         </div>
         <div class="py-8 md:px-8">
-            <img src="{{ asset('images/defaults/no-notifications.svg') }}" alt=""/>
+            <x-ark-icon name="app-no-notifications" class="w-full h-full dark:text-theme-secondary-800" />
         </div>
     @endif
 </div>
