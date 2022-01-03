@@ -311,6 +311,9 @@ class UserInterfaceServiceProvider extends ServiceProvider
             // Font Loader
             $blade->component('ark::font-loader', 'ark-font-loader');
 
+            // Scripts
+            $blade->component('ark::scripts.dark-theme-script', 'ark-dark-theme-script');
+
             // Formatting
             $blade->component('currency', Currency::class);
             $blade->component('number', Number::class);
