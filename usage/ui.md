@@ -895,15 +895,35 @@ The script should be inserted on each page in the `head` section. In our case, p
 
 Basically, it uses vanilla javascript to listen to events and uses Local Storage to store the user choice. If the value is not found on Local Storage, it takes the preference from the O.S.
 
-| events          | description                                           |
-|-----------------|-------------------------------------------------------|
-| setThemeMode    | It turns the given mode on                            |
-| setOSThemeMode  | It uses the OS preference                             |
-| toggleThemeMode | It toggles the theme from light to dark and viceversa |
-
 #### How to use
 
-This script can be used with Livewire and/or AlpineJs.
+Emits one of these events from Livewire or AlpineJs (scroll down for examples).
+
+| events          | params | description                                                                   |
+|-----------------|--------|-------------------------------------------------------------------------------|
+| setThemeMode    | theme  | It sets the given theme name.                                                 |
+| setOSThemeMode  |        | It sets the theme preference from O.S.                                        |
+| toggleThemeMode |        | It toggles the theme from light to dark and vice-versa without persisting it. |
+
+You can listen to custom `theme-changed` event when a theme name is changed. It contains the new theme name applied.
+
+**Example for listening `theme-changed` using AlpineJs**
+
+```html
+<div 
+    x-data="{dark: window.getThemeMode() === 'dark'}"
+    @theme-changed.window="dark = !dark"
+>
+    <span x-show="dark">dark theme</span>
+    <span x-show="!dark">light theme</span>
+</div>
+```
+
+As you can see in the previous example, the script also provide a helper method to easily get the current theme name.
+```js
+window.getThemeMode();
+// "dark" or "light 
+```
 
 **Example using Livewire**
 
@@ -912,7 +932,7 @@ use Livewire\Livewire;
 
 class ThemeSwitcher extends Livewire
 {
-    ...
+    protected $listeners = ['themeChanged' => '$refresh'];
     
     public function dark(): void
     {
