@@ -53,7 +53,9 @@
             <span>@lang('ui::menus.notifications.no_notifications')</span>
         </div>
         <div class="py-8 md:px-8">
-            <x-ark-icon name="app-no-notifications" class="w-full h-full dark:text-theme-secondary-800" />
+
+            <x-ark-icon name="no-notifications" class="w-full h-full light-dark-icon" />
+
         </div>
     @endif
 </div>
