@@ -13,6 +13,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
     $dir = getcwd();
 
+    $parameters->set(Option::BOOTSTRAP_FILES, [
+        $dir.'/bootstrap/app.php',
+    ]);
+
     $parameters->set(Option::PATHS, [
         $dir.'/app',
     ]);
