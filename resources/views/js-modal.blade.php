@@ -15,7 +15,7 @@
 <div
     {{ $attributes }}
     x-ref="modal"
-    data-modal
+    data-modal="{{ $name }}"
     x-cloak
     @if($init)
     x-data="Modal.alpine({{ $xData }}, '{{ $name }}')"
@@ -26,7 +26,7 @@
     tabindex="0"
     @endif
     x-show="shown"
-    class="flex overflow-y-auto fixed inset-0 z-50 md:py-10 md:px-8"
+    class="fixed inset-0 z-50 flex overflow-y-auto md:py-10 md:px-8"
 >
 
     <div class="fixed inset-0 opacity-75 dark:opacity-50 bg-theme-secondary-900 dark:bg-theme-secondary-800"></div>

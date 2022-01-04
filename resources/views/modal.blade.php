@@ -3,6 +3,7 @@
     'class' => '',
     'style' => null,
     'widthClass' => 'max-w-2xl',
+    'name' => null,
     'title' => null,
     'titleClass' => 'inline-block pb-2 font-bold dark:text-theme-secondary-200',
     'buttons' => null,
@@ -18,13 +19,17 @@
 <div
     wire:ignore.self
     x-ref="modal"
-    data-modal
+    @if($name)
+        data-modal="{{ $name }}"
+    @else
+        data-modal
+    @endif
     x-data="Modal.livewire({{ $xData }})"
     x-init="init"
     @if(!$closeButtonOnly && $wireClose)
         @mousedown.self="$wire.{{ $wireClose }}()"
     @endif
-    class="flex overflow-y-auto fixed inset-0 z-50 md:py-10 md:px-8"
+    class="fixed inset-0 z-50 flex overflow-y-auto md:py-10 md:px-8"
     @if(!$closeButtonOnly && $escToClose)
         wire:keydown.escape="{{ $wireClose }}"
         tabindex="0"
