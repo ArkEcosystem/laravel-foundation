@@ -50,9 +50,9 @@
 
         @include('ark::inputs.includes.markdown.button-separator')
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'ordered_list', 'iconName' => 'list-bullets', 'onClick' => 'bulletList', 'nodeName' => 'bulletList'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'ordered_list', 'iconName' => 'list-numbers', 'onClick' => 'orderedList', 'nodeName' => 'orderedList'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'unordered_list', 'iconName' => 'list-numbers', 'onClick' => 'orderedList', 'nodeName' => 'orderedList'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'unordered_list', 'iconName' => 'list-bullets', 'onClick' => 'bulletList', 'nodeName' => 'bulletList'])
 
         @unless ($toolbar === 'basic')
             @include('ark::inputs.includes.markdown.button', ['name' => 'table', 'iconName' => 'table', 'onClick' => 'table', 'nodeName' => 'table'])
