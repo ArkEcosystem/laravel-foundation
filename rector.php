@@ -10,6 +10,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
+    $services = $containerConfigurator->services();
     $dir = getcwd();
 
     $parameters->set(Option::PATHS, [
@@ -31,18 +32,29 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     }
 
     $containerConfigurator->import(SetList::CODE_QUALITY);
+    $services->remove(\Rector\CodeQuality\Rector\If_\ConsecutiveNullCompareReturnsToNullCoalesceQueueRector::class);
+
     $containerConfigurator->import(SetList::PRIVATIZATION);
+    $services->remove(\Rector\Privatization\Rector\Class_\RepeatedLiteralToClassConstantRector::class);
+    $services->remove(\Rector\Privatization\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector::class);
+    $services->remove(\Rector\Privatization\Rector\Class_\ChangeReadOnlyVariableWithDefaultValueToConstantRector::class);
+
     $containerConfigurator->import(SetList::TYPE_DECLARATION);
     $containerConfigurator->import(SetList::TYPE_DECLARATION_STRICT);
     $containerConfigurator->import(SetList::EARLY_RETURN);
     $containerConfigurator->import(SetList::CODING_STYLE);
+    $services->remove(\Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector::class);
+    $services->remove(\Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class);
+    $services->remove(\Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector::class);
+
     $containerConfigurator->import(SetList::DEAD_CODE);
 
     $containerConfigurator->import(LaravelSetList::LARAVEL_80);
     $containerConfigurator->import(LaravelSetList::LARAVEL_CODE_QUALITY);
     $containerConfigurator->import(LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL);
 
-    $services = $containerConfigurator->services();
+    // Restoration
+    $services->set(\Rector\Restoration\Rector\Property\MakeTypedPropertyNullableIfCheckedRector::class);
 
     // php7.4
     $services->set(\Rector\Php74\Rector\Property\TypedPropertyRector::class);
