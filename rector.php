@@ -10,8 +10,8 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
-    $services = $containerConfigurator->services();
-    $dir = getcwd();
+    $services   = $containerConfigurator->services();
+    $dir        = getcwd();
 
     $parameters->set(Option::BOOTSTRAP_FILES, [
         $dir.'/bootstrap/app.php',
