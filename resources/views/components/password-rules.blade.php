@@ -18,7 +18,7 @@
             @foreach($passwordRules as $ruleName => $ruleIsValid)
                 <div class="flex items-center space-x-2 min-w-1/3">
                     @if ($ruleIsValid)
-                        <div class="flex flex-shrink-0 justify-center items-center w-5 h-5 rounded-full bg-theme-success-200">
+                        <div class="flex flex-shrink-0 justify-center items-center w-5 h-5 rounded-full bg-theme-success-200 dark:bg-theme-success-900">
                             <x-ark-icon name="checkmark" size="2xs" style="success" />
                     @elseif(! $ruleIsValid)
                         <div class="flex flex-shrink-0 justify-center items-center w-5 h-5 rounded-full border-2 border-theme-secondary-600">

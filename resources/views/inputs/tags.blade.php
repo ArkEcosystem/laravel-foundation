@@ -40,7 +40,7 @@
             <div
                 wire:ignore
                 x-ref="input"
-                class="relative py-2 px-3 bg-white rounded border border-theme-secondary-400"
+                class="relative py-2 px-3 bg-white rounded border border-theme-secondary-400 dark:bg-theme-secondary-900 dark:border-theme-secondary-700"
             >
             </div>
 
