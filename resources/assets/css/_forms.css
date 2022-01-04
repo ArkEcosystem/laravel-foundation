@@ -67,7 +67,18 @@ input[type="password"]::-ms-reveal {
 .input-text:read-only,
 .input-text-with-prefix:read-only,
 .input-text-with-suffix:read-only {
-    @apply cursor-not-allowed border-theme-secondary-400 bg-theme-secondary-100;
+    @apply cursor-not-allowed border-theme-secondary-400 bg-theme-secondary-100 dark:bg-theme-secondary-900;
+}
+
+.input-group:focus-within .input-text-with-prefix.cursor-default:read-only,
+.input-group:focus-within .input-text-with-suffix.cursor-default:read-only,
+.input-group:focus-within .input-text-with-icon.cursor-default:read-only,
+.input-text-with-icon.cursor-default:read-only,
+.input-group:focus-within .input-text.cursor-default:read-only,
+.input-text.cursor-default:read-only,
+.input-text-with-prefix.cursor-default:read-only,
+.input-text-with-suffix.cursor-default:read-only {
+    cursor: default;
 }
 
 .dark .form-select {
