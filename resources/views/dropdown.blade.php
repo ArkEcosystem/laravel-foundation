@@ -40,7 +40,7 @@
     @endif
     @if($closeOnBlur)
         @keydown.escape="{{ $dropdownProperty }} = false"
-        @click.away="{{ $dropdownProperty }} = false"
+        @click.outside="{{ $dropdownProperty }} = false"
     @endif
     @if($wrapperClass) class="{{ $wrapperClass }}" @endif
     @if($dusk) dusk="{{ $dusk }}" @endif
