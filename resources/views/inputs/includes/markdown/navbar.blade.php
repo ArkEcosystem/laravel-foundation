@@ -19,9 +19,9 @@
         ])
 
     >
-        @include('ark::inputs.includes.markdown.button', ['name' => 'undo', 'iconName' => 'undo', 'onClick' => 'undo'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'undo', 'iconName' => 'arrows.arrow-rotate-left', 'onClick' => 'undo'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'redo', 'iconName' => 'redo', 'onClick' => 'redo'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'redo', 'iconName' => 'arrows.arrow-rotate-right', 'onClick' => 'redo'])
 
         @include('ark::inputs.includes.markdown.button-separator')
 
