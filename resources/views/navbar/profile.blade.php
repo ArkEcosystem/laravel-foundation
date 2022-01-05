@@ -72,7 +72,7 @@
     @endforeach
 
     @if ($profileMenuDarkMode ?? false)
-        <div class="mx-8 my-4">
+        <div class="my-4 mx-8">
             <x-ark-divider color-class="bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-700" />
         </div>
 
@@ -80,7 +80,7 @@
             class="flex justify-between items-center mx-8 mt-8 mb-4"
             @click.stop
         >
-            <div class="flex items-center space-x-2 cursor-default font-medium text-theme-secondary-900 dark:text-theme-secondary-200">
+            <div class="flex items-center space-x-2 font-medium cursor-default text-theme-secondary-900 dark:text-theme-secondary-200">
                 <x-ark-icon name="moon-underline" />
 
                 <span>@lang('ui::actions.dark_theme')</span>
