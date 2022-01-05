@@ -68,8 +68,8 @@
         type="checkbox"
         name="{{ $name }}"
         class="hidden"
+        :checked="value"
         @unless($noModel) wire:model="{{ $model ?? $name }}" @endunless
         @if($alpineClick) @click="{{ $alpineClick }}" @endif
-        @if($default === 'true') checked @endif
     />
 </div>
