@@ -11,7 +11,7 @@
 
             <div class="w-32 font-semibold text-right text-theme-secondary-500">
                 @if($message['isYours'] && $message['isRead'])
-                    <x-ark-icon name="read" size="xs" class="inline mr-2" />
+                    <x-ark-icon name="double-check-mark" size="xs" class="inline mr-2" />
                 @elseif($message['isYours'])
                     <x-ark-icon name="check-mark-bold" size="xs" class="inline mr-2" />
                 @endif
