@@ -41,6 +41,7 @@ return [
     'done'                      => 'Done',
     'confirm_logout'            => 'Logout Other Browser Sessions',
     'cancel'                    => 'Cancel',
+    'ok'                        => 'Ok',
     'delete'                    => 'Delete',
     'send'                      => 'Send',
     'skip'                      => 'Skip',
