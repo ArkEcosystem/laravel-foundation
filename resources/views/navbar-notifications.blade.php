@@ -3,7 +3,7 @@
         <div class="inline-block py-4 w-full md:py-4" dusk="navigation-notifications">
             @foreach($currentUser->notifications->take(4) as $notification)
                 <a
-                    class="flex px-4 pb-4 pt-6 rounded-xl leading-5 hover:bg-theme-success-50 dark:hover:bg-theme-success-900 group -mx-4"
+                    class="flex px-4 pt-6 pb-4 -mx-4 leading-5 rounded-xl group dark:hover:bg-theme-success-900 hover:bg-theme-success-50"
                     dusk="navigation-notification-{{$loop->index}}"
                     href="{{ $notification->link() ?? $notification->route() }}"
                 >
