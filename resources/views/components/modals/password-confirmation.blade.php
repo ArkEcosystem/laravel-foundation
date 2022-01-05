@@ -3,7 +3,8 @@
     'closeMethod',
     'title',
     'description',
-    'image' => '/images/auth/confirm-password.svg',
+    'image' => null,
+    'icon'  => 'modal.confirm-password',
 ])
 
 <x-ark-modal
@@ -18,11 +19,15 @@
     <x-slot name="description">
         <div class="flex flex-col">
             <div class="flex justify-center mt-8 w-full">
-                <img
-                    src="{{ asset($image) }}"
-                    class="h-28"
-                    alt=""
-                />
+                @if ($image)
+                    <img
+                        src="{{ asset($image) }}"
+                        class="h-28"
+                        alt=""
+                    />
+                @elseif ($icon)
+                    @svg($icon, 'h-28 light-dark-icon')
+                @endif
             </div>
 
             <div class="mt-8">

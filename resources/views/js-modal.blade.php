@@ -15,7 +15,7 @@
 <div
     {{ $attributes }}
     x-ref="modal"
-    data-modal
+    data-modal="{{ $name }}"
     x-cloak
     @if($init)
     x-data="Modal.alpine({{ $xData }}, '{{ $name }}')"

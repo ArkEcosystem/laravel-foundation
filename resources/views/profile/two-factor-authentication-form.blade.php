@@ -95,15 +95,19 @@
         </div>
     @else
         <div class="flex flex-col">
-            <span class="header-4">@lang('ui::pages.user-settings.2fa_title')</span>
+            <h4>@lang('ui::pages.user-settings.2fa_title')</h4>
             <span class="mt-4">@lang('ui::pages.user-settings.2fa_description')</span>
 
             <div class="flex flex-col items-center mt-4 space-y-4 sm:flex-row sm:items-start sm:mt-8 sm:space-y-0 sm:space-x-6">
-                <img src="{{ asset('/images/profile/2fa.svg') }}" class="w-24 h-24" alt="">
+                <div class="w-21 h-21">
+                    @svg('image.2fa', 'w-21 h-21 light-dark-icon')
+                </div>
+
                 <div class="flex flex-col">
-                    <span class="text-lg font-bold leading-7 text-theme-secondary-900">
+                    <span class="text-lg font-bold leading-7 text-theme-secondary-900 dark:text-theme-secondary-200">
                         @lang('ui::pages.user-settings.2fa_enabled_title')
                     </span>
+
                     <div class="mt-2 text-theme-secondary-600">
 
                         @lang('ui::pages.user-settings.2fa_summary', [
