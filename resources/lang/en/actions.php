@@ -15,6 +15,7 @@ return [
     'back'          => 'Back',
     'open'          => 'Open',
     'close'         => 'Close',
+    'dark_theme'    => 'Dark Theme',
 
     // Hermes
     'mark_all_as_read'   => 'Mark all as read',
