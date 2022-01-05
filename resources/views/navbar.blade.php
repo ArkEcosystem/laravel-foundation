@@ -17,7 +17,15 @@
     ][$breakpoint ?? 'md'];
 @endphp
 
-<header x-data="Navbar.dropdown()" x-init="init">
+<header
+    @if(config('ui.dark-mode.enabled') === true)
+        x-data="Navbar.dropdown({ dark: window.getThemeMode() === 'dark' })"
+        @theme-changed.window="dark = !dark"
+    @else
+        x-data="Navbar.dropdown()"
+    @endif
+    x-init="init"
+>
     <div
         x-show="openDropdown !== null || open"
         class="overflow-y-auto fixed inset-0 z-30 opacity-75 bg-theme-secondary-900 {{ $backdropClass }}"

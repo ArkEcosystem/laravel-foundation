@@ -70,4 +70,30 @@
             </a>
         @endif
     @endforeach
+
+    @if ($profileMenuDarkMode ?? false)
+        <div class="mx-8 my-4">
+            <x-ark-divider color-class="bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-700" />
+        </div>
+
+        <div
+            class="flex justify-between items-center mx-8 mt-8 mb-4"
+            @click.stop
+        >
+            <div class="flex items-center space-x-2 cursor-default font-medium text-theme-secondary-900 dark:text-theme-secondary-200">
+                <x-ark-icon name="moon-underline" />
+
+                <span>@lang('ui::actions.dark_theme')</span>
+            </div>
+
+            <x-ark-toggle
+                name="darkTheme"
+                default="window.getThemeMode() === 'dark' ? true : false"
+                alpine-click="Livewire.emit('settings.toggle-dark-mode')"
+                no-model
+                hide-label
+                backdrop-color="bg-theme-secondary-300 dark:bg-theme-secondary-700"
+            />
+        </div>
+    @endif
 </x-ark-dropdown>
