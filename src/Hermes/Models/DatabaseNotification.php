@@ -58,6 +58,10 @@ abstract class DatabaseNotification extends BaseNotification
 
     public function link(): ?string
     {
+        if (data_get($this->data, 'action.force', false)) {
+            return data_get($this->data, 'action.url');
+        }
+
         /* @phpstan-ignore-next-line  */
         return data_get($this->relatable, 'link')
             ?? data_get($this->data, 'action.url');

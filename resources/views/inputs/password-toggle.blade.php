@@ -48,7 +48,7 @@
             <button
                 type="button"
                 @class([
-                    'right-0 px-4 input-icon text-theme-primary-300 rounded',
+                    'right-0 px-4 input-icon text-theme-primary-300 dark:text-theme-primary-600 rounded',
                     'text-theme-danger-500' => $errors->has($name),
                 ])
                 @click="toggle()"

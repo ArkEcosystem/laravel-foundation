@@ -30,14 +30,14 @@
                     </span>
                 </div>
 
-                <div class="flex flex-col items-center sm:flex-row sm:items-stretch sm:mt-8 sm:divide-x divide-theme-secondary-300">
-                    <div class="flex flex-col justify-center rounded-xl border sm:mr-8 border-theme-secondary-400">
-                        <div class="flex flex-1 items-center py-4 px-1 md:py-2 lg:py-1">
+                <div class="flex flex-col items-center sm:flex-row sm:items-stretch sm:mt-8 sm:divide-x divide-theme-secondary-300 dark:divide-theme-secondary-800">
+                    <div class="flex flex-col justify-center rounded-xl border sm:mr-8 border-theme-secondary-400 dark:border-theme-secondary-800">
+                        <div class="flex flex-1 items-center py-4 px-1 md:py-2 lg:py-1 dark:bg-white">
                             {!! $this->twoFactorQrCodeSvg !!}
                         </div>
 
-                        <div class="py-4 mt-1 w-full text-center rounded-b-xl border-t border-theme-secondary-400 bg-theme-secondary-100">
-                            <span class="text-theme-secondary-900">
+                        <div class="py-4 w-full text-center rounded-b-xl border-t border-theme-secondary-400 bg-theme-secondary-100 dark:bg-theme-secondary-800 dark:border-theme-secondary-800">
+                            <span class="text-theme-secondary-900 dark:text-theme-secondary-200">
                                 {{ $this->state['two_factor_secret'] }}
                             </span>
                         </div>
@@ -95,15 +95,19 @@
         </div>
     @else
         <div class="flex flex-col">
-            <span class="header-4">@lang('ui::pages.user-settings.2fa_title')</span>
+            <h4>@lang('ui::pages.user-settings.2fa_title')</h4>
             <span class="mt-4">@lang('ui::pages.user-settings.2fa_description')</span>
 
             <div class="flex flex-col items-center mt-4 space-y-4 sm:flex-row sm:items-start sm:mt-8 sm:space-y-0 sm:space-x-6">
-                <img src="{{ asset('/images/profile/2fa.svg') }}" class="w-24 h-24" alt="">
+                <div class="w-21 h-21">
+                    @svg('image.2fa', 'w-21 h-21 light-dark-icon')
+                </div>
+
                 <div class="flex flex-col">
-                    <span class="text-lg font-bold leading-7 text-theme-secondary-900">
+                    <span class="text-lg font-bold leading-7 text-theme-secondary-900 dark:text-theme-secondary-200">
                         @lang('ui::pages.user-settings.2fa_enabled_title')
                     </span>
+
                     <div class="mt-2 text-theme-secondary-600">
 
                         @lang('ui::pages.user-settings.2fa_summary', [

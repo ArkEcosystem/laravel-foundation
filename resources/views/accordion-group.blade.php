@@ -13,9 +13,10 @@
                             {{ ${"title_{$i}"} }}
                         </span>
                         <span class="flex items-center ml-6 h-7">
-                            <span :class="{ 'rotate-180': openPanel === {{ $i }} }" class="transition duration-150 ease-in-out transform">
-                                <x-ark-icon name="arrows.chevron-down-small" size="xs" />
-                            </span>
+                            <x-ark-chevron-toggle
+                                is-open="openPanel === {{ $i }}"
+                                class="transform"
+                            />
                         </span>
                     </button>
                 </dt>

@@ -1,7 +1,7 @@
 @props([
     'subject' => null,
     'message' => null,
-    'socialIconHoverClass' => 'hover:bg-theme-danger-400 hover:text-white',
+    'socialIconHoverClass' => 'hover:bg-theme-primary-700 hover:text-white',
     'discordUrl' => trans('ui::urls.discord'),
     'documentationUrl' => trans('ui::urls.documentation'),
     'helpTitle' => trans('ui::pages.contact.let_us_help.title'),
@@ -18,15 +18,15 @@
     ],
 ])
 
-<div>
+<div {{ $attributes }}>
     <x-ark-pages-includes-header
         :title="trans('ui::pages.contact.title')"
         :description="trans('ui::pages.contact.subtitle')"
     />
 
-    <div class="flex flex-col space-y-16 lg:flex-row lg:space-y-0 contact-content">
-        <div class="flex-1 space-y-8 lg:pr-6 lg:w-1/2 lg:border-r border-theme-secondary-300">
-            <div class="pb-8 border-b border-dashed border-theme-secondary-300">
+    <div class="flex flex-col space-y-16 lg:flex-row lg:space-y-0 contact-content dark:text-theme-secondary-500">
+        <div class="flex-1 space-y-8 lg:pr-6 lg:w-1/2 lg:border-r border-theme-secondary-300 dark:border-theme-secondary-800">
+            <div class="pb-8 border-b border-dashed border-theme-secondary-300 dark:border-theme-secondary-800">
                 <h3>{{ $helpTitle }}</h3>
 
                 <div class="mt-4 paragraph-description">
@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="pb-8 border-b border-dashed border-theme-secondary-300">
+            <div class="pb-8 border-b border-dashed border-theme-secondary-300 dark:border-theme-secondary-800">
                 <h3>{{ $additionalTitle }}</h3>
 
                 <div class="mt-4 paragraph-description">
@@ -55,12 +55,16 @@
                 </div>
             </div>
 
-            <div class="space-y-3 text-theme-secondary-900">
+            <div class="space-y-3 text-theme-secondary-900 dark:text-theme-secondary-200">
                 <div class="font-bold">@lang('ui::pages.contact.social.subtitle')</div>
 
-                <div class="flex space-x-3">
+                <div class="flex space-x-3 text-theme-primary-600">
                     @foreach($contactNetworks as $name => $url)
-                        <x-ark-social-square hover-class="{{ $socialIconHoverClass }}" :url="$url" :icon="'brands.'.$name" />
+                        <x-ark-social-square
+                            hover-class="{{ $socialIconHoverClass }}"
+                            :url="$url"
+                            :icon="'brands.'.$name"
+                        />
                     @endforeach
                 </div>
             </div>
