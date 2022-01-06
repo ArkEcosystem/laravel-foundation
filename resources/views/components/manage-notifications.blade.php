@@ -144,7 +144,7 @@
                                 <button
                                     type="button"
                                     wire:click.stop="deleteNotification('{{ $notification->id }}')"
-                                    class="cursor-pointer focus-visible:rounded text-theme-primary-300 dark:text-theme-secondary-600 hover:text-theme-primary-500 dark:hover:text-theme-secondary-400"
+                                    class="cursor-pointer focus-visible:rounded text-theme-primary-300 dark:text-theme-secondary-600 dark:hover:text-theme-secondary-400 hover:text-theme-primary-500"
                                 >
                                     <x-ark-icon name="trash" size="sm" />
                                 </button>
@@ -191,7 +191,7 @@
                                             <button
                                                 type="button"
                                                 wire:click.stop="deleteNotification('{{ $notification->id }}')"
-                                                class="cursor-pointer focus-visible:rounded text-theme-primary-300 dark:text-theme-secondary-600 hover:text-theme-primary-500 dark:hover:text-theme-secondary-400"
+                                                class="cursor-pointer focus-visible:rounded text-theme-primary-300 dark:text-theme-secondary-600 dark:hover:text-theme-secondary-400 hover:text-theme-primary-500"
                                             >
                                                 <x-ark-icon name="trash" size="sm" />
                                             </button>
