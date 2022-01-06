@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="py-4 w-full text-center rounded-b-xl border-t border-theme-secondary-400 bg-theme-secondary-100 dark:bg-theme-secondary-800 dark:border-theme-secondary-800">
-                            <span class="text-theme-secondary-900 dark:text-theme-secondary-200">
+                            <span class="text-sm text-theme-secondary-900 dark:text-theme-secondary-200">
                                 {{ $this->state['two_factor_secret'] }}
                             </span>
                         </div>
