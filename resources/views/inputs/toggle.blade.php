@@ -67,6 +67,7 @@
         x-ref="checkbox-livewire"
         type="checkbox"
         name="{{ $name }}"
+        class="hidden"
         x-model="value"
         @unless($noModel) wire:model="{{ $model ?? $name }}" @endunless
         @if($alpineClick) @click="{{ $alpineClick }}" @endif
