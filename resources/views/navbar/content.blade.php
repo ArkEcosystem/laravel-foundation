@@ -17,7 +17,7 @@
 @else
     <div class="flex items-center sm:space-x-6">
         @if(Route::has('register'))
-            <a href="{{ route('register') }}" class="hidden font-semibold sm:block link">@lang('actions.sign_up')</a>
+            <a href="{{ route('register') }}" class="hidden text-theme-primary-600 hover:text-theme-primary-700 font-semibold sm:block transition-default dark:text-theme-secondary-200 dark:hover:text-theme-primary-700">@lang('actions.sign_up')</a>
         @endif
 
         @if(Route::has('login'))
