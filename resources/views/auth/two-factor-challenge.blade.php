@@ -14,12 +14,7 @@
 @endsection
 
 @section('content')
-    <div class="py-8 w-full bg-theme-secondary-100">
-        <div class="container mx-auto">
-            <h1 class="mx-4 text-2xl font-bold text-center md:mx-8 md:text-4xl xl:mx-16 text-theme-secondary-900">@lang('ui::auth.two-factor.page_header')</h1>
-            <p class="mx-4 mt-4 font-semibold text-center md:mx-8 xl:mx-16 text-theme-secondary-700">@lang('ui::auth.two-factor.page_description')</p>
-        </div>
-    </div>
+    <x:ark-fortify::component-heading :title="trans('ui::auth.two-factor.page_header')" :description="trans('ui::auth.two-factor.page_description')" />
 
     <div x-data="{ recovery: @json($errors->has('recovery_code')) }" x-cloak>
         @include('ark-fortify::auth.two-factor.form')
