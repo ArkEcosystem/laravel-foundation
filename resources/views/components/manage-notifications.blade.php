@@ -137,14 +137,14 @@
                             @endif
 
                             <div class="flex items-center space-x-2 sm:hidden">
-                                <span class="text-xs whitespace-nowrap text-theme-secondary-400 dark:text-theme-secondary-700">
+                                <span class="text-xs whitespace-nowrap text-theme-secondary-500">
                                     {{ $notification->created_at_local->diffForHumans() }}
                                 </span>
 
                                 <button
                                     type="button"
                                     wire:click.stop="deleteNotification('{{ $notification->id }}')"
-                                    class="cursor-pointer focus-visible:rounded text-theme-secondary-300 dark:text-theme-secondary-600 hover:text-theme-primary-500"
+                                    class="cursor-pointer focus-visible:rounded text-theme-primary-300 dark:text-theme-secondary-600 hover:text-theme-primary-500 dark:hover:text-theme-secondary-400"
                                 >
                                     <x-ark-icon name="trash" size="sm" />
                                 </button>
@@ -163,7 +163,7 @@
                                 <div class="flex-col space-y-1 w-full min-w-0">
                                     <div class="flex justify-between space-x-3">
                                         <div class="block space-x-3">
-                                            <span class="mb-0 text-lg font-semibold">{{ $notification->name() }}</span>
+                                            <span class="mb-0 text-lg font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">{{ $notification->name() }}</span>
                                             @if ($notification->is_starred)
                                                 <button
                                                     type="button"
@@ -178,26 +178,26 @@
                                                     class="sm:mr-2 focus-visible:rounded transition-default"
                                                     wire:click.stop="$emit('markAsStarred', '{{ $notification->id }}')"
                                                 >
-                                                    <x-ark-icon name="star-outline" size="sm" class="text-theme-secondary-400" />
+                                                    <x-ark-icon name="star-outline" size="sm" class="text-theme-secondary-300" />
                                                 </button>
                                             @endif
                                         </div>
 
                                         <div class="hidden items-start space-x-2 sm:flex">
-                                            <span class="text-xs whitespace-nowrap text-theme-secondary-400 dark:text-theme-secondary-700">
+                                            <span class="text-xs whitespace-nowrap text-theme-secondary-500">
                                                 {{ $notification->created_at_local->diffForHumans() }}
                                             </span>
 
                                             <button
                                                 type="button"
                                                 wire:click.stop="deleteNotification('{{ $notification->id }}')"
-                                                class="cursor-pointer focus-visible:rounded text-theme-secondary-300 dark:text-theme-secondary-600 hover:text-theme-primary-500"
+                                                class="cursor-pointer focus-visible:rounded text-theme-primary-300 dark:text-theme-secondary-600 hover:text-theme-primary-500 dark:hover:text-theme-secondary-400"
                                             >
                                                 <x-ark-icon name="trash" size="sm" />
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="text-base leading-7 text-theme-secondary-600">
+                                    <div class="text-base leading-7 text-theme-secondary-700 dark:text-theme-secondary-500">
                                         <div class="flex flex-col sm:block">
                                             <span class="break-words">{{ $notification->excerpt() }}</span>
 
