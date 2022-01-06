@@ -120,7 +120,7 @@
                                 <button
                                     type="button"
                                     wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"
-                                    class="flex justify-center items-center w-5 h-5 text-white rounded cursor-pointer box-border bg-theme-success-500"
+                                    class="flex justify-center items-center w-5 h-5 text-white rounded cursor-pointer box-border bg-theme-success-600"
                                 >
                                     <x-ark-icon name="checkmark" size="2xs" />
                                 </button>
