@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\UserInterface\Components;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cookie;
 use Livewire\Component;
 
