@@ -5,7 +5,7 @@
         <div class="flex flex-row justify-between mt-4 mb-2 w-full text-base font-semibold sm:px-6">
             <div class="flex relative flex-row space-x-2 sm:static">
                 <div class="relative">
-                    <button type="button" class="flex justify-center items-center w-10 h-10 rounded border border-solid dark:border-theme-secondary-800 cursor-pointer focus:outline-none text-theme-secondary-400 border-theme-secondary-200 hover:text-theme-primary-500" wire:click="{{ $this->hasAllSelected ? 'deselectAllNotifications' : 'selectAllNotifications' }}">
+                    <button type="button" class="flex justify-center items-center w-10 h-10 rounded border border-solid cursor-pointer focus:outline-none text-theme-secondary-400 border-theme-secondary-200 dark:border-theme-secondary-800 hover:text-theme-primary-500" wire:click="{{ $this->hasAllSelected ? 'deselectAllNotifications' : 'selectAllNotifications' }}">
                         @if($this->hasAllSelected)
                             <div class="flex justify-center items-center w-5 h-5 text-white rounded bg-theme-success-500 dark:bg-theme-success-600">
                                 <x-ark-icon name="checkmark" size="2xs" />
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="w-10 sm:relative">
-                    <x-ark-dropdown wrapper-class="inline-block top-0 right-0 text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="flex justify-center w-10 h-10 rounded bg-theme-primary-100 dark:bg-theme-secondary-800 text-theme-primary-600 dark:text-theme-secondary-200">
+                    <x-ark-dropdown wrapper-class="inline-block top-0 right-0 text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="flex justify-center w-10 h-10 rounded bg-theme-primary-100 text-theme-primary-600 dark:bg-theme-secondary-800 dark:text-theme-secondary-200">
                         <div class="py-3">
                             <button
                                 type="button"
@@ -197,7 +197,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="leading-7 text-base text-theme-secondary-600">
+                                    <div class="text-base leading-7 text-theme-secondary-600">
                                         <div class="flex flex-col sm:block">
                                             <span class="break-words">{{ $notification->excerpt() }}</span>
 
