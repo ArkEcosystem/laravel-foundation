@@ -16,9 +16,9 @@
         focused: false,
         value: {{ $default }},
         toggle() {
-            this.value = !this.value;
+            this.value = ! this.value;
             this.$refs['checkbox-livewire'].click();
-        }
+        },
     }"
     class="flex items-center"
 >
@@ -67,9 +67,9 @@
         x-ref="checkbox-livewire"
         type="checkbox"
         name="{{ $name }}"
-        class="hidden"
-        :checked="value"
+        x-model="value"
         @unless($noModel) wire:model="{{ $model ?? $name }}" @endunless
         @if($alpineClick) @click="{{ $alpineClick }}" @endif
+        {{ $attributes->except('class') }}
     />
 </div>
