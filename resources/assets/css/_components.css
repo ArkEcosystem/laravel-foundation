@@ -366,7 +366,7 @@
 }
 
 .tile-selection-checkbox {
-    @apply absolute top-2 right-2;
+    @apply absolute top-2 right-2 cursor-pointer;
 }
 .tile-selection-checkbox,
 .tile-selection-checkbox:focus {
@@ -378,7 +378,7 @@
 }
 .tile-selection-select-all-checkbox:checked,
 .tile-selection-checkbox:checked {
-    @apply border-theme-success-500 bg-theme-success-500 dark:border-theme-success-600 dark:bg-theme-success-600;
+    @apply border-theme-success-600 bg-theme-success-600 dark:border-theme-success-600 dark:bg-theme-success-600;
 }
 
 /** Tile Links **/
