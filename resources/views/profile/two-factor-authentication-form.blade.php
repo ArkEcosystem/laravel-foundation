@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="py-4 w-full text-center rounded-b-xl border-t border-theme-secondary-400 bg-theme-secondary-100 dark:bg-theme-secondary-800 dark:border-theme-secondary-800">
-                            <span class="text-theme-secondary-900 dark:text-theme-secondary-200">
+                            <span class="text-sm text-theme-secondary-900 dark:text-theme-secondary-200">
                                 {{ $this->state['two_factor_secret'] }}
                             </span>
                         </div>
@@ -100,7 +100,7 @@
 
             <div class="flex flex-col items-center mt-4 space-y-4 sm:flex-row sm:items-start sm:mt-8 sm:space-y-0 sm:space-x-6">
                 <div class="w-21 h-21">
-                    @svg('image.2fa', 'w-21 h-21 light-dark-icon')
+                    <x-ark-icon name="image.2fa" class="w-21 h-21 light-dark-icon" />
                 </div>
 
                 <div class="flex flex-col">
