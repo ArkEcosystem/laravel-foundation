@@ -1,6 +1,6 @@
 @if(config('ui.dark-mode.enabled') === true)
     <script>
-        let _theme = 'light';
+        let _theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
         /**
          * Set the O.S. preference.
