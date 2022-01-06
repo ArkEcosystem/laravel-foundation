@@ -17,7 +17,7 @@ class FrontendSettings extends Component
     ];
 
     protected $listeners = [
-        'settings.toggle-dark-mode' => 'toggleDarkMode',
+        'settings.set-dark-mode' => 'setDarkMode',
     ];
 
     public function mount(): void
@@ -30,10 +30,14 @@ class FrontendSettings extends Component
         return '<div></div>';
     }
 
-    public function toggleDarkMode(): void
+    public function setDarkMode(bool $darkMode = false): void
     {
-        $this->state['darkTheme'] = ! $this->state['darkTheme'];
+        $this->state['darkTheme'] = $darkMode;
         $this->saveSettings();
+
+        $this->dispatchBrowserEvent('setThemeMode', [
+            'theme' => $darkMode === true ? 'dark' : 'light',
+        ]);
     }
 
     private function cookieSettings(): array
@@ -48,15 +52,6 @@ class FrontendSettings extends Component
 
     private function saveSettings(): void
     {
-        $originalTheme = Arr::get($this->cookieSettings(), 'darkTheme');
-        $newTheme      = Arr::get($this->state, 'darkTheme');
-
         Cookie::queue('settings', json_encode($this->state), 60 * 24 * 365 * 5);
-
-        if ($originalTheme !== $newTheme) {
-            $this->dispatchBrowserEvent('setThemeMode', [
-                'theme' => $newTheme === true ? 'dark' : 'light',
-            ]);
-        }
     }
 }
