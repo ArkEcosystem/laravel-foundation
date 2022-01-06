@@ -100,7 +100,7 @@
 
             <div class="flex flex-col items-center mt-4 space-y-4 sm:flex-row sm:items-start sm:mt-8 sm:space-y-0 sm:space-x-6">
                 <div class="w-21 h-21">
-                    @svg('image.2fa', 'w-21 h-21 light-dark-icon')
+                    <x-ark-icon name="image.2fa" class="w-21 h-21 light-dark-icon" />
                 </div>
 
                 <div class="flex flex-col">

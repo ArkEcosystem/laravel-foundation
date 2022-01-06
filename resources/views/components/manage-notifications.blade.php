@@ -5,22 +5,22 @@
         <div class="flex flex-row justify-between mt-4 mb-2 w-full text-base font-semibold sm:px-6">
             <div class="flex relative flex-row space-x-2 sm:static">
                 <div class="relative">
-                    <button type="button" class="flex justify-center items-center w-10 h-10 rounded border border-solid cursor-pointer focus:outline-none text-theme-secondary-400 border-theme-secondary-200 hover:text-theme-primary-500" wire:click="{{ $this->hasAllSelected ? 'deselectAllNotifications' : 'selectAllNotifications' }}">
+                    <button type="button" class="flex justify-center items-center w-10 h-10 rounded border border-solid cursor-pointer focus:outline-none text-theme-secondary-400 border-theme-secondary-200 dark:border-theme-secondary-800 hover:text-theme-primary-500" wire:click="{{ $this->hasAllSelected ? 'deselectAllNotifications' : 'selectAllNotifications' }}">
                         @if($this->hasAllSelected)
-                            <div class="flex justify-center items-center w-5 h-5 text-white rounded bg-theme-success-500">
+                            <div class="flex justify-center items-center w-5 h-5 text-white rounded bg-theme-success-600">
                                 <x-ark-icon name="checkmark" size="2xs" />
                             </div>
                         @else
-                            <span class="block w-5 h-5 text-white rounded border-2 border-theme-secondary-300"></span>
+                            <span class="block w-5 h-5 text-white rounded border-2 border-theme-secondary-300 dark:border-theme-secondary-800"></span>
                         @endif
                     </button>
                 </div>
 
                 <div class="relative">
-                    <x-ark-dropdown wrapper-class="inline-block" dropdown-classes="mt-3" button-class="flex justify-center items-center p-4 h-10 dropdown-button-outline">
+                    <x-ark-dropdown wrapper-class="inline-block" dropdown-classes="mt-3" button-class="flex justify-center items-center p-4 h-10 dropdown-button-outline dark:border-theme-secondary-800">
                         @slot('button')
                             <div class="inline-flex justify-center items-center space-x-2 w-full">
-                                <span class="w-full font-semibold text-left text-theme-secondary-900">
+                                <span class="w-full font-semibold text-left text-theme-secondary-900 dark:text-theme-secondary-200">
                                     {{ ucfirst($this->activeFilter) }}
                                 </span>
 
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="w-10 sm:relative">
-                    <x-ark-dropdown wrapper-class="inline-block top-0 right-0 text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="flex justify-center w-10 h-10 rounded bg-theme-primary-100 text-theme-primary-600">
+                    <x-ark-dropdown wrapper-class="inline-block top-0 right-0 text-left sm:absolute" dropdown-classes="left-0 w-64 mt-3" button-class="flex justify-center w-10 h-10 rounded bg-theme-primary-100 text-theme-primary-600 dark:bg-theme-secondary-800 dark:text-theme-secondary-200">
                         <div class="py-3">
                             <button
                                 type="button"
@@ -120,27 +120,31 @@
                                 <button
                                     type="button"
                                     wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"
-                                    class="flex justify-center items-center w-5 h-5 text-white rounded cursor-pointer box-border bg-theme-success-500"
+                                    class="flex justify-center items-center w-5 h-5 text-white rounded cursor-pointer box-border bg-theme-success-600"
                                 >
                                     <x-ark-icon name="checkmark" size="2xs" />
                                 </button>
                             @else
                                 <button
                                     type="button"
-                                    class="block w-5 h-5 text-white rounded border-2 border-theme-secondary-300"
+                                    @class([
+                                        'block w-5 h-5 text-white rounded border-2 border-theme-secondary-300',
+                                        'dark:border-theme-secondary-600' => $notification->unread(),
+                                        'dark:border-theme-secondary-800' => ! $notification->unread(),
+                                    ])
                                     wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"
                                 ></button>
                             @endif
 
                             <div class="flex items-center space-x-2 sm:hidden">
-                                <span class="text-xs whitespace-nowrap text-theme-secondary-400">
+                                <span class="text-xs whitespace-nowrap text-theme-secondary-500">
                                     {{ $notification->created_at_local->diffForHumans() }}
                                 </span>
 
                                 <button
                                     type="button"
                                     wire:click.stop="deleteNotification('{{ $notification->id }}')"
-                                    class="cursor-pointer focus-visible:rounded text-theme-secondary-300 hover:text-theme-primary-500"
+                                    class="cursor-pointer focus-visible:rounded text-theme-primary-300 dark:text-theme-secondary-600 dark:hover:text-theme-secondary-400 hover:text-theme-primary-500"
                                 >
                                     <x-ark-icon name="trash" size="sm" />
                                 </button>
@@ -159,7 +163,7 @@
                                 <div class="flex-col space-y-1 w-full min-w-0">
                                     <div class="flex justify-between space-x-3">
                                         <div class="block space-x-3">
-                                            <h3 class="mb-0 text-xl font-semibold">{{ $notification->name() }}</span>
+                                            <span class="mb-0 text-lg font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">{{ $notification->name() }}</span>
                                             @if ($notification->is_starred)
                                                 <button
                                                     type="button"
@@ -174,26 +178,26 @@
                                                     class="sm:mr-2 focus-visible:rounded transition-default"
                                                     wire:click.stop="$emit('markAsStarred', '{{ $notification->id }}')"
                                                 >
-                                                    <x-ark-icon name="star-outline" size="sm" class="text-theme-secondary-400" />
+                                                    <x-ark-icon name="star-outline" size="sm" class="text-theme-secondary-300" />
                                                 </button>
                                             @endif
                                         </div>
 
                                         <div class="hidden items-start space-x-2 sm:flex">
-                                            <span class="text-xs whitespace-nowrap text-theme-secondary-400">
+                                            <span class="text-xs whitespace-nowrap text-theme-secondary-500">
                                                 {{ $notification->created_at_local->diffForHumans() }}
                                             </span>
 
                                             <button
                                                 type="button"
                                                 wire:click.stop="deleteNotification('{{ $notification->id }}')"
-                                                class="cursor-pointer focus-visible:rounded text-theme-secondary-300 hover:text-theme-primary-500"
+                                                class="cursor-pointer focus-visible:rounded text-theme-primary-300 dark:text-theme-secondary-600 dark:hover:text-theme-secondary-400 hover:text-theme-primary-500"
                                             >
                                                 <x-ark-icon name="trash" size="sm" />
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="leading-5 text-theme-secondary-600">
+                                    <div class="text-base leading-7 text-theme-secondary-700 dark:text-theme-secondary-500">
                                         <div class="flex flex-col sm:block">
                                             <span class="break-words">{{ $notification->excerpt() }}</span>
 
@@ -212,7 +216,7 @@
 
                 @if (! $loop->last)
                     <div class="sm:px-10">
-                        <hr class="mt-2 border-b border-dashed border-theme-secondary-200" />
+                        <hr class="mt-2 border-b border-dashed border-theme-secondary-200 dark:border-theme-secondary-800" />
                     </div>
                 @endif
             @endforeach
