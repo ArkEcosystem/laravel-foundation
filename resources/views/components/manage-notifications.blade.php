@@ -227,7 +227,7 @@
                 </div>
             @endif
         @else
-            <div class="flex flex-col justify-between items-center p-4 mt-5 space-y-2 rounded border-2 cursor-pointer sm:flex-row sm:space-y-0 border-theme-secondary-200">
+            <div class="flex flex-col justify-between items-center p-4 mt-5 space-y-2 rounded border-2 cursor-pointer sm:flex-row sm:space-y-0 border-theme-secondary-200 dark:border-theme-secondary-800">
                 <span class="p-3">
                     @if (ARKEcosystem\Foundation\Hermes\Enums\NotificationFilterEnum::isAll($this->activeFilter))
                         @lang('ui::menus.notifications.no_notifications')
