@@ -13,7 +13,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services   = $containerConfigurator->services();
     $dir        = getcwd();
 
-    /**
+    /*
      * We added a custom bootstrap file to avoid Rector processing errors.
      * For more info: https://github.com/rectorphp/rector/issues/6607#issuecomment-891677145
      * and https://github.com/rectorphp/rector/issues/3902.
