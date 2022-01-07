@@ -2,6 +2,7 @@
     'dropdownProperty'       => 'dropdownOpen',
     'dropdownContentClasses' => 'bg-white rounded-xl shadow-lg dark:bg-theme-secondary-800 dark:text-theme-secondary-200',
     'buttonClassExpanded'    => 'text-theme-primary-500',
+    'buttonClassContracted'  => '',
     'buttonClass'            => 'text-theme-secondary-400 hover:text-theme-primary-500',
     'dropdownClasses'        => 'w-40',
     'dropdownOriginClass'    => 'origin-top-right',
@@ -48,7 +49,7 @@
     <div>
         <button
             type="button"
-            :class="{ '{{ $buttonClassExpanded }}' : {{ $dropdownProperty }} }"
+            :class="{ '{{ $buttonClassExpanded }}' : {{ $dropdownProperty }}, '{{ $buttonClassContracted }}' : !{{ $dropdownProperty }} }"
             class="flex items-center focus:outline-none dropdown-button transition-default {{ $buttonClass }}"
             @if($disabled) disabled @else @click="{{ $dropdownProperty }} = !{{ $dropdownProperty }}" @endif
             @if($buttonTooltip) data-tippy-content="{{ $buttonTooltip }}" @endif
