@@ -2,12 +2,11 @@
     @if(Auth::check() && $notificationCount > 0)
         <div class="inline-block py-4 w-full md:py-4" dusk="navigation-notifications">
             @foreach($currentUser->notifications->take(4) as $notification)
-                <div
-                    @class([
-                        'flex px-2 py-6 leading-5',
-                        'border-b border-dashed border-theme-secondary-200 dark:border-theme-secondary-800' => ! $loop->last
-                    ])
-                    dusk="navigation-notification-{{$loop->index}}">
+                <a
+                    class="flex px-4 pt-6 pb-4 -mx-4 leading-5 rounded-xl group dark:hover:bg-theme-success-900 hover:bg-theme-success-50"
+                    dusk="navigation-notification-{{$loop->index}}"
+                    href="{{ $notification->link() ?? $notification->route() }}"
+                >
                     <x-hermes-notification-icon :notification="$notification" :type="$notification->data['type']" />
 
                     <div class="flex overflow-auto flex-col ml-5 space-y-1 w-full">
@@ -29,7 +28,7 @@
                             <div class="flex flex-row space-x-4">
                                 @if($notification->hasAction())
                                     <span class="mt-1 font-semibold whitespace-nowrap md:mt-0 link">
-                                        <a href="{{ $notification->link() }}" class="focus-visible:rounded">{{ $notification->linkTitle() }}</a>
+                                        {{ $notification->linkTitle() }}
                                     </span>
                                 @endif
 
@@ -39,7 +38,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
+
+                @unless ($loop->last)
+                    <span class="block w-full border-b border-dashed border-theme-secondary-200 dark:border-theme-secondary-800"></span>
+                @endunless
             @endforeach
 
             <div class="flex flex-row justify-center px-2 pb-6 mt-4 w-full">
