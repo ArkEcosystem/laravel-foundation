@@ -7,6 +7,7 @@ namespace ARKEcosystem\Foundation\Providers;
 use ARKEcosystem\Foundation\UserInterface\Components\Currency;
 use ARKEcosystem\Foundation\UserInterface\Components\DataBag;
 use ARKEcosystem\Foundation\UserInterface\Components\FlashMessage;
+use ARKEcosystem\Foundation\UserInterface\Components\FrontendSettings;
 use ARKEcosystem\Foundation\UserInterface\Components\Number;
 use ARKEcosystem\Foundation\UserInterface\Components\Percentage;
 use ARKEcosystem\Foundation\UserInterface\Components\ShortCurrency;
@@ -336,5 +337,6 @@ class UserInterfaceServiceProvider extends ServiceProvider
     {
         Livewire::component('flash-message', FlashMessage::class);
         Livewire::component('toast', Toast::class);
+        Livewire::component('frontend-settings', FrontendSettings::class);
     }
 }
