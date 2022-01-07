@@ -24,7 +24,7 @@ const Tags = (
 
         // Removes unexpected HTML from previous taggle instances to prevent
         // livewire issues
-        input.innerHTML = '';
+        input.innerHTML = "";
 
         const taggle = new Taggle(input, {
             tags,
@@ -169,9 +169,9 @@ const Tags = (
         });
     },
     getLivewireComponent() {
-        const element = this.$el.closest('[wire\\:id]');
+        const element = this.$el.closest("[wire\\:id]");
 
-        return window.livewire.find(element.getAttribute('wire:id'));
+        return window.livewire.find(element.getAttribute("wire:id"));
     },
     displayLivewireToast(validationMessage) {
         if (typeof livewire !== "undefined") {
