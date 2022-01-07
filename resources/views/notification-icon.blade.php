@@ -1,7 +1,7 @@
 @props([
     'notification',
     'type' => '',
-    'stateColor' => 'bg-white',
+    'stateColor' => 'bg-white dark:bg-theme-secondary-900',
 ])
 
 @php
@@ -26,7 +26,7 @@
             @endif
 
         <div class="flex absolute top-0 right-0 justify-center items-center -m-4 text-transparent rounded-full">
-            <div class="flex flex-shrink-0 items-center justify-center rounded-full h-8 w-8 {{ $stateColor }} bg-white dark:bg-theme-secondary-900 group-hover:bg-theme-success-50 dark:group-hover:bg-theme-success-900">
+            <div class="flex flex-shrink-0 items-center justify-center rounded-full h-8 w-8 {{ $stateColor }} group-hover:bg-theme-success-50 dark:group-hover:bg-theme-success-900">
                 @if ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::DANGER)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full dark:text-white text-theme-danger-400 bg-theme-danger-50 dark:bg-theme-danger-400">
                         <x-ark-icon name="notifications.danger" size="sm" />

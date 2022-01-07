@@ -23,13 +23,13 @@
     </x-slot>
 
     @foreach ($profileMenu as $menuItem)
-        @if ($menuItem['isPost'] ?? false)
-            @if($menuItem['hasDivider'] ?? false)
-                <div class="mx-8">
-                    <x-ark-divider />
-                </div>
-            @endif
+        @if($menuItem['hasDivider'] ?? false)
+            <div class="mx-8">
+                <x-ark-divider />
+            </div>
+        @endif
 
+        @if ($menuItem['isPost'] ?? false)
             <form method="POST" action="{{ route($menuItem['route']) }}">
                 @csrf
 
@@ -48,12 +48,6 @@
                 </button>
             </form>
         @else
-            @if($menuItem['hasDivider'] ?? false)
-                <div class="mx-8">
-                    <x-ark-divider />
-                </div>
-            @endif
-
             <a
                 @isset($menuItem['href'])
                     href="{{ $menuItem['href'] }}"
@@ -76,4 +70,30 @@
             </a>
         @endif
     @endforeach
+
+    @if (config('ui.dark-mode.enabled') === true && ($profileMenuDarkMode ?? false))
+        <div class="my-4 mx-8">
+            <x-ark-divider color-class="bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-700" />
+        </div>
+
+        <div
+            class="flex justify-between items-center mx-8 mt-8 mb-4"
+            @click.stop
+        >
+            <div class="flex items-center space-x-2 font-medium cursor-default text-theme-secondary-900 dark:text-theme-secondary-200">
+                <x-ark-icon name="moon-underline" />
+
+                <span>@lang('ui::actions.dark_theme')</span>
+            </div>
+
+            <x-ark-toggle
+                name="darkTheme"
+                default="window.getThemeMode() === 'dark'"
+                alpine-click="Livewire.emit('settings.set-dark-mode', value)"
+                no-model
+                hide-label
+                backdrop-color="bg-theme-secondary-300 dark:bg-theme-secondary-700"
+            />
+        </div>
+    @endif
 </x-ark-dropdown>
