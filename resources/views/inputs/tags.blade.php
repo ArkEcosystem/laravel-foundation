@@ -44,20 +44,6 @@
             >
             </div>
 
-            {{-- Hidden select used to emulate wire:model behaviour --}}
-            <select
-                x-ref="select"
-                multiple
-                class="hidden"
-                id="{{ $id ?? $name }}"
-                name="{{ $name }}"
-                wire:model="{{ $model ?? $name }}"
-            >
-                <template x-for="(tag, index) in availableTags" :key="`index-${tag}`">
-                    <option x-text="tag" x-bind:value="tag" />
-                </template>
-            </select>
-
             @error($name)
                 @include('ark::inputs.includes.input-error-tooltip', [
                     'error' => $message,

@@ -22,6 +22,10 @@ const Tags = (
     init() {
         const { input } = this.$refs;
 
+        // Removes unexpected HTML from previous taggle instances to prevent
+        // livewire issues
+        input.innerHTML = '';
+
         const taggle = new Taggle(input, {
             tags,
             // If we have a list of allowed tags we are preserving the case
@@ -159,30 +163,27 @@ const Tags = (
         });
 
         this.$watch("availableTags", (availableTags) => {
-            const { select } = this.$refs;
-
             this.setTaggleTags(taggle, availableTags);
 
-            this.$nextTick(() => {
-                if (select) {
-                    const options = Array.from(
-                        select.querySelectorAll("option")
-                    );
-                    options.forEach((o) => {
-                        o.selected = true;
-                    });
-                    select.dispatchEvent(new Event("change"));
-                }
-            });
+            this.getLivewireComponent().set(id, availableTags);
         });
     },
+    getLivewireComponent() {
+        let element = this.$el;
+        let componentId = null;
 
+        while(!componentId) {
+            element = element.parentElement
+            componentId = element.getAttribute('wire:id')
+        }
+
+        return window.livewire.find(componentId);
+    },
     displayLivewireToast(validationMessage) {
         if (typeof livewire !== "undefined") {
             livewire.emit("toastMessage", [validationMessage, "warning"]);
         }
     },
-
     hideTooltip() {
         if (this.tooltipInstance) {
             this.tooltipInstance.destroy();
