@@ -71,7 +71,7 @@
         @endif
     @endforeach
 
-    @if ($profileMenuDarkMode ?? false)
+    @if (config('ui.dark-mode.enabled') === true && $profileMenuDarkMode ?? false)
         <div class="my-4 mx-8">
             <x-ark-divider color-class="bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-700" />
         </div>
