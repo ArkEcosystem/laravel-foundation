@@ -169,15 +169,9 @@ const Tags = (
         });
     },
     getLivewireComponent() {
-        let element = this.$el;
-        let componentId = null;
+        const element = this.$el.closest('[wire\\:id]');
 
-        while(!componentId) {
-            element = element.parentElement
-            componentId = element.getAttribute('wire:id')
-        }
-
-        return window.livewire.find(componentId);
+        return window.livewire.find(element.getAttribute('wire:id'));
     },
     displayLivewireToast(validationMessage) {
         if (typeof livewire !== "undefined") {
