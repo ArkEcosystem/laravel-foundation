@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c5891cbb67b1a6aa08f76765d00d496",
+    "content-hash": "dab34ed617b905e1ae4aa245cd2f38e0",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -5849,16 +5849,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.2.0",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "cbe085f9fdead5b6d62e4c022ca52dc9427a10ee"
+                "reference": "84eaa569d48ea79d3bebe2c3ec5d302537a6ae8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/cbe085f9fdead5b6d62e4c022ca52dc9427a10ee",
-                "reference": "cbe085f9fdead5b6d62e4c022ca52dc9427a10ee",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/84eaa569d48ea79d3bebe2c3ec5d302537a6ae8a",
+                "reference": "84eaa569d48ea79d3bebe2c3ec5d302537a6ae8a",
                 "shasum": ""
             },
             "require": {
@@ -5874,7 +5874,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "1.3-dev"
                 }
             },
             "autoload": {
@@ -5889,7 +5889,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.2.0"
+                "source": "https://github.com/phpstan/phpstan/tree/1.3.2"
             },
             "funding": [
                 {
@@ -5909,7 +5909,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-18T14:09:01+00:00"
+            "time": "2022-01-06T17:11:15+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -7362,21 +7362,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.12.9",
+            "version": "0.12.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "8f7cfa85731bf23cff9571460d88c327c8c1ac4c"
+                "reference": "348f392aa15fa19e9bd7489aa7bc69bc31c148a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/8f7cfa85731bf23cff9571460d88c327c8c1ac4c",
-                "reference": "8f7cfa85731bf23cff9571460d88c327c8c1ac4c",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/348f392aa15fa19e9bd7489aa7bc69bc31c148a4",
+                "reference": "348f392aa15fa19e9bd7489aa7bc69bc31c148a4",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1|^8.0",
-                "phpstan/phpstan": "^1.2"
+                "phpstan/phpstan": "^1.3"
             },
             "conflict": {
                 "phpstan/phpdoc-parser": "<1.2",
@@ -7410,7 +7410,7 @@
             "description": "Prefixed and PHP 7.1 downgraded version of rector/rector",
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.12.9"
+                "source": "https://github.com/rectorphp/rector/tree/0.12.11"
             },
             "funding": [
                 {
@@ -7418,7 +7418,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-21T23:30:38+00:00"
+            "time": "2022-01-05T18:37:59+00:00"
         },
         {
             "name": "ruafozy/mersenne-twister",
@@ -14612,7 +14612,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0"
+        "php": "^8.1"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
