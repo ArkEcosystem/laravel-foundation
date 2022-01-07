@@ -3,6 +3,7 @@
     'class' => '',
     'style' => null,
     'widthClass' => 'max-w-2xl',
+    'name' => null,
     'title' => null,
     'titleClass' => 'inline-block pb-2 font-bold dark:text-theme-secondary-200',
     'buttons' => null,
@@ -18,7 +19,11 @@
 <div
     wire:ignore.self
     x-ref="modal"
-    data-modal
+    @if($name)
+        data-modal="{{ $name }}"
+    @else
+        data-modal
+    @endif
     x-data="Modal.livewire({{ $xData }})"
     x-init="init"
     @if(!$closeButtonOnly && $wireClose)

@@ -173,12 +173,12 @@ final class ManageNotifications extends Component
     public function getStateColor(DatabaseNotification $notification): string
     {
         if ($this->isNotificationSelected($notification->id)) {
-            return 'bg-theme-success-50';
+            return 'bg-theme-success-50 dark:bg-theme-success-900';
         } elseif (! $this->isNotificationSelected($notification->id) && $notification->unread()) {
-            return 'bg-theme-secondary-100';
+            return 'bg-theme-secondary-100 dark:bg-theme-secondary-800';
         }
 
-        return 'bg-white';
+        return 'bg-white dark:bg-theme-secondary-900';
     }
 
     public function applyFilter(string $filter): LengthAwarePaginator
