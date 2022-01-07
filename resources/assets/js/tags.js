@@ -24,7 +24,7 @@ const Tags = (
 
         // Removes unexpected HTML from previous taggle instances to prevent
         // livewire issues
-        input.innerHTML = '';
+        input.innerHTML = "";
 
         const taggle = new Taggle(input, {
             tags,
@@ -172,9 +172,9 @@ const Tags = (
         let element = this.$el;
         let componentId = null;
 
-        while(!componentId) {
-            element = element.parentElement
-            componentId = element.getAttribute('wire:id')
+        while (!componentId) {
+            element = element.parentElement;
+            componentId = element.getAttribute("wire:id");
         }
 
         return window.livewire.find(componentId);
