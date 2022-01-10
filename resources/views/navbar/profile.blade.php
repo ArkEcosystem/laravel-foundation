@@ -1,6 +1,12 @@
+@php($showDarkMode = config('ui.dark-mode.enabled') === true && ($profileMenuDarkMode ?? false))
+
 <x-ark-dropdown
     wrapper-class="whitespace-nowrap md:relative"
-    :dropdown-classes="'w-full md:w-auto mt-4 '.($profileMenuClass ?? null)"
+    :dropdown-classes="Arr::toCssClasses([
+        'w-full md:w-auto mt-4',
+        'min-w-63' => $showDarkMode,
+        $profileMenuClass ?? null,
+    ])"
     dropdown-content-classes="bg-white rounded-xl shadow-lg dark:bg-theme-secondary-800 dark:text-theme-secondary-200 py-4"
     button-class="overflow-hidden rounded-xl border-2 border-transparent hover:border-theme-primary-600"
     dusk="navbar-profile-dropdown"
@@ -71,7 +77,7 @@
         @endif
     @endforeach
 
-    @if ($profileMenuDarkMode ?? false)
+    @if ($showDarkMode)
         <div class="my-4 mx-8">
             <x-ark-divider color-class="bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-700" />
         </div>
