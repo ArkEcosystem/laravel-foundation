@@ -3,9 +3,8 @@
 <x-ark-dropdown
     wrapper-class="whitespace-nowrap md:relative"
     :dropdown-classes="Arr::toCssClasses([
-        'mt-4',
-        'w-full md:w-auto' => ! $showDarkMode,
-        'w-64'             => $showDarkMode,
+        'w-full md:w-auto mt-4',
+        'min-w-63' => $showDarkMode,
         $profileMenuClass ?? null,
     ])"
     dropdown-content-classes="bg-white rounded-xl shadow-lg dark:bg-theme-secondary-800 dark:text-theme-secondary-200 py-4"
