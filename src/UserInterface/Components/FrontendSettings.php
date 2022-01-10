@@ -26,7 +26,7 @@ class FrontendSettings extends Component
 
     public function render()
     {
-        return '<script></script>';
+        return '<div></div>';
     }
 
     public function setDarkMode(bool $darkMode = false): void
