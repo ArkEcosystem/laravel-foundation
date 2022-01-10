@@ -67,7 +67,7 @@ input[type="password"]::-ms-reveal {
 .input-text:read-only,
 .input-text-with-prefix:read-only,
 .input-text-with-suffix:read-only {
-    @apply cursor-not-allowed border-theme-secondary-400 bg-theme-secondary-100 dark:bg-theme-secondary-900;
+    @apply cursor-not-allowed border-theme-secondary-400 bg-theme-secondary-100 dark:bg-theme-secondary-800 dark:text-theme-secondary-500;
 }
 
 .input-group:focus-within .input-text-with-prefix.cursor-default:read-only,
@@ -152,7 +152,7 @@ input[type="password"]::-ms-reveal {
 }
 .input-wrapper-with-prefix .input-prefix,
 .input-wrapper-with-suffix .input-suffix {
-    @apply select-none text-theme-secondary-500 border-theme-secondary-300;
+    @apply select-none text-theme-secondary-500 border-theme-secondary-300 dark:border-theme-secondary-700;
 }
 
 /* Radio buttons */
