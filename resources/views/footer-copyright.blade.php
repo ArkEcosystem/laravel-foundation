@@ -16,7 +16,7 @@
                     <span class="hidden mr-1 sm:inline"> | </span>
                     <span class="whitespace-nowrap">
                         <x-ark-icon
-                            name="ark-logo-red-square"
+                            name="networks.ark-square"
                             class="inline-block mr-1 -mt-1"
                         />
 

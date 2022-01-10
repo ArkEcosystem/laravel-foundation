@@ -57,7 +57,7 @@
         </div>
         <div class="py-8 md:px-8">
 
-            <x-ark-icon name="no-notifications" class="w-full h-full light-dark-icon" />
+            <x-ark-icon name="notification-empty" class="w-full h-full light-dark-icon" />
 
         </div>
     @endif

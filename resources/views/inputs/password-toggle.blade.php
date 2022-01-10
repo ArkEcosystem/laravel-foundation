@@ -53,8 +53,8 @@
                 ])
                 @click="toggle()"
             >
-                <span x-show="!show"><x-ark-icon name="view" /></span>
-                <span x-show="show" x-cloak><x-ark-icon name="hide" /></span>
+                <span x-show="!show"><x-ark-icon name="eye" /></span>
+                <span x-show="show" x-cloak><x-ark-icon name="eye-slash" /></span>
             </button>
 
             {{--error--}}
