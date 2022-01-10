@@ -11,10 +11,10 @@
     'formTitle' => trans('ui::pages.contact.form.title'),
     'formDescription' => trans('ui::pages.contact.form.description'),
     'contactNetworks' => [
-        'twitter' => trans('ui::urls.twitter'),
-        'facebook' => trans('ui::urls.facebook'),
-        'reddit' => trans('ui::urls.reddit'),
-        'linkedin' => trans('ui::urls.linkedin'),
+        'brands.twitter' => trans('ui::urls.twitter'),
+        'brands.facebook' => trans('ui::urls.facebook'),
+        'brands.reddit' => trans('ui::urls.reddit'),
+        'brands.linkedin' => trans('ui::urls.linkedin'),
     ],
 ])
 
@@ -63,7 +63,7 @@
                         <x-ark-social-square
                             hover-class="{{ $socialIconHoverClass }}"
                             :url="$url"
-                            :icon="'brands.'.$name"
+                            :icon="$name"
                         />
                     @endforeach
                 </div>
