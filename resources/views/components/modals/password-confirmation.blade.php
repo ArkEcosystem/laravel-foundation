@@ -26,7 +26,7 @@
                         alt=""
                     />
                 @elseif ($icon)
-                    <x-ark-icon :name="$icon" class="h-28 light-dark-icon" />
+                    <x-ark-icon :name="$icon" class="h-28 w-full light-dark-icon" />
                 @endif
             </div>
 
