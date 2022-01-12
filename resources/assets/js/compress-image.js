@@ -120,20 +120,20 @@ const CompressImage = (
 
     getNaturalSize(file) {
         return new Promise((resolve) => {
-            let reader = new FileReader()
+            let reader = new FileReader();
             reader.onload = function (e) {
-                let img = new Image()
-                img.src = e.target.result
+                let img = new Image();
+                img.src = e.target.result;
                 img.onload = function () {
                     resolve({
                         width: img.width,
-                        height: img.height
-                    })
-                }
-            }
-            reader.readAsDataURL(file)
-        })
-    }
+                        height: img.height,
+                    });
+                };
+            };
+            reader.readAsDataURL(file);
+        });
+    },
 });
 
 window.CompressImage = CompressImage;
