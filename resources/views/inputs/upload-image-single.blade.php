@@ -111,7 +111,7 @@
                 role="button"
             >
                 <div class="text-theme-primary-500">
-                    <x-ark-icon name="upload-cloud" size="lg"/>
+                    <x-ark-icon name="cloud-arrow-up" size="lg"/>
                 </div>
 
                 <div class="font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">{!! $uploadText !!}</div>
@@ -144,7 +144,7 @@
                     wire:click="{{ $deleteAction }}"
                     data-tippy-hover="{{ $deleteTooltip }}"
                 >
-                    <x-ark-icon name="close" size="sm"/>
+                    <x-ark-icon name="cross" size="sm"/>
                 </button>
             </div>
 

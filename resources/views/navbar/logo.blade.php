@@ -3,7 +3,7 @@
         @isset($logo)
             {{ $logo }}
         @else
-            <x-ark-icon name="ark-logo-red-square" size="xl" />
+            <x-ark-icon name="networks.ark-square" size="xl" />
             <div class="hidden ml-6 text-lg lg:block"><span class="font-black text-theme-secondary-900">ARK</span> {{ $title }}</div>
         @endisset
     </a>

@@ -6,7 +6,7 @@
         dropdown-content-classes="bg-white border border-white dark:bg-theme-secondary-900 dark:text-theme-secondary-200 rounded-xl shadow-2xl dark:shadow-lg-dark dark:border-theme-secondary-800"
     >
         <x-slot name="button">
-            <x-ark-icon name="notification" class="transition-default text-theme-secondary-600 dark:group-hover:text-theme-secondary-100 group-hover:text-theme-primary-700" />
+            <x-ark-icon name="bell" class="transition-default text-theme-secondary-600 dark:group-hover:text-theme-secondary-100 group-hover:text-theme-primary-700" />
             @isset($notificationsIndicator)
                 {{ $notificationsIndicator }}
             @else

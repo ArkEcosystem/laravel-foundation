@@ -36,7 +36,7 @@
             ])
 
             @if($suffix ?? false)
-                <div class="relative input-suffix">
+                <div class="relative input-suffix bg-theme-primary-50 dark:bg-theme-secondary-800">
                     {{ $suffix }}
 
                     @error($name)

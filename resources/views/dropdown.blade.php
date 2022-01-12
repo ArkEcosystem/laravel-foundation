@@ -57,7 +57,7 @@
             @if($button ?? false)
                 {{ $button }}
             @else
-                <x-ark-icon name="vertical-dots" />
+                <x-ark-icon name="ellipsis-vertical" />
             @endif
         </button>
     </div>
