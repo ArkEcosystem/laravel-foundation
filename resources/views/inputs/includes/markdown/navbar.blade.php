@@ -101,7 +101,7 @@
                     data-tippy-content="{{ $tooltip ?? trans('ui::markdown.navbar.tooltips.more') }}"
                     data-tippy-offset="[0,-15]"
                 >
-                    <x-ark-icon name="chevron-down" class="inline" size="2xs" />
+                    <x-ark-icon name="arrows.chevron-down-small" class="inline" size="2xs" />
                 </button>
             </div>
         @endunless
