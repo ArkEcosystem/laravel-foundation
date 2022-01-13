@@ -39,7 +39,8 @@ class TwoFactorAuthenticationForm extends Component
     public string $confirmedPassword = '';
 
     protected $messages = [
-        'state.otp.digits' => 'One Time Password must be :digits digits.',
+        'state.otp.required' => 'Please provide an OTP',
+        'state.otp.digits'   => 'One Time Password must be :digits digits.',
     ];
 
     public function mount(): void
