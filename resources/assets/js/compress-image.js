@@ -114,11 +114,10 @@ const CompressImage = (
             height: $height ? undefined : $height,
             success: (file) => this.onSuccess(file),
             error: (error) => this.onError(error),
-        }
+        };
 
         new Compressor(file, params);
     },
-
 });
 
 window.CompressImage = CompressImage;
