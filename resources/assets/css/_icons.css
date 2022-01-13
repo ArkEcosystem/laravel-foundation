@@ -21,6 +21,6 @@
 }
 
 .ark-logo-red {
-    @apply bg-theme-danger-500;
+    @apply text-theme-danger-500;
     --icon-color-secondary: #FFFFFF;
 }
