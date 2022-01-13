@@ -54,6 +54,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->remove(\Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector::class);
     $services->remove(\Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class);
     $services->remove(\Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector::class);
+    $services->remove(\Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector::class);
 
     $containerConfigurator->import(LaravelSetList::LARAVEL_80);
     $containerConfigurator->import(LaravelSetList::LARAVEL_CODE_QUALITY);
