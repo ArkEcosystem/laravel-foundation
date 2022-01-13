@@ -19,3 +19,8 @@
     --icon-color-warning-100: var(--theme-color-warning-900); /* #EC5C08 */
     --icon-color-danger-100: var(--theme-color-danger-800); /* #5B1B1B */
 }
+
+.ark-logo-red {
+    @apply bg-theme-danger-500;
+    --icon-color-secondary: #FFFFFF;
+}
