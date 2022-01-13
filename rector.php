@@ -85,8 +85,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(\Rector\Php80\Rector\FuncCall\Php8ResourceReturnToObjectRector::class);
 
     // php8.1
-    $services->set(\Rector\Php81\Rector\Class_\MyCLabsClassToEnumRector::class);
-    $services->set(\Rector\Php81\Rector\MethodCall\MyCLabsMethodCallToEnumConstRector::class);
     $services->set(\Rector\Php81\Rector\ClassConst\FinalizePublicClassConstantRector::class);
     $services->set(\Rector\Php81\Rector\Property\ReadOnlyPropertyRector::class);
     $services->set(\Rector\Php81\Rector\Class_\SpatieEnumClassToEnumRector::class);
