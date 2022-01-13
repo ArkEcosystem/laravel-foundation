@@ -101,9 +101,8 @@ const CompressImage = (
         throw new Error(error.message);
     },
 
-    async loadCompressor(file) {
-        let size = await this.getNaturalSize(file);
-        new Compressor(file, {
+    loadCompressor(file) {
+        let params = {
             quality: $quality,
             checkOrientation: parseInt($maxFileSize) <= 10,
             convertSize: $disableConvertSize ? "Infinity" : $convertSize,
@@ -111,29 +110,15 @@ const CompressImage = (
             maxHeight: $maxHeight,
             minWidth: $minWidth,
             minHeight: $minHeight,
-            width: $width ? $width : size.width,
-            height: $height ? $height : size.height,
+            width: $width ? undefined : $width,
+            height: $height ? undefined : $height,
             success: (file) => this.onSuccess(file),
             error: (error) => this.onError(error),
-        });
+        }
+
+        new Compressor(file, params);
     },
 
-    getNaturalSize(file) {
-        return new Promise((resolve) => {
-            let reader = new FileReader();
-            reader.onload = function (e) {
-                let img = new Image();
-                img.src = e.target.result;
-                img.onload = function () {
-                    resolve({
-                        width: img.width,
-                        height: img.height,
-                    });
-                };
-            };
-            reader.readAsDataURL(file);
-        });
-    },
 });
 
 window.CompressImage = CompressImage;
