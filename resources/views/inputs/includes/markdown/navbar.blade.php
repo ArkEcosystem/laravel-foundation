@@ -62,7 +62,7 @@
 
         @include('ark::inputs.includes.markdown.button-separator')
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'link', 'iconName' => 'hyperlink', 'onClick' => 'link', 'nodeName' => 'link'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'link', 'iconName' => 'chain', 'onClick' => 'link', 'nodeName' => 'link'])
 
         @unless ($toolbar === 'basic')
             @include('ark::inputs.includes.markdown.button', ['name' => 'inline_code', 'iconName' => 'programming-browser-1', 'onClick' => 'code', 'nodeName' => 'code'])
