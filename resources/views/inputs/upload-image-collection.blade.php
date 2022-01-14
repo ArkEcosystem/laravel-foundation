@@ -26,8 +26,8 @@
         {{ $minHeight }},
         {{ $maxWidth }},
         {{ $maxHeight }},
-        '{{ $width ?? $maxWidth }}',
-        '{{ $height ?? $maxHeight }}',
+        '{{ $width }}',
+        '{{ $height }}',
         '{{ $maxFilesize }}',
         {{ $quality }}
     )"
