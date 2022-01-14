@@ -102,7 +102,7 @@ const CompressImage = (
     },
 
     loadCompressor(file) {
-        let params = {
+        const params = {
             quality: $quality,
             checkOrientation: parseInt($maxFileSize) <= 10,
             convertSize: $disableConvertSize ? "Infinity" : $convertSize,
@@ -110,8 +110,8 @@ const CompressImage = (
             maxHeight: $maxHeight,
             minWidth: $minWidth,
             minHeight: $minHeight,
-            width: $width ? undefined : $width,
-            height: $height ? undefined : $height,
+            width: $width ?? undefined,
+            height: $height ?? undefined,
             success: (file) => this.onSuccess(file),
             error: (error) => this.onError(error),
         };
