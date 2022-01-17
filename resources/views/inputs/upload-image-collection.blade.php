@@ -76,7 +76,7 @@
                 <div class="p-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6" wire:sortable.item="{{ $image['url'] }}" wire:key="image-{{ $image['url'] }}">
                     <div class="aspect-w-16 aspect-h-9">
                         <div>
-                            <img src="{{ $image['url'] }}" class="object-cover w-full h-full rounded-xl border border-theme-secondary-300" alt="">
+                            <img src="{{ $image['url'] }}" class="object-cover w-full h-full rounded-xl border border-theme-secondary-300 dark:border-theme-secondary-800" alt="">
                         </div>
 
                         <div class="absolute inset-0 opacity-0 hover:opacity-100 transition-default">
