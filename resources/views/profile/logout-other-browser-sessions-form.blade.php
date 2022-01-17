@@ -75,7 +75,7 @@
                             </div>
                             @if ($session->agent->isDesktop())
                                 <x-ark-icon
-                                    name="wysiwyg/monitor"
+                                    name="monitor"
                                     class="{{ $session->is_current_device ? 'text-theme-success-600' : '' }}"
                                 />
                             @else

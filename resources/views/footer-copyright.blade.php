@@ -17,7 +17,7 @@
                     <span class="whitespace-nowrap">
                         <x-ark-icon
                             name="networks.ark-square"
-                            class="inline-block mr-1 -mt-1"
+                            class="inline-block mr-1 -mt-1 ark-logo-red"
                         />
 
                         An <a href="https://ark.io/" class="underline hover:no-underline focus-visible:rounded">ARK.io</a> @lang('ui::generic.product')
