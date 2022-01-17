@@ -58,7 +58,8 @@
                         <div class="mt-6 sm:hidden md:block">
                             <x-ark-input
                                 type="number"
-                                name="state.otp.desktop"
+                                name="state.otp"
+                                id="state.otp.desktop"
                                 :label="trans('ui::pages.user-settings.enter_2fa_verification_code')"
                                 :errors="$errors"
                                 pattern="[0-9]{6}"
@@ -73,7 +74,8 @@
             <div class="hidden mt-8 sm:block md:hidden">
                 <x-ark-input
                     type="number"
-                    name="state.otp.mobile"
+                    name="state.otp"
+                    id="state.otp.mobile"
                     :label="trans('ui::pages.user-settings.enter_2fa_verification_code')"
                     :errors="$errors"
                     pattern="[0-9]{6}"
