@@ -55,22 +55,15 @@ class TwoFactorAuthenticationForm extends Component
         return view('ark-fortify::profile.two-factor-authentication-form');
     }
 
-    public function getStateValidationRules(): array
-    {
-        return ['required', 'digits:6', new OneTimePassword($this->state['two_factor_secret'])];
-    }
-
     public function updatedStateOtp(): void
     {
-        $this->validate([
-            'state.otp' => $this->getStateValidationRules(),
-        ]);
+        $this->resetValidation();
     }
 
     public function enableTwoFactorAuthentication(): void
     {
         $this->validate([
-            'state.otp' => $this->getStateValidationRules(),
+            'state.otp' => ['required', 'digits:6', new OneTimePassword($this->state['two_factor_secret'])],
         ]);
 
         app(EnableTwoFactorAuthentication::class)(Auth::user(), $this->state['two_factor_secret']);
