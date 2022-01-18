@@ -100,7 +100,7 @@
                             class="button-pagination-page-indicator button-pagination-page-indicator--search"
                             :class="{ 'opacity-0': search }"
                         >
-                            <span class="button-pagination-search"><x-ark-icon name="search" size="sm" /></span>
+                            <span class="button-pagination-search"><x-ark-icon name="magnifying-glass" size="sm" /></span>
                             <span class="button-pagination-ellipsis">{{ $element }}</span>
                         </button>
                     @endif
