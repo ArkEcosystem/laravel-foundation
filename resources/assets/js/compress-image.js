@@ -110,8 +110,8 @@ const CompressImage = (
             maxHeight: $maxHeight,
             minWidth: $minWidth,
             minHeight: $minHeight,
-            width: $width === '' ? undefined : $width,
-            height: $height === '' ? undefined : $height,
+            width: $width === "" ? undefined : $width,
+            height: $height === "" ? undefined : $height,
             success: (file) => this.onSuccess(file),
             error: (error) => this.onError(error),
         };
