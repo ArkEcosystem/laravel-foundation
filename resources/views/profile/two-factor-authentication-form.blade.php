@@ -59,6 +59,7 @@
                             <x-ark-input
                                 type="number"
                                 name="state.otp"
+                                id="state.otp.desktop"
                                 :label="trans('ui::pages.user-settings.enter_2fa_verification_code')"
                                 :errors="$errors"
                                 pattern="[0-9]{6}"
@@ -74,6 +75,7 @@
                 <x-ark-input
                     type="number"
                     name="state.otp"
+                    id="state.otp.mobile"
                     :label="trans('ui::pages.user-settings.enter_2fa_verification_code')"
                     :errors="$errors"
                     pattern="[0-9]{6}"
