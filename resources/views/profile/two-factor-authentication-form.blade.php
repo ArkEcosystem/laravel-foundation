@@ -84,7 +84,7 @@
                 />
             </div>
 
-            <div class="flex pt-8 mt-8 border-t sm:justify-end sm:pt-0 sm:border-t-0 border-theme-secondary-300">
+            <div class="flex pt-8 mt-8 border-t sm:justify-end sm:pt-0 sm:border-t-0 border-theme-secondary-300 dark:border-theme-secondary-800">
                 <button
                     type="button"
                     class="w-full sm:w-auto button-secondary"
