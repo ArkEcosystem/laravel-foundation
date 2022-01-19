@@ -43,7 +43,7 @@ window.clipboard = () => {
             textArea.style.cssText =
                 "position:absolute;top:0;left:0;z-index:-9999;opacity:0;fontSize:12pt;";
 
-            document.body.append(textArea);
+            this.$el.append(textArea);
 
             const isiOSDevice = navigator.userAgent.match(/ipad|iphone/i);
 
