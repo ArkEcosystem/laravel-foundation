@@ -63,7 +63,7 @@
 
                     @if ($external)
                         <x-ark-icon
-                            name="chain"
+                            name="arrows.arrow-external"
                             size="sm"
                             class="text-theme-primary-500"
                         />
