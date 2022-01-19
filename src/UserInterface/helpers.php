@@ -39,7 +39,7 @@ if (! function_exists('alertIcon')) {
             ][$type];
         }
 
-        return 'info';
+        return 'circle.info';
     }
 }
 
