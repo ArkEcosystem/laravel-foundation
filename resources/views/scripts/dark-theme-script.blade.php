@@ -41,6 +41,10 @@
                 detail: {theme: _theme},
                 bubbles: true,
             }));
+
+            if (window.Livewire) {
+                Livewire.emit('themeChanged', _theme);
+            }
         }
 
         toggleTheme();

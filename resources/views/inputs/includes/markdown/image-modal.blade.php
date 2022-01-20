@@ -64,7 +64,7 @@
 
                             <div class="flex absolute top-2 right-2 bottom-2 left-2 flex-col justify-center items-center space-y-2 rounded-xl cursor-pointer pointer-events-none" role="button">
                                 <div class="text-theme-primary-500">
-                                    <x-ark-icon name="upload-cloud" size="lg"/>
+                                    <x-ark-icon name="cloud-arrow-up" size="lg"/>
                                 </div>
 
                                 <div class="font-semibold link">@lang('ui::markdown.modals.image.form.browse_files')</div>
@@ -90,7 +90,7 @@
     @slot('buttons')
         <button @click="hide" type="button" class="button-secondary">
             @lang('ui::actions.cancel')
-        </a>
+        </button>
 
         <button type="submit" class="button-primary" form="imageModalForm">
             @lang('ui::actions.ok')

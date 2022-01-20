@@ -55,6 +55,11 @@ class TwoFactorAuthenticationForm extends Component
         return view('ark-fortify::profile.two-factor-authentication-form');
     }
 
+    public function updatedStateOtp(): void
+    {
+        $this->resetValidation();
+    }
+
     public function enableTwoFactorAuthentication(): void
     {
         $this->validate([

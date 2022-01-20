@@ -46,7 +46,7 @@
         >
             @if ($icon)
                 <x-ark-icon :name="$icon" :class="Arr::toCssClasses([
-                    'mr-4 w-24 hidden lg:block',
+                    'mr-4 h-auto w-24 hidden lg:block',
                     'text-theme-secondary-700' => $isCurrent,
                     'text-theme-secondary-300' => ! $isCurrent,
                 ])" />
@@ -63,7 +63,7 @@
 
                     @if ($external)
                         <x-ark-icon
-                            name="chain"
+                            name="arrows.arrow-external"
                             size="sm"
                             class="text-theme-primary-500"
                         />

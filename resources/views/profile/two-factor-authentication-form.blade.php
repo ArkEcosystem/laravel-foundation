@@ -59,6 +59,7 @@
                             <x-ark-input
                                 type="number"
                                 name="state.otp"
+                                id="state.otp.desktop"
                                 :label="trans('ui::pages.user-settings.enter_2fa_verification_code')"
                                 :errors="$errors"
                                 pattern="[0-9]{6}"
@@ -74,6 +75,7 @@
                 <x-ark-input
                     type="number"
                     name="state.otp"
+                    id="state.otp.mobile"
                     :label="trans('ui::pages.user-settings.enter_2fa_verification_code')"
                     :errors="$errors"
                     pattern="[0-9]{6}"
@@ -82,7 +84,7 @@
                 />
             </div>
 
-            <div class="flex pt-8 mt-8 border-t sm:justify-end sm:pt-0 sm:border-t-0 border-theme-secondary-300">
+            <div class="flex pt-8 mt-8 border-t sm:justify-end sm:pt-0 sm:border-t-0 border-theme-secondary-300 dark:border-theme-secondary-800">
                 <button
                     type="button"
                     class="w-full sm:w-auto button-secondary"
