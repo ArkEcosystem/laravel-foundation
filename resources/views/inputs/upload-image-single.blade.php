@@ -72,7 +72,7 @@
     x-on:livewire-upload-start="isUploading = true"
     x-on:livewire-upload-finish="isUploading = false"
     x-on:livewire-upload-error="isUploading = false; livewire.emit('uploadError', '{{ $uploadErrorMessage }}');"
-    class="relative {{ $dimensions }}"
+    class="flex-shrink-0 relative {{ $dimensions }}"
 >
     <div @class([
         'rounded-xl w-full h-full focus-within:border-theme-primary-500',
