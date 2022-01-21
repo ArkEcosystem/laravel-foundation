@@ -54,9 +54,10 @@
         @else
             <a class="flex" href="{{ $paginator->url(1) }}">
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
-                    <span class="flex items-center">
-                        <x-ark-icon name="arrows.double-chevron-left" size="xs" />
-                    </span>
+                    <div class="flex items-center">
+                        <x-ark-icon class="inline-block lg:hidden" name="arrows.double-chevron-left" size="xs" />
+                        <span class="hidden lg:flex">@lang('ui::generic.previous')</span>
+                    </div>
                 </div>
             </a>
         @endif
@@ -64,6 +65,7 @@
         @if($paginator->onFirstPage())
             <div class="flex items-center button-generic button-disabled">
                 <div class="flex items-center">
+                    <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-left" size="xs" />
                     <span class="hidden lg:flex lg:ml-2">@lang('ui::generic.previous')</span>
                 </div>
             </div>
@@ -71,6 +73,7 @@
             <a class="flex" href="{{ $paginator->previousPageUrl() }}">
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
                     <div class="flex items-center">
+                        <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-left" size="xs" />
                         <span class="hidden lg:flex lg:ml-2">@lang('ui::generic.previous')</span>
                     </div>
                 </div>
@@ -152,13 +155,15 @@
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
                     <div class="flex items-center">
                         <span class="hidden lg:flex lg:mr-2">@lang('ui::generic.next')</span>
+                        <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-right" size="xs" />
                     </div>
                 </div>
             </a>
         @else
             <div class="flex items-center button-generic button-disabled">
                 <div class="flex items-center">
-                    <span class="hidden lg:flex lg:mr-2">@lang('ui::generic.next')</span>
+                    <span class="hidden lg:flex">@lang('ui::generic.next')</span>
+                    <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-right" size="xs" />
                 </div>
             </div>
         @endif
