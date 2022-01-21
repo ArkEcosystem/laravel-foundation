@@ -54,6 +54,6 @@ return [
     ],
 
     'dark-mode' => [
-        'enabled' => env('DARK_MODE_ENABLED', true),
+        'enabled' => env('DARK_MODE_ENABLED', false),
     ],
 ];
