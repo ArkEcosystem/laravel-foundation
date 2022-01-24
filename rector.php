@@ -28,7 +28,16 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     ]);
 
     $parameters->set(Option::SKIP, [
+        // skip Livewire
         $dir.'/app/Http/Livewire',
+        $dir.'/app/App/Blog/Components',
+        $dir.'/app/App/Collaborator/Components',
+        $dir.'/app/App/Http/Components',
+        $dir.'/app/App/Platform/Components',
+        $dir.'/app/App/User/Components',
+
+        // skip Nova
+        $dir.'/app/App/Nova',
     ]);
 
     $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_81);
