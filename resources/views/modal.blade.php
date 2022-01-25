@@ -46,7 +46,7 @@
                         class="modal-close"
                         @if($wireClose ?? false) wire:click="{{ $wireClose }}" @endif
                     >
-                        <x-ark-icon name="close" size="md" class="m-auto" />
+                        <x-ark-icon name="cross" size="sm" class="m-auto" />
                     </button>
                 @endif
 

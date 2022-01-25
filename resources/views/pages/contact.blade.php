@@ -11,10 +11,10 @@
     'formTitle' => trans('ui::pages.contact.form.title'),
     'formDescription' => trans('ui::pages.contact.form.description'),
     'contactNetworks' => [
-        'twitter' => trans('ui::urls.twitter'),
-        'facebook' => trans('ui::urls.facebook'),
-        'reddit' => trans('ui::urls.reddit'),
-        'linkedin' => trans('ui::urls.linkedin'),
+        'brands.twitter' => trans('ui::urls.twitter'),
+        'brands.facebook' => trans('ui::urls.facebook'),
+        'brands.reddit' => trans('ui::urls.reddit'),
+        'brands.linkedin' => trans('ui::urls.linkedin'),
     ],
 ])
 
@@ -48,7 +48,7 @@
 
                     <a href="{{ $discordUrl }}" target="_blank" rel="noopener nofollow noreferrer" class="button-secondary">
                         <div class="flex justify-center items-center space-x-2 w-full">
-                            <x-ark-icon name="brands.outline.discord" />
+                            <x-ark-icon name="brands.discord" />
                             <span>@lang('ui::actions.discord')</span>
                         </div>
                     </a>
@@ -63,7 +63,7 @@
                         <x-ark-social-square
                             hover-class="{{ $socialIconHoverClass }}"
                             :url="$url"
-                            :icon="'brands.outline.'.$name"
+                            :icon="$name"
                         />
                     @endforeach
                 </div>

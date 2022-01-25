@@ -19,9 +19,9 @@
         ])
 
     >
-        @include('ark::inputs.includes.markdown.button', ['name' => 'undo', 'iconName' => 'undo', 'onClick' => 'undo'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'undo', 'iconName' => 'arrows.arrow-rotate-left', 'onClick' => 'undo'])
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'redo', 'iconName' => 'redo', 'onClick' => 'redo'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'redo', 'iconName' => 'arrows.arrow-rotate-right', 'onClick' => 'redo'])
 
         @include('ark::inputs.includes.markdown.button-separator')
 
@@ -62,7 +62,7 @@
 
         @include('ark::inputs.includes.markdown.button-separator')
 
-        @include('ark::inputs.includes.markdown.button', ['name' => 'link', 'iconName' => 'hyperlink', 'onClick' => 'link', 'nodeName' => 'link'])
+        @include('ark::inputs.includes.markdown.button', ['name' => 'link', 'iconName' => 'chain', 'onClick' => 'link', 'nodeName' => 'link'])
 
         @unless ($toolbar === 'basic')
             @include('ark::inputs.includes.markdown.button', ['name' => 'inline_code', 'iconName' => 'programming-browser-1', 'onClick' => 'code', 'nodeName' => 'code'])
@@ -101,7 +101,7 @@
                     data-tippy-content="{{ $tooltip ?? trans('ui::markdown.navbar.tooltips.more') }}"
                     data-tippy-offset="[0,-15]"
                 >
-                    <x-ark-icon name="chevron-down" class="inline" size="2xs" />
+                    <x-ark-icon name="arrows.chevron-down-small" class="inline" size="2xs" />
                 </button>
             </div>
         @endunless

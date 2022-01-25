@@ -16,8 +16,8 @@
                     <span class="hidden mr-1 sm:inline"> | </span>
                     <span class="whitespace-nowrap">
                         <x-ark-icon
-                            name="ark-logo-red-square"
-                            class="inline-block mr-1 -mt-1"
+                            name="networks.ark-square"
+                            class="inline-block mr-1 -mt-1 ark-logo-red"
                         />
 
                         An <a href="https://ark.io/" class="underline hover:no-underline focus-visible:rounded">ARK.io</a> @lang('ui::generic.product')

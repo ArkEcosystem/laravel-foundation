@@ -12,8 +12,8 @@
     tabindex="0"
 >
     @if($type === 'question')
-        <x-ark-icon name="question-mark" size="{{ $large ? 'sm' : 'xs' }}" />
+        <x-ark-icon name="question-mark-small" size="{{ $large ? 'sm' : 'xs' }}" />
     @else
-        <x-ark-icon name="hint" size="{{ $large ? 'sm' : 'xs' }}" />
+        <x-ark-icon name="hint-small" size="{{ $large ? 'sm' : 'xs' }}" />
     @endif
 </div>

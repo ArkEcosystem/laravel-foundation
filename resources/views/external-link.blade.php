@@ -16,7 +16,7 @@
 
     @unless($noIcon)
         <x-ark-icon
-            name="link"
+            name="arrows.arrow-external"
             :size="$small ? 'xs' : 'sm'"
             :class="'flex-shrink-0 inline relative ml-0.5 ' . ($small ? '-top-1 -mt-0.5' : '-mt-1.5')"
         />

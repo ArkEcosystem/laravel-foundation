@@ -39,7 +39,8 @@ class TwoFactorAuthenticationForm extends Component
     public string $confirmedPassword = '';
 
     protected $messages = [
-        'state.otp.digits' => 'One Time Password must be :digits digits.',
+        'state.otp.required' => 'Please provide an OTP',
+        'state.otp.digits'   => 'One Time Password must be :digits digits.',
     ];
 
     public function mount(): void
@@ -52,6 +53,11 @@ class TwoFactorAuthenticationForm extends Component
     public function render(): View
     {
         return view('ark-fortify::profile.two-factor-authentication-form');
+    }
+
+    public function updatedStateOtp(): void
+    {
+        $this->resetValidation();
     }
 
     public function enableTwoFactorAuthentication(): void

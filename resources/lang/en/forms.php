@@ -5,9 +5,7 @@ declare(strict_types=1);
 return [
     'do_not_show_message_again'     => 'Do not show this message again.',
     'attachment_pdf'                => 'Attachment (.PDF)',
-    'email'                         => 'E-Mail Address',
     'message'                       => 'Message',
-    'name'                          => 'Name',
     'subject'                       => 'Subject',
     'github_markdown_can_be_used'   => '* Github flavored markdown can be used',
     'wysiwyg'                       => [

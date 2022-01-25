@@ -29,6 +29,6 @@
         data-tippy-content="{{ $tooltip ?? trans('ui::markdown.navbar.tooltips.' . $name) }}"
         data-tippy-offset="[0,-15]"
     >
-        <x-ark-icon :name="'wysiwyg.' . $iconName" class="inline" size="sm" />
+        <x-ark-icon :name="$iconName" class="inline" size="sm" />
     </button>
 </div>

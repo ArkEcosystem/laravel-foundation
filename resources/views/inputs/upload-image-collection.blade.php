@@ -26,8 +26,8 @@
         {{ $minHeight }},
         {{ $maxWidth }},
         {{ $maxHeight }},
-        '{{ $width ?? $maxWidth }}',
-        '{{ $height ?? $maxHeight }}',
+        '{{ $width }}',
+        '{{ $height }}',
         '{{ $maxFilesize }}',
         {{ $quality }}
     )"
@@ -48,7 +48,7 @@
 
         <div class="flex flex-col justify-center items-center space-y-2 w-full h-full rounded-xl dark:bg-black bg-theme-primary-50 transition-default dark:group-hover:bg-theme-secondary-800">
             <div class="text-theme-primary-500">
-                <x-ark-icon name="upload-cloud" size="lg"/>
+                <x-ark-icon name="cloud-arrow-up" size="lg"/>
             </div>
 
             <div class="font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">{!! $uploadText !!}</div>
@@ -75,7 +75,7 @@
                 <div class="p-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6" wire:sortable.item="{{ $image['url'] }}" wire:key="image-{{ $image['url'] }}">
                     <div class="aspect-w-16 aspect-h-9">
                         <div>
-                            <img src="{{ $image['url'] }}" class="object-cover w-full h-full rounded-xl border border-theme-secondary-300" alt="">
+                            <img src="{{ $image['url'] }}" class="object-cover w-full h-full rounded-xl border border-theme-secondary-300 dark:border-theme-secondary-800" alt="">
                         </div>
 
                         <div class="absolute inset-0 opacity-0 hover:opacity-100 transition-default">
@@ -99,7 +99,7 @@
                                 wire:click="deleteImage('{{ $image['url'] }}')"
                                 data-tippy-hover="{{ $deleteTooltip }}"
                             >
-                                <x-ark-icon name="close" size="sm"/>
+                                <x-ark-icon name="cross" size="sm"/>
                             </button>
                         </div>
                     </div>

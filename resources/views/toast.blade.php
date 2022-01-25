@@ -8,11 +8,11 @@
 @php
     $icon = Arr::get([
         'warning' => 'circle.exclamation-mark',
-        'error' => 'circle.cross',
-        'danger' => 'circle.cross',
-        'success' => 'circle.checkmark',
+        'error' => 'circle.cross-big',
+        'danger' => 'circle.cross-big',
+        'success' => 'circle.check-mark-big',
         'info' => 'circle.info',
-        'hint' => 'circle.question-mark',
+        'hint' => 'circle.question-mark-big',
     ], $type);
 
     $toastClass = Arr::get([
@@ -38,6 +38,6 @@
         type="button"
         class="toast-button"
     >
-        <x-ark-icon name="close" />
+        <x-ark-icon name="cross" />
     </button>
 </div>
