@@ -1,5 +1,5 @@
 @props([
-    'slim',
+    'slim'      => false,
     'slimClass' => 'px-8 lg:max-w-7xl',
 ])
 
