@@ -63,8 +63,8 @@ if (! function_exists('call_user_func_safe')) {
 
 if (! function_exists('alert')) {
     /** @param FlashType::* $type */
-    function alert(string $key, $type): void
+    function alert(string $key, $type, array $translationVariables = []): void
     {
-        flash(trans($key), $type);
+        flash(trans($key, $translationVariables), $type);
     }
 }
