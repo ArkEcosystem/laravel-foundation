@@ -54,9 +54,9 @@
         @else
             <a class="flex" href="{{ $paginator->url(1) }}">
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
-                    <span class="flex items-center">
+                    <div class="flex items-center">
                         <x-ark-icon name="arrows.double-chevron-left" size="xs" />
-                    </span>
+                    </div>
                 </div>
             </a>
         @endif
@@ -65,6 +65,7 @@
             <div class="flex items-center button-generic button-disabled">
                 <div class="flex items-center">
                     <span class="hidden lg:flex lg:ml-2">@lang('ui::generic.previous')</span>
+                    <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-left" size="xs" />
                 </div>
             </div>
         @else
@@ -72,13 +73,14 @@
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
                     <div class="flex items-center">
                         <span class="hidden lg:flex lg:ml-2">@lang('ui::generic.previous')</span>
+                        <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-left" size="xs" />
                     </div>
                 </div>
             </a>
         @endif
 
         <div class="relative">
-            <form x-show="search" name="searchForm" type="get" class="flex overflow-hidden absolute left-0 z-10 px-2 w-full h-full rounded bg-theme-primary-100 pagination-form-desktop dark:bg-theme-secondary-800">
+            <form x-cloak x-show="search" name="searchForm" type="get" class="flex overflow-hidden absolute left-0 z-10 px-2 w-full h-full rounded bg-theme-primary-100 pagination-form-desktop dark:bg-theme-secondary-800">
                 <input
                     x-ref="search"
                     x-model.number="page"
@@ -152,13 +154,15 @@
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
                     <div class="flex items-center">
                         <span class="hidden lg:flex lg:mr-2">@lang('ui::generic.next')</span>
+                        <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-right" size="xs" />
                     </div>
                 </div>
             </a>
         @else
             <div class="flex items-center button-generic button-disabled">
                 <div class="flex items-center">
-                    <span class="hidden lg:flex lg:mr-2">@lang('ui::generic.next')</span>
+                    <span class="hidden lg:flex">@lang('ui::generic.next')</span>
+                    <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-right" size="xs" />
                 </div>
             </div>
         @endif

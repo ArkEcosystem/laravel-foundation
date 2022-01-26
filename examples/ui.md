@@ -551,6 +551,17 @@ Shows the chevron icon which rotates based on specific js/alpine criteria
 | dropdownContentClasses | The class(es) applied to the content container                               | no       | null                                                    |
 | buttonTooltip          | Apply the given text as button tooltip                                       | no       | null                                                    |
 | disabled               | This Boolean attribute prevents the user from interacting with the component | no       | false                                                   |
+| withPlacement          | Allows specifying where the dropdown opens using popperjs                    | no       | null                                                    |
+
+#### With Placement
+
+When using the `withPlacement` property, you need load in the dropdown JS in `app.js`:
+
+```js
+import Dropdown from '@ui/js/dropdown';
+
+window.Dropdown = Dropdown;
+```
 
 ### Expandable
 Displays a defined number of items and hides the rest, showing a button to show/hide the hidden items.
