@@ -29,7 +29,6 @@ const initTippy = (parentEl = document.body) => {
         if (el.getAttribute("data-tippy-hover")) {
             instanceSettings.touch = "hold";
             instanceSettings.trigger = "mouseenter";
-            instanceSettings.allowHTML = true;
             instanceSettings.content = (reference) =>
                 reference.dataset.tippyHover;
         }
