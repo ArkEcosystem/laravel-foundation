@@ -17,7 +17,7 @@ return [
         ],
         'additional_support' => [
             'title'       => 'Additional Support',
-            'description' => 'Need more help? Check out our documentation below or reach out to our team members on Discord.',
+            'description' => 'Need more help? Check out our documentation below.',
         ],
         'social' => [
             'subtitle' => 'We\'re on social networks',
