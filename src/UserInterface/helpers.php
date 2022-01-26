@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\UserInterface\Components\SvgLazy;
+use ARKEcosystem\Foundation\UserInterface\Support\Enums\AlertType;
 use ARKEcosystem\Foundation\UserInterface\Support\Enums\FlashType;
 
 if (! function_exists('svgLazy')) {
@@ -28,18 +29,46 @@ if (! function_exists('formatReadTime')) {
 if (! function_exists('alertIcon')) {
     function alertIcon(string $type): string
     {
-        if (in_array($type, ['success', 'error', 'danger', 'hint', 'warning', 'info'], true)) {
+        if (in_array($type, [
+            AlertType::INFO,
+            AlertType::SUCCESS,
+            AlertType::WARNING,
+            AlertType::ERROR,
+            AlertType::QUESTION,
+        ], true)) {
             return [
-                'success' => 'circle.check-mark-big',
-                'error'   => 'circle.cross-big',
-                'danger'  => 'circle.cross-big',
-                'hint'    => 'circle.question-mark-big',
-                'warning' => 'circle.exclamation-mark',
-                'info'    => 'circle.info',
+                AlertType::INFO     => 'circle.info',
+                AlertType::SUCCESS  => 'circle.check-mark',
+                AlertType::WARNING  => 'circle.exclamation-mark',
+                AlertType::ERROR    => 'circle.cross',
+                AlertType::QUESTION => 'circle.question-mark',
             ][$type];
         }
 
         return 'circle.info';
+    }
+}
+
+if (! function_exists('alertTitle')) {
+    function alertTitle(string $type): string
+    {
+        if (in_array($type, [
+            AlertType::INFO,
+            AlertType::SUCCESS,
+            AlertType::WARNING,
+            AlertType::ERROR,
+            AlertType::QUESTION,
+        ], true)) {
+            return [
+                AlertType::INFO     => trans('ui::alert.'.AlertType::INFO),
+                AlertType::SUCCESS  => trans('ui::alert.'.AlertType::SUCCESS),
+                AlertType::WARNING  => trans('ui::alert.'.AlertType::WARNING),
+                AlertType::ERROR    => trans('ui::alert.'.AlertType::ERROR),
+                AlertType::QUESTION => trans('ui::alert.'.AlertType::QUESTION),
+            ][$type];
+        }
+
+        return trans('ui::alert.'.AlertType::INFO);
     }
 }
 
