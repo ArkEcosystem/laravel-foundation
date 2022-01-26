@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     'contact' => [
         'title'               => 'Contact Us',
-        'subtitle'            => 'Have questions? Contact our Team for additional support.',
+        'subtitle'            => 'Have questions? Contact our team for additional support.',
         'message_placeholder' => 'How can we help?',
         'form'                => [
             'title'       => 'Contact Our Team',
