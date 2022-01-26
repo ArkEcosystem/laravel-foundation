@@ -745,7 +745,6 @@ window.Pagination = Pagination
 Add the following snippet to your `urls.php` lang file:
 
 ```php
-'discord'  => 'https://discord.ark.io/',
 'facebook' => 'https://facebook.ark.io/',
 'github'   => 'https://github.com/ArkEcosystem',
 'linkedin' => 'https://www.linkedin.com/company/ark-ecosystem',

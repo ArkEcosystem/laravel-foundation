@@ -1,10 +1,6 @@
 @props([
     'networks' => [
         [
-            'icon' => 'brands.solid.discord',
-            'url' => trans('ui::urls.discord')
-        ],
-        [
             'icon' => 'brands.solid.twitter',
             'url' => trans('ui::urls.twitter')
         ],
