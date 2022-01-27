@@ -8,7 +8,8 @@ return [
 
     AlertType::INFO     => 'Information',
     AlertType::SUCCESS  => 'Success',
-    AlertType::WARNING  => 'Alert/Warning',
+    AlertType::WARNING  => 'Warning',
     AlertType::ERROR    => 'Error',
     AlertType::QUESTION => 'Help',
+    'dismiss'           => 'Dismiss alert',
 ];

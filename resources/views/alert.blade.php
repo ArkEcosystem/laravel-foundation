@@ -2,7 +2,6 @@
     'message'      => null,
     'type'         => \ARKEcosystem\Foundation\UserInterface\Support\Enums\AlertType::INFO,
     'dismissible'  => false,
-    'withoutTitle' => false,
 ])
 
 <div
@@ -17,17 +16,15 @@
         x-show="show"
         @endif
     >
-        @unless($withoutTitle)
-            <h2 class="alert-title">
-                <x-ark-icon :name="alertIcon($type)" class="alert-icon" size="xs" />
-                <span>{{ alertTitle($type) }}</span>
-                @if($dismissible)
-                <button type="button" @click="show = false">
-                    <x-ark-icon name="cross" size="xs" />
-                </button>
-                @endif
-            </h2>
-        @endunless
+        <h2 class="alert-title">
+            <x-ark-icon :name="alertIcon($type)" class="alert-icon" size="xs" />
+            <span>{{ alertTitle($type) }}</span>
+            @if($dismissible)
+            <button type="button" @click="show = false" aria-label="{{ trans('ui::alert.dismiss') }}">
+                <x-ark-icon name="cross" size="xs" aria-hidden="true" focusable="false" />
+            </button>
+            @endif
+        </h2>
 
         <span class="alert-content">
             @if($message !== null)
