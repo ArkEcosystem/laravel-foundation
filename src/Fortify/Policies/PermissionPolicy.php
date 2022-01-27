@@ -47,7 +47,7 @@ class PermissionPolicy
     private function isSuperAdmin($user): bool
     {
         return $user->hasRole([
-            app(UserRole::class)::SUPER_ADMIN,
+            app(UserRole::class)::SUPER_ADMIN->value,
         ]);
     }
 }

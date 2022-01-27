@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Fortify\Support\Enums;
 
-class UserRole
-{
-    public const SUPER_ADMIN = 'super-admin';
+use ARKEcosystem\Foundation\Fortify\Contracts\UserRole as UserRoleContract;
 
-    public const ADMIN = 'admin';
+enum UserRole: string implements UserRoleContract
+{
+    case SUPER_ADMIN = 'super-admin';
+
+    case ADMIN = 'admin';
 
     public static function toArray(): array
     {
         return [
-            static::SUPER_ADMIN,
-            static::ADMIN,
+            self::SUPER_ADMIN->value,
+            self::ADMIN->value,
         ];
     }
 }
