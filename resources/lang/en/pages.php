@@ -5,7 +5,7 @@ declare(strict_types=1);
 return [
     'contact' => [
         'title'               => 'Contact Us',
-        'subtitle'            => 'Have questions? Contact our Team for additional support.',
+        'subtitle'            => 'Have questions? Contact our team for additional support.',
         'message_placeholder' => 'How can we help?',
         'form'                => [
             'title'       => 'Contact Our Team',
@@ -56,6 +56,7 @@ return [
         'update_password_alert_description' => 'The Security Settings allow you to change your passwords and enable or disable 2FA. Please remember the changes made for when you next sign in.',
         'password_updated'                  => 'Password was successfully updated',
         'enter_2fa_verification_code'       => 'Enter your 2FA Verification Code',
+        'profile_updated'                   => 'Profile was successfully updated',
     ],
 
     'feedback_thank_you' => [

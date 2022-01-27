@@ -206,11 +206,11 @@ const CustomChart = (
                     axis: "x",
                 },
                 scales: {
-                    y: {
+                    yAxes: {
                         ...this.loadYAxes()[0],
                         position: "right",
                     },
-                    x: {
+                    xAxes: {
                         display: grid,
                         type: "category",
                         labels: labels,

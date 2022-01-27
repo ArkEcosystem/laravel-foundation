@@ -30,6 +30,8 @@
     'cropImageSmoothingEnabled' => true,
     'cropImageSmoothingQuality' => 'high',
     'cropEndpoint'              => route('cropper.upload-image'),
+    'displayText'               => true,
+    'uploadTooltip'             => null
 ])
 
 <div
@@ -70,7 +72,7 @@
     x-on:livewire-upload-start="isUploading = true"
     x-on:livewire-upload-finish="isUploading = false"
     x-on:livewire-upload-error="isUploading = false; livewire.emit('uploadError', '{{ $uploadErrorMessage }}');"
-    class="relative {{ $dimensions }}"
+    class="flex-shrink-0 relative {{ $dimensions }}"
 >
     <div @class([
         'rounded-xl w-full h-full focus-within:border-theme-primary-500',
@@ -87,6 +89,7 @@
             @unless($readonly)
             @click.self="select"
             role="button"
+            @if($uploadTooltip) data-tippy-hover="{{ $uploadTooltip }}" @endif
             @endunless
         >
             @unless($readonly)
@@ -114,6 +117,7 @@
                     <x-ark-icon name="cloud-arrow-up" size="lg"/>
                 </div>
 
+                @if ($displayText)
                 <div class="font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">{!! $uploadText !!}</div>
 
                 <div class="text-xs font-semibold text-theme-secondary-500">
@@ -122,6 +126,7 @@
                 <div class="text-xs font-semibold text-theme-secondary-500">
                     @lang('ui::forms.upload-image.max_filesize', [$maxFilesize])
                 </div>
+                @endif
             </div>
         @endif
 
