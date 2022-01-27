@@ -34,14 +34,14 @@ if (! function_exists('alertIcon')) {
             AlertType::SUCCESS,
             AlertType::WARNING,
             AlertType::ERROR,
-            AlertType::QUESTION,
+            AlertType::HINT,
         ], true)) {
             return [
                 AlertType::INFO     => 'circle.info',
                 AlertType::SUCCESS  => 'circle.check-mark',
                 AlertType::WARNING  => 'circle.exclamation-mark',
                 AlertType::ERROR    => 'circle.cross',
-                AlertType::QUESTION => 'circle.question-mark',
+                AlertType::HINT => 'circle.question-mark',
             ][$type];
         }
 
@@ -57,14 +57,14 @@ if (! function_exists('alertTitle')) {
             AlertType::SUCCESS,
             AlertType::WARNING,
             AlertType::ERROR,
-            AlertType::QUESTION,
+            AlertType::HINT,
         ], true)) {
             return [
                 AlertType::INFO     => trans('ui::alert.'.AlertType::INFO),
                 AlertType::SUCCESS  => trans('ui::alert.'.AlertType::SUCCESS),
                 AlertType::WARNING  => trans('ui::alert.'.AlertType::WARNING),
                 AlertType::ERROR    => trans('ui::alert.'.AlertType::ERROR),
-                AlertType::QUESTION => trans('ui::alert.'.AlertType::QUESTION),
+                AlertType::HINT => trans('ui::alert.'.AlertType::HINT),
             ][$type];
         }
 
@@ -91,8 +91,8 @@ if (! function_exists('call_user_func_safe')) {
 }
 
 if (! function_exists('alert')) {
-    /** @param FlashType::* $type */
-    function alert(string $key, $type, array $translationVariables = []): void
+    /* @TODO: change `string $type` to `AlertType $type` */
+    function alert(string $key, string $type, array $translationVariables = []): void
     {
         flash(trans($key, $translationVariables), $type);
     }

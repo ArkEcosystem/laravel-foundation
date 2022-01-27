@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\UserInterface\Support\Enums;
 
-/* @TODO: make this class "enum" */
+/* @TODO: make "enum" */
 final class AlertType
 {
     public const INFO = 'info';
@@ -15,5 +15,5 @@ final class AlertType
 
     public const ERROR = 'error';
 
-    public const QUESTION = 'question';
+    public const HINT = 'hint';
 }
