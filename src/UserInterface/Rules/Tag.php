@@ -100,12 +100,12 @@ class Tag implements Rule
 
             case $this->hasReachedMaxLength:
                 return trans('ui::validation.tag.max_length', [
-                    'length' => Constants::MAX_TAG_LENGTH,
+                    'length' => Constants::MAX_TAG_LENGTH->value,
                 ]);
 
             default:
                 return trans('ui::validation.tag.min_length', [
-                    'length' => Constants::MIN_TAG_LENGTH,
+                    'length' => Constants::MIN_TAG_LENGTH->value,
                 ]);
         }
     }
@@ -132,11 +132,11 @@ class Tag implements Rule
 
     public function needsMinimumLength(string $value): bool
     {
-        return Str::length($value) < Constants::MIN_TAG_LENGTH;
+        return Str::length($value) < Constants::MIN_TAG_LENGTH->value;
     }
 
     public function needsMaximumLength(string $value): bool
     {
-        return Str::length($value) > Constants::MAX_TAG_LENGTH;
+        return Str::length($value) > Constants::MAX_TAG_LENGTH->value;
     }
 }
