@@ -4,21 +4,61 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Hermes\Enums;
 
-final class NotificationTypeEnum
+enum NotificationTypeEnum: string
 {
-    public const SUCCESS = 'success';
+    case SUCCESS = 'success';
 
-    public const WARNING = 'warning';
+    case WARNING = 'warning';
 
-    public const DANGER = 'danger';
+    case DANGER = 'danger';
 
-    public const BLOCKED = 'blocked';
+    case BLOCKED = 'blocked';
 
-    public const COMMENT = 'comment';
+    case COMMENT = 'comment';
 
-    public const MENTION = 'mention';
+    case MENTION = 'mention';
 
-    public const ANNOUNCEMENT = 'announcement';
+    case ANNOUNCEMENT = 'announcement';
 
-    public const VIDEO = 'video';
+    case VIDEO = 'video';
+
+    public static function isDanger(string $type): bool
+    {
+        return self::tryFrom($type) === self::DANGER;
+    }
+
+    public static function isSuccess(string $type): bool
+    {
+        return self::tryFrom($type) === self::SUCCESS;
+    }
+
+    public static function isWarning(string $type): bool
+    {
+        return self::tryFrom($type) === self::WARNING;
+    }
+
+    public static function isBlocked(string $type): bool
+    {
+        return self::tryFrom($type) === self::BLOCKED;
+    }
+
+    public static function isComment(string $type): bool
+    {
+        return self::tryFrom($type) === self::COMMENT;
+    }
+
+    public static function isMention(string $type): bool
+    {
+        return self::tryFrom($type) === self::MENTION;
+    }
+
+    public static function isAnnouncement(string $type): bool
+    {
+        return self::tryFrom($type) === self::ANNOUNCEMENT;
+    }
+
+    public static function isVideo(string $type): bool
+    {
+        return self::tryFrom($type) === self::VIDEO;
+    }
 }
