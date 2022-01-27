@@ -16,75 +16,12 @@
 @section('content')
     <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.component-heading"/>
 
-    <x-ark-alert type="info">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="success" class="mt-10">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="warning"  class="mt-10">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="error"  class="mt-10">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="question"  class="mt-10">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="info" class="mt-10" dismissible>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="success" class="mt-10" dismissible>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="warning"  class="mt-10" dismissible>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="error"  class="mt-10" dismissible>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="question"  class="mt-10" dismissible>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="info" class="mt-10" without-title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="success" class="mt-10" without-title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="warning"  class="mt-10" without-title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="error"  class="mt-10" without-title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
-    <x-ark-alert type="question"  class="mt-10" without-title>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-    </x-ark-alert>
-
     <x:ark-fortify::form-wrapper :action="route('login')">
         <div class="flex flex-col space-y-5">
             @if (session('status'))
                 <x-ark-alert type="success">
-                    <x-slot name="message">
-                        {{ session('status') }}
-                    </x-slot>
+                    {{ session('status') }}
                 </x-ark-alert>
-
             @endif
 
             <div class="flex flex-1">
