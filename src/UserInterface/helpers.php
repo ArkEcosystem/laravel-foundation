@@ -28,7 +28,7 @@ if (! function_exists('formatReadTime')) {
 if (! function_exists('alertIcon')) {
     function alertIcon(AlertType $type): string
     {
-        return match ($type->value){
+        return match ($type->value) {
             AlertType::INFO->value    => 'circle.info',
             AlertType::SUCCESS->value => 'circle.check-mark',
             AlertType::WARNING->value => 'circle.exclamation-mark',
@@ -41,7 +41,7 @@ if (! function_exists('alertIcon')) {
 if (! function_exists('alertTitle')) {
     function alertTitle(AlertType $type): string
     {
-        return match ($type->value){
+        return match ($type->value) {
             AlertType::INFO->value    => trans('ui::alert.'.AlertType::INFO->value),
             AlertType::SUCCESS->value => trans('ui::alert.'.AlertType::SUCCESS->value),
             AlertType::WARNING->value => trans('ui::alert.'.AlertType::WARNING->value),
