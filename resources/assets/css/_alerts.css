@@ -109,10 +109,30 @@
     @apply text-theme-secondary-200;
 }
 
-.dark .alert-wrapper.alert-info .alert-content-wrapper > .alert-title ~ .alert-content,
-.dark .alert-wrapper.alert-success .alert-content-wrapper > .alert-title ~ .alert-content,
-.dark .alert-wrapper.alert-warning .alert-content-wrapper > .alert-title ~ .alert-content,
-.dark .alert-wrapper.alert-error .alert-content-wrapper > .alert-title ~ .alert-content,
-.dark .alert-wrapper.alert-question .alert-content-wrapper > .alert-title ~ .alert-content {
+.dark
+    .alert-wrapper.alert-info
+    .alert-content-wrapper
+    > .alert-title
+    ~ .alert-content,
+.dark
+    .alert-wrapper.alert-success
+    .alert-content-wrapper
+    > .alert-title
+    ~ .alert-content,
+.dark
+    .alert-wrapper.alert-warning
+    .alert-content-wrapper
+    > .alert-title
+    ~ .alert-content,
+.dark
+    .alert-wrapper.alert-error
+    .alert-content-wrapper
+    > .alert-title
+    ~ .alert-content,
+.dark
+    .alert-wrapper.alert-question
+    .alert-content-wrapper
+    > .alert-title
+    ~ .alert-content {
     @apply bg-theme-secondary-800;
 }
