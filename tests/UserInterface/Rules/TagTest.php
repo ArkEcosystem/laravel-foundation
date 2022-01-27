@@ -43,7 +43,7 @@ it('accepts a word that is the minimum length', function () {
 });
 
 it('accepts a word that is the max length', function () {
-    expect($this->subject->passes('tag', str_repeat('a', Constants::MAX_TAG_LENGTH)))->toBeTrue();
+    expect($this->subject->passes('tag', str_repeat('a', Constants::MAX_TAG_LENGTH->value)))->toBeTrue();
 });
 
 it('does not accept a 2 character word', function () {
@@ -53,7 +53,7 @@ it('does not accept a 2 character word', function () {
 });
 
 it('does not accept a word over the allowed character limit', function () {
-    expect($this->subject->passes('tag', str_repeat('a', Constants::MAX_TAG_LENGTH + 1)))->toBeFalse();
+    expect($this->subject->passes('tag', str_repeat('a', Constants::MAX_TAG_LENGTH->value + 1)))->toBeFalse();
 
     expect($this->subject->message())->toBe(trans('ui::validation.tag.max_length'));
 });

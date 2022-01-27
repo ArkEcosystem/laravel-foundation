@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Hermes\Enums;
 
-final class NotificationFilterEnum
+enum NotificationFilterEnum: string
 {
-    public const ALL = 'all';
+    case ALL = 'all';
 
-    public const READ = 'read';
+    case READ = 'read';
 
-    public const UNREAD = 'unread';
+    case UNREAD = 'unread';
 
-    public const STARRED = 'starred';
+    case STARRED = 'starred';
 
-    public const UNSTARRED = 'unstarred';
+    case UNSTARRED = 'unstarred';
 
     public static function isAll(string $value):bool
     {
-        return $value === static::ALL;
+        return self::tryFrom($value) === self::ALL;
     }
 }

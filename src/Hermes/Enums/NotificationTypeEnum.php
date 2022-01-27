@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Hermes\Enums;
 
-final class NotificationTypeEnum
+enum NotificationTypeEnum: string
 {
-    public const SUCCESS = 'success';
+    case SUCCESS = 'success';
 
-    public const WARNING = 'warning';
+    case WARNING = 'warning';
 
-    public const DANGER = 'danger';
+    case DANGER = 'danger';
 
-    public const BLOCKED = 'blocked';
+    case BLOCKED = 'blocked';
 
-    public const COMMENT = 'comment';
+    case COMMENT = 'comment';
 
-    public const MENTION = 'mention';
+    case MENTION = 'mention';
 
-    public const ANNOUNCEMENT = 'announcement';
+    case ANNOUNCEMENT = 'announcement';
 
-    public const VIDEO = 'video';
+    case VIDEO = 'video';
 }

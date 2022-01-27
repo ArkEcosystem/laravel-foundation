@@ -5,7 +5,7 @@
 ])
 
 <div
-    {{$attributes->class(['alert-wrapper alert-'.$type])}}
+    {{$attributes->class(['alert-wrapper alert-'.$type->value])}}
     @if($dismissible)
     x-data="{ show: true }"
     @endif

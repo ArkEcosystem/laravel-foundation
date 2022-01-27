@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\UserInterface\Support\Enums;
 
-final class FlashType
+enum FlashType: string
 {
-    public const INFO    = 'info';
+    case INFO    = 'info';
 
-    public const SUCCESS = 'success';
+    case SUCCESS = 'success';
 
-    public const WARNING = 'warning';
+    case WARNING = 'warning';
 
-    public const DANGER  = 'danger';
+    case DANGER  = 'danger';
 
-    public const ERROR   = 'error';
+    case ERROR   = 'error';
 
-    public const HINT    = 'hint';
+    case HINT    = 'hint';
 }

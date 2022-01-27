@@ -35,7 +35,7 @@ final class ManageNotifications extends Component
 
     public function mount(): void
     {
-        $this->activeFilter = NotificationFilterEnum::ALL;
+        $this->activeFilter = NotificationFilterEnum::ALL->value;
     }
 
     public function render(): View
@@ -183,19 +183,19 @@ final class ManageNotifications extends Component
 
     public function applyFilter(string $filter): LengthAwarePaginator
     {
-        if ($filter === NotificationFilterEnum::READ) {
+        if (NotificationFilterEnum::from($filter) === NotificationFilterEnum::READ) {
             return $this->filterRead();
         }
 
-        if ($filter === NotificationFilterEnum::UNREAD) {
+        if (NotificationFilterEnum::from($filter) === NotificationFilterEnum::UNREAD) {
             return $this->filterUnread();
         }
 
-        if ($filter === NotificationFilterEnum::STARRED) {
+        if (NotificationFilterEnum::from($filter) === NotificationFilterEnum::STARRED) {
             return $this->filterStarred();
         }
 
-        if ($filter === NotificationFilterEnum::UNSTARRED) {
+        if (NotificationFilterEnum::from($filter) === NotificationFilterEnum::UNSTARRED) {
             return $this->filterUnstarred();
         }
 
@@ -205,45 +205,45 @@ final class ManageNotifications extends Component
     public function getAvailableFilters(): array
     {
         return [
-            NotificationFilterEnum::ALL,
-            NotificationFilterEnum::READ,
-            NotificationFilterEnum::UNREAD,
-            NotificationFilterEnum::STARRED,
-            NotificationFilterEnum::UNSTARRED,
+            NotificationFilterEnum::ALL->value,
+            NotificationFilterEnum::READ->value,
+            NotificationFilterEnum::UNREAD->value,
+            NotificationFilterEnum::STARRED->value,
+            NotificationFilterEnum::UNSTARRED->value,
         ];
     }
 
     private function filterAll(): LengthAwarePaginator
     {
-        $this->activeFilter = NotificationFilterEnum::ALL;
+        $this->activeFilter = NotificationFilterEnum::ALL->value;
 
         return $this->user->notifications()->paginate($this->paginationLength);
     }
 
     private function filterRead(): LengthAwarePaginator
     {
-        $this->activeFilter = NotificationFilterEnum::READ;
+        $this->activeFilter = NotificationFilterEnum::READ->value;
 
         return $this->user->notifications()->where('read_at', '!=', null)->paginate($this->paginationLength);
     }
 
     private function filterUnread(): LengthAwarePaginator
     {
-        $this->activeFilter = NotificationFilterEnum::UNREAD;
+        $this->activeFilter = NotificationFilterEnum::UNREAD->value;
 
         return $this->user->notifications()->where('read_at', null)->paginate($this->paginationLength);
     }
 
     private function filterStarred(): LengthAwarePaginator
     {
-        $this->activeFilter = NotificationFilterEnum::STARRED;
+        $this->activeFilter = NotificationFilterEnum::STARRED->value;
 
         return $this->user->notifications()->where('is_starred', true)->paginate($this->paginationLength);
     }
 
     private function filterUnstarred(): LengthAwarePaginator
     {
-        $this->activeFilter = NotificationFilterEnum::UNSTARRED;
+        $this->activeFilter = NotificationFilterEnum::UNSTARRED->value;
 
         return $this->user->notifications()->where('is_starred', false)->paginate($this->paginationLength);
     }

@@ -41,7 +41,7 @@ final class PermissionMapping
             }
 
             $toInsert = collect();
-            if ($role->name === app(UserRole::class)::SUPER_ADMIN) {
+            if ($role->name === app(UserRole::class)::SUPER_ADMIN->value) {
                 $toInsert = $permissions;
             } else {
                 $toInsert = $permissions->whereIn('name', $permissionMapping[$role->name]);

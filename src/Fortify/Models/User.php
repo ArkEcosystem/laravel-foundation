@@ -12,8 +12,8 @@ class User extends UserWithoutVerification implements MustVerifyEmail
     public function canModerate(): bool
     {
         return $this->hasRole([
-            app(UserRole::class)::SUPER_ADMIN,
-            app(UserRole::class)::ADMIN,
+            app(UserRole::class)::SUPER_ADMIN->value,
+            app(UserRole::class)::ADMIN->value,
         ]);
     }
 }
