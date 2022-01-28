@@ -42,7 +42,7 @@
     @apply bg-theme-danger-100 text-theme-danger-700;
 }
 
-.alert-wrapper.alert-question .alert-title {
+.alert-wrapper.alert-hint .alert-title {
     @apply bg-theme-hint-100 text-theme-hint-700;
 }
 
@@ -67,7 +67,7 @@
     @apply bg-theme-danger-50;
 }
 
-.alert-wrapper.alert-question .alert-content {
+.alert-wrapper.alert-hint .alert-content {
     @apply bg-theme-hint-50;
 }
 
@@ -100,7 +100,7 @@
     @apply bg-theme-danger-500;
 }
 
-.dark .alert-wrapper.alert-question .alert-title {
+.dark .alert-wrapper.alert-hint .alert-title {
     @apply bg-theme-hint-700;
 }
 
@@ -130,7 +130,7 @@
     > .alert-title
     ~ .alert-content,
 .dark
-    .alert-wrapper.alert-question
+    .alert-wrapper.alert-hint
     .alert-content-wrapper
     > .alert-title
     ~ .alert-content {
