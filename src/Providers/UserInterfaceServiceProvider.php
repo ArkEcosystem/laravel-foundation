@@ -33,12 +33,11 @@ class UserInterfaceServiceProvider extends ServiceProvider
     public function register()
     {
         Flash::levels([
-            'info'    => 'alert-info',
-            'success' => 'alert-success',
-            'warning' => 'alert-warning',
-            'danger'  => 'alert-danger',
-            'error'   => 'alert-error',
-            'hint'    => 'alert-hint',
+            'info'    => 'info',
+            'success' => 'success',
+            'warning' => 'warning',
+            'error'   => 'error',
+            'hint'    => 'hint',
         ]);
     }
 

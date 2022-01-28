@@ -20,11 +20,8 @@
         <div class="flex flex-col space-y-5">
             @if (session('status'))
                 <x-ark-alert type="success">
-                    <x-slot name="message">
-                        {{ session('status') }}
-                    </x-slot>
+                    {{ session('status') }}
                 </x-ark-alert>
-
             @endif
 
             <div class="flex flex-1">
