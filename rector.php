@@ -34,7 +34,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         $dir.'/app/App/Collaborator/Components',
         $dir.'/app/App/Http/Components',
         $dir.'/app/App/Platform/Components',
+        $dir.'/app/App/SecureShell/Components',
+        $dir.'/app/App/Server/Components',
+        $dir.'/app/App/Token/Components',
         $dir.'/app/App/User/Components',
+        $dir.'/app/App/View/Components',
 
         // skip Nova
         $dir.'/app/App/Nova',

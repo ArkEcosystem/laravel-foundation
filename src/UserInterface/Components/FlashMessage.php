@@ -30,6 +30,6 @@ class FlashMessage extends Component
 
     public function alertType(): string
     {
-        return 'alert-'.$this->type;
+        return $this->type;
     }
 }

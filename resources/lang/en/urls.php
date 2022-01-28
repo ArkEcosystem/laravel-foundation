@@ -3,8 +3,6 @@
 declare(strict_types=1);
 
 return [
-
-    'discord'       => 'https://discord.ark.io/',
     'discord-msq'   => 'https://marketsquare.io/discord',
     'twitter'       => 'https://twitter.ark.io/',
     'linkedin'      => 'https://www.linkedin.com/company/ark-ecosystem',

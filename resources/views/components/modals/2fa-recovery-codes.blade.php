@@ -6,9 +6,7 @@
     @slot('description')
         <div class="flex flex-col mt-8 space-y-4">
             <x-ark-alert type="warning">
-                <x-slot name="message">
-                    @lang('ui::pages.user-settings.2fa_warning_text')
-                </x-slot>
+                @lang('ui::pages.user-settings.2fa_warning_text')
             </x-ark-alert>
             <div class="grid grid-cols-1 grid-flow-row gap-x-4 gap-y-4 sm:grid-cols-2">
                 @foreach (json_decode(decrypt($this->user->two_factor_recovery_codes), true) as $code)

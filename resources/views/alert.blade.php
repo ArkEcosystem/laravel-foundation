@@ -1,40 +1,37 @@
 @props([
-    'class'        => '',
     'message'      => null,
-    'messageClass' => 'text-sm',
-    'large'        => false,
-    'title'        => null,
-    'type'         => 'info',
+    'type'         => \ARKEcosystem\Foundation\UserInterface\Support\Enums\AlertType::INFO,
+    'dismissible'  => false,
 ])
 
-<div {{
-    $attributes->merge(['class' => $class.' alert-wrapper alert-'.$type])
-        ->except([
-            'large',
-            'message',
-            'messageClass',
-            'title',
-            'type',
-        ])
-}}>
-    <div class="alert-icon-wrapper alert-{{ $type }}-icon flex-shrink-0 @if($large) alert-icon-large @endif">
-        <div>
-            <x-ark-icon
-                :name="alertIcon($type)"
-                :size="$large ? 'md' : 'base'"
-            />
-        </div>
-    </div>
-
-    <div class="alert-content-wrapper alert-{{ $type }}-content @if($large) alert-content-large @endif">
-        @isset($title)
-            <span class="alert-{{ $type }}-title">{{ $title }}</span>
+<div
+    {{$attributes->class(['alert-wrapper alert-'.$type])}}
+    @if($dismissible)
+    x-data="{ show: true }"
+    @endif
+>
+    <div
+        class="alert-content-wrapper"
+        @if($dismissible)
+        x-show="show"
         @endif
+    >
+        <h2 class="alert-title">
+            <x-ark-icon :name="alertIcon($type)" class="alert-icon" size="xs" />
+            <span>{{ alertTitle($type) }}</span>
+            @if($dismissible)
+            <button type="button" @click="show = false" aria-label="{{ trans('ui::alert.dismiss') }}">
+                <x-ark-icon name="cross" size="xs" aria-hidden="true" focusable="false" />
+            </button>
+            @endif
+        </h2>
 
-        @isset($message)
-            <span class="block leading-6 {{ $messageClass }}">{{ $message }}</span>
-        @else
-            <span class="block {{ $messageClass }}">{{ $slot }}</span>
-        @endif
+        <span class="alert-content">
+            @if($message !== null)
+                {{ $message }}
+            @else
+                {{ $slot }}
+            @endif
+        </span>
     </div>
 </div>
