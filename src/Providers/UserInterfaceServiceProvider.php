@@ -33,12 +33,11 @@ class UserInterfaceServiceProvider extends ServiceProvider
     public function register()
     {
         Flash::levels([
-            'info'    => 'alert-info',
-            'success' => 'alert-success',
-            'warning' => 'alert-warning',
-            'danger'  => 'alert-danger',
-            'error'   => 'alert-error',
-            'hint'    => 'alert-hint',
+            'info'    => 'info',
+            'success' => 'success',
+            'warning' => 'warning',
+            'error'   => 'error',
+            'hint'    => 'hint',
         ]);
     }
 
@@ -222,7 +221,9 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::pages.contact', 'ark-pages-contact');
 
             $blade->component('ark::pages.includes.header', 'ark-pages-includes-header');
+            $blade->component('ark::pages.includes.layout-body', 'ark-pages-includes-layout-body');
             $blade->component('ark::pages.includes.layout-content', 'ark-pages-includes-layout-content');
+            $blade->component('ark::pages.includes.layout-head', 'ark-pages-includes-layout-head');
             $blade->component('ark::pages.includes.markdown-scripts', 'ark-pages-includes-markdown-scripts');
             $blade->component('ark::pages.includes.crop-image-scripts', 'ark-pages-includes-crop-image-scripts');
             $blade->component('ark::pages.includes.compress-image-scripts', 'ark-pages-includes-compress-image-scripts');
