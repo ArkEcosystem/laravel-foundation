@@ -1,7 +1,7 @@
 @props([
-    'message'      => null,
-    'type'         => \ARKEcosystem\Foundation\UserInterface\Support\Enums\AlertType::INFO,
-    'dismissible'  => false,
+    'message'     => null,
+    'type'        => \ARKEcosystem\Foundation\UserInterface\Support\Enums\AlertType::INFO->value,
+    'dismissible' => false,
 ])
 
 <div
@@ -17,8 +17,8 @@
         @endif
     >
         <h2 class="alert-title">
-            <x-ark-icon :name="alertIcon($type)" class="alert-icon" size="xs" />
-            <span>{{ alertTitle($type) }}</span>
+            <x-ark-icon :name="alertIcon(\ARKEcosystem\Foundation\UserInterface\Support\Enums\AlertType::from($type))" class="alert-icon" size="xs" />
+            <span>{{ alertTitle(\ARKEcosystem\Foundation\UserInterface\Support\Enums\AlertType::from($type)) }}</span>
             @if($dismissible)
             <button type="button" @click="show = false" aria-label="{{ trans('ui::alert.dismiss') }}">
                 <x-ark-icon name="cross" size="xs" aria-hidden="true" focusable="false" />

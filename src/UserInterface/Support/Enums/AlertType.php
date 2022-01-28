@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\UserInterface\Support\Enums;
 
-/* @TODO: make "enum" */
-final class AlertType
+enum AlertType: string
 {
-    public const INFO = 'info';
+    case INFO = 'info';
 
-    public const SUCCESS = 'success';
+    case SUCCESS = 'success';
 
-    public const WARNING = 'warning';
+    case WARNING = 'warning';
 
-    public const ERROR = 'error';
+    case ERROR = 'error';
 
-    public const HINT = 'hint';
+    case HINT = 'hint';
 }

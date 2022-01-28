@@ -26,48 +26,28 @@ if (! function_exists('formatReadTime')) {
 }
 
 if (! function_exists('alertIcon')) {
-    function alertIcon(string $type): string
+    function alertIcon(AlertType $type): string
     {
-        if (in_array($type, [
-            AlertType::INFO,
-            AlertType::SUCCESS,
-            AlertType::WARNING,
-            AlertType::ERROR,
-            AlertType::HINT,
-        ], true)) {
-            return [
-                AlertType::INFO     => 'circle.info',
-                AlertType::SUCCESS  => 'circle.check-mark',
-                AlertType::WARNING  => 'circle.exclamation-mark',
-                AlertType::ERROR    => 'circle.cross',
-                AlertType::HINT     => 'circle.question-mark',
-            ][$type];
-        }
-
-        return 'circle.info';
+        return match ($type->value) {
+            AlertType::INFO->value    => 'circle.info',
+            AlertType::SUCCESS->value => 'circle.check-mark',
+            AlertType::WARNING->value => 'circle.exclamation-mark',
+            AlertType::ERROR->value   => 'circle.cross',
+            AlertType::HINT->value    => 'circle.question-mark',
+        };
     }
 }
 
 if (! function_exists('alertTitle')) {
-    function alertTitle(string $type): string
+    function alertTitle(AlertType $type): string
     {
-        if (in_array($type, [
-            AlertType::INFO,
-            AlertType::SUCCESS,
-            AlertType::WARNING,
-            AlertType::ERROR,
-            AlertType::HINT,
-        ], true)) {
-            return [
-                AlertType::INFO     => trans('ui::alert.'.AlertType::INFO),
-                AlertType::SUCCESS  => trans('ui::alert.'.AlertType::SUCCESS),
-                AlertType::WARNING  => trans('ui::alert.'.AlertType::WARNING),
-                AlertType::ERROR    => trans('ui::alert.'.AlertType::ERROR),
-                AlertType::HINT     => trans('ui::alert.'.AlertType::HINT),
-            ][$type];
-        }
-
-        return trans('ui::alert.'.AlertType::INFO);
+        return match ($type->value) {
+            AlertType::INFO->value    => trans('ui::alert.'.AlertType::INFO->value),
+            AlertType::SUCCESS->value => trans('ui::alert.'.AlertType::SUCCESS->value),
+            AlertType::WARNING->value => trans('ui::alert.'.AlertType::WARNING->value),
+            AlertType::ERROR->value   => trans('ui::alert.'.AlertType::ERROR->value),
+            AlertType::HINT->value    => trans('ui::alert.'.AlertType::HINT->value),
+        };
     }
 }
 
