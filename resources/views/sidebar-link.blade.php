@@ -24,7 +24,7 @@
             'text-theme-secondary-900 hover:text-theme-primary-600 dark:text-theme-secondary-200 dark:hover:text-theme-primary-600' => ! $isCurrent,
         ])
         dusk='navbar-item-{{ Str::slug($name) }}'
-        {{ $attribute->except(['href', 'class', 'dusk']) }}
+        {{ $attributes->except(['href', 'class', 'dusk']) }}
     >
 
         @if ($icon && $iconAlignment === 'left')
