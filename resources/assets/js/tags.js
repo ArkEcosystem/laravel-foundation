@@ -135,6 +135,7 @@ const Tags = (
 
         const taggleInput = taggle.getInput();
         taggleInput.setAttribute("id", id);
+        taggleInput.focus();
 
         if (typeof this.onInput === "function") {
             taggleInput.addEventListener("input", (e) => {
