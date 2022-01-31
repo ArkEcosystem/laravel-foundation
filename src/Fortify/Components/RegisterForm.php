@@ -40,9 +40,9 @@ class RegisterForm extends Component
 
     public function mount()
     {
-        $this->name      = old('name', '');
-        $this->email     = old('email', '');
-        $this->terms     = old('terms', false) === true;
+        $this->name  = old('name', '');
+        $this->email = old('email', '');
+        $this->terms = old('terms', false) === true;
 
         $this->formUrl = request()->fullUrl();
 
