@@ -12,6 +12,7 @@
     'wireClose' => false,
     'escToClose' => true,
     'fixedPosition' => false,
+    'paddingClass' => 'p-8 sm:p-10'
 ])
 
 <div class="fixed inset-0 z-50 opacity-75 dark:opacity-50 bg-theme-secondary-900 dark:bg-theme-secondary-800"></div>
@@ -40,7 +41,7 @@
         @if($style) style="{{ $style }}" @endif
     >
         <div class="modal-content custom-scroll {{ $widthClass }}">
-            <div class="p-8 sm:p-10">
+            <div class="{{ $paddingClass }}">
                 @if($wireClose)
                     <button
                         type="button"

@@ -224,7 +224,7 @@
 }
 
 .modal-close {
-    @apply absolute top-0 right-0 w-12 mt-5 mr-5 rounded h-11 text-theme-secondary-900 bg-theme-info-100 transition-default;
+    @apply absolute top-0 right-0 w-12 mt-5 mr-5 rounded h-11 text-theme-secondary-900 bg-theme-info-100 transition-default z-50;
 }
 .dark .modal-close {
     @apply bg-theme-secondary-800 text-theme-secondary-600;
