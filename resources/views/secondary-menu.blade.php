@@ -8,7 +8,7 @@
 <div
     x-data="{ open: false }"
     @keydown.window.escape="open = false"
-    @click.away="open = false"
+    @click.outside="open = false"
     {{ $attributes->class('inline-block relative w-full text-left') }}
 >
     <div class="h-full">

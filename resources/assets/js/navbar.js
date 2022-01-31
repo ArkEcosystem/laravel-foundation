@@ -101,6 +101,9 @@ const Navbar = {
             show() {
                 this.open = true;
             },
+            toggle() {
+                this.open = !this.open;
+            },
             lockBody() {
                 return window.innerWidth <= this.lockBodyBreakpoint;
             },

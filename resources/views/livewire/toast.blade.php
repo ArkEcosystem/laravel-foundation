@@ -3,7 +3,7 @@
         <div
             class="z-20 cursor-pointer"
             x-data="{ dismiss() { livewire.emit('dismissToast', '{{ $key }}' ) } }"
-            x-init="() => setTimeout(() => dismiss(), 5000);"
+            x-init="$nextTick(() => setTimeout(() => dismiss(), 5000))"
             @click="dismiss()"
             wire:key="{{ $key }}"
         >
