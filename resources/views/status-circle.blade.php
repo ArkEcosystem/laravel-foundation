@@ -15,7 +15,7 @@
         <x-ark-icon name="arrows.arrows-rotate" size="xs" class="text-theme-warning-900" />
     </div>
 @elseif ($type === 'active')
-    <div class="flex flex-shrink-0 justify-center items-center w-4.5 h-4.5 rounded-full border-2 box-border border-theme-primary-500"></div>
+    <div class="flex flex-shrink-0 justify-center items-center rounded-full border-2 w-4.5 h-4.5 box-border border-theme-primary-500"></div>
 @elseif ($type === 'locked')
     <div class="flex flex-shrink-0 justify-center items-center w-5 h-5 rounded-full bg-theme-secondary-300">
         <x-ark-icon name="lock" size="xs" class="text-theme-secondary-700" />
