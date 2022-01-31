@@ -19,7 +19,6 @@
     x-cloak
     @if($init)
     x-data="Modal.alpine({{ $xData }}, '{{ $name }}')"
-    x-init="init"
     @endif
     @if(!$closeButtonOnly && $escToClose)
     @keydown.escape="hide"
@@ -34,7 +33,7 @@
     <div
         class="modal-content-wrapper md:m-auto w-full {{ $class }} {{ $widthClass }}"
         @if(!$closeButtonOnly)
-        @click.away="hide"
+        @click.outside="hide"
         @endif
     >
         <div class="modal-content custom-scroll {{ $widthClass }}">

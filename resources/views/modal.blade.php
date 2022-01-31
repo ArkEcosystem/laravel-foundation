@@ -26,7 +26,6 @@
         data-modal
     @endif
     x-data="Modal.livewire({{ $xData }})"
-    x-init="init"
     @if(!$closeButtonOnly && $wireClose)
         @mousedown.self="$wire.{{ $wireClose }}()"
     @endif

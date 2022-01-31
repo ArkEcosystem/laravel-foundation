@@ -35,7 +35,6 @@
                     '{{ $charsLimit }}',
                     {{ $xData }}
                 )"
-                x-init="init"
                 class="overflow-hidden bg-white rounded border border-theme-secondary-200 dark:border-theme-secondary-700 dark:bg-theme-secondary-900"
             >
 

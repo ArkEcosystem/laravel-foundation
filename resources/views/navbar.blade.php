@@ -26,7 +26,6 @@
     @else
         x-data="Navbar.dropdown()"
     @endif
-    x-init="init"
 >
     <div
         x-show="openDropdown !== null || open"
