@@ -28,15 +28,8 @@
 
                     @if($alert)
                         <div class="mt-4">
-                            <x-ark-alert
-                                type="info"
-                                class="py-8 px-4 mx-auto"
-                                message-class="text-sm"
-                                without-escaping
-                            >
-                                <x-slot name="message">
-                                    {!! $alert !!}
-                                </x-slot>
+                            <x-ark-alert type="info" class="py-8 px-4 mx-auto">
+                                {!! $alert !!}
                             </x-ark-alert>
                         </div>
                     @endif
