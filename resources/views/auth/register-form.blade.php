@@ -55,6 +55,7 @@
             :password-rules="$passwordRules"
             is-typing="isTyping"
             rules-wrapper-class="grid grid-cols-1 gap-4 my-4"
+            @typing="isTyping=true"
         >
             <x-ark-password-toggle
                 model="password"
@@ -62,7 +63,6 @@
                 :label="trans('ui::forms.password')"
                 autocomplete="new-password"
                 class="w-full"
-                @keydown="isTyping=true"
                 :errors="$errors"
             />
         </x:ark-fortify::password-rules>
