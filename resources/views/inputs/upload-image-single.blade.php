@@ -31,7 +31,8 @@
     'cropImageSmoothingQuality' => 'high',
     'cropEndpoint'              => route('cropper.upload-image'),
     'displayText'               => true,
-    'uploadTooltip'             => null
+    'uploadTooltip'             => null,
+    'borderPadding'             => 'p-1.5',
 ])
 
 <div
@@ -75,7 +76,8 @@
 >
     <div @class([
         'rounded-xl w-full h-full focus-within:border-theme-primary-500',
-        'p-1.5 border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800' => ! $image,
+        'border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800' => ! $image,
+        $borderPadding => ! $image,
     ])>
         <div
             @if ($image)
