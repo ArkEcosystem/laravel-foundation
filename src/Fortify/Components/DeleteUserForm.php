@@ -77,11 +77,11 @@ class DeleteUserForm extends Component
             'feedback' => 'present|string|min:5|max:500',
         ];
 
-        if($this->confirmPassword){
+        if ($this->confirmPassword) {
             $rules['confirmedPassword'] = ['required', new CurrentPassword($this->user)];
         }
 
-        if($this->confirmUsername){
+        if ($this->confirmUsername) {
             $rules['confirmedUsername'] = ['required', new CurrentUserName($this->user)];
         }
 
