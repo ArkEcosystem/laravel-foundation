@@ -9,6 +9,7 @@ use ARKEcosystem\Foundation\Fortify\Contracts\DeleteUser;
 use ARKEcosystem\Foundation\Fortify\Mail\SendFeedback;
 use ARKEcosystem\Foundation\UserInterface\Http\Livewire\Concerns\HasModal;
 use ARKEcosystem\Foundation\UserInterface\Rules\CurrentPassword;
+use ARKEcosystem\Foundation\UserInterface\Rules\CurrentUserName;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
@@ -21,7 +22,19 @@ class DeleteUserForm extends Component
 
     public string $confirmedPassword = '';
 
+    public string $confirmedUsername = '';
+
     public string $feedback = '';
+
+    public bool $confirmUsername = false;
+
+    public bool $confirmPassword = true;
+
+    public bool $showConfirmationMessage = true;
+
+    public ?string $username = null;
+
+    public string $alertType = 'info';
 
     public ?string $alert = null;
 
@@ -58,10 +71,19 @@ class DeleteUserForm extends Component
 
     protected function rules(): array
     {
-        return [
-            'confirmedPassword' => ['required', new CurrentPassword($this->user)],
-            'feedback'          => 'present|string|min:5|max:500',
+        $rules = [
+            'feedback' => 'present|string|min:5|max:500',
         ];
+
+        if($this->confirmPassword){
+            $rules['confirmedPassword'] = ['required', new CurrentPassword($this->user)];
+        }
+
+        if($this->confirmUsername){
+            $rules['confirmedUsername'] = ['required', new CurrentUserName($this->user)];
+        }
+
+        return $rules;
     }
 
     private function sendFeedback(): string
