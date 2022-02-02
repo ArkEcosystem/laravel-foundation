@@ -78,20 +78,20 @@ const Modal = {
         let trap = createFocusTrap(el, {
             escapeDeactivates: false,
             allowOutsideClick: true,
-            fallbackFocus: el.querySelector('input:not([type=hidden])'),
+            fallbackFocus: el.querySelector("input:not([type=hidden])"),
         });
 
-        this.trappedFocus   = trap.activate();
+        this.trappedFocus = trap.activate();
         this.trappedElement = el;
     },
 
     releaseTrappedFocus() {
-        if (! this.trappedFocus) {
+        if (!this.trappedFocus) {
             return;
         }
 
         this.trappedFocus.deactivate();
-        this.trappedFocus   = null;
+        this.trappedFocus = null;
         this.trappedElement = null;
     },
 
