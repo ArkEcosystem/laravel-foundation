@@ -38,6 +38,8 @@ class DeleteUserForm extends Component
 
     public ?string $alert = null;
 
+    public ?string $icon = null;
+
     public function confirmUserDeletion()
     {
         $this->dispatchBrowserEvent('confirming-delete-user');
