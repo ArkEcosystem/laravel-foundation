@@ -22,6 +22,10 @@ const Tags = (
     init() {
         const { input } = this.$refs;
 
+        // Removes unexpected HTML from previous taggle instances to prevent
+        // livewire issues
+        input.innerHTML = "";
+
         const taggle = new Taggle(input, {
             tags,
             // If we have a list of allowed tags we are preserving the case
@@ -131,6 +135,7 @@ const Tags = (
 
         const taggleInput = taggle.getInput();
         taggleInput.setAttribute("id", id);
+        taggleInput.focus();
 
         if (typeof this.onInput === "function") {
             taggleInput.addEventListener("input", (e) => {
@@ -159,30 +164,21 @@ const Tags = (
         });
 
         this.$watch("availableTags", (availableTags) => {
-            const { select } = this.$refs;
-
             this.setTaggleTags(taggle, availableTags);
 
-            this.$nextTick(() => {
-                if (select) {
-                    const options = Array.from(
-                        select.querySelectorAll("option")
-                    );
-                    options.forEach((o) => {
-                        o.selected = true;
-                    });
-                    select.dispatchEvent(new Event("change"));
-                }
-            });
+            this.getLivewireComponent().set(id, availableTags);
         });
     },
+    getLivewireComponent() {
+        const element = this.$el.closest("[wire\\:id]");
 
+        return window.livewire.find(element.getAttribute("wire:id"));
+    },
     displayLivewireToast(validationMessage) {
         if (typeof livewire !== "undefined") {
             livewire.emit("toastMessage", [validationMessage, "warning"]);
         }
     },
-
     hideTooltip() {
         if (this.tooltipInstance) {
             this.tooltipInstance.destroy();

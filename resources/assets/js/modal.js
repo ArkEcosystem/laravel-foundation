@@ -10,6 +10,7 @@ const Modal = {
     previousPaddingRight: undefined,
     previousNavPaddingRight: undefined,
     trappedElement: null,
+    trappedFocus: null,
 
     defaultSettings: {
         reserveScrollBarGap: true,
@@ -68,21 +69,29 @@ const Modal = {
     },
 
     trapFocus(el) {
+        if (this.trappedElement === el) {
+            return;
+        }
+
+        this.releaseTrappedFocus();
+
         let trap = createFocusTrap(el, {
             escapeDeactivates: false,
             allowOutsideClick: true,
+            fallbackFocus: el.querySelector("input:not([type=hidden])"),
         });
 
-        this.trappedElement = trap.activate();
+        this.trappedFocus = trap.activate();
+        this.trappedElement = el;
     },
 
     releaseTrappedFocus() {
-        let trap = this.trappedElement;
-
-        if (trap) {
-            trap.deactivate();
+        if (!this.trappedFocus) {
+            return;
         }
 
+        this.trappedFocus.deactivate();
+        this.trappedFocus = null;
         this.trappedElement = null;
     },
 

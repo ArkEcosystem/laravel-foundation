@@ -399,27 +399,25 @@ public function imagesReordered(array $ids): void
 
 > Note: Requires various icons to be present to properly work. Relies on [Blade SVG](https://github.com/adamwathan/blade-svg) to load them.
 
-Simple usage with a string message, optionally you can pass a "title" property:
+Simple inline usage with a string message (if not specified, it sets `type="info"` by default):
 
-`<x-ark-alert :type="flash()->class" :message="flash()->message" />`
+`<x-ark-alert message="your-message-here" />`
 
-Additionally, you can also make use of slots:
+The available types are: "info", "success", "warning", "error", "question".
+
+Additionally, you can use it as a block and set the content:
 
 ```php
-<x-ark-alert type="alert-info" title="Notification">
-    <x-slot name="message">
-        {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
-    </x-slot>
+<x-ark-alert type="info">
+    {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
 </x-ark-alert>
 ```
 
-You can also get an alert with more padding and large icon by specifying `large`:
+You can also get a dismissible alert by specifying `dismissible`, this flag adds a closing button at the end of the title:
 
 ```php
-<x-ark-alert type="alert-info" title="Notification" large>
-    <x-slot name="message">
-        {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
-    </x-slot>
+<x-ark-alert type="info" dismissible>
+    {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
 </x-ark-alert>
 ```
 
@@ -551,6 +549,17 @@ Shows the chevron icon which rotates based on specific js/alpine criteria
 | dropdownContentClasses | The class(es) applied to the content container                               | no       | null                                                    |
 | buttonTooltip          | Apply the given text as button tooltip                                       | no       | null                                                    |
 | disabled               | This Boolean attribute prevents the user from interacting with the component | no       | false                                                   |
+| withPlacement          | Allows specifying where the dropdown opens using popperjs                    | no       | null                                                    |
+
+#### With Placement
+
+When using the `withPlacement` property, you need load in the dropdown JS in `app.js`:
+
+```js
+import Dropdown from '@ui/js/dropdown';
+
+window.Dropdown = Dropdown;
+```
 
 ### Expandable
 Displays a defined number of items and hides the rest, showing a button to show/hide the hidden items.
@@ -811,6 +820,7 @@ See [this page](https://www.chartjs.org/docs/3.6.0/axes/cartesian/time.html) for
 
 2. On `resource/app/js/app.js` add:
 ```js
+import { Chart } from "chart.js";
 import CustomChart from "@ui/js/chart.js";
 
 window.CustomChart = CustomChart;

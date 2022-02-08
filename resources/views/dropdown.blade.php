@@ -15,10 +15,19 @@
     'closeOnBlur'            => true,
     'onClose'                => null,
     'disabled'               => false,
+    'withPlacement'          => false,
 ])
 
 <div
-    @if ($initAlpine)
+    @if ($withPlacement)
+        x-data="Dropdown.setup('{{ $dropdownProperty }}', {
+            @if($onClose)
+                onClosed: ({{ $onClose }}),
+            @endif
+            placement: '{{ $withPlacement }}',
+        })"
+        x-init="init"
+    @elseif ($initAlpine)
         x-data="{ {{ $dropdownProperty }}: false }"
         x-init="$watch('{{ $dropdownProperty }}', (expanded) => {
             if (expanded) {
@@ -41,7 +50,7 @@
     @endif
     @if($closeOnBlur)
         @keydown.escape="{{ $dropdownProperty }} = false"
-        @click.away="{{ $dropdownProperty }} = false"
+        @click.outside="{{ $dropdownProperty }} = false"
     @endif
     @if($wrapperClass) class="{{ $wrapperClass }}" @endif
     @if($dusk) dusk="{{ $dusk }}" @endif

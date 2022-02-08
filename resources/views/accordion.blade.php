@@ -66,7 +66,8 @@
             <dd
                 class="{{ $contentClass }} {{ $dark ? 'border-theme-secondary-800' : 'border-theme-secondary-300' }}
                     @if($dark || $leftBorder) border-l @endif"
-                x-show.transition.opacity="openPanel"
+                x-show="openPanel"
+                x-transition.opacity
                 x-cloak
             >
                 {{ $slot }}

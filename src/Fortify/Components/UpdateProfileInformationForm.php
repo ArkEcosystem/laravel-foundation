@@ -48,6 +48,8 @@ class UpdateProfileInformationForm extends Component
         $this->emit('saved');
 
         $this->emit('refresh-navigation-dropdown');
+
+        $this->emit('toastMessage', [trans('ui::pages.user-settings.profile_updated'), 'success']);
     }
 
     /**

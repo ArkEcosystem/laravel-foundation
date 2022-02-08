@@ -34,20 +34,9 @@
     @slot('description')
         <div class="flex flex-col mt-4 space-y-6 whitespace-normal">
             <div class="font-semibold text-theme-secondary-900">
-                <div class="alert-wrapper alert-warning">
-                    <div class="alert-icon-wrapper alert-warning-icon flex-no-wrap">
-                        <div class="p-1 rounded-full border-2 border-white">
-                            <x-ark-icon
-                                name="exclamation-mark-small"
-                                size="xs"
-                            />
-
-                        </div>
-                    </div>
-                    <div class="alert-content-wrapper alert-warning-content">
-                        <span class="block leading-6 break-words" x-text="url"></span>
-                    </div>
-                </div>
+                <x-ark-alert type="warning">
+                    <span class="block leading-6 break-words" x-text="url"></span>
+                </x-ark-alert>
             </div>
 
             <p>@lang('generic.external_link_disclaimer')</p>
