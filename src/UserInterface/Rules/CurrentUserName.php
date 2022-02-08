@@ -18,8 +18,6 @@ class CurrentUserName implements Rule
 
     public function passes($attribute, $value)
     {
-        ray($this->user->name, $value);
-
         return $this->user->name === $value;
     }
 
