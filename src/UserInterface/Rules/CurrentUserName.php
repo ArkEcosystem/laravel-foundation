@@ -23,6 +23,6 @@ class CurrentUserName implements Rule
 
     public function message()
     {
-        return Lang::get('validation.messages.current_username');
+        return Lang::get('validation.messages.current_name');
     }
 }
