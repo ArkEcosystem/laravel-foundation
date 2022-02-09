@@ -20,19 +20,17 @@ class DeleteUserForm extends Component
     use HasModal;
     use InteractsWithUser;
 
+    public bool $confirmPassword = true;
+
+    public bool $confirmName = false;
+
     public string $confirmedPassword = '';
 
-    public string $confirmedUsername = '';
+    public string $confirmedName = '';
 
     public string $feedback = '';
 
-    public bool $confirmUsername = false;
-
-    public bool $confirmPassword = true;
-
     public bool $showConfirmationMessage = true;
-
-    public ?string $username = null;
 
     public string $alertType = 'info';
 
@@ -44,7 +42,6 @@ class DeleteUserForm extends Component
     {
         $this->dispatchBrowserEvent('confirming-delete-user');
 
-        $this->usernameConfirmation = '';
         $this->openModal();
     }
 
@@ -81,8 +78,8 @@ class DeleteUserForm extends Component
             $rules['confirmedPassword'] = ['required', new CurrentPassword($this->user)];
         }
 
-        if ($this->confirmUsername) {
-            $rules['confirmedUsername'] = ['required', new CurrentUserName($this->user)];
+        if ($this->confirmName) {
+            $rules['confirmedName'] = ['required', new CurrentUserName($this->user)];
         }
 
         return $rules;
