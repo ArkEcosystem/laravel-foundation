@@ -1,6 +1,7 @@
 @props([
     'includes'     => null,
     'footer'       => null,
+    'content'      => null,
     'cookieDomain' => null,
 ])
 
@@ -13,6 +14,14 @@
         ])
     >
         {{ $slot }}
+
+        @if ($content === null)
+            <x-ark-pages-includes-layout-content>
+                @yield('content')
+            </x-ark-pages-includes-layout-content>
+        @else
+            {{ $content }}
+        @endif
     </div>
 
     @if ($footer)
@@ -23,7 +32,13 @@
 
     @livewireScripts
 
+    @livewire('toast')
+
     {{ $includes }}
+
+    @stack('extraStyle')
+
+    @stack('footer')
 
     <!-- Scripts -->
     <script src="{{ mix('js/manifest.js') }}" defer></script>
