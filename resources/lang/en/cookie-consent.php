@@ -28,7 +28,7 @@ return [
         'blocks' => [
             'header' => [
                 'title'       => 'Cookie Usage',
-                'description' => 'MarketSquare uses cookies in order to provide you with a safer and more streamlined experience. Learn more by reading our <a href="/cookie-policy">Cookie Policy</a>.',
+                'description' => config('app.name').' uses cookies in order to provide you with a safer and more streamlined experience. Learn more by reading our <a href="/cookie-policy">Cookie Policy</a>.',
             ],
             'necessary_cookies' => [
                 'title'       => 'Strictly Necessary Cookies',
