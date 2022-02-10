@@ -220,6 +220,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
 
             $blade->component('ark::pages.contact', 'ark-pages-contact');
 
+            $blade->component('ark::pages.includes.cookie-banner', 'ark-pages-includes-cookie-banner');
             $blade->component('ark::pages.includes.header', 'ark-pages-includes-header');
             $blade->component('ark::pages.includes.layout-body', 'ark-pages-includes-layout-body');
             $blade->component('ark::pages.includes.layout-content', 'ark-pages-includes-layout-content');

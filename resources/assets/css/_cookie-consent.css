@@ -1,0 +1,185 @@
+/* purgecss start ignore */
+.cookie-banner-theme {
+    --cc-bg: var(--theme-color-white);
+    --cc-btn-primary-bg: var(--theme-color-primary-600);
+    --cc-btn-primary-text: var(--theme-color-white);
+    --cc-btn-primary-hover-bg: var(--theme-color-primary-700);
+    --cc-btn-secondary-bg: var(--theme-color-primary-100);
+    --cc-btn-secondary-text: var(--theme-color-primary-600);
+    --cc-btn-secondary-hover-bg: var(--theme-color-primary-700);
+    --cc-btn-secondary-hover-text: var(--theme-color-white);
+    --cc-cookie-category-block-bg: var(--theme-color-white);
+    --cc-block-text: var(--theme-color-secondary-700);
+    --cc-section-border: transparent;
+    --cc-toggle-knob-bg: var(--theme-color-white);
+    --cc-toggle-knob-icon-color: var(--theme-color-white);
+}
+
+.dark .cookie-banner-theme {
+    --cc-bg: var(--theme-color-secondary-900);
+    --cc-btn-secondary-bg: var(--theme-color-secondary-800);
+    --cc-btn-secondary-text: var(--theme-color-secondary-200);
+    --cc-block-text: var(--theme-color-secondary-500);
+    --cc-cookie-table-border: var(--theme-color-secondary-800);
+    --cc-toggle-knob-bg: var(--theme-color-secondary-600);
+    --cc-toggle-knob-icon-color: var(--theme-color-secondary-600);
+}
+
+#cc--main {
+    @apply cookie-banner-theme;
+}
+
+.cc_div #c-bns button:last-of-type:hover {
+    @apply text-white;
+}
+
+/* Title and description of consent banner */
+.cc_div #c-ttl {
+    @apply text-theme-secondary-900 text-lg leading-8;
+}
+
+.cc_div #c-txt {
+    @apply leading-normal text-sm;
+}
+
+.cc_div #s-hdr #s-ttl {
+    @apply header-2;
+}
+
+/* Manage preferences button */
+.cc_div .c-bl > div a,
+.cc_div button.preferences-button {
+    @apply font-semibold text-theme-primary-600 link;
+}
+
+/* Manage preferences - footer buttons */
+.cc_div #s-bns #s-all-bn {
+    @apply button-primary;
+}
+
+.cc_div #s-bns #s-rall-bn,
+.cc_div #s-bns #s-sv-bn {
+    @apply button-secondary;
+}
+
+.cc_div #s-bns #s-rall-bn:hover,
+.cc_div #s-bns #s-sv-bn:hover {
+    @apply text-white bg-theme-primary-700 transition-default;
+}
+
+@media screen and (min-width: 689px) {
+    .cc_div #s-bns {
+        @apply flex flex-row-reverse pb-10;
+        height: auto;
+    }
+
+    .cc_div #s-bns #s-rall-bn {
+        @apply ml-0 mr-4;
+    }
+
+    .cc_div #s-bns #s-sv-bn {
+        @apply mr-auto;
+    }
+}
+
+/* Manage preferences - categories boxes */
+.cc_div #s-bl .c-bl.b-ex {
+    @apply bg-white border-2 border-solid border-theme-primary-100 rounded-xl;
+}
+
+.cc_div #s-bl .c-bl {
+    @apply bg-white border-0 p-0;
+}
+
+/* Manage preferences - toggle */
+.cc_div .b-tg .c-tgl ~ .c-tg,
+.cc_div .b-tg .c-tgl:checked:disabled ~ .c-tg {
+    @apply bg-theme-secondary-400;
+}
+
+.cc_div .b-tg .c-tgl:checked ~ .c-tg {
+    @apply bg-theme-primary-600;
+}
+
+/* Manage preferences - block text */
+.cc_div #s-bl .c-bl .p,
+.cc_div #s-bl .b-acc .p {
+    @apply leading-7;
+}
+
+/* Cloud width */
+.cc_div .cloud #c-inr-i {
+    @apply w-4/5;
+}
+
+/* Mimic general button styling */
+.cc_div button.c-bn {
+    @apply text-base px-5 py-3 leading-tight;
+}
+
+/* Remove underline from links */
+.cc_div div a {
+    @apply border-b-0;
+}
+
+/* Border radius */
+.cc_div #s-inr {
+    @apply rounded-xl;
+}
+
+/** Dark theme */
+.dark .cc_div #c-ttl,
+.dark .cc_div #s-hdr #s-ttl,
+.dark #s-cnt .b-bn .b-tl,
+.dark #s-bl .title,
+.dark #s-bl td:before {
+    @apply text-theme-secondary-200;
+}
+
+.dark #c-txt,
+.dark #s-bl table {
+    @apply text-theme-secondary-500;
+}
+
+.dark .cc_div #s-bl .c-bl {
+    @apply bg-theme-secondary-900 border-theme-secondary-800;
+}
+
+.dark #s-cnt .b-bn .b-tl,
+.dark #s-bl table tr {
+    @apply hover:bg-theme-secondary-800;
+}
+
+.dark .cc_div #s-bns #s-rall-bn,
+.dark .cc_div #s-bns #s-sv-bn {
+    @apply button-tertiary;
+}
+
+.dark .cc_div #s-bns #s-rall-bn:hover,
+.dark .cc_div #s-bns #s-sv-bn:hover {
+    @apply text-white bg-theme-primary-700 transition-default;
+}
+
+.dark #s-bl table tr {
+    @apply border-theme-secondary-800;
+}
+
+/* Manage preferences - toggle - dark */
+.dark .cc_div .b-tg .c-tgl ~ .c-tg,
+.dark .cc_div .b-tg .c-tgl:checked:disabled ~ .c-tg {
+    @apply bg-theme-secondary-800;
+}
+
+.dark .cc_div .c-tgl:checked ~ .c-tg {
+    @apply bg-theme-primary-600;
+}
+
+.dark .cc_div .c-tgl:checked:not(:disabled) ~ .c-tg .on-i:before {
+    @apply border-white;
+}
+
+.dark .cc_div .c-tgl:checked:not(:disabled) ~ .c-tg:after {
+    @apply bg-white;
+}
+
+/* purgecss end ignore */

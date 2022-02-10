@@ -1,6 +1,7 @@
 @props([
-    'includes' => null,
-    'footer'   => null,
+    'includes'     => null,
+    'footer'       => null,
+    'cookieDomain' => null,
 ])
 
 <body {{ $attributes }}>
@@ -28,4 +29,18 @@
     <script src="{{ mix('js/manifest.js') }}" defer></script>
     <script src="{{ mix('js/vendor.js') }}" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
+
+    @if (Visitor::isEuropean())
+        <x-ark-pages-includes-cookie-banner :domain="$cookieDomain" />
+    @elseif (config('tracking.analytics.key'))
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('tracking.analytics.key') }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '{{ config('tracking.analytics.key') }}');
+        </script>
+    @endif
 </body>
