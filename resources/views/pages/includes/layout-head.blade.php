@@ -42,7 +42,8 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @livewireStyles
-    @if(Visitor::isEuropean() && config('tracking.analytics.key'))
+
+    @if (config('tracking.analytics.key') && Visitor::isEuropean())
         <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.5.1/dist/cookieconsent.css" rel="stylesheet">
     @endif
 
