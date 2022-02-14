@@ -105,12 +105,12 @@
                                 {
                                     col1: '^_ga',
                                     col2: '{{ $domain }}',
-                                    col3: '@lang('ui::cookie-consent.settings_modal.analytics_description')' ,
+                                    col3: '@lang('ui::cookie-consent.settings_modal.blocks.analytics.analytics_description')' ,
                                 },
                                 {
                                     col1: '_ga_{{ config("tracking.analytics.key") }}',
                                     col2: '{{ $domain }}',
-                                    col3: '@lang('ui::cookie-consent.settings_modal.session_description')' ,
+                                    col3: '@lang('ui::cookie-consent.settings_modal.blocks.analytics.session_description')' ,
                                 }
                             ]
                         },

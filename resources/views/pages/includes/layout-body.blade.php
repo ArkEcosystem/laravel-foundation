@@ -45,7 +45,7 @@
     <script src="{{ mix('js/vendor.js') }}" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
 
-    @if (Visitor::isEuropean())
+    @if (config('tracking.analytics.key') && Visitor::isEuropean())
         <x-ark-pages-includes-cookie-banner :domain="$cookieDomain" />
     @elseif (config('tracking.analytics.key'))
         <!-- Global site tag (gtag.js) - Google Analytics -->
