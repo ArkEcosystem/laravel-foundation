@@ -127,7 +127,7 @@
                     :placeholder="trans('ui::pages.contact.message_placeholder')"
                 >{{ old('message', $message) }}</x-ark-textarea>
 
-                <div x-show="subject === 'job_application'">
+                <div x-show="subject === 'job_application'" x-cloak>
                     <x-ark-input
                         type="file"
                         name="attachment"
