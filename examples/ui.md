@@ -918,3 +918,79 @@ The parameter accepted by `<x-ark-tab-panel>`
 | Parameter | Description                                                          | Required |
 | --------- | -------------------------------------------------------------------- | -------- |
 | name      | The name of the tab panel (it must be the same used for `x-ark-tab`) | yes      |
+
+### Page Layout Head
+
+Standardises the `<head>` tag for projects so everything necessary is included (e.g. fonts)
+
+```blade
+<x-ark-pages-includes-layout-head
+    default-name="ARK.io"
+    mask-icon-color="#c9292c"
+    microsoft-tile-color="#da532c"
+    theme-color="#ffffff"
+>
+    {{-- any additional includes --}}
+</x-ark-pages-includes-layout-head>
+```
+
+| Parameter            | Description                             | Required | Default Value               |
+| -------------------- | --------------------------------------- | -------- | --------------------------- |
+| default-name         | The name of the project (e.g. Deployer) | no       | `config('app.name', 'ARK')` |
+| mask-icon-color      | Safari icon color                       | yes      |                             |
+| microsoft-tile-color | Microsoft Tile color                    | yes      |                             |
+| theme-color          | General theme colour                    | yes      |                             |
+
+### Page Layout Body
+
+Standardises the `<body>` tag for projects so everything necessary is included (e.g. dark mode, content, etc)
+
+```blade
+<x-ark-pages-includes-layout-body cookie-domain="ark.io">
+    <x-ark-navbar ...>
+        ...
+    </x-ark-navbar>
+
+    <x-slot name="content">
+        <x-ark-pages-includes-layout-content>
+            <div>
+                ...
+            </div>
+
+            @yield('content')
+        </x-ark-pages-includes-layout-content>
+    </x-slot>
+
+    <x-slot name="footer">
+        <footer class="pt-10 bg-theme-secondary-900">
+            <x-footer.desktop />
+            <x-footer.mobile />
+        </footer>
+    </x-slot>
+
+    <x-slot name="includes">
+        @livewire('modals')
+    </x-slot>
+</x-ark-pages-includes-layout-body>
+```
+
+| Parameter | Description                              | Required | Default Value                                          |
+| --------- | ---------------------------------------- | -------- | ------------------------------------------------------ |
+| includes  | Slot used for adding additional includes | no       |                                                        |
+| content   | Slot used to override content            | no       | `layout-content` component with `content` yield inside |
+| footer    | Slot used to override footer             | no       | `<x-ark-footer />`                                     |
+
+### Page Layout Content
+
+Handles the primary content area for a page. By default it is included in the `layout-body` component as per the example below.
+
+```blade
+<x-ark-pages-includes-layout-content>
+    @yield('content')
+</x-ark-pages-includes-layout-content>
+```
+
+| Parameter  | Description                           | Required | Default Value       |
+| ---------- | ------------------------------------- | -------- | ------------------- |
+| slim       | Whether the page is full-width or not | no       | false               |
+| slim-class | Override full-width styling           | no       | "px-8 lg:max-w-7xl" |
