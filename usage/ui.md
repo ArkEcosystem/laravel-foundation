@@ -753,7 +753,7 @@ Add the following snippet to your `urls.php` lang file:
 
 ### Page Layout
 
-There are 2 primary layout components, `x-ark-pages-includes-layout-head` and `x-ark-pages-includes-layout-body`. These provide the standard needed for all our projects, such as fonts, footers, toast includes, etc. Examples of these can be found in [./examples/ui.md](./examples/ui.md)
+There are 2 primary layout components, `x-ark-pages-includes-layout-head` and `x-ark-pages-includes-layout-body`. These provide the standard needed for all our projects, such as fonts, footers, toast includes, etc. Examples of these can be found in [examples/ui.md](../examples/ui.md)
 
 ## Available Styles
 
