@@ -746,7 +746,6 @@ Add the following snippet to your `urls.php` lang file:
 'facebook' => 'https://facebook.ark.io/',
 'github'   => 'https://github.com/ArkEcosystem',
 'linkedin' => 'https://www.linkedin.com/company/ark-ecosystem',
-'reddit'   => 'https://reddit.ark.io/',
 'twitter'  => 'https://twitter.ark.io/',
 'youtube'  => 'https://youtube.ark.io/',
 ```
@@ -868,7 +867,7 @@ There are a few tailwind configuration additions on which the components rely (e
 Dark color theme is more and more used on website today and many operating systems feature this functionality.
 Users might indicate their preference through the operating system setting or by interacting with a theme switcher component.
 
-Since we use Tailwind css with `class` strategy to manage dark mode. 
+Since we use Tailwind css with `class` strategy to manage dark mode.
 This strategy had a down-side of not be able to manage the operating system preference.
 To by-pass this problem, we can use vanilla javascript and controlling both strategies.
 
@@ -890,10 +889,10 @@ The script should be inserted on each page in the `head` section. In our case, p
         ...
 
         <title>...</title>
-        
+
         <!-- place the script right after <title> to avoid FOUC (https://en.wikipedia.org/wiki/Flash_of_unstyled_content) -->
         <x-ark-dark-theme-script />
-        
+
         ...
     </head>
     ...
@@ -919,7 +918,7 @@ You can listen to custom `theme-changed` event when a theme name is changed. It 
 **Example for listening `theme-changed` using AlpineJs**
 
 ```html
-<div 
+<div
     x-data="{dark: window.getThemeMode() === 'dark'}"
     @theme-changed.window="dark = !dark"
 >
@@ -931,7 +930,7 @@ You can listen to custom `theme-changed` event when a theme name is changed. It 
 As you can see in the previous example, the script also provide a helper method to easily get the current theme name.
 ```js
 window.getThemeMode();
-// "dark" or "light 
+// "dark" or "light
 ```
 
 **Example using Livewire**
@@ -942,22 +941,22 @@ use Livewire\Livewire;
 class ThemeSwitcher extends Livewire
 {
     protected $listeners = ['themeChanged' => '$refresh'];
-    
+
     public function dark(): void
     {
         $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'dark']);
     }
-    
+
     public function light(): void
     {
         $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'light']);
     }
-    
+
     public function os(): void
     {
         $this->dispatchBrowserEvent('setOSThemeMode');
     }
-    
+
     public function toggle(): void
     {
         $this->dispatchBrowserEvent('toggleThemeMode');
@@ -970,7 +969,7 @@ class ThemeSwitcher extends Livewire
 ```html
 <section>
     <h2>Theme preference</h2>
-    
+
     <button type="button" @click="$dispatch('setThemeMode', {'theme': 'dark'})">Dark</button>
     <button type="button" @click="$dispatch('setThemeMode', {'theme': 'light'})">Light</button>
     <button type="button" @click="$dispatch('setOSThemeMode')">System default</button>
@@ -981,11 +980,11 @@ class ThemeSwitcher extends Livewire
 
 ```html
 <div x-data="{ isDarkTheme: false }">
-    <span id="set-dark-mode">Enable/Disable Dark mode</span> 
-    <button 
-        role="switch" 
-        aria-labelledby="set-dark-mode" 
-        x-bind:aria-checked="isDarkTheme" 
+    <span id="set-dark-mode">Enable/Disable Dark mode</span>
+    <button
+        role="switch"
+        aria-labelledby="set-dark-mode"
+        x-bind:aria-checked="isDarkTheme"
         @click="$dispatch('setThemeMode', {'theme': isDarkTheme ? 'dark' : 'light'})"
     >
       <span x-show="isDarkTheme">on</span>

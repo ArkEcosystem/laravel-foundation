@@ -13,7 +13,6 @@
     'contactNetworks' => [
         'brands.twitter' => trans('ui::urls.twitter'),
         'brands.facebook' => trans('ui::urls.facebook'),
-        'brands.reddit' => trans('ui::urls.reddit'),
         'brands.linkedin' => trans('ui::urls.linkedin'),
     ],
 ])
