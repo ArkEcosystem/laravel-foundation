@@ -13,10 +13,6 @@
             'url' => trans('ui::urls.facebook')
         ],
         [
-            'icon' => 'brands.solid.reddit',
-            'url' => trans('ui::urls.reddit')
-        ],
-        [
             'icon' => 'brands.solid.youtube',
             'url' => trans('ui::urls.youtube')
         ],
