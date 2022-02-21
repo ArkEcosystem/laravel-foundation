@@ -22,7 +22,10 @@
                 localStorage.setItem('has_disabled_link_warning', true)
             }
 
-            this.hide();
+            $nextTick(() => {
+                this.hide();
+                window.open(this.url, '_blank');
+            });
         },
     }"
     init
