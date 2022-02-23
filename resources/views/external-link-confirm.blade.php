@@ -22,10 +22,7 @@
                 localStorage.setItem('has_disabled_link_warning', true)
             }
 
-            $nextTick(() => {
-                this.hide();
-                window.open(this.url, '_blank');
-            });
+            this.hide();
         },
     }"
     init
@@ -70,6 +67,7 @@
             class="cursor-pointer button-primary"
             :href="url"
             @click="followLink()"
+            data-safe-external="true"
         >
             @lang('actions.follow_link')
         </a>
