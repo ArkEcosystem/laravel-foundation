@@ -67,6 +67,7 @@
             class="cursor-pointer button-primary"
             :href="url"
             @click="followLink()"
+            data-safe-external="true"
         >
             @lang('actions.follow_link')
         </a>
