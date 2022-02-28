@@ -38,6 +38,7 @@
     @endif
 
     cookieConsent.run({
+        use_rfc_cookie : true,
         @if(config('tracking.analytics.key'))
             onAccept(settings) {
                 if (settings.level.includes("analytics")) {
