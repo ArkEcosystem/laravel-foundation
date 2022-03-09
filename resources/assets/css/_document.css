@@ -129,6 +129,9 @@ code.hljs .hljs-ln-n {
 .documentation-content a:hover {
     @apply underline text-theme-primary-700;
 }
+.documentation-content a.no-underline:hover {
+    text-decoration: none;
+}
 
 .documentation-content a:active {
     @apply text-theme-primary-400;
