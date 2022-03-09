@@ -1,0 +1,14 @@
+.theme-nodem {
+    /* Green */
+    --theme-color-primary-rgb: 0, 178, 170;
+    --theme-color-primary-50: #f3fcfc;
+    --theme-color-primary-100: #ddf5f4;
+    --theme-color-primary-200: #b4f0ed;
+    --theme-color-primary-300: #83e8e3;
+    --theme-color-primary-400: #08c7be;
+    --theme-color-primary-500: #00b2aa;
+    --theme-color-primary-600: #04958e;
+    --theme-color-primary-700: #03706b;
+    --theme-color-primary-800: #03504d;
+    --theme-color-primary-900: #062e2c;
+}
