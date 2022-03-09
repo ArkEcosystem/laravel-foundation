@@ -862,6 +862,41 @@ If you need to add, replace or delete an icon:
 
 There are a few tailwind configuration additions on which the components rely (e.g. colors and additional shadows) and are therefore expected to use the tailwind config in this repository as basis (you can import it and extend it further if needed).
 
+## Themes
+
+It's worth storing project themes in the foundation package so it is consistent when used, for example on the relevant documentation pages. For example:
+
+Create a theme file in foundation (`resources/assets/css/themes/_deployer.css`)
+
+```css
+.theme-deployer {
+    --theme-color-primary-rgb: 84, 82, 206;
+    --theme-color-primary-50: #f5f5ff;
+
+    ...
+
+    --theme-color-primary-900: #212052;
+}
+```
+
+Then in the project, create a theme file (`resources/assets/css/_theme.css`)
+
+```css
+@import "../../vendor/arkecosystem/foundation/resources/assets/css/themes/_deployer.css";
+
+:root {
+    @apply theme-deployer;
+}
+```
+
+Include this file at the end of the project's top-level css file (usually `resources/assets/css/app.css`)
+
+```css
+...
+
+@import '_theme.css';
+```
+
 ## Dark Color Theme
 
 Dark color theme is more and more used on website today and many operating systems feature this functionality.
