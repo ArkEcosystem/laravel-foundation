@@ -11,8 +11,8 @@
     'toggleTitle'     => false,
     'iconOpenClass'   => 'rotate-180',
     'iconClosedClass' => '',
-    'contentClass'    => '',
-    'buttonClass'     => 'px-4 py-6',
+    'contentClass'    => 'px-4',
+    'buttonClass'     => 'px-8 md:px-4 py-6',
     'buttonOpenClass' => '',
     'onToggle'        => null,
 ])
@@ -33,7 +33,7 @@
     <dl>
         <div @class([
             $containerClass,
-            'border-t border-theme-secondary-300 md:border-2 md:border-theme-secondary-200 md:rounded-xl' => $dark === false && $border,
+            'border-t border-theme-secondary-300 md:border-2 md:border-theme-primary-100 md:rounded-xl' => $dark === false && $border,
         ])>
             <dt>
                 <button
