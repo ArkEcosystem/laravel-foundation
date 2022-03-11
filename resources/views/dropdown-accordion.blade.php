@@ -17,33 +17,30 @@
     'onToggle'        => null,
 ])
 
-@php
-    if ($onToggle === null) {
-        $onToggle = '() => {
-            const container = this.$root.closest(".dropdown-container")
-
-            for (const accordion of container.querySelectorAll(".accordion-open")) {
-                if (accordion === this.$root) {
-                    continue;
-                }
-
-                accordion.querySelector(".accordion-trigger").click();
-            }
-
-            this.$nextTick(() => {
-                window.dispatchEvent(new CustomEvent("dropdown-update"));
-            });
-        }';
-    }
-@endphp
-
 <div
     class="accordion"
     x-data="{
         openPanel: false,
         toggle: function () {
             this.openPanel = ! this.openPanel;
-            @if($onToggle)
+
+            @if($onToggle === null)
+                (() => {
+                    const container = this.$root.closest('.dropdown-container')
+
+                    for (const accordion of container.querySelectorAll('.accordion-open')) {
+                        if (accordion === this.$root) {
+                            continue;
+                        }
+
+                        accordion.querySelector('.accordion-trigger').click();
+                    }
+
+                    this.$nextTick(() => {
+                        window.dispatchEvent(new CustomEvent('dropdown-update'));
+                    });
+                }).call(this);
+            @elseif($onToggle)
                 ({{ $onToggle }}).call(this);
             @endif
         },
