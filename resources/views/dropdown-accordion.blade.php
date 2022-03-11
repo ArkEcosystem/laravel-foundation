@@ -2,28 +2,45 @@
     'title',
     'slot',
     'dark'            => false,
-    'border'          => true,
-    'leftBorder'      => false,
+    'border'          => false,
+    'leftBorder'      => true,
     'containerClass'  => '',
-    'titleClass'      => 'text-lg font-semibold',
-    'iconClass'       => 'text-theme-secondary-700',
+    'titleClass'      => 'font-semibold',
     'iconSize'        => 'xs',
+    'iconClass'       => 'group-hover:text-theme-primary-600',
     'toggleTitle'     => false,
-    'iconOpenClass'   => 'rotate-180',
-    'iconClosedClass' => '',
-    'contentClass'    => 'px-4',
-    'buttonClass'     => 'px-8 md:px-4 py-6',
+    'iconOpenClass'   => 'rotate-180 text-theme-primary-500',
+    'iconClosedClass' => 'text-theme-secondary-900',
+    'contentClass'    => 'mb-4 ml-10',
+    'buttonClass'     => 'py-4 px-10 group hover:bg-theme-secondary-100',
     'buttonOpenClass' => '',
     'onToggle'        => null,
 ])
 
 <div
-    {{ $attributes->class('accordion group') }}
+    class="accordion"
     x-data="{
         openPanel: false,
         toggle: function () {
             this.openPanel = ! this.openPanel;
-            @if($onToggle)
+
+            @if($onToggle === null)
+                (() => {
+                    const container = this.$root.closest('.dropdown-container')
+
+                    for (const accordion of container.querySelectorAll('.accordion-open')) {
+                        if (accordion === this.$root) {
+                            continue;
+                        }
+
+                        accordion.querySelector('.accordion-trigger').click();
+                    }
+
+                    this.$nextTick(() => {
+                        window.dispatchEvent(new CustomEvent('dropdown-update'));
+                    });
+                }).call(this);
+            @elseif($onToggle)
                 ({{ $onToggle }}).call(this);
             @endif
         },
@@ -33,7 +50,7 @@
     <dl>
         <div @class([
             $containerClass,
-            'border-t border-theme-secondary-300 md:border-2 md:border-theme-primary-100 md:rounded-xl' => $dark === false && $border,
+            'border-2 border-theme-secondary-200 rounded-xl' => $dark === false && $border,
         ])>
             <dt>
                 <button
@@ -62,7 +79,7 @@
                         @endif
                     </div>
 
-                    <div class="flex justify-center items-center w-8 h-8 rounded-lg border-2 border-theme-primary-100 transition-default group-hover:border-theme-primary-400">
+                    <span class="flex items-center h-7">
                         <span
                             :class="{
                                 '{{ $iconOpenClass }}': openPanel,
@@ -75,7 +92,7 @@
                         >
                             <x-ark-icon name="arrows.chevron-down-small" :size="$iconSize" />
                         </span>
-                    </div>
+                    </span>
                 </button>
             </dt>
 

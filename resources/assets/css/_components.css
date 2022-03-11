@@ -486,8 +486,21 @@
 }
 
 /* Accordion */
+.accordion {
+    @apply -mx-8;
+}
 .accordion-trigger {
     @apply text-left w-full flex justify-between items-center rounded;
+}
+
+@screen md {
+    .accordion {
+        @apply mx-0;
+    }
+
+    .accordion + .accordion {
+        @apply mt-4;
+    }
 }
 
 /* Notification Dot */
