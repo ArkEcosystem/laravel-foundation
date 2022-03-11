@@ -62,7 +62,7 @@
                         @endif
                     </div>
 
-                    <div class="flex items-center justify-center h-8 w-8 rounded-lg border-2 border-theme-primary-100 group-hover:border-theme-primary-400 transition-default">
+                    <div class="flex justify-center items-center w-8 h-8 rounded-lg border-2 border-theme-primary-100 transition-default group-hover:border-theme-primary-400">
                         <span
                             :class="{
                                 '{{ $iconOpenClass }}': openPanel,
