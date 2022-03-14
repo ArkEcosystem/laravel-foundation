@@ -334,3 +334,16 @@ main .documentation-content .heading-permalink:hover {
 .custom-code-block .code-badge {
     @apply z-10 mt-2 mr-2;
 }
+
+/* Description List */
+.documentation-content dl {
+    @apply leading-7;
+}
+
+.documentation-content dl dt {
+    @apply font-semibold pb-1;
+}
+
+.documentation-content dl dd {
+    @apply pb-6;
+}
