@@ -18,7 +18,7 @@
                 <div class="flex flex-1 justify-between items-center group-hover:text-white text-theme-primary-600">
                     <span class="py-2">{{ $link['name'] }}</span>
 
-                    <div class="flex justify-center items-center -my-px w-11 h-full group-hover:bg-transparent bg-theme-primary-100">
+                    <div class="flex justify-center items-center -my-px w-11 h-full group-hover:bg-transparent bg-theme-primary-100 transition-default">
                         <x-ark-icon name="arrows.chevron-right" size="sm" />
                     </div>
                 </div>
