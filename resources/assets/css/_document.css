@@ -209,6 +209,9 @@ code.hljs .hljs-ln-n {
 .documentation-content .embed-link a:hover {
     @apply no-underline;
 }
+.documentation-content .embed-link img {
+    @apply border-none;
+}
 
 .documentation-content a.button-secondary:hover {
     @apply text-white;
