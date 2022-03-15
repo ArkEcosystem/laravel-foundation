@@ -399,29 +399,34 @@ public function imagesReordered(array $ids): void
 
 > Note: Requires various icons to be present to properly work. Relies on [Blade SVG](https://github.com/adamwathan/blade-svg) to load them.
 
-Simple usage with a string message, optionally you can pass a "title" property:
+Simple inline usage with a string message (if not specified, it sets `type="info"` by default):
 
-`<x-ark-alert :type="flash()->class" :message="flash()->message" />`
+`<x-ark-alert message="your-message-here" />`
 
-Additionally, you can also make use of slots:
+The available types are: "info", "success", "warning", "error", "question".
+
+Additionally, you can use it as a block and set the content:
 
 ```php
-<x-ark-alert type="alert-info" title="Notification">
-    <x-slot name="message">
-        {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
-    </x-slot>
+<x-ark-alert type="info" title="Title Override">
+    {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
 </x-ark-alert>
 ```
 
-You can also get an alert with more padding and large icon by specifying `large`:
+You can also get a dismissible alert by specifying `dismissible`, this flag adds a closing button at the end of the title:
 
 ```php
-<x-ark-alert type="alert-info" title="Notification" large>
-    <x-slot name="message">
-        {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
-    </x-slot>
+<x-ark-alert type="info" dismissible>
+    {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
 </x-ark-alert>
 ```
+
+| Parameter   | Description                                                                      | Required |
+| ----------- | -------------------------------------------------------------------------------- | -------- |
+| message     | Alternative to slot                                                              | no       |
+| type        | Type of alert box [default=info]                                                 | no       |
+| dismissible | Whether the alert box is dismissable or not [default=false]                      | no       |
+| title       | Title override instead of using the generic one based on the type [default=null] | no       |
 
 ### Accordion
 
@@ -488,7 +493,7 @@ You can also get an alert with more padding and large icon by specifying `large`
 ### Icon
 
 ```php
-<x-icon name="chevron-down" size="xs" class="md:h-3 md:w-2" />
+<x-icon name="arrows.chevron-down-small" size="xs" class="md:h-3 md:w-2" />
 ```
 
 ### Chevron toggle component
@@ -551,6 +556,17 @@ Shows the chevron icon which rotates based on specific js/alpine criteria
 | dropdownContentClasses | The class(es) applied to the content container                               | no       | null                                                    |
 | buttonTooltip          | Apply the given text as button tooltip                                       | no       | null                                                    |
 | disabled               | This Boolean attribute prevents the user from interacting with the component | no       | false                                                   |
+| withPlacement          | Allows specifying where the dropdown opens using popperjs                    | no       | null                                                    |
+
+#### With Placement
+
+When using the `withPlacement` property, you need load in the dropdown JS in `app.js`:
+
+```js
+import Dropdown from '@ui/js/dropdown';
+
+window.Dropdown = Dropdown;
+```
 
 ### Expandable
 Displays a defined number of items and hides the rest, showing a button to show/hide the hidden items.
@@ -811,6 +827,7 @@ See [this page](https://www.chartjs.org/docs/3.6.0/axes/cartesian/time.html) for
 
 2. On `resource/app/js/app.js` add:
 ```js
+import { Chart } from "chart.js";
 import CustomChart from "@ui/js/chart.js";
 
 window.CustomChart = CustomChart;
@@ -908,3 +925,79 @@ The parameter accepted by `<x-ark-tab-panel>`
 | Parameter | Description                                                          | Required |
 | --------- | -------------------------------------------------------------------- | -------- |
 | name      | The name of the tab panel (it must be the same used for `x-ark-tab`) | yes      |
+
+### Page Layout Head
+
+Standardises the `<head>` tag for projects so everything necessary is included (e.g. fonts)
+
+```blade
+<x-ark-pages-includes-layout-head
+    default-name="ARK.io"
+    mask-icon-color="#c9292c"
+    microsoft-tile-color="#da532c"
+    theme-color="#ffffff"
+>
+    {{-- any additional includes --}}
+</x-ark-pages-includes-layout-head>
+```
+
+| Parameter            | Description                             | Required | Default Value               |
+| -------------------- | --------------------------------------- | -------- | --------------------------- |
+| default-name         | The name of the project (e.g. Deployer) | no       | `config('app.name', 'ARK')` |
+| mask-icon-color      | Safari icon color                       | yes      |                             |
+| microsoft-tile-color | Microsoft Tile color                    | yes      |                             |
+| theme-color          | General theme colour                    | yes      |                             |
+
+### Page Layout Body
+
+Standardises the `<body>` tag for projects so everything necessary is included (e.g. dark mode, content, etc)
+
+```blade
+<x-ark-pages-includes-layout-body cookie-domain="ark.io">
+    <x-ark-navbar ...>
+        ...
+    </x-ark-navbar>
+
+    <x-slot name="content">
+        <x-ark-pages-includes-layout-content>
+            <div>
+                ...
+            </div>
+
+            @yield('content')
+        </x-ark-pages-includes-layout-content>
+    </x-slot>
+
+    <x-slot name="footer">
+        <footer class="pt-10 bg-theme-secondary-900">
+            <x-footer.desktop />
+            <x-footer.mobile />
+        </footer>
+    </x-slot>
+
+    <x-slot name="includes">
+        @livewire('modals')
+    </x-slot>
+</x-ark-pages-includes-layout-body>
+```
+
+| Parameter | Description                              | Required | Default Value                                          |
+| --------- | ---------------------------------------- | -------- | ------------------------------------------------------ |
+| includes  | Slot used for adding additional includes | no       |                                                        |
+| content   | Slot used to override content            | no       | `layout-content` component with `content` yield inside |
+| footer    | Slot used to override footer             | no       | `<x-ark-footer />`                                     |
+
+### Page Layout Content
+
+Handles the primary content area for a page. By default it is included in the `layout-body` component as per the example below.
+
+```blade
+<x-ark-pages-includes-layout-content>
+    @yield('content')
+</x-ark-pages-includes-layout-content>
+```
+
+| Parameter  | Description                           | Required | Default Value       |
+| ---------- | ------------------------------------- | -------- | ------------------- |
+| slim       | Whether the page is full-width or not | no       | false               |
+| slim-class | Override full-width styling           | no       | "px-8 lg:max-w-7xl" |

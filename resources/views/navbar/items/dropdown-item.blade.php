@@ -45,13 +45,11 @@
             @endif
         >
             @if ($icon)
-                @svg($icon, [
-                    'class' => Arr::toCssClasses([
-                        'mr-4 w-24 hidden lg:block',
-                        'text-theme-secondary-700' => $isCurrent,
-                        'text-theme-secondary-300' => ! $isCurrent,
-                    ])
-                ])
+                <x-ark-icon :name="$icon" :class="Arr::toCssClasses([
+                    'mr-4 h-auto w-24 hidden lg:block',
+                    'text-theme-secondary-700' => $isCurrent,
+                    'text-theme-secondary-300' => ! $isCurrent,
+                ])" />
             @endif
 
             <div class="flex flex-col flex-1 space-y-2">
@@ -65,7 +63,7 @@
 
                     @if ($external)
                         <x-ark-icon
-                            name="link"
+                            name="arrows.arrow-external"
                             size="sm"
                             class="text-theme-primary-500"
                         />

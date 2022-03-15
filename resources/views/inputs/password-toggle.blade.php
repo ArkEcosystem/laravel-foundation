@@ -48,13 +48,13 @@
             <button
                 type="button"
                 @class([
-                    'right-0 px-4 input-icon text-theme-primary-300 dark:text-theme-primary-600 rounded',
+                    'right-0 px-4 input-icon text-theme-primary-300 dark:text-theme-secondary-600 dark:hover:text-theme-primary-700 rounded',
                     'text-theme-danger-500' => $errors->has($name),
                 ])
                 @click="toggle()"
             >
-                <span x-show="!show"><x-ark-icon name="view" /></span>
-                <span x-show="show" x-cloak><x-ark-icon name="hide" /></span>
+                <span x-show="!show"><x-ark-icon name="eye" /></span>
+                <span x-show="show" x-cloak><x-ark-icon name="eye-slash" /></span>
             </button>
 
             {{--error--}}

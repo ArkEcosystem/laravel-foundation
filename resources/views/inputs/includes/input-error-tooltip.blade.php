@@ -24,7 +24,7 @@
         data-tippy-toggle-focus="true"
     @endif
 >
-    <x-ark-icon name="report" class="text-theme-danger-500" />
+    <x-ark-icon name="circle.exclamation-mark" class="text-theme-danger-500" />
     @if($shifted)
         <div class="w-px h-5 transform translate-x-4 bg-theme-secondary-300 dark:bg-theme-secondary-800">&nbsp;</div>
     @endif

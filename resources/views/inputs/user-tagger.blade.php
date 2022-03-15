@@ -23,7 +23,6 @@
         {{ $maxlength === null ? 'null' : $maxlength }},
         {{ $plainText ? 'true' : 'false' }}
     )"
-    x-init="init"
     class="{{ $class }} ark-user-tagger--input"
 >
     <div class="input-group">

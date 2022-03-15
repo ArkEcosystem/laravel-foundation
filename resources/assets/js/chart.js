@@ -160,6 +160,8 @@ const CustomChart = (
         init() {
             if (this.chart) {
                 this.chart.destroy();
+            } else if (Chart.getChart(this.getCanvas())) {
+                Chart.getChart(this.getCanvas()).destroy();
             }
 
             this.$watch("time", () => this.updateChart());
@@ -206,11 +208,11 @@ const CustomChart = (
                     axis: "x",
                 },
                 scales: {
-                    y: {
+                    yAxes: {
                         ...this.loadYAxes()[0],
                         position: "right",
                     },
-                    x: {
+                    xAxes: {
                         display: grid,
                         type: "category",
                         labels: labels,

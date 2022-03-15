@@ -7,6 +7,7 @@ namespace ARKEcosystem\Foundation\Providers;
 use ARKEcosystem\Foundation\UserInterface\Components\Currency;
 use ARKEcosystem\Foundation\UserInterface\Components\DataBag;
 use ARKEcosystem\Foundation\UserInterface\Components\FlashMessage;
+use ARKEcosystem\Foundation\UserInterface\Components\FrontendSettings;
 use ARKEcosystem\Foundation\UserInterface\Components\Number;
 use ARKEcosystem\Foundation\UserInterface\Components\Percentage;
 use ARKEcosystem\Foundation\UserInterface\Components\ShortCurrency;
@@ -32,12 +33,11 @@ class UserInterfaceServiceProvider extends ServiceProvider
     public function register()
     {
         Flash::levels([
-            'info'    => 'alert-info',
-            'success' => 'alert-success',
-            'warning' => 'alert-warning',
-            'danger'  => 'alert-danger',
-            'error'   => 'alert-error',
-            'hint'    => 'alert-hint',
+            'info'    => 'info',
+            'success' => 'success',
+            'warning' => 'warning',
+            'error'   => 'error',
+            'hint'    => 'hint',
         ]);
     }
 
@@ -220,7 +220,11 @@ class UserInterfaceServiceProvider extends ServiceProvider
 
             $blade->component('ark::pages.contact', 'ark-pages-contact');
 
+            $blade->component('ark::pages.includes.cookie-banner', 'ark-pages-includes-cookie-banner');
             $blade->component('ark::pages.includes.header', 'ark-pages-includes-header');
+            $blade->component('ark::pages.includes.layout-body', 'ark-pages-includes-layout-body');
+            $blade->component('ark::pages.includes.layout-content', 'ark-pages-includes-layout-content');
+            $blade->component('ark::pages.includes.layout-head', 'ark-pages-includes-layout-head');
             $blade->component('ark::pages.includes.markdown-scripts', 'ark-pages-includes-markdown-scripts');
             $blade->component('ark::pages.includes.crop-image-scripts', 'ark-pages-includes-crop-image-scripts');
             $blade->component('ark::pages.includes.compress-image-scripts', 'ark-pages-includes-compress-image-scripts');
@@ -251,6 +255,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::divider', 'ark-divider');
             $blade->component('ark::documentation', 'ark-documentation');
             $blade->component('ark::dropdown', 'ark-dropdown');
+            $blade->component('ark::dropdown-accordion', 'ark-dropdown-accordion');
             $blade->component('ark::expandable', 'ark-expandable');
             $blade->component('ark::expandable-item', 'ark-expandable-item');
             $blade->component('ark::external-link', 'ark-external-link');
@@ -336,5 +341,6 @@ class UserInterfaceServiceProvider extends ServiceProvider
     {
         Livewire::component('flash-message', FlashMessage::class);
         Livewire::component('toast', Toast::class);
+        Livewire::component('frontend-settings', FrontendSettings::class);
     }
 }

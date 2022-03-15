@@ -6,24 +6,25 @@
     @slot('description')
         <div class="flex flex-col mt-8 space-y-4">
             <x-ark-alert type="warning">
-                <x-slot name="message">
-                    @lang('ui::pages.user-settings.2fa_warning_text')
-                </x-slot>
+                @lang('ui::pages.user-settings.2fa_warning_text')
             </x-ark-alert>
             <div class="grid grid-cols-1 grid-flow-row gap-x-4 gap-y-4 sm:grid-cols-2">
                 @foreach (json_decode(decrypt($this->user->two_factor_recovery_codes), true) as $code)
-                    <div class="flex items-center h-12 font-medium rounded border border-theme-secondary-300 text-theme-secondary-900">
-                        <span class="flex justify-center items-center w-8 h-full rounded-l bg-theme-secondary-100">
-                            {{ $loop->index + 1 }}
-                        </span>
-                        <input
-                            type="text"
-                            id="resetCode_{{ $loop->index }}"
-                            class="ml-4 w-full"
-                            value="{{ $code }}"
-                            readonly
-                        />
-                    </div>
+
+                    <x-ark-input-with-prefix
+                        name="resetCode_{{ $loop->index }}"
+                        :value="$code"
+                        input-class="cursor-default"
+                        hide-label
+                        no-model
+                        readonly
+                    >
+                        <x-slot name="prefix">
+                            <span class="dark:text-theme-secondary-200">
+                                {{ $loop->index + 1 }}
+                            </span>
+                        </x-slot>
+                    </x-ark-input-with-prefix>
                 @endforeach
                 {{-- TODO: check if we need this or not --}}
                 {{-- <div class="mt-6">

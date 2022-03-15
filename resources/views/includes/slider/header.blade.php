@@ -31,7 +31,7 @@
                     <a href="{{ $viewAllUrl }}" class="font-semibold link">
                         @lang('ui::actions.view_all')
 
-                        <x-ark-icon class="inline-block" name="chevron-right" size="2xs" />
+                        <x-ark-icon class="inline-block" name="arrows.chevron-right" size="2xs" />
                     </a>
                 </div>
             @endif

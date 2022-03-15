@@ -17,7 +17,16 @@
     ][$breakpoint ?? 'md'];
 @endphp
 
-<header x-data="Navbar.dropdown()" x-init="init">
+<header
+    @if(config('ui.dark-mode.enabled') === true)
+        x-data="Navbar.dropdown({
+            dark: window.getThemeMode() === 'dark',
+        })"
+        @theme-changed.window="dark = $event.detail.theme === 'dark'"
+    @else
+        x-data="Navbar.dropdown()"
+    @endif
+>
     <div
         x-show="openDropdown !== null || open"
         class="overflow-y-auto fixed inset-0 z-30 opacity-75 bg-theme-secondary-900 {{ $backdropClass }}"
@@ -30,7 +39,7 @@
     <nav
         aria-label="{{ trans('ui::general.primary_navigation') }}"
         x-ref="nav"
-        class="fixed top-0 z-30 w-full bg-white border-b border-theme-secondary-300 dark:bg-theme-secondary-900"
+        class="fixed top-0 z-30 w-full bg-white border-b border-theme-secondary-300 dark:bg-theme-secondary-900 dark:border-theme-secondary-800"
         dusk="navigation-bar"
     >
         <div class="relative z-10 navbar-container border-theme-secondary-300">

@@ -195,7 +195,7 @@ We use components because they contain the CSS classes and HTML needed to build 
 1. Install the npm dependencies
 
 ```bash
-yarn add @toast-ui/editor@^2.5.2 codemirror@^5.62.0
+yarn add @toast-ui/editor@3.1.1
 ```
 
 2. Ensure to import the markdown script inside the `<head>` tag of your template.
@@ -248,6 +248,14 @@ Accepts `full` for all the plugins and `basic` for only text related buttons.
 
 ```html
 <meta name="csrf-token" content="{{ csrf_token() }}">
+```
+
+8. If you use the `full` toolbar you must add the `toolbar="full"` to the markdown scripts.
+
+```html
+@push('scripts')
+    <x-ark-pages-includes-markdown-scripts toolbar="full" />
+@endpush
 ```
 
 ### Tags input
@@ -384,7 +392,6 @@ Inside that component, you can use the `show()` method to show the modal:
 ```html
 <div
     x-data="Modal.alpine({}, 'optionalNameOfTheModal')"
-    x-init="init"
 >
     <button type="button" @click="show">Show modal</button>
 
@@ -412,7 +419,6 @@ Note that it is also possible to hook into the lifecycle methods of the modal. Y
             alert('The modal is about to be shown')
         }
     }"
-    x-init="init"
 >
     <button type="button" @click="show">Show modal</button>
 
@@ -737,14 +743,16 @@ window.Pagination = Pagination
 Add the following snippet to your `urls.php` lang file:
 
 ```php
-'discord'  => 'https://discord.ark.io/',
 'facebook' => 'https://facebook.ark.io/',
 'github'   => 'https://github.com/ArkEcosystem',
 'linkedin' => 'https://www.linkedin.com/company/ark-ecosystem',
-'reddit'   => 'https://reddit.ark.io/',
 'twitter'  => 'https://twitter.ark.io/',
 'youtube'  => 'https://youtube.ark.io/',
 ```
+
+### Page Layout
+
+There are 2 primary layout components, `x-ark-pages-includes-layout-head` and `x-ark-pages-includes-layout-body`. These provide the standard needed for all our projects, such as fonts, footers, toast includes, etc. Examples of these can be found in [examples/ui.md](../examples/ui.md)
 
 ## Available Styles
 
@@ -854,12 +862,47 @@ If you need to add, replace or delete an icon:
 
 There are a few tailwind configuration additions on which the components rely (e.g. colors and additional shadows) and are therefore expected to use the tailwind config in this repository as basis (you can import it and extend it further if needed).
 
+## Themes
+
+It's worth storing project themes in the foundation package so it is consistent when used, for example on the relevant documentation pages. For example:
+
+Create a theme file in foundation (`resources/assets/css/themes/_deployer.css`)
+
+```css
+.theme-deployer {
+    --theme-color-primary-rgb: 84, 82, 206;
+    --theme-color-primary-50: #f5f5ff;
+
+    ...
+
+    --theme-color-primary-900: #212052;
+}
+```
+
+Then in the project, create a theme file (`resources/assets/css/_theme.css`)
+
+```css
+@import "../../vendor/arkecosystem/foundation/resources/assets/css/themes/_deployer.css";
+
+:root {
+    @apply theme-deployer;
+}
+```
+
+Include this file at the end of the project's top-level css file (usually `resources/assets/css/app.css`)
+
+```css
+...
+
+@import '_theme.css';
+```
+
 ## Dark Color Theme
 
 Dark color theme is more and more used on website today and many operating systems feature this functionality.
 Users might indicate their preference through the operating system setting or by interacting with a theme switcher component.
 
-Since we use Tailwind css with `class` strategy to manage dark mode. 
+Since we use Tailwind css with `class` strategy to manage dark mode.
 This strategy had a down-side of not be able to manage the operating system preference.
 To by-pass this problem, we can use vanilla javascript and controlling both strategies.
 
@@ -881,10 +924,10 @@ The script should be inserted on each page in the `head` section. In our case, p
         ...
 
         <title>...</title>
-        
+
         <!-- place the script right after <title> to avoid FOUC (https://en.wikipedia.org/wiki/Flash_of_unstyled_content) -->
         <x-ark-dark-theme-script />
-        
+
         ...
     </head>
     ...
@@ -895,15 +938,35 @@ The script should be inserted on each page in the `head` section. In our case, p
 
 Basically, it uses vanilla javascript to listen to events and uses Local Storage to store the user choice. If the value is not found on Local Storage, it takes the preference from the O.S.
 
-| events          | description                                           |
-|-----------------|-------------------------------------------------------|
-| setThemeMode    | It turns the given mode on                            |
-| setOSThemeMode  | It uses the OS preference                             |
-| toggleThemeMode | It toggles the theme from light to dark and viceversa |
-
 #### How to use
 
-This script can be used with Livewire and/or AlpineJs.
+Emits one of these events from Livewire or AlpineJs (scroll down for examples).
+
+| events          | params | description                                                                   |
+|-----------------|--------|-------------------------------------------------------------------------------|
+| setThemeMode    | theme  | It sets the given theme name.                                                 |
+| setOSThemeMode  |        | It sets the theme preference from O.S.                                        |
+| toggleThemeMode |        | It toggles the theme from light to dark and vice-versa without persisting it. |
+
+You can listen to custom `theme-changed` event when a theme name is changed. It contains the new theme name applied.
+
+**Example for listening `theme-changed` using AlpineJs**
+
+```html
+<div
+    x-data="{dark: window.getThemeMode() === 'dark'}"
+    @theme-changed.window="dark = !dark"
+>
+    <span x-show="dark">dark theme</span>
+    <span x-show="!dark">light theme</span>
+</div>
+```
+
+As you can see in the previous example, the script also provide a helper method to easily get the current theme name.
+```js
+window.getThemeMode();
+// "dark" or "light
+```
 
 **Example using Livewire**
 
@@ -912,23 +975,23 @@ use Livewire\Livewire;
 
 class ThemeSwitcher extends Livewire
 {
-    ...
-    
+    protected $listeners = ['themeChanged' => '$refresh'];
+
     public function dark(): void
     {
         $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'dark']);
     }
-    
+
     public function light(): void
     {
         $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'light']);
     }
-    
+
     public function os(): void
     {
         $this->dispatchBrowserEvent('setOSThemeMode');
     }
-    
+
     public function toggle(): void
     {
         $this->dispatchBrowserEvent('toggleThemeMode');
@@ -941,7 +1004,7 @@ class ThemeSwitcher extends Livewire
 ```html
 <section>
     <h2>Theme preference</h2>
-    
+
     <button type="button" @click="$dispatch('setThemeMode', {'theme': 'dark'})">Dark</button>
     <button type="button" @click="$dispatch('setThemeMode', {'theme': 'light'})">Light</button>
     <button type="button" @click="$dispatch('setOSThemeMode')">System default</button>
@@ -952,11 +1015,11 @@ class ThemeSwitcher extends Livewire
 
 ```html
 <div x-data="{ isDarkTheme: false }">
-    <span id="set-dark-mode">Enable/Disable Dark mode</span> 
-    <button 
-        role="switch" 
-        aria-labelledby="set-dark-mode" 
-        x-bind:aria-checked="isDarkTheme" 
+    <span id="set-dark-mode">Enable/Disable Dark mode</span>
+    <button
+        role="switch"
+        aria-labelledby="set-dark-mode"
+        x-bind:aria-checked="isDarkTheme"
         @click="$dispatch('setThemeMode', {'theme': isDarkTheme ? 'dark' : 'light'})"
     >
       <span x-show="isDarkTheme">on</span>

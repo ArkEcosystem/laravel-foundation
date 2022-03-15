@@ -56,7 +56,7 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
                 config('markdown.link_renderer_view_attributes', []),
                 [
                     'attributes' => new ComponentAttributeBag([]),
-                    'name'       => 'link',
+                    'name'       => 'arrows.arrow-external',
                     'class'      => 'inline ml-1 -mt-1.5',
                     'size'       => 'sm',
                 ]

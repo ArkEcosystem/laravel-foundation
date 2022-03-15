@@ -28,43 +28,48 @@
 
                     @if($alert)
                         <div class="mt-4">
-                            <x-ark-alert
-                                type="info"
-                                class="py-8 px-4 mx-auto"
-                                message-class="text-sm"
-                                without-escaping
-                            >
-                                <x-slot name="message">
-                                    {!! $alert !!}
-                                </x-slot>
+                            <x-ark-alert :type="$alertType" class="py-4 mx-auto">
+                                {!! $alert !!}
                             </x-ark-alert>
                         </div>
                     @endif
 
+                    @if($showConfirmationMessage)
                     <div class="mt-4">
                         @lang('ui::forms.delete-user.confirmation')
                     </div>
+                    @endif
                 </div>
-                <form class="mt-8">
-                    <div class="space-y-2">
-                        <x-ark-input
-                            type="password"
-                            name="confirmedPassword"
-                            model="confirmedPassword"
-                            :label="trans('ui::forms.your_password')"
-                        />
+
+                @if($confirmPassword)
+                <div class="space-y-2">
+                    <x-ark-input
+                        type="password"
+                        name="confirmedPassword"
+                        model="confirmedPassword"
+                        :label="trans('ui::forms.your_password')"
+                    />
+                </div>
+                @elseif($confirmName)
+                <div class="flex flex-col mt-4">
+                    <span class="input-label">{{ trans('modals.delete-user.title') }}</span>
+                    <div class="mb-2 input-wrapper">
+                        <input type="text" value="{{ $this->user->name }}" class="font-semibold text-center input-text" readonly/>
                     </div>
-                    <div class="mt-4">
-                        <x-ark-textarea
-                            name="feedback"
-                            model="feedback"
-                            :label="trans('ui::forms.feedback.label')"
-                            :placeholder="trans('ui::forms.feedback.placeholder')"
-                            :auxiliary-title="trans('ui::forms.optional')"
-                            rows="5"
-                        />
-                    </div>
-                </form>
+                    <x-ark-input name="confirmedName" model="confirmedName" label=" " :placeholder="trans('modals.delete-user.input_placeholder')"></x-ark-input>
+                </div>
+                @endif
+
+                <div class="mt-4">
+                    <x-ark-textarea
+                        name="feedback"
+                        model="feedback"
+                        :label="trans('ui::forms.feedback.label')"
+                        :placeholder="trans('ui::forms.feedback.placeholder')"
+                        :auxiliary-title="trans('ui::forms.optional')"
+                        rows="5"
+                    />
+                </div>
             </x-slot>
 
             <x-slot name="buttons">

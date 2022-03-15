@@ -3,7 +3,6 @@
 @endphp
 <div
     x-data="Pagination('{{ $pageName }}', {{ $paginator->lastPage() }})"
-    x-init="init"
     class="pagination-wrapper"
 >
     <div class="relative pagination-pages-mobile">
@@ -22,10 +21,10 @@
             <input type="hidden" name="{{ $key }}" value="{{ $value }}" />
             @endforeach
             <button type="submit" class="p-2 text-theme-secondary-500 transition-default dark:text-theme-secondary-200 hover:text-theme-primary-500" :disabled="!page">
-                <x-ark-icon name="search" size="sm" />
+                <x-ark-icon name="magnifying-glass" size="sm" />
             </button>
             <button type="button" class="p-2 text-theme-secondary-500 transition-default dark:text-theme-secondary-200 hover:text-theme-primary-500" x-on:click="hideSearch()">
-                <x-ark-icon name="close" size="sm" />
+                <x-ark-icon name="cross" size="sm" />
             </button>
         </form>
 
@@ -48,15 +47,15 @@
         @if($paginator->onFirstPage())
             <div class="flex items-center button-generic button-disabled">
                 <span class="flex items-center">
-                    <x-ark-icon name="pagination-first" size="xs" />
+                    <x-ark-icon name="arrows.double-chevron-left" size="xs" />
                 </span>
             </div>
         @else
             <a class="flex" href="{{ $paginator->url(1) }}">
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
-                    <span class="flex items-center">
-                        <x-ark-icon name="pagination-first" size="xs" />
-                    </span>
+                    <div class="flex items-center">
+                        <x-ark-icon name="arrows.double-chevron-left" size="xs" />
+                    </div>
                 </div>
             </a>
         @endif
@@ -65,6 +64,7 @@
             <div class="flex items-center button-generic button-disabled">
                 <div class="flex items-center">
                     <span class="hidden lg:flex lg:ml-2">@lang('ui::generic.previous')</span>
+                    <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-left" size="xs" />
                 </div>
             </div>
         @else
@@ -72,13 +72,14 @@
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
                     <div class="flex items-center">
                         <span class="hidden lg:flex lg:ml-2">@lang('ui::generic.previous')</span>
+                        <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-left" size="xs" />
                     </div>
                 </div>
             </a>
         @endif
 
         <div class="relative">
-            <form x-show="search" name="searchForm" type="get" class="flex overflow-hidden absolute left-0 z-10 px-2 w-full h-full rounded bg-theme-primary-100 pagination-form-desktop dark:bg-theme-secondary-800">
+            <form x-cloak x-show="search" name="searchForm" type="get" class="flex overflow-hidden absolute left-0 z-10 px-2 w-full h-full rounded bg-theme-primary-100 pagination-form-desktop dark:bg-theme-secondary-800">
                 <input
                     x-ref="search"
                     x-model.number="page"
@@ -94,10 +95,10 @@
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}" />
                 @endforeach
                 <button type="submit" class="p-2 text-theme-secondary-500 transition-default dark:text-theme-secondary-200 hover:text-theme-primary-500" :disabled="!page">
-                    <x-ark-icon name="search" size="sm" />
+                    <x-ark-icon name="magnifying-glass" size="sm" />
                 </button>
                 <button type="button" class="p-2 text-theme-secondary-500 transition-default dark:text-theme-secondary-200 hover:text-theme-primary-500" x-on:click="hideSearch">
-                    <x-ark-icon name="close" size="sm" />
+                    <x-ark-icon name="cross" size="sm" />
                 </button>
             </form>
 
@@ -111,7 +112,7 @@
                             class="button-pagination-page-indicator button-pagination-page-indicator--search"
                             :class="{ 'opacity-0': search }"
                         >
-                            <span class="button-pagination-search"><x-ark-icon name="search" size="sm" /></span>
+                            <span class="button-pagination-search"><x-ark-icon name="magnifying-glass" size="sm" /></span>
                             <span class="button-pagination-ellipsis">{{ $element }}</span>
                         </button>
                     @endif
@@ -152,13 +153,15 @@
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
                     <div class="flex items-center">
                         <span class="hidden lg:flex lg:mr-2">@lang('ui::generic.next')</span>
+                        <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-right" size="xs" />
                     </div>
                 </div>
             </a>
         @else
             <div class="flex items-center button-generic button-disabled">
                 <div class="flex items-center">
-                    <span class="hidden lg:flex lg:mr-2">@lang('ui::generic.next')</span>
+                    <span class="hidden lg:flex">@lang('ui::generic.next')</span>
+                    <x-ark-icon class="inline-block lg:hidden" name="arrows.chevron-right" size="xs" />
                 </div>
             </div>
         @endif
@@ -167,14 +170,14 @@
             <a class="flex" href="{{ $paginator->url($paginator->lastPage()) }}">
                 <div class="flex items-center h-full button-secondary pagination-button-mobile">
                     <span class="flex items-center">
-                        <x-ark-icon name="pagination-last" size="xs" />
+                        <x-ark-icon name="arrows.double-chevron-right" size="xs" />
                     </span>
                 </div>
             </a>
         @else
             <div class="flex items-center button-generic button-disabled">
                 <span class="flex items-center">
-                    <x-ark-icon name="pagination-last" size="xs" />
+                    <x-ark-icon name="arrows.double-chevron-right" size="xs" />
                 </span>
             </div>
         @endif

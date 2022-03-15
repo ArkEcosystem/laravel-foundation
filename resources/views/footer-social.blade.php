@@ -1,35 +1,27 @@
 @props([
     'networks' => [
         [
-            'icon' => 'brands.discord',
-            'url' => trans('ui::urls.discord')
-        ],
-        [
-            'icon' => 'brands.twitter',
+            'icon' => 'brands.solid.twitter',
             'url' => trans('ui::urls.twitter')
         ],
         [
-            'icon' => 'brands.linkedin',
+            'icon' => 'brands.solid.linkedin',
             'url' => trans('ui::urls.linkedin')
         ],
         [
-            'icon' => 'brands.facebook',
+            'icon' => 'brands.solid.facebook',
             'url' => trans('ui::urls.facebook')
         ],
         [
-            'icon' => 'brands.reddit',
-            'url' => trans('ui::urls.reddit')
-        ],
-        [
-            'icon' => 'brands.youtube',
+            'icon' => 'brands.solid.youtube',
             'url' => trans('ui::urls.youtube')
         ],
         [
-            'icon' => 'brands.github',
+            'icon' => 'brands.solid.github',
             'url' => trans('ui::urls.github')
         ],
         [
-            'icon' => 'brands.telegram',
+            'icon' => 'brands.solid.telegram',
             'url' => trans('ui::urls.telegram')
         ],
     ],

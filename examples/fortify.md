@@ -111,27 +111,31 @@ This file contains basic examples and explains the parameters that can be used f
 
 > Note: Requires various icons to be present to properly work. Relies on [Blade SVG](https://github.com/adamwathan/blade-svg) to load them.
 
-Simple usage with a string message, optionally you can pass a "title" property:
+Simple inline usage with a string message (if not specified, it sets `type="info"` by default):
 
-`<x-ark-alert :type="flash()->class" :message="flash()->message" />`
+`<x-ark-alert message="your-message-here" />`
 
-Additionally, you can also make use of slots:
+Additionally, you can use it as a block and set the content:
 
 ```php
-<x-ark-alert type="alert-info" title="Notification">
-    <x-slot name="message">
-        {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
-    </x-slot>
+<x-ark-alert type="info">
+    {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
+</x-ark-alert>
+```
+
+You can also get a dismissible alert by specifying `dismissible`, this flag adds a closing button at the end of the title:
+
+```php
+<x-ark-alert type="info" dismissible>
+    {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
 </x-ark-alert>
 ```
 
 You can also get an alert with more padding and large icon by specifying `large`:
 
 ```php
-<x-ark-alert type="alert-info" title="Notification" large>
-    <x-slot name="message">
-        {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
-    </x-slot>
+<x-ark-alert type="info">
+    {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
 </x-ark-alert>
 ```
 

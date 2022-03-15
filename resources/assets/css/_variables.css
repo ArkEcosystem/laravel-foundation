@@ -83,4 +83,7 @@
     --theme-color-hint-700: #4745b0;
     --theme-color-hint-800: #363383;
     --theme-color-hint-900: #212052;
+
+    /* White */
+    --theme-color-white: #ffffff;
 }

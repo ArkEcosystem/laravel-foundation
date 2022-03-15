@@ -15,6 +15,7 @@ return [
     'back'          => 'Back',
     'open'          => 'Open',
     'close'         => 'Close',
+    'dark_theme'    => 'Dark Theme',
 
     // Hermes
     'mark_all_as_read'   => 'Mark all as read',
@@ -41,6 +42,7 @@ return [
     'done'                      => 'Done',
     'confirm_logout'            => 'Logout Other Browser Sessions',
     'cancel'                    => 'Cancel',
+    'ok'                        => 'Ok',
     'delete'                    => 'Delete',
     'send'                      => 'Send',
     'skip'                      => 'Skip',

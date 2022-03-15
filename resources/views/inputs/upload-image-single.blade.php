@@ -30,6 +30,10 @@
     'cropImageSmoothingEnabled' => true,
     'cropImageSmoothingQuality' => 'high',
     'cropEndpoint'              => route('cropper.upload-image'),
+    'displayText'               => true,
+    'uploadTooltip'             => null,
+    'iconSize'                  => 'lg',
+    'withoutBorder'             => false,
 ])
 
 <div
@@ -66,15 +70,14 @@
         {{ $quality }}
     )"
     @endif
-    x-init="init"
     x-on:livewire-upload-start="isUploading = true"
     x-on:livewire-upload-finish="isUploading = false"
     x-on:livewire-upload-error="isUploading = false; livewire.emit('uploadError', '{{ $uploadErrorMessage }}');"
-    class="relative {{ $dimensions }}"
+    class="flex-shrink-0 relative {{ $dimensions }}"
 >
     <div @class([
         'rounded-xl w-full h-full focus-within:border-theme-primary-500',
-        'p-1.5 border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800' => ! $image,
+        'border-2 p-1.5 border-dashed border-theme-primary-100 dark:border-theme-secondary-800' => ! $image && ! $withoutBorder,
     ])>
         <div
             @if ($image)
@@ -87,6 +90,7 @@
             @unless($readonly)
             @click.self="select"
             role="button"
+            @if($uploadTooltip) data-tippy-hover="{{ $uploadTooltip }}" @endif
             @endunless
         >
             @unless($readonly)
@@ -107,13 +111,14 @@
         @if (!$image && !$readonly)
             <div
                 wire:key="upload-button-{{ $id }}"
-                class="flex absolute top-2 right-2 bottom-2 left-2 flex-col justify-center items-center space-y-2 rounded-xl cursor-pointer pointer-events-none"
+                class="flex absolute inset-2 flex-col justify-center items-center space-y-2 rounded-xl cursor-pointer pointer-events-none"
                 role="button"
             >
                 <div class="text-theme-primary-500">
-                    <x-ark-icon name="upload-cloud" size="lg"/>
+                    <x-ark-icon name="cloud-arrow-up" :size="$iconSize"/>
                 </div>
 
+                @if ($displayText)
                 <div class="font-semibold text-theme-secondary-900 dark:text-theme-secondary-200">{!! $uploadText !!}</div>
 
                 <div class="text-xs font-semibold text-theme-secondary-500">
@@ -122,6 +127,7 @@
                 <div class="text-xs font-semibold text-theme-secondary-500">
                     @lang('ui::forms.upload-image.max_filesize', [$maxFilesize])
                 </div>
+                @endif
             </div>
         @endif
 
@@ -134,8 +140,7 @@
                     'hidden' => ! $image,
                 ])
             >
-                <div
-                    class="absolute top-0 w-full h-full rounded-xl opacity-70 pointer-events-none border-6 border-theme-secondary-900 transition-default"></div>
+                <div class="absolute inset-0 w-full h-full rounded-xl opacity-70 pointer-events-none border-6 border-theme-secondary-900 transition-default"></div>
 
                 <button
                     wire:loading.attr="disabled"
@@ -144,7 +149,7 @@
                     wire:click="{{ $deleteAction }}"
                     data-tippy-hover="{{ $deleteTooltip }}"
                 >
-                    <x-ark-icon name="close" size="sm"/>
+                    <x-ark-icon name="cross" size="sm"/>
                 </button>
             </div>
 

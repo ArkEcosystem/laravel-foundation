@@ -15,11 +15,10 @@
 <div
     {{ $attributes }}
     x-ref="modal"
-    data-modal
+    data-modal="{{ $name }}"
     x-cloak
     @if($init)
     x-data="Modal.alpine({{ $xData }}, '{{ $name }}')"
-    x-init="init"
     @endif
     @if(!$closeButtonOnly && $escToClose)
     @keydown.escape="hide"
@@ -28,12 +27,13 @@
     x-show="shown"
     class="flex overflow-y-auto fixed inset-0 z-50 md:py-10 md:px-8"
 >
+
     <div class="fixed inset-0 opacity-75 dark:opacity-50 bg-theme-secondary-900 dark:bg-theme-secondary-800"></div>
 
     <div
         class="modal-content-wrapper md:m-auto w-full {{ $class }} {{ $widthClass }}"
         @if(!$closeButtonOnly)
-        @click.away="hide"
+        @click.outside="hide"
         @endif
     >
         <div class="modal-content custom-scroll {{ $widthClass }}">
@@ -43,7 +43,7 @@
                     class="modal-close"
                     @click="hide"
                 >
-                    <x-ark-icon name="close" size="md" class="m-auto" />
+                    <x-ark-icon name="cross" size="sm" class="m-auto" />
                 </button>
                 @endif
 
