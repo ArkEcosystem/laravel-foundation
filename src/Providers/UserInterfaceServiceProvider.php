@@ -255,6 +255,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::divider', 'ark-divider');
             $blade->component('ark::documentation', 'ark-documentation');
             $blade->component('ark::dropdown', 'ark-dropdown');
+            $blade->component('ark::dropdown-accordion', 'ark-dropdown-accordion');
             $blade->component('ark::expandable', 'ark-expandable');
             $blade->component('ark::expandable-item', 'ark-expandable-item');
             $blade->component('ark::external-link', 'ark-external-link');

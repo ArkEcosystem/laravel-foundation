@@ -408,7 +408,7 @@ The available types are: "info", "success", "warning", "error", "question".
 Additionally, you can use it as a block and set the content:
 
 ```php
-<x-ark-alert type="info">
+<x-ark-alert type="info" title="Title Override">
     {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
 </x-ark-alert>
 ```
@@ -420,6 +420,13 @@ You can also get a dismissible alert by specifying `dismissible`, this flag adds
     {!! trans('tokens.networks.no_source_provider_alert', ['route' => route('tokens.source-providers', $selectedToken)]) !!}
 </x-ark-alert>
 ```
+
+| Parameter   | Description                                                                      | Required |
+| ----------- | -------------------------------------------------------------------------------- | -------- |
+| message     | Alternative to slot                                                              | no       |
+| type        | Type of alert box [default=info]                                                 | no       |
+| dismissible | Whether the alert box is dismissable or not [default=false]                      | no       |
+| title       | Title override instead of using the generic one based on the type [default=null] | no       |
 
 ### Accordion
 
