@@ -1,9 +1,10 @@
 @props([
-    'breakpoint'      => 'md',
-    'navigation'      => [],
-    'navigationExtra' => null,
-    'dropdownClass'   => 'flex-shrink-0 w-56',
-    'menuDropdownId'  => 'menuDropdown',
+    'breakpoint'           => 'md',
+    'navigation'           => [],
+    'navigationExtra'      => null,
+    'dropdownClass'        => 'flex-shrink-0 w-56',
+    'dropdownWrapperClass' => 'mt-24 py-4 bg-white rounded-xl shadow-navbar-dropdown',
+    'menuDropdownId'       => 'menuDropdown',
 ])
 
 @php
@@ -64,16 +65,18 @@
                         x-ref="menuDropdown"
                         id="{{ $menuDropdownId }}"
                         x-show.transition.origin.top="openDropdown === '{{ $navItem['label'] }}'"
-                        class="absolute top-0 left-0 z-30 py-4 mt-24 bg-white rounded-xl shadow-navbar-dropdown"
+                        class="absolute top-0 left-0 z-30 {!! $dropdownWrapperClass !!}"
                         x-cloak
                     >
-                        <div class="flex">
-                            <div @class([$dropdownClass])>
-                                @foreach ($navItem['children'] as $childNavItem)
-                                    @include('ark::navbar.items.dropdown-item', $childNavItem)
-                                @endforeach
-                            </div>
+                        <div @class([$dropdownClass])>
+                            @foreach ($navItem['children'] as $childNavItem)
+                                @include('ark::navbar.items.dropdown-item', $childNavItem)
+                            @endforeach
                         </div>
+
+                        @isset ($dropdownAppendix)
+                            {{ $dropdownAppendix }}
+                        @endisset
                     </div>
                 </div>
             @else
