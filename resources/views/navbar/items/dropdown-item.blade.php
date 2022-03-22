@@ -10,6 +10,7 @@
     'disabled'    => false,
     'external'    => false,
     'tooltip'     => null,
+    'hoverClass' => 'hover:bg-theme-secondary-100',
 ])
 
 @php ($isCurrent = $disabled === false && $route && url()->full() === route($route, $routeParams))
@@ -26,7 +27,8 @@
             @class([
                 'font-semibold px-8 py-4 w-full group transition-default',
                 'bg-theme-primary-50' => $isCurrent,
-                'text-theme-secondary-900 hover:bg-theme-secondary-100' => ! $disabled && ! $isCurrent,
+                'text-theme-secondary-900' => ! $disabled && ! $isCurrent,
+                $hoverClass => ! $disabled && ! $isCurrent,
             ])
             @if ($external)
                 target="_blank"
