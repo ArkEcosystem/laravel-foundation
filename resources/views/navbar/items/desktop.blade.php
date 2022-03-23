@@ -65,7 +65,7 @@
                         x-ref="menuDropdown"
                         id="{{ $menuDropdownId }}"
                         x-show.transition.origin.top="openDropdown === '{{ $navItem['label'] }}'"
-                        class="absolute top-0 left-0 z-30 {!! $dropdownWrapperClass !!}"
+						@class([$dropdownWrapperClass, "absolute top-0 left-0 z-30"])
                         x-cloak
                     >
                         <div @class([$dropdownClass])>
