@@ -5,8 +5,6 @@
     'href'        => null,
     'routeParams' => [],
     'icon'        => null,
-    'image'       => null,
-    'imageClass'  => null,
     'disabled'    => false,
     'external'    => false,
     'tooltip'     => null,
@@ -54,8 +52,6 @@
                     'text-theme-secondary-700' => $isCurrent,
                     'text-theme-secondary-300' => ! $isCurrent,
                 ])" />
-            @elseif ($image)
-                <img src="{!! $image !!}" class="{{ $imageClass }}" />
             @endif
 
             <div class="flex flex-col flex-1 space-y-2">
