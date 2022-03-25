@@ -58,10 +58,8 @@
                             <span x-show="!openPanel">
                                 @lang('ui::actions.show') {{ $title }}
                             </span>
-                        @elseif ($title instanceof Illuminate\Contracts\Support\Htmlable)
-                            {{ $title }}
                         @else
-                            <span>{{ $title }}</span>
+                            <div>{{ $title }}</div>
                         @endif
                     </div>
 
