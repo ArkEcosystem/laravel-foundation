@@ -11,6 +11,7 @@
     'toggleTitle'     => false,
     'iconOpenClass'   => 'rotate-180',
     'iconClosedClass' => '',
+    'borderlessIcon'  => false,
     'contentClass'    => 'px-4',
     'buttonClass'     => 'px-8 md:px-4 py-6',
     'buttonOpenClass' => '',
@@ -64,7 +65,12 @@
                         @endif
                     </div>
 
-                    <div class="flex justify-center items-center w-8 h-8 rounded-lg border-2 border-theme-primary-100 transition-default group-hover:border-theme-primary-400">
+                    <div class="
+                        flex justify-center items-center w-8 h-8 rounded-lg transition-default
+                        @unless ($borderlessIcon)
+                        border-2 border-theme-primary-100 group-hover:border-theme-primary-400
+                        @endunless
+                    ">
                         <span
                             :class="{
                                 '{{ $iconOpenClass }}': openPanel,
