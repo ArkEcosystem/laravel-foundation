@@ -2379,10 +2379,9 @@
             cookieStr += " SameSite=" + _config.cookie_same_site + ";";
 
             // assures cookie works with localhost (=> don't specify domain if on localhost)
-            if (
-                _config.avoid_explicit_domain === false ||
-                window.location.hostname.indexOf(".") > -1
-            ) {
+            const allowExplicit = _config.avoid_explicit_domain === false;
+            const isExternal = window.location.hostname.indexOf(".") > -1;
+            if (allowExplicit && isExternal) {
                 cookieStr += " Domain=" + _config.cookie_domain + ";";
             }
 
