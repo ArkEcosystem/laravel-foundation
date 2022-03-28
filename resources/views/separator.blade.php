@@ -28,5 +28,5 @@
 <hr {{ $attributes->class([
     $typeClass,
     $spacingClass,
-    'custom-separator border-theme-secondary-300',
+    'custom-separator border-theme-secondary-300 dark:border-theme-secondary-800',
 ]) }} />
