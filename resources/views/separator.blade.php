@@ -23,17 +23,10 @@
         '8' => 'pt-8 mt-8',
         default => 'pt-8 mt-8',
     };
-
-    // Determines whether `class` attribute manually sets the color of the separator...
-    // If not, it will default to `border-theme-secondary-300`.
-    // Example:
-    // `<x-ark-separator class="border-theme-primary-400" />`
-    // `<x-ark-separator />`
-    preg_match('/border-theme-[a-zA-Z0-9-]+/', $attributes->get('class', ''), $matches);
 @endphp
 
 <hr {{ $attributes->class([
     $typeClass,
     $spacingClass,
-    'border-theme-secondary-300' => count($matches) === 0,
+    'custom-separator border-theme-secondary-300',
 ]) }} />
