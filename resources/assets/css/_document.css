@@ -164,8 +164,8 @@ code.hljs .hljs-ln-n {
 }
 
 /* Divider */
-.documentation-content hr {
-    @apply my-6 border-theme-secondary-200 bg-theme-secondary-200 dark:border-theme-secondary-800 dark:bg-theme-secondary-800;
+.documentation-content hr:not(.custom-separator) {
+    @apply my-6 border-theme-secondary-300 bg-theme-secondary-300 dark:border-theme-secondary-800 dark:bg-theme-secondary-800;
 }
 
 /* Image */
