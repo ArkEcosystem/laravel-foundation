@@ -13,15 +13,15 @@
     };
 
     $spacingClass = match ((string) $spacing) {
-        '1' => 'pt-1 mt-1',
-        '2' => 'pt-2 mt-2',
-        '3' => 'pt-3 mt-3',
-        '4' => 'pt-4 mt-4',
-        '5' => 'pt-5 mt-5',
-        '6' => 'pt-6 mt-6',
-        '7' => 'pt-7 mt-7',
-        '8' => 'pt-8 mt-8',
-        default => 'pt-8 mt-8',
+        '1' => 'my-1',
+        '2' => 'my-2',
+        '3' => 'my-3',
+        '4' => 'my-4',
+        '5' => 'my-5',
+        '6' => 'my-6',
+        '7' => 'my-7',
+        '8' => 'my-8',
+        default => 'my-8',
     };
 @endphp
 
