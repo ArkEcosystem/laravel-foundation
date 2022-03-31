@@ -1,15 +1,17 @@
 @props([
-    'init' => false,
-    'xData' => '{}',
-    'class' => '',
-    'widthClass' => 'max-w-2xl',
-    'title' => null,
-    'titleClass' => 'inline-block pb-3 font-bold dark:text-theme-secondary-200',
-    'buttons' => null,
-    'buttonsStyle' => 'modal-buttons',
+    'init'            => false,
+    'xData'           => '{}',
+    'focusFirstField' => false,
+    'enterKeySubmit'  => false,
+    'class'           => '',
+    'widthClass'      => 'max-w-2xl',
+    'title'           => null,
+    'titleClass'      => 'inline-block pb-3 font-bold dark:text-theme-secondary-200',
+    'buttons'         => null,
+    'buttonsStyle'    => 'modal-buttons',
     'closeButtonOnly' => false,
-    'escToClose' => true,
-    'name' => '',
+    'escToClose'      => true,
+    'name'            => '',
 ])
 
 <div
@@ -18,7 +20,14 @@
     data-modal="{{ $name }}"
     x-cloak
     @if($init)
-    x-data="Modal.alpine({{ $xData }}, '{{ $name }}')"
+    x-data="Modal.alpine(
+        {{ $xData }},
+        '{{ $name }}',
+        {
+            focusFirstField: {{ $focusFirstField === true ? 'true' : 'false' }},
+            enterKeySubmit: {{ $enterKeySubmit === true ? 'true' : 'false' }},
+        }
+    )"
     @endif
     @if(!$closeButtonOnly && $escToClose)
     @keydown.escape="hide"

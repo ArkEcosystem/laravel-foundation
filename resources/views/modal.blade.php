@@ -1,18 +1,20 @@
 @props([
-    'xData' => '{}',
-    'class' => '',
-    'style' => null,
-    'widthClass' => 'max-w-2xl',
-    'name' => null,
-    'title' => null,
-    'titleClass' => 'inline-block pb-2 font-bold dark:text-theme-secondary-200',
-    'buttons' => null,
-    'buttonsStyle' => 'modal-buttons',
+    'xData'           => '{}',
+    'focusFirstField' => false,
+    'enterKeySubmit'  => false,
+    'class'           => '',
+    'style'           => null,
+    'widthClass'      => 'max-w-2xl',
+    'name'            => null,
+    'title'           => null,
+    'titleClass'      => 'inline-block pb-2 font-bold dark:text-theme-secondary-200',
+    'buttons'         => null,
+    'buttonsStyle'    => 'modal-buttons',
     'closeButtonOnly' => false,
-    'wireClose' => false,
-    'escToClose' => true,
-    'fixedPosition' => false,
-    'paddingClass' => 'p-8 sm:p-10'
+    'wireClose'       => false,
+    'escToClose'      => true,
+    'fixedPosition'   => false,
+    'paddingClass'    => 'p-8 sm:p-10'
 ])
 
 <div class="fixed inset-0 z-50 opacity-75 dark:opacity-50 bg-theme-secondary-900 dark:bg-theme-secondary-800"></div>
@@ -25,7 +27,13 @@
     @else
         data-modal
     @endif
-    x-data="Modal.livewire({{ $xData }})"
+    x-data="Modal.livewire(
+        {{ $xData }},
+        {
+            focusFirstField: {{ $focusFirstField === true ? 'true' : 'false' }},
+            enterKeySubmit: {{ $enterKeySubmit === true ? 'true' : 'false' }},
+        }
+    )"
     @if(!$closeButtonOnly && $wireClose)
         @mousedown.self="$wire.{{ $wireClose }}()"
     @endif

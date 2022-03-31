@@ -16,6 +16,8 @@ const Modal = {
         reserveScrollBarGap: true,
         reserveNavScrollBarGap: true,
         disableFocusTrap: false,
+        focusFirstField: false,
+        enterKeySubmit: false,
     },
 
     disableBodyScroll(scrollable, settings = {}) {
@@ -49,12 +51,30 @@ const Modal = {
     },
 
     onModalOpened(scrollable, settings = {}) {
+        settings = Object.assign({}, this.defaultSettings, settings);
+
         this.disableBodyScroll(scrollable, settings);
 
         if (settings.disableFocusTrap) {
             scrollable.focus();
         } else {
             this.trapFocus(scrollable);
+        }
+
+        if (settings.focusFirstField) {
+            scrollable.querySelector("input[type=text]").focus();
+        }
+
+        if (settings.enterKeySubmit) {
+            scrollable.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    if (document.activeElement.tagName === "INPUT") {
+                        event.preventDefault();
+
+                        scrollable.querySelector(".modal-buttons .button-primary").click();
+                    }
+                }
+            });
         }
     },
 
