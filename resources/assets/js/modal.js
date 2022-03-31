@@ -66,12 +66,14 @@ const Modal = {
         }
 
         if (settings.enterKeySubmit) {
-            scrollable.addEventListener("keyup", function(event) {
+            scrollable.addEventListener("keyup", function (event) {
                 if (event.keyCode === 13) {
                     if (document.activeElement.tagName === "INPUT") {
                         event.preventDefault();
 
-                        scrollable.querySelector(".modal-buttons .button-primary").click();
+                        scrollable
+                            .querySelector(".modal-buttons .button-primary")
+                            .click();
                     }
                 }
             });
