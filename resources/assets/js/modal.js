@@ -67,7 +67,10 @@ const Modal = {
 
         if (settings.enterKeySubmit) {
             scrollable.addEventListener("keyup", function (event) {
-                if (event.keyCode === 13 && document.activeElement.tagName === "INPUT") {
+                if (
+                    event.keyCode === 13 &&
+                    document.activeElement.tagName === "INPUT"
+                ) {
                     event.preventDefault();
 
                     scrollable
