@@ -1,7 +1,7 @@
 @props([
     'xData'           => '{}',
     'focusFirstField' => false,
-    'enterKeySubmit'  => false,
+    'enterKeySubmit'  => true,
     'class'           => '',
     'style'           => null,
     'widthClass'      => 'max-w-2xl',

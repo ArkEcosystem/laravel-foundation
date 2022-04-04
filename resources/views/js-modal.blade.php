@@ -2,7 +2,7 @@
     'init'            => false,
     'xData'           => '{}',
     'focusFirstField' => false,
-    'enterKeySubmit'  => false,
+    'enterKeySubmit'  => true,
     'class'           => '',
     'widthClass'      => 'max-w-2xl',
     'title'           => null,
