@@ -69,12 +69,17 @@ const Modal = {
         }
 
         if (settings.enterKeySubmit) {
-            const hasField = scrollable.querySelector("input, select, textarea") !== null;
-            const primaryButton = scrollable.querySelector(".modal-buttons .button-primary");
+            const hasField =
+                scrollable.querySelector("input, select, textarea") !== null;
+            const primaryButton = scrollable.querySelector(
+                ".modal-buttons .button-primary"
+            );
             if (primaryButton) {
-                scrollable.addEventListener("keyup", function(event) {
-                    const canSubmit = document.activeElement.tagName === "INPUT" || document.activeElement === scrollable;
-                    if (event.keyCode === 13 && (! hasField || canSubmit)) {
+                scrollable.addEventListener("keyup", function (event) {
+                    const canSubmit =
+                        document.activeElement.tagName === "INPUT" ||
+                        document.activeElement === scrollable;
+                    if (event.keyCode === 13 && (!hasField || canSubmit)) {
                         event.preventDefault();
 
                         primaryButton.click();
