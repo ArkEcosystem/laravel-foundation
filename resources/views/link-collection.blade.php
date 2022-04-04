@@ -9,16 +9,16 @@
         <div class="py-1">
             <a
                 href="{{ $link[$urlProperty] }}"
-                class="flex pl-5 w-full h-full no-underline rounded border-2 group transition-default border-theme-primary-100 hover:bg-theme-primary-700 hover:border-theme-primary-700"
+                class="flex pl-3 w-full h-full no-underline rounded border-2 group transition-default border-theme-primary-100 hover:bg-theme-primary-700 hover:border-theme-primary-700"
                 @if ($isExternal)
                     target="_blank"
                     rel="noopener nofollow noreferrer"
                 @endif
             >
                 <div class="flex flex-1 justify-between items-center group-hover:text-white text-theme-primary-600">
-                    <span class="py-2">{{ $link['name'] }}</span>
+                    <span class="py-2 pr-3">{{ $link['name'] }}</span>
 
-                    <div class="flex justify-center items-center -my-px w-11 h-full group-hover:bg-transparent bg-theme-primary-100 transition-default">
+                    <div class="flex justify-center items-center -my-px w-8 h-full group-hover:bg-transparent bg-theme-primary-100 transition-default">
                         <x-ark-icon name="arrows.chevron-right" size="sm" />
                     </div>
                 </div>
