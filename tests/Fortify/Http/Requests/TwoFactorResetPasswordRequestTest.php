@@ -12,7 +12,7 @@ use Laravel\Fortify\Contracts\FailedTwoFactorLoginResponse;
 use function Tests\createUserModel;
 
 it('validates the request token', function () {
-    $user = createUserModel();
+    $user  = createUserModel();
     $token = 'abcd';
 
     $this->mock(PasswordBroker::class)

@@ -20,7 +20,7 @@ it('should render twitter embeds', function () {
     ]);
 
     $mediaUrl = new MediaUrl('twitter', 'arkecosystem/status/1234');
-    $subject = new TwitterRenderer();
+    $subject  = new TwitterRenderer();
 
     expect($subject->render($mediaUrl))->toBe('<blockquote>...</blockquote>');
 });
@@ -30,7 +30,7 @@ it('gets the response from the cache if set', function () {
     Cache::set(md5('https://twitter.com/'.$id), '<blockquote>cached</blockquote>');
 
     $mediaUrl = new MediaUrl('twitter', 'arkecosystem/status/1234');
-    $subject = new TwitterRenderer();
+    $subject  = new TwitterRenderer();
 
     expect($subject->render($mediaUrl))->toBe('<blockquote>cached</blockquote>');
 });
@@ -66,7 +66,7 @@ it('returns an empty string if twitter server is down', function () {
 });
 
 it('caches the response for 5 minutes if server is down', function () {
-    $id = 'arkecosystem/status/1234';
+    $id       = 'arkecosystem/status/1234';
     $cacheKey = md5('https://twitter.com/'.$id);
 
     Cache::shouldReceive('rememberForever')
