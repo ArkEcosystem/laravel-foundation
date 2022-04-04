@@ -62,7 +62,10 @@ const Modal = {
         }
 
         if (settings.focusFirstField) {
-            scrollable.querySelector("input[type=text]").focus();
+            const textInput = scrollable.querySelector("input[type=text]");
+            if (textInput) {
+                scrollable.querySelector("input[type=text]").focus();
+            }
         }
 
         if (settings.enterKeySubmit) {
