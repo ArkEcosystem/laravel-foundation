@@ -101,6 +101,10 @@ class UserInterfaceServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->publishes([
+            __DIR__.'/../../config/tracking.php' => config_path('tracking.php'),
+        ], 'config');
+
+        $this->publishes([
             __DIR__.'/../../config/share.php' => config_path('share.php'),
         ], 'share');
 
