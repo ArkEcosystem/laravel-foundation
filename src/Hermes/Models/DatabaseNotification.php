@@ -97,10 +97,10 @@ abstract class DatabaseNotification extends BaseNotification
         // info from the data and move it to the proper columns before storing the
         // model in the database.
         static::creating(function (self $notification) {
-            $data = Arr::get($notification, 'data');
-            $notification->relatable_id = Arr::get($data, 'relatable_id');
-            $notification->relatable_type = Arr::get($data, 'relatable_type');
-            $notification->relatable_logo_id = Arr::get($data, 'relatable_logo_id');
+            $data                              = Arr::get($notification, 'data');
+            $notification->relatable_id        = Arr::get($data, 'relatable_id');
+            $notification->relatable_type      = Arr::get($data, 'relatable_type');
+            $notification->relatable_logo_id   = Arr::get($data, 'relatable_logo_id');
             $notification->relatable_logo_type = Arr::get($data, 'relatable_logo_type');
             unset($data['relatable_type'], $data['relatable_id'], $data['relatable_logo_type'], $data['relatable_logo_id']);
 

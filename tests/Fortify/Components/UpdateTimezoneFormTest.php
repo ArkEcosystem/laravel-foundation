@@ -69,14 +69,14 @@ it('should assert that the currentTimezone property is set to UTC by default and
 });
 
 it('can format a timezone', function () {
-    $firstTimezone = 'America/Rainy_River';
+    $firstTimezone          = 'America/Rainy_River';
     $firstFormattedTimezone = str_replace('_', ' ', $firstTimezone);
 
     $this->assertStringMatchesFormat('%s_%s', $firstTimezone);
     $this->assertStringMatchesFormat('%s %s', $firstFormattedTimezone);
     $this->assertSame('America/Rainy River', $firstFormattedTimezone);
 
-    $secondTimezone = 'America/North_Dakota/New_Salem';
+    $secondTimezone          = 'America/North_Dakota/New_Salem';
     $secondFormattedTimezone = str_replace('_', ' ', $secondTimezone);
 
     $this->assertStringMatchesFormat('%s_%s', $secondTimezone);
