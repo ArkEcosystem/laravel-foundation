@@ -1,0 +1,13 @@
+.theme-navy {
+    --theme-color-primary-rgb: 67, 129, 192;
+    --theme-color-primary-50: #f2f6fa;
+    --theme-color-primary-100: #e6eff9;
+    --theme-color-primary-200: #b6d7f8;
+    --theme-color-primary-300: #8ac0f6;
+    --theme-color-primary-400: #5ca4ec;
+    --theme-color-primary-500: #4381c0;
+    --theme-color-primary-600: #235b95;
+    --theme-color-primary-700: #154a82;
+    --theme-color-primary-800: #073769;
+    --theme-color-primary-900: #062a50;
+}
