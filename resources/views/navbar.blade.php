@@ -15,6 +15,18 @@
         'lg' => 'lg:block',
         'xl' => 'xl:block',
     ][$breakpoint ?? 'md'];
+
+    $inverted = ($inverted ?? false);
+
+    $separatorBorderClass = match ($inverted) {
+        true => 'border-theme-primary-700 ',
+        false => 'border-theme-secondary-300 dark:border-theme-secondary-800 ',
+    };
+
+    $wrapperClass = match ($inverted) {
+        true => 'bg-theme-primary-600 border-theme-primary-700',
+        false => 'bg-white border-theme-secondary-300 dark:bg-theme-secondary-900 dark:border-theme-secondary-800',
+    };
 @endphp
 
 <header
@@ -39,7 +51,7 @@
     <nav
         aria-label="{{ trans('ui::general.primary_navigation') }}"
         x-ref="nav"
-        class="fixed top-0 z-30 w-full bg-white border-b border-theme-secondary-300 dark:bg-theme-secondary-900 dark:border-theme-secondary-800"
+        class="fixed top-0 z-30 w-full border-b {!! $wrapperClass !!}"
         dusk="navigation-bar"
     >
         <div class="relative z-10 navbar-container border-theme-secondary-300">
@@ -60,7 +72,8 @@
                     </div>
 
                     @if(! isset($noSeparator))
-                        <span class="{{ $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 border-theme-secondary-300 dark:border-theme-secondary-800 ' . $separatorBreakpointClass }}"></span>
+
+                        <span class="{{ $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 '.$separatorBorderClass.$separatorBreakpointClass }}"></span>
                     @endif
 
                     <div class="flex inset-y-0 right-0 items-center">
