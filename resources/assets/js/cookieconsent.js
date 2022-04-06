@@ -1665,11 +1665,15 @@
 
                 // Backwards compatibility
                 if (saved_cookie_content["levels"] !== undefined) {
-                    saved_cookie_content["categories"] = saved_cookie_content["levels"];
+                    saved_cookie_content["categories"] =
+                        saved_cookie_content["levels"];
                     delete saved_cookie_content["levels"];
 
                     // Delete outdated cookies
-                    _eraseCookies([_config.cookie_name], "/", [_config.cookie_domain, "."+_config.cookie_domain]);
+                    _eraseCookies([_config.cookie_name], "/", [
+                        _config.cookie_domain,
+                        "." + _config.cookie_domain,
+                    ]);
 
                     // Re-save it so it's updated to the new categories approach
                     _setCookie(
