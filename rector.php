@@ -96,7 +96,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(\Rector\Php80\Rector\Switch_\ChangeSwitchToMatchRector::class);
     $services->set(\Rector\DeadCode\Rector\StaticCall\RemoveParentCallWithoutParentRector::class);
     $services->set(\Rector\Php80\Rector\ClassMethod\FinalPrivateToPrivateVisibilityRector::class);
-    $services->set(\Rector\Php80\Rector\ClassMethod\OptionalParametersAfterRequiredRector::class);
+    $services->set(\Rector\CodeQuality\Rector\ClassMethod\OptionalParametersAfterRequiredRector::class);
     $services->set(\Rector\Php80\Rector\FuncCall\Php8ResourceReturnToObjectRector::class);
 
     // php8.1
