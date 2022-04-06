@@ -1,5 +1,6 @@
 @props([
     'breakpoint' => 'md',
+    'inverted' => false,
 ])
 
 @php
@@ -13,7 +14,7 @@
 @endphp
 
 <div class="flex items-center {{ $breakpointClass }}">
-    <button @click="open = !open" class="inline-flex relative justify-center items-center p-2 rounded-md transition duration-150 ease-in-out text-theme-secondary-900">
+    <button @click="open = !open" class="inline-flex relative justify-center items-center p-2 rounded-md transition duration-150 ease-in-out {{ $inverted ? 'text-theme-primary-100 hover:bg-theme-primary-400' : 'text-theme-secondary-900' }} ">
         <span :class="{ 'hidden': open, 'inline-flex': !open }">
             <x-ark-icon name="menu" size="sm" />
         </span>
@@ -23,5 +24,5 @@
         </span>
     </button>
 
-    <span class="block pr-7 ml-7 h-7 border-l border-theme-secondary-300 dark:border-theme-secondary-800"></span>
+    <span class="block pr-7 ml-7 h-7 border-l {{ $inverted ? 'border-theme-primary-700' : 'border-theme-secondary-300 dark:border-theme-secondary-800' }}"></span>
 </div>
