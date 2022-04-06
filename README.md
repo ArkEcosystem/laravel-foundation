@@ -24,6 +24,7 @@ Require with composer: `composer require arkecosystem/foundation`
 ## Usage
 
 - [CommonMark](/usage/commonmark.md)
+- [Documentation](/usage/documentation.md)
 - [Fortify](/usage/fortify.md)
 - [Hermes](/usage/hermes.md)
 - [Stan](/usage/stan.md)
@@ -95,9 +96,9 @@ Don't forget to remove the symlinking after you're done.
 
 ### Turn those steps into scripts
 
-> **_Keep in mind_**:  
-> 
-> these scripts are written for Mac users. If you use another OS you may need to tweak them accordingly.  
+> **_Keep in mind_**:
+>
+> these scripts are written for Mac users. If you use another OS you may need to tweak them accordingly.
 >
 > `unlink:foundation` uses `git` commands to restore the current project.
 
@@ -107,9 +108,9 @@ $ link:foundation
 $ unlink:foundation
 ```
 
-You can copy/paste them in your `.bashrc`, `.aliases` or whatever file you set up to manage your aliases.   
+You can copy/paste them in your `.bashrc`, `.aliases` or whatever file you set up to manage your aliases.
 
-Before jumping into the code, let me explain what you can do with them ([skip to code](/#code)). 
+Before jumping into the code, let me explain what you can do with them ([skip to code](/#code)).
 
 For these examples we use `marketsquare.io` and `laravel-foundation` repos, assuming that both are installed in the same folder (`/Users/my-user/projects`) on our local development machine.
 
@@ -122,12 +123,12 @@ $ cd /Users/my-user/projects/marketsquare.io
 $ link:foundation
 ```
 
-That's it!  
+That's it!
 
 The script automatically tries to guess where the `laravel-foundation` repo is located and symlinks the current project to it (in this case `marketsquare.io`).
 
-If the current project and `laravel-foundation` repos are not in the same folder, the script tries to move one level back (`../../`) and tries again. 
-If `laravel-foundation` is not found, the script exits and outputs an error message. 
+If the current project and `laravel-foundation` repos are not in the same folder, the script tries to move one level back (`../../`) and tries again.
+If `laravel-foundation` is not found, the script exits and outputs an error message.
 
 You can always specify a custom path, by passing it as an argument
 ```bash
@@ -143,13 +144,13 @@ $ cd /Users/my-user/projects/marketsquare.io
 $ unlink:foundation
 ```
 
-Again, that's it! 
+Again, that's it!
 
 The script looks for `.symlink_foundation` temp file (created by `link:foundation`), that contains the symlinked path.
 If not found, it tries to guess where the `laravel-foundation` repo is located and removes the symlink from the current project (in this case `marketsquare.io`).
 
-If the current project and `laravel-foundation` repos are not in the same folder, the script tries to move one level back (`../../`) and tries again. 
-If `laravel-foundation` is not found, the script exits and outputs an error message. 
+If the current project and `laravel-foundation` repos are not in the same folder, the script tries to move one level back (`../../`) and tries again.
+If `laravel-foundation` is not found, the script exits and outputs an error message.
 
 You can always specify a custom path, by passing it as an argument
 ```bash
@@ -161,7 +162,7 @@ Scripts are self-explanatory, plus they have comments on each line 😉.
 
 ```bash
 function link:foundation() {
-  
+
     # Check if already symlinked
     [ -f .symlink_foundation ] && { echo "already symlinked"; return; }
 
@@ -200,7 +201,7 @@ function link:foundation() {
 }
 
 function unlink:foundation() {
-  
+
     # Get path from .symlink_foundation file or from args or guess it
     if [ -f .symlink_foundation ]; then
         FOUNDATION=$(cat .symlink_foundation)

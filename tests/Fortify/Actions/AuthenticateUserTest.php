@@ -20,7 +20,7 @@ it('login the user by default username (email)', function () {
     ]);
 
     $authenticator = new AuthenticateUser($request);
-    $loggedUser = $authenticator->handle();
+    $loggedUser    = $authenticator->handle();
 
     $this->assertNotNull($loggedUser);
     $this->assertTrue($user->is($loggedUser));
@@ -40,7 +40,7 @@ it('login the user with case insensitive email', function () {
     ]);
 
     $authenticator = new AuthenticateUser($request);
-    $loggedUser = $authenticator->handle();
+    $loggedUser    = $authenticator->handle();
 
     $this->assertNotNull($loggedUser);
     $this->assertTrue($user->is($loggedUser));
@@ -61,7 +61,7 @@ it('login the user by the email when alt username is set', function () {
     ]);
 
     $authenticator = new AuthenticateUser($request);
-    $loggedUser = $authenticator->handle();
+    $loggedUser    = $authenticator->handle();
 
     $this->assertNotNull($loggedUser);
     $this->assertTrue($user->is($loggedUser));
@@ -82,7 +82,7 @@ it('login the user by the alt username (username)', function () {
     ]);
 
     $authenticator = new AuthenticateUser($request);
-    $loggedUser = $authenticator->handle();
+    $loggedUser    = $authenticator->handle();
 
     $this->assertNotNull($loggedUser);
     $this->assertTrue($user->is($loggedUser));
@@ -103,7 +103,7 @@ it('login the user with case insensitive alt username', function () {
     ]);
 
     $authenticator = new AuthenticateUser($request);
-    $loggedUser = $authenticator->handle();
+    $loggedUser    = $authenticator->handle();
 
     $this->assertNotNull($loggedUser);
     $this->assertTrue($user->is($loggedUser));
@@ -124,7 +124,7 @@ it('doesnt login the user by the alt username if not set (username)', function (
     ]);
 
     $authenticator = new AuthenticateUser($request);
-    $loggedUser = $authenticator->handle();
+    $loggedUser    = $authenticator->handle();
 
     $this->assertNull($loggedUser);
     $this->assertFalse($request->filled('remember'));
@@ -143,7 +143,7 @@ it('doesnt login the user if password is incorrect', function () {
     ]);
 
     $authenticator = new AuthenticateUser($request);
-    $loggedUser = $authenticator->handle();
+    $loggedUser    = $authenticator->handle();
 
     $this->assertNull($loggedUser);
 });
@@ -165,7 +165,7 @@ it('should handle the remember me checkbox', function () {
     ]);
 
     $authenticator = new AuthenticateUser($request);
-    $loggedUser = $authenticator->handle();
+    $loggedUser    = $authenticator->handle();
 
     $this->assertNotNull($loggedUser);
     $this->assertTrue($user->is($loggedUser));

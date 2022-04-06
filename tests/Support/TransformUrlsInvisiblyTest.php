@@ -5,14 +5,14 @@ declare(strict_types=1);
 use ARKEcosystem\Foundation\Support\TransformDotsInUrlsInvisibly;
 
 it('will not change the value when no url is detected', function () {
-    $value = 'This is a normal string.';
+    $value    = 'This is a normal string.';
     $newValue = (new TransformDotsInUrlsInvisibly($value))->getString();
 
     expect($newValue)->toBe($value);
 });
 
 it('will change the url when a url is detected', function () {
-    $value = 'Your invitation for test.com has been created.';
+    $value    = 'Your invitation for test.com has been created.';
     $newValue = (new TransformDotsInUrlsInvisibly($value))->getString();
 
     expect($newValue)->toBe('Your invitation for test<span style="display: none;">.</span>.com has been created.');

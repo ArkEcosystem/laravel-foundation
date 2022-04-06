@@ -44,7 +44,7 @@ final class FileViewFinder extends Finder
         $regex = Regex::match('/\d.\d/', $name);
 
         return array_map(function ($extension) use ($path, $name, $regex) : string {
-            $number = $regex->result();
+            $number            = $regex->result();
             $nameWithoutNumber = rtrim(explode($number, $name)[0], '.');
 
             $file =  str_replace('.', '/', $nameWithoutNumber).'/'.$number.'.'.$extension;

@@ -21,7 +21,7 @@ class HasLocalizedTimestampsTest implements HasMedia
 
 it('can access created at with timezone with guest user', function () {
     Config::set('app.timezone', 'Africa/Brazzaville');
-    $subject = $this->getMockForTrait(HasLocalizedTimestamps::class, [], '', true, true, true, ['getFirstMediaUrl']);
+    $subject             = $this->getMockForTrait(HasLocalizedTimestamps::class, [], '', true, true, true, ['getFirstMediaUrl']);
     $subject->created_at = Carbon::parse('2021-01-26T19:00:00-0000');
 
     $value = $subject->getCreatedAtLocalAttribute();
@@ -32,11 +32,11 @@ it('can access created at with timezone with guest user', function () {
 });
 
 it('can access created at with timezone with authenticated user', function () {
-    $user = MediaUser::fake();
+    $user           = MediaUser::fake();
     $user->timezone = 'America/Argentina/Buenos_Aires';
     $this->actingAs($user);
 
-    $subject = $this->getMockForTrait(HasLocalizedTimestamps::class, [], '', true, true, true, ['getFirstMediaUrl']);
+    $subject             = $this->getMockForTrait(HasLocalizedTimestamps::class, [], '', true, true, true, ['getFirstMediaUrl']);
     $subject->created_at = Carbon::parse('2021-01-26T19:00:00-0000');
 
     $value = $subject->getCreatedAtLocalAttribute();
@@ -48,7 +48,7 @@ it('can access created at with timezone with authenticated user', function () {
 
 it('can access updated at with timezone with guest user', function () {
     Config::set('app.timezone', 'Africa/Brazzaville');
-    $subject = $this->getMockForTrait(HasLocalizedTimestamps::class, [], '', true, true, true, ['getFirstMediaUrl']);
+    $subject             = $this->getMockForTrait(HasLocalizedTimestamps::class, [], '', true, true, true, ['getFirstMediaUrl']);
     $subject->updated_at = Carbon::parse('2021-01-26T19:00:00-0000');
 
     $value = $subject->getUpdatedAtLocalAttribute();
@@ -59,11 +59,11 @@ it('can access updated at with timezone with guest user', function () {
 });
 
 it('can access updated at with timezone with authenticated user', function () {
-    $user = MediaUser::fake();
+    $user           = MediaUser::fake();
     $user->timezone = 'America/Argentina/Buenos_Aires';
     $this->actingAs($user);
 
-    $subject = $this->getMockForTrait(HasLocalizedTimestamps::class, [], '', true, true, true, ['getFirstMediaUrl']);
+    $subject             = $this->getMockForTrait(HasLocalizedTimestamps::class, [], '', true, true, true, ['getFirstMediaUrl']);
     $subject->updated_at = Carbon::parse('2021-01-26T19:00:00-0000');
 
     $value = $subject->getUpdatedAtLocalAttribute();
