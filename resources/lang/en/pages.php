@@ -75,4 +75,16 @@ return [
         'browser'        => 'Browser',
         'last_active'    => 'Last Active',
     ],
+
+    'docs' => [
+        'documentation'       => 'Documentation',
+        'documentation_quick' => 'SDK Quick Access',
+        'faq' => [
+            'title'              => 'FAQ',
+            'wallet'             => 'Wallet',
+            'sdk'                => 'SDK',
+            'no_results'         => 'There are no <strong>:0</strong> FAQ articles to be displayed.',
+            'full_documentation' => 'View Full Documentation',
+        ],
+    ],
 ];

@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Documentation;
 
-use ARKEcosystem\Foundation\UserInterface\Support\Share;
 use Closure;
+use ARKEcosystem\Foundation\Documentation\Concerns\CanBeShared;
+use ARKEcosystem\Foundation\CommonMark\Facades\Markdown;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -16,9 +17,32 @@ use PHPHtmlParser\Dom;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Sushi\Sushi;
 
+/**
+ * @property string $slug
+ * @property string $category
+ * @property string $body
+ * @property string $name
+ * @property string $type
+ * @property int|null $faq_index
+ * @property string|null $faq_title
+ * @property string|null $faq_description
+ */
 class Document extends Model
 {
+    use CanBeShared;
     use Sushi;
+
+    /**
+     * @var int
+     */
+    public const LIMIT = 256;
+
+    /**
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'faq_index' => 'integer',
+    ];
 
     public static function docsCategories(): array
     {
@@ -91,6 +115,27 @@ class Document extends Model
         );
     }
 
+    public function scopeFaq(Builder $query): Builder
+    {
+        /* @phpstan-ignore-next-line | dynamic call to static method `whereNotNull` */
+        return $query->whereNotNull('faq_index');
+    }
+
+    public function faqId(): int | null
+    {
+        return $this->faq_index;
+    }
+
+    public function faqTitle(): string
+    {
+        return $this->faq_title ?? $this->name;
+    }
+
+    public function faqDescription(): string
+    {
+        return $this->faq_description ?? $this->excerpt();
+    }
+
     public function nameWithHighlight(string $term): string
     {
         return $this->attributeWithHighlight($this->name, $term);
@@ -101,27 +146,22 @@ class Document extends Model
         return $this->attributeWithHighlight($this->body, $term);
     }
 
+    public function excerpt(int $limit = self::LIMIT): string
+    {
+        return $this->attributeExcerpt($this->body, $limit);
+    }
+
     public function getRows()
     {
-        return Cache::rememberForever('documents.all', fn () => array_merge(
-            $this->getDocumentsFromDisk('docs'),
-            $this->getDocumentsFromDisk('tutorials'),
-        ));
-    }
+        return Cache::rememberForever('documents.all', function () {
+            $documents = $this->getDocumentsFromDisk('docs');
 
-    public function urlFacebook(): string
-    {
-        return Share::facebook($this->url());
-    }
+            if (! config('filesystems.disks.tutorials')) {
+                return $documents;
+            }
 
-    public function urlReddit(): string
-    {
-        return Share::reddit($this->url());
-    }
-
-    public function urlTwitter(): string
-    {
-        return Share::twitter($this->url());
+            return array_merge($documents, $this->getDocumentsFromDisk('tutorials'));
+        });
     }
 
     private function getDocumentsFromDisk(string $type): array
@@ -139,14 +179,17 @@ class Document extends Model
             $slug    = $file === 'index.blade.php' ? 'index' : Str::replaceFirst('.md.blade.php', '', $file);
 
             $documents[] = [
-                'id'         => md5($file),
-                'type'       => $type,
-                'category'   => explode('/', $file)[0],
-                'name'       => $content->matter('title'),
-                'number'     => $content->matter('number'),
-                'slug'       => $slug,
-                'body'       => $body,
-                'updated_at' => DeriveGitCommitDate::execute($storage->path($file)),
+                'id'              => md5($file),
+                'faq_index'       => $content->matter('faq_index'),
+                'faq_title'       => $content->matter('faq_title'),
+                'faq_description' => $content->matter('faq_description'),
+                'type'            => $type,
+                'category'        => explode('/', $file)[0],
+                'name'            => $content->matter('title'),
+                'number'          => $content->matter('number'),
+                'slug'            => $slug,
+                'body'            => $body,
+                'updated_at'      => DeriveGitCommitDate::execute($storage->path($file)),
             ];
         }
 
@@ -214,5 +257,27 @@ class Document extends Model
         $value = preg_replace("/\b([a-z]*${term}[a-z]*)\b/i", '<span class="bg-theme-warning-100">$1</span>', $value);
 
         return $value;
+    }
+
+    private function attributeExcerpt(string $value, int $limit = self::LIMIT): string
+    {
+        // Get HTML
+        $value = $this->attributeHtmlContent($value);
+        // Remove HTML tags
+        $value = strip_tags(htmlspecialchars_decode($value));
+        // Remove new lines
+        $value = (string) preg_replace("#(^[\r\n]*|[\r\n]+)[\\s\t]*[\r\n]+#", '', $value);
+        // Limit length
+        return Str::limit($value, $limit);
+    }
+
+    private function attributeHtmlContent(string $value): string
+    {
+        // Remove spaces
+        $value = trim($value);
+        // Remove FrontMatter
+        $value = YamlFrontMatter::parse($value)->body();
+        // Convert to HTML
+        return (string) Markdown::convertToHtml($value);
     }
 }

@@ -350,3 +350,53 @@ main .documentation-content .heading-permalink:hover {
 .documentation-content dl dd {
     @apply pb-6;
 }
+
+/* Expandable Quick Access */
+[data-expandable].expandable-quick-access {
+    @apply mt-5 w-full grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6;
+}
+
+[data-expandable].expandable-quick-access [data-item] > *,
+[data-expandable].expandable-quick-access [data-expanded],
+[data-expandable].expandable-quick-access [data-collapsed] {
+    @apply py-6 flex flex-col items-center justify-center;
+}
+[data-expandable].expandable-quick-access [data-item] > *,
+[data-expandable].expandable-quick-access [data-trigger] {
+    @apply font-semibold text-theme-secondary-900 hover:text-white bg-white hover:bg-theme-primary-700 rounded-xl transition-default;
+}
+[data-expandable].expandable-quick-access [data-item] > *.coming-soon {
+    @apply border border-theme-secondary-300 text-theme-secondary-500 bg-transparent cursor-default;
+}
+[data-expandable].expandable-quick-access [data-trigger] {
+    @apply h-36 text-theme-primary-600;
+}
+
+/* Show 4 items + trigger button */
+[data-expandable].expandable-quick-access [data-item]:nth-child(n + 5) {
+    display: none;
+}
+
+@screen sm {
+    /* Reset items */
+    [data-expandable].expandable-quick-access [data-item]:nth-child(n + 1) {
+        display: inherit;
+    }
+
+    /* Show 5 items + trigger button */
+    [data-expandable].expandable-quick-access [data-item]:nth-child(n + 6) {
+        display: none;
+    }
+}
+
+@screen md {
+    /* Show all items */
+    [data-expandable].expandable-quick-access [data-item]:nth-child(n + 1) {
+        display: inherit;
+    }
+
+    /* Hide trigger button */
+    [data-expandable].expandable-quick-access [data-trigger] {
+        display: none;
+    }
+}
