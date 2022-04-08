@@ -19,7 +19,7 @@
                             data-tippy-content="Coming soon"
                         @endif
                     >
-                        <span class="absolute top-3 right-3 py-px px-1 font-bold text-xs rounded text-white bg-theme-secondary-900">
+                        <span class="absolute top-3 right-3 py-px px-1 text-xs font-bold text-white rounded bg-theme-secondary-900">
                             {{ $documentation->ticker }}
                         </span>
 
@@ -37,7 +37,7 @@
             @endforeach
 
             <x-slot name="collapsed">
-                <span class="counter-after font-bold text-2xl">+</span>
+                <span class="text-2xl font-bold counter-after">+</span>
                 <span>@lang('actions.show_more')</span>
             </x-slot>
 
