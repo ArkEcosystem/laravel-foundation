@@ -6,37 +6,32 @@ namespace ARKEcosystem\Foundation\UserInterface\Support;
 
 final class Share
 {
-    public static function facebook(string $url, ?string $title = null): string
+    public static function facebook(?string $url = null, ?string $title = null): string
     {
-        $base = config('share.services.facebook.uri');
-
-        return self::buildLink($base, [
-            'u' => $url,
-        ]);
+        return static::shareUrl('facebook', $url, $title);
     }
 
-    public static function twitter(string $url, ?string $title = null): string
+    public static function twitter(?string $url = null, ?string $title = null): string
     {
-        $base = config('share.services.twitter.uri');
-
-        return self::buildLink($base, [
-            'text' => urlencode($title ?? config('share.services.twitter.text')),
-            'url'  => $url,
-        ]);
+        return static::shareUrl('twitter', $url, $title);
     }
 
-    public static function reddit(string $url, ?string $title = null): string
+    public static function reddit(?string $url = null, ?string $title = null): string
     {
-        $base = config('share.services.reddit.uri');
+        return static::shareUrl('reddit', $url, $title);
+    }
 
-        return self::buildLink($base, [
+    private static function shareUrl(string $service, ?string $url = null, ?string $title = null): string
+    {
+        if ($url === '') {
+            $url = Request::url();
+        }
+
+        $base = config('share.services.'.$service.'.uri');
+
+        return urldecode($base.'?'.http_build_query([
             'title' => urlencode($title ?? config('share.services.reddit.text')),
             'url'   => $url,
-        ]);
-    }
-
-    private static function buildLink(string $url, array $option): string
-    {
-        return urldecode($url.'?'.http_build_query($option));
+        ]));
     }
 }

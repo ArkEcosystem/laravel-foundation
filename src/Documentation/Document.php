@@ -71,11 +71,15 @@ class Document extends Model
 
     public function hasPrevious(): bool
     {
+        // @TODO: hack - fix it
+        return false;
         return ! empty($this->previous());
     }
 
     public function hasNext(): bool
     {
+        // @TODO: hack - fix it
+        return false;
         return ! empty($this->next());
     }
 

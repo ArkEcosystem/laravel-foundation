@@ -38,13 +38,13 @@
 
             <x-slot name="collapsed">
                 <span class="counter-after font-bold text-2xl">+</span>
-                <span>@lang('actions.show_more')</span>
+                <span>@lang('ui::actions.docs.show_more')</span>
             </x-slot>
 
-            {{-- <x-slot name="expanded">
-                <x-ark-icon name="hide" size="md" />
-                <span>@lang('actions.hide')</span>
-            </x-slot> --}}
+            <x-slot name="expanded">
+                <x-ark-icon name="eye-slash" size="md" />
+                <span>@lang('ui::actions.docs.hide')</span>
+            </x-slot>
         </x-ark-expandable>
     </div>
 </div>
