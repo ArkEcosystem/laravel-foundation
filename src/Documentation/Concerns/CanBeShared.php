@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\Documentation\Concerns;
 
 use ARKEcosystem\Foundation\UserInterface\Support\Share;
-use Illuminate\Support\Facades\Request;
 
 trait CanBeShared
 {

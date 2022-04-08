@@ -79,7 +79,7 @@ return [
     'docs' => [
         'documentation'       => 'Documentation',
         'documentation_quick' => 'SDK Quick Access',
-        'faq' => [
+        'faq'                 => [
             'title'              => 'FAQ',
             'wallet'             => 'Wallet',
             'sdk'                => 'SDK',

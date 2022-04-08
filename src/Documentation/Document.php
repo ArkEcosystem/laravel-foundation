@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Documentation;
 
-use Closure;
-use ARKEcosystem\Foundation\Documentation\Concerns\CanBeShared;
 use ARKEcosystem\Foundation\CommonMark\Facades\Markdown;
+use ARKEcosystem\Foundation\Documentation\Concerns\CanBeShared;
+use Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -73,6 +73,7 @@ class Document extends Model
     {
         // @TODO: hack - fix it
         return false;
+
         return ! empty($this->previous());
     }
 
@@ -80,6 +81,7 @@ class Document extends Model
     {
         // @TODO: hack - fix it
         return false;
+
         return ! empty($this->next());
     }
 
