@@ -4,8 +4,8 @@
 ])
 
 <div>
-    <div class="relative flex flex-col items-center w-full py-8 content-container">
-        <h2 class="md:absolute top-11 self-start header-2">
+    <div class="flex relative flex-col items-center py-8 w-full content-container">
+        <h2 class="top-11 self-start md:absolute header-2">
             {{ $title }}
         </h2>
 
@@ -16,7 +16,7 @@
             <x-slot name="tabsTrigger">
 
                 {{--mobile--}}
-                <div class="mt-3 relative md:hidden w-full">
+                <div class="relative mt-3 w-full md:hidden">
                     <x-ark-dropdown
                         :init-alpine="false"
                         dropdown-property="menuToggle"
@@ -66,7 +66,7 @@
                 </div>
 
                 {{--tablet/desktop--}}
-                <div class="hidden md:block w-min-content self-start md:self-end">
+                <div class="hidden self-start md:block md:self-end w-min-content">
                     <ul role="tablist" class="tabs">
                         <x-ark-tab selected-class="focus-visible:rounded" name="wallet">
                             @lang('ui::pages.docs.faq.wallet')

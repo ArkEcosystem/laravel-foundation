@@ -4,7 +4,7 @@
         we need to explicitly add role="list" to bring back
         list functionality for screen readers.
     --}}
-    <ul role="list" class="faq-entries grid gap-5 grid-cols-1 lg:grid-cols-3">
+    <ul role="list" class="grid grid-cols-1 gap-5 lg:grid-cols-3 faq-entries">
         @foreach($entries as $entry)
             <li>
                 <x-ark-docs-card
@@ -34,7 +34,7 @@
         @lang('ui::pages.docs.faq.full_documentation')
     </a>
 @else
-    <p class="p-6 w-full border border-theme-secondary-300 rounded-xl">
+    <p class="p-6 w-full rounded-xl border border-theme-secondary-300">
         @lang('ui::pages.docs.faq.no_results', [$category])
     </p>
 @endif
