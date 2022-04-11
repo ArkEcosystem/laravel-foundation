@@ -146,7 +146,9 @@ const Navbar = {
                     Math.round((1 - progress) * 100) / 100;
                 const borderColorRgb = this.dark
                     ? [60, 66, 73]
-                    : (this.inverted ? this.primary800 : [219, 222, 229]);
+                    : this.inverted
+                    ? this.primary800
+                    : [219, 222, 229];
                 const boxShadowRgb = this.dark ? [18, 18, 19] : [192, 200, 207];
                 this.nav.style.boxShadow = `0px 2px 10px 0px rgba(${boxShadowRgb.join(
                     ", "
@@ -168,14 +170,26 @@ const Navbar = {
                     this.primary600,
                     progress
                 );
-                this.$refs.button.addEventListener('mouseenter', () => {
-                    this.$refs.button.style.backgroundColor = computeRgbColorBetween(this.primary900, this.primary700, progress);
-                    this.$refs.button.style.color = 'rgb(255, 255, 255)';
-                })
-                this.$refs.button.addEventListener('mouseleave', () => {
-                    this.$refs.button.style.backgroundColor = computeRgbColorBetween(this.primary800, this.primary100, progress);
-                    this.$refs.button.style.color = computeRgbColorBetween(this.white, this.primary600, progress);
-                })
+                this.$refs.button.addEventListener("mouseenter", () => {
+                    this.$refs.button.style.backgroundColor = computeRgbColorBetween(
+                        this.primary900,
+                        this.primary700,
+                        progress
+                    );
+                    this.$refs.button.style.color = "rgb(255, 255, 255)";
+                });
+                this.$refs.button.addEventListener("mouseleave", () => {
+                    this.$refs.button.style.backgroundColor = computeRgbColorBetween(
+                        this.primary800,
+                        this.primary100,
+                        progress
+                    );
+                    this.$refs.button.style.color = computeRgbColorBetween(
+                        this.white,
+                        this.primary600,
+                        progress
+                    );
+                });
 
                 // Nav...
                 this.nav.style.backgroundColor = computeRgbColorBetween(
