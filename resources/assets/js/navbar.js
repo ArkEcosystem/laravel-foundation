@@ -53,10 +53,12 @@ const Navbar = {
             },
 
             getScrollProgress() {
-                const navbarHeight = 82;
-                return Math.min(
-                    1,
-                    document.documentElement.scrollTop / navbarHeight
+                const position = document.documentElement.scrollTop;
+                const offset = this.invertOnScroll ? 20 : 0;
+                const span = this.invertOnScroll ? 50 : 82;
+
+                return position < offset ? 0 : Math.min(
+                    1, (position - offset) / span
                 );
             },
 
