@@ -1,5 +1,9 @@
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { rgbFromCssProperty, rgbFromCssVariable, computeRgbColorBetween } from "./colors.js";
+import {
+    rgbFromCssProperty,
+    rgbFromCssVariable,
+    computeRgbColorBetween,
+} from "./colors.js";
 
 const onNavbarClosed = (navbar) => {
     enableBodyScroll(navbar);
@@ -64,17 +68,37 @@ const Navbar = {
                 // Register initial colors...
                 if (this.inverted) {
                     this.targetLogoColor = [...this.white];
-                    this.initialBorderColor = rgbFromCssProperty(nav, 'borderColor');
-                    this.initialBackgroundColor = rgbFromCssProperty(nav, 'backgroundColor');
-                    this.initialSeparatorColor = rgbFromCssVariable('--theme-color-primary-700');
-                    this.initialButtonBackgroundColor = rgbFromCssVariable('--theme-color-primary-800');
-                    this.secondary300 = rgbFromCssVariable('--theme-color-secondary-300');
-                    this.secondary700 = rgbFromCssVariable('--theme-color-secondary-700');
-                    this.secondary900 = rgbFromCssVariable('--theme-color-secondary-900');
-                    this.primary600 = rgbFromCssVariable('--theme-color-primary-600');
-                    this.primary100 = rgbFromCssVariable('--theme-color-primary-100');
+                    this.initialBorderColor = rgbFromCssProperty(
+                        nav,
+                        "borderColor"
+                    );
+                    this.initialBackgroundColor = rgbFromCssProperty(
+                        nav,
+                        "backgroundColor"
+                    );
+                    this.initialSeparatorColor = rgbFromCssVariable(
+                        "--theme-color-primary-700"
+                    );
+                    this.initialButtonBackgroundColor = rgbFromCssVariable(
+                        "--theme-color-primary-800"
+                    );
+                    this.secondary300 = rgbFromCssVariable(
+                        "--theme-color-secondary-300"
+                    );
+                    this.secondary700 = rgbFromCssVariable(
+                        "--theme-color-secondary-700"
+                    );
+                    this.secondary900 = rgbFromCssVariable(
+                        "--theme-color-secondary-900"
+                    );
+                    this.primary600 = rgbFromCssVariable(
+                        "--theme-color-primary-600"
+                    );
+                    this.primary100 = rgbFromCssVariable(
+                        "--theme-color-primary-100"
+                    );
 
-                    this.links = this.$el.querySelectorAll('[data-link]');
+                    this.links = this.$el.querySelectorAll("[data-link]");
                 }
 
                 window.onscroll = this.onScroll.bind(this);
@@ -123,26 +147,62 @@ const Navbar = {
 
             invertColorScheme(progress) {
                 // Button...
-                this.$refs.button.style.backgroundColor = computeRgbColorBetween(this.initialButtonBackgroundColor, this.primary100, progress)
-                this.$refs.button.style.color = computeRgbColorBetween(this.white, this.primary600, progress)
+                this.$refs.button.style.backgroundColor = computeRgbColorBetween(
+                    this.initialButtonBackgroundColor,
+                    this.primary100,
+                    progress
+                );
+                this.$refs.button.style.color = computeRgbColorBetween(
+                    this.white,
+                    this.primary600,
+                    progress
+                );
 
                 // Nav...
-                this.nav.style.backgroundColor = computeRgbColorBetween(this.initialBackgroundColor, this.white, progress)
-                this.nav.style.borderColor = computeRgbColorBetween(this.initialBorderColor, this.secondary300, progress)
+                this.nav.style.backgroundColor = computeRgbColorBetween(
+                    this.initialBackgroundColor,
+                    this.white,
+                    progress
+                );
+                this.nav.style.borderColor = computeRgbColorBetween(
+                    this.initialBorderColor,
+                    this.secondary300,
+                    progress
+                );
 
                 // Separator...
-                this.$refs.separator.style.borderColor = computeRgbColorBetween(this.initialSeparatorColor, this.secondary300, progress)
+                this.$refs.separator.style.borderColor = computeRgbColorBetween(
+                    this.initialSeparatorColor,
+                    this.secondary300,
+                    progress
+                );
 
                 // Logo...
-                this.$refs.logo.style.fill = computeRgbColorBetween(this.white, this.primary600, progress)
-                this.$refs.siteName.style.color = computeRgbColorBetween(this.white, this.secondary900, progress)
+                this.$refs.logo.style.fill = computeRgbColorBetween(
+                    this.white,
+                    this.primary600,
+                    progress
+                );
+                this.$refs.siteName.style.color = computeRgbColorBetween(
+                    this.white,
+                    this.secondary900,
+                    progress
+                );
 
                 // Navigation links...
-                this.links.forEach(link => {
-                    if (link.hasAttribute('data-active')) {
-                        link.style.color = computeRgbColorBetween(this.white, this.secondary900, progress)
+                this.links.forEach((link) => {
+                    if (link.hasAttribute("data-active")) {
+                        link.style.color = computeRgbColorBetween(
+                            this.white,
+                            this.secondary900,
+                            progress
+                        );
                     } else {
-                        link.style.color = computeRgbColorBetween(this.primary100, this.secondary700, progress)
+                        link.style.color = computeRgbColorBetween(
+                            this.primary100,
+                            this.secondary700,
+                            progress
+                        );
                     }
                 });
             },
