@@ -77,10 +77,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     // Restoration
     $services->set(\Rector\Restoration\Rector\Property\MakeTypedPropertyNullableIfCheckedRector::class);
 
+    // php5.5
+    $services->set(\Rector\Php55\Rector\FuncCall\GetCalledClassToStaticClassRector::class);
+
     // php7.4
     $services->set(\Rector\Php74\Rector\Property\TypedPropertyRector::class);
     $services->set(\Rector\Php74\Rector\FuncCall\ArrayKeyExistsOnPropertyRector::class);
-    $services->set(\Rector\Php74\Rector\FuncCall\GetCalledClassToStaticClassRector::class);
     $services->set(\Rector\Php74\Rector\Assign\NullCoalescingOperatorRector::class);
     $services->set(\Rector\Php74\Rector\Property\RestoreDefaultNullToNullableTypePropertyRector::class);
 
