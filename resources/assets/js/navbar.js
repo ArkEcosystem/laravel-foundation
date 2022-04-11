@@ -210,6 +210,12 @@ const Navbar = {
                     progress
                 );
 
+                this.$refs.hamburgerSeparator.style.borderColor = computeRgbColorBetween(
+                    this.primary700,
+                    this.secondary300,
+                    progress
+                );
+
                 // Logo...
                 this.$refs.logo.style.fill = computeRgbColorBetween(
                     this.white,
@@ -230,13 +236,45 @@ const Navbar = {
                             this.secondary900,
                             progress
                         );
+
+                        link.style.borderColor = `rgb(${this.primary600.join(',')})`;
+
+                        link.addEventListener('mouseenter', () => {
+                            link.style.color = computeRgbColorBetween(this.white, this.secondary900, progress);
+                        });
+
+                        link.addEventListener('mouseleave', () => {
+                            link.style.color = computeRgbColorBetween(this.primary100, this.secondary700, progress);
+                        });
                     } else {
                         link.style.color = computeRgbColorBetween(
                             this.primary100,
                             this.secondary700,
                             progress
                         );
+
+                        link.addEventListener('mouseenter', () => {
+                            link.style.borderColor = computeRgbColorBetween(this.primary400, this.secondary300, progress);
+                            link.style.color = computeRgbColorBetween(this.white, this.secondary900, progress);
+                        });
+                        link.addEventListener('mouseleave', () => {
+                            link.style.borderColor = 'transparent';
+                            link.style.color = computeRgbColorBetween(this.primary100, this.secondary700, progress);
+                        });
                     }
+                });
+
+                // Hamburger...
+                this.$refs.hamburger.style.color = computeRgbColorBetween(this.primary100, this.secondary900, progress);
+
+                this.$refs.hamburger.addEventListener('mouseenter', () => {
+                    this.$refs.hamburger.style.color = computeRgbColorBetween(this.white, this.primary700, progress);
+                    this.$refs.hamburger.style.backgroundColor = computeRgbColorBetween(this.primary400, this.primary100, progress);
+                });
+
+                this.$refs.hamburger.addEventListener('mouseleave', () => {
+                    this.$refs.hamburger.style.color = computeRgbColorBetween(this.primary100, this.secondary900, progress);
+                    this.$refs.hamburger.style.backgroundColor = 'transparent';
                 });
             },
 
