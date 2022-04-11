@@ -13,6 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.0",
+        "alexbarnsley/php-html-parser": "^3.2",
         "calebporzio/sushi": "^2.4",
         "danharrin/livewire-rate-limiting": "^0.3",
         "elgigi/commonmark-emoji": "^2.0",
@@ -39,7 +40,6 @@
         "nunomaduro/larastan": "^1.0",
         "nunomaduro/laravel-mojito": "^0.2",
         "orchestra/testbench": "^6.23",
-        "paquettg/php-html-parser": "^3.1",
         "pestphp/pest": "^1.21",
         "pestphp/pest-plugin-faker": "^1.0",
         "pestphp/pest-plugin-laravel": "^1.1",
