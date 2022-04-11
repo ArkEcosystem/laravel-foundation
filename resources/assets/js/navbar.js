@@ -265,7 +265,7 @@ const Navbar = {
 
                         link.addEventListener("mouseenter", () => {
                             link.style.borderColor = computeRgbColorBetween(
-                                this.primary400,
+                                this.primary600,
                                 this.secondary300,
                                 progress
                             );
