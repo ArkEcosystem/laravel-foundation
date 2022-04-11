@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Documentation;
 
-use ARKEcosystem\Foundation\UserInterface\Support\Share;
+use ARKEcosystem\Foundation\Documentation\Concerns\CanBeShared;
 use Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +18,7 @@ use Sushi\Sushi;
 
 class Document extends Model
 {
+    use CanBeShared;
     use Sushi;
 
     public static function docsCategories(): array
@@ -112,21 +113,6 @@ class Document extends Model
 
             return array_merge($documents, $this->getDocumentsFromDisk('tutorials'));
         });
-    }
-
-    public function urlFacebook(): string
-    {
-        return Share::facebook($this->url());
-    }
-
-    public function urlReddit(): string
-    {
-        return Share::reddit($this->url());
-    }
-
-    public function urlTwitter(): string
-    {
-        return Share::twitter($this->url());
     }
 
     private function getDocumentsFromDisk(string $type): array
