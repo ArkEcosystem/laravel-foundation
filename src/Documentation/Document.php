@@ -6,6 +6,7 @@ namespace ARKEcosystem\Foundation\Documentation;
 
 use ARKEcosystem\Foundation\Documentation\Concerns\CanBeShared;
 use Closure;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -150,16 +151,14 @@ class Document extends Model
         return Cache::rememberForever($cacheKey, function () use ($callback) {
             $storage = Storage::disk($this->type);
 
+            $path = 'index.md.blade.php';
             if ($storage->exists('/index.blade.php')) {
-                $content = $storage->get('/index.blade.php');
-            } else {
-                $content = $storage->get('/index.md.blade.php');
+                $path = 'index.blade.php';
             }
 
             $matches = [];
-
             $dom = new Dom();
-            $dom->loadStr(view(['template' => $content])->render());
+            $dom->loadStr(app(ViewFactory::class)->file($storage->path($path))->render());
 
             foreach ($dom->find('a') as $link) {
                 $matches[] = [
