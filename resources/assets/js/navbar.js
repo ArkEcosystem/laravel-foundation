@@ -1,4 +1,5 @@
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { rgbFromCssProperty, rgbFromCssVariable, computeRgbColorBetween } from "./colors.js";
 
 const onNavbarClosed = (navbar) => {
     enableBodyScroll(navbar);
@@ -63,15 +64,15 @@ const Navbar = {
                 // Register initial colors...
                 if (this.inverted) {
                     this.targetLogoColor = [...this.white];
-                    this.initialBorderColor = this.getColorValues(this.getElementStyle(nav, 'borderColor'));
-                    this.initialBackgroundColor = this.getColorValues(this.getElementStyle(nav, 'backgroundColor'));
-                    this.initialSeparatorColor = this.computeColor('--theme-color-primary-700');
-                    this.initialButtonBackgroundColor = this.computeColor('--theme-color-primary-800');
-                    this.secondary300 = this.computeColor('--theme-color-secondary-300');
-                    this.secondary700 = this.computeColor('--theme-color-secondary-700');
-                    this.secondary900 = this.computeColor('--theme-color-secondary-900');
-                    this.primary600 = this.computeColor('--theme-color-primary-600');
-                    this.primary100 = this.computeColor('--theme-color-primary-100');
+                    this.initialBorderColor = rgbFromCssProperty(nav, 'borderColor');
+                    this.initialBackgroundColor = rgbFromCssProperty(nav, 'backgroundColor');
+                    this.initialSeparatorColor = rgbFromCssVariable('--theme-color-primary-700');
+                    this.initialButtonBackgroundColor = rgbFromCssVariable('--theme-color-primary-800');
+                    this.secondary300 = rgbFromCssVariable('--theme-color-secondary-300');
+                    this.secondary700 = rgbFromCssVariable('--theme-color-secondary-700');
+                    this.secondary900 = rgbFromCssVariable('--theme-color-secondary-900');
+                    this.primary600 = rgbFromCssVariable('--theme-color-primary-600');
+                    this.primary100 = rgbFromCssVariable('--theme-color-primary-100');
 
                     this.links = this.$el.querySelectorAll('[data-link]');
                 }
@@ -112,78 +113,28 @@ const Navbar = {
                 this.nav.style.borderColor = `rgba(${borderColorRgb.join(", ")}, ${borderTransparency})`;
             },
 
-            getColorTransition(start, end, opacity) {
-                if (opacity === 0) {
-                    return `rgb(${[...start]})`
-                }
-
-                if (opacity === 1) {
-                    return `rgb(${[...end]})`
-                }
-
-                return `rgb(${[...end]
-                    .map((color, index) => {
-                        // lower RGB value + abs(difference * progress)
-
-                        const startingColor = Math.min(color, start[index]);
-                        let progressPercentage = opacity;
-
-                        if (color <= start[index]) {
-                            progressPercentage = 1 - progressPercentage;
-                        }
-
-                        const diff = color - start[index];
-
-                        return startingColor + Math.abs(diff * progressPercentage)
-                    })
-                    .map(Math.ceil)
-                    .join(',')})`;
-            },
-
-            getElementStyle: (element, property) => document.defaultView.getComputedStyle(element, null)[property],
-            computeColor(color) {
-                return this.hex2rgb(getComputedStyle(document.documentElement).getPropertyValue(color).replace('#', ''))
-            },
-            getColorValues: text => {
-                if (text.startsWith('rgb(')) {
-                    text = text.replace(/\)/, '')
-                    text = text.replace(/rgb\(/, '')
-                }
-
-                return text.split(', ').map(Number)
-            },
-            hex2rgb(hex) {
-                const bigint = parseInt(hex, 16);
-
-                return [
-                    (bigint >> 16) & 255,
-                    (bigint >> 8) & 255,
-                    bigint & 255,
-                ];
-            },
-
             invertColorScheme(progress) {
                 // Button...
-                this.$refs.button.style.backgroundColor = this.getColorTransition(this.initialButtonBackgroundColor, this.primary100, progress)
-                this.$refs.button.style.color = this.getColorTransition(this.white, this.primary600, progress)
+                this.$refs.button.style.backgroundColor = computeRgbColorBetween(this.initialButtonBackgroundColor, this.primary100, progress)
+                this.$refs.button.style.color = computeRgbColorBetween(this.white, this.primary600, progress)
 
                 // Nav...
-                this.nav.style.backgroundColor = this.getColorTransition(this.initialBackgroundColor, this.white, progress)
-                this.nav.style.borderColor = this.getColorTransition(this.initialBorderColor, this.secondary300, progress)
+                this.nav.style.backgroundColor = computeRgbColorBetween(this.initialBackgroundColor, this.white, progress)
+                this.nav.style.borderColor = computeRgbColorBetween(this.initialBorderColor, this.secondary300, progress)
 
                 // Separator...
-                this.$refs.separator.style.borderColor = this.getColorTransition(this.initialSeparatorColor, this.secondary300, progress)
+                this.$refs.separator.style.borderColor = computeRgbColorBetween(this.initialSeparatorColor, this.secondary300, progress)
 
                 // Logo...
-                this.$refs.logo.style.fill = this.getColorTransition(this.white, this.primary600, progress)
-                this.$refs.siteName.style.color = this.getColorTransition(this.white, this.secondary900, progress)
+                this.$refs.logo.style.fill = computeRgbColorBetween(this.white, this.primary600, progress)
+                this.$refs.siteName.style.color = computeRgbColorBetween(this.white, this.secondary900, progress)
 
                 // Navigation links...
                 this.links.forEach(link => {
                     if (link.hasAttribute('data-active')) {
-                        link.style.color = this.getColorTransition(this.white, this.secondary900, progress)
+                        link.style.color = computeRgbColorBetween(this.white, this.secondary900, progress)
                     } else {
-                        link.style.color = this.getColorTransition(this.primary100, this.secondary700, progress)
+                        link.style.color = computeRgbColorBetween(this.primary100, this.secondary700, progress)
                     }
                 });
             },
