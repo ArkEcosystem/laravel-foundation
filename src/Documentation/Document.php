@@ -103,10 +103,15 @@ class Document extends Model
 
     public function getRows()
     {
-        return Cache::rememberForever('documents.all', fn () => array_merge(
-            $this->getDocumentsFromDisk('docs'),
-            $this->getDocumentsFromDisk('tutorials'),
-        ));
+        return Cache::rememberForever('documents.all', function () {
+            $documents = $this->getDocumentsFromDisk('docs');
+
+            if (! config('filesystems.disks.tutorials')) {
+                return $documents;
+            }
+
+            return array_merge($documents, $this->getDocumentsFromDisk('tutorials'));
+        });
     }
 
     public function urlFacebook(): string
