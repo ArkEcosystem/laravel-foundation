@@ -51,9 +51,9 @@ const Navbar = {
 
             updateStyles(progress) {
                 if (this.inverted) {
-                    this.invertColorScheme(progress)
+                    this.invertColorScheme(progress);
                 } else {
-                    this.updateShadow(progress)
+                    this.updateShadow(progress);
                 }
             },
 
@@ -105,12 +105,20 @@ const Navbar = {
 
             updateShadow(progress) {
                 const maxTransparency = this.dark ? 0.6 : 0.22;
-                const shadowTransparency = Math.round(maxTransparency * progress * 100) / 100;
-                const borderTransparency = Math.round((1 - progress) * 100) / 100;
-                const borderColorRgb = this.dark ? [60, 66, 73] : [219, 222, 229];
+                const shadowTransparency =
+                    Math.round(maxTransparency * progress * 100) / 100;
+                const borderTransparency =
+                    Math.round((1 - progress) * 100) / 100;
+                const borderColorRgb = this.dark
+                    ? [60, 66, 73]
+                    : [219, 222, 229];
                 const boxShadowRgb = this.dark ? [18, 18, 19] : [192, 200, 207];
-                this.nav.style.boxShadow = `0px 2px 10px 0px rgba(${boxShadowRgb.join(", ")}, ${shadowTransparency})`;
-                this.nav.style.borderColor = `rgba(${borderColorRgb.join(", ")}, ${borderTransparency})`;
+                this.nav.style.boxShadow = `0px 2px 10px 0px rgba(${boxShadowRgb.join(
+                    ", "
+                )}, ${shadowTransparency})`;
+                this.nav.style.borderColor = `rgba(${borderColorRgb.join(
+                    ", "
+                )}, ${borderTransparency})`;
             },
 
             invertColorScheme(progress) {
