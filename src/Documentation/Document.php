@@ -132,7 +132,6 @@ class Document extends Model
             $documents[] = [
                 'id'         => md5($file),
                 'type'       => $type,
-                'category'   => explode('/', $file)[0],
                 'name'       => $content->matter('title'),
                 'number'     => $content->matter('number'),
                 'slug'       => $slug,
@@ -151,10 +150,10 @@ class Document extends Model
         return Cache::rememberForever($cacheKey, function () use ($callback) {
             $storage = Storage::disk($this->type);
 
-            if ($storage->exists($this->category.'/index.blade.php')) {
-                $content = $storage->get($this->category.'/index.blade.php');
+            if ($storage->exists('/index.blade.php')) {
+                $content = $storage->get('/index.blade.php');
             } else {
-                $content = $storage->get($this->category.'/index.md.blade.php');
+                $content = $storage->get('/index.md.blade.php');
             }
 
             $matches = [];
@@ -181,7 +180,6 @@ class Document extends Model
 
             return static::query()
                 ->where('type', $this->type)
-                ->where('category', $this->category)
                 ->where('slug', 'like', '%'.$matches[$callback($index)]['link'].'%')
                 ->first();
         });
