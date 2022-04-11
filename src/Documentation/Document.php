@@ -17,6 +17,9 @@ use PHPHtmlParser\Dom;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Sushi\Sushi;
 
+/**
+ * @property string $name
+ */
 class Document extends Model
 {
     use CanBeShared;
@@ -157,7 +160,7 @@ class Document extends Model
             }
 
             $matches = [];
-            $dom = new Dom();
+            $dom     = new Dom();
             $dom->loadStr(app(ViewFactory::class)->file($storage->path($path))->render());
 
             foreach ($dom->find('a') as $link) {
