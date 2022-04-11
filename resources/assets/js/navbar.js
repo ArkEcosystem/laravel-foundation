@@ -19,6 +19,7 @@ const Navbar = {
     dropdown(xData = {}) {
         return {
             inverted: false,
+            invertOnScroll: false,
             open: false,
             openDropdown: null,
             selectedChild: null,
@@ -32,7 +33,7 @@ const Navbar = {
             black: [0, 0, 0],
             initialBackgroundColor: null,
             initialBorderColor: null,
-            initialSeparatorColor: null,
+            primary700: null,
             secondary300: null, // text-theme-primary-700
             links: [],
 
@@ -54,7 +55,7 @@ const Navbar = {
             },
 
             updateStyles(progress) {
-                if (this.inverted) {
+                if (this.invertOnScroll) {
                     this.invertColorScheme(progress);
                 } else {
                     this.updateShadow(progress);
@@ -66,8 +67,7 @@ const Navbar = {
                 this.nav = nav;
 
                 // Register initial colors...
-                if (this.inverted) {
-                    this.targetLogoColor = [...this.white];
+                if (this.invertOnScroll) {
                     this.initialBorderColor = rgbFromCssProperty(
                         nav,
                         "borderColor"
@@ -76,12 +76,7 @@ const Navbar = {
                         nav,
                         "backgroundColor"
                     );
-                    this.initialSeparatorColor = rgbFromCssVariable(
-                        "--theme-color-primary-700"
-                    );
-                    this.initialButtonBackgroundColor = rgbFromCssVariable(
-                        "--theme-color-primary-800"
-                    );
+
                     this.secondary300 = rgbFromCssVariable(
                         "--theme-color-secondary-300"
                     );
@@ -91,11 +86,18 @@ const Navbar = {
                     this.secondary900 = rgbFromCssVariable(
                         "--theme-color-secondary-900"
                     );
+
+                    this.primary100 = rgbFromCssVariable(
+                        "--theme-color-primary-100"
+                    );
                     this.primary600 = rgbFromCssVariable(
                         "--theme-color-primary-600"
                     );
-                    this.primary100 = rgbFromCssVariable(
-                        "--theme-color-primary-100"
+                    this.primary700 = rgbFromCssVariable(
+                        "--theme-color-primary-700"
+                    );
+                    this.primary800 = rgbFromCssVariable(
+                        "--theme-color-primary-800"
                     );
 
                     this.links = this.$el.querySelectorAll("[data-link]");
@@ -135,7 +137,7 @@ const Navbar = {
                     Math.round((1 - progress) * 100) / 100;
                 const borderColorRgb = this.dark
                     ? [60, 66, 73]
-                    : [219, 222, 229];
+                    : (this.inverted ? this.primary800 : [219, 222, 229]);
                 const boxShadowRgb = this.dark ? [18, 18, 19] : [192, 200, 207];
                 this.nav.style.boxShadow = `0px 2px 10px 0px rgba(${boxShadowRgb.join(
                     ", "
@@ -148,7 +150,7 @@ const Navbar = {
             invertColorScheme(progress) {
                 // Button...
                 this.$refs.button.style.backgroundColor = computeRgbColorBetween(
-                    this.initialButtonBackgroundColor,
+                    this.primary800,
                     this.primary100,
                     progress
                 );
@@ -172,7 +174,7 @@ const Navbar = {
 
                 // Separator...
                 this.$refs.separator.style.borderColor = computeRgbColorBetween(
-                    this.initialSeparatorColor,
+                    this.primary700,
                     this.secondary300,
                     progress
                 );
