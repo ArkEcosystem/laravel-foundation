@@ -137,7 +137,9 @@ const Navbar = {
                     Math.round((1 - progress) * 100) / 100;
                 const borderColorRgb = this.dark
                     ? [60, 66, 73]
-                    : (this.inverted ? this.primary800 : [219, 222, 229]);
+                    : this.inverted
+                    ? this.primary800
+                    : [219, 222, 229];
                 const boxShadowRgb = this.dark ? [18, 18, 19] : [192, 200, 207];
                 this.nav.style.boxShadow = `0px 2px 10px 0px rgba(${boxShadowRgb.join(
                     ", "
