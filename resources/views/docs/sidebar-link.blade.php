@@ -82,8 +82,8 @@
                             <a
                                 href="{{ $child['path'] }}"
                                 @class([
-                                    'flex items-center text-xs font-semibold pl-5 py-3 rounded-r w-full'
-                                    'text-theme-primary-600 bg-theme-primary-100' => ,
+                                    'flex items-center text-xs font-semibold pl-5 py-3 rounded-r w-full',
+                                    'text-theme-primary-600 bg-theme-primary-100' => Request::onDocs($child['path']),
                                     'text-theme-secondary-900 hover:text-theme-primary-600' => ! Request::onDocs($child['path']),
                                 ])
                             >
