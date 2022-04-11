@@ -57,9 +57,9 @@ const Navbar = {
                 const offset = this.invertOnScroll ? 20 : 0;
                 const span = this.invertOnScroll ? 50 : 82;
 
-                return position < offset ? 0 : Math.min(
-                    1, (position - offset) / span
-                );
+                return position < offset
+                    ? 0
+                    : Math.min(1, (position - offset) / span);
             },
 
             updateStyles(progress) {
