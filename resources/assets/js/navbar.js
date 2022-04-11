@@ -33,8 +33,13 @@ const Navbar = {
             black: [0, 0, 0],
             initialBackgroundColor: null,
             initialBorderColor: null,
-            primary700: null,
-            secondary300: null, // text-theme-primary-700
+            primary100: null, // text-theme-primary-100
+            primary600: null, // text-theme-primary-600
+            primary700: null, // text-theme-primary-700
+            primary800: null, // text-theme-primary-800
+            secondary300: null, // text-theme-secondary-300
+            secondary700: null, // text-theme-secondary-700
+            secondary900: null, // text-theme-secondary-900
             links: [],
 
             onScroll() {
