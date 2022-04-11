@@ -222,8 +222,14 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::inputs.upload-image-collection', 'ark-upload-image-collection');
             $blade->component('ark::inputs.tags', 'ark-tags');
 
-            $blade->component('ark::pages.contact', 'ark-pages-contact');
+            $blade->component('ark::docs.edit-page', 'ark-docs-edit-page');
+            $blade->component('ark::docs.last-updated', 'ark-docs-last-updated');
+            $blade->component('ark::docs.navigation', 'ark-docs-navigation');
+            $blade->component('ark::docs.share-links', 'ark-docs-share-links');
+            $blade->component('ark::docs.sidebar-group', 'ark-docs-sidebar-group');
+            $blade->component('ark::docs.sidebar-link', 'ark-docs-sidebar-link');
 
+            $blade->component('ark::pages.contact', 'ark-pages-contact');
             $blade->component('ark::pages.includes.cookie-banner', 'ark-pages-includes-cookie-banner');
             $blade->component('ark::pages.includes.header', 'ark-pages-includes-header');
             $blade->component('ark::pages.includes.layout-body', 'ark-pages-includes-layout-body');
