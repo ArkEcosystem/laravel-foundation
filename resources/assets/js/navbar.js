@@ -26,6 +26,10 @@ const Navbar = {
             white: [255, 255, 255],
             black: [0, 0, 0],
             initialBackgroundColor: null,
+            initialBorderColor: null,
+            initialSeparatorColor: null,
+            secondary300: null, // text-theme-primary-700
+            links: [],
 
             onScroll() {
                 const progress = this.getScrollProgress();
@@ -45,10 +49,10 @@ const Navbar = {
             },
 
             updateStyles(progress) {
-                this.updateShadow(progress)
-
                 if (this.inverted) {
                     this.invertColorScheme(progress)
+                } else {
+                    this.updateShadow(progress)
                 }
             },
 
@@ -59,7 +63,17 @@ const Navbar = {
                 // Register initial colors...
                 if (this.inverted) {
                     this.targetLogoColor = [...this.white];
+                    this.initialBorderColor = this.getColorValues(this.getElementStyle(nav, 'borderColor'));
                     this.initialBackgroundColor = this.getColorValues(this.getElementStyle(nav, 'backgroundColor'));
+                    this.initialSeparatorColor = this.computeColor('--theme-color-primary-700');
+                    this.initialButtonBackgroundColor = this.computeColor('--theme-color-primary-800');
+                    this.secondary300 = this.computeColor('--theme-color-secondary-300');
+                    this.secondary700 = this.computeColor('--theme-color-secondary-700');
+                    this.secondary900 = this.computeColor('--theme-color-secondary-900');
+                    this.primary600 = this.computeColor('--theme-color-primary-600');
+                    this.primary100 = this.computeColor('--theme-color-primary-100');
+
+                    this.links = this.$el.querySelectorAll('[data-link]');
                 }
 
                 window.onscroll = this.onScroll.bind(this);
@@ -100,17 +114,30 @@ const Navbar = {
 
             getColorTransition(start, end, opacity) {
                 if (opacity === 0) {
-                    return [...start]
+                    return `rgb(${[...start]})`
                 }
 
                 if (opacity === 1) {
-                    return [...end]
+                    return `rgb(${[...end]})`
                 }
 
-                return [...end]
-                    .map((color, index) => (color > start[index] ? start[index] : color) + Math.abs((color - start[index]) * (color > start[index] ? opacity : (1-opacity))))
+                return `rgb(${[...end]
+                    .map((color, index) => {
+                        // lower RGB value + abs(difference * progress)
+
+                        const startingColor = Math.min(color, start[index]);
+                        let progressPercentage = opacity;
+
+                        if (color <= start[index]) {
+                            progressPercentage = 1 - progressPercentage;
+                        }
+
+                        const diff = color - start[index];
+
+                        return startingColor + Math.abs(diff * progressPercentage)
+                    })
                     .map(Math.ceil)
-                    .join(',');
+                    .join(',')})`;
             },
 
             getElementStyle: (element, property) => document.defaultView.getComputedStyle(element, null)[property],
@@ -136,10 +163,29 @@ const Navbar = {
             },
 
             invertColorScheme(progress) {
-                console.log(this.$refs.logo)
+                // Button...
+                this.$refs.button.style.backgroundColor = this.getColorTransition(this.initialButtonBackgroundColor, this.primary100, progress)
+                this.$refs.button.style.color = this.getColorTransition(this.white, this.primary600, progress)
 
-                this.nav.style.backgroundColor = `rgb(${this.getColorTransition(this.initialBackgroundColor, this.white, progress)})`
-                this.$refs.siteName.style.color = `rgb(${this.getColorTransition(this.white, this.computeColor('--theme-color-secondary-900'), progress)})`
+                // Nav...
+                this.nav.style.backgroundColor = this.getColorTransition(this.initialBackgroundColor, this.white, progress)
+                this.nav.style.borderColor = this.getColorTransition(this.initialBorderColor, this.secondary300, progress)
+
+                // Separator...
+                this.$refs.separator.style.borderColor = this.getColorTransition(this.initialSeparatorColor, this.secondary300, progress)
+
+                // Logo...
+                this.$refs.logo.style.fill = this.getColorTransition(this.white, this.primary600, progress)
+                this.$refs.siteName.style.color = this.getColorTransition(this.white, this.secondary900, progress)
+
+                // Navigation links...
+                this.links.forEach(link => {
+                    if (link.hasAttribute('data-active')) {
+                        link.style.color = this.getColorTransition(this.white, this.secondary900, progress)
+                    } else {
+                        link.style.color = this.getColorTransition(this.primary100, this.secondary700, progress)
+                    }
+                });
             },
 
             toggleDropdown(name) {

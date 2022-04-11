@@ -1,4 +1,5 @@
 @props([
+    'inverted',
     'breakpoint'           => 'md',
     'navigation'           => [],
     'navigationExtra'      => null,
@@ -96,12 +97,18 @@
                     @endif
                     @class([
                         'inline-flex items-center px-1 pt-px font-semibold leading-5 border-b-2 space-x-3 focus:outline-none transition duration-150 ease-in-out h-full',
-                        'border-theme-primary-600 text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute,
-                        'border-transparent text-theme-secondary-700 hover:text-theme-secondary-800 hover:border-theme-secondary-300 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400 focus-visible:rounded' => ! $isCurrentRoute,
+                        'border-theme-primary-600 text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && ! $inverted,
+                        'border-theme-primary-600 text-white hover:border-theme-primary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && $inverted,
+                        'border-transparent text-theme-secondary-700 hover:text-theme-secondary-800 hover:border-theme-secondary-300 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400 focus-visible:rounded' => ! $isCurrentRoute && ! $inverted,
+                        'border-transparent text-theme-primary-100 hover:text-white hover:border-theme-primary-400 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400 focus-visible:rounded' => ! $isCurrentRoute && $inverted,
                         'ml-8' => ! $loop->first
                     ])
                     @click="openDropdown = null;"
                     dusk='navbar-{{ Str::slug($navItem['label']) }}'
+                    data-link
+                    @if ($isCurrentRoute)
+                    data-active
+                    @endif
                 >
                     <span>{{ $navItem['label'] }}</span>
 

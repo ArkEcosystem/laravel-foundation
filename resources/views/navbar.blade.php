@@ -33,10 +33,15 @@
     @if(config('ui.dark-mode.enabled') === true)
         x-data="Navbar.dropdown({
             dark: window.getThemeMode() === 'dark',
+            inverted: @js($inverted),
         })"
+        x-init="init()"
         @theme-changed.window="dark = $event.detail.theme === 'dark'"
     @else
-        x-data="Navbar.dropdown()"
+        x-data="Navbar.dropdown({
+            inverted: @js($inverted),
+        })"
+        x-init="init()"
     @endif
 >
     <div
@@ -72,8 +77,10 @@
                     </div>
 
                     @if(! isset($noSeparator))
-
-                        <span class="{{ $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 '.$separatorBorderClass.$separatorBreakpointClass }}"></span>
+                        <span
+                            x-ref="separator"
+                            class="{{ $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 '.$separatorBorderClass.$separatorBreakpointClass }}"
+                        ></span>
                     @endif
 
                     <div class="flex inset-y-0 right-0 items-center">
