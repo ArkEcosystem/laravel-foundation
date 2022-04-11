@@ -1664,10 +1664,10 @@
                 );
 
                 // Backwards compatibility
-                if (saved_cookie_content["levels"] !== undefined) {
+                if (saved_cookie_content["level"] !== undefined) {
                     saved_cookie_content["categories"] =
-                        saved_cookie_content["levels"];
-                    delete saved_cookie_content["levels"];
+                        saved_cookie_content["level"];
+                    delete saved_cookie_content["level"];
 
                     // Delete outdated cookies
                     _eraseCookies([_config.cookie_name], "/", [
