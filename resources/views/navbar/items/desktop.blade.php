@@ -1,5 +1,5 @@
 @props([
-    'inverted',
+    'inverted'             => false,
     'breakpoint'           => 'md',
     'navigation'           => [],
     'navigationExtra'      => null,
