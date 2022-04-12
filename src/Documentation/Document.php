@@ -125,7 +125,7 @@ class Document extends Model
         $documents = [];
 
         foreach ($storage->allFiles() as $file) {
-            if (Str::endsWith($file, '.json')) {
+            if (! str_ends_with($file, '.php')) {
                 continue;
             }
 
