@@ -125,7 +125,7 @@ class Document extends Model
         $documents = [];
 
         foreach ($storage->allFiles() as $file) {
-            if (!str_ends_with($file, '.php')) {
+            if (! str_ends_with($file, '.php')) {
                 continue;
             }
 
