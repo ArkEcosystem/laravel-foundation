@@ -57,7 +57,7 @@
             </div>
 
             @if (count($contactNetworks) > 0)
-                <div class="space-y-3 text-theme-secondary-900 dark:text-theme-secondary-200 pt-8 border-t border-dashed border-theme-secondary-300 dark:border-theme-secondary-800">
+                <div class="pt-8 space-y-3 border-t border-dashed text-theme-secondary-900 border-theme-secondary-300 dark:text-theme-secondary-200 dark:border-theme-secondary-800">
                     <div class="font-bold">@lang('ui::pages.contact.social.subtitle')</div>
 
                     <div class="flex space-x-3 text-theme-primary-600">
