@@ -16,35 +16,27 @@
         'xl' => 'xl:block',
     ][$breakpoint ?? 'md'];
 
-    $inverted = ($inverted ?? false);
+    $inverted = $inverted ?? false;
 
-    $separatorBorderClass = match ($inverted) {
-        true => 'border-theme-primary-700 ',
+    $invertedSeparator = match ($inverted) {
+        true => 'border-theme-primary-700 inverted:border-theme-secondary-300 ',
         false => 'border-theme-secondary-300 dark:border-theme-secondary-800 ',
-    };
-
-    $wrapperClass = match ($inverted) {
-        true => 'bg-theme-primary-600 border-theme-primary-700',
-        false => 'bg-white border-theme-secondary-300 dark:bg-theme-secondary-900 dark:border-theme-secondary-800',
     };
 @endphp
 
 <header
     @if(config('ui.dark-mode.enabled') === true)
         x-data="Navbar.dropdown({
-            dark: window.getThemeMode() === 'dark',
             inverted: @js($inverted ?? false),
-            invertOnScroll: @js($invertOnScroll ?? false),
+            dark: window.getThemeMode() === 'dark',
         })"
-        x-init="init()"
         @theme-changed.window="dark = $event.detail.theme === 'dark'"
     @else
         x-data="Navbar.dropdown({
             inverted: @js($inverted ?? false),
-            invertOnScroll: @js($invertOnScroll ?? false),
         })"
-        x-init="init()"
     @endif
+    x-init="init()"
 >
     <div
         x-show="openDropdown !== null || open"
@@ -58,7 +50,7 @@
     <nav
         aria-label="{{ trans('ui::general.primary_navigation') }}"
         x-ref="nav"
-        class="fixed top-0 z-30 w-full border-b {!! $wrapperClass !!}"
+        class="fixed top-0 z-30 w-full {{ $inverted ? 'border-theme-primary-700 bg-theme-primary-600 inverted:bg-white inverted:border-theme-secondary-300' : 'bg-white border-theme-secondary-300' }} border-b dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400"
         dusk="navigation-bar"
     >
         <div class="relative z-10 navbar-container border-theme-secondary-300">
@@ -79,10 +71,7 @@
                     </div>
 
                     @if(! isset($noSeparator))
-                        <span
-                            x-ref="separator"
-                            class="{{ $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 '.$separatorBorderClass.$separatorBreakpointClass }}"
-                        ></span>
+                        <span class="{{ $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 transition duration-400 '.$invertedSeparator.$separatorBreakpointClass }}"></span>
                     @endif
 
                     <div class="flex inset-y-0 right-0 items-center">
