@@ -125,7 +125,7 @@ class Document extends Model
         $documents = [];
 
         foreach ($storage->allFiles() as $file) {
-            if (Str::endsWith($file, '.json')) {
+            if (! str_ends_with($file, '.php')) {
                 continue;
             }
 
@@ -182,7 +182,7 @@ class Document extends Model
 
             return static::query()
                 ->where('type', $this->type)
-                ->where('slug', 'like', '%'.$matches[$callback($index)]['link'].'%')
+                ->where('slug', $matches[$callback($index)]['link'])
                 ->first();
         });
     }
