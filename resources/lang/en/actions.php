@@ -55,4 +55,9 @@ return [
     'upload_file'           => 'Upload a file',
     'enter_the_page'        => 'Enter the page',
     'enter_the_page_number' => 'Enter the page number',
+
+    'docs' => [
+        'edit_page' => 'Edit Page',
+        'share'     => 'Share',
+    ],
 ];

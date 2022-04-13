@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Documentation;
 
-use ARKEcosystem\Foundation\UserInterface\Support\Share;
+use ARKEcosystem\Foundation\Documentation\Concerns\CanBeShared;
 use Closure;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -16,8 +17,12 @@ use PHPHtmlParser\Dom;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Sushi\Sushi;
 
+/**
+ * @property string $name
+ */
 class Document extends Model
 {
+    use CanBeShared;
     use Sushi;
 
     public static function docsCategories(): array
@@ -103,25 +108,15 @@ class Document extends Model
 
     public function getRows()
     {
-        return Cache::rememberForever('documents.all', fn () => array_merge(
-            $this->getDocumentsFromDisk('docs'),
-            $this->getDocumentsFromDisk('tutorials'),
-        ));
-    }
+        return Cache::rememberForever('documents.all', function () {
+            $documents = $this->getDocumentsFromDisk('docs');
 
-    public function urlFacebook(): string
-    {
-        return Share::facebook($this->url());
-    }
+            if (! config('filesystems.disks.tutorials')) {
+                return $documents;
+            }
 
-    public function urlReddit(): string
-    {
-        return Share::reddit($this->url());
-    }
-
-    public function urlTwitter(): string
-    {
-        return Share::twitter($this->url());
+            return array_merge($documents, $this->getDocumentsFromDisk('tutorials'));
+        });
     }
 
     private function getDocumentsFromDisk(string $type): array
@@ -130,7 +125,7 @@ class Document extends Model
         $documents = [];
 
         foreach ($storage->allFiles() as $file) {
-            if (Str::endsWith($file, '.json')) {
+            if (! str_ends_with($file, '.php')) {
                 continue;
             }
 
@@ -141,7 +136,6 @@ class Document extends Model
             $documents[] = [
                 'id'         => md5($file),
                 'type'       => $type,
-                'category'   => explode('/', $file)[0],
                 'name'       => $content->matter('title'),
                 'number'     => $content->matter('number'),
                 'slug'       => $slug,
@@ -160,16 +154,14 @@ class Document extends Model
         return Cache::rememberForever($cacheKey, function () use ($callback) {
             $storage = Storage::disk($this->type);
 
-            if ($storage->exists($this->category.'/index.blade.php')) {
-                $content = $storage->get($this->category.'/index.blade.php');
-            } else {
-                $content = $storage->get($this->category.'/index.md.blade.php');
+            $path = 'index.md.blade.php';
+            if ($storage->exists('/index.blade.php')) {
+                $path = 'index.blade.php';
             }
 
             $matches = [];
-
-            $dom = new Dom();
-            $dom->loadStr(view(['template' => $content])->render());
+            $dom     = new Dom();
+            $dom->loadStr(app(ViewFactory::class)->file($storage->path($path))->render());
 
             foreach ($dom->find('a') as $link) {
                 $matches[] = [
@@ -190,7 +182,6 @@ class Document extends Model
 
             return static::query()
                 ->where('type', $this->type)
-                ->where('category', $this->category)
                 ->where('slug', 'like', '%'.$matches[$callback($index)]['link'].'%')
                 ->first();
         });
