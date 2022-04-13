@@ -73,7 +73,11 @@
                     </div>
 
                     @if(! isset($noSeparator))
-                        <span class="{{ $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 transition duration-400 '.$invertedSeparator.$separatorBreakpointClass }}"></span>
+                        <span @class([
+                        	$separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 transition duration-400',
+                        	$invertedSeparator,
+                        	$separatorBreakpointClass,
+                        ])></span>
                     @endif
 
                     <div class="flex inset-y-0 right-0 items-center">
