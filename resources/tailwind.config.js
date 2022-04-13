@@ -1,3 +1,4 @@
+const plugin = require("tailwindcss/plugin");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -170,24 +171,45 @@ module.exports = {
         }),
     },
     variants: {
-        boxShadow: ["dark", "responsive", "hover", "focus"],
+        boxShadow: ["dark", "responsive", "hover", "focus", "inverted"],
         divideColor: ["dark", "responsive", "hover", "focus"],
         opacity: ["dark", "responsive", "hover", "focus"],
         display: ["dark", "responsive"],
         extend: {
             margin: ["focus-visible"],
             padding: ["focus-visible"],
+            backgroundColor: ["inverted", "inverted-hover"],
             borderRadius: ["focus-visible"],
             borderWidth: ["focus-visible"],
-            borderColor: ["focus-visible"],
+            borderColor: ["inverted", "inverted-hover", "focus-visible"],
             ringColor: ["focus-visible"],
             ringWidth: ["focus-visible"],
             textDecoration: ["focus-visible"],
+            textColor: ["inverted", "inverted-hover"],
             transitionProperty: ["focus-visible"],
             zIndex: ["focus-visible"],
         },
     },
-    plugins: [require("@tailwindcss/ui")],
+    plugins: [
+        require("@tailwindcss/ui"),
+        plugin(function ({ addVariant, e }) {
+            addVariant("inverted", ({ modifySelectors, separator }) => {
+                modifySelectors(
+                    ({ className }) =>
+                        `.inverted .${e(`inverted${separator}${className}`)}`
+                );
+            });
+
+            addVariant("inverted-hover", ({ modifySelectors, separator }) => {
+                modifySelectors(
+                    ({ className }) =>
+                        `.inverted .${e(
+                            `inverted${separator}hover${separator}${className}`
+                        )}:hover`
+                );
+            });
+        }),
+    ],
     purge: {
         mode: "all",
         content: [

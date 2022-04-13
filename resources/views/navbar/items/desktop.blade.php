@@ -1,4 +1,5 @@
 @props([
+    'inverted'             => false,
     'breakpoint'           => 'md',
     'navigation'           => [],
     'navigationExtra'      => null,
@@ -97,7 +98,10 @@
                     @class([
                         'inline-flex items-center px-1 pt-px font-semibold leading-5 border-b-2 space-x-3 focus:outline-none transition duration-150 ease-in-out h-full',
                         'border-theme-primary-600 text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute,
-                        'border-transparent text-theme-secondary-700 hover:text-theme-secondary-800 hover:border-theme-secondary-300 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400 focus-visible:rounded' => ! $isCurrentRoute,
+                        'border-theme-primary-600 text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && ! $inverted,
+                        'border-transparent text-theme-secondary-700 hover:text-theme-secondary-800 hover:border-theme-secondary-300 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400 focus-visible:rounded' => ! $isCurrentRoute && ! $inverted,
+                        'border-theme-primary-200 inverted:border-theme-primary-600 hover:border-theme-primary-200 inverted:hover:border-theme-primary-600 text-white inverted:text-theme-secondary-900 inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && $inverted,
+                        'border-transparent hover:border-theme-primary-400 inverted:hover:border-theme-secondary-300 text-theme-primary-100 inverted:text-theme-secondary-700 hover:text-white inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => ! $isCurrentRoute && $inverted,
                         'ml-8' => ! $loop->first
                     ])
                     @click="openDropdown = null;"
