@@ -28,7 +28,7 @@
         <main class="w-full lg:pl-10 lg:w-3/4">
             <div class="relative mb-8 w-full h-14 lg:hidden mobile-menu">
                 <x-ark-secondary-menu
-                    :title="trans('menus.menu')"
+                    :title="trans('ui::menus.menu')"
                     navigation-class="overflow-y-auto max-h-88"
                 >
                     <x-slot name="navigation">
