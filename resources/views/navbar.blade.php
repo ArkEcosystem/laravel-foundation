@@ -50,7 +50,7 @@
     <nav
         aria-label="{{ trans('ui::general.primary_navigation') }}"
         x-ref="nav"
-        class="fixed top-0 z-30 w-full {{ $inverted ? 'border-theme-primary-700 bg-theme-primary-600 inverted:bg-white inverted:border-theme-secondary-300' : 'bg-white border-theme-secondary-300' }} border-b dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400"
+        class="fixed top-0 z-30 w-full {{ $inverted ? 'border-theme-primary-700 bg-theme-primary-600 inverted:bg-white inverted:border-transparent inverted:shadow-header-smooth' : 'bg-white border-theme-secondary-300' }} border-b dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400"
         dusk="navigation-bar"
     >
         <div class="relative z-10 navbar-container border-theme-secondary-300">
