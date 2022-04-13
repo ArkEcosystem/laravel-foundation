@@ -52,7 +52,7 @@
                     <x-ark-docs-edit-page :document="$document" />
                 </div>
 
-                <x-ark-docs-share-links />
+                <x-ark-docs-share-links :document="$document" />
             </div>
         </main>
     </div>
