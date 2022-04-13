@@ -38,7 +38,6 @@
             invertOnScroll: @js($invertOnScroll ?? false),
         })"
     @endif
-    x-init="init()"
 >
     <div
         x-show="openDropdown !== null || open"

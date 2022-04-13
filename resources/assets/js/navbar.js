@@ -58,7 +58,7 @@ const Navbar = {
             init() {
                 const { nav, scrollable } = this.$refs;
                 this.nav = nav;
-                this.header = this.$el;
+                this.header = this.$root;
 
                 window.onscroll = this.onScroll.bind(this);
                 this.scrollProgress = this.getScrollProgress();
