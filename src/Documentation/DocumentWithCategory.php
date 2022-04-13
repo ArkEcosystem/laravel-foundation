@@ -4,16 +4,15 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Documentation;
 
+use ARKEcosystem\Foundation\Documentation\Document as Base;
 use Closure;
-use PHPHtmlParser\Dom;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use PHPHtmlParser\Dom;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
-use ARKEcosystem\Foundation\Documentation\Document as Base;
-use ARKEcosystem\Foundation\Documentation\DeriveGitCommitDate;
 
-class Document extends Base
+class DocumentWithCategory extends Base
 {
     protected function getDocumentsFromDisk(string $type): array
     {
