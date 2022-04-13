@@ -52,12 +52,12 @@ class Document extends Model
 
     public function hasPrevious(): bool
     {
-        return ! empty($this->previous());
+        return ! empty($this->previous()?->toArray());
     }
 
     public function hasNext(): bool
     {
-        return ! empty($this->next());
+        return ! empty($this->next()?->toArray());
     }
 
     public function url(): string
