@@ -19,8 +19,8 @@
     $inverted = $inverted ?? false;
 
     $invertedSeparator = match ($inverted) {
-        true => 'border-theme-primary-700 inverted:border-theme-secondary-300 ',
-        false => 'border-theme-secondary-300 dark:border-theme-secondary-800 ',
+        true => 'border-theme-primary-700 inverted:border-theme-secondary-300',
+        false => 'border-theme-secondary-300 dark:border-theme-secondary-800',
     };
 @endphp
 
