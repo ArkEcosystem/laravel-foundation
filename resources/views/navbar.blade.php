@@ -16,7 +16,7 @@
         'xl' => 'xl:block',
     ][$breakpoint ?? 'md'];
 
-    $inverted = $inverted ?? false;
+    $inverted ??= false;
 
     $invertedSeparator = match ($inverted) {
         true => 'border-theme-primary-700 inverted:border-theme-secondary-300',
