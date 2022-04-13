@@ -176,7 +176,7 @@ module.exports = {
         display: ["dark", "responsive"],
         extend: {
             margin: ["focus-visible"],
-            padding: ["focus-visible"],
+            padding: ["focus-visible", "last"],
             borderRadius: ["focus-visible"],
             borderWidth: ["focus-visible"],
             borderColor: ["focus-visible"],
