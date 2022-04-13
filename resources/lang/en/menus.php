@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 return [
+    'menu' => 'Menu',
 
     'notifications' => [
         'no_notifications'          => 'You have no notifications at this time.',

@@ -4,7 +4,12 @@
     'first' => false,
 ])
 
-<div class="lg:ml-8" x-data="{ open: @js(Request::onDocs($path)) }" x-cloak>
+<div
+    class="lg:ml-8"
+    x-data="{ open: @js(Request::onDocs($path)) }"
+    :class="{ 'last:pb-4': ! open }"
+    x-cloak
+>
     <button
         type="button"
         @class([

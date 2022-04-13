@@ -177,7 +177,7 @@ module.exports = {
         display: ["dark", "responsive"],
         extend: {
             margin: ["focus-visible"],
-            padding: ["focus-visible"],
+            padding: ["focus-visible", "last"],
             backgroundColor: ["inverted", "inverted-hover"],
             borderRadius: ["focus-visible"],
             borderWidth: ["focus-visible"],
