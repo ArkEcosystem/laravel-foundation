@@ -52,12 +52,12 @@ class Document extends Model
 
     public function hasPrevious(): bool
     {
-        return ! empty($this->previous());
+        return ! empty($this->previous()?->toArray());
     }
 
     public function hasNext(): bool
     {
-        return ! empty($this->next());
+        return ! empty($this->next()?->toArray());
     }
 
     public function url(): string
@@ -119,7 +119,7 @@ class Document extends Model
         });
     }
 
-    private function getDocumentsFromDisk(string $type): array
+    protected function getDocumentsFromDisk(string $type): array
     {
         $storage   = Storage::disk($type);
         $documents = [];
@@ -147,7 +147,7 @@ class Document extends Model
         return $documents;
     }
 
-    private function getNeighbour(string $direction, Closure $callback): ?self
+    protected function getNeighbour(string $direction, Closure $callback): ?self
     {
         $cacheKey = md5('documents.'.$this->slug.'.neighbour.'.$direction);
 
@@ -182,12 +182,12 @@ class Document extends Model
 
             return static::query()
                 ->where('type', $this->type)
-                ->where('slug', 'like', '%'.$matches[$callback($index)]['link'].'%')
+                ->where('slug', $matches[$callback($index)]['link'])
                 ->first();
         });
     }
 
-    private function attributeWithHighlight(string $value, string $term): string
+    protected function attributeWithHighlight(string $value, string $term): string
     {
         // Remove spaces
         $value = trim($value);
