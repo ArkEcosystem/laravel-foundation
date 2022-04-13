@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Documentation;
 
+use ARKEcosystem\Foundation\CommonMark\Facades\Markdown;
 use ARKEcosystem\Foundation\Documentation\Document as Base;
 use Closure;
 use Illuminate\Support\Facades\Cache;
