@@ -7,6 +7,7 @@ namespace ARKEcosystem\Foundation\Documentation;
 use ARKEcosystem\Foundation\CommonMark\Facades\Markdown;
 use ARKEcosystem\Foundation\Documentation\Document as Base;
 use Closure;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -30,23 +31,28 @@ class DocumentWithCategory extends Base
                 continue;
             }
 
-            $body    = $storage->get($file);
-            $content = YamlFrontMatter::parse($body);
-            $slug    = $file === 'index.blade.php' ? 'index' : Str::replaceFirst('.md.blade.php', '', $file);
-
-            $documents[] = [
-                'id'         => md5($file),
-                'type'       => $type,
-                'category'   => explode('/', $file)[0],
-                'name'       => $content->matter('title'),
-                'number'     => $content->matter('number'),
-                'slug'       => $slug,
-                'body'       => $body,
-                'updated_at' => DeriveGitCommitDate::execute($storage->path($file)),
-            ];
+            $documents[] = $this->getDocumentFromDisk($storage, $file, $type);
         }
 
         return $documents;
+    }
+
+    protected function getDocumentFromDisk(Filesystem $storage, string $file, string $type): array
+    {
+        $body    = $storage->get($file);
+        $content = YamlFrontMatter::parse($body);
+        $slug    = $file === 'index.blade.php' ? 'index' : Str::replaceFirst('.md.blade.php', '', $file);
+
+        return [
+            'id'         => md5($file),
+            'type'       => $type,
+            'category'   => explode('/', $file)[0],
+            'name'       => $content->matter('title'),
+            'number'     => $content->matter('number'),
+            'slug'       => $slug,
+            'body'       => $body,
+            'updated_at' => DeriveGitCommitDate::execute($storage->path($file)),
+        ];
     }
 
     protected function getNeighbour(string $direction, Closure $callback): ?self
