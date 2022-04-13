@@ -45,9 +45,13 @@ const Navbar = {
             updateStyles(progress) {
                 if (this.inverted) {
                     if (progress === 1) {
-                        document.querySelector('header').classList.add('inverted');
+                        document
+                            .querySelector("header")
+                            .classList.add("inverted");
                     } else {
-                        document.querySelector('header').classList.remove('inverted');
+                        document
+                            .querySelector("header")
+                            .classList.remove("inverted");
                     }
                 } else {
                     this.updateShadow(progress);
