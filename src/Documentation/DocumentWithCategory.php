@@ -15,6 +15,11 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 class DocumentWithCategory extends Base
 {
+    /**
+     * @var int
+     */
+    public const LIMIT = 256;
+
     protected function getDocumentsFromDisk(string $type): array
     {
         $storage   =  Storage::disk($type);
