@@ -29,5 +29,8 @@
         </span>
     </button>
 
-    <span class="block pr-7 ml-7 h-7 border-l transition duration-400 {{ $invertedSeparator }}"></span>
+    <span @class([
+    	'block pr-7 ml-7 h-7 border-l transition duration-400',
+    	$invertedSeparator,
+    ])></span>
 </div>
