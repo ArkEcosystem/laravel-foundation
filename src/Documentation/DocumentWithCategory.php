@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Documentation;
 
+use ARKEcosystem\Foundation\CommonMark\Facades\Markdown;
 use ARKEcosystem\Foundation\Documentation\Document as Base;
 use Closure;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -14,33 +16,43 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 class DocumentWithCategory extends Base
 {
+    /**
+     * @var int
+     */
+    public const LIMIT = 256;
+
     protected function getDocumentsFromDisk(string $type): array
     {
         $storage   =  Storage::disk($type);
         $documents = [];
 
         foreach ($storage->allFiles() as $file) {
-            if (Str::endsWith($file, '.json')) {
+            if (! str_ends_with($file, '.php')) {
                 continue;
             }
 
-            $body    = $storage->get($file);
-            $content = YamlFrontMatter::parse($body);
-            $slug    = $file === 'index.blade.php' ? 'index' : Str::replaceFirst('.md.blade.php', '', $file);
-
-            $documents[] = [
-                'id'         => md5($file),
-                'type'       => $type,
-                'category'   => explode('/', $file)[0],
-                'name'       => $content->matter('title'),
-                'number'     => $content->matter('number'),
-                'slug'       => $slug,
-                'body'       => $body,
-                'updated_at' => DeriveGitCommitDate::execute($storage->path($file)),
-            ];
+            $documents[] = $this->getDocumentFromDisk($storage, $file, $type);
         }
 
         return $documents;
+    }
+
+    protected function getDocumentFromDisk(Filesystem $storage, string $file, string $type): array
+    {
+        $body    = $storage->get($file);
+        $content = YamlFrontMatter::parse($body);
+        $slug    = $file === 'index.blade.php' ? 'index' : Str::replaceFirst('.md.blade.php', '', $file);
+
+        return [
+            'id'         => md5($file),
+            'type'       => $type,
+            'category'   => explode('/', $file)[0],
+            'name'       => $content->matter('title'),
+            'number'     => $content->matter('number'),
+            'slug'       => $slug,
+            'body'       => $body,
+            'updated_at' => DeriveGitCommitDate::execute($storage->path($file)),
+        ];
     }
 
     protected function getNeighbour(string $direction, Closure $callback): ?self
@@ -84,5 +96,27 @@ class DocumentWithCategory extends Base
                 ->where('slug', $matches[$callback($index)]['link'])
                 ->first();
         });
+    }
+
+    protected function attributeExcerpt(string $value, int $limit = self::LIMIT): string
+    {
+        // Get HTML
+        $value = $this->attributeHtmlContent($value);
+        // Remove HTML tags
+        $value = strip_tags(htmlspecialchars_decode($value));
+        // Remove new lines
+        $value = (string) preg_replace("#(^[\r\n]*|[\r\n]+)[\\s\t]*[\r\n]+#", '', $value);
+        // Limit length
+        return Str::limit($value, $limit);
+    }
+
+    protected function attributeHtmlContent(string $value): string
+    {
+        // Remove spaces
+        $value = trim($value);
+        // Remove FrontMatter
+        $value = YamlFrontMatter::parse($value)->body();
+        // Convert to HTML
+        return (string) Markdown::convertToHtml($value);
     }
 }
