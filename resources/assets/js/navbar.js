@@ -1,9 +1,4 @@
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import {
-    rgbFromCssProperty,
-    rgbFromCssVariable,
-    computeRgbColorBetween,
-} from "./colors.js";
 
 const onNavbarClosed = (navbar) => {
     enableBodyScroll(navbar);
@@ -28,21 +23,6 @@ const Navbar = {
             dark: false,
             lockBodyBreakpoint: 640,
 
-            // Colors...
-            white: [255, 255, 255],
-            black: [0, 0, 0],
-            initialBackgroundColor: null,
-            initialBorderColor: null,
-            primary100: null, // text-theme-primary-100
-            primary600: null, // text-theme-primary-600
-            primary700: null, // text-theme-primary-700
-            primary800: null, // text-theme-primary-800
-            primary900: null, // text-theme-primary-900
-            secondary300: null, // text-theme-secondary-300
-            secondary700: null, // text-theme-secondary-700
-            secondary900: null, // text-theme-secondary-900
-            links: [],
-
             onScroll() {
                 const progress = this.getScrollProgress();
 
@@ -54,8 +34,8 @@ const Navbar = {
 
             getScrollProgress() {
                 const position = document.documentElement.scrollTop;
-                const offset = this.invertOnScroll ? 20 : 0;
-                const span = this.invertOnScroll ? 50 : 82;
+                const offset = this.inverted ? 20 : 0;
+                const span = this.inverted ? 50 : 82;
 
                 return position < offset
                     ? 0
@@ -63,8 +43,12 @@ const Navbar = {
             },
 
             updateStyles(progress) {
-                if (this.invertOnScroll) {
-                    this.invertColorScheme(progress);
+                if (this.inverted) {
+                    if (progress === 1) {
+                        document.querySelector('header').classList.add('inverted');
+                    } else {
+                        document.querySelector('header').classList.remove('inverted');
+                    }
                 } else {
                     this.updateShadow(progress);
                 }
@@ -73,46 +57,6 @@ const Navbar = {
             init() {
                 const { nav, scrollable } = this.$refs;
                 this.nav = nav;
-
-                // Register initial colors...
-                if (this.invertOnScroll) {
-                    this.initialBorderColor = rgbFromCssProperty(
-                        nav,
-                        "borderColor"
-                    );
-                    this.initialBackgroundColor = rgbFromCssProperty(
-                        nav,
-                        "backgroundColor"
-                    );
-
-                    this.secondary300 = rgbFromCssVariable(
-                        "--theme-color-secondary-300"
-                    );
-                    this.secondary700 = rgbFromCssVariable(
-                        "--theme-color-secondary-700"
-                    );
-                    this.secondary900 = rgbFromCssVariable(
-                        "--theme-color-secondary-900"
-                    );
-
-                    this.primary100 = rgbFromCssVariable(
-                        "--theme-color-primary-100"
-                    );
-                    this.primary600 = rgbFromCssVariable(
-                        "--theme-color-primary-600"
-                    );
-                    this.primary700 = rgbFromCssVariable(
-                        "--theme-color-primary-700"
-                    );
-                    this.primary800 = rgbFromCssVariable(
-                        "--theme-color-primary-800"
-                    );
-                    this.primary900 = rgbFromCssVariable(
-                        "--theme-color-primary-900"
-                    );
-
-                    this.links = this.$el.querySelectorAll("[data-link]");
-                }
 
                 window.onscroll = this.onScroll.bind(this);
                 this.scrollProgress = this.getScrollProgress();
@@ -148,8 +92,6 @@ const Navbar = {
                     Math.round((1 - progress) * 100) / 100;
                 const borderColorRgb = this.dark
                     ? [60, 66, 73]
-                    : this.inverted
-                    ? this.primary800
                     : [219, 222, 229];
                 const boxShadowRgb = this.dark ? [18, 18, 19] : [192, 200, 207];
                 this.nav.style.boxShadow = `0px 2px 10px 0px rgba(${boxShadowRgb.join(
@@ -158,164 +100,6 @@ const Navbar = {
                 this.nav.style.borderColor = `rgba(${borderColorRgb.join(
                     ", "
                 )}, ${borderTransparency})`;
-            },
-
-            invertColorScheme(progress) {
-                // Button...
-                this.$refs.button.style.backgroundColor = computeRgbColorBetween(
-                    this.primary800,
-                    this.primary100,
-                    progress
-                );
-                this.$refs.button.style.color = computeRgbColorBetween(
-                    this.white,
-                    this.primary600,
-                    progress
-                );
-                this.$refs.button.addEventListener("mouseenter", () => {
-                    this.$refs.button.style.backgroundColor = computeRgbColorBetween(
-                        this.primary900,
-                        this.primary700,
-                        progress
-                    );
-                    this.$refs.button.style.color = "rgb(255, 255, 255)";
-                });
-                this.$refs.button.addEventListener("mouseleave", () => {
-                    this.$refs.button.style.backgroundColor = computeRgbColorBetween(
-                        this.primary800,
-                        this.primary100,
-                        progress
-                    );
-                    this.$refs.button.style.color = computeRgbColorBetween(
-                        this.white,
-                        this.primary600,
-                        progress
-                    );
-                });
-
-                // Nav...
-                this.nav.style.backgroundColor = computeRgbColorBetween(
-                    this.initialBackgroundColor,
-                    this.white,
-                    progress
-                );
-                this.nav.style.borderColor = computeRgbColorBetween(
-                    this.initialBorderColor,
-                    this.secondary300,
-                    progress
-                );
-
-                // Separator...
-                this.$refs.separator.style.borderColor = computeRgbColorBetween(
-                    this.primary700,
-                    this.secondary300,
-                    progress
-                );
-
-                this.$refs.hamburgerSeparator.style.borderColor = computeRgbColorBetween(
-                    this.primary700,
-                    this.secondary300,
-                    progress
-                );
-
-                // Logo...
-                this.$refs.logo.style.fill = computeRgbColorBetween(
-                    this.white,
-                    this.primary600,
-                    progress
-                );
-                this.$refs.siteName.style.color = computeRgbColorBetween(
-                    this.white,
-                    this.secondary900,
-                    progress
-                );
-
-                // Navigation links...
-                this.links.forEach((link) => {
-                    if (link.hasAttribute("data-active")) {
-                        link.style.color = computeRgbColorBetween(
-                            this.white,
-                            this.secondary900,
-                            progress
-                        );
-
-                        link.style.borderColor = `rgb(${this.primary600.join(
-                            ","
-                        )})`;
-
-                        link.addEventListener("mouseenter", () => {
-                            link.style.color = computeRgbColorBetween(
-                                this.white,
-                                this.secondary900,
-                                progress
-                            );
-                        });
-
-                        link.addEventListener("mouseleave", () => {
-                            link.style.color = computeRgbColorBetween(
-                                this.primary100,
-                                this.secondary700,
-                                progress
-                            );
-                        });
-                    } else {
-                        link.style.color = computeRgbColorBetween(
-                            this.primary100,
-                            this.secondary700,
-                            progress
-                        );
-
-                        link.addEventListener("mouseenter", () => {
-                            link.style.borderColor = computeRgbColorBetween(
-                                this.primary600,
-                                this.secondary300,
-                                progress
-                            );
-                            link.style.color = computeRgbColorBetween(
-                                this.white,
-                                this.secondary900,
-                                progress
-                            );
-                        });
-                        link.addEventListener("mouseleave", () => {
-                            link.style.borderColor = "transparent";
-                            link.style.color = computeRgbColorBetween(
-                                this.primary100,
-                                this.secondary700,
-                                progress
-                            );
-                        });
-                    }
-                });
-
-                // Hamburger...
-                this.$refs.hamburger.style.color = computeRgbColorBetween(
-                    this.primary100,
-                    this.secondary900,
-                    progress
-                );
-
-                this.$refs.hamburger.addEventListener("mouseenter", () => {
-                    this.$refs.hamburger.style.color = computeRgbColorBetween(
-                        this.white,
-                        this.primary700,
-                        progress
-                    );
-                    this.$refs.hamburger.style.backgroundColor = computeRgbColorBetween(
-                        this.primary400,
-                        this.primary100,
-                        progress
-                    );
-                });
-
-                this.$refs.hamburger.addEventListener("mouseleave", () => {
-                    this.$refs.hamburger.style.color = computeRgbColorBetween(
-                        this.primary100,
-                        this.secondary900,
-                        progress
-                    );
-                    this.$refs.hamburger.style.backgroundColor = "transparent";
-                });
             },
 
             toggleDropdown(name) {
