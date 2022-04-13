@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin');
+const plugin = require("tailwindcss/plugin");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -193,13 +193,21 @@ module.exports = {
     plugins: [
         require("@tailwindcss/ui"),
         plugin(function ({ addVariant, e }) {
-            addVariant('inverted', ({ modifySelectors, separator }) => {
-                modifySelectors(({ className }) => `.inverted .${e(`inverted${separator}${className}`)}`);
-            })
+            addVariant("inverted", ({ modifySelectors, separator }) => {
+                modifySelectors(
+                    ({ className }) =>
+                        `.inverted .${e(`inverted${separator}${className}`)}`
+                );
+            });
 
-            addVariant('inverted-hover', ({ modifySelectors, separator }) => {
-                modifySelectors(({ className }) => `.inverted .${e(`inverted${separator}hover${separator}${className}`)}:hover`);
-            })
+            addVariant("inverted-hover", ({ modifySelectors, separator }) => {
+                modifySelectors(
+                    ({ className }) =>
+                        `.inverted .${e(
+                            `inverted${separator}hover${separator}${className}`
+                        )}:hover`
+                );
+            });
         }),
     ],
     purge: {
