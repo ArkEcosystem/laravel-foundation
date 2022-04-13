@@ -9,13 +9,13 @@
         <aside class="hidden flex-shrink-0 w-1/4 lg:block">
             <div class="overflow-y-auto sticky top-32 pr-10 h-sidebar custom-scroll">
                 @if($document->category)
-                    <div class="flex items-center space-x-3 ml-9 text-theme-secondary-900">
+                    <div class="flex items-center ml-9 space-x-3 text-theme-secondary-900">
                         <x-ark-icon
                             name="navbar-{{ $document->category }}"
                             size="lg"
                         />
 
-                        <span class="font-bold text-lg">
+                        <span class="text-lg font-bold">
                             @lang('menus.documentation.'.$document->category)
                         </span>
                     </div>
