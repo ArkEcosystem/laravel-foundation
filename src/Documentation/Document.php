@@ -119,7 +119,7 @@ class Document extends Model
         });
     }
 
-    private function getDocumentsFromDisk(string $type): array
+    protected function getDocumentsFromDisk(string $type): array
     {
         $storage   = Storage::disk($type);
         $documents = [];
@@ -147,7 +147,7 @@ class Document extends Model
         return $documents;
     }
 
-    private function getNeighbour(string $direction, Closure $callback): ?self
+    protected function getNeighbour(string $direction, Closure $callback): ?self
     {
         $cacheKey = md5('documents.'.$this->slug.'.neighbour.'.$direction);
 
@@ -187,7 +187,7 @@ class Document extends Model
         });
     }
 
-    private function attributeWithHighlight(string $value, string $term): string
+    protected function attributeWithHighlight(string $value, string $term): string
     {
         // Remove spaces
         $value = trim($value);
