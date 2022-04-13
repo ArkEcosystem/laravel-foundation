@@ -182,7 +182,7 @@ class Document extends Model
 
             return static::query()
                 ->where('type', $this->type)
-                ->where('slug', 'like', '%'.$matches[$callback($index)]['link'].'%')
+                ->where('slug', $matches[$callback($index)]['link'])
                 ->first();
         });
     }
