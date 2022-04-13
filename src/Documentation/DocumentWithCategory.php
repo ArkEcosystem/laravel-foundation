@@ -85,4 +85,26 @@ class DocumentWithCategory extends Base
                 ->first();
         });
     }
+
+    protected function attributeExcerpt(string $value, int $limit = self::LIMIT): string
+    {
+        // Get HTML
+        $value = $this->attributeHtmlContent($value);
+        // Remove HTML tags
+        $value = strip_tags(htmlspecialchars_decode($value));
+        // Remove new lines
+        $value = (string) preg_replace("#(^[\r\n]*|[\r\n]+)[\\s\t]*[\r\n]+#", '', $value);
+        // Limit length
+        return Str::limit($value, $limit);
+    }
+
+    protected function attributeHtmlContent(string $value): string
+    {
+        // Remove spaces
+        $value = trim($value);
+        // Remove FrontMatter
+        $value = YamlFrontMatter::parse($value)->body();
+        // Convert to HTML
+        return (string) Markdown::convertToHtml($value);
+    }
 }
