@@ -28,12 +28,14 @@
     @if(config('ui.dark-mode.enabled') === true)
         x-data="Navbar.dropdown({
             inverted: @js($inverted ?? false),
+            invertOnScroll: @js($invertOnScroll ?? false),
             dark: window.getThemeMode() === 'dark',
         })"
         @theme-changed.window="dark = $event.detail.theme === 'dark'"
     @else
         x-data="Navbar.dropdown({
             inverted: @js($inverted ?? false),
+            invertOnScroll: @js($invertOnScroll ?? false),
         })"
     @endif
     x-init="init()"

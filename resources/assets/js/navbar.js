@@ -20,6 +20,7 @@ const Navbar = {
             selectedChild: null,
             scrollProgress: 0,
             nav: null,
+            header: null,
             dark: false,
             lockBodyBreakpoint: 640,
 
@@ -43,17 +44,13 @@ const Navbar = {
             },
 
             updateStyles(progress) {
-                if (this.inverted) {
+                if (this.invertOnScroll) {
                     if (progress === 1) {
-                        document
-                            .querySelector("header")
-                            .classList.add("inverted");
+                        this.header.classList.add('inverted');
                     } else {
-                        document
-                            .querySelector("header")
-                            .classList.remove("inverted");
+                        this.header.classList.remove('inverted');
                     }
-                } else {
+                } else if (! this.inverted) {
                     this.updateShadow(progress);
                 }
             },
@@ -61,6 +58,7 @@ const Navbar = {
             init() {
                 const { nav, scrollable } = this.$refs;
                 this.nav = nav;
+                this.header = this.$el;
 
                 window.onscroll = this.onScroll.bind(this);
                 this.scrollProgress = this.getScrollProgress();
