@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-namespace Tests\Documentation;
-
 use ARKEcosystem\Foundation\Documentation\Document;
 use ARKEcosystem\Foundation\Providers\DocumentationServiceProvider;
 use Illuminate\Support\Facades\Blade;
