@@ -2,6 +2,8 @@
     'index',
     'document',
     'content',
+    'banner'     => null,
+    'isTutorial' => false,
 ])
 
 <x-ark-container container-class="flex-col pt-10 pb-8 md:pt-12">
@@ -9,16 +11,24 @@
         <aside class="hidden flex-shrink-0 w-1/4 lg:block">
             <div class="overflow-y-auto sticky top-32 pr-10 h-sidebar custom-scroll">
                 @if($document->category)
-                    <div class="flex items-center ml-9 space-x-3 text-theme-secondary-900">
-                        <x-ark-icon
-                            name="navbar-{{ $document->category }}"
-                            size="lg"
-                        />
+                    @unless ($isTutorial)
+                        <div class="flex items-center mb-8 ml-9 space-x-3 text-theme-secondary-900">
+                            <x-ark-icon
+                                name="navbar-{{ $document->category }}"
+                                size="lg"
+                            />
 
-                        <span class="text-lg font-bold">
-                            @lang('menus.documentation.'.$document->category)
-                        </span>
-                    </div>
+                            <span class="text-lg font-bold">
+                                @lang('menus.documentation.'.$document->category)
+                            </span>
+                        </div>
+                    @else
+                        <div class="flex items-center space-x-3">
+                            <span class="font-semibold uppercase text-theme-secondary-500">
+                                {{ Str::title(str_replace('-', ' ', $document->category)) }}
+                            </span>
+                        </div>
+                    @endunless
                 @endif
 
                 @include ($index)
@@ -37,6 +47,8 @@
                 </x-ark-secondary-menu>
             </div>
 
+            {{ $banner }}
+
             <div class="break-words documentation-content">
                 @include($content)
             </div>
@@ -52,7 +64,7 @@
                     <x-ark-docs-edit-page :document="$document" />
                 </div>
 
-                <x-ark-docs-share-links />
+                <x-ark-docs-share-links :document="$document" />
             </div>
         </main>
     </div>
