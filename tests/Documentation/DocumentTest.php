@@ -6,9 +6,9 @@ namespace Tests\Documentation;
 
 use ARKEcosystem\Foundation\Documentation\Document;
 use ARKEcosystem\Foundation\Providers\DocumentationServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 
 beforeEach(function () {
     (new DocumentationServiceProvider(app()))->boot();
@@ -40,12 +40,14 @@ it('should not highlight intro in sidebar', function () {
     expect(Blade::render($document->body))->not->toMatch(
         '/<div class=".+bg-theme-primary-600.+"><\/div>\s+'.
         '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-primary-600 bg-theme-primary-100">\s+'.
-        '<a\s+href="\/docs\/desktop-wallet\/intro" class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/');
+        '<a\s+href="\/docs\/desktop-wallet\/intro" class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/'
+    );
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class="w-2 -mr-1 z-10"><\/div>\s+'.
         '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
-        '<a\s+href="\/docs\/desktop-wallet\/intro"/');
+        '<a\s+href="\/docs\/desktop-wallet\/intro"/'
+    );
 });
 
 it('should highlight intro in sidebar when at root category url', function () {
@@ -63,12 +65,14 @@ it('should highlight intro in sidebar when at root category url', function () {
     expect(Blade::render($document->body))->not->toMatch(
         '/<div class="w-2 -mr-1 z-10"><\/div>\s+'.
         '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
-        '<a\s+href="\/docs\/desktop-wallet\/intro"/');
+        '<a\s+href="\/docs\/desktop-wallet\/intro"/'
+    );
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class=".+bg-theme-primary-600.+"><\/div>\s+'.
         '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-primary-600 bg-theme-primary-100">\s+'.
-        '<a\s+href="\/docs\/desktop-wallet\/intro"\s+class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/');
+        '<a\s+href="\/docs\/desktop-wallet\/intro"\s+class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/'
+    );
 });
 
 it('should highlight intro in sidebar when at category intro url', function () {
@@ -86,10 +90,12 @@ it('should highlight intro in sidebar when at category intro url', function () {
     expect(Blade::render($document->body))->not->toMatch(
         '/<div class="w-2 -mr-1 z-10"><\/div>\s+'.
         '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
-        '<a\s+href="\/docs\/desktop-wallet\/intro"/');
+        '<a\s+href="\/docs\/desktop-wallet\/intro"/'
+    );
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class=".+bg-theme-primary-600.+"><\/div>\s+'.
         '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-primary-600 bg-theme-primary-100">\s+'.
-        '<a\s+href="\/docs\/desktop-wallet\/intro"\s+class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/');
+        '<a\s+href="\/docs\/desktop-wallet\/intro"\s+class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/'
+    );
 });
