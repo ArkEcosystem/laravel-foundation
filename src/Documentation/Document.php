@@ -161,7 +161,7 @@ class Document extends Model
 
             $matches = [];
             $dom     = new Dom();
-            $dom->loadStr(app(ViewFactory::class)->file($storage->path($path))->render());
+            $dom->loadStr((string) app(ViewFactory::class)->file($storage->path($path))->render());
 
             foreach ($dom->find('a') as $link) {
                 $matches[] = [

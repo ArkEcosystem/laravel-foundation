@@ -8,6 +8,7 @@ use ARKEcosystem\Foundation\CommonMark\Facades\Markdown;
 use ARKEcosystem\Foundation\Documentation\Document as Base;
 use Closure;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -62,16 +63,14 @@ class DocumentWithCategory extends Base
         return Cache::rememberForever($cacheKey, function () use ($callback) {
             $storage = Storage::disk($this->type);
 
+            $path = $this->category.'/index.md.blade.php';
             if ($storage->exists($this->category.'/index.blade.php')) {
-                $content = $storage->get($this->category.'/index.blade.php');
-            } else {
-                $content = $storage->get($this->category.'/index.md.blade.php');
+                $path = $this->category.'/index.blade.php';
             }
 
             $matches = [];
-
-            $dom = new Dom();
-            $dom->loadStr(view(['template' => $content])->render());
+            $dom     = new Dom();
+            $dom->loadStr((string) app(ViewFactory::class)->file($storage->path($path))->render());
 
             foreach ($dom->find('a') as $link) {
                 $matches[] = [
