@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Providers;
 
-use App\Models\Documentation;
+use ARKEcosystem\Foundation\Documentation\Documentation;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -40,11 +40,7 @@ class DocumentationServiceProvider extends ServiceProvider
                 return true;
             }
 
-            if (Str::endsWith('/'.$path.'/intro', '/'.ltrim($slug, '/'))) {
-                return true;
-            }
-
-            return Str::endsWith('/'.substr($path, 0, (int) strrpos($path, '/')).'/intro', '/'.ltrim($slug, '/'));
+            return Str::endsWith('/'.$path.'/intro', '/'.ltrim($slug, '/'));
         });
 
         Request::macro('onChildPage', function ($slug) {
