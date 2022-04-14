@@ -13,8 +13,20 @@ beforeEach(function () {
 
     Storage::fake('docs');
 
-    \File::copyDirectory(__DIR__.'/fixtures/', Storage::disk('docs')->getAdapter()->getPathPrefix());
+    app('files')->copyDirectory(__DIR__.'/fixtures/', Storage::disk('docs')->getAdapter()->getPathPrefix());
 });
+
+function mockRequest(string $path)
+{
+    $request = test()->partialMock(Request::class);
+
+    $request->shouldReceive('path')
+        ->andReturn($path)
+        ->atLeast()
+        ->once();
+
+    return $request;
+}
 
 it('should render', function () {
     $document = Document::find('96b64ffdde7482ccbb3896a39ff3949c');
@@ -24,12 +36,7 @@ it('should render', function () {
 });
 
 it('should not highlight intro in sidebar', function () {
-    $request = $this->partialMock(Request::class);
-    $request->shouldReceive('path')
-        ->andReturn('/docs/desktop-wallet/installation')
-        ->atLeast()->once();
-
-    $this->app->instance('request', $request);
+    app()->instance('request', mockRequest('/docs/desktop-wallet/installation'));
 
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
@@ -49,12 +56,7 @@ it('should not highlight intro in sidebar', function () {
 });
 
 it('should highlight intro in sidebar when at root category url', function () {
-    $request = $this->partialMock(Request::class);
-    $request->shouldReceive('path')
-        ->andReturn('/docs/desktop-wallet')
-        ->atLeast()->once();
-
-    $this->app->instance('request', $request);
+    app()->instance('request', mockRequest('/docs/desktop-wallet'));
 
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
@@ -74,12 +76,7 @@ it('should highlight intro in sidebar when at root category url', function () {
 });
 
 it('should highlight intro in sidebar when at category intro url', function () {
-    $request = $this->partialMock(Request::class);
-    $request->shouldReceive('path')
-        ->andReturn('/docs/desktop-wallet/intro')
-        ->atLeast()->once();
-
-    $this->app->instance('request', $request);
+    app()->instance('request', mockRequest('/docs/desktop-wallet/intro'));
 
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
