@@ -16,7 +16,7 @@ beforeEach(function () {
     app('files')->copyDirectory(__DIR__.'/fixtures/', Storage::disk('docs')->getAdapter()->getPathPrefix());
 });
 
-function mockRequest(string $path)
+function createMockRequest(string $path)
 {
     $request = test()->partialMock(Request::class);
 
@@ -36,7 +36,7 @@ it('should render', function () {
 });
 
 it('should not highlight intro in sidebar', function () {
-    app()->instance('request', mockRequest('/docs/desktop-wallet/installation'));
+    app()->instance('request', createMockRequest('/docs/desktop-wallet/installation'));
 
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
@@ -56,7 +56,7 @@ it('should not highlight intro in sidebar', function () {
 });
 
 it('should highlight intro in sidebar when at root category url', function () {
-    app()->instance('request', mockRequest('/docs/desktop-wallet'));
+    app()->instance('request', createMockRequest('/docs/desktop-wallet'));
 
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
@@ -76,7 +76,7 @@ it('should highlight intro in sidebar when at root category url', function () {
 });
 
 it('should highlight intro in sidebar when at category intro url', function () {
-    app()->instance('request', mockRequest('/docs/desktop-wallet/intro'));
+    app()->instance('request', createMockRequest('/docs/desktop-wallet/intro'));
 
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
