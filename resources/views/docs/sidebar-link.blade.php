@@ -10,7 +10,7 @@
 @if ($topLevel)
     <div class="flex -mb-4 lg:ml-2">
         <div @class([
-            'w-2 -mr-1 z-10',
+            'w-1 -mr-1 z-10',
             'bg-theme-primary-600 rounded-lg' => Request::onDocs($path),
         ])></div>
 
@@ -34,7 +34,7 @@
     @if (count($children) === 0)
         <div class="flex pr-5 pl-5 lg:pr-0 lg:pl-0">
             <div @class([
-                'w-2 -mr-1 z-10',
+                'w-1 -mr-1 z-10',
                 'bg-theme-primary-600 rounded-lg' => Request::onDocs($path),
                 'border-l border-theme-secondary-300' => ! Request::onDocs($path),
             ])></div>
@@ -51,7 +51,7 @@
         </div>
     @else
         <div class="flex pr-4 pl-5 lg:pr-0 lg:pl-0">
-            <div class="z-10 -mr-1 w-2 border-l border-theme-secondary-300"></div>
+            <div class="z-10 -mr-1 w-1 border-l border-theme-secondary-300"></div>
 
             <div class="flex-1">
                 <div class="flex justify-between items-center py-3 pr-2 pl-5 space-x-3 w-full text-left lg:pr-5">
@@ -73,7 +73,7 @@
                         <div class="flex">
                             @if (Request::onDocs($child['path']))
                                 <div @class([
-                                    'w-2 -mr-1 z-10',
+                                    'w-1 -mr-1 z-10',
                                     'bg-theme-primary-600 rounded-lg' => Request::onDocs($child['path']),
                                 ])></div>
                             @else
