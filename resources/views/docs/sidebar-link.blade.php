@@ -4,6 +4,7 @@
     'children' => [],
     'topLevel' => false,
     'first' => false,
+    'borderless' => false,
 ])
 
 @if ($topLevel)
@@ -22,7 +23,7 @@
                 href="{{ $path }}"
                 @class([
                     'border-theme-secondary-300 py-4 flex items-center block font-semibold w-full',
-                    $first ? 'lg:border-t' : 'border-t',
+                    $first ? 'lg:border-t' : 'border-t' => ! $borderless,
                 ])
             >
                 {{ $name }}

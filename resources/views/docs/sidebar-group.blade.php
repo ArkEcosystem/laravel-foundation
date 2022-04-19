@@ -2,6 +2,7 @@
     'title',
     'path',
     'first' => false,
+    'borderless' => false,
 ])
 
 <div
@@ -13,9 +14,9 @@
     <button
         type="button"
         @class([
-            'flex items-center justify-between w-full pl-5 lg:pl-0 pr-5 border-theme-secondary-300 pt-4 group',
-            'lg:mt-4 lg:border-t' => $first,
-            'mt-4 border-t' => ! $first,
+            'flex items-center justify-between w-full pl-5 lg:pl-0 pr-5 border-theme-secondary-300 group',
+            'pt-4 lg:mt-4 lg:border-t' => $first && ! $borderless,
+            'pt-4 mt-4 border-t' => ! $first && ! $borderless,
         ])
         @click.prevent="open = ! open"
     >
