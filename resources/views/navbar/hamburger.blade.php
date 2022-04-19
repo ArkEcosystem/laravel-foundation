@@ -27,7 +27,7 @@
     <button
         @click="open = !open"
         @class([
-            'inline-flex relative justify-center items-center py-2 px-5 h-11 rounded-md transition duration-400 ease-in-out',
+            'inline-flex relative justify-center items-center py-2 px-3 h-11 rounded-md transition ease-in-out md:px-5 duration-400',
             $invertedColour,
         ])
     >
