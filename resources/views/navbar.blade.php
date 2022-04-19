@@ -52,9 +52,9 @@
         aria-label="{{ trans('ui::general.primary_navigation') }}"
         x-ref="nav"
         @class([
-        	'fixed top-0 z-30 w-full border-b dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400',
-        	'border-theme-primary-700 bg-theme-primary-600 inverted:bg-white inverted:border-transparent inverted:shadow-header-smooth' => $inverted,
-        	'bg-white border-theme-secondary-300' => ! $inverted,
+            'fixed top-0 z-30 w-full border-b dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400',
+            'border-theme-primary-700 bg-theme-primary-600 inverted:bg-white inverted:border-transparent inverted:shadow-header-smooth' => $inverted,
+            'bg-white border-theme-secondary-300' => ! $inverted,
         ])
         dusk="navigation-bar"
     >
@@ -85,7 +85,10 @@
 
                     <div class="flex inset-y-0 right-0 items-center">
                         @if(is_array($navigation))
-                            <x-ark-navbar-hamburger :inverted="$inverted" :breakpoint="$breakpoint ?? 'md'" />
+                            <x-ark-navbar-hamburger
+                                :inverted="$inverted"
+                                :breakpoint="$breakpoint ?? 'md'"
+                            />
                         @endif
 
                         @isset($content)
