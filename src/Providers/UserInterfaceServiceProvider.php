@@ -294,6 +294,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::metadata-tags', 'ark-metadata-tags');
             $blade->component('ark::modal', 'ark-modal');
             $blade->component('ark::no-results', 'ark-no-results');
+            $blade->component('ark::no-results-basic', 'ark-no-results-basic');
             $blade->component('ark::notification-dot', 'ark-notification-dot');
             $blade->component('ark::outgoing-link', 'ark-outgoing-link');
             $blade->component('ark::pagination', 'ark-pagination');
