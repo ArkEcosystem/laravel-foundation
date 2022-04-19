@@ -13,15 +13,23 @@
     ][$breakpoint];
 
     $invertedSeparator = match ($inverted) {
-        true => 'border-theme-primary-700 inverted:border-theme-secondary-300 ',
-        false => 'border-theme-secondary-300 dark:border-theme-secondary-800 ',
+        true => 'border-theme-primary-700 inverted:border-theme-secondary-300',
+        false => 'border-theme-secondary-300 dark:border-theme-secondary-800',
+    };
+
+    $invertedColour = match ($inverted) {
+        true => 'inverted:text-theme-secondary-900 inverted:hover:bg-theme-primary-100 inverted:hover:text-theme-primary-700 text-theme-primary-100',
+        false => 'hover:text-white hover:bg-theme-primary-400 text-theme-secondary-900',
     };
 @endphp
 
 <div class="flex items-center {{ $breakpointClass }}">
     <button
         @click="open = !open"
-        class="inline-flex relative justify-center items-center py-2 px-5 h-11 rounded-md transition ease-in-out hover:text-white duration-400 inverted:hover:bg-theme-primary-100 inverted:hover:text-theme-primary-700 not-inverted:text-theme-primary-100 text-theme-secondary-900 hover:bg-theme-primary-400"
+        @class([
+            'inline-flex relative justify-center items-center py-2 px-5 h-11 rounded-md transition duration-400 ease-in-out',
+            $invertedColour,
+        ])
     >
         <span :class="{ 'hidden': open, 'inline-flex': !open }">
             <x-ark-icon name="menu" />
