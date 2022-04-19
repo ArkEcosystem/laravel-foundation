@@ -21,7 +21,7 @@
 <div class="flex items-center {{ $breakpointClass }}">
     <button
         @click="open = !open"
-        class="inline-flex relative justify-center items-center py-2 px-5 h-11 rounded-md transition ease-in-out hover:text-white duration-400 inverted:text-theme-secondary-900 inverted:hover:bg-theme-primary-100 inverted:hover:text-theme-primary-700 not-inverted:text-theme-primary-100 text-theme-secondary-900 hover:bg-theme-primary-400"
+        class="inline-flex relative justify-center items-center py-2 px-5 h-11 rounded-md transition ease-in-out hover:text-white duration-400 inverted:hover:bg-theme-primary-100 inverted:hover:text-theme-primary-700 not-inverted:text-theme-primary-100 text-theme-secondary-900 hover:bg-theme-primary-400"
     >
         <span :class="{ 'hidden': open, 'inline-flex': !open }">
             <x-ark-icon name="menu" />
