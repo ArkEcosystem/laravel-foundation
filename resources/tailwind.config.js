@@ -196,7 +196,9 @@ module.exports = {
             addVariant("not-inverted", ({ modifySelectors, separator }) => {
                 modifySelectors(
                     ({ className }) =>
-                        `.not-inverted .${e(`not-inverted${separator}${className}`)}`
+                        `.not-inverted .${e(
+                            `not-inverted${separator}${className}`
+                        )}`
                 );
             });
 
