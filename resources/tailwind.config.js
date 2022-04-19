@@ -185,7 +185,7 @@ module.exports = {
             ringColor: ["focus-visible"],
             ringWidth: ["focus-visible"],
             textDecoration: ["focus-visible"],
-            textColor: ["inverted", "inverted-hover"],
+            textColor: ["inverted", "inverted-hover", "not-inverted"],
             transitionProperty: ["focus-visible"],
             zIndex: ["focus-visible"],
         },
@@ -193,6 +193,13 @@ module.exports = {
     plugins: [
         require("@tailwindcss/ui"),
         plugin(function ({ addVariant, e }) {
+            addVariant("not-inverted", ({ modifySelectors, separator }) => {
+                modifySelectors(
+                    ({ className }) =>
+                        `.not-inverted .${e(`not-inverted${separator}${className}`)}`
+                );
+            });
+
             addVariant("inverted", ({ modifySelectors, separator }) => {
                 modifySelectors(
                     ({ className }) =>
@@ -238,6 +245,7 @@ module.exports = {
                     /is-disabled/,
                     /is-hidden/,
                     /is-bound/,
+                    /not-inverted/,
                 ],
 
                 deep: [/tippy-/, /\[data-expandable\]/, /simple-markdown$/],

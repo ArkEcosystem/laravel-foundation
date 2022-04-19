@@ -47,7 +47,9 @@ const Navbar = {
                 if (this.invertOnScroll) {
                     if (progress === 1) {
                         this.header.classList.add("inverted");
+                        this.header.classList.remove("not-inverted");
                     } else {
+                        this.header.classList.add("not-inverted");
                         this.header.classList.remove("inverted");
                     }
                 } else if (!this.inverted) {
