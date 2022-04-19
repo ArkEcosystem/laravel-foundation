@@ -7,7 +7,7 @@
     'compact'    => false,
 ])
 
-<x-ark-container container-class="flex-col pt-10 pb-8 {{ $compact ? 'md:pt-8' : 'md:pt-12' }}">
+<x-ark-container container-class="flex-col pb-8 {{ $compact ? 'pt-8 md:pt-8' : 'pt-10 md:pt-12' }}">
     <div class="flex {{ $compact ? 'pb-8' : 'py-8' }} lg:divide-x divide-theme-secondary-200">
         <aside class="hidden flex-shrink-0 w-1/4 lg:block">
             <div class="overflow-y-auto sticky top-32 pr-10 h-sidebar custom-scroll">
