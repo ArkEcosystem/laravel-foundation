@@ -43,8 +43,10 @@
         </span>
     </button>
 
-    <span @class([
-    	'block pr-6 md:pr-8 ml-3 h-7 border-l transition duration-400',
-    	$invertedSeparator,
-    ])></span>
+    @unless($noSeparator)
+        <span @class([
+            'block pr-6 md:pr-8 ml-3 h-7 border-l transition duration-400',
+            $invertedSeparator,
+        ])></span>
+    @endunless
 </div>
