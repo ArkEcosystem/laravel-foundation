@@ -15,7 +15,7 @@ class DocumentationServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(storage_path('app/public/docs'), 'docs');
 
-        Request::macro('onDocs', function ($slug = null) {
+        Request::macro('onDocs', function ($slug = null, bool $checkGroup = false) {
             if (empty($slug)) {
                 return Str::endsWith(
                     $this->path(),
@@ -40,7 +40,20 @@ class DocumentationServiceProvider extends ServiceProvider
                 return true;
             }
 
-            return Str::endsWith('/'.$path.'/intro', '/'.ltrim($slug, '/'));
+            if (Str::endsWith('/'.$path.'/intro', '/'.ltrim($slug, '/'))) {
+                return true;
+            }
+
+            if ($checkGroup) {
+                $pathSlash = strrpos($path, '/');
+                $pathBase = $pathSlash !== false ? substr($path, 0, $pathSlash) : $path;
+
+                if (Str::endsWith('/'.$pathBase, '/'.ltrim($slug, '/'))) {
+                    return true;
+                }
+            }
+
+            return false;
         });
 
         Request::macro('onChildPage', function ($slug) {

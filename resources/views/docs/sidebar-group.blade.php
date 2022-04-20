@@ -7,7 +7,7 @@
 
 <div
     class="lg:ml-8"
-    x-data="{ open: @js(Request::onDocs($path)) }"
+    x-data="{ open: @js(Request::onDocs($path, true)) }"
     :class="{ 'last:pb-4': ! open }"
     x-cloak
 >
