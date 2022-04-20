@@ -58,14 +58,6 @@
                     <span class="text-sm font-semibold text-theme-secondary-700">
                         {{ $name }}
                     </span>
-
-                    <span class="transition-default">
-                        <x-ark-icon
-                            name="arrows.chevron-up-small"
-                            class="text-theme-secondary-500"
-                            size="xs"
-                        />
-                    </span>
                 </div>
 
                 <div class="my-1 ml-6">
