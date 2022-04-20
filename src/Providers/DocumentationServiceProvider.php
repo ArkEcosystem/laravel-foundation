@@ -46,7 +46,7 @@ class DocumentationServiceProvider extends ServiceProvider
 
             if ($checkGroup) {
                 $pathSlash = strrpos($path, '/');
-                $pathBase = $pathSlash !== false ? substr($path, 0, $pathSlash) : $path;
+                $pathBase  = $pathSlash !== false ? substr($path, 0, $pathSlash) : $path;
 
                 if (Str::endsWith('/'.$pathBase, '/'.ltrim($slug, '/'))) {
                     return true;
