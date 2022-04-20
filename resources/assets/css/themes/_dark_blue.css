@@ -1,0 +1,13 @@
+.theme-dark-blue {
+    --theme-color-primary-rgb: 70, 138, 241;
+    --theme-color-primary-50: #f5f9ff;
+    --theme-color-primary-100: #e1edff;
+    --theme-color-primary-200: #cbdfff;
+    --theme-color-primary-300: #8bb9ff;
+    --theme-color-primary-400: #64a1ff;
+    --theme-color-primary-500: #468af1;
+    --theme-color-primary-600: #3170d1;
+    --theme-color-primary-700: #2c528d;
+    --theme-color-primary-800: #1c3459;
+    --theme-color-primary-900: #0f1f38;
+}
