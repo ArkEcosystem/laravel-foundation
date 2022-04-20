@@ -18,9 +18,19 @@
 
     $inverted ??= false;
 
+    $backgroundColor = match ($inverted) {
+        true => $invertedBackgroundColor ?? 'bg-theme-primary-600 inverted:bg-white',
+        false => $backgroundColor ?? 'bg-white',
+    };
+
     $invertedSeparator = match ($inverted) {
         true => 'border-theme-primary-700 inverted:border-theme-secondary-300',
         false => 'border-theme-secondary-300 dark:border-theme-secondary-800',
+    };
+
+    $invertedBorder = match ($inverted) {
+        true => $invertedBorderColor ?? 'border-theme-primary-700 inverted:border-transparent',
+        false => $borderColor ?? 'border-theme-secondary-300',
     };
 @endphp
 
@@ -53,8 +63,9 @@
         x-ref="nav"
         @class([
             'fixed top-0 z-30 w-full border-b dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400',
-            'border-theme-primary-700 bg-theme-primary-600 inverted:bg-white inverted:border-transparent inverted:shadow-header-smooth' => $inverted,
-            'bg-white border-theme-secondary-300' => ! $inverted,
+            'inverted:shadow-header-smooth' => $inverted,
+            $backgroundColor,
+            $invertedBorder,
         ])
         dusk="navigation-bar"
     >
@@ -88,6 +99,9 @@
                             <x-ark-navbar-hamburger
                                 :inverted="$inverted"
                                 :breakpoint="$breakpoint ?? 'md'"
+                                :color="$hamburgerColor ?? null"
+                                :invertedColor="$invertedHamburgerColor ?? null"
+                                :no-separator="$noSeparator ?? null"
                             />
                         @endif
 

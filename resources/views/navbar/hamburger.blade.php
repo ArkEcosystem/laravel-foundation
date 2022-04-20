@@ -1,6 +1,9 @@
 @props([
-    'inverted'   => false,
-    'breakpoint' => 'md',
+    'inverted'      => false,
+    'noSeparator'   => false,
+    'breakpoint'    => 'md',
+    'color'         => 'hover:text-white text-theme-secondary-900',
+    'invertedColor' => 'inverted:text-theme-secondary-900 inverted:hover:text-theme-primary-700 text-theme-primary-100',
 ])
 
 @php
@@ -18,8 +21,8 @@
     };
 
     $invertedColour = match ($inverted) {
-        true => 'inverted:text-theme-secondary-900 inverted:hover:bg-theme-primary-100 inverted:hover:text-theme-primary-700 text-theme-primary-100',
-        false => 'hover:text-white hover:bg-theme-primary-400 text-theme-secondary-900',
+        true => 'inverted:hover:bg-theme-primary-100 '.$invertedColor,
+        false => 'hover:bg-theme-primary-400 '.$color,
     };
 @endphp
 
