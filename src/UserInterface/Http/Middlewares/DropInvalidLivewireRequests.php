@@ -123,7 +123,6 @@ final class DropInvalidLivewireRequests
         return $request->collect('updates')
                     ->filter(fn (array $update) => ($update['type'] ?? '') === 'fireEvent')
                     ->pluck('payload.event')
-                    ->filter()
                     ->unique()
                     ->values();
     }
