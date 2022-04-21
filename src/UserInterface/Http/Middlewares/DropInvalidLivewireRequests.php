@@ -103,7 +103,7 @@ final class DropInvalidLivewireRequests
                 $request->input('fingerprint.name'), $request->input('fingerprint.id')
             );
         } catch (ComponentNotFoundException $e) {
-            abort(404);
+            abort(403);
         }
 
         $excessEvents = $this->fireableEvents($request)->diff(
@@ -111,7 +111,7 @@ final class DropInvalidLivewireRequests
         );
 
         if ($excessEvents->isNotEmpty()) {
-            abort(404);
+            abort(403);
         }
     }
 
