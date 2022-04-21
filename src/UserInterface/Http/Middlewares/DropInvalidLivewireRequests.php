@@ -91,7 +91,7 @@ final class DropInvalidLivewireRequests
     /**
      * Ensure all events that the request fires actually exist for the Livewire component.
      * If there are some events that want to be fired and they don't exist on the component,
-     * we want to respond with 404.
+     * we want to respond with 403.
      *
      * @param Request $request
      * @return void
