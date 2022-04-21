@@ -6,6 +6,7 @@
     'href'                  => null,
     'routeParams'           => [],
     'icon'                  => null,
+    'mobileIcon'            => null,
     'iconWidth'             => 'w-24',
     'iconBreakpoint'        => 'lg',
     'disabled'              => false,
