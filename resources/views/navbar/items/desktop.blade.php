@@ -41,8 +41,13 @@
                     <button
                         x-ref="menuDropdownButton"
                         @class([
-                            'relative inline-flex justify-center items-center px-1 pt-px font-semibold leading-5 border-b-2 border-transparent text-theme-secondary-700 hover:text-theme-secondary-800 hover:border-theme-secondary-300 focus:outline-none transition duration-150 ease-in-out h-full dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400',
+                            'relative inline-flex justify-center items-center px-1 pt-px font-semibold leading-5 border-b-2 border-transparent hover:border-theme-secondary-300 focus:outline-none transition duration-150 ease-in-out h-full',
                             'ml-8' => ! $loop->first,
+
+                            $routeTextColor => ! $inverted,
+                            $routeBorderColor => ! $inverted,
+                            $invertedRouteTextColor => $inverted,
+                            $invertedRouteBorderColor => $inverted,
                         ])
                         @click="toggleDropdown('{{ $navItem['label'] }}')"
                         @blur="closeIfBlurOutside"

@@ -1,17 +1,39 @@
 @props([
     'label',
-    'description' => null,
-    'route'       => null,
-    'href'        => null,
-    'routeParams' => [],
-    'icon'        => null,
-    'disabled'    => false,
-    'external'    => false,
-    'tooltip'     => null,
-    'hoverClass' => 'hover:bg-theme-secondary-100',
+    'rawLabel'              => false,
+    'description'           => null,
+    'route'                 => null,
+    'href'                  => null,
+    'routeParams'           => [],
+    'icon'                  => null,
+    'iconWidth'             => 'w-24',
+    'iconBreakpoint'        => 'md',
+    'disabled'              => false,
+    'external'              => false,
+    'tooltip'               => null,
+    'hoverClass'            => 'hover:bg-theme-secondary-100',
+    'textHoverColor'        => 'group-hover:text-theme-primary-700',
+    'descriptionHoverColor' => null,
 ])
 
-@php ($isCurrent = $disabled === false && $route && url()->full() === route($route, $routeParams))
+@php
+    $isCurrent = $disabled === false && $route && url()->full() === route($route, $routeParams);
+
+    $mainIconBreakpoint = [
+        'sm' => 'sm:block',
+        'md' => 'md:block',
+        'lg' => 'lg:block',
+        'xl' => 'xl:block',
+    ][$iconBreakpoint ?? 'md'];
+
+    $mobileIconBreakpoint = [
+        'sm' => 'sm:hidden',
+        'md' => 'md:hidden',
+        'lg' => 'lg:hidden',
+        'xl' => 'xl:hidden',
+    ][$iconBreakpoint ?? 'md'];
+@endphp
+
 
 <div class="flex">
     <div @class([
@@ -46,9 +68,21 @@
                 data-tippy-content="{{ $tooltip }}"
             @endif
         >
+            @if ($mobileIcon)
+                <x-ark-icon :name="$mobileIcon" :class="Arr::toCssClasses([
+                    $iconWidth,
+                    $mobileIconBreakpoint,
+                    'mr-4 h-auto block',
+                    'text-theme-secondary-700' => $isCurrent,
+                    'text-theme-secondary-300' => ! $isCurrent,
+                ])" />
+            @endif
+
             @if ($icon)
                 <x-ark-icon :name="$icon" :class="Arr::toCssClasses([
-                    'mr-4 h-auto w-24 hidden lg:block',
+                    $iconWidth,
+                    $mainIconBreakpoint,
+                    'mr-4 h-auto hidden',
                     'text-theme-secondary-700' => $isCurrent,
                     'text-theme-secondary-300' => ! $isCurrent,
                 ])" />
@@ -59,9 +93,13 @@
                     'flex items-center space-x-2 transition-default',
                     'text-theme-secondary-500' => $disabled,
                     'text-theme-primary-600' => ! $disabled && $isCurrent,
-                    'group-hover:text-theme-primary-700' => ! $disabled && ! $isCurrent,
+                    $textHoverColor => ! $disabled && ! $isCurrent,
                 ])>
-                    <span>{{ $label }}</span>
+                    @if ($rawLabel)
+                        <span>{!! $label !!}</span>
+                    @else
+                        <span>{{ $label }}</span>
+                    @endif
 
                     @if ($external)
                         <x-ark-icon
@@ -74,9 +112,10 @@
 
                 @if ($description)
                     <span @class([
-                        'text-xs hidden md:block',
+                        'text-xs hidden md:block transition-default',
                         'text-theme-secondary-500' => ! $isCurrent || $disabled,
                         'text-theme-secondary-700' => ! $disabled && $isCurrent,
+                        $descriptionHoverColor => ! $disabled && ! $isCurrent,
                     ])>
                         {{ $description }}
                     </span>
