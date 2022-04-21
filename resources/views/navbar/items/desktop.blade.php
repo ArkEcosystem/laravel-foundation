@@ -1,11 +1,19 @@
 @props([
-    'inverted'             => false,
-    'breakpoint'           => 'md',
-    'navigation'           => [],
-    'navigationExtra'      => null,
-    'dropdownClass'        => 'flex-shrink-0 w-56',
-    'dropdownWrapperClass' => 'mt-24 py-4 bg-white rounded-xl shadow-navbar-dropdown',
-    'menuDropdownId'       => 'menuDropdown',
+    'inverted'                  => false,
+    'breakpoint'                => 'md',
+    'navigation'                => [],
+    'navigationExtra'           => null,
+    'dropdownClass'             => 'flex-shrink-0 w-56',
+    'dropdownWrapperClass'      => 'mt-24 py-4 bg-white rounded-xl shadow-navbar-dropdown',
+    'menuDropdownId'            => 'menuDropdown',
+    'currentRouteTextColor'         => 'text-theme-secondary-900 dark:text-theme-secondary-400',
+    'routeTextColor'                => 'text-theme-secondary-700 hover:text-theme-secondary-800 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400',
+    'currentRouteBorderColor'       => 'border-theme-primary-600',
+    'routeBorderColor'              => 'border-transparent hover:border-theme-secondary-300',
+    'invertedCurrentRouteTextColor' => 'text-white inverted:text-theme-secondary-900 inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400',
+    'invertedRouteTextColor'        => 'text-theme-primary-100 inverted:text-theme-secondary-700 hover:text-white inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400',
+    'invertedCurrentRouteBorderColor' => 'border-theme-primary-200 inverted:border-theme-primary-600 hover:border-theme-primary-200 inverted:hover:border-theme-primary-600 focus-visible:border-b-0',
+    'invertedRouteBorderColor'        => 'border-transparent hover:border-theme-primary-400 inverted:hover:border-theme-secondary-300 focus-visible:border-b-0',
 ])
 
 @php
@@ -97,12 +105,19 @@
                     @endif
                     @class([
                         'inline-flex items-center px-1 pt-px font-semibold leading-5 border-b-2 space-x-3 focus:outline-none transition duration-150 ease-in-out h-full',
-                        'border-theme-primary-600 text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute,
-                        'border-theme-primary-600 text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && ! $inverted,
-                        'border-transparent text-theme-secondary-700 hover:text-theme-secondary-800 hover:border-theme-secondary-300 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400 focus-visible:rounded' => ! $isCurrentRoute && ! $inverted,
-                        'border-theme-primary-200 inverted:border-theme-primary-600 hover:border-theme-primary-200 inverted:hover:border-theme-primary-600 text-white inverted:text-theme-secondary-900 inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && $inverted,
-                        'border-transparent hover:border-theme-primary-400 inverted:hover:border-theme-secondary-300 text-theme-primary-100 inverted:text-theme-secondary-700 hover:text-white inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400 focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => ! $isCurrentRoute && $inverted,
-                        'ml-8' => ! $loop->first
+                        'focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && ! $inverted,
+                        'focus-visible:rounded' => ! $isCurrentRoute && ! $inverted,
+                        'focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && $inverted,
+                        'focus-visible:pt-0 focus-visible:-mt-px' => ! $isCurrentRoute && $inverted,
+                        'ml-8' => ! $loop->first,
+                        $currentRouteTextColor => $isCurrentRoute && ! $inverted,
+                        $routeTextColor => ! $isCurrentRoute && ! $inverted,
+                        $currentRouteBorderColor => $isCurrentRoute && ! $inverted,
+                        $routeBorderColor => ! $isCurrentRoute && ! $inverted,
+                        $invertedCurrentRouteTextColor => $isCurrentRoute && $inverted,
+                        $invertedRouteTextColor => ! $isCurrentRoute && $inverted,
+                        $invertedCurrentRouteBorderColor => $isCurrentRoute && $inverted,
+                        $invertedRouteBorderColor => ! $isCurrentRoute && $inverted,
                     ])
                     @click="openDropdown = null;"
                     dusk='navbar-{{ Str::slug($navItem['label']) }}'
