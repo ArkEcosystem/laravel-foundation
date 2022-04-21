@@ -7,7 +7,7 @@
     'routeParams'           => [],
     'icon'                  => null,
     'iconWidth'             => 'w-24',
-    'iconBreakpoint'        => 'md',
+    'iconBreakpoint'        => 'lg',
     'disabled'              => false,
     'external'              => false,
     'tooltip'               => null,
@@ -24,7 +24,7 @@
         'md' => 'md:block',
         'lg' => 'lg:block',
         'xl' => 'xl:block',
-    ][$iconBreakpoint ?? 'md'];
+    ][$iconBreakpoint ?? 'lg'];
 
     $mobileIconBreakpoint = [
         'sm' => 'sm:hidden',
