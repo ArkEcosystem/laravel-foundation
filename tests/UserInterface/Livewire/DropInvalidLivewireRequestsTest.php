@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Livewire\Exceptions\ComponentNotFoundException;
 use Livewire\Livewire;
-use Livewire\LivewireManager;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Tests\UserInterface\Livewire\DummyComponent;
 
@@ -249,20 +248,20 @@ it('drops if fired events do not exist', function () {
         'updates' => [
             [
                 'payload' => [],
-                'type' => 'somethingRandom',
+                'type'    => 'somethingRandom',
             ],
             [
                 'payload' => [
-                    'event' => 'dummy',
-                    'id' => 'dummy-event-id',
+                    'event'  => 'dummy',
+                    'id'     => 'dummy-event-id',
                     'params' => 'test',
                 ],
                 'type' => 'fireEvent',
             ],
             [
                 'payload' => [
-                    'event' => 'something-invalid',
-                    'id' => 'dummy-event-id-2',
+                    'event'  => 'something-invalid',
+                    'id'     => 'dummy-event-id-2',
                     'params' => 'test',
                 ],
                 'type' => 'fireEvent',
@@ -300,20 +299,20 @@ it('drops if payload contains any fired event with an empty name', function () {
         'updates' => [
             [
                 'payload' => [],
-                'type' => 'somethingRandom',
+                'type'    => 'somethingRandom',
             ],
             [
                 'payload' => [
-                    'event' => 'dummy',
-                    'id' => 'dummy-event-id',
+                    'event'  => 'dummy',
+                    'id'     => 'dummy-event-id',
                     'params' => 'test',
                 ],
                 'type' => 'fireEvent',
             ],
             [
                 'payload' => [
-                    'event' => '',
-                    'id' => 'dummy-event-id-2',
+                    'event'  => '',
+                    'id'     => 'dummy-event-id-2',
                     'params' => 'test',
                 ],
                 'type' => 'fireEvent',
