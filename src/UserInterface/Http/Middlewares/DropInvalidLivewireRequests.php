@@ -100,7 +100,8 @@ final class DropInvalidLivewireRequests
     {
         try {
             $component = Livewire::getInstance(
-                $request->input('fingerprint.name'), $request->input('fingerprint.id')
+                $request->input('fingerprint.name'),
+                $request->input('fingerprint.id')
             );
         } catch (ComponentNotFoundException $e) {
             abort(403);
