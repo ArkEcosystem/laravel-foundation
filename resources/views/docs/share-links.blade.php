@@ -4,15 +4,18 @@
     <x-ark-social-square
         :url="$document->urlReddit()"
         icon="brands.reddit"
+        hoverClass="hover:bg-theme-primary-700 hover:text-white"
     />
 
     <x-ark-social-square
         :url="$document->urlTwitter()"
         icon="brands.twitter"
+        hoverClass="hover:bg-theme-primary-700 hover:text-white"
     />
 
     <x-ark-social-square
         :url="$document->urlFacebook()"
         icon="brands.facebook"
+        hoverClass="hover:bg-theme-primary-700 hover:text-white"
     />
 </div>
