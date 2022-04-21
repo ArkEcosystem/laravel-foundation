@@ -376,3 +376,45 @@ it('lets through requests if events are valid', function () {
         $this->fail('HTTPException was thrown, even though it shouldn not be.');
     }
 });
+
+it('lets through requests if any of the vlaid events are not specified', function () {
+    $request = mockRequest('livewire.message', [
+        'fingerprint' => [
+            'id'     => 'dummy-id',
+            'name'   => 'dummy-name',
+            'method' => 'POST',
+            'path'   => '/dummy',
+        ],
+        'serverMemo' => [
+            'checksum' => 'some-checksum',
+            'htmlHash' => 'some-hash',
+        ],
+        'updates' => [
+            [
+                'payload' => [],
+                'type' => 'somethingRandom',
+            ],
+            [
+                'payload' => [
+                    'event' => 'anotherDummy',
+                    'id' => 'dummy-event-id',
+                    'params' => 'test',
+                ],
+                'type' => 'fireEvent',
+            ],
+        ],
+    ]);
+
+    Livewire::partialMock();
+
+    Livewire::shouldReceive('getInstance')->andReturn(new DummyComponent('dummy-id'));
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn(DummyComponent::class);
+
+    try {
+        $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
+
+        expect(true)->toBeTrue();
+    } catch (HttpException $e) {
+        $this->fail('HTTPException was thrown, even though it shouldn not be.');
+    }
+});

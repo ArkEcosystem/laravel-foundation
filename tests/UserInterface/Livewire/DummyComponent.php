@@ -10,6 +10,7 @@ class DummyComponent extends Component
 {
     public $listeners = [
         'dummy' => 'doSomething',
+        'anotherDummy' => 'doSomething',
     ];
 
     public function doSomething()
