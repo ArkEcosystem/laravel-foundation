@@ -107,13 +107,9 @@ final class DropInvalidLivewireRequests
             abort(403);
         }
 
-        $excessEvents = $this->fireableEvents($request)->diff(
+        abort_if($this->fireableEvents($request)->diff(
             $component->getEventsBeingListenedFor()
-        );
-
-        if ($excessEvents->isNotEmpty()) {
-            abort(403);
-        }
+        )->isNotEmpty(), 403);
     }
 
     /**
