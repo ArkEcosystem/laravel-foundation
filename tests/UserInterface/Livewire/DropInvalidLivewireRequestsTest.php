@@ -350,12 +350,12 @@ it('lets through requests if events are valid', function () {
         'updates' => [
             [
                 'payload' => [],
-                'type' => 'somethingRandom',
+                'type'    => 'somethingRandom',
             ],
             [
                 'payload' => [
-                    'event' => 'dummy',
-                    'id' => 'dummy-event-id',
+                    'event'  => 'dummy',
+                    'id'     => 'dummy-event-id',
                     'params' => 'test',
                 ],
                 'type' => 'fireEvent',
