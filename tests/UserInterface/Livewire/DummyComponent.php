@@ -9,7 +9,7 @@ use Livewire\Component;
 class DummyComponent extends Component
 {
     public $listeners = [
-        'dummy' => 'doSomething',
+        'dummy'        => 'doSomething',
         'anotherDummy' => 'doSomething',
     ];
 

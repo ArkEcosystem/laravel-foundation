@@ -392,12 +392,12 @@ it('lets through requests if any of the vlaid events are not specified', functio
         'updates' => [
             [
                 'payload' => [],
-                'type' => 'somethingRandom',
+                'type'    => 'somethingRandom',
             ],
             [
                 'payload' => [
-                    'event' => 'anotherDummy',
-                    'id' => 'dummy-event-id',
+                    'event'  => 'anotherDummy',
+                    'id'     => 'dummy-event-id',
                     'params' => 'test',
                 ],
                 'type' => 'fireEvent',
