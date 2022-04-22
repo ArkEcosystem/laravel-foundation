@@ -74,8 +74,8 @@
 
                         <x-ark-chevron-toggle
                             is-open="openDropdown === '{{ $navItem['label'] }}'"
-                            :class="Arr::toCssClasses([
-                                'ml-2',
+                            class="ml-2"
+                            :closed-class="Arr::toCssClasses([
                                 $routeDropdownTextColor => ! $inverted,
                                 $invertedRouteDropdownTextColor => $inverted,
                             ])"
