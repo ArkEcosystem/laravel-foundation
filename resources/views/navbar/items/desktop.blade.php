@@ -1,19 +1,23 @@
 @props([
-    'inverted'                  => false,
-    'breakpoint'                => 'md',
-    'navigation'                => [],
-    'navigationExtra'           => null,
-    'dropdownClass'             => 'flex-shrink-0 w-56',
-    'dropdownWrapperClass'      => 'mt-24 py-4 bg-white rounded-xl shadow-navbar-dropdown',
-    'menuDropdownId'            => 'menuDropdown',
-    'currentRouteTextColor'         => 'text-theme-secondary-900 dark:text-theme-secondary-400',
-    'routeTextColor'                => 'text-theme-secondary-700 hover:text-theme-secondary-800 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400',
-    'currentRouteBorderColor'       => 'border-theme-primary-600',
-    'routeBorderColor'              => 'border-transparent hover:border-theme-secondary-300',
-    'invertedCurrentRouteTextColor' => 'text-white inverted:text-theme-secondary-900 inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400',
-    'invertedRouteTextColor'        => 'text-theme-primary-100 inverted:text-theme-secondary-700 hover:text-white inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400',
-    'invertedCurrentRouteBorderColor' => 'border-theme-primary-200 inverted:border-theme-primary-600 hover:border-theme-primary-200 inverted:hover:border-theme-primary-600 focus-visible:border-b-0',
-    'invertedRouteBorderColor'        => 'border-transparent hover:border-theme-primary-400 inverted:hover:border-theme-secondary-300 focus-visible:border-b-0',
+    'inverted'                           => false,
+    'breakpoint'                         => 'md',
+    'navigation'                         => [],
+    'navigationExtra'                    => null,
+    'dropdownClass'                      => 'flex-shrink-0 w-56',
+    'dropdownWrapperClass'               => 'mt-24 py-4 bg-white rounded-xl shadow-navbar-dropdown',
+    'menuDropdownId'                     => 'menuDropdown',
+    'currentRouteTextColor'              => 'text-theme-secondary-900 dark:text-theme-secondary-400',
+    'routeTextColor'                     => 'text-theme-secondary-700 hover:text-theme-secondary-800 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400',
+    'routeDropdownTextColor'             => 'text-theme-primary-600',
+    'routeDropdownOpenTextColor'         => 'text-theme-primary-600',
+    'currentRouteBorderColor'            => 'border-theme-primary-600',
+    'routeBorderColor'                   => 'border-transparent hover:border-theme-secondary-300',
+    'invertedCurrentRouteTextColor'      => 'text-white inverted:text-theme-secondary-900 inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400',
+    'invertedRouteTextColor'             => 'text-theme-primary-100 inverted:text-theme-secondary-700 hover:text-white inverted:hover:text-theme-secondary-900 dark:text-theme-secondary-400',
+    'invertedRouteDropdownTextColor'     => 'text-theme-primary-600',
+    'invertedRouteDropdownOpenTextColor' => 'text-theme-primary-600',
+    'invertedCurrentRouteBorderColor'    => 'border-theme-primary-200 inverted:border-theme-primary-600 hover:border-theme-primary-200 inverted:hover:border-theme-primary-600 focus-visible:border-b-0',
+    'invertedRouteBorderColor'           => 'border-transparent hover:border-theme-primary-400 inverted:hover:border-theme-secondary-300 focus-visible:border-b-0',
 ])
 
 @php
@@ -41,8 +45,12 @@
                     <button
                         x-ref="menuDropdownButton"
                         @class([
-                            'relative inline-flex justify-center items-center px-1 pt-px font-semibold leading-5 border-b-2 border-transparent text-theme-secondary-700 hover:text-theme-secondary-800 hover:border-theme-secondary-300 focus:outline-none transition duration-150 ease-in-out h-full dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400',
+                            'relative inline-flex justify-center items-center px-1 pt-px font-semibold leading-5 border-b-2 focus:outline-none transition duration-150 ease-in-out h-full',
                             'ml-8' => ! $loop->first,
+                            $routeDropdownTextColor => ! $inverted,
+                            $invertedRouteDropdownTextColor => $inverted,
+                            $routeBorderColor => ! $inverted,
+                            $invertedRouteBorderColor => $inverted,
                         ])
                         @click="toggleDropdown('{{ $navItem['label'] }}')"
                         @blur="closeIfBlurOutside"
@@ -66,7 +74,15 @@
 
                         <x-ark-chevron-toggle
                             is-open="openDropdown === '{{ $navItem['label'] }}'"
-                            class="ml-2 text-theme-primary-600"
+                            class="ml-2"
+                            :closed-class="Arr::toCssClasses([
+                                $routeDropdownTextColor => ! $inverted,
+                                $invertedRouteDropdownTextColor => $inverted,
+                            ])"
+                            :open-class="Arr::toCssClasses([
+                                $routeDropdownOpenTextColor => ! $inverted,
+                                $invertedRouteDropdownOpenTextColor => $inverted,
+                            ])"
                         />
                     </button>
 
