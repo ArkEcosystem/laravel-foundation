@@ -6,7 +6,7 @@
 
 <span
     {{ $attributes->class('transition duration-150 ease-in-out') }}
-    :class="{ 'rotate-180 {{ Arr::toCssClasses([
+    :class="{ '{{ Arr::toCssClasses([
         'rotate-180',
         $openClass
     ]) }}': {{ $isOpen }} }"
