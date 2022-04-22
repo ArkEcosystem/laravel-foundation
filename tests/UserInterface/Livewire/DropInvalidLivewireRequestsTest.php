@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Exceptions\ComponentNotFoundException;
 use Livewire\Livewire;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Tests\UserInterface\Livewire\DummyComponent;
 
 function mockRequest(string $routeName = 'testing::dummy', array $payload = []) : Request
 {
@@ -229,5 +230,191 @@ it('drops if payload is missing', function () {
     } catch (HttpException $e) {
         // 404 was thrown...
         expect(true)->toBeTrue();
+    }
+});
+
+it('drops if fired events do not exist', function () {
+    $request = mockRequest('livewire.message', [
+        'fingerprint' => [
+            'id'     => 'dummy-id',
+            'name'   => 'dummy-name',
+            'method' => 'POST',
+            'path'   => '/dummy',
+        ],
+        'serverMemo' => [
+            'checksum' => 'some-checksum',
+            'htmlHash' => 'some-hash',
+        ],
+        'updates' => [
+            [
+                'payload' => [],
+                'type'    => 'somethingRandom',
+            ],
+            [
+                'payload' => [
+                    'event'  => 'dummy',
+                    'id'     => 'dummy-event-id',
+                    'params' => 'test',
+                ],
+                'type' => 'fireEvent',
+            ],
+            [
+                'payload' => [
+                    'event'  => 'something-invalid',
+                    'id'     => 'dummy-event-id-2',
+                    'params' => 'test',
+                ],
+                'type' => 'fireEvent',
+            ],
+        ],
+    ]);
+
+    Livewire::partialMock();
+
+    Livewire::shouldReceive('getInstance')->andReturn(new DummyComponent('dummy-id'));
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn(DummyComponent::class);
+
+    try {
+        $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
+
+        $this->fail('HTTPException was not thrown.');
+    } catch (HttpException $e) {
+        // 404 was thrown...
+        expect(true)->toBeTrue();
+    }
+});
+
+it('drops if payload contains any fired event with an empty name', function () {
+    $request = mockRequest('livewire.message', [
+        'fingerprint' => [
+            'id'     => 'dummy-id',
+            'name'   => 'dummy-name',
+            'method' => 'POST',
+            'path'   => '/dummy',
+        ],
+        'serverMemo' => [
+            'checksum' => 'some-checksum',
+            'htmlHash' => 'some-hash',
+        ],
+        'updates' => [
+            [
+                'payload' => [],
+                'type'    => 'somethingRandom',
+            ],
+            [
+                'payload' => [
+                    'event'  => 'dummy',
+                    'id'     => 'dummy-event-id',
+                    'params' => 'test',
+                ],
+                'type' => 'fireEvent',
+            ],
+            [
+                'payload' => [
+                    'event'  => '',
+                    'id'     => 'dummy-event-id-2',
+                    'params' => 'test',
+                ],
+                'type' => 'fireEvent',
+            ],
+        ],
+    ]);
+
+    Livewire::partialMock();
+
+    Livewire::shouldReceive('getInstance')->andReturn(new DummyComponent('dummy-id'));
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn(DummyComponent::class);
+
+    try {
+        $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
+
+        $this->fail('HTTPException was not thrown.');
+    } catch (HttpException $e) {
+        // 404 was thrown...
+        expect(true)->toBeTrue();
+    }
+});
+
+it('lets through requests if events are valid', function () {
+    $request = mockRequest('livewire.message', [
+        'fingerprint' => [
+            'id'     => 'dummy-id',
+            'name'   => 'dummy-name',
+            'method' => 'POST',
+            'path'   => '/dummy',
+        ],
+        'serverMemo' => [
+            'checksum' => 'some-checksum',
+            'htmlHash' => 'some-hash',
+        ],
+        'updates' => [
+            [
+                'payload' => [],
+                'type'    => 'somethingRandom',
+            ],
+            [
+                'payload' => [
+                    'event'  => 'dummy',
+                    'id'     => 'dummy-event-id',
+                    'params' => 'test',
+                ],
+                'type' => 'fireEvent',
+            ],
+        ],
+    ]);
+
+    Livewire::partialMock();
+
+    Livewire::shouldReceive('getInstance')->andReturn(new DummyComponent('dummy-id'));
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn(DummyComponent::class);
+
+    try {
+        $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
+
+        expect(true)->toBeTrue();
+    } catch (HttpException $e) {
+        $this->fail('HTTPException was thrown, even though it shouldn not be.');
+    }
+});
+
+it('lets through requests if any of the vlaid events are not specified', function () {
+    $request = mockRequest('livewire.message', [
+        'fingerprint' => [
+            'id'     => 'dummy-id',
+            'name'   => 'dummy-name',
+            'method' => 'POST',
+            'path'   => '/dummy',
+        ],
+        'serverMemo' => [
+            'checksum' => 'some-checksum',
+            'htmlHash' => 'some-hash',
+        ],
+        'updates' => [
+            [
+                'payload' => [],
+                'type'    => 'somethingRandom',
+            ],
+            [
+                'payload' => [
+                    'event'  => 'anotherDummy',
+                    'id'     => 'dummy-event-id',
+                    'params' => 'test',
+                ],
+                'type' => 'fireEvent',
+            ],
+        ],
+    ]);
+
+    Livewire::partialMock();
+
+    Livewire::shouldReceive('getInstance')->andReturn(new DummyComponent('dummy-id'));
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn(DummyComponent::class);
+
+    try {
+        $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
+
+        expect(true)->toBeTrue();
+    } catch (HttpException $e) {
+        $this->fail('HTTPException was thrown, even though it shouldn not be.');
     }
 });
