@@ -5,19 +5,20 @@
     'class' => null
 ])
 @php
-    $availableSizes = ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'base'];
+    $sizes = [
+        '2xs'  => 'w-2 h-2',
+        'xs'   => 'w-3 h-3',
+        'sm'   => 'w-4 h-4',
+        'md'   => 'w-6 h-6',
+        'lg'   => 'w-8 h-8',
+        'xl'   => 'w-12 h-12',
+        '2xl'  => 'w-14 h-14',
+        '3xl'  => 'w-15 h-15',
+        'base' => 'w-5 h-5',
+    ];
 
-    if (empty($size) || in_array($size, $availableSizes)) {
-        $size = [
-            '2xs'  => 'w-2 h-2',
-            'xs'   => 'w-3 h-3',
-            'sm'   => 'w-4 h-4',
-            'md'   => 'w-6 h-6',
-            'lg'   => 'w-8 h-8',
-            'xl'   => 'w-12 h-12',
-            '2xl'  => 'w-14 h-14',
-            'base' => 'w-5 h-5',
-        ][$size ?? 'base'];
+    if (empty($size) || in_array($size, array_keys($sizes))) {
+        $size = $sizes[$size ?? 'base'];
     }
 
     if (!empty($style)) {
