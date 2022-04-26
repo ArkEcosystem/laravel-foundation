@@ -11,6 +11,7 @@
     'iconBreakpoint'        => 'lg',
     'disabled'              => false,
     'external'              => false,
+    'hideExternalIcon'      => false,
     'tooltip'               => null,
     'hoverClass'            => 'hover:bg-theme-secondary-100',
     'textHoverColor'        => 'group-hover:text-theme-primary-700',
@@ -102,7 +103,7 @@
                         <span>{{ $label }}</span>
                     @endif
 
-                    @if ($external)
+                    @if ($external && ! $hideExternalIcon)
                         <x-ark-icon
                             name="arrows.arrow-external"
                             size="sm"
