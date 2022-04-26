@@ -53,7 +53,7 @@
                             $invertedRouteBorderColor => $inverted,
                         ])
                         @click="toggleDropdown('{{ $navItem['label'] }}')"
-                        @blur="closeIfBlurOutside"
+                        @click.outside="closeIfBlurOutside"
                         aria-haspopup="true"
                         aria-controls="{{ $menuDropdownId }}"
                         x-bind:aria-expanded="openDropdown === '{{ $navItem['label'] }}'"
