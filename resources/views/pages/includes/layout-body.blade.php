@@ -3,13 +3,15 @@
     'footer'       => null,
     'content'      => null,
     'cookieDomain' => null,
+    'wrapperClass' => 'bg-white',
 ])
 
 <body {{ $attributes }}>
     <div
         id="app"
         @class([
-            'flex flex-col antialiased bg-white',
+            'flex flex-col antialiased',
+            $wrapperClass,
             'dark:bg-theme-secondary-900' => config('ui.dark-mode.enabled') === true,
         ])
     >
