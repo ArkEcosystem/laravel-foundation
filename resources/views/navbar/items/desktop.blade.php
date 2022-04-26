@@ -109,7 +109,10 @@
                     $isCurrentRoute = array_key_exists('route', $navItem) && optional(Route::current())->getName() === $navItem['route'];
                 @endphp
                 <a
-                    @if (array_key_exists('href', $navItem))
+                    @if(array_key_exists('onClick', $navItem))
+                        type="button"
+                        x-on:click="{{ $navItem['onClick'] }}"
+                    @elseif (array_key_exists('href', $navItem))
                         href="{{ $navItem['href'] }}"
                     @else
                         href="{{ route($navItem['route'], $navItem['params'] ?? []) }}"
@@ -126,6 +129,7 @@
                         'focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && $inverted,
                         'focus-visible:pt-0 focus-visible:-mt-px' => ! $isCurrentRoute && $inverted,
                         'ml-8' => ! $loop->first,
+                        'cursor-pointer' => array_key_exists('onClick', $navItem),
                         $currentRouteTextColor => $isCurrentRoute && ! $inverted,
                         $routeTextColor => ! $isCurrentRoute && ! $inverted,
                         $currentRouteBorderColor => $isCurrentRoute && ! $inverted,

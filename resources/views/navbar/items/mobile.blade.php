@@ -91,6 +91,7 @@
                 <x-ark-sidebar-link
                     :href="$navItem['href'] ?? null"
                     :route="$navItem['route'] ?? null"
+                    :on-click="$navItem['onClick'] ?? null"
                     :name="$navItem['label']"
                     :params="$navItem['params'] ?? []"
                     :icon="isset($navItem['icon']) ? $navItem['icon'] : false"
