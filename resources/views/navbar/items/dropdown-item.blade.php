@@ -55,6 +55,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
             @endif
+            x-on:click="openDropdown = null"
             dusk="navbar-item-{{ Str::slug($label) }}"
         >
     @else
