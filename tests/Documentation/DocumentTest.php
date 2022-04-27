@@ -43,7 +43,7 @@ it('should not highlight intro in sidebar', function () {
     expect($document->body)->toContain('<x-ark-docs-sidebar-link first top-level path="/docs/intro" name="Introduction" />');
 
     expect(Blade::render($document->body))->not->toMatch(
-        '/<div class=".+bg-theme-primary-600.+"><\/div>\s+'.
+        '/<div class=".+border-theme-primary-600"><\/div>\s+'.
         '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-primary-600 bg-theme-primary-100">\s+'.
         '<a\s+href="\/docs\/intro" class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/'
     );
@@ -89,7 +89,7 @@ it('should highlight intro in sidebar when at category intro url', function () {
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div class="w-1 -mr-1 z-10 border-l border-theme-secondary-300"><\/div>\s+'.
+        '/<div class="absolute h-full -left-2.5px z-10 border-l-4 rounded-lg border-transparent"><\/div>\s+'.
         '<a\s+href="\/docs\/user-guides\/transactions\/how-to-vote-unvote"/'
     );
 
@@ -108,12 +108,18 @@ it('should highlight different page in sidebar', function () {
     expect($document->body)->toContain('<x-ark-docs-sidebar-link path="/docs/user-guides/transactions/how-to-vote-unvote" name="Vote or Unvote a Delegate" />');
 
     expect(Blade::render($document->body))->not->toMatch(
-        '/<div class="w-1 -mr-1 z-10 border-l border-theme-secondary-300"><\/div>\s+'.
+        '/<div class="absolute h-full -left-2.5px z-10 border-l-4 rounded-lg border-transparent"><\/div>\s+'.
         '<a\s+href="\/docs\/user-guides\/transactions\/how-to-vote-unvote"/'
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div class=".+bg-theme-primary-600.+"><\/div>\s+'.
+        '/<div class="w-1 -mr-1 z-10"><\/div>\s+'.
+        '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
+        '<a\s+href="\/docs\/intro"/'
+    );
+
+    expect(Blade::render($document->body))->toMatch(
+        '/<div class=".+border-theme-primary-600"><\/div>\s+'.
         '<a\s+href="\/docs\/user-guides\/transactions\/how-to-vote-unvote"/'
     );
 });
