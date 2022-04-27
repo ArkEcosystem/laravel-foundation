@@ -34,7 +34,7 @@
     </div>
 @else
     @if (count($children) === 0)
-        <div class="relative flex pr-5 ml-5 lg:pr-0 lg:ml-0 border-l border-theme-secondary-300">
+        <div class="flex relative pr-5 ml-5 border-l lg:pr-0 lg:ml-0 border-theme-secondary-300">
             <div @class([
                 'absolute h-full -left-2.5px z-10 border-l-4 rounded-lg',
                 'border-theme-primary-600' => $onDocs,
@@ -53,7 +53,7 @@
             </a>
         </div>
     @else
-        <div class="flex pr-4 ml-5 lg:pr-0 lg:ml-0 border-l border-theme-secondary-300">
+        <div class="flex pr-4 ml-5 border-l lg:pr-0 lg:ml-0 border-theme-secondary-300">
             <div class="flex-1">
                 <div class="flex justify-between items-center py-3 pr-2 pl-5 space-x-3 w-full text-left lg:pr-5">
                     <span class="text-sm font-semibold text-theme-secondary-700">
