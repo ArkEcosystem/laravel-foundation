@@ -59,6 +59,7 @@ module.exports = {
                 focus: "rgba(var(--theme-color-primary-rgb), 0.50)",
             },
             inset: {
+                "-2.5px": "-2.5px",
                 "13": "3.25rem",
                 "21": "5.25rem",
             },
