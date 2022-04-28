@@ -40,7 +40,7 @@
         </span>
     </button>
 
-    <div x-show="open" class="ml-1 pb-4">
+    <div x-show="open" class="pb-4 ml-1">
         {{ $slot }}
     </div>
 </div>
