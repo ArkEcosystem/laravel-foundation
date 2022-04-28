@@ -130,15 +130,15 @@ it('should expand getting started section in sidebar', function () {
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
     expect(Blade::render($document->body))->not->toMatch(
-        '/<div\s+class="lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
-        '<button\s+type="button"\s+class="flex items-center justify-between w-full pl-5 lg:pl-0 pr-5 border-theme-secondary-300 group pt-4 mt-4 border-t"\s+'.
+        '/<div\s+class="px-8 lg:px-0 lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
+        '<button\s+type="button"\s+class="flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Transactions/'
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div\s+class="lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
-        '<button\s+type="button"\s+class="flex items-center justify-between w-full pl-5 lg:pl-0 pr-5 border-theme-secondary-300 group pt-4 mt-4 border-t"\s+'.
+        '/<div\s+class="px-8 lg:px-0 lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
+        '<button\s+type="button"\s+class="flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Getting Started/'
     );
@@ -150,15 +150,15 @@ it('should expand transactions section in sidebar', function () {
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
     expect(Blade::render($document->body))->not->toMatch(
-        '/<div\s+class="lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
-        '<button\s+type="button"\s+class="flex items-center justify-between w-full pl-5 lg:pl-0 pr-5 border-theme-secondary-300 group pt-4 mt-4 border-t"\s+'.
+        '/<div\s+class="px-8 lg:px-0 lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
+        '<button\s+type="button"\s+class="flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Getting Started/'
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div\s+class="lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
-        '<button\s+type="button"\s+class="flex items-center justify-between w-full pl-5 lg:pl-0 pr-5 border-theme-secondary-300 group pt-4 mt-4 border-t"\s+'.
+        '/<div\s+class="px-8 lg:px-0 lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
+        '<button\s+type="button"\s+class="flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Transactions/'
     );
