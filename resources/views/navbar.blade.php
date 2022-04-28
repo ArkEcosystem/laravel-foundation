@@ -88,9 +88,9 @@
 
                     @if(! isset($noSeparator))
                         <span @class([
-                        	$separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 transition duration-400',
-                        	$invertedSeparator,
-                        	$separatorBreakpointClass,
+                            $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 transition duration-400',
+                            $invertedSeparator,
+                            $separatorBreakpointClass,
                         ])></span>
                     @endif
 
@@ -101,7 +101,8 @@
                                 :breakpoint="$breakpoint ?? 'md'"
                                 :color="$hamburgerColor ?? null"
                                 :invertedColor="$invertedHamburgerColor ?? null"
-                                :no-separator="$noSeparator ?? null"
+                                :no-separator="$noSeparator ?? $noHamburgerSeparator ?? null"
+                                :separator-class="$hamburgerSeparatorClass ?? null"
                             />
                         @endif
 

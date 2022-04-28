@@ -1,9 +1,10 @@
 @props([
-    'inverted'      => false,
-    'noSeparator'   => false,
-    'breakpoint'    => 'md',
-    'color'         => 'hover:text-white text-theme-secondary-900',
-    'invertedColor' => 'inverted:text-theme-secondary-900 inverted:hover:text-theme-primary-700 text-theme-primary-100',
+    'inverted'       => false,
+    'noSeparator'    => false,
+    'separatorClass' => null,
+    'breakpoint'     => 'md',
+    'color'          => 'hover:text-white text-theme-secondary-900',
+    'invertedColor'  => 'inverted:text-theme-secondary-900 inverted:hover:text-theme-primary-700 text-theme-primary-100',
 ])
 
 @php
@@ -47,6 +48,7 @@
         <span @class([
             'block pr-6 md:pr-8 ml-3 h-7 border-l transition duration-400',
             $invertedSeparator,
+            $separatorClass,
         ])></span>
     @endunless
 </div>
