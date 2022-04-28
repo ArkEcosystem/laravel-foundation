@@ -11,7 +11,7 @@
 @php ($isCurrent = ($route && url()->full() === route($route, $params)))
 
 <div class="flex">
-    <div class="@if($isCurrent || $active) bg-theme-primary-600 rounded-xl @endif w-2 -mr-1 z-10"></div>
+    <div class="@if($isCurrent || $active) bg-theme-primary-600 @endif w-1 -mr-1 z-10"></div>
 
     <a
         @if ($href)
