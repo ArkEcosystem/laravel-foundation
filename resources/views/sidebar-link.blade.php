@@ -5,13 +5,18 @@
     'icon' => null,
     'iconAlignment' => 'right',
     'href' => null,
-    'active' => false
+    'active' => false,
+    'rounded' => true,
 ])
 
 @php ($isCurrent = ($route && url()->full() === route($route, $params)))
 
 <div class="flex">
-    <div class="@if($isCurrent || $active) bg-theme-primary-600 @endif w-1 -mr-1 z-10"></div>
+    <div @class([
+        'w-1 -mr-1 z-10',
+        'bg-theme-primary-600' => $isCurrent || $active,
+        'rounded-xl' => $rounded && ($isCurrent || $active),
+    ])></div>
 
     <a
         @if ($href)
