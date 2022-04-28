@@ -6,7 +6,7 @@
 ])
 
 <div
-    class="lg:ml-8"
+    class="px-8 lg:px-0 lg:ml-8"
     x-data="{ open: @js(Request::onDocs($path, true)) }"
     :class="{ 'last:pb-4': ! open }"
     x-cloak
@@ -14,9 +14,8 @@
     <button
         type="button"
         @class([
-            'flex items-center justify-between w-full pl-5 lg:pl-0 pr-5 border-theme-secondary-300 group',
-            'pt-4 lg:mt-4 lg:border-t' => $first && ! $borderless,
-            'pt-4 mt-4 border-t' => ! $first && ! $borderless,
+            'flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group',
+            'border-t' => ! $borderless,
         ])
         @click.prevent="open = ! open"
     >
@@ -41,7 +40,7 @@
         </span>
     </button>
 
-    <div x-show="open" class="mt-4 ml-1">
+    <div x-show="open" class="pb-4 ml-1">
         {{ $slot }}
     </div>
 </div>
