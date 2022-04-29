@@ -7,6 +7,7 @@
     'href' => null,
     'active' => false,
     'rounded' => true,
+    'attrs' => [],
 ])
 
 @php ($isCurrent = ($route && url()->full() === route($route, $params)))
@@ -30,6 +31,9 @@
             'text-theme-secondary-900 hover:text-theme-primary-600 dark:text-theme-secondary-200 dark:hover:text-theme-primary-600' => ! $isCurrent,
         ])
         dusk='navbar-item-{{ Str::slug($name) }}'
+        @foreach($attrs as $attribute => $attributeValue)
+            {{ $attribute }}="{{ $attributeValue }}"
+        @endforeach
         {{ $attributes->except(['href', 'class', 'dusk']) }}
     >
 
