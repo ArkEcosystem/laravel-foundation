@@ -4,8 +4,8 @@ const ReadOnly = ({ value }) => ({
     showExpand: false,
     init() {
         this.$nextTick(() => {
-            this.truncate()
-        })
+            this.truncate();
+        });
     },
     truncate() {
         const el = this.$root.querySelector(".read-more-content");
