@@ -1,9 +1,9 @@
 <div class="read-more-container">
     <div
-        x-data="ReadMore({ value: '{{ $content }}'})"
+        x-data="ReadMore({ value: {{ json_encode($content) }}, })"
         :class="{ 'flex': ! showMore }"
         x-init="truncate"
-        x-on:resize.window="hideOptionAndTruncate"
+        x-on:resize.window="$nextTick(() => this.truncate())"
         x-cloak
     >
         <div

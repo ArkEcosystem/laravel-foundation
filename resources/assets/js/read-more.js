@@ -2,9 +2,14 @@ const ReadOnly = ({ value }) => ({
     value,
     showMore: false,
     showExpand: false,
+    init() {
+        this.$nextTick(() => {
+            this.truncate()
+        })
+    },
     truncate() {
-        const el = this.$el.querySelector(".read-more-content");
-        const expand = this.$el.querySelector(".read-more-expand");
+        const el = this.$root.querySelector(".read-more-content");
+        const expand = this.$root.querySelector(".read-more-expand");
 
         expand.style.display = "none";
         el.innerHTML = "";
@@ -28,7 +33,7 @@ const ReadOnly = ({ value }) => ({
         } while (length > 1 && this.hasOverflow(el));
     },
     showAll() {
-        const el = this.$el.querySelector(".read-more-content");
+        const el = this.$root.querySelector(".read-more-content");
 
         el.innerHTML = "";
         el.appendChild(document.createTextNode(this.value));
