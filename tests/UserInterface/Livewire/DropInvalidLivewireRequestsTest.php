@@ -439,16 +439,16 @@ it('drops if payload contains any callable methods that do not exist', function 
             [
                 'payload' => [
                     'method'  => 'doSomething',
-                    'id'     => 'dummy-method-id',
-                    'params' => 'test',
+                    'id'      => 'dummy-method-id',
+                    'params'  => 'test',
                 ],
                 'type' => 'callMethod',
             ],
             [
                 'payload' => [
                     'method'  => 'somethingInvalid',
-                    'id'     => 'dummy-method-id-2',
-                    'params' => 'test',
+                    'id'      => 'dummy-method-id-2',
+                    'params'  => 'test',
                 ],
                 'type' => 'callMethod',
             ],
@@ -490,16 +490,16 @@ it('lets request through if all of the methods are valid', function () {
             [
                 'payload' => [
                     'method'  => 'doSomething',
-                    'id'     => 'dummy-method-id',
-                    'params' => 'test',
+                    'id'      => 'dummy-method-id',
+                    'params'  => 'test',
                 ],
                 'type' => 'callMethod',
             ],
             [
                 'payload' => [
                     'method'  => '$set',
-                    'id'     => 'dummy-method-id-2',
-                    'params' => 'test',
+                    'id'      => 'dummy-method-id-2',
+                    'params'  => 'test',
                 ],
                 'type' => 'callMethod',
             ],

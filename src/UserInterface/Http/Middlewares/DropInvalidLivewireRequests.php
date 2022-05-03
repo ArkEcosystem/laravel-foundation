@@ -176,6 +176,6 @@ final class DropInvalidLivewireRequests
             );
         } catch (ComponentNotFoundException $e) {
             abort(403);
-        };
+        }
     }
 }
