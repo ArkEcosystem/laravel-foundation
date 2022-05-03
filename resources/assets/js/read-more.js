@@ -28,7 +28,7 @@ const ReadOnly = ({ value }) => ({
 
                 this.showExpand = true;
             } while (length > 1 && this.hasOverflow(el));
-        })
+        });
     },
     showAll() {
         const el = this.$root.querySelector(".read-more-content");
