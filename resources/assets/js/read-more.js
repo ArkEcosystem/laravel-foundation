@@ -6,27 +6,29 @@ const ReadOnly = ({ value }) => ({
         this.truncate();
     },
     truncate() {
-        const el = this.$root.querySelector(".read-more-content");
-
-        el.innerHTML = "";
-        el.appendChild(document.createTextNode(this.value));
-
-        if (!this.hasOverflow(el)) {
-            return;
-        }
-
-        let length = this.value.length;
-        do {
-            const a = this.value.substr(0, length);
-            const truncated = a + "...";
+        this.$nextTick(() => {
+            const el = this.$root.querySelector(".read-more-content");
 
             el.innerHTML = "";
-            el.appendChild(document.createTextNode(truncated));
+            el.appendChild(document.createTextNode(this.value));
 
-            length--;
+            if (!this.hasOverflow(el)) {
+                return;
+            }
 
-            this.showExpand = true;
-        } while (length > 1 && this.hasOverflow(el));
+            let length = this.value.length;
+            do {
+                const a = this.value.substr(0, length);
+                const truncated = a + "...";
+
+                el.innerHTML = "";
+                el.appendChild(document.createTextNode(truncated));
+
+                length--;
+
+                this.showExpand = true;
+            } while (length > 1 && this.hasOverflow(el));
+        })
     },
     showAll() {
         const el = this.$root.querySelector(".read-more-content");
