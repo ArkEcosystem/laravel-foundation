@@ -3,15 +3,11 @@ const ReadOnly = ({ value }) => ({
     showMore: false,
     showExpand: false,
     init() {
-        this.$nextTick(() => {
-            this.truncate();
-        });
+        this.truncate();
     },
     truncate() {
         const el = this.$root.querySelector(".read-more-content");
-        const expand = this.$root.querySelector(".read-more-expand");
 
-        expand.style.display = "none";
         el.innerHTML = "";
         el.appendChild(document.createTextNode(this.value));
 

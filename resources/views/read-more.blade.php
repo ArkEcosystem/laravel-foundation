@@ -2,8 +2,7 @@
     <div
         x-data="ReadMore({ value: {{ json_encode($content) }}, })"
         :class="{ 'flex': ! showMore }"
-        x-init="truncate"
-        x-on:resize.window="$nextTick(() => truncate())"
+        x-on:resize.window="truncate()"
         x-cloak
     >
         <div
