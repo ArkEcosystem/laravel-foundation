@@ -1,6 +1,6 @@
 /* Custom content container */
 .content-container {
-    @apply flex px-8 mx-auto sm:px-10 lg:max-w-7xl;
+    @apply flex px-8 mx-auto md:px-10 lg:max-w-7xl;
 }
 
 .content-container-full-width {
@@ -12,7 +12,7 @@
     @apply px-8;
 }
 
-@screen sm {
+@screen md {
     .navbar-container {
         @apply px-10;
     }
