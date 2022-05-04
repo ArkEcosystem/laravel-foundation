@@ -23,6 +23,12 @@ return static function (RectorConfig $rectorConfig): void
         LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL,
     ]);
 
+    /*
+     * We added a custom bootstrap file to avoid Rector processing errors.
+     * For more info: https://github.com/rectorphp/rector/issues/6607#issuecomment-891677145
+     * and https://github.com/rectorphp/rector/issues/3902.
+     * Bootstrap file source: https://github.com/samsonasik/example-app/blob/922ea0e43a50d9b3eb9e71f57c0af41b8ad97226/rector-bootstrap.php
+     */
     $rectorConfig->bootstrapFiles([$dir.'/vendor/arkecosystem/foundation/rector-bootstrap.php']);
 
     $parameters->set(Option::PATHS, [
