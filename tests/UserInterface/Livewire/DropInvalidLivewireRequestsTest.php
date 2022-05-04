@@ -377,7 +377,7 @@ it('lets through requests if events are valid', function () {
     }
 });
 
-it('lets through requests if any of the vlaid events are not specified', function () {
+it('lets through requests if any of the valid events are not specified', function () {
     $request = mockRequest('livewire.message', [
         'fingerprint' => [
             'id'     => 'dummy-id',
@@ -401,6 +401,107 @@ it('lets through requests if any of the vlaid events are not specified', functio
                     'params' => 'test',
                 ],
                 'type' => 'fireEvent',
+            ],
+        ],
+    ]);
+
+    Livewire::partialMock();
+
+    Livewire::shouldReceive('getInstance')->andReturn(new DummyComponent('dummy-id'));
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn(DummyComponent::class);
+
+    try {
+        $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
+
+        expect(true)->toBeTrue();
+    } catch (HttpException $e) {
+        $this->fail('HTTPException was thrown, even though it shouldn not be.');
+    }
+});
+
+it('drops if payload contains any callable methods that do not exist', function () {
+    $request = mockRequest('livewire.message', [
+        'fingerprint' => [
+            'id'     => 'dummy-id',
+            'name'   => 'dummy-name',
+            'method' => 'POST',
+            'path'   => '/dummy',
+        ],
+        'serverMemo' => [
+            'checksum' => 'some-checksum',
+            'htmlHash' => 'some-hash',
+        ],
+        'updates' => [
+            [
+                'payload' => [],
+                'type'    => 'somethingRandom',
+            ],
+            [
+                'payload' => [
+                    'method'  => 'doSomething',
+                    'id'      => 'dummy-method-id',
+                    'params'  => 'test',
+                ],
+                'type' => 'callMethod',
+            ],
+            [
+                'payload' => [
+                    'method'  => 'somethingInvalid',
+                    'id'      => 'dummy-method-id-2',
+                    'params'  => 'test',
+                ],
+                'type' => 'callMethod',
+            ],
+        ],
+    ]);
+
+    Livewire::partialMock();
+
+    Livewire::shouldReceive('getInstance')->andReturn(new DummyComponent('dummy-id'));
+    Livewire::shouldReceive('getClass')->with('dummy-name')->andReturn(DummyComponent::class);
+
+    try {
+        $response = (new DropInvalidLivewireRequests())->handle($request, fn () => 'Hello world');
+
+        $this->fail('HTTPException was not thrown.');
+    } catch (HttpException $e) {
+        // 404 was thrown...
+        expect(true)->toBeTrue();
+    }
+});
+
+it('lets request through if all of the methods are valid', function () {
+    $request = mockRequest('livewire.message', [
+        'fingerprint' => [
+            'id'     => 'dummy-id',
+            'name'   => 'dummy-name',
+            'method' => 'POST',
+            'path'   => '/dummy',
+        ],
+        'serverMemo' => [
+            'checksum' => 'some-checksum',
+            'htmlHash' => 'some-hash',
+        ],
+        'updates' => [
+            [
+                'payload' => [],
+                'type'    => 'somethingRandom',
+            ],
+            [
+                'payload' => [
+                    'method'  => 'doSomething',
+                    'id'      => 'dummy-method-id',
+                    'params'  => 'test',
+                ],
+                'type' => 'callMethod',
+            ],
+            [
+                'payload' => [
+                    'method'  => '$set',
+                    'id'      => 'dummy-method-id-2',
+                    'params'  => 'test',
+                ],
+                'type' => 'callMethod',
             ],
         ],
     ]);
