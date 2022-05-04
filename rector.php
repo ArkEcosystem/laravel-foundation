@@ -8,8 +8,7 @@ use Rector\Core\ValueObject\PhpVersion;
 use Rector\Laravel\Set\LaravelSetList;
 use Rector\Set\ValueObject\SetList;
 
-return static function (RectorConfig $rectorConfig): void
-{
+return static function (RectorConfig $rectorConfig): void {
     $parameters = $rectorConfig->parameters();
     $services   = $rectorConfig->services();
     $dir        = getcwd();
