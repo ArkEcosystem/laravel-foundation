@@ -507,3 +507,12 @@
 .notification-dot {
     @apply absolute block rounded-full;
 }
+
+/* Sidebar */
+.sidebar-link {
+    @apply flex items-center;
+}
+
+.sidebar-link:last-child .sidebar-link-divider {
+    @apply hidden;
+}

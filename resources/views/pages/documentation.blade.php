@@ -9,11 +9,15 @@
 
 <x-ark-container container-class="flex-col pb-8 {{ $compact ? 'pt-8 md:pt-8' : 'pt-10 md:pt-12' }}">
     <div class="flex {{ $compact ? 'pb-8' : 'py-8' }} lg:divide-x divide-theme-secondary-200">
-        <aside class="hidden flex-shrink-0 w-1/4 lg:block">
+        <aside class="hidden flex-shrink-0 w-68 lg:block">
             <div class="overflow-y-auto sticky top-32 pr-10 h-sidebar custom-scroll">
                 @if($document->category)
-                    @unless ($isTutorial)
-                        <div class="flex items-center mb-8 ml-9 space-x-3 text-theme-secondary-900">
+                    <div @class([
+                        'flex items-center  space-x-3 text-theme-secondary-900',
+                        'ml-9 mb-8' => ! $isTutorial,
+                        'ml-7' => $isTutorial,
+                    ])>
+                        @unless ($isTutorial)
                             <x-ark-icon
                                 name="navbar-{{ $document->category }}"
                                 size="lg"
@@ -22,14 +26,18 @@
                             <span class="text-lg font-bold">
                                 @lang('menus.documentation.'.$document->category)
                             </span>
-                        </div>
-                    @else
-                        <div class="flex items-center space-x-3">
-                            <span class="font-semibold uppercase text-theme-secondary-500">
-                                {{ Str::title(str_replace('-', ' ', $document->category)) }}
-                            </span>
-                        </div>
-                    @endunless
+                        @else
+                            <div class="flex-1">
+                                <span class="text-sm font-semibold uppercase text-theme-secondary-500">
+                                    {{ Str::title(str_replace('-', ' ', $document->category)) }}
+                                </span>
+
+                                <div class="flex mt-6">
+                                    <x-ark-divider />
+                                </div>
+                            </div>
+                        @endunless
+                    </div>
                 @endif
 
                 @include ($index)
