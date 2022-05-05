@@ -13,7 +13,7 @@
     <div class="sidebar-link lg:ml-2">
         <div @class([
             'w-1 -mr-1 z-10',
-            'bg-theme-primary-600 rounded-lg lg:mb-px h-13 lg:h-11' => $onDocs,
+            'bg-theme-primary-600 lg:rounded-lg lg:mb-px h-13 lg:h-11' => $onDocs,
         ])></div>
 
         <div class="w-full h-13 lg:h-auto">
