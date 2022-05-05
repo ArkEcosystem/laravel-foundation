@@ -10,13 +10,13 @@
 @php($onDocs = Request::onDocs($path))
 
 @if ($topLevel)
-    <div class="sidebar-link lg:ml-2">
+    <div class="lg:ml-2 sidebar-link">
         <div @class([
             'w-1 -mr-1 z-10',
             'bg-theme-primary-600 lg:rounded-lg lg:mb-px h-13 lg:h-11' => $onDocs,
         ])></div>
 
-        <div class="w-full h-13 lg:h-auto">
+        <div class="w-full lg:h-auto h-13">
             <div @class([
                 'lg:rounded-r w-full pl-4 lg:pl-5',
                 'text-theme-primary-600 bg-theme-primary-100 lg:my-1' => $onDocs,
@@ -48,7 +48,7 @@
     </div>
 @else
     @if (count($children) === 0)
-        <div class="sidebar-link relative pr-0 -mr-8 border-l lg:mr-0 border-theme-secondary-300">
+        <div class="relative pr-0 -mr-8 border-l lg:mr-0 sidebar-link border-theme-secondary-300">
             <div @class([
                 'absolute h-full -left-2.5px z-10 border-l-4 rounded-lg',
                 'border-theme-primary-600' => $onDocs,
