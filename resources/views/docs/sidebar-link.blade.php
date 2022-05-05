@@ -18,7 +18,7 @@
 
         <div class="w-full h-13 lg:h-auto">
             <div @class([
-                'rounded-r w-full pl-4 lg:pl-5',
+                'lg:rounded-r w-full pl-4 lg:pl-5',
                 'text-theme-primary-600 bg-theme-primary-100 lg:my-1' => $onDocs,
                 'text-theme-secondary-900 hover:text-theme-primary-600' => ! $onDocs,
             ])>
