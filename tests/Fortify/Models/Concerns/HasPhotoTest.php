@@ -19,7 +19,7 @@ class HasPhotoTest implements HasMedia
 }
 
 it('can access the photo', function () {
-    $media = new Media();
+    $media   = new Media();
     $subject = $this->getMockForTrait(HasPhoto::class, [], '', true, true, true, ['getFirstMedia']);
     $subject->expects($this->any())
         ->method('getFirstMedia')

@@ -216,8 +216,8 @@ class MarkdownServiceProvider extends ServiceProvider
     protected function registerCompiler()
     {
         $this->app->singleton('markdown.compiler', function (Container $app) {
-            $markdown = $app['markdown'];
-            $files = $app['files'];
+            $markdown    = $app['markdown'];
+            $files       = $app['files'];
             $storagePath = $app->config->get('view.compiled');
 
             return new MarkdownCompiler($markdown, $files, $storagePath);

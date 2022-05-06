@@ -1,3 +1,4 @@
+const plugin = require("tailwindcss/plugin");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -58,6 +59,7 @@ module.exports = {
                 focus: "rgba(var(--theme-color-primary-rgb), 0.50)",
             },
             inset: {
+                "-2.5px": "-2.5px",
                 "13": "3.25rem",
                 "21": "5.25rem",
             },
@@ -149,6 +151,17 @@ module.exports = {
             "theme-hint-700": "var(--theme-color-hint-700)",
             "theme-hint-800": "var(--theme-color-hint-800)",
             "theme-hint-900": "var(--theme-color-hint-900)",
+
+            "theme-dark-blue-50": "var(--theme-color-dark-blue-50)",
+            "theme-dark-blue-100": "var(--theme-color-dark-blue-100)",
+            "theme-dark-blue-200": "var(--theme-color-dark-blue-200)",
+            "theme-dark-blue-300": "var(--theme-color-dark-blue-300)",
+            "theme-dark-blue-400": "var(--theme-color-dark-blue-400)",
+            "theme-dark-blue-500": "var(--theme-color-dark-blue-500)",
+            "theme-dark-blue-600": "var(--theme-color-dark-blue-600)",
+            "theme-dark-blue-700": "var(--theme-color-dark-blue-700)",
+            "theme-dark-blue-800": "var(--theme-color-dark-blue-800)",
+            "theme-dark-blue-900": "var(--theme-color-dark-blue-900)",
         },
 
         customForms: (theme) => ({
@@ -170,24 +183,45 @@ module.exports = {
         }),
     },
     variants: {
-        boxShadow: ["dark", "responsive", "hover", "focus"],
+        boxShadow: ["dark", "responsive", "hover", "focus", "inverted"],
         divideColor: ["dark", "responsive", "hover", "focus"],
         opacity: ["dark", "responsive", "hover", "focus"],
         display: ["dark", "responsive"],
         extend: {
             margin: ["focus-visible"],
-            padding: ["focus-visible"],
+            padding: ["focus-visible", "last"],
+            backgroundColor: ["inverted", "inverted-hover"],
             borderRadius: ["focus-visible"],
             borderWidth: ["focus-visible"],
-            borderColor: ["focus-visible"],
+            borderColor: ["inverted", "inverted-hover", "focus-visible"],
             ringColor: ["focus-visible"],
             ringWidth: ["focus-visible"],
             textDecoration: ["focus-visible"],
+            textColor: ["inverted", "inverted-hover"],
             transitionProperty: ["focus-visible"],
             zIndex: ["focus-visible"],
         },
     },
-    plugins: [require("@tailwindcss/ui")],
+    plugins: [
+        require("@tailwindcss/ui"),
+        plugin(function ({ addVariant, e }) {
+            addVariant("inverted", ({ modifySelectors, separator }) => {
+                modifySelectors(
+                    ({ className }) =>
+                        `.inverted .${e(`inverted${separator}${className}`)}`
+                );
+            });
+
+            addVariant("inverted-hover", ({ modifySelectors, separator }) => {
+                modifySelectors(
+                    ({ className }) =>
+                        `.inverted .${e(
+                            `inverted${separator}hover${separator}${className}`
+                        )}:hover`
+                );
+            });
+        }),
+    ],
     purge: {
         mode: "all",
         content: [

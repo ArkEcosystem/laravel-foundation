@@ -4,7 +4,7 @@
     'copyrightSlot' => null,
 ])
 
-<div {{ $attributes->merge(['class' => 'flex flex-col py-6 space-y-2 font-semibold text-sm text-theme-secondary-700 sm:flex-row sm:space-y-0 sm:space-x-1'])}}>
+<div {{ $attributes->merge(['class' => 'flex flex-col pt-5 pb-4 lg:pb-5 space-y-3 font-semibold text-sm text-theme-secondary-700 sm:flex-row sm:space-y-0 sm:space-x-1']) }}>
     <span class="whitespace-nowrap">
         {{ date('Y') }} &copy; {{ $copyText }}
     </span>

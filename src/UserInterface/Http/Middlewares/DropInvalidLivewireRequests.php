@@ -6,6 +6,8 @@ namespace ARKEcosystem\Foundation\UserInterface\Http\Middlewares;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Livewire\Component;
 use Livewire\Exceptions\ComponentNotFoundException;
 use Livewire\Livewire;
 
@@ -31,6 +33,12 @@ final class DropInvalidLivewireRequests
         if (! $this->isValidComponent($request->input('fingerprint.name'))) {
             abort(403);
         }
+
+        if ($this->fireableEvents($request)->isNotEmpty()) {
+            $this->ensureFireableEventsAreValid($request);
+        }
+
+        $this->ensureCallableMethodsExist($request);
 
         return $next($request);
     }
@@ -81,5 +89,93 @@ final class DropInvalidLivewireRequests
     {
         return $request->filled(['fingerprint.id', 'fingerprint.method', 'fingerprint.name', 'fingerprint.path'])
             && $request->filled(['serverMemo.checksum', 'serverMemo.htmlHash']);
+    }
+
+    /**
+     * Ensure all events that the request fires actually exist for the Livewire component.
+     * If there are some events that want to be fired and they don't exist on the component,
+     * we want to respond with 403.
+     *
+     * @param Request $request
+     * @return void
+     */
+    private function ensureFireableEventsAreValid(Request $request) : void
+    {
+        $component = $this->resolveComponentInstance($request);
+
+        abort_if($this->fireableEvents($request)->diff(
+            $component->getEventsBeingListenedFor()
+        )->isNotEmpty(), 403);
+    }
+
+    /**
+     * Get all of the events that the request wants to fire for the Livewire component.
+     *
+     * @param Request $request
+     * @return Collection
+     */
+    private function fireableEvents(Request $request) : Collection
+    {
+        return $request->collect('updates')
+                    ->filter(fn (array $update) => ($update['type'] ?? '') === 'fireEvent')
+                    ->pluck('payload.event')
+                    ->unique()
+                    ->values();
+    }
+
+    /**
+     * Ensure all methods that the request wants to call actually exist for the Livewire component.
+     * Since Livewire interally uses `method_exist`, we can leverage that.
+     *
+     * @param Request $request
+     * @return void
+     */
+    private function ensureCallableMethodsExist(Request $request) : void
+    {
+        $component = $this->resolveComponentInstance($request);
+
+        $request->collect('updates')
+                    ->filter(fn (array $update) => ($update['type'] ?? '') === 'callMethod')
+                    ->pluck('payload.method')
+                    ->reject(fn ($method) => $this->isMagicMethod($method))
+                    ->unique()
+                    ->values()
+                    ->each(function ($method) use ($component) {
+                        abort_unless(method_exists($component, $method), 403);
+                    });
+    }
+
+    /**
+     * Determine whether the method is a Livewire's internal magic method.
+     *
+     * @param string $method
+     * @return bool
+     */
+    private function isMagicMethod(string $method) : bool
+    {
+        return in_array($method, [
+            '$sync',
+            '$set',
+            '$toggle',
+            '$refresh',
+        ], true);
+    }
+
+    /**
+     * Resolve the component instance from the Request.
+     *
+     * @param Request $request
+     * @return Component
+     */
+    private function resolveComponentInstance(Request $request) : Component
+    {
+        try {
+            return Livewire::getInstance(
+                $request->input('fingerprint.name'),
+                $request->input('fingerprint.id')
+            );
+        } catch (ComponentNotFoundException $e) {
+            abort(403);
+        }
     }
 }

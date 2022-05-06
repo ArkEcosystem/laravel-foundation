@@ -11,7 +11,7 @@ use League\CommonMark\Renderer\NodeRendererInterface;
 use League\CommonMark\Util\HtmlElement;
 
 beforeEach(function () {
-    $this->block = new FencedCode(3, '`', 0);
+    $this->block    = new FencedCode(3, '`', 0);
     $this->renderer = new FencedCodeRenderer();
 
     $document = new Document();

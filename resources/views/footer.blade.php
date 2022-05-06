@@ -1,6 +1,6 @@
 @props([
-    'desktopClass'  => 'px-8 max-w-7xl hidden lg:flex',
-    'mobileClass'   => 'px-8 pb-8 lg:hidden',
+    'desktopClass'  => 'px-8 max-w-7xl hidden lg:flex md:px-10',
+    'mobileClass'   => 'px-8 pb-5 lg:hidden md:px-10',
     'copyClass'     => '',
     'copyText'      => null,
     'isArkProduct'  => true,

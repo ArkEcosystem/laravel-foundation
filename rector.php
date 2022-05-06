@@ -48,7 +48,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters->set(Option::AUTO_IMPORT_NAMES, true);
     $parameters->set(Option::IMPORT_SHORT_CLASSES, false);
-    $parameters->set(Option::IMPORT_DOC_BLOCKS, false);
 
     if (file_exists($neon = $dir.'/vendor/arkecosystem/foundation/phpstan.neon')) {
         $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, $neon);
@@ -77,10 +76,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     // Restoration
     $services->set(\Rector\Restoration\Rector\Property\MakeTypedPropertyNullableIfCheckedRector::class);
 
+    // php5.5
+    $services->set(\Rector\Php55\Rector\FuncCall\GetCalledClassToStaticClassRector::class);
+
     // php7.4
     $services->set(\Rector\Php74\Rector\Property\TypedPropertyRector::class);
     $services->set(\Rector\Php74\Rector\FuncCall\ArrayKeyExistsOnPropertyRector::class);
-    $services->set(\Rector\Php74\Rector\FuncCall\GetCalledClassToStaticClassRector::class);
     $services->set(\Rector\Php74\Rector\Assign\NullCoalescingOperatorRector::class);
     $services->set(\Rector\Php74\Rector\Property\RestoreDefaultNullToNullableTypePropertyRector::class);
 
@@ -96,7 +97,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(\Rector\Php80\Rector\Switch_\ChangeSwitchToMatchRector::class);
     $services->set(\Rector\DeadCode\Rector\StaticCall\RemoveParentCallWithoutParentRector::class);
     $services->set(\Rector\Php80\Rector\ClassMethod\FinalPrivateToPrivateVisibilityRector::class);
-    $services->set(\Rector\Php80\Rector\ClassMethod\OptionalParametersAfterRequiredRector::class);
+    $services->set(\Rector\CodeQuality\Rector\ClassMethod\OptionalParametersAfterRequiredRector::class);
     $services->set(\Rector\Php80\Rector\FuncCall\Php8ResourceReturnToObjectRector::class);
 
     // php8.1

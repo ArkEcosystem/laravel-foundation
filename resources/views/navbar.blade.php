@@ -15,16 +15,38 @@
         'lg' => 'lg:block',
         'xl' => 'xl:block',
     ][$breakpoint ?? 'md'];
+
+    $inverted ??= false;
+
+    $backgroundColor = match ($inverted) {
+        true => $invertedBackgroundColor ?? 'bg-theme-primary-600 inverted:bg-white',
+        false => $backgroundColor ?? 'bg-white',
+    };
+
+    $invertedSeparator = match ($inverted) {
+        true => 'border-theme-primary-700 inverted:border-theme-secondary-300',
+        false => 'border-theme-secondary-300 dark:border-theme-secondary-800',
+    };
+
+    $invertedBorder = match ($inverted) {
+        true => $invertedBorderColor ?? 'border-theme-primary-700 inverted:border-transparent',
+        false => $borderColor ?? 'border-theme-secondary-300',
+    };
 @endphp
 
 <header
     @if(config('ui.dark-mode.enabled') === true)
         x-data="Navbar.dropdown({
+            inverted: @js($inverted ?? false),
+            invertOnScroll: @js($invertOnScroll ?? false),
             dark: window.getThemeMode() === 'dark',
         })"
         @theme-changed.window="dark = $event.detail.theme === 'dark'"
     @else
-        x-data="Navbar.dropdown()"
+        x-data="Navbar.dropdown({
+            inverted: @js($inverted ?? false),
+            invertOnScroll: @js($invertOnScroll ?? false),
+        })"
     @endif
 >
     <div
@@ -39,7 +61,12 @@
     <nav
         aria-label="{{ trans('ui::general.primary_navigation') }}"
         x-ref="nav"
-        class="fixed top-0 z-30 w-full bg-white border-b border-theme-secondary-300 dark:bg-theme-secondary-900 dark:border-theme-secondary-800"
+        @class([
+            'fixed top-0 z-30 w-full border-b dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400',
+            'inverted:shadow-header-smooth' => $inverted,
+            $backgroundColor,
+            $invertedBorder,
+        ])
         dusk="navigation-bar"
     >
         <div class="relative z-10 navbar-container border-theme-secondary-300">
@@ -60,12 +87,23 @@
                     </div>
 
                     @if(! isset($noSeparator))
-                        <span class="{{ $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 border-theme-secondary-300 dark:border-theme-secondary-800 ' . $separatorBreakpointClass }}"></span>
+                        <span @class([
+                            $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 transition duration-400',
+                            $invertedSeparator,
+                            $separatorBreakpointClass,
+                        ])></span>
                     @endif
 
                     <div class="flex inset-y-0 right-0 items-center">
                         @if(is_array($navigation))
-                            <x-ark-navbar-hamburger :breakpoint="$breakpoint ?? 'md'" />
+                            <x-ark-navbar-hamburger
+                                :inverted="$inverted"
+                                :breakpoint="$breakpoint ?? 'md'"
+                                :color="$hamburgerColor ?? null"
+                                :invertedColor="$invertedHamburgerColor ?? null"
+                                :no-separator="$noSeparator ?? $noHamburgerSeparator ?? null"
+                                :separator-class="$hamburgerSeparatorClass ?? null"
+                            />
                         @endif
 
                         @isset($content)

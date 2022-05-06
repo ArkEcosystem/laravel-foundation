@@ -21,4 +21,8 @@ return [
     'filesize' => [
         'mb'   => 'MB',
     ],
+
+    'search' => [
+        'no_results' => 'No results found. Refine your search and try again.',
+    ],
 ];

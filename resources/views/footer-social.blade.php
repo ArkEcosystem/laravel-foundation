@@ -27,7 +27,7 @@
     ],
 ])
 
-<div class="flex space-x-5">
+<div class="flex space-x-3">
     @foreach($networks as $network)
         <x-ark-social-link :url="$network['url']" :icon="$network['icon']" data-safe-external />
     @endforeach

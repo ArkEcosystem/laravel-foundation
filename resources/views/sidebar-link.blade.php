@@ -5,13 +5,19 @@
     'icon' => null,
     'iconAlignment' => 'right',
     'href' => null,
-    'active' => false
+    'active' => false,
+    'rounded' => true,
+    'attrs' => [],
 ])
 
 @php ($isCurrent = ($route && url()->full() === route($route, $params)))
 
 <div class="flex">
-    <div class="@if($isCurrent || $active) bg-theme-primary-600 rounded-xl @endif w-2 -mr-1 z-10"></div>
+    <div @class([
+        'w-1 -mr-1 z-10',
+        'bg-theme-primary-600' => $isCurrent || $active,
+        'rounded-xl' => $rounded && ($isCurrent || $active),
+    ])></div>
 
     <a
         @if ($href)
@@ -25,17 +31,34 @@
             'text-theme-secondary-900 hover:text-theme-primary-600 dark:text-theme-secondary-200 dark:hover:text-theme-primary-600' => ! $isCurrent,
         ])
         dusk='navbar-item-{{ Str::slug($name) }}'
+        @foreach($attrs as $attribute => $attributeValue)
+            {{ $attribute }}="{{ $attributeValue }}"
+        @endforeach
         {{ $attributes->except(['href', 'class', 'dusk']) }}
     >
 
         @if ($icon && $iconAlignment === 'left')
-            <x-ark-icon class="{{ $isCurrent || $active ? 'text-theme-primary-600 dark:text-theme-secondary-200' : 'text-theme-primary-300 dark:text-theme-secondary-600 group-hover:text-theme-primary-600' }} mr-1 flex-shrink-0 transition-default" :name="$icon" />
+            <x-ark-icon
+                :class="Arr::toCssClasses([
+                    'mr-1 flex-shrink-0 transition-default',
+                    'text-theme-primary-600 dark:text-theme-secondary-200' => $isCurrent || $active,
+                    'text-theme-primary-300 dark:text-theme-secondary-600 group-hover:text-theme-primary-600' => ! $isCurrent || $active,
+                ])"
+                :name="$icon"
+            />
         @endif
 
         <span>{{ $name }}</span>
 
         @if ($icon && $iconAlignment === 'right')
-            <x-ark-icon class="{{ $isCurrent || $active ? 'text-theme-primary-600 dark:text-theme-secondary-200' : 'text-theme-primary-300 dark:text-theme-secondary-600 group-hover:text-theme-primary-600' }} flex-shrink-0 transition-default" :name="$icon" />
+            <x-ark-icon
+                :class="Arr::toCssClasses([
+                    'flex-shrink-0 transition-default',
+                    'text-theme-primary-600 dark:text-theme-secondary-200' => $isCurrent || $active,
+                    'text-theme-primary-300 dark:text-theme-secondary-600 group-hover:text-theme-primary-600' => ! $isCurrent || $active,
+                ])"
+                :name="$icon"
+            />
         @endif
     </a>
 </div>

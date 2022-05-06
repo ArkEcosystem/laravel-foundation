@@ -94,6 +94,8 @@
                     :name="$navItem['label']"
                     :params="$navItem['params'] ?? []"
                     :icon="isset($navItem['icon']) ? $navItem['icon'] : false"
+                    :attrs="$navItem['attributes'] ?? []"
+                    :rounded="false"
                 />
             @endisset
         @endforeach

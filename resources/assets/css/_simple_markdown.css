@@ -63,11 +63,27 @@
 }
 
 /* Link */
+.simple-markdown a {
+    @apply font-semibold no-underline text-theme-primary-600 transition-default;
+}
+
 .simple-markdown a[target="_blank"]:hover {
     @apply no-underline;
 }
+
 .simple-markdown a[target="_blank"]:hover > span {
     @apply underline;
+}
+
+.simple-markdown a:hover {
+    @apply underline text-theme-primary-700;
+}
+.simple-markdown a.no-underline:hover {
+    text-decoration: none;
+}
+
+.simple-markdown a:active {
+    @apply text-theme-primary-400;
 }
 
 /* Table */

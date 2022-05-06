@@ -1662,6 +1662,26 @@
                 saved_cookie_content = JSON.parse(
                     _getCookie(_config.cookie_name, "one", true) || "{}"
                 );
+
+                // Backwards compatibility
+                if (saved_cookie_content["level"] !== undefined) {
+                    saved_cookie_content["categories"] =
+                        saved_cookie_content["level"];
+                    delete saved_cookie_content["level"];
+
+                    // Delete outdated cookies
+                    _eraseCookies([_config.cookie_name], "/", [
+                        _config.cookie_domain,
+                        "." + _config.cookie_domain,
+                    ]);
+
+                    // Re-save it so it's updated to the new categories approach
+                    _setCookie(
+                        _config.cookie_name,
+                        JSON.stringify(saved_cookie_content)
+                    );
+                }
+
                 cookie_consent_accepted =
                     saved_cookie_content["categories"] !== undefined;
 
