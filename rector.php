@@ -48,7 +48,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $parameters->set(Option::AUTO_IMPORT_NAMES, true);
     $parameters->set(Option::IMPORT_SHORT_CLASSES, false);
-    $parameters->set(Option::IMPORT_DOC_BLOCKS, false);
 
     if (file_exists($neon = $dir.'/vendor/arkecosystem/foundation/phpstan.neon')) {
         $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, $neon);
