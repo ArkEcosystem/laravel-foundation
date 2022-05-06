@@ -36,7 +36,7 @@
         "league/commonmark": "^2.0",
         "livewire/livewire": "^2.8",
         "mockery/mockery": "^1.4",
-        "nunomaduro/collision": "^6.1",
+        "nunomaduro/collision": "^5.1|^6.1",
         "nunomaduro/larastan": "^1.0",
         "nunomaduro/laravel-mojito": "^0.2",
         "orchestra/testbench": "^7.4",
