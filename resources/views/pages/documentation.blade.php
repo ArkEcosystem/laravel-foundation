@@ -7,36 +7,40 @@
     'compact'    => false,
 ])
 
-<x-ark-container container-class="flex-col pb-8 {{ $compact ? 'pt-8 md:pt-8' : 'pt-10 md:pt-12' }}">
-    <div class="flex {{ $compact ? 'pb-8' : 'py-8' }} lg:divide-x divide-theme-secondary-200">
+<x-ark-container :container-class="Arr::toCssClasses([
+    'flex-col pb-8',
+    'pt-8 md:pt-8' => $compact,
+    'pt-10 md:pt-12' => ! $compact,
+])">
+    <div @class([
+        'flex lg:divide-x divide-theme-secondary-200',
+        'pb-8' => $compact,
+        'py-8' => ! $compact,
+    ])>
         <aside class="hidden flex-shrink-0 lg:block">
             <div class="overflow-y-auto sticky top-32 pr-10 h-sidebar custom-scroll">
                 @if($document->category)
-                    <div @class([
-                        'flex items-center space-x-3 text-theme-secondary-900',
-                        'ml-9 mb-8' => ! $isTutorial,
-                        'ml-7' => $isTutorial,
-                    ])>
+                    <div class="pl-6 pb-6">
                         @unless ($isTutorial)
-                            <x-ark-icon
-                                name="navbar-{{ $document->category }}"
-                                size="lg"
-                            />
+                            <div class="flex items-center space-x-3 text-theme-secondary-900">
+                                <x-ark-icon
+                                    name="navbar-{{ $document->category }}"
+                                    size="lg"
+                                />
 
-                            <span class="text-lg font-bold">
-                                @lang('menus.documentation.'.$document->category)
-                            </span>
-                        @else
-                            <div class="flex-1">
-                                <span class="text-sm font-semibold uppercase text-theme-secondary-500">
-                                    {{ Str::title(str_replace('-', ' ', $document->category)) }}
+                                <span class="text-lg font-bold">
+                                    @lang('menus.documentation.'.$document->category)
                                 </span>
-
-                                <div class="flex mt-6">
-                                    <x-ark-divider />
-                                </div>
                             </div>
+                        @else
+                            <span class="text-sm font-semibold uppercase text-theme-secondary-500">
+                                {{ Str::title(str_replace('-', ' ', $document->category)) }}
+                            </span>
                         @endunless
+                    </div>
+
+                    <div class="flex ml-6">
+                        <x-ark-divider />
                     </div>
                 @endif
 
@@ -44,7 +48,7 @@
             </div>
         </aside>
 
-        <main class="w-full lg:flex-1 lg:pl-10 lg:w-auto lg:min-w-0">
+        <main class="w-full lg:min-w-0 lg:pl-10 lg:flex-1 lg:w-auto">
             <div class="relative mb-8 w-full h-14 lg:hidden mobile-menu">
                 <x-ark-secondary-menu
                     :title="trans('ui::menus.menu')"

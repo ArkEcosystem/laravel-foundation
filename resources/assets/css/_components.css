@@ -509,6 +509,14 @@
 }
 
 /* Sidebar */
+.sidebar-group {
+    @apply px-8 lg:px-0 lg:ml-6;
+}
+
+.sidebar-link + .sidebar-group > button {
+    @apply border-t-0;
+}
+
 .sidebar-link {
     @apply flex items-center;
 }
