@@ -44,7 +44,7 @@
             </div>
         </aside>
 
-        <main class="w-full lg:min-w-0 lg:pl-10 lg:flex-1 lg:w-auto">
+        <main class="w-full lg:flex-1 lg:pl-10 lg:w-auto lg:min-w-0">
             <div class="relative mb-8 w-full h-14 lg:hidden mobile-menu">
                 <x-ark-secondary-menu
                     :title="trans('ui::menus.menu')"
