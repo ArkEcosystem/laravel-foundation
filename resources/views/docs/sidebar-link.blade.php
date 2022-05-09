@@ -18,7 +18,7 @@
 
         <div class="w-full lg:h-auto h-13">
             <div @class([
-                'lg:rounded-r w-full pl-4 lg:pl-6',
+                'lg:rounded-r w-full pl-8 lg:pl-6',
                 'text-theme-primary-600 bg-theme-primary-100 lg:my-1' => $onDocs,
                 'text-theme-secondary-900 hover:text-theme-primary-600' => ! $onDocs,
             ])>
@@ -34,7 +34,7 @@
                 <div class="flex">
                     <x-ark-divider
                         :class="Arr::toCssClasses([
-                            'sidebar-link-divider ml-5',
+                            'sidebar-link-divider mx-8 lg:ml-5 lg:mr-0',
                             'hidden lg:block' => $onDocs,
                         ])"
                     />
