@@ -44,13 +44,13 @@ it('should not highlight intro in sidebar', function () {
 
     expect(Blade::render($document->body))->not->toMatch(
         '/<div class=".+border-theme-primary-600"><\/div>\s+'.
-        '<div class="lg:rounded-r w-full pl-4 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
         '<a\s+href="\/docs\/intro" class="block flex items-center py-4 w-full font-semibold leading-tight lg:py-3 lg:w-58"/'
     );
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
-        '<div class="lg:rounded-r w-full pl-4 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
 });
@@ -64,13 +64,13 @@ it('should highlight intro in sidebar when at root category url', function () {
 
     expect(Blade::render($document->body))->not->toMatch(
         '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
-        '<div class="lg:rounded-r w-full pl-4 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class=".+bg-theme-primary-600.+"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
-        '<div class="lg:rounded-r w-full pl-4 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
         '<a\s+href="\/docs\/intro"\s+class="block flex items-center py-4 w-full font-semibold leading-tight lg:py-3 lg:w-58"/'
     );
 });
@@ -84,7 +84,7 @@ it('should highlight intro in sidebar when at category intro url', function () {
 
     expect(Blade::render($document->body))->not->toMatch(
         '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
-        '<div class="lg:rounded-r w-full pl-4 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
 
@@ -95,7 +95,7 @@ it('should highlight intro in sidebar when at category intro url', function () {
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class=".+bg-theme-primary-600.+"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
-        '<div class="lg:rounded-r w-full pl-4 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
         '<a\s+href="\/docs\/intro"\s+class="block flex items-center py-4 w-full font-semibold leading-tight lg:py-3 lg:w-58"/'
     );
 });
@@ -114,7 +114,7 @@ it('should highlight different page in sidebar', function () {
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
-        '<div class="lg:rounded-r w-full pl-4 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
 
