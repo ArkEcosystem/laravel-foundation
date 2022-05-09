@@ -25,7 +25,7 @@
                 <a
                     href="{{ $path }}"
                     @class([
-                        'flex items-center block font-semibold w-full',
+                        'flex items-center block font-semibold w-full lg:w-58',
                         'py-4' => ! $onDocs,
                         'py-4 lg:py-3 leading-tight' => $onDocs,
                     ])
@@ -58,7 +58,7 @@
             <a
                 href="{{ $path }}"
                 @class([
-                    'flex items-center block font-semibold pl-5 py-3 lg:rounded-r w-full text-sm',
+                    'flex items-center block font-semibold pl-5 py-3 lg:rounded-r w-full text-sm lg:w-58',
                     'text-theme-primary-600 bg-theme-primary-100' => $onDocs,
                     'text-theme-secondary-900 hover:text-theme-primary-600' => ! $onDocs,
                 ])
