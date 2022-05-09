@@ -24,7 +24,7 @@
             ])>
                 <a
                     href="{{ $path }}"
-                    class="flex items-center block font-semibold w-full lg:w-58 leading-tight py-4 lg:py-3"
+                    class="block flex items-center py-4 w-full font-semibold leading-tight lg:py-3 lg:w-58"
                 >
                     {{ $name }}
                 </a>
@@ -44,7 +44,7 @@
     </div>
 @else
     @if (count($children) === 0)
-        <div class="sidebar-link relative pr-0 -mr-8 border-l lg:mr-0 border-theme-secondary-300">
+        <div class="relative pr-0 -mr-8 border-l lg:mr-0 sidebar-link border-theme-secondary-300">
             <div @class([
                 'absolute h-full -left-2.5px z-10 border-l-4 rounded-lg',
                 'border-theme-primary-600' => $onDocs,
