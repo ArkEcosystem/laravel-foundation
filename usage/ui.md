@@ -462,19 +462,16 @@ Modal.alpine(
 yarn add tippy.js
 ```
 
-2. Add to webpack mix
+2. Add to `app.js`
 
 ```js
-.js('vendor/arkecosystem/foundation/resources/assets/js/tippy.js', 'public/js')
+import '@ui/js/tippy.js';
 ```
 
-3. Add tippy to any pages that need it
+3. Done
 
-```blade
-@push('scripts')
-    <script src="{{ mix('js/tippy.js')}}" defer></script>
-@endpush
-```
+Tippy will now automatically work with our usual tooltip locations. If you need any special handling then you can customize that in your application's `app.js` file.
+
 
 ### Slider
 

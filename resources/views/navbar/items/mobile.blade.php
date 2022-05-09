@@ -96,6 +96,10 @@
                     :icon="isset($navItem['icon']) ? $navItem['icon'] : false"
                     :attrs="$navItem['attributes'] ?? []"
                     :rounded="false"
+                    x-on:click="() => {
+                        closeDropdown();
+                        openDropdown = null;
+                    }"
                 />
             @endisset
         @endforeach

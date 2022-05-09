@@ -2,16 +2,25 @@
 
 declare(strict_types=1);
 
+use Rector\Config\RectorConfig;
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\Laravel\Set\LaravelSetList;
 use Rector\Set\ValueObject\SetList;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $parameters = $containerConfigurator->parameters();
-    $services   = $containerConfigurator->services();
+return static function (RectorConfig $rectorConfig): void {
+    $parameters = $rectorConfig->parameters();
+    $services   = $rectorConfig->services();
     $dir        = getcwd();
+
+    $rectorConfig->sets([
+        SetList::PRIVATIZATION,
+        SetList::EARLY_RETURN,
+        SetList::CODING_STYLE,
+        LaravelSetList::LARAVEL_80,
+        LaravelSetList::LARAVEL_CODE_QUALITY,
+        LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL,
+    ]);
 
     /*
      * We added a custom bootstrap file to avoid Rector processing errors.
@@ -19,9 +28,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
      * and https://github.com/rectorphp/rector/issues/3902.
      * Bootstrap file source: https://github.com/samsonasik/example-app/blob/922ea0e43a50d9b3eb9e71f57c0af41b8ad97226/rector-bootstrap.php
      */
-    $parameters->set(Option::BOOTSTRAP_FILES, [
-        $dir.'/vendor/arkecosystem/foundation/rector-bootstrap.php',
-    ]);
+    $rectorConfig->bootstrapFiles([$dir.'/vendor/arkecosystem/foundation/rector-bootstrap.php']);
 
     $parameters->set(Option::PATHS, [
         $dir.'/app',
@@ -44,24 +51,19 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         $dir.'/app/App/Nova',
     ]);
 
-    $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_81);
+    $rectorConfig->phpVersion(PhpVersion::PHP_81);
 
-    $parameters->set(Option::AUTO_IMPORT_NAMES, true);
-    $parameters->set(Option::IMPORT_SHORT_CLASSES, false);
-    $parameters->set(Option::IMPORT_DOC_BLOCKS, false);
+    $rectorConfig->importNames();
+    $rectorConfig->disableImportShortClasses();
 
     if (file_exists($neon = $dir.'/vendor/arkecosystem/foundation/phpstan.neon')) {
-        $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, $neon);
+        $rectorConfig->phpstanConfig($neon);
     }
 
-    $containerConfigurator->import(SetList::PRIVATIZATION);
     $services->remove(\Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector::class);
     $services->remove(\Rector\Privatization\Rector\Class_\RepeatedLiteralToClassConstantRector::class);
     $services->remove(\Rector\Privatization\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector::class);
     $services->remove(\Rector\Privatization\Rector\Class_\ChangeReadOnlyVariableWithDefaultValueToConstantRector::class);
-
-    $containerConfigurator->import(SetList::EARLY_RETURN);
-    $containerConfigurator->import(SetList::CODING_STYLE);
     $services->remove(\Rector\CodingStyle\Rector\Catch_\CatchExceptionNameMatchingTypeRector::class);
     $services->remove(\Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector::class);
     $services->remove(\Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector::class);
@@ -69,10 +71,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->remove(\Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector::class);
     $services->remove(\Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector::class);
     $services->remove(\Rector\CodingStyle\Rector\FuncCall\ConsistentPregDelimiterRector::class);
-
-    $containerConfigurator->import(LaravelSetList::LARAVEL_80);
-    $containerConfigurator->import(LaravelSetList::LARAVEL_CODE_QUALITY);
-    $containerConfigurator->import(LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL);
 
     // Restoration
     $services->set(\Rector\Restoration\Rector\Property\MakeTypedPropertyNullableIfCheckedRector::class);
