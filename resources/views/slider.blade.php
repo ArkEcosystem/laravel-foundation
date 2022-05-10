@@ -20,6 +20,7 @@
     'autoplayDelay'   => 3000,
     'hideViewAll'     => false,
     'shadowSpacing'   => false,
+    'autoHeight'      => false,
 ])
 
 @php
