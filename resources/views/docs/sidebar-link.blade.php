@@ -24,7 +24,10 @@
             ])>
                 <a
                     href="{{ $path }}"
-                    class="block flex items-center py-4 w-full font-semibold leading-tight lg:py-3 lg:w-58"
+                    @class([
+                        'block flex items-center py-4 w-full font-semibold leading-tight lg:w-58',
+                        'lg:py-3' => $onDocs,
+                    ])
                 >
                     {{ $name }}
                 </a>
