@@ -44,13 +44,13 @@ it('should not highlight intro in sidebar', function () {
 
     expect(Blade::render($document->body))->not->toMatch(
         '/<div class=".+border-theme-primary-600"><\/div>\s+'.
-        '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-primary-600 bg-theme-primary-100">\s+'.
-        '<a\s+href="\/docs\/intro" class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/'
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
+        '<a\s+href="\/docs\/intro" class="block flex items-center py-4 w-full font-semibold leading-tight lg:w-58 lg:py-3"/'
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div class="w-1 -mr-1 z-10"><\/div>\s+'.
-        '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
+        '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
 });
@@ -63,15 +63,15 @@ it('should highlight intro in sidebar when at root category url', function () {
     expect($document->body)->toContain('<x-ark-docs-sidebar-link first top-level path="/docs/intro" name="Introduction" />');
 
     expect(Blade::render($document->body))->not->toMatch(
-        '/<div class="w-1 -mr-1 z-10"><\/div>\s+'.
-        '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
+        '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div class=".+bg-theme-primary-600.+"><\/div>\s+'.
-        '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-primary-600 bg-theme-primary-100">\s+'.
-        '<a\s+href="\/docs\/intro"\s+class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/'
+        '/<div class=".+bg-theme-primary-600.+"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
+        '<a\s+href="\/docs\/intro"\s+class="block flex items-center py-4 w-full font-semibold leading-tight lg:w-58 lg:py-3"/'
     );
 });
 
@@ -83,8 +83,8 @@ it('should highlight intro in sidebar when at category intro url', function () {
     expect($document->body)->toContain('<x-ark-docs-sidebar-link first top-level path="/docs/intro" name="Introduction" />');
 
     expect(Blade::render($document->body))->not->toMatch(
-        '/<div class="w-1 -mr-1 z-10"><\/div>\s+'.
-        '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
+        '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
 
@@ -94,9 +94,9 @@ it('should highlight intro in sidebar when at category intro url', function () {
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div class=".+bg-theme-primary-600.+"><\/div>\s+'.
-        '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-primary-600 bg-theme-primary-100">\s+'.
-        '<a\s+href="\/docs\/intro"\s+class="border-theme-secondary-300 py-4 flex items-center block font-semibold w-full lg:border-t"/'
+        '/<div class=".+bg-theme-primary-600.+"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
+        '<a\s+href="\/docs\/intro"\s+class="block flex items-center py-4 w-full font-semibold leading-tight lg:w-58 lg:py-3"/'
     );
 });
 
@@ -113,8 +113,8 @@ it('should highlight different page in sidebar', function () {
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div class="w-1 -mr-1 z-10"><\/div>\s+'.
-        '<div class="rounded-r w-full pl-4 lg:pl-5 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
+        '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
 
@@ -130,14 +130,14 @@ it('should expand getting started section in sidebar', function () {
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
     expect(Blade::render($document->body))->not->toMatch(
-        '/<div\s+class="px-8 lg:px-0 lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
+        '/<div\s+class="sidebar-group"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
         '<button\s+type="button"\s+class="flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Transactions/'
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div\s+class="px-8 lg:px-0 lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
+        '/<div\s+class="sidebar-group"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
         '<button\s+type="button"\s+class="flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Getting Started/'
@@ -150,14 +150,14 @@ it('should expand transactions section in sidebar', function () {
     $document = Document::find('0d6eaf5f0b12c40882e0a648eecec8e5');
 
     expect(Blade::render($document->body))->not->toMatch(
-        '/<div\s+class="px-8 lg:px-0 lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
+        '/<div\s+class="sidebar-group"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
         '<button\s+type="button"\s+class="flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Getting Started/'
     );
 
     expect(Blade::render($document->body))->toMatch(
-        '/<div\s+class="px-8 lg:px-0 lg:ml-8"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
+        '/<div\s+class="sidebar-group"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
         '<button\s+type="button"\s+class="flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Transactions/'

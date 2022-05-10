@@ -6,7 +6,7 @@
 ])
 
 <div
-    class="px-8 lg:px-0 lg:ml-8"
+    class="sidebar-group"
     x-data="{ open: @js(Request::onDocs($path, true)) }"
     :class="{ 'last:pb-4': ! open }"
     x-cloak

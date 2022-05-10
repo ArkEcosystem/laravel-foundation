@@ -10,31 +10,44 @@
 @php($onDocs = Request::onDocs($path))
 
 @if ($topLevel)
-    <div class="flex lg:ml-2">
+    <div class="sidebar-link">
         <div @class([
             'w-1 -mr-1 z-10',
-            'bg-theme-primary-600 rounded-lg' => $onDocs,
+            'bg-theme-primary-600 lg:rounded-lg lg:mb-px h-13 lg:h-11' => $onDocs,
         ])></div>
 
-        <div @class([
-            'rounded-r w-full pl-4 lg:pl-5',
-            'text-theme-primary-600 bg-theme-primary-100' => $onDocs,
-            'text-theme-secondary-900 hover:text-theme-primary-600' => ! $onDocs,
-        ])>
-            <a
-                href="{{ $path }}"
-                @class([
-                    'border-theme-secondary-300 py-4 flex items-center block font-semibold w-full',
-                    $first ? 'lg:border-t' : 'border-t' => ! $borderless,
-                ])
-            >
-                {{ $name }}
-            </a>
+        <div class="w-full lg:h-auto h-13">
+            <div @class([
+                'lg:rounded-r w-full pl-8 lg:pl-6',
+                'text-theme-primary-600 bg-theme-primary-100 lg:my-1' => $onDocs,
+                'text-theme-secondary-900 hover:text-theme-primary-600' => ! $onDocs,
+            ])>
+                <a
+                    href="{{ $path }}"
+                    @class([
+                        'block flex items-center py-4 w-full font-semibold leading-tight lg:w-58',
+                        'lg:py-3' => $onDocs,
+                    ])
+                >
+                    {{ $name }}
+                </a>
+            </div>
+
+            @unless ($borderless)
+                <div class="flex">
+                    <x-ark-divider
+                        :class="Arr::toCssClasses([
+                            'sidebar-link-divider mx-8 lg:ml-5 lg:mr-0',
+                            'hidden lg:block' => $onDocs,
+                        ])"
+                    />
+                </div>
+            @endunless
         </div>
     </div>
 @else
     @if (count($children) === 0)
-        <div class="flex relative pr-0 -mr-8 border-l lg:mr-0 border-theme-secondary-300">
+        <div class="relative pr-0 -mr-8 border-l lg:mr-0 sidebar-link border-theme-secondary-300">
             <div @class([
                 'absolute h-full -left-2.5px z-10 border-l-4 rounded-lg',
                 'border-theme-primary-600' => $onDocs,
@@ -44,7 +57,7 @@
             <a
                 href="{{ $path }}"
                 @class([
-                    'flex items-center block font-semibold pl-5 py-3 lg:rounded-r w-full text-sm',
+                    'flex items-center block font-semibold pl-5 py-3 lg:rounded-r w-full text-sm lg:w-58 leading-tight',
                     'text-theme-primary-600 bg-theme-primary-100' => $onDocs,
                     'text-theme-secondary-900 hover:text-theme-primary-600' => ! $onDocs,
                 ])
@@ -61,7 +74,7 @@
                     </span>
                 </div>
 
-                <div class="mt-1 ml-6 border-l border-theme-secondary-300">
+                <div class="mt-1 border-l border-theme-secondary-300">
                     @foreach ($children as $child)
                         <div class="relative">
                             @php($childOnDocs = Request::onDocs($child['path']))
@@ -77,7 +90,7 @@
                             <a
                                 href="{{ $child['path'] }}"
                                 @class([
-                                    'flex items-center text-xs font-semibold pl-4 py-3 lg:rounded-r w-full',
+                                    'flex items-center text-xs font-semibold pl-4 py-3 lg:rounded-r w-full leading-tight',
                                     'text-theme-primary-600 bg-theme-primary-100' => $childOnDocs,
                                     'text-theme-secondary-900 hover:text-theme-primary-600' => ! $childOnDocs,
                                 ])
