@@ -303,6 +303,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::secondary-menu', 'ark-secondary-menu');
             $blade->component('ark::sidebar-link', 'ark-sidebar-link');
             $blade->component('ark::simple-footer', 'ark-simple-footer');
+            $blade->component('ark::simple-filter-dropdown', 'ark-simple-filter-dropdown');
             $blade->component('ark::slider-slide', 'ark-slider-slide');
             $blade->component('ark::slider', 'ark-slider');
             $blade->component('ark::social-link', 'ark-social-link');

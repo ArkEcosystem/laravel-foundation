@@ -9,6 +9,7 @@ return [
     'previous'    => 'Previous',
     'next'        => 'Next',
     'an'          => 'An',
+    'type'        => 'Type',
 
     'pagination' => [
         'current_to'   => 'Page :currentPage of :lastPage',
