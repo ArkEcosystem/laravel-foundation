@@ -56,7 +56,10 @@ const RichSelect = (
         const dropdown = container.querySelector(".dropdown");
         const button = container.querySelector(".dropdown-button");
 
-        this.popperInstance = createPopper(button, dropdown, { ...this.defaultPopperOptions, ...(this.popperOptions || {}) });
+        this.popperInstance = createPopper(button, dropdown, {
+            ...this.defaultPopperOptions,
+            ...(this.popperOptions || {}),
+        });
     },
     choose(value, groupName = null) {
         if (this.value === value) {
