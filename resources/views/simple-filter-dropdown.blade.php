@@ -48,7 +48,7 @@
     {{ $attributes->class('flex-1 flex justify-end') }}
 >
     <x-slot name="dropdownEntry">
-        <div class="static flex justify-between items-center w-full font-semibold md:justify-end md:space-x-2 text-theme-secondary-500 md:text-theme-secondary-700">
+        <div class="flex static justify-between items-center w-full font-semibold md:justify-end md:space-x-2 text-theme-secondary-500 md:text-theme-secondary-700">
             <div>
                 <span class="text-theme-secondary-500 dark:text-theme-secondary-600">
                     @lang('ui::generic.type'):
