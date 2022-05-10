@@ -9,6 +9,7 @@
                 slidesPerView: 1,
                 slidesPerGroup: 1,
                 slidesPerColumn: 1,
+                autoHeight: {{ json_encode($autoHeight) }},
                 spaceBetween: {{ $spaceBetween }},
                 breakpoints: {!! json_encode($breakpoints) !!},
                 loop: {{ $loop ? 'true' : 'false' }},
