@@ -24,6 +24,9 @@
 ])
 
 @php
+    $columns = $columns ? (int) $columns : $columns;
+    $rows    = $rows ? (int) $rows : $rows;
+
     if ($breakpoints === null ) {
         if ($columns > 1) {
             $breakpoints = [
