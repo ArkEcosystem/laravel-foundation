@@ -13,6 +13,7 @@
     'label' => null,
     'xData' => '{}',
     'height' => '320',
+    'width' => 'w-full min-w-max-content',
 ])
 
 @php
@@ -33,7 +34,16 @@ $initialText = $grouped
 
     <div
         class="relative input-rich-select {{ $wrapperClass }}"
-        x-data="RichSelect({{ $xData }}, {{ json_encode($options) }}, '{{ $initialValue }}', '{{ $initialText }}', {{ $grouped ? 'true' : 'false'}}@if($dispatchEvent), '{{ $dispatchEvent }}' @endif)"
+        x-data="RichSelect(
+            {{ $xData }},
+            {{ json_encode($options) }},
+            '{{ $initialValue }}',
+            '{{ $initialText }}',
+            {{ $grouped ? 'true' : 'false'}}
+            @if($dispatchEvent)
+                , '{{ $dispatchEvent }}'
+            @endif
+        )"
     >
         <input x-ref="input" {{ $attributes }} type="hidden" @input="onInput($dispatch, $event)" @isset($initialValue) value="{{ $initialValue }}" @endisset />
 
@@ -71,7 +81,11 @@ $initialText = $grouped
             x-transition:leave="transition ease-in duration-75"
             x-transition:leave-start="transform opacity-100 scale-100"
             x-transition:leave-end="transform opacity-0 scale-95"
-            class="absolute w-full min-w-max-content z-10 dropdown {{ $dropdownClass }}"
+            @class([
+                'absolute z-10 dropdown',
+                $dropdownClass,
+                $width,
+            ])
             style="display: none;"
             @if ($height) data-height="{{ $height }}" @endif
         >

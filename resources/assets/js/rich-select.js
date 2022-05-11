@@ -1,3 +1,5 @@
+import { createPopper } from "@popperjs/core";
+
 const RichSelect = (
     extraData = {},
     options,
@@ -27,12 +29,38 @@ const RichSelect = (
 
         return this.optionsCount;
     },
+    defaultPopperOptions: {
+        strategy: "fixed",
+        placement: "bottom-end",
+        modifiers: [
+            {
+                name: "preventOverflow",
+            },
+            {
+                name: "offset",
+                options: {
+                    offset: [0, 8],
+                },
+            },
+        ],
+    },
     optionsCount: null,
     open: false,
+    popperInstance: null,
     selected: null,
     selectedGroup: null,
     value: initialValue,
     text: initialText,
+    init() {
+        const container = this.$el;
+        const dropdown = container.querySelector(".dropdown");
+        const button = container.querySelector(".dropdown-button");
+
+        this.popperInstance = createPopper(button, dropdown, {
+            ...this.defaultPopperOptions,
+            ...(this.popperOptions || {}),
+        });
+    },
     choose(value, groupName = null) {
         if (this.value === value) {
             return;
