@@ -47,7 +47,7 @@
     </div>
 @else
     @if (count($children) === 0)
-        <div class="relative pr-0 -mr-8 border-l lg:mr-0 sidebar-link border-theme-secondary-300">
+        <div class="relative pr-0 ml-5 -mr-5 border-l lg:mx-0 sidebar-link border-theme-secondary-300">
             <div @class([
                 'absolute h-full -left-2.5px z-10 border-l-4 rounded-lg',
                 'border-theme-primary-600' => $onDocs,
@@ -66,7 +66,7 @@
             </a>
         </div>
     @else
-        <div class="flex pr-0 -mr-8 border-l lg:mr-0 border-theme-secondary-300">
+        <div class="flex pr-0 ml-5 -mr-5 border-l lg:mx-0 border-theme-secondary-300">
             <div class="flex-1">
                 <div class="flex justify-between items-center py-3 pl-5 space-x-3 w-full text-left">
                     <span class="text-sm font-semibold text-theme-secondary-700">
@@ -74,7 +74,7 @@
                     </span>
                 </div>
 
-                <div class="mt-1 border-l border-theme-secondary-300">
+                <div class="mt-1 mr-5 border-l border-theme-secondary-300">
                     @foreach ($children as $child)
                         <div class="relative">
                             @php($childOnDocs = Request::onDocs($child['path']))
