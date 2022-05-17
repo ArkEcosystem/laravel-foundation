@@ -6,7 +6,7 @@
 ])
 
 <div
-    class="sidebar-group"
+    class="sidebar-group flex flex-col min-w-0"
     x-data="{ open: @js(Request::onDocs($path, true)) }"
     :class="{ 'last:pb-4': ! open }"
     x-cloak
@@ -14,7 +14,7 @@
     <button
         type="button"
         @class([
-            'flex items-center justify-between w-full pr-5 py-4 border-theme-secondary-300 group',
+            'flex items-center justify-between mx-5 lg:mx-0 lg:pr-5 py-4 border-theme-secondary-300 group',
             'border-t' => ! $borderless,
         ])
         @click.prevent="open = ! open"
