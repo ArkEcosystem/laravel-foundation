@@ -18,7 +18,7 @@
         'py-8' => ! $compact,
     ])>
         <aside class="hidden flex-shrink-0 lg:block">
-            <div class="overflow-y-auto sticky top-32 pr-10 h-sidebar custom-scroll w-72">
+            <div class="overflow-y-auto sticky top-32 pr-10 w-72 h-sidebar custom-scroll">
                 @if($document->category)
                     <div class="pb-6 pl-6">
                         @unless ($isTutorial)
