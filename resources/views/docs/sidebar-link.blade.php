@@ -74,7 +74,7 @@
                     </span>
                 </div>
 
-                <div class="mr-5 mt-1 border-l border-theme-secondary-300">
+                <div class="mt-1 mr-5 border-l border-theme-secondary-300">
                     @foreach ($children as $child)
                         <div class="relative">
                             @php($childOnDocs = Request::onDocs($child['path']))
