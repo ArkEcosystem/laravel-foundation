@@ -6,7 +6,7 @@
 ])
 
 <div
-    class="sidebar-group flex flex-col min-w-0"
+    class="flex flex-col min-w-0 sidebar-group"
     x-data="{ open: @js(Request::onDocs($path, true)) }"
     :class="{ 'last:pb-4': ! open }"
     x-cloak

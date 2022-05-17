@@ -47,7 +47,7 @@
     </div>
 @else
     @if (count($children) === 0)
-        <div class="relative pr-0 ml-5 -mr-5 lg:mx-0 border-l sidebar-link border-theme-secondary-300">
+        <div class="relative pr-0 ml-5 -mr-5 border-l lg:mx-0 sidebar-link border-theme-secondary-300">
             <div @class([
                 'absolute h-full -left-2.5px z-10 border-l-4 rounded-lg',
                 'border-theme-primary-600' => $onDocs,
