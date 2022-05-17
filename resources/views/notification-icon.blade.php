@@ -37,7 +37,7 @@
                     </div>
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::WARNING)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full dark:text-white text-theme-warning-600 bg-theme-warning-50 dark:bg-theme-warning-600">
-                        <x-ark-icon name="circle.minus" size="sm" />
+                        <x-ark-icon name="circle.min" size="sm" />
                     </div>
                 @elseif ($type === ARKEcosystem\Foundation\Hermes\Enums\NotificationTypeEnum::BLOCKED)
                     <div class="flex flex-shrink-0 justify-center items-center w-6 h-6 rounded-full dark:text-white text-theme-secondary-900 bg-theme-secondary-200 dark:bg-theme-secondary-700">
