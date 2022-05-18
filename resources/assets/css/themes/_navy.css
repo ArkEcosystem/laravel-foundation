@@ -1,13 +1,27 @@
+:root {
+    --theme-color-navy-rgb: 67, 129, 192;
+    --theme-color-navy-50: #f2f6fa;
+    --theme-color-navy-100: #e6eff9;
+    --theme-color-navy-200: #b6d7f8;
+    --theme-color-navy-300: #8ac0f6;
+    --theme-color-navy-400: #5ca4ec;
+    --theme-color-navy-500: #4381c0;
+    --theme-color-navy-600: #235b95;
+    --theme-color-navy-700: #154a82;
+    --theme-color-navy-800: #073769;
+    --theme-color-navy-900: #062a50;
+}
+
 .theme-navy {
-    --theme-color-primary-rgb: 67, 129, 192;
-    --theme-color-primary-50: #f2f6fa;
-    --theme-color-primary-100: #e6eff9;
-    --theme-color-primary-200: #b6d7f8;
-    --theme-color-primary-300: #8ac0f6;
-    --theme-color-primary-400: #5ca4ec;
-    --theme-color-primary-500: #4381c0;
-    --theme-color-primary-600: #235b95;
-    --theme-color-primary-700: #154a82;
-    --theme-color-primary-800: #073769;
-    --theme-color-primary-900: #062a50;
+    --theme-color-primary-rgb: var(--theme-color-navy-rgb);
+    --theme-color-primary-50: var(--theme-color-navy-100);
+    --theme-color-primary-100: var(--theme-color-navy-100);
+    --theme-color-primary-200: var(--theme-color-navy-200);
+    --theme-color-primary-300: var(--theme-color-navy-300);
+    --theme-color-primary-400: var(--theme-color-navy-400);
+    --theme-color-primary-500: var(--theme-color-navy-500);
+    --theme-color-primary-600: var(--theme-color-navy-600);
+    --theme-color-primary-700: var(--theme-color-navy-700);
+    --theme-color-primary-800: var(--theme-color-navy-800);
+    --theme-color-primary-900: var(--theme-color-navy-900);
 }
