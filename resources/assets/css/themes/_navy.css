@@ -14,7 +14,7 @@
 
 .theme-navy {
     --theme-color-primary-rgb: var(--theme-color-navy-rgb);
-    --theme-color-primary-50: var(--theme-color-navy-100);
+    --theme-color-primary-50: var(--theme-color-navy-50);
     --theme-color-primary-100: var(--theme-color-navy-100);
     --theme-color-primary-200: var(--theme-color-navy-200);
     --theme-color-primary-300: var(--theme-color-navy-300);
