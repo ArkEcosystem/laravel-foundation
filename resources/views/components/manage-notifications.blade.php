@@ -170,7 +170,7 @@
                                                     class="sm:mr-2 focus-visible:rounded transition-default"
                                                     wire:click.stop="$emit('markAsUnstarred', '{{ $notification->id }}')"
                                                 >
-                                                    <x-ark-icon name="star" size="sm" class="text-theme-warning-200" />
+                                                    <x-ark-icon name="star-filled" size="sm" class="text-theme-warning-200" />
                                                 </button>
                                             @else
                                                 <button
