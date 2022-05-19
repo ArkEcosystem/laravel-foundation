@@ -2,7 +2,7 @@
     'delayInit' => false,
 ])
 
-<script>
+<script type="text/javascript">
     (() => {
         const initSlider = () => {
             const swiper = new Swiper('#swiper-{{ $id }}', {
