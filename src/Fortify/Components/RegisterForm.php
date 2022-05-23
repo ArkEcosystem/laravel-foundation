@@ -6,6 +6,7 @@ namespace ARKEcosystem\Foundation\Fortify\Components;
 
 use ARKEcosystem\Foundation\Fortify\Components\Concerns\ValidatesPassword;
 use ARKEcosystem\Foundation\Fortify\Models;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Livewire\Component;
@@ -46,7 +47,11 @@ class RegisterForm extends Component
 
         $this->formUrl = request()->fullUrl();
 
-        $this->invitationId = request()->get('invitation');
+        $this->invitationId = request()->query('invitation');
+
+        if ($this->invitationId !== null) {
+            $this->email = $this->findInvitation()?->email ?? '';
+        }
     }
 
     /**
@@ -57,7 +62,7 @@ class RegisterForm extends Component
     public function render()
     {
         return view('ark-fortify::auth.register-form', [
-            'invitation' => $this->invitationId ? Models::invitation()::findByUuid($this->invitationId) : null,
+            'invitation' => $this->invitationId ? $this->findInvitation() : null,
         ]);
     }
 
@@ -76,6 +81,11 @@ class RegisterForm extends Component
     {
         if ($propertyName === 'email') {
             $value = strtolower($value);
+
+            // Prevent email address updates if user wants to sign up via invitation...
+            if ($this->invitationId) {
+                $this->email = $this->findInvitation()?->email ?? '';
+            }
         }
 
         $values = [$propertyName => $value];
@@ -101,6 +111,11 @@ class RegisterForm extends Component
         }
 
         $this->resetErrorBag($propertyName);
+    }
+
+    private function findInvitation() : ?Model
+    {
+        return Models::invitation()::findByUuid($this->invitationId);
     }
 
     protected function rules(): array
