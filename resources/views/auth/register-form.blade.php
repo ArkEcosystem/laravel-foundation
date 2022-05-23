@@ -21,35 +21,34 @@
             </div>
         @endif
 
-        @unless($invitation)
-            <div>
-                <div class="flex flex-1">
-                    <x-ark-input
-                        model="name"
-                        name="name"
-                        :label="trans('ui::forms.display_name')"
-                        autocomplete="name"
-                        class="w-full"
-                        :autofocus="true"
-                        :errors="$errors"
-                    />
-                </div>
+        <div>
+            <div class="flex flex-1">
+                <x-ark-input
+                    model="name"
+                    name="name"
+                    :label="trans('ui::forms.display_name')"
+                    autocomplete="name"
+                    class="w-full"
+                    :autofocus="true"
+                    :errors="$errors"
+                />
             </div>
+        </div>
 
-            <div>
-                <div class="flex flex-1">
-                    <x-ark-input
-                        model="email"
-                        type="email"
-                        name="email"
-                        :label="trans('ui::forms.email')"
-                        autocomplete="email"
-                        class="w-full"
-                        :errors="$errors"
-                    />
-                </div>
+        <div>
+            <div class="flex flex-1">
+                <x-ark-input
+                    model="email"
+                    type="email"
+                    name="email"
+                    :label="trans('ui::forms.email')"
+                    :disabled="$invitation !== null"
+                    autocomplete="email"
+                    class="w-full"
+                    :errors="$errors"
+                />
             </div>
-        @endunless
+        </div>
 
         <x:ark-fortify::password-rules
             :password-rules="$passwordRules"
