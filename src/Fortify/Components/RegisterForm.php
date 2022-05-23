@@ -113,15 +113,15 @@ class RegisterForm extends Component
         $this->resetErrorBag($propertyName);
     }
 
-    private function findInvitation() : ?Model
-    {
-        return Models::invitation()::findByUuid($this->invitationId);
-    }
-
     protected function rules(): array
     {
         return collect(resolve(CreatesNewUsers::class)::createValidationRules())
             ->filter(fn ($value, $key) => property_exists($this, $key))
             ->toArray();
+    }
+
+    private function findInvitation() : ?Model
+    {
+        return Models::invitation()::findByUuid($this->invitationId);
     }
 }
