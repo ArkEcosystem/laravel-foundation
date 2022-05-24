@@ -19,6 +19,8 @@ class RegisterFormTest extends Model
 {
     use HasUuid;
 
+    public string $email = 'jdoe@example.org';
+
     public static function findByUuid(string $uuid): ?Model
     {
         return new self();
@@ -76,6 +78,18 @@ it('cannot submit if all required fields are not filled', function () {
 
     $instance->set('terms', true);
     expect($instance->instance()->canSubmit())->toBeTrue();
+});
+
+it('mounts invitation email and prevents updates to the email address if signing up using invitation', function () {
+    Config::set('fortify.models.invitation', RegisterFormTest::class);
+
+    $invitationUuid = Uuid::uuid();
+
+    Livewire::withQueryParams(['invitation' => $invitationUuid])
+                ->test(RegisterForm::class)
+                ->assertSet('email', 'jdoe@example.org')
+                ->set('email', 'john@example.com')
+                ->assertSet('email', 'jdoe@example.org');
 });
 
 it('should correctly validate password & confirm password fields', function () {
