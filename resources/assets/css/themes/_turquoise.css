@@ -1,0 +1,27 @@
+:root {
+    --theme-color-turquoise-rgb: 0, 178, 170;
+    --theme-color-turquoise-50: #f3fcfc;
+    --theme-color-turquoise-100: #ddf5f4;
+    --theme-color-turquoise-200: #b4f0ed;
+    --theme-color-turquoise-300: #83e8e3;
+    --theme-color-turquoise-400: #08c7be;
+    --theme-color-turquoise-500: #00b2aa;
+    --theme-color-turquoise-600: #04958e;
+    --theme-color-turquoise-700: #03706b;
+    --theme-color-turquoise-800: #03504d;
+    --theme-color-turquoise-900: #062e2c;
+}
+
+.theme-nodem {
+    --theme-color-primary-rgb: var(--theme-color-turquoise-rgb);
+    --theme-color-primary-50: var(--theme-color-turquoise-50);
+    --theme-color-primary-100: var(--theme-color-turquoise-100);
+    --theme-color-primary-200: var(--theme-color-turquoise-200);
+    --theme-color-primary-300: var(--theme-color-turquoise-300);
+    --theme-color-primary-400: var(--theme-color-turquoise-400);
+    --theme-color-primary-500: var(--theme-color-turquoise-500);
+    --theme-color-primary-600: var(--theme-color-turquoise-600);
+    --theme-color-primary-700: var(--theme-color-turquoise-700);
+    --theme-color-primary-800: var(--theme-color-turquoise-800);
+    --theme-color-primary-900: var(--theme-color-turquoise-900);
+}

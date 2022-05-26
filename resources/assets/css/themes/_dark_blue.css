@@ -1,4 +1,4 @@
-.theme-dark-blue {
+:root {
     --theme-color-dark-blue-rgb: 70, 138, 241;
     --theme-color-dark-blue-50: #f5f9ff;
     --theme-color-dark-blue-100: #e1edff;
@@ -10,7 +10,9 @@
     --theme-color-dark-blue-700: #2c528d;
     --theme-color-dark-blue-800: #1c3459;
     --theme-color-dark-blue-900: #0f1f38;
+}
 
+.theme-dark-blue {
     --theme-color-primary-rgb: var(--theme-color-dark-blue-rgb);
     --theme-color-primary-50: var(--theme-color-dark-blue-50);
     --theme-color-primary-100: var(--theme-color-dark-blue-100);

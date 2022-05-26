@@ -174,6 +174,17 @@ module.exports = {
             "theme-navy-700": "var(--theme-color-navy-700)",
             "theme-navy-800": "var(--theme-color-navy-800)",
             "theme-navy-900": "var(--theme-color-navy-900)",
+
+            "theme-turquoise-50": "var(--theme-color-turquoise-50)",
+            "theme-turquoise-100": "var(--theme-color-turquoise-100)",
+            "theme-turquoise-200": "var(--theme-color-turquoise-200)",
+            "theme-turquoise-300": "var(--theme-color-turquoise-300)",
+            "theme-turquoise-400": "var(--theme-color-turquoise-400)",
+            "theme-turquoise-500": "var(--theme-color-turquoise-500)",
+            "theme-turquoise-600": "var(--theme-color-turquoise-600)",
+            "theme-turquoise-700": "var(--theme-color-turquoise-700)",
+            "theme-turquoise-800": "var(--theme-color-turquoise-800)",
+            "theme-turquoise-900": "var(--theme-color-turquoise-900)",
         },
 
         customForms: (theme) => ({
