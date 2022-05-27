@@ -22,7 +22,11 @@
 
                         <div class="flex flex-col justify-between md:flex-row md:space-x-3 dark:text-theme-secondary-500">
                             <span class="notification-truncate">
-                                {{ $notification->content() }}
+                                @if ($renderAsHtml ?? false)
+                                    {!! $notification->content() !!}
+                                @else
+                                    {{ $notification->content() }}
+                                @endif
                             </span>
 
                             <div class="flex flex-row space-x-4">
