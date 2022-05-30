@@ -199,7 +199,11 @@
                                     </div>
                                     <div class="text-base leading-7 text-theme-secondary-700 dark:text-theme-secondary-500">
                                         <div class="flex flex-col sm:block">
-                                            <span class="break-words">{{ $notification->excerpt() }}</span>
+                                            @if( $renderAsHtml )
+                                                <span class="break-words">{!! $notification->content() !!}</span>
+                                            @else
+                                                <span class="break-words">{{ $notification->excerpt() }}</span>
+                                            @endif
 
                                             @if($notification->hasAction())
                                                 <a href="{{ $notification->link() }}" class="font-semibold link">

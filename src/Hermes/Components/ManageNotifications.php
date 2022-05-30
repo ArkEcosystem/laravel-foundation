@@ -25,6 +25,8 @@ final class ManageNotifications extends Component
 
     public string $activeFilter;
 
+    public bool $renderAsHtml;
+
     protected $listeners = [
         'setNotification'  => 'selectNotification',
         'markAsStarred',
@@ -33,8 +35,9 @@ final class ManageNotifications extends Component
         'markAsRead',
     ];
 
-    public function mount(): void
+    public function mount(bool $renderAsHtml = false): void
     {
+        $this->renderAsHtml = $renderAsHtml;
         $this->activeFilter = NotificationFilterEnum::ALL;
     }
 
