@@ -5,6 +5,7 @@
     'banner'     => null,
     'isTutorial' => false,
     'compact'    => false,
+    'editOption' => true,
 ])
 
 <x-ark-container :container-class="Arr::toCssClasses([
@@ -74,7 +75,9 @@
                 <div class="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0 sm:space-x-5 sm:divide-x sm:divide-theme-secondary-200">
                     <x-ark-docs-last-updated :time="$document->updated_at" />
 
-                    <x-ark-docs-edit-page :document="$document" />
+                    @if ($editOption)
+                        <x-ark-docs-edit-page :document="$document" />
+                    @endif
                 </div>
 
                 <x-ark-docs-share-links :document="$document" />
