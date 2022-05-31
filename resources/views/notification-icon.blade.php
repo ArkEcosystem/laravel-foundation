@@ -1,11 +1,12 @@
 @props([
     'notification',
-    'type' => '',
+    'type'       => '',
+    'relatable'  => null,
     'stateColor' => 'bg-white dark:bg-theme-secondary-900',
 ])
 
 @php
-    $relatable = $notification->relatable;
+    $relatable = $relatable ?? $notification->relatable;
     $media = optional($relatable)->logo();
     $identifier = optional($relatable)->fallbackIdentifier();
     $defaultLogo =  $notification->logo();
