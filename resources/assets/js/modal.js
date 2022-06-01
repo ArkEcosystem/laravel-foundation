@@ -16,6 +16,8 @@ const Modal = {
         reserveScrollBarGap: true,
         reserveNavScrollBarGap: true,
         disableFocusTrap: false,
+        focusFirstField: false,
+        enterKeySubmit: false,
     },
 
     disableBodyScroll(scrollable, settings = {}) {
@@ -49,12 +51,41 @@ const Modal = {
     },
 
     onModalOpened(scrollable, settings = {}) {
+        settings = Object.assign({}, this.defaultSettings, settings);
+
         this.disableBodyScroll(scrollable, settings);
 
         if (settings.disableFocusTrap) {
             scrollable.focus();
         } else {
             this.trapFocus(scrollable);
+        }
+
+        if (settings.focusFirstField) {
+            const textInput = scrollable.querySelector("input[type=text]");
+            if (textInput) {
+                scrollable.querySelector("input[type=text]").focus();
+            }
+        }
+
+        if (settings.enterKeySubmit) {
+            const hasField =
+                scrollable.querySelector("input, select, textarea") !== null;
+            const primaryButton = scrollable.querySelector(
+                ".modal-buttons .button-primary"
+            );
+            if (primaryButton) {
+                scrollable.addEventListener("keyup", function (event) {
+                    const canSubmit =
+                        document.activeElement.tagName === "INPUT" ||
+                        document.activeElement === scrollable;
+                    if (event.keyCode === 13 && (!hasField || canSubmit)) {
+                        event.preventDefault();
+
+                        primaryButton.click();
+                    }
+                });
+            }
         }
     },
 
