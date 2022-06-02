@@ -40,7 +40,7 @@ const CropImage = (
 
     cropElementIsReady() {
         return new Promise((resolve, reject) => {
-            const waitForImageTohaveDimensions = () => {
+            const waitForTheImageToBeReady = () => {
                 const tries = 0;
                 const interval = setInterval(() => {
                     const imageHeight = this.cropEl.parentNode.clientHeight;
@@ -49,7 +49,8 @@ const CropImage = (
                         resolve();
                     } else {
                         tries++;
-                        if (tries > 10) {
+                        if (tries > 20) {
+                            clearInterval(interval);
                             reject(new Error("Image not loaded"));
                         }
                     }
@@ -57,9 +58,9 @@ const CropImage = (
             };
 
             if (this.cropEl.complete) {
-                waitForImageTohaveDimensions();
+                waitForTheImageToBeReady();
             } else {
-                this.cropEl.onload = () => waitForImageTohaveDimensions();
+                this.cropEl.onload = () => waitForTheImageToBeReady();
             }
         });
     },
