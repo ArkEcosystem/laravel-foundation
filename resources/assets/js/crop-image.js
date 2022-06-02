@@ -50,18 +50,18 @@ const CropImage = (
                     } else {
                         tries++;
                         if (tries > 10) {
-                            reject(new Error('Image not loaded'))
+                            reject(new Error("Image not loaded"));
                         }
                     }
-                }, 50)
-            }
+                }, 50);
+            };
 
             if (this.cropEl.complete) {
-                waitForImageTohaveDimensions()
+                waitForImageTohaveDimensions();
             } else {
                 this.cropEl.onload = () => waitForImageTohaveDimensions();
             }
-        })
+        });
     },
     init() {
         this.uploadEl = document.getElementById($uploadID);
@@ -90,7 +90,7 @@ const CropImage = (
                 this.$nextTick(() => {
                     this.cropper = new Cropper(this.cropEl, $cropOptions);
                 });
-            })
+            });
         });
 
         Livewire.on("cropModalBeforeHide", (elID) => {
