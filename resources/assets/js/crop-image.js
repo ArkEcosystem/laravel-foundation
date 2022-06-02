@@ -40,7 +40,7 @@ const CropImage = (
 
     cropElementIsReady() {
         return new Promise((resolve, reject) => {
-            const waitForImageToBeReady = () => {
+            const waitForImageTohaveDimensions = () => {
                 const tries = 0;
                 const interval = setInterval(() => {
                     const imageHeight = this.cropEl.parentNode.clientHeight;
@@ -49,20 +49,19 @@ const CropImage = (
                         resolve();
                     } else {
                         tries++;
-                        if (tries > 20) {
-                            clearInterval(interval);
-                            reject(new Error('Image not loaded'))
+                        if (tries > 10) {
+                            reject(new Error("Image not loaded"));
                         }
                     }
-                }, 50)
-            }
+                }, 50);
+            };
 
             if (this.cropEl.complete) {
-                waitForImageToBeReady()
+                waitForImageTohaveDimensions();
             } else {
-                this.cropEl.onload = () => waitForImageToBeReady();
+                this.cropEl.onload = () => waitForImageTohaveDimensions();
             }
-        })
+        });
     },
     init() {
         this.uploadEl = document.getElementById($uploadID);
@@ -91,7 +90,7 @@ const CropImage = (
                 this.$nextTick(() => {
                     this.cropper = new Cropper(this.cropEl, $cropOptions);
                 });
-            })
+            });
         });
 
         Livewire.on("cropModalBeforeHide", (elID) => {
