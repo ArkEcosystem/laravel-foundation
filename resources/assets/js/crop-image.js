@@ -31,12 +31,38 @@ const CropImage = (
     model: $model,
     cropper: null,
     isUploading: false,
+    isPreparingImage: true,
     isCropping: false,
     uploadEl: null,
     cropEl: null,
     modalCancelButton: null,
     modalSaveButton: null,
 
+    cropElementIsReady() {
+        return new Promise((resolve, reject) => {
+            const waitForImageTohaveDimensions = () => {
+                const tries = 0;
+                const interval = setInterval(() => {
+                    const imageHeight = this.cropEl.parentNode.clientHeight;
+                    if (imageHeight) {
+                        clearInterval(interval);
+                        resolve();
+                    } else {
+                        tries++;
+                        if (tries > 10) {
+                            reject(new Error('Image not loaded'))
+                        }
+                    }
+                }, 50)
+            }
+
+            if (this.cropEl.complete) {
+                waitForImageTohaveDimensions()
+            } else {
+                this.cropEl.onload = () => waitForImageTohaveDimensions();
+            }
+        })
+    },
     init() {
         this.uploadEl = document.getElementById($uploadID);
 
@@ -58,7 +84,13 @@ const CropImage = (
                 return;
             }
 
-            this.cropper = new Cropper(this.cropEl, $cropOptions);
+            this.cropElementIsReady().then(() => {
+                this.isPreparingImage = false;
+
+                this.$nextTick(() => {
+                    this.cropper = new Cropper(this.cropEl, $cropOptions);
+                });
+            })
         });
 
         Livewire.on("cropModalBeforeHide", (elID) => {
@@ -108,23 +140,20 @@ const CropImage = (
 
     loadCropper() {
         if (this.uploadEl.files.length) {
+            this.isPreparingImage = true;
+
             const reader = new FileReader();
 
             reader.onload = (e) => {
                 if (e.target.result) {
                     this.cropEl = document.getElementById($cropID);
-
-                    this.cropEl.onload = () => {
-                        this.cropEl.style.height = `${this.cropEl.naturalHeight}px`;
-
-                        this.openCropModal();
-                    };
-
                     this.cropEl.src = e.target.result;
                 }
             };
 
             reader.readAsDataURL(this.uploadEl.files[0]);
+
+            this.openCropModal();
         }
     },
 
