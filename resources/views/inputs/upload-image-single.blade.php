@@ -181,8 +181,8 @@
                 <p>{!! $cropMessage !!}</p>
             @endif
 
-            <div class="-mx-8 mt-8 sm:-mx-10 h-75 relative">
-                <div x-show="isPreparingImage" class="h-40 relative w-full">
+            <div class="relative -mx-8 mt-8 sm:-mx-10 h-75">
+                <div x-show="isPreparingImage" class="relative w-full h-40">
                     <x-ark-loading-spinner class="right-0 bottom-0 left-0" spinner-dimensions="w-8 h-8" dimensions="w-full h-full" />
                 </div>
 
