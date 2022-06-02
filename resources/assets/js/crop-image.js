@@ -52,6 +52,21 @@ const CropImage = (
             this.saveCroppedImage();
             this.discardImage();
         });
+
+        Livewire.on("cropModalShown", (elID) => {
+            if (`crop-modal-${elID}` !== $modalID) {
+                return;
+            }
+
+            this.cropper = new Cropper(this.cropEl, $cropOptions);
+        });
+
+        Livewire.on("cropModalBeforeHide", (elID) => {
+            if (`crop-modal-${elID}` !== $modalID) {
+                return;
+            }
+            this.destroyCropper();
+        });
     },
 
     destroyCropper() {
@@ -94,19 +109,18 @@ const CropImage = (
     loadCropper() {
         if (this.uploadEl.files.length) {
             const reader = new FileReader();
+
             reader.onload = (e) => {
                 if (e.target.result) {
                     this.cropEl = document.getElementById($cropID);
+
+                    this.cropEl.onload = () => {
+                        this.cropEl.style.height = `${this.cropEl.naturalHeight}px`;
+
+                        this.openCropModal();
+                    }
+
                     this.cropEl.src = e.target.result;
-
-                    this.cropper = new Cropper(this.cropEl, $cropOptions);
-
-                    this.$nextTick(() => {
-                        this.destroyCropper();
-                        this.cropper = new Cropper(this.cropEl, $cropOptions);
-                    });
-
-                    this.openCropModal();
                 }
             };
 

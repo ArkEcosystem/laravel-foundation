@@ -19,6 +19,8 @@
     x-cloak
     @if($init)
     x-data="Modal.alpine({{ $xData }}, '{{ $name }}')"
+    @else
+    x-data="{{ $xData }}a"
     @endif
     @if(!$closeButtonOnly && $escToClose)
     @keydown.escape="hide"

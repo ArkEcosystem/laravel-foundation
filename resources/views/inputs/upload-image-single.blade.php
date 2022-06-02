@@ -163,7 +163,14 @@
         name="crop-modal-{{ $id }}"
         class="w-full max-w-2xl text-left"
         close-button-only
-        init
+        x-data="Modal.alpine({
+            onShown() {
+                Livewire.emit('cropModalShown', '{{ $id }}');
+            },
+            onBeforeHide() {
+                Livewire.emit('cropModalBeforeHide', '{{ $id }}');
+            }
+        }, 'crop-modal-{{ $id }}', { disableFocusTrap: true })"
     >
         @slot('title')
             {{ $cropTitle }}
