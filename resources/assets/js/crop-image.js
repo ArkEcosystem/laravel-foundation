@@ -118,7 +118,7 @@ const CropImage = (
                         this.cropEl.style.height = `${this.cropEl.naturalHeight}px`;
 
                         this.openCropModal();
-                    }
+                    };
 
                     this.cropEl.src = e.target.result;
                 }
