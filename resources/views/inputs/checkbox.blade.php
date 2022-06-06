@@ -10,7 +10,8 @@
     'checked'               => false,
     'disabled'              => false,
     'alpine'                => false,
-    'right'                 => false
+    'right'                 => false,
+    'deferred'              => false,
 ])
 
 @php
@@ -39,7 +40,11 @@
                 name="{{ $name }}"
                 type="checkbox"
                 class="focus-visible:ring-2 form-checkbox input-checkbox focus-visible:ring-theme-primary-500"
+                @if ($deferred)
+                wire:model.defer="{{ $model ?? $name }}"
+                @else
                 wire:model="{{ $model ?? $name }}"
+                @endif
                 @if($value) value="{{ $value }}" @endif
                 @if($checked) checked @endif
                 @if($disabled) disabled @endif
