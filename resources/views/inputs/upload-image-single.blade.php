@@ -163,7 +163,14 @@
         name="crop-modal-{{ $id }}"
         class="w-full max-w-2xl text-left"
         close-button-only
-        init
+        x-data="Modal.alpine({
+            onShown() {
+                Livewire.emit('cropModalShown', '{{ $id }}');
+            },
+            onBeforeHide() {
+                Livewire.emit('cropModalBeforeHide', '{{ $id }}');
+            }
+        }, 'crop-modal-{{ $id }}', { disableFocusTrap: true })"
     >
         @slot('title')
             {{ $cropTitle }}
@@ -174,8 +181,12 @@
                 <p>{!! $cropMessage !!}</p>
             @endif
 
-            <div class="-mx-8 mt-8 sm:-mx-10 h-75">
-                <img id="image-single-crop-{{ $id }}" src="" alt="">
+            <div class="relative -mx-8 mt-8 sm:-mx-10 h-75">
+                <div x-show="isPreparingImage" class="relative w-full h-40">
+                    <x-ark-loading-spinner class="right-0 bottom-0 left-0" spinner-dimensions="w-8 h-8" dimensions="w-full h-full" />
+                </div>
+
+                <img :class="{ 'invisible absolute' : isPreparingImage }" id="image-single-crop-{{ $id }}" src="" alt="" >
             </div>
         @endslot
 

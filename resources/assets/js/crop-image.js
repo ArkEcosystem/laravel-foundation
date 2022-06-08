@@ -31,12 +31,39 @@ const CropImage = (
     model: $model,
     cropper: null,
     isUploading: false,
+    isPreparingImage: true,
     isCropping: false,
     uploadEl: null,
     cropEl: null,
     modalCancelButton: null,
     modalSaveButton: null,
 
+    cropElementIsReady() {
+        return new Promise((resolve, reject) => {
+            const waitForTheImageToBeReady = () => {
+                const tries = 0;
+                const interval = setInterval(() => {
+                    const imageHeight = this.cropEl.parentNode.clientHeight;
+                    if (imageHeight) {
+                        clearInterval(interval);
+                        resolve();
+                    } else {
+                        tries++;
+                        if (tries > 20) {
+                            clearInterval(interval);
+                            reject(new Error("Image not loaded"));
+                        }
+                    }
+                }, 50);
+            };
+
+            if (this.cropEl.complete) {
+                waitForTheImageToBeReady();
+            } else {
+                this.cropEl.onload = () => waitForTheImageToBeReady();
+            }
+        });
+    },
     init() {
         this.uploadEl = document.getElementById($uploadID);
 
@@ -51,6 +78,27 @@ const CropImage = (
 
             this.saveCroppedImage();
             this.discardImage();
+        });
+
+        Livewire.on("cropModalShown", (elID) => {
+            if (`crop-modal-${elID}` !== $modalID) {
+                return;
+            }
+
+            this.cropElementIsReady().then(() => {
+                this.isPreparingImage = false;
+
+                this.$nextTick(() => {
+                    this.cropper = new Cropper(this.cropEl, $cropOptions);
+                });
+            });
+        });
+
+        Livewire.on("cropModalBeforeHide", (elID) => {
+            if (`crop-modal-${elID}` !== $modalID) {
+                return;
+            }
+            this.destroyCropper();
         });
     },
 
@@ -93,24 +141,20 @@ const CropImage = (
 
     loadCropper() {
         if (this.uploadEl.files.length) {
+            this.isPreparingImage = true;
+
             const reader = new FileReader();
+
             reader.onload = (e) => {
                 if (e.target.result) {
                     this.cropEl = document.getElementById($cropID);
                     this.cropEl.src = e.target.result;
-
-                    this.cropper = new Cropper(this.cropEl, $cropOptions);
-
-                    this.$nextTick(() => {
-                        this.destroyCropper();
-                        this.cropper = new Cropper(this.cropEl, $cropOptions);
-                    });
-
-                    this.openCropModal();
                 }
             };
 
             reader.readAsDataURL(this.uploadEl.files[0]);
+
+            this.openCropModal();
         }
     },
 
