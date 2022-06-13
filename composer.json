@@ -116,6 +116,7 @@
     },
     "require-dev": {
         "laravel/nova": "^3.30",
+        "laravel/telescope": "^4.9",
         "spatie/laravel-permission": "^3.16",
         "vyuldashev/nova-permission": "^3.0"
     },
