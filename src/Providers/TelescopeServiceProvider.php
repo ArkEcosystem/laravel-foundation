@@ -9,16 +9,10 @@ use Laravel\Telescope\TelescopeServiceProvider as Telescope;
 
 class TelescopeServiceProvider extends ServiceProvider
 {
-    // public function register(): void
-    // {
-    //     // 
-    // }
-
     public function boot(): void
     {
         if ($this->app->environment('local')) {
             $this->app->register(Telescope::class);
-            // $this->app->register(TelescopeServiceProvider::class);
         }
     }
 }
