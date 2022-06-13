@@ -13,6 +13,7 @@ class TelescopeServiceProvider extends ServiceProvider
     {
         if ($this->app->environment('local')) {
             $this->app->register(Telescope::class);
+            $this->app->register(TelescopeApplicationServiceProvider::class);
         }
     }
 }
