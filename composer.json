@@ -33,6 +33,7 @@
         "jenssegers/agent": "^2.6",
         "johnkary/phpunit-speedtrap": "^4.0",
         "laravel/fortify": "^1.8",
+        "laravel/telescope": "^4.9",
         "league/commonmark": "^2.0",
         "livewire/livewire": "^2.8",
         "mockery/mockery": "^1.4",
@@ -116,7 +117,6 @@
     },
     "require-dev": {
         "laravel/nova": "^3.30",
-        "laravel/telescope": "^4.9",
         "spatie/laravel-permission": "^3.16",
         "vyuldashev/nova-permission": "^3.0"
     },
