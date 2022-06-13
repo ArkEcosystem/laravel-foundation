@@ -29,6 +29,7 @@ Require with composer: `composer require arkecosystem/foundation`
 - [Hermes](/usage/hermes.md)
 - [Stan](/usage/stan.md)
 - [UI](/usage/ui.md)
+- [Telescope](/usage/telescope.md)
 
 ## Examples
 
