@@ -66,7 +66,7 @@ export const initModalhandler = (editor, modalName, getReplacement) => {
 
         const currentSelection = editor.getSelection();
 
-        editor.replaceSelection(replacement);
+        Alpine.raw(editor).replaceSelection(replacement);
 
         Livewire.emit("closeModal", modalName);
 
@@ -75,7 +75,7 @@ export const initModalhandler = (editor, modalName, getReplacement) => {
         setTimeout(() => {
             document.querySelector(".ProseMirror").focus();
 
-            editor.setSelection(
+            Alpine.raw(editor).setSelection(
                 [currentSelection[0][0], currentSelection[0][1]],
                 [
                     currentSelection[0][0],
