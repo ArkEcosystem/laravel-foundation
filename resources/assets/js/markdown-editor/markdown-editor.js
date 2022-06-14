@@ -221,6 +221,13 @@ const MarkdownEditor = (
             return `[${text || url}](${url})`;
         });
 
+        initModalhandler(this.editor, "embedLinkModal", (formData) => {
+            const url = formData.get("url");
+            const text = formData.get("text");
+
+            return `[${text || url}](${url})`;
+        });
+
         initModalhandler(this.editor, "embedTweetModal", (formData) => {
             const urlOrCode = formData.get("url");
 
