@@ -1,10 +1,10 @@
-window.scrollToQuery = (selector) => {
-    const navbar = document.querySelector("#navbar");
+window.scrollToQuery = (selector, anchor = "#navbar") => {
+    const anchorElement = document.querySelector(anchor);
 
     window.scrollTo({
         top:
             document.querySelector(selector).offsetTop -
-            (navbar ? navbar.clientHeight : 0),
+            (anchorElement ? anchorElement.clientHeight : 0),
         behavior: "smooth",
     });
 };
