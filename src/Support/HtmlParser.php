@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\Support;
 
 use DOMDocument;
+use DOMElement;
 use ErrorException;
 use Illuminate\Support\Collection;
 
@@ -30,7 +31,7 @@ final class HtmlParser
     public function links() : Collection
     {
         return collect($this->parser->getElementsByTagName('a'))->map(
-            fn ($node) => trim($node->getAttribute('href'))
+            fn (DOMElement $node) => trim($node->getAttribute('href'))
         )->filter()->values();
     }
 }
