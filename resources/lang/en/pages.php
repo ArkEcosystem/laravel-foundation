@@ -50,7 +50,7 @@ return [
         'contact_information_title'         => 'Contact Information',
         'contact_information_description'   => "Update your account's contact information and email address.",
         'gdpr_title'                        => 'General Data Protection Regulation (GDPR)',
-        'gdpr_description'                  => 'This will will create a zip containing all personal data to respect your right to data portability. You will receive the zip file on the email address linked to your account.',
+        'gdpr_description'                  => 'This will create a zip containing all personal data to respect your right to data portability. You will receive the zip file on the email address linked to your account.',
         'delete_account_title'              => 'Account Deletion',
         'delete_account_description'        => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
         'update_password_alert_description' => 'The Security Settings allow you to change your passwords and enable or disable 2FA. Please remember the changes made for when you next sign in.',
