@@ -13,7 +13,6 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.0",
-        "alexbarnsley/php-html-parser": "^3.2",
         "calebporzio/sushi": "^2.4",
         "danharrin/livewire-rate-limiting": "^1.0",
         "elgigi/commonmark-emoji": "^2.0",
