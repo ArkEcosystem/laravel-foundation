@@ -12,10 +12,10 @@
 
 Since this package relies on a few 3rd party packages, you will need to have the following installed and configured in your project:
 
-- [Alpine.js](https://github.com/alpinejs/alpine)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind UI](https://tailwindui.com/)
-- [Livewire](https://laravel-livewire.com/)
+- [Alpine.js](https://alpinejs.dev)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Tailwind UI](https://tailwindui.com)
+- [Livewire](https://laravel-livewire.com)
 
 ## Installation
 
