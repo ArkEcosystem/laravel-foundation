@@ -31,6 +31,6 @@ final class HtmlParser
     {
         return collect($this->parser->getElementsByTagName('a'))->map(
             fn ($node) => trim($node->getAttribute('href'))
-        );
+        )->filter()->values();
     }
 }
