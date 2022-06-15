@@ -14,8 +14,8 @@ final class HtmlParser
 
     public function __construct(string $html)
     {
-        $this->parser = new DOMDocument;
-        $this->html = $html;
+        $this->parser = new DOMDocument();
+        $this->html   = $html;
 
         try {
             $this->parser->loadHtml($html);
