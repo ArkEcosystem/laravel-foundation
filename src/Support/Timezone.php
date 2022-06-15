@@ -18,7 +18,7 @@ final class Timezone
 
     public static function formattedList(): array
     {
-        $formattedList = collect(static::list())->map(function ($timezoneIdentifier) {
+        return Cache::rememberForever('timezones', fn () => collect(static::list())->map(function ($timezoneIdentifier) {
             $timezone = CarbonTimeZone::instance(new DateTimeZone($timezoneIdentifier));
 
             return [
@@ -26,8 +26,6 @@ final class Timezone
                 'timezone'          => $timezoneIdentifier,
                 'formattedTimezone' => "(UTC{$timezone->toOffsetName()}) ".str_replace('_', ' ', $timezoneIdentifier),
             ];
-        })->sortBy('offset')->toArray();
-
-        return Cache::rememberForever('timezones', fn () => $formattedList);
+        })->sortBy('offset')->toArray());
     }
 }
