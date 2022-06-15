@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\Documentation;
 
 use ARKEcosystem\Foundation\Documentation\Concerns\CanBeShared;
+use ARKEcosystem\Foundation\Support\HtmlParser;
 use Closure;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Database\Eloquent\Builder;
@@ -13,7 +14,6 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use League\CommonMark\MarkdownConverterInterface;
-use PHPHtmlParser\Dom;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Sushi\Sushi;
 
@@ -159,30 +159,25 @@ class Document extends Model
                 $path = 'index.blade.php';
             }
 
-            $matches = [];
-            $dom     = new Dom();
-            $dom->loadStr((string) app(ViewFactory::class)->file($storage->path($path))->render());
+            $parser = new HtmlParser(
+                app(ViewFactory::class)->file($storage->path($path))->render()
+            );
 
-            foreach ($dom->find('a') as $link) {
-                $matches[] = [
-                    'name' => trim($link->innerText),
-                    'link' => str_replace('/'.$this->type.'/', '', trim($link->getAttribute('href'))),
-                ];
-            }
+            $links = $parser->links()->map(
+                fn (string $link) => str_replace('/'.$this->type.'/', '', $link)
+            )->unique()->values();
 
-            $matches = collect($matches)->unique('link')->values();
-
-            $index = $matches->search(fn ($match) => Str::endsWith($match['link'], $this->slug));
+            $index = $links->search(fn ($link) => Str::endsWith($link, $this->slug));
 
             $callbackValue = $callback($index);
 
-            if ($callbackValue < 0 || $callbackValue >= count($matches)) {
+            if ($callbackValue < 0 || $callbackValue >= count($links)) {
                 return;
             }
 
             return static::query()
                 ->where('type', $this->type)
-                ->where('slug', $matches[$callback($index)]['link'])
+                ->where('slug', $links[$callback($index)])
                 ->first();
         });
     }
