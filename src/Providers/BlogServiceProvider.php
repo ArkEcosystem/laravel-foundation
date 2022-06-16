@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Providers;
 
-use ARKEcosystem\Foundation\Blog\Controllers\ArticleController;
-use ARKEcosystem\Foundation\Blog\Controllers\KioskController;
-use ARKEcosystem\Foundation\Blog\Controllers\UserController;
 use ARKEcosystem\Foundation\Blog\Components\ArticleList;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\Articles;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\CreateArticle;
@@ -15,7 +12,9 @@ use ARKEcosystem\Foundation\Blog\Components\Kiosk\DeleteArticle;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\DeleteUser;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateArticle;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateUser;
-use Illuminate\Database\Eloquent\Factory;
+use ARKEcosystem\Foundation\Blog\Controllers\ArticleController;
+use ARKEcosystem\Foundation\Blog\Controllers\KioskController;
+use ARKEcosystem\Foundation\Blog\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -64,7 +63,7 @@ class BlogServiceProvider extends ServiceProvider
 
             Route::middleware(['doNotCacheResponse'])->group(function () {
                 Route::view('/kiosk', 'ark::pages.blog.kiosk.dashboard')->name('kiosk')->middleware('auth');
-                Route::middleware(['auth', 'two-factor'])->group(function() {
+                Route::middleware(['auth', 'two-factor'])->group(function () {
                     Route::get('/kiosk/articles', [KioskController::class, 'index'])->name('kiosk.articles');
                     Route::view('/kiosk/articles/create', 'ark::pages.blog.kiosk.articles.create')->name('kiosk.articles.create');
                     Route::get('/kiosk/articles/{article:slug}', [KioskController::class, 'show'])->name('kiosk.article');

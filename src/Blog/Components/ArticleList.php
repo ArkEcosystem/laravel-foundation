@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Blog\Components;
 
-use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Components\Concerns\HasFilter;
 use ARKEcosystem\Foundation\Blog\Components\Concerns\HasPagination;
 use ARKEcosystem\Foundation\Blog\Components\Concerns\IsSortable;
+use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Models\Article;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;

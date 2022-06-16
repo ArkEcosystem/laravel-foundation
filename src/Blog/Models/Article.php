@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\Blog\Models;
 
 use ARKEcosystem\Foundation\Blog\Enums\Category;
-use ARKEcosystem\Foundation\CommonMark\Facades\Markdown;
 use ARKEcosystem\Foundation\Blog\Models\Factories\ArticleFactory;
+use ARKEcosystem\Foundation\CommonMark\Facades\Markdown;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,11 +32,6 @@ final class Article extends Model implements HasMedia
         'category'     => Category::class,
         'published_at' => 'datetime',
     ];
-
-    protected static function newFactory(): Factory
-    {
-        return new ArticleFactory();
-    }
 
     public function author() : BelongsTo
     {
@@ -131,6 +126,11 @@ final class Article extends Model implements HasMedia
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    protected static function newFactory(): Factory
+    {
+        return new ArticleFactory();
     }
 
     protected static function booted() : void
