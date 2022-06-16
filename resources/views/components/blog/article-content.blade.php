@@ -1,7 +1,7 @@
 @props (['article'])
 
 <section class="w-full bg-theme-background">
-    <div class="flex justify-between flex-col md:flex-row items-center px-8 pt-8 mx-auto max-w-5xl lg:px-10 bg-theme-background">
+    <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row lg:px-10 bg-theme-background">
         <div class="w-full">
             <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-700">
                 <div class="flex items-center pr-3 space-x-2 border-r border-theme-secondary-800">
@@ -27,12 +27,12 @@
         </div>
 
         @if (Auth::user())
-            <div class="justify-end mt-6 w-full md:w-auto md:mt-0">
+            <div class="justify-end mt-6 w-full md:mt-0 md:w-auto">
                 <a
                     href="{{ route('kiosk.article', $article) }}"
-                    class="button-primary w-full"
+                    class="w-full button-primary"
                 >
-                    <div class="flex justify-center whitespace-nowrap space-x-2">
+                    <div class="flex justify-center space-x-2 whitespace-nowrap">
                         <x-ark-icon name="pencil" size="sm" />
 
                         <span>@lang('actions.edit_article')</span>
