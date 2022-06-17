@@ -103,9 +103,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         self::resourcesIn(app_path('Nova'));
 
-        Nova::resources([
-            NovaPermission::class,
-            NovaRole::class,
-        ]);
+        if (! str_starts_with(Nova::version(), '4.')) {
+            Nova::resources([
+                NovaPermission::class,
+                NovaRole::class,
+            ]);
+        }
     }
 }
