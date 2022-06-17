@@ -113,6 +113,12 @@
                         @endisset
                     </div>
                 </div>
+
+                @isset ($end)
+                    <div class="flex items-center justify-end flex-1">
+                        {{ $end }}
+                    </div>
+                @endisset
             </div>
         </div>
 
