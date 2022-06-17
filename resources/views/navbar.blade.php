@@ -115,7 +115,7 @@
                 </div>
 
                 @isset ($end)
-                    <div class="flex items-center justify-end flex-1">
+                    <div class="flex flex-1 justify-end items-center">
                         {{ $end }}
                     </div>
                 @endisset
