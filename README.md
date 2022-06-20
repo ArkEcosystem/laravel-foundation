@@ -4,7 +4,7 @@
     <img src="/banner.png" />
 </p>
 
-> Scaffolding for Laravel. Powered by TailwindCSS and Livewire.
+> Scaffolding for Laravel. Powered by Tailwind CSS and Livewire.
 
 [List of the available components](https://github.com/ArkEcosystem/laravel-foundation/usage/ui.md#available-components)
 
@@ -12,10 +12,10 @@
 
 Since this package relies on a few 3rd party packages, you will need to have the following installed and configured in your project:
 
-- [Alpinejs](https://github.com/alpinejs/alpine)
-- [TailwindCSS](https://tailwindcss.com/)
-- [TailwindUI](https://tailwindui.com/)
-- [Livewire](https://laravel-livewire.com/)
+- [Alpine.js](https://alpinejs.dev)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Tailwind UI](https://tailwindui.com)
+- [Livewire](https://laravel-livewire.com)
 
 ## Installation
 

@@ -7615,58 +7615,6 @@
             "time": "2015-02-21T10:26:45+00:00"
         },
         {
-            "name": "savvot/random",
-            "version": "v0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/savvot/random.git",
-                "reference": "8f075d520d75fa90dea8421f6d91176168d150e6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/savvot/random/zipball/8f075d520d75fa90dea8421f6d91176168d150e6",
-                "reference": "8f075d520d75fa90dea8421f6d91176168d150e6",
-                "shasum": ""
-            },
-            "require": {
-                "php-64bit": ">=5.5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.8.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Savvot\\Random\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "SavvoT",
-                    "email": "savvot@ya.ru"
-                }
-            ],
-            "description": "Deterministic pseudo-random generators library with dozens of useful functions and several sources of randomness",
-            "keywords": [
-                "PRNG",
-                "RNG",
-                "php",
-                "pseudo-random",
-                "random",
-                "random number generator",
-                "rnd"
-            ],
-            "support": {
-                "issues": "https://github.com/savvot/random/issues",
-                "source": "https://github.com/savvot/random/tree/gaussian-ziggurat"
-            },
-            "time": "2015-09-26T15:48:13+00:00"
-        },
-        {
             "name": "sebastian/cli-parser",
             "version": "1.0.1",
             "source": {
