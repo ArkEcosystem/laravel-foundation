@@ -6,13 +6,13 @@ namespace ARKEcosystem\Foundation\Documentation;
 
 use ARKEcosystem\Foundation\CommonMark\Facades\Markdown;
 use ARKEcosystem\Foundation\Documentation\Document as Base;
+use ARKEcosystem\Foundation\Support\HtmlParser;
 use Closure;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use PHPHtmlParser\Dom;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 class DocumentWithCategory extends Base
@@ -68,31 +68,26 @@ class DocumentWithCategory extends Base
                 $path = $this->category.'/index.blade.php';
             }
 
-            $matches = [];
-            $dom     = new Dom();
-            $dom->loadStr((string) app(ViewFactory::class)->file($storage->path($path))->render());
+            $parser = new HtmlParser(
+                app(ViewFactory::class)->file($storage->path($path))->render()
+            );
 
-            foreach ($dom->find('a') as $link) {
-                $matches[] = [
-                    'name' => trim($link->innerText),
-                    'link' => str_replace('/'.$this->type.'/', '', trim($link->getAttribute('href'))),
-                ];
-            }
+            $links = $parser->links()->map(
+                fn (string $link) => str_replace('/'.$this->type.'/', '', $link)
+            )->unique()->values();
 
-            $matches = collect($matches)->unique('link')->values();
-
-            $index = $matches->search(fn ($match) => Str::endsWith($match['link'], $this->slug));
+            $index = $links->search(fn ($link) => Str::endsWith($link, $this->slug));
 
             $callbackValue = $callback($index);
 
-            if ($callbackValue < 0 || $callbackValue >= count($matches)) {
+            if ($callbackValue < 0 || $callbackValue >= count($links)) {
                 return;
             }
 
             return static::query()
                 ->where('type', $this->type)
                 ->where('category', $this->category)
-                ->where('slug', $matches[$callback($index)]['link'])
+                ->where('slug', $links[$callback($index)])
                 ->first();
         });
     }
