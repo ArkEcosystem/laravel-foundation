@@ -19,8 +19,8 @@ if (! function_exists('formatReadTime')) {
 
         return sprintf(
             '%s %s',
-            trans_choice('generic.time.hour', (int) $readTime->format('H'), ['value' => (int) $readTime->format('H')]),
-            trans_choice('generic.time.min', (int) $readTime->format('i'), ['value' => (int) $readTime->format('i')])
+            trans_choice('ui::generic.time.hour', (int) $readTime->format('H'), ['value' => (int) $readTime->format('H')]),
+            trans_choice('ui::generic.time.min', (int) $readTime->format('i'), ['value' => (int) $readTime->format('i')])
         );
     }
 }
