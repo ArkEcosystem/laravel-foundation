@@ -3,7 +3,7 @@
     'noSeparator'    => false,
     'separatorClass' => null,
     'breakpoint'     => 'md',
-    'color'          => 'hover:text-white text-theme-secondary-900',
+    'color'          => 'hover:bg-theme-primary-400 hover:text-white text-theme-secondary-900',
     'invertedColor'  => 'inverted:text-theme-secondary-900 inverted:hover:text-theme-primary-700 text-theme-primary-100',
 ])
 
@@ -23,7 +23,7 @@
 
     $invertedColour = match ($inverted) {
         true => 'inverted:hover:bg-theme-primary-100 '.$invertedColor,
-        false => 'hover:bg-theme-primary-400 '.$color,
+        false => $color,
     };
 @endphp
 
