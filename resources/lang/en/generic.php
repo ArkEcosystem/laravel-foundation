@@ -23,6 +23,11 @@ return [
         'mb'   => 'MB',
     ],
 
+    'time' => [
+        'hour' => '[0]|[1,*] :value hour',
+        'min'  => '[0]|[1,*] :value min',
+    ],
+
     'search' => [
         'no_results' => 'No results found. Refine your search and try again.',
     ],

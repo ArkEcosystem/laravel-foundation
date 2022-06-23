@@ -190,6 +190,12 @@ class UserInterfaceServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../resources/assets/js/file-download.js' => resource_path('js/vendor/ark/file-download.js'),
         ], 'file-download');
+
+        // Config files
+
+        $this->publishes([
+            __DIR__.'/../../.svgo.js' => base_path('.svgo.js'),
+        ], 'svgo-config');
     }
 
     /**
