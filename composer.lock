@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8dcd70ba5cfab1d586c9f1e2f9ed648c",
+    "content-hash": "b4b70344d3a3862bc78519628bddd7a2",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -9475,6 +9475,89 @@
                 }
             ],
             "time": "2022-02-22T15:18:57+00:00"
+        },
+        {
+            "name": "spatie/laravel-responsecache",
+            "version": "7.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-responsecache.git",
+                "reference": "da22367ef0449b5ad7585f73f70811b0912c0451"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/da22367ef0449b5ad7585f73f70811b0912c0451",
+                "reference": "da22367ef0449b5ad7585f73f70811b0912c0451",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "^8.71|^9.0",
+                "illuminate/console": "^8.71|^9.0",
+                "illuminate/container": "^8.71|^9.0",
+                "illuminate/http": "^8.71|^9.0",
+                "illuminate/support": "^8.71|^9.0",
+                "nesbot/carbon": "^2.35",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9"
+            },
+            "require-dev": {
+                "laravel/framework": "^9.0",
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^6.23|^7.0",
+                "phpunit/phpunit": "^9.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\ResponseCache\\ResponseCacheServiceProvider"
+                    ],
+                    "aliases": {
+                        "ResponseCache": "Spatie\\ResponseCache\\Facades\\ResponseCache"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\ResponseCache\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Speed up a Laravel application by caching the entire response",
+            "homepage": "https://github.com/spatie/laravel-responsecache",
+            "keywords": [
+                "cache",
+                "laravel",
+                "laravel-responsecache",
+                "performance",
+                "response",
+                "spatie"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/laravel-responsecache/tree/7.3.1"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-05-30T08:32:11+00:00"
         },
         {
             "name": "spatie/laravel-schemaless-attributes",
