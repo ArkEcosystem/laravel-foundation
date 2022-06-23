@@ -24,6 +24,8 @@ class BlogServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        $this->registerPublishers();
+
         $this->registerBladeComponents();
 
         $this->registerLivewireComponents();
@@ -31,10 +33,18 @@ class BlogServiceProvider extends ServiceProvider
         $this->registerRoutes();
     }
 
+    private function registerPublishers(): void
+    {
+        $this->publishes([
+            __DIR__.'/../../config/blog.php' => config_path('blog.php'),
+        ], 'config');
+    }
+
     private function registerBladeComponents(): void
     {
         $this->callAfterResolving(BladeCompiler::class, function (BladeCompiler $blade) {
             $blade->component('ark::components.blog.article-content', 'ark-blog.article-content');
+            $blade->component('ark::components.blog.category-badge', 'ark-blog.category-badge');
             $blade->component('ark::components.blog.blog-entry', 'ark-blog.blog-entry');
             $blade->component('ark::components.blog.header', 'ark-blog.header');
             $blade->component('ark::components.blog.placeholder-article-entry', 'ark-blog.placeholder-article-entry');

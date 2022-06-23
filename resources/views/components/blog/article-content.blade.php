@@ -48,7 +48,12 @@
         <div class="flex relative justify-center">
             <img src="{{ asset($article->banner()) }}" class="w-full h-full rounded-xl" />
 
-            {{-- <x-category-badge :category="$article->category" class="absolute top-0 right-0 mt-4 mr-4" /> --}}
+            @if (config('blog.show_category', false))
+                <x-ark-blog.category-badge
+                    :category="$article->category"
+                    class="absolute top-0 right-0 mt-4 mr-4"
+                />
+            @endif
         </div>
     </div>
 </section>
