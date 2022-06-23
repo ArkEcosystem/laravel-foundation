@@ -28,6 +28,7 @@
         "illuminate/mail": "^8.73|^9.0",
         "illuminate/support": "^8.73|^9.0",
         "illuminate/view": "^8.73|^9.0",
+        "jamesmills/laravel-timezone": "^1.11",
         "jasonmccreary/laravel-test-assertions": "^2.0",
         "jenssegers/agent": "^2.6",
         "johnkary/phpunit-speedtrap": "^4.0",
