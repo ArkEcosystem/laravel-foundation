@@ -10,6 +10,7 @@ use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
 use League\CommonMark\Extension\TaskList\TaskListExtension;
+use League\CommonMark\Normalizer\SlugNormalizer;
 
 /*
  * This file is part of Laravel Markdown.
@@ -189,4 +190,34 @@ return [
 
     'link_attributes'               => [],
     'link_renderer_view_attributes' => [],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Config
+    |--------------------------------------------------------------------------
+    |
+    | This option specifies the maximum permitted block nesting level.
+    |
+    */
+
+    'environment' => [
+        'external_link' => [
+            'internal_hosts'     => config('app.url'),
+            'open_in_new_window' => true,
+            'html_class'         => 'external-link',
+            'nofollow'           => '',
+            'noopener'           => 'external',
+            'noreferrer'         => 'external',
+        ],
+        'heading_permalink' => [
+            'html_class'      => 'heading-permalink',
+            'id_prefix'       => 'user-content',
+            'insert'          => 'before',
+            'title'           => 'Permalink',
+            'symbol'          => '#',
+        ],
+        'slug_normalizer' => [
+            'instance' => new SlugNormalizer(),
+        ],
+    ],
 ];
