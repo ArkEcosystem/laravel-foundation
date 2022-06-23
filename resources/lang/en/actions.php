@@ -17,6 +17,10 @@ return [
     'close'         => 'Close',
     'dark_theme'    => 'Dark Theme',
 
+    // Blog
+
+    'edit_article' => 'Edit Article',
+
     // Hermes
     'mark_all_as_read'   => 'Mark all as read',
     'show_all'           => 'Show all',

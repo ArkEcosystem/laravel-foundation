@@ -35,7 +35,7 @@
                     <div class="flex justify-center space-x-2 whitespace-nowrap">
                         <x-ark-icon name="pencil" size="sm" />
 
-                        <span>@lang('actions.edit_article')</span>
+                        <span>@lang('ui::actions.edit_article')</span>
                     </div>
                 </a>
             </div>
