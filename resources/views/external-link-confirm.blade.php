@@ -1,5 +1,7 @@
-{{-- External icon classes, dont remove are here for purgecss --}}
-{{-- inline ml-1 -mt-1.5 --}}
+@props([
+    'selector' => null,
+])
+
 <x-ark-js-modal
     name="external-link-confirm"
     class="w-full max-w-2xl text-left rounded-xl"
@@ -25,13 +27,14 @@
             this.hide();
         },
     }"
+    :close-button-only="true"
     init
 >
-    @slot('title')
-        @lang('generic.external_link')
-    @endslot
+    <x-slot name="title">
+        @lang('ui::general.external_link')
+    </x-slot>
 
-    @slot('description')
+    <x-slot name="description">
         <div class="flex flex-col mt-4 space-y-6 whitespace-normal">
             <div class="font-semibold text-theme-secondary-900">
                 <x-ark-alert type="warning">
@@ -39,7 +42,7 @@
                 </x-ark-alert>
             </div>
 
-            <p>@lang('generic.external_link_disclaimer')</p>
+            <p>@lang('ui::general.external_link_disclaimer')</p>
 
             <x-ark-checkbox
                 name="confirmation"
@@ -51,14 +54,23 @@
                 @endslot
             </x-ark-checkbox>
         </div>
-    @endslot
+    </x-slot>
 
-    @slot('buttons')
+    <x-slot name="backdrop">
+        <x-modal.close-button
+            click="hide"
+            class="fixed top-0 right-0 z-20"
+        />
+
+        <div class="flex fixed inset-0 flex-col w-screen h-screen bg-white bg-opacity-90 backdrop-filter backdrop-blur-xl"></div>
+    </x-slot>
+
+    <x-slot name="buttons">
         <button
             class="button-secondary"
             @click="hide"
         >
-            @lang('actions.back')
+            @lang('ui::actions.back')
         </button>
 
         <a
@@ -69,9 +81,9 @@
             @click="followLink()"
             data-safe-external="true"
         >
-            @lang('actions.follow_link')
+            @lang('ui::actions.follow_link')
         </a>
-    @endslot
+    </x-slot>
 </x-ark-js-modal>
 
 
@@ -85,7 +97,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
             ':not([data-external-link-confirm])',
         ];
 
-        const links = document.querySelectorAll(`a${selectors.join('')}`);
+        const links = document.querySelectorAll(
+            @if ($selector)
+                `{{ $selector }} a${selectors.join('')}`
+            @else
+                `a${selectors.join('')}`
+            @endif
+        );
 
         const hasDisabledLinkWarning = () => localStorage.getItem('has_disabled_link_warning') === 'true';
 
