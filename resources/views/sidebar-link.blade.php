@@ -2,6 +2,7 @@
     'name',
     'route' => null,
     'params' => [],
+    'active' => null,
     'icon' => null,
     'iconAlignment' => 'right',
     'href' => null,
@@ -10,7 +11,13 @@
     'attrs' => [],
 ])
 
-@php ($isCurrent = ($route && url()->full() === route($route, $params)))
+@php
+    $isCurrent = ($route && url()->full() === route($route, $params));
+
+    if ($active !== null) {
+        $isCurrent = $active;
+    }
+@endphp
 
 <div class="flex">
     <div @class([

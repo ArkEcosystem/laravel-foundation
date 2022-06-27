@@ -107,6 +107,10 @@
             @else
                 @php
                     $isCurrentRoute = array_key_exists('route', $navItem) && optional(Route::current())->getName() === $navItem['route'];
+
+                    if (array_key_exists('active', $navItem)) {
+                        $isCurrentRoute = $navItem['active'];
+                    }
                 @endphp
                 <a
                     @if (array_key_exists('href', $navItem))
