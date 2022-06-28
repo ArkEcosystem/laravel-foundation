@@ -3,8 +3,9 @@
 ])
 
 <x-ark-js-modal
+    class="w-full text-left rounded md:mt-22"
+    width-class="md:max-w-xl"
     name="external-link-confirm"
-    class="w-full max-w-2xl text-left rounded-xl"
     buttons-style="flex justify-end space-x-3"
     x-data="{
         url: null,
@@ -28,6 +29,7 @@
         },
     }"
     :close-button-only="true"
+    square
     init
 >
     <x-slot name="title">

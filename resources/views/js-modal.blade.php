@@ -11,6 +11,7 @@
     'escToClose' => true,
     'name' => '',
     'backdrop' => null,
+    'square' => false,
 ])
 
 <div
@@ -42,7 +43,12 @@
         @click.outside="hide"
         @endif
     >
-        <div class="modal-content custom-scroll {{ $widthClass }}">
+        <div @class([
+            'custom-scroll',
+            'modal-content'        => ! $square,
+            'modal-content-square' => $square,
+            $widthClass,
+        ])>
             <div class="p-8 sm:p-10">
                 @if(!$closeButtonOnly)
                 <button
