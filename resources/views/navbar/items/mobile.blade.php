@@ -91,6 +91,7 @@
                 <x-ark-sidebar-link
                     :href="$navItem['href'] ?? null"
                     :route="$navItem['route'] ?? null"
+                    :active="array_key_exists('active', $navItem) ? $navItem['active'] : null"
                     :name="$navItem['label']"
                     :params="$navItem['params'] ?? []"
                     :icon="isset($navItem['icon']) ? $navItem['icon'] : false"
