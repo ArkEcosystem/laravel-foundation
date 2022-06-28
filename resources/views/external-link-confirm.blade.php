@@ -2,6 +2,8 @@
     'selector' => null,
 ])
 
+{{-- External link svg uses the below classes so needs adding here so purge keeps them --}}
+{{-- inline ml-1 -mt-1.5 --}}
 <x-ark-js-modal
     class="w-full text-left md:mt-22"
     width-class="md:max-w-xl"
