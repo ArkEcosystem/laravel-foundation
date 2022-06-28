@@ -6,6 +6,7 @@
     'href'                  => null,
     'routeParams'           => [],
     'icon'                  => null,
+    'active'                => null,
     'mobileIcon'            => null,
     'iconWidth'             => 'w-24',
     'iconBreakpoint'        => 'lg',
@@ -20,6 +21,10 @@
 
 @php
     $isCurrent = $disabled === false && $route && url()->full() === route($route, $routeParams);
+
+    if ($active !== null) {
+        $isCurrent = $active;
+    }
 
     $mainIconBreakpoint = [
         'sm' => 'sm:block',
