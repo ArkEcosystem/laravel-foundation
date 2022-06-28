@@ -10,6 +10,7 @@
     'topPagination'   => false,
     'paginationClass' => '',
     'headerClass'     => 'flex flex-col mb-6 space-y-4 sm:space-y-0 sm:flex-row sm:items-center',
+    'wrapperClass'    => null,
     'rows'            => 1,
     'columns'         => 5,
     'breakpoints'     => null,
@@ -111,7 +112,12 @@
             @include('ark::includes.slider.header')
 
             <div
-                class="@if($shadowSpacing) px-5 pt-5 -mx-5 -mt-5 @endif swiper-wrapper grid grid-cols-1 {{ $gridClasses }}"
+                @class([
+                    'swiper-wrapper grid grid-cols-1',
+                    'px-5 pt-5 -mx-5 -mt-5' => $shadowSpacing,
+                    $gridClasses,
+                    $wrapperClass,
+                ])
                 style="gap: {{ $spaceBetween }}px"
             >
                 {{ $slot }}
