@@ -3,8 +3,9 @@
 ])
 
 <x-ark-js-modal
-    class="w-full text-left rounded md:mt-22"
+    class="w-full text-left md:mt-22"
     width-class="md:max-w-xl"
+    content-class="rounded"
     name="external-link-confirm"
     buttons-style="flex justify-end space-x-3"
     x-data="{

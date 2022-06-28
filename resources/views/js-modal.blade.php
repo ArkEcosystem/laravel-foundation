@@ -3,6 +3,7 @@
     'xData' => '{}',
     'class' => '',
     'widthClass' => 'max-w-2xl',
+    'contentClass' => null,
     'title' => null,
     'titleClass' => 'inline-block pb-3 font-bold dark:text-theme-secondary-200',
     'buttons' => null,
@@ -48,6 +49,7 @@
             'modal-content'        => ! $square,
             'modal-content-square' => $square,
             $widthClass,
+            $contentClass,
         ])>
             <div class="p-8 sm:p-10">
                 @if(!$closeButtonOnly)
