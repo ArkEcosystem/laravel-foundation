@@ -735,6 +735,35 @@ window.Pagination = Pagination
 <x-ark-pagination :results="$results"  />
 ```
 
+### External Link Confirmation modal
+
+1. Install `body-scroll-lock` and `focus-trap`
+
+```bash
+yarn add body-scroll-lock
+yarn add focus-trap
+```
+
+2. Import the modal script in your `resources/js/app.js` file
+
+```js
+import Modal from "@ui/js/modal";
+
+window.Modal = Modal;
+```
+
+3. Add the `external-link-confirm` component to the layout
+
+```blade
+<x-ark-external-link-confirm />
+```
+
+4. You can also narrow down where the confirmation looks for links. This will only show the modal for links within that container (selector):
+
+```blade
+<x-ark-external-link-confirm selector="#footer" />
+```
+
 ### Footer
 
 Add the following snippet to your `urls.php` lang file:
