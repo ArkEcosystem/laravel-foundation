@@ -9,7 +9,7 @@
     width-class="md:max-w-xl"
     content-class="rounded"
     name="external-link-confirm"
-    buttons-style="flex justify-end space-x-3"
+    buttons-style="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-3"
     x-data="{
         url: null,
         hasConfirmedLinkWarning: false,
@@ -72,7 +72,7 @@
 
     <x-slot name="buttons">
         <button
-            class="button-secondary"
+            class="button-secondary mt-3 sm:mt-0 "
             @click="hide"
         >
             @lang('ui::actions.back')
