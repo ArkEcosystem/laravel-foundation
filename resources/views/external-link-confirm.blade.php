@@ -11,7 +11,6 @@
     name="external-link-confirm"
     buttons-style="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-3"
     x-data="{
-        disableFocusTrap: true,
         url: null,
         hasConfirmedLinkWarning: false,
         toggle () {

@@ -51,11 +51,14 @@ const Modal = {
     onModalOpened(scrollable, settings = {}) {
         this.disableBodyScroll(scrollable, settings);
 
-        if (settings.disableFocusTrap) {
-            scrollable.focus();
-        } else {
-            this.trapFocus(scrollable);
-        }
+        // slight delay focus to make sure it's visible
+        setTimeout(() => {
+            if (settings.disableFocusTrap) {
+                scrollable.focus();
+            } else {
+                this.trapFocus(scrollable);
+            }
+        }, 50);
     },
 
     onModalClosed(scrollable, settings = {}) {
