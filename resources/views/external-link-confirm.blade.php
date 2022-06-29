@@ -72,7 +72,7 @@
 
     <x-slot name="buttons">
         <button
-            class="button-secondary mt-3 sm:mt-0 "
+            class="mt-3 sm:mt-0 button-secondary"
             @click="hide"
         >
             @lang('ui::actions.back')
