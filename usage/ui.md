@@ -737,14 +737,14 @@ window.Pagination = Pagination
 
 ### External Link Confirmation modal
 
-1. Install `body-scroll-lock` and `focus-trap`
+1. Install `body-scroll-lock` and `focus-trap`:
 
 ```bash
 yarn add body-scroll-lock
 yarn add focus-trap
 ```
 
-2. Import the modal script in your `resources/js/app.js` file
+2. Import the modal script in your `resources/js/app.js` file:
 
 ```js
 import Modal from "@ui/js/modal";
@@ -752,7 +752,7 @@ import Modal from "@ui/js/modal";
 window.Modal = Modal;
 ```
 
-3. Add the `external-link-confirm` component to the layout
+3. Add the `external-link-confirm` component to the layout:
 
 ```blade
 <x-ark-external-link-confirm />
@@ -762,6 +762,17 @@ window.Modal = Modal;
 
 ```blade
 <x-ark-external-link-confirm selector="#footer" />
+```
+
+5. Additionally you can use `data-safe-external` on a link which will skip the modal:
+
+```blade
+<a
+    href="https://external.site/"
+    data-safe-external
+>
+    Safe External Link
+</a>
 ```
 
 ### Footer
