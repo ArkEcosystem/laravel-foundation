@@ -53,7 +53,7 @@
             <x-ark-checkbox
                 name="confirmation"
                 alpine="toggle"
-                label-classes="text-theme-secondary-700 select-none"
+                label-classes="text-theme-secondary-700 select-none font-semibold"
             >
                 @slot('label')
                     @lang('ui::forms.do_not_show_message_again')
