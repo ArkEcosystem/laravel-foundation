@@ -53,7 +53,7 @@
             $contentClass,
         ])>
             <div class="p-8 sm:p-10">
-                @if(!$closeButtonOnly && $hideCross === false)
+                @if(! $closeButtonOnly && ! $hideCross)
                 <button
                     class="modal-close"
                     @click="hide"
