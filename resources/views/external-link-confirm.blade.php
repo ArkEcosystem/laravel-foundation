@@ -32,7 +32,7 @@
             this.hide();
         },
     }"
-    :close-button-only="true"
+    hide-cross
     square
     init
 >
