@@ -631,13 +631,8 @@
                 settings_close_btn.id = "s-c-bn";
                 settings_close_btn.className = "c-bn";
                 if (options.overlayCrossButton) {
-                    settings_close_btn_container.style.display = "none;";
-                    settings_close_btn.style = {
-                        "position": "fixed",
-                        "z-index": 102,
-                        "top": "1.25rem",
-                        "right": "1.25rem",
-                    };
+                    settings_close_btn_container.style = "display: none;";
+                    settings_close_btn.style = "position: fixed; z-index: 102; top: 1.25rem; right: 1.25rem";
                 }
 
                 settings_close_btn_container.appendChild(settings_close_btn);
@@ -1801,7 +1796,7 @@
                 function () {
                     _addClass(html_dom, "show--settings");
                     settings_container.setAttribute("aria-hidden", "false");
-                    settings_close_btn_container.style.display = "block";
+                    settings_close_btn_container.style = "display: block";
                     settings_modal_visible = true;
 
                     /**
@@ -2268,7 +2263,7 @@
             _removeClass(html_dom, "show--settings");
             settings_modal_visible = false;
             settings_container.setAttribute("aria-hidden", "true");
-            settings_close_btn_container.style.display = "none";
+            settings_close_btn_container.style = "display: none";
 
             setTimeout(function () {
                 /**
