@@ -633,10 +633,10 @@
                 if (options.overlayCrossButton) {
                     settings_close_btn_container.style.display = "none;";
                     settings_close_btn.style = {
-                        "position": "fixed",
+                        position: "fixed",
                         "z-index": 102,
-                        "top": "1.25rem",
-                        "right": "1.25rem",
+                        top: "1.25rem",
+                        right: "1.25rem",
                     };
                 }
 
@@ -1538,7 +1538,7 @@
                 !tabbedInsideModal && (tabbedOutsideDiv = true);
             });
 
-            if (document.contains && ! options.disableOutsideClick) {
+            if (document.contains && !options.disableOutsideClick) {
                 _addEvent(
                     main_container,
                     "click",
