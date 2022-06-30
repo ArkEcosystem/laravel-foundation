@@ -1,10 +1,21 @@
 @props([
     'domain',
+    'disableOutsideClick' => false,
+    'overlayCrossButton'  => false,
 ])
 
 <script src="{{ mix('js/cookie-consent.js') }}"></script>
 <script>
-    let cookieConsent = initCookieConsent();
+    const options = {};
+
+    @if ($disableOutsideClick)
+        options.disableOutsideClick = true;
+    @endif
+    @if ($overlayCrossButton)
+        options.overlayCrossButton = true;
+    @endif
+
+    let cookieConsent = initCookieConsent(null, options);
 
     @if(config('tracking.analytics.key'))
         const addAnalytics = function () {

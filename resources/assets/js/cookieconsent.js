@@ -12,7 +12,7 @@
      * @param {HTMLElement} [root] - [optional] element where the cookieconsent will be appended
      * @returns {Object} cookieconsent object with API
      */
-    var CookieConsent = function (root) {
+    var CookieConsent = function (root, options = {}) {
         /**
          * CHANGE THIS FLAG FALSE TO DISABLE console.log()
          */
@@ -150,6 +150,7 @@
             /** @type {HTMLElement} */ settings_inner,
             /** @type {HTMLElement} */ settings_title,
             /** @type {HTMLElement} */ settings_close_btn,
+            /** @type {HTMLElement} */ settings_close_btn_container,
             /** @type {HTMLElement} */ settings_blocks,
             /** @type {HTMLElement} */ new_settings_blocks,
             /** @type {HTMLElement} */ settings_buttons,
@@ -621,10 +622,29 @@
                 settings_inner = _createNode("div");
                 settings_title = _createNode("div");
                 var settings_header = _createNode("div");
-                settings_close_btn = _createNode("button");
-                var settings_close_btn_container = _createNode("div");
                 settings_blocks = _createNode("div");
                 var overlay = _createNode("div");
+
+                settings_close_btn_container = _createNode("div");
+                settings_close_btn = _createNode("button");
+                settings_close_btn_container.id = "s-c-bnc";
+                settings_close_btn.id = "s-c-bn";
+                settings_close_btn.className = "c-bn";
+                if (options.overlayCrossButton) {
+                    settings_close_btn_container.style.display = "none;";
+                    settings_close_btn.style = {
+                        "position": "fixed",
+                        "z-index": 102,
+                        "top": "1.25rem",
+                        "right": "1.25rem",
+                    };
+                }
+
+                settings_close_btn_container.appendChild(settings_close_btn);
+
+                _addEvent(settings_close_btn, "click", function () {
+                    _cookieconsent.hideSettings(0);
+                });
 
                 /**
                  * Set ids
@@ -637,25 +657,21 @@
                 settings_inner.id = "s-inr";
                 settings_header.id = "s-hdr";
                 settings_blocks.id = "s-bl";
-                settings_close_btn.id = "s-c-bn";
                 overlay.id = "cs-ov";
-                settings_close_btn_container.id = "s-c-bnc";
-                settings_close_btn.className = "c-bn";
 
                 settings_container.setAttribute("role", "dialog");
                 settings_container.setAttribute("aria-modal", "true");
                 settings_container.setAttribute("aria-hidden", "true");
                 settings_container.setAttribute("aria-labelledby", "s-ttl");
                 settings_title.setAttribute("role", "heading");
+                settings_container.tabIndex = 0;
                 settings_container.style.visibility = overlay.style.visibility =
                     "hidden";
                 overlay.style.opacity = 0;
 
-                settings_close_btn_container.appendChild(settings_close_btn);
-
                 // If 'esc' key is pressed inside settings_container div => hide settings
                 _addEvent(
-                    settings_container_valign,
+                    settings_container,
                     "keydown",
                     function (evt) {
                         evt = evt || window.event;
@@ -665,10 +681,6 @@
                     },
                     true
                 );
-
-                _addEvent(settings_close_btn, "click", function () {
-                    _cookieconsent.hideSettings(0);
-                });
             } else {
                 new_settings_blocks = _createNode("div");
                 new_settings_blocks.id = "s-bl";
@@ -1060,7 +1072,11 @@
             }
 
             settings_header.appendChild(settings_title);
-            settings_header.appendChild(settings_close_btn_container);
+            if (options.overlayCrossButton) {
+                all_modals_container.appendChild(settings_close_btn_container);
+            } else {
+                settings_header.appendChild(settings_close_btn_container);
+            }
             settings_inner.appendChild(settings_header);
             settings_inner.appendChild(settings_blocks);
             settings_inner.appendChild(settings_buttons);
@@ -1522,7 +1538,7 @@
                 !tabbedInsideModal && (tabbedOutsideDiv = true);
             });
 
-            if (document.contains) {
+            if (document.contains && ! options.disableOutsideClick) {
                 _addEvent(
                     main_container,
                     "click",
@@ -1785,6 +1801,7 @@
                 function () {
                     _addClass(html_dom, "show--settings");
                     settings_container.setAttribute("aria-hidden", "false");
+                    settings_close_btn_container.style.display = "block";
                     settings_modal_visible = true;
 
                     /**
@@ -2251,6 +2268,7 @@
             _removeClass(html_dom, "show--settings");
             settings_modal_visible = false;
             settings_container.setAttribute("aria-hidden", "true");
+            settings_close_btn_container.style.display = "none";
 
             setTimeout(function () {
                 /**
