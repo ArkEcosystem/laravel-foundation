@@ -9,7 +9,7 @@
     width-class="md:max-w-xl"
     content-class="rounded"
     name="external-link-confirm"
-    buttons-style="flex justify-end space-x-3"
+    buttons-style="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-3"
     x-data="{
         url: null,
         hasConfirmedLinkWarning: false,
@@ -31,7 +31,7 @@
             this.hide();
         },
     }"
-    :close-button-only="true"
+    hide-cross
     square
     init
 >
@@ -52,7 +52,7 @@
             <x-ark-checkbox
                 name="confirmation"
                 alpine="toggle"
-                label-classes="text-theme-secondary-700 select-none"
+                label-classes="text-theme-secondary-700 select-none font-semibold"
             >
                 @slot('label')
                     @lang('ui::forms.do_not_show_message_again')
@@ -72,7 +72,7 @@
 
     <x-slot name="buttons">
         <button
-            class="button-secondary"
+            class="mt-3 sm:mt-0 button-secondary"
             @click="hide"
         >
             @lang('ui::actions.back')
