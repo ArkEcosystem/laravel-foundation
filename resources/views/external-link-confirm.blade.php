@@ -31,6 +31,7 @@
             this.hide();
         },
     }"
+    disable-outside-click
     hide-cross
     square
     init
