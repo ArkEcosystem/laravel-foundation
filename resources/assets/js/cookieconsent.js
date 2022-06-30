@@ -1533,7 +1533,7 @@
                 !tabbedInsideModal && (tabbedOutsideDiv = true);
             });
 
-            if (document.contains && ! options.disableOutsideClick) {
+            if (document.contains && !options.disableOutsideClick) {
                 _addEvent(
                     main_container,
                     "click",
