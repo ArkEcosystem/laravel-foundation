@@ -10,6 +10,7 @@
     'buttonsStyle' => 'modal-buttons',
     'closeButtonOnly' => false,
     'escToClose' => true,
+    'disableOutsideClick' => false,
     'name' => '',
     'backdrop' => null,
     'square' => false,
@@ -41,7 +42,7 @@
 
     <div
         class="modal-content-wrapper md:m-auto w-full {{ $class }} {{ $widthClass }}"
-        @if(!$closeButtonOnly)
+        @if(! $closeButtonOnly && ! $disableOutsideClick)
         @click.outside="hide"
         @endif
     >
