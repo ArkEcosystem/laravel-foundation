@@ -42,7 +42,7 @@ return [
             ],
             'footer' => [
                 'title'       => 'More Information',
-                'description' => 'For any queries in relation to our policy on cookies and your choices, please <a href="/contact">contact us</a>.',
+                'description' => 'For any queries in relation to our policy on cookies and your choices, please <a href=":url">contact us</a>.',
             ],
         ],
     ],
