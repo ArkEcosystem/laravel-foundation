@@ -6,6 +6,7 @@
     'wrapperClass'              => 'bg-white',
     'disableCookieOutsideClick' => false,
     'overlayCookieCrossButton'  => false,
+    'cookieContactUrl'          => '/contact',
 ])
 
 <body {{ $attributes }}>
@@ -52,6 +53,7 @@
     @if (config('tracking.analytics.key') && Visitor::isEuropean())
         <x-ark-pages-includes-cookie-banner
             :domain="$cookieDomain"
+            :contact-url="$cookieContactUrl"
             :disable-outside-click="$disableCookieOutsideClick"
             :overlay-cross-button="$overlayCookieCrossButton"
         />

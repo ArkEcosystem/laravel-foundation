@@ -2,6 +2,7 @@
     'domain',
     'disableOutsideClick' => false,
     'overlayCrossButton'  => false,
+    'contactUrl'          => '/contact',
 ])
 
 <script src="{{ mix('js/cookie-consent.js') }}"></script>
@@ -127,7 +128,7 @@
                         },
                         {
                             title : "{{ trans('ui::cookie-consent.settings_modal.blocks.footer.title') }}",
-                            description: {!! json_encode(trans('ui::cookie-consent.settings_modal.blocks.footer.description')) !!},
+                            description: {!! json_encode(trans('ui::cookie-consent.settings_modal.blocks.footer.description', ['url' => $contactUrl])) !!},
                         }
                     ]
                 }
