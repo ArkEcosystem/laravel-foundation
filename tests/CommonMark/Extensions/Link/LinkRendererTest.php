@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 use ARKEcosystem\Foundation\CommonMark\Extensions\ExternalLink\ExternalLinkExtension;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Link\LinkRenderer;
-use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
-use League\CommonMark\Node\Inline\Text;
-use League\CommonMark\Renderer\HtmlRenderer;
-use League\CommonMark\Renderer\Inline\TextRenderer;
-use League\Config\Configuration;
 use League\CommonMark\MarkdownConverterInterface;
+use League\CommonMark\Renderer\HtmlRenderer;
 use function Spatie\Snapshots\assertMatchesSnapshot;
 
 it('should render internal links', function (string $url) {
