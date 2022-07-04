@@ -81,3 +81,26 @@ it('should render relative paths', function (string $path) {
     'path/version/1.2/thing',
     'docs/core/releases/upgrade/docker/3.0',
 ]);
+
+it('should apply infix for external links', function (string $path, bool $isExternal) {
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
+
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
+
+    $element = $subject->render(new Link($path, 'Label', 'Title'), new HtmlRenderer($environment));
+
+    if ($isExternal) {
+        $this->expect($element->getAttribute('data-external'))->toBe('true');
+        $this->expect($element->getContents())->toStartWith('Label @');
+    } else {
+        $this->expect($element->getAttribute('data-external'))->toBeNull();
+        $this->expect($element->getContents())->toBe('Label');
+    }
+})->with([
+    ['/local/path', false],
+    ['path', true],
+    ['path/version/1.2/thing', true],
+    ['docs/core/releases/upgrade/docker/3.0', true],
+]);
