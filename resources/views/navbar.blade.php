@@ -57,7 +57,8 @@
     ></div>
 
     {{-- Spacer for the sticky navbar  --}}
-    <div class="mb-0.5 h-20"></div>
+    <div class="{{ $heightClass ?? 'h-21'}}"></div>
+
     <nav
         aria-label="{{ trans('ui::general.primary_navigation') }}"
         x-ref="nav"
@@ -71,7 +72,7 @@
         dusk="navigation-bar"
     >
         <div class="relative z-10 navbar-container border-theme-secondary-300">
-            <div class="flex relative justify-between h-21">
+            <div class="flex relative justify-between {{ $heightClass ?? 'h-21'}}">
                 @include('ark::navbar.logo')
 
                 @isset($middle)
