@@ -214,6 +214,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
                 'nofollow'           => '',
                 'noopener'           => 'external',
                 'noreferrer'         => 'external',
+                'infix'              => ' ',
             ],
             'heading_permalink' => [
                 'html_class'      => 'heading-permalink',

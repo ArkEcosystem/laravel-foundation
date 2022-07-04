@@ -62,7 +62,7 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
                 ]
             ));
 
-            $content = $content.' '.$externalLinkIcon->render();
+            $content = $content.$this->config->get('external_link/infix').$externalLinkIcon->render();
         }
 
         return new HtmlElement('a', $attrs, $content);
