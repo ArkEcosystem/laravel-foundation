@@ -2,21 +2,19 @@
 
 declare(strict_types=1);
 
+use ARKEcosystem\Foundation\CommonMark\Extensions\ExternalLink\ExternalLinkExtension;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Link\LinkRenderer;
-use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
-use League\CommonMark\Node\Inline\Text;
+use League\CommonMark\MarkdownConverterInterface;
 use League\CommonMark\Renderer\HtmlRenderer;
-use League\CommonMark\Renderer\Inline\TextRenderer;
-use League\Config\Configuration;
 use function Spatie\Snapshots\assertMatchesSnapshot;
 
 it('should render internal links', function (string $url) {
-    $subject = new LinkRenderer();
-    $subject->setConfiguration(new Configuration());
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
 
-    $environment = new Environment();
-    $environment->addRenderer(Text::class, new TextRenderer());
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
 
     $element = $subject->render(new Link($url, 'Label', 'Title'), new HtmlRenderer($environment));
 
@@ -30,11 +28,11 @@ it('should render internal links', function (string $url) {
 ]);
 
 it('should render external links', function (string $url) {
-    $subject = new LinkRenderer();
-    $subject->setConfiguration(new Configuration());
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
 
-    $environment = new Environment();
-    $environment->addRenderer(Text::class, new TextRenderer());
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
 
     $element = $subject->render(new Link($url, 'Label', 'Title'), new HtmlRenderer($environment));
 
@@ -48,11 +46,11 @@ it('should render external links', function (string $url) {
 ]);
 
 it('should render links without schema as links', function (string $host) {
-    $subject = new LinkRenderer();
-    $subject->setConfiguration(new Configuration());
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
 
-    $environment = new Environment();
-    $environment->addRenderer(Text::class, new TextRenderer());
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
 
     $element = $subject->render(new Link($host, 'Label', 'Title'), new HtmlRenderer($environment));
 
@@ -64,11 +62,11 @@ it('should render links without schema as links', function (string $host) {
 ]);
 
 it('should render relative paths', function (string $path) {
-    $subject = new LinkRenderer();
-    $subject->setConfiguration(new Configuration());
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
 
-    $environment = new Environment();
-    $environment->addRenderer(Text::class, new TextRenderer());
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
 
     $element = $subject->render(new Link($path, 'Label', 'Title'), new HtmlRenderer($environment));
 
@@ -78,4 +76,27 @@ it('should render relative paths', function (string $path) {
     'path',
     'path/version/1.2/thing',
     'docs/core/releases/upgrade/docker/3.0',
+]);
+
+it('should apply infix for external links', function (string $path, bool $isExternal) {
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
+
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
+
+    $element = $subject->render(new Link($path, 'Label', 'Title'), new HtmlRenderer($environment));
+
+    if ($isExternal) {
+        $this->expect($element->getAttribute('data-external'))->toBe('true');
+        $this->expect($element->getContents())->toStartWith('Label @');
+    } else {
+        $this->expect($element->getAttribute('data-external'))->toBeNull();
+        $this->expect($element->getContents())->toBe('Label');
+    }
+})->with([
+    ['/local/path', false],
+    ['path', true],
+    ['path/version/1.2/thing', true],
+    ['docs/core/releases/upgrade/docker/3.0', true],
 ]);
