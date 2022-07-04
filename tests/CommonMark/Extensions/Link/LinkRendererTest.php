@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use ARKEcosystem\Foundation\CommonMark\Extensions\ExternalLink\ExternalLinkExtension;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Link\LinkRenderer;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
@@ -9,14 +10,15 @@ use League\CommonMark\Node\Inline\Text;
 use League\CommonMark\Renderer\HtmlRenderer;
 use League\CommonMark\Renderer\Inline\TextRenderer;
 use League\Config\Configuration;
+use League\CommonMark\MarkdownConverterInterface;
 use function Spatie\Snapshots\assertMatchesSnapshot;
 
 it('should render internal links', function (string $url) {
-    $subject = new LinkRenderer();
-    $subject->setConfiguration(new Configuration());
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
 
-    $environment = new Environment();
-    $environment->addRenderer(Text::class, new TextRenderer());
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
 
     $element = $subject->render(new Link($url, 'Label', 'Title'), new HtmlRenderer($environment));
 
@@ -30,11 +32,11 @@ it('should render internal links', function (string $url) {
 ]);
 
 it('should render external links', function (string $url) {
-    $subject = new LinkRenderer();
-    $subject->setConfiguration(new Configuration());
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
 
-    $environment = new Environment();
-    $environment->addRenderer(Text::class, new TextRenderer());
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
 
     $element = $subject->render(new Link($url, 'Label', 'Title'), new HtmlRenderer($environment));
 
@@ -48,11 +50,11 @@ it('should render external links', function (string $url) {
 ]);
 
 it('should render links without schema as links', function (string $host) {
-    $subject = new LinkRenderer();
-    $subject->setConfiguration(new Configuration());
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
 
-    $environment = new Environment();
-    $environment->addRenderer(Text::class, new TextRenderer());
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
 
     $element = $subject->render(new Link($host, 'Label', 'Title'), new HtmlRenderer($environment));
 
@@ -64,11 +66,11 @@ it('should render links without schema as links', function (string $host) {
 ]);
 
 it('should render relative paths', function (string $path) {
-    $subject = new LinkRenderer();
-    $subject->setConfiguration(new Configuration());
+    $environment = app(MarkdownConverterInterface::class)->getEnvironment();
+    $environment->addExtension(resolve(ExternalLinkExtension::class));
 
-    $environment = new Environment();
-    $environment->addRenderer(Text::class, new TextRenderer());
+    $subject = new LinkRenderer($environment);
+    $subject->setConfiguration($environment->getConfiguration());
 
     $element = $subject->render(new Link($path, 'Label', 'Title'), new HtmlRenderer($environment));
 
