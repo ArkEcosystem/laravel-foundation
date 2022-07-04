@@ -127,7 +127,7 @@
         @isset($mobile)
             {{ $mobile }}
         @else
-            @include('ark::navbar.items.mobile')
+            @include('ark::navbar.items.mobile', ['mobilePositionClass' => $mobilePositionClass ?? null])
         @endisset
     </nav>
 </header>
