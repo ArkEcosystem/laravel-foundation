@@ -17,7 +17,8 @@
 
 <div
     @class([
-        'border-t-2 border-theme-secondary-200 fixed bottom-0 top-21 w-full pointer-events-none',
+        'border-t-2 border-theme-secondary-200  w-full pointer-events-none',
+        $mobilePositionClass ?? 'fixed bottom-0 top-21',
         $breakpointClass
     ])
     :class="{
