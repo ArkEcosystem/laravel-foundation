@@ -24,8 +24,6 @@ function lazyLoad(selector = '[lazy]') {
 
     registerDelayedContainers(selector);
 
-    // registerMutationObserver();
-
     registerLazyElements();
 
     function registerLazyElements() {
@@ -145,24 +143,6 @@ function lazyLoad(selector = '[lazy]') {
             }
         }
     }
-
-    // function registerMutationObserver() {
-    //     let previousURL = location.href;
-    //     new MutationObserver(() => {
-    //         const currentURL = location.href;
-    //         if (currentURL !== previousURL) {
-    //             previousURL = currentURL;
-
-    //             registerLazyElements();
-
-    //             registerScrolling();
-    //         }
-    //     }).observe(document, {
-    //         subtree: true,
-    //         attributes: true,
-    //         childList: true,
-    //     });
-    // }
 }
 
 function isScrolledIntoView(el) {
