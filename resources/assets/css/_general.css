@@ -225,3 +225,10 @@ body {
         @apply whitespace-nowrap;
     }
 }
+
+/* purgecss ignore */
+.avatar-letters {
+    font-size: 1.75rem;
+    fill: #fff;
+    stroke: #fff;
+}
