@@ -71,6 +71,10 @@ class TwoFactorAuthenticationForm extends Component
         $this->showingQrCode = true;
         $this->state['otp']  = null;
         $this->showRecoveryCodes();
+
+        // Not used on this component internally but useful to send a message
+        // to other components that the user enabled 2FA.
+        $this->emit('twoFactorAuthenticationEnabled');
     }
 
     public function showRecoveryCodes(): void
@@ -98,6 +102,10 @@ class TwoFactorAuthenticationForm extends Component
             trans('ui::messages.2fa_disabled'),
             'success',
         ]);
+
+        // Not used on this component internally but useful to send a message
+        // to other components that the user disabled 2FA.
+        $this->emit('twoFactorAuthenticationDisabled');
     }
 
     public function getEnabledProperty(): bool
