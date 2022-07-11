@@ -109,6 +109,7 @@ const Modal = {
             options: null,
             init() {
                 const scrollable = this.getScrollable();
+
                 if (this.name) {
                     Livewire.on("openModal", (modalName, ...options) => {
                         if (this.name === modalName) {
@@ -151,6 +152,10 @@ const Modal = {
 
                 if (this.shown) {
                     Modal.onModalOpened(scrollable, eventSettings);
+                }
+
+                if (typeof this.onInit === "function") {
+                    this.onInit();
                 }
             },
             hide() {

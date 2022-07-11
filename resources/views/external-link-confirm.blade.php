@@ -1,7 +1,6 @@
 @props([
     'selector' => null,
 ])
-
 {{-- External link svg uses the below classes so needs adding here so purge keeps them --}}
 {{-- inline ml-1 -mt-1.5 --}}
 <x-ark-js-modal
@@ -30,6 +29,7 @@
 
             this.hide();
         },
+        ...ExternalLinkConfirm || {}
     }"
     disable-outside-click
     hide-cross
