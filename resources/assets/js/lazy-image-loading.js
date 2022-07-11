@@ -11,9 +11,6 @@ function lazyLoad(selector = "[lazy]") {
         } else {
             scrolling = false;
         }
-        if ($lazy.length === 0) {
-            clearInterval(scrollIntervalHandle);
-        }
     }, 100);
 
     document.addEventListener("scroll", registerScrolling, {
@@ -38,6 +35,8 @@ function lazyLoad(selector = "[lazy]") {
     });
 
     registerDelayedContainers(selector);
+
+    registerLivewireObserver();
 
     registerLazyElements();
 
@@ -81,10 +80,12 @@ function lazyLoad(selector = "[lazy]") {
                 el.setAttribute("src", imageUrl);
             }
 
-            el.classList.remove("invisible");
-            if (parent.classList.contains("lazy-image-container")) {
-                parent.classList.remove("lazy-image-container");
-            }
+            el.onload = () => {
+                el.classList.remove("invisible");
+                if (parent.classList.contains("lazy-image-container")) {
+                    parent.classList.remove("lazy-image-container");
+                }
+            };
         } else if (el instanceof window.SVGElement) {
             fetchSVG(imageUrl, el);
         } else {
@@ -167,6 +168,10 @@ function lazyLoad(selector = "[lazy]") {
                 }, timeout);
             }
         }
+    }
+
+    function registerLivewireObserver() {
+        Livewire.hook("message.processed", () => registerLazyElements());
     }
 }
 
