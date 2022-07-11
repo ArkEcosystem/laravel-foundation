@@ -30,6 +30,8 @@ final class ImageRenderer implements NodeRendererInterface, XmlNodeRendererInter
         $forbidUnsafeLinks = $this->config->get('allow_unsafe_links', true) !== true;
         if ($forbidUnsafeLinks && RegexHelper::isLinkPotentiallyUnsafe($node->getUrl())) {
             $attrs['src'] = '';
+        } elseif (config('markdown.lazyload_images', false) === true) {
+            $attrs['lazy'] = $node->getUrl();
         } else {
             $attrs['src'] = $node->getUrl();
         }
