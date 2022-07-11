@@ -29,7 +29,7 @@
 
             this.hide();
         },
-        ...ExternalLinkConfirm || {}
+        ...(typeof ExternalLinkConfirm !== 'undefined' ? ExternalLinkConfirm : {})
     }"
     disable-outside-click
     hide-cross
