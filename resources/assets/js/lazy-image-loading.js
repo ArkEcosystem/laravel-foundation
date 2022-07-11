@@ -85,7 +85,7 @@ function lazyLoad(selector = "[lazy]") {
                 if (parent.classList.contains("lazy-image-container")) {
                     parent.classList.remove("lazy-image-container");
                 }
-            }
+            };
         } else if (el instanceof window.SVGElement) {
             fetchSVG(imageUrl, el);
         } else {
@@ -171,7 +171,7 @@ function lazyLoad(selector = "[lazy]") {
     }
 
     function registerLivewireObserver() {
-        Livewire.hook('message.processed', () => registerLazyElements());
+        Livewire.hook("message.processed", () => registerLazyElements());
     }
 }
 
