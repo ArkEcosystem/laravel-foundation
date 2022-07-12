@@ -181,7 +181,7 @@ function isScrolledIntoView(el) {
     }
 
     let rect = el.getBoundingClientRect();
-    if (el.parentElement.classList.contains('lazy-image-container')) {
+    if (el.parentElement.classList.contains("lazy-image-container")) {
         rect = el.parentElement.getBoundingClientRect();
     }
 
