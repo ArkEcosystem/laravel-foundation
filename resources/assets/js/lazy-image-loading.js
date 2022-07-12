@@ -180,7 +180,10 @@ function isScrolledIntoView(el) {
         return;
     }
 
-    const rect = el.getBoundingClientRect();
+    let rect = el.getBoundingClientRect();
+    if (el.parentElement.classList.contains("lazy-image-container")) {
+        rect = el.parentElement.getBoundingClientRect();
+    }
 
     if (
         [rect.top, rect.left, rect.bottom, rect.right].reduce(
