@@ -16,7 +16,7 @@
 @section('content')
     <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.component-heading"/>
 
-    <x:ark-fortify::form-wrapper :action="route('login')">
+    <x:ark-fortify::form-wrapper action="/login">
         <div class="flex flex-col space-y-5">
             @if (session('status'))
                 <x-ark-alert type="success">
