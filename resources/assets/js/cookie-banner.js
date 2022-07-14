@@ -153,14 +153,14 @@ const CookieBanner = {
                     },
                     settings_modal: {
                         title: this.options.lang.settingsModal.title,
-                        save_settings_btn:
-                            this.options.lang.settingsModal.save_settings_btn,
-                        accept_all_btn:
-                            this.options.lang.settingsModal.accept_all_btn,
-                        reject_all_btn:
-                            this.options.lang.settingsModal.reject_all_btn,
-                        close_btn_label:
-                            this.options.lang.settingsModal.close_btn_label,
+                        save_settings_btn: this.options.lang.settingsModal
+                            .save_settings_btn,
+                        accept_all_btn: this.options.lang.settingsModal
+                            .accept_all_btn,
+                        reject_all_btn: this.options.lang.settingsModal
+                            .reject_all_btn,
+                        close_btn_label: this.options.lang.settingsModal
+                            .close_btn_label,
                         cookie_table_headers: [
                             {
                                 col1: this.options.lang.settingsModal
@@ -179,17 +179,15 @@ const CookieBanner = {
                             {
                                 title: this.options.lang.settingsModal.blocks
                                     .header.title,
-                                description:
-                                    this.options.lang.settingsModal.blocks.header.description(
-                                        appName
-                                    ),
+                                description: this.options.lang.settingsModal.blocks.header.description(
+                                    appName
+                                ),
                             },
                             {
                                 title: this.options.lang.settingsModal.blocks
                                     .necessary_cookies.title,
-                                description:
-                                    this.options.lang.settingsModal.blocks
-                                        .necessary_cookies.description,
+                                description: this.options.lang.settingsModal
+                                    .blocks.necessary_cookies.description,
                                 toggle: {
                                     value: "necessary",
                                     enabled: true,
@@ -199,9 +197,8 @@ const CookieBanner = {
                             {
                                 title: this.options.lang.settingsModal.blocks
                                     .analytics.title,
-                                description:
-                                    this.options.lang.settingsModal.blocks
-                                        .analytics.description,
+                                description: this.options.lang.settingsModal
+                                    .blocks.analytics.description,
                                 toggle: {
                                     value: "analytics",
                                     enabled: false,
@@ -227,10 +224,9 @@ const CookieBanner = {
                             {
                                 title: this.options.lang.settingsModal.blocks
                                     .footer.title,
-                                description:
-                                    this.options.lang.settingsModal.blocks.footer.description(
-                                        contactUrl
-                                    ),
+                                description: this.options.lang.settingsModal.blocks.footer.description(
+                                    contactUrl
+                                ),
                             },
                         ],
                     },
