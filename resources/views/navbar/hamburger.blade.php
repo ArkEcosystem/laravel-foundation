@@ -30,6 +30,7 @@
 <div class="flex items-center {{ $breakpointClass }}">
     <button
         @click="open = !open"
+        aria-label="@lang('ui::menu.navigation')"
         @class([
             'inline-flex relative justify-center items-center py-2 px-3 h-11 rounded-md transition ease-in-out md:px-5 duration-400',
             $invertedColour,

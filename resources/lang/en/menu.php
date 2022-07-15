@@ -11,4 +11,5 @@ return [
     'sign_up'              => 'Sign Up',
     'verify'               => 'Verify Email',
     'home'                 => 'Home',
+    'navigation'           => 'Navigation',
 ];
