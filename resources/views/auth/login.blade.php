@@ -16,7 +16,7 @@
 @section('content')
     <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.component-heading"/>
 
-    <x:ark-fortify::form-wrapper :action="route('login')">
+    <x:ark-fortify::form-wrapper :action="action([\Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::class, 'store'])">
         <div class="flex flex-col space-y-5">
             @if (session('status'))
                 <x-ark-alert type="success">

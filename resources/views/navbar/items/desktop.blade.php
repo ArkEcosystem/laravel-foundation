@@ -5,6 +5,7 @@
     'navigationExtra'                    => null,
     'dropdownClass'                      => 'flex-shrink-0 w-56',
     'dropdownWrapperClass'               => 'mt-24 py-4 bg-white rounded-xl shadow-navbar-dropdown',
+    'dropdownPosition'                   => 'left',
     'menuDropdownId'                     => 'menuDropdown',
     'currentRouteTextColor'              => 'text-theme-secondary-900 dark:text-theme-secondary-400',
     'routeTextColor'                     => 'text-theme-secondary-700 hover:text-theme-secondary-800 dark:text-theme-secondary-500 dark:hover:text-theme-secondary-400',
@@ -90,7 +91,7 @@
                         x-ref="menuDropdown"
                         id="{{ $menuDropdownId }}"
                         x-show.transition.origin.top="openDropdown === '{{ $navItem['label'] }}'"
-						@class([$dropdownWrapperClass, "absolute top-0 left-0 z-30"])
+						@class([$dropdownWrapperClass, "absolute top-0 z-30", $dropdownPosition === 'right' ? 'right-0' : 'left-0'])
                         x-cloak
                     >
                         <div @class([$dropdownClass])>
