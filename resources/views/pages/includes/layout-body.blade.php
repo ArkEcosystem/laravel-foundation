@@ -7,6 +7,7 @@
     'disableCookieOutsideClick' => false,
     'overlayCookieCrossButton'  => false,
     'cookieContactUrl'          => '/contact',
+    'darkModeStyles'            => true,
 ])
 
 <body {{ $attributes }}>
@@ -15,7 +16,7 @@
         @class([
             'flex flex-col antialiased',
             $wrapperClass,
-            'dark:bg-theme-secondary-900' => config('ui.dark-mode.enabled') === true,
+            'dark:bg-theme-secondary-900' => config('ui.dark-mode.enabled') === true && $darkModeStyles,
         ])
     >
         {{ $slot }}
