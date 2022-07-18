@@ -1,8 +1,13 @@
 @props([
-    'breakpoint'      => 'md',
-    'navigation'      => [],
-    'navigationExtra' => null,
-    'mobileDropdown'  => 'mobileDropdown',
+    'breakpoint'                    => 'md',
+    'navigation'                    => [],
+    'navigationExtra'               => null,
+    'mobileDropdown'                => 'mobileDropdown',
+    'mobileDropdownColor'           => 'bg-white',
+    'mobileDropdownBorderColor'     => 'border-theme-secondary-200',
+    'mobileDropdownRounded'         => true,
+    'mobileDropdownItemColor'       => null,
+    'mobileDropdownActiveItemColor' => null,
 ])
 
 @php
@@ -17,9 +22,10 @@
 
 <div
     @class([
-        'border-t-2 border-theme-secondary-200  w-full pointer-events-none',
+        'border-t-2 w-full pointer-events-none',
         $mobilePositionClass ?? 'fixed bottom-0 top-21',
-        $breakpointClass
+        $breakpointClass,
+        $mobileDropdownBorderColor,
     ])
     :class="{
         block: open,
@@ -27,7 +33,11 @@
     }"
     x-cloak
 >
-    <div class="overflow-y-auto pt-2 pb-4 max-h-full bg-white rounded-b-lg pointer-events-auto">
+    <div @class([
+        'overflow-y-auto pt-2 pb-4 max-h-full pointer-events-auto',
+        $mobileDropdownColor,
+        'rounded-b-lg' => $mobileDropdownRounded,
+    ])>
         @if(isset($navbarNotificationsMobile) || isset($notifications))
             <div class="flex justify-center items-center py-0.5 px-2 my-4 mx-8 rounded border shadow-sm md:hidden border-theme-secondary-300">
                 @isset($navbarNotificationsMobile)
@@ -98,6 +108,8 @@
                     :icon="isset($navItem['icon']) ? $navItem['icon'] : false"
                     :attrs="$navItem['attributes'] ?? []"
                     :rounded="false"
+                    :item-class="$mobileDropdownItemColor"
+                    :active-item-class="$mobileDropdownActiveItemColor"
                     x-on:click="() => {
                         closeDropdown();
                         openDropdown = null;
