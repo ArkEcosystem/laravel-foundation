@@ -8,6 +8,7 @@
     'overlayCookieCrossButton'  => false,
     'cookieContactUrl'          => '/contact',
     'darkModeStyles'            => true,
+    'contentClass'              => 'bg-white dark:bg-theme-secondary-900',
 ])
 
 <body {{ $attributes }}>
@@ -22,7 +23,7 @@
         {{ $slot }}
 
         @if ($content === null)
-            <x-ark-pages-includes-layout-content>
+            <x-ark-pages-includes-layout-content :content-class="$contentClass">
                 @yield('content')
             </x-ark-pages-includes-layout-content>
         @else
