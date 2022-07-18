@@ -68,7 +68,7 @@
             class="fixed top-0 right-0 z-20"
         />
 
-        <div class="flex fixed inset-0 flex-col w-screen h-screen bg-white bg-opacity-90 backdrop-filter backdrop-blur-xl"></div>
+        <div class="flex fixed inset-0 flex-col w-screen h-screen bg-white bg-opacity-90 backdrop-filter backdrop-blur-xl dark:bg-black dark:bg-opacity-95"></div>
     </x-slot>
 
     <x-slot name="buttons">
