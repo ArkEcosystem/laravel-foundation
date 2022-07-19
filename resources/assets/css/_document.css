@@ -188,6 +188,10 @@ code.hljs .hljs-ln-n {
     @apply border rounded-xl border-theme-secondary-300 overflow-hidden dark:border-theme-secondary-800;
 }
 
+.documentation-content > .twitter-tweet {
+    @apply mx-auto;
+}
+
 .documentation-content .image-container .twitter-tweet {
     overflow: hidden;
     /* This style within the negative margin on the `.twitter-tweet iframe` is
