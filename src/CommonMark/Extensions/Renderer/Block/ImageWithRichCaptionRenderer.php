@@ -26,11 +26,14 @@ final class ImageWithRichCaptionRenderer implements NodeRendererInterface, XmlNo
 
         $innerSeparator = $childRenderer->getBlockSeparator();
 
-        return new HtmlElement('div',
-            [
-                'class' => 'image-container',
-            ],
-            $innerSeparator . $childRenderer->renderNodes($node->children()) . $innerSeparator
+        return new HtmlElement('p',
+            [],
+            new HtmlElement('div',
+                [
+                    'class' => 'image-container',
+                ],
+                $innerSeparator . $childRenderer->renderNodes($node->children()) . $innerSeparator
+            )
         );
     }
 
