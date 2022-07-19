@@ -9,9 +9,9 @@ use Illuminate\Support\Arr;
 use League\CommonMark\Parser\Block\AbstractBlockContinueParser;
 use League\CommonMark\Parser\Block\BlockContinue;
 use League\CommonMark\Parser\Block\BlockContinueParserInterface;
+use League\CommonMark\Parser\Block\BlockContinueParserWithInlinesInterface;
 use League\CommonMark\Parser\Cursor;
 use League\CommonMark\Parser\InlineParserEngineInterface;
-use League\CommonMark\Parser\Block\BlockContinueParserWithInlinesInterface;
 
 final class ImageWithRichCaptionParser extends AbstractBlockContinueParser implements BlockContinueParserWithInlinesInterface
 {
@@ -41,8 +41,6 @@ final class ImageWithRichCaptionParser extends AbstractBlockContinueParser imple
         return BlockContinue::at($cursor);
     }
 
-
-
     public function addLine(string $line): void
     {
         if ($this->content !== '') {
@@ -62,7 +60,7 @@ final class ImageWithRichCaptionParser extends AbstractBlockContinueParser imple
 
         $content = sprintf('![](%s)<span class="rich-image-caption image-caption">%s</span>', $data['src'], $data['content']);
 
-        $inlineParser->parse($content . "\n\n", $this->block);
+        $inlineParser->parse($content."\n\n", $this->block);
     }
 
     private function getSrcAndContent(): array
@@ -72,7 +70,7 @@ final class ImageWithRichCaptionParser extends AbstractBlockContinueParser imple
         preg_match($regex, $this->content, $matches);
 
         return [
-            'src' => Arr::get($matches, 'src'),
+            'src'     => Arr::get($matches, 'src'),
             'content' => Arr::get($matches, 'content'),
         ];
     }

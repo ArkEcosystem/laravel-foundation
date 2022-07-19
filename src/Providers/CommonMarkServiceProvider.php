@@ -11,12 +11,9 @@ use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\IndentedCodeRender
 use ARKEcosystem\Foundation\CommonMark\Extensions\Image\ImageRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Link\LinkRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Node\Block\ImageWithRichCaption;
-use ARKEcosystem\Foundation\CommonMark\Extensions\Node\Block\RichCaption;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Parser\Block\ImageWithRichCaptionStartParser;
-use ARKEcosystem\Foundation\CommonMark\Extensions\Parser\Block\RichCaptionStartParser;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Parser\Inline\SVGParser;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Renderer\Block\ImageWithRichCaptionRenderer;
-use ARKEcosystem\Foundation\CommonMark\Extensions\Renderer\Block\RichCaptionRenderer;
 use ARKEcosystem\Foundation\CommonMark\View\BladeEngine;
 use ARKEcosystem\Foundation\CommonMark\View\BladeMarkdownEngine;
 use ARKEcosystem\Foundation\CommonMark\View\FileViewFinder;
