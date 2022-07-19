@@ -206,7 +206,8 @@ code.hljs .hljs-ln-n {
 }
 
 .documentation-content .image-caption .external-link svg {
-    @apply w-3 h-3 -mt-1;
+    @apply w-2.5 h-2.5;
+    margin-top: -0.25rem;
 }
 
 /* Misc */
