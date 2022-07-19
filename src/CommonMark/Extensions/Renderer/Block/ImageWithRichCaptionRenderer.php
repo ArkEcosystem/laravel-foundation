@@ -26,17 +26,18 @@ final class ImageWithRichCaptionRenderer implements NodeRendererInterface, XmlNo
 
         $innerSeparator = $childRenderer->getBlockSeparator();
 
-        return new HtmlElement('p',
+        return new HtmlElement(
+            'p',
             [],
-            new HtmlElement('div',
+            new HtmlElement(
+                'div',
                 [
                     'class' => 'image-container',
                 ],
-                $innerSeparator . $childRenderer->renderNodes($node->children()) . $innerSeparator
+                $innerSeparator.$childRenderer->renderNodes($node->children()).$innerSeparator
             )
         );
     }
-
 
     public function getXmlTagName(Node $node): string
     {
