@@ -40,6 +40,12 @@
                         wrapper.removeAttribute('style');
                     },
                 },
+                @if($slidesOffsetAfter)
+                    slidesOffsetAfter: {{ $slidesOffsetAfter}},
+                @endif
+                @if($slidesOffsetBefore)
+                    slidesOffsetBefore: {{ $slidesOffsetBefore}},
+                @endif
             });
 
             document.addEventListener('DOMContentLoaded', function() {
