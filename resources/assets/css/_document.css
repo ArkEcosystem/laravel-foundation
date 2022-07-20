@@ -209,6 +209,11 @@ code.hljs .hljs-ln-n {
     @apply relative block mx-auto text-theme-secondary-800 dark:text-theme-secondary-200 border-l-2 border-theme-secondary-300 text-sm px-3 mt-3 italic text-center dark:border-theme-secondary-800;
 }
 
+.documentation-content .image-caption .external-link svg {
+    @apply w-2.5 h-2.5;
+    margin-top: -0.25rem;
+}
+
 /* Misc */
 .documentation-content .embed-link a:hover {
     @apply no-underline;

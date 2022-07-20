@@ -10,7 +10,10 @@ use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\FencedCodeRenderer
 use ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\IndentedCodeRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Image\ImageRenderer;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Link\LinkRenderer;
+use ARKEcosystem\Foundation\CommonMark\Extensions\Node\Block\ImageWithRichCaption;
+use ARKEcosystem\Foundation\CommonMark\Extensions\Parser\Block\ImageWithRichCaptionStartParser;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Parser\Inline\SVGParser;
+use ARKEcosystem\Foundation\CommonMark\Extensions\Renderer\Block\ImageWithRichCaptionRenderer;
 use ARKEcosystem\Foundation\CommonMark\View\BladeEngine;
 use ARKEcosystem\Foundation\CommonMark\View\BladeMarkdownEngine;
 use ARKEcosystem\Foundation\CommonMark\View\FileViewFinder;
@@ -153,6 +156,8 @@ final class CommonMarkServiceProvider extends ServiceProvider
         $environment->addBlockStartParser(new HtmlBlockStartParser(), 40);
         $environment->addBlockStartParser(new HeadingStartParser(), 30);
         $environment->addBlockStartParser(new ThematicBreakStartParser(), 20);
+        $environment->addBlockStartParser(new ImageWithRichCaptionStartParser(), 20);
+
         // $environment->addBlockStartParser(new ListParser(), 10);
         $environment->addBlockStartParser(new IndentedCodeStartParser(), -100);
         // $environment->addBlockStartParser(new ParagraphParser(), -200);
@@ -186,6 +191,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
         $environment->addRenderer(Newline::class, new NewlineRenderer(), 0);
         $environment->addRenderer(Strong::class, new StrongRenderer(), 0);
         $environment->addRenderer(Text::class, new TextRenderer(), 0);
+        $environment->addRenderer(ImageWithRichCaption::class, new ImageWithRichCaptionRenderer(), 0);
 
         $inlineRenderers = array_merge([
             Code::class       => CodeRenderer::class,
