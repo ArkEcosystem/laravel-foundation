@@ -100,7 +100,7 @@ code.hljs .hljs-ln-n {
 }
 
 .documentation-content code {
-    @apply px-2 py-1 font-normal rounded bg-theme-secondary-200 text-theme-secondary-900;
+    @apply px-2 py-1 font-normal rounded bg-theme-secondary-200 text-theme-secondary-900 dark:bg-theme-secondary-800 dark:text-theme-secondary-400;
 }
 
 .documentation-content pre.hljs {
