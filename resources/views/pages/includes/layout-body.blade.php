@@ -1,9 +1,12 @@
 @props([
-    'includes'     => null,
-    'footer'       => null,
-    'content'      => null,
-    'cookieDomain' => null,
-    'wrapperClass' => 'bg-white',
+    'includes'                  => null,
+    'footer'                    => null,
+    'content'                   => null,
+    'cookieDomain'              => null,
+    'wrapperClass'              => 'bg-white',
+    'disableCookieOutsideClick' => false,
+    'overlayCookieCrossButton'  => false,
+    'cookieContactUrl'          => '/contact',
 ])
 
 <body {{ $attributes }}>
@@ -48,7 +51,12 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     @if (config('tracking.analytics.key') && Visitor::isEuropean())
-        <x-ark-pages-includes-cookie-banner :domain="$cookieDomain" />
+        <x-ark-pages-includes-cookie-banner
+            :domain="$cookieDomain"
+            :contact-url="$cookieContactUrl"
+            :disable-outside-click="$disableCookieOutsideClick"
+            :overlay-cross-button="$overlayCookieCrossButton"
+        />
     @elseif (config('tracking.analytics.key'))
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('tracking.analytics.key') }}"></script>

@@ -2,15 +2,24 @@
     'name',
     'route' => null,
     'params' => [],
+    'active' => null,
     'icon' => null,
     'iconAlignment' => 'right',
     'href' => null,
     'active' => false,
     'rounded' => true,
     'attrs' => [],
+    'itemClass'       => 'text-theme-secondary-900 hover:text-theme-primary-600 dark:text-theme-secondary-200 dark:hover:text-theme-primary-600',
+    'activeItemClass' => 'dark:bg-theme-secondary-800 dark:text-theme-secondary-200 text-theme-primary-600 bg-theme-primary-100',
 ])
 
-@php ($isCurrent = ($route && url()->full() === route($route, $params)))
+@php
+    $isCurrent = ($route && url()->full() === route($route, $params));
+
+    if ($active !== null) {
+        $isCurrent = $active;
+    }
+@endphp
 
 <div class="flex">
     <div @class([
@@ -27,8 +36,8 @@
         @endif
         @class([
             'flex items-center block font-semibold pl-8 py-4 space-x-2 rounded-r w-full group transition-default',
-            'dark:bg-theme-secondary-800 dark:text-theme-secondary-200 text-theme-primary-600 bg-theme-primary-100' => $isCurrent || $active,
-            'text-theme-secondary-900 hover:text-theme-primary-600 dark:text-theme-secondary-200 dark:hover:text-theme-primary-600' => ! $isCurrent,
+            $activeItemClass => $isCurrent || $active,
+            $itemClass => ! $isCurrent,
         ])
         dusk='navbar-item-{{ Str::slug($name) }}'
         @foreach($attrs as $attribute => $attributeValue)

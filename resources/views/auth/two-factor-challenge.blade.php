@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-    <x:ark-fortify::component-heading :title="trans('ui::auth.two-factor.page_header')" :description="trans('ui::auth.two-factor.page_description')" />
+    <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.component-heading"/>
 
     <div x-data="{ recovery: @json($errors->has('recovery_code')) }" x-cloak>
         @include('ark-fortify::auth.two-factor.form')

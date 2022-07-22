@@ -1,9 +1,14 @@
-{{-- External icon classes, dont remove are here for purgecss --}}
+@props([
+    'selector' => null,
+])
+{{-- External link svg uses the below classes so needs adding here so purge keeps them --}}
 {{-- inline ml-1 -mt-1.5 --}}
 <x-ark-js-modal
+    class="w-full text-left md:mt-22"
+    width-class="md:max-w-xl"
+    content-class="rounded"
     name="external-link-confirm"
-    class="w-full max-w-2xl text-left rounded-xl"
-    buttons-style="flex justify-end space-x-3"
+    buttons-style="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-3"
     x-data="{
         url: null,
         hasConfirmedLinkWarning: false,
@@ -24,14 +29,18 @@
 
             this.hide();
         },
+        ...(typeof ExternalLinkConfirm !== 'undefined' ? ExternalLinkConfirm : {})
     }"
+    disable-outside-click
+    hide-cross
+    square
     init
 >
-    @slot('title')
-        @lang('generic.external_link')
-    @endslot
+    <x-slot name="title">
+        @lang('ui::general.external_link')
+    </x-slot>
 
-    @slot('description')
+    <x-slot name="description">
         <div class="flex flex-col mt-4 space-y-6 whitespace-normal">
             <div class="font-semibold text-theme-secondary-900">
                 <x-ark-alert type="warning">
@@ -39,26 +48,35 @@
                 </x-ark-alert>
             </div>
 
-            <p>@lang('generic.external_link_disclaimer')</p>
+            <p>@lang('ui::general.external_link_disclaimer')</p>
 
             <x-ark-checkbox
                 name="confirmation"
                 alpine="toggle"
-                label-classes="text-theme-secondary-700 select-none"
+                label-classes="text-theme-secondary-700 select-none font-semibold"
             >
                 @slot('label')
                     @lang('ui::forms.do_not_show_message_again')
                 @endslot
             </x-ark-checkbox>
         </div>
-    @endslot
+    </x-slot>
 
-    @slot('buttons')
+    <x-slot name="backdrop">
+        <x-modal.close-button
+            click="hide"
+            class="fixed top-0 right-0 z-20"
+        />
+
+        <div class="flex fixed inset-0 flex-col w-screen h-screen bg-white bg-opacity-90 dark:bg-black dark:bg-opacity-95 backdrop-filter backdrop-blur-xl"></div>
+    </x-slot>
+
+    <x-slot name="buttons">
         <button
-            class="button-secondary"
+            class="mt-3 sm:mt-0 button-secondary"
             @click="hide"
         >
-            @lang('actions.back')
+            @lang('ui::actions.back')
         </button>
 
         <a
@@ -69,9 +87,9 @@
             @click="followLink()"
             data-safe-external="true"
         >
-            @lang('actions.follow_link')
+            @lang('ui::actions.follow_link')
         </a>
-    @endslot
+    </x-slot>
 </x-ark-js-modal>
 
 
@@ -85,7 +103,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
             ':not([data-external-link-confirm])',
         ];
 
-        const links = document.querySelectorAll(`a${selectors.join('')}`);
+        const links = document.querySelectorAll(
+            @if ($selector)
+                `{{ $selector }} a${selectors.join('')}`
+            @else
+                `a${selectors.join('')}`
+            @endif
+        );
 
         const hasDisabledLinkWarning = () => localStorage.getItem('has_disabled_link_warning') === 'true';
 

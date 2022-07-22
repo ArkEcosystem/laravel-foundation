@@ -1001,3 +1001,23 @@ Handles the primary content area for a page. By default it is included in the `l
 | ---------- | ------------------------------------- | -------- | ------------------- |
 | slim       | Whether the page is full-width or not | no       | false               |
 | slim-class | Override full-width styling           | no       | "px-8 lg:max-w-7xl" |
+
+### External Link Confirmation modal
+
+Goes through all links on the page to determine if it's an external link or not
+
+#### Checking the entire page for external links
+
+```blade
+<x-ark-external-link-confirm />
+```
+
+#### Checking a specific element for external links
+
+```blade
+<x-ark-external-link-confirm selector="#footer" />
+```
+
+| Parameter  | Description                                                  | Required | Default Value       |
+| ---------- | ------------------------------------------------------------ | -------- | ------------------- |
+| selector   | Selector of the element where external links are checked for | no       | whole page (null)   |

@@ -51,11 +51,14 @@ const Modal = {
     onModalOpened(scrollable, settings = {}) {
         this.disableBodyScroll(scrollable, settings);
 
-        if (settings.disableFocusTrap) {
-            scrollable.focus();
-        } else {
-            this.trapFocus(scrollable);
-        }
+        // slight delay focus to make sure it's visible
+        setTimeout(() => {
+            if (settings.disableFocusTrap) {
+                scrollable.focus();
+            } else {
+                this.trapFocus(scrollable);
+            }
+        }, 50);
     },
 
     onModalClosed(scrollable, settings = {}) {
@@ -106,6 +109,7 @@ const Modal = {
             options: null,
             init() {
                 const scrollable = this.getScrollable();
+
                 if (this.name) {
                     Livewire.on("openModal", (modalName, ...options) => {
                         if (this.name === modalName) {
@@ -148,6 +152,10 @@ const Modal = {
 
                 if (this.shown) {
                     Modal.onModalOpened(scrollable, eventSettings);
+                }
+
+                if (typeof this.onInit === "function") {
+                    this.onInit();
                 }
             },
             hide() {

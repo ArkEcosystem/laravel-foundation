@@ -13,13 +13,13 @@ trait CanBeShared
         return Share::facebook($this->url());
     }
 
-    public function urlReddit(): string
+    public function urlReddit(?string $title = null): string
     {
-        return Share::reddit($this->url());
+        return Share::reddit($this->url(), $title);
     }
 
-    public function urlTwitter(): string
+    public function urlTwitter(?string $title = null): string
     {
-        return Share::twitter($this->url());
+        return Share::twitter($this->url(), $title);
     }
 }

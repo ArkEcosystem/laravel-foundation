@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
+use ARKEcosystem\Foundation\CommonMark\Extensions\ExternalLink\ExternalLinkExtension;
 use ARKEcosystem\Foundation\CommonMark\Extensions\Table\TableExtension;
 use ElGigi\CommonMarkEmoji\EmojiExtension;
 use League\CommonMark\Extension\Autolink\AutolinkExtension;
-use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
@@ -193,6 +193,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Lazyload Markdown Images
+    |--------------------------------------------------------------------------
+    |
+    | This option determines whether images within markdown should be lazyloaded.
+    |
+    | Default: false
+    |
+    */
+
+    'lazyload_images' => false,
+
+    /*
+    |--------------------------------------------------------------------------
     | Default Config
     |--------------------------------------------------------------------------
     |
@@ -208,6 +221,7 @@ return [
             'nofollow'           => '',
             'noopener'           => 'external',
             'noreferrer'         => 'external',
+            'infix'              => ' ',
         ],
         'heading_permalink' => [
             'html_class'      => 'heading-permalink',

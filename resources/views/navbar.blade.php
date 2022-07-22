@@ -57,20 +57,22 @@
     ></div>
 
     {{-- Spacer for the sticky navbar  --}}
-    <div class="mb-0.5 h-20"></div>
+    <div class="{{ $heightClass ?? 'h-21'}}"></div>
+
     <nav
         aria-label="{{ trans('ui::general.primary_navigation') }}"
         x-ref="nav"
         @class([
-            'fixed top-0 z-30 w-full border-b dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400',
+            'fixed top-0 z-30 w-full dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400',
             'inverted:shadow-header-smooth' => $inverted,
+            'border-b' => !isset($noBorder) || !$noBorder,
             $backgroundColor,
             $invertedBorder,
         ])
         dusk="navigation-bar"
     >
         <div class="relative z-10 navbar-container border-theme-secondary-300">
-            <div class="flex relative justify-between h-21">
+            <div class="flex relative justify-between {{ $heightClass ?? 'h-21'}}">
                 @include('ark::navbar.logo')
 
                 @isset($middle)
@@ -125,7 +127,7 @@
         @isset($mobile)
             {{ $mobile }}
         @else
-            @include('ark::navbar.items.mobile')
+            @include('ark::navbar.items.mobile', ['mobilePositionClass' => $mobilePositionClass ?? null])
         @endisset
     </nav>
 </header>

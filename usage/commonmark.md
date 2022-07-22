@@ -10,6 +10,14 @@
 
 This package provides parsing and rendering for CommonMark. All the specifications and examples can be seen at https://commonmark.org/. There are a few custom elements that can be used to embed third-party content.
 
+### Add an image with a caption that accepts markdown
+
+```markdown
+[img src="https://i.imgur.com/tpEev9m.png"]
+Caption with **markdown** 
+[/img]
+```
+
 ### Embed SimpleCast
 
 ```markdown
