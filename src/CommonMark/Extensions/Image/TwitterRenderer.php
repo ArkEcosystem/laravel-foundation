@@ -7,7 +7,6 @@ namespace ARKEcosystem\Foundation\CommonMark\Extensions\Image;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
 final class TwitterRenderer
@@ -42,7 +41,7 @@ final class TwitterRenderer
         if ($darkModeEnabled) {
             $result .= sprintf(
                 $darkModeEnabled ? '<div class="hidden dark:block">%s</div>' : '%s',
-                Cache::rememberForever(md5($url) . ':dark', function () use ($url) {
+                Cache::rememberForever(md5($url).':dark', function () use ($url) {
                     try {
                         $response = Http::get('https://publish.twitter.com/oembed', [
                             'url'         => $url,
