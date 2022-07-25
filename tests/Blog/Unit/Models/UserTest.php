@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Blog\Models\User;
 use Illuminate\Http\Testing\File;
+use Illuminate\Support\Facades\Storage;
 
 it('has a profile photo', function () {
     $user = User::factory()->create();
