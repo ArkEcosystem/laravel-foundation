@@ -7,6 +7,7 @@ namespace ARKEcosystem\Foundation\CommonMark\Extensions\Image;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 
 final class TwitterRenderer
@@ -15,23 +16,52 @@ final class TwitterRenderer
     {
         $url = 'https://twitter.com/'.$url->getId();
 
-        $result = Cache::rememberForever(md5($url), function () use ($url) {
-            try {
-                $response = Http::get('https://publish.twitter.com/oembed', [
-                    'url'         => $url,
-                    'hide_thread' => 1,
-                    'hide_media'  => 0,
-                    'omit_script' => true,
-                    'dnt'         => true,
-                    'limit'       => 20,
-                    'chrome'      => 'nofooter',
-                ])->json();
+        $darkModeEnabled = false;
 
-                return Arr::get($response, 'html', '');
-            } catch (ConnectionException $e) {
-                return false;
-            }
-        });
+        $result = sprintf(
+            $darkModeEnabled ? '<div class="dark:hidden">%s</div>' : '%s',
+            Cache::rememberForever(md5($url), function () use ($url, $darkModeEnabled) {
+                try {
+                    $response = Http::get('https://publish.twitter.com/oembed', [
+                        'url'         => $url,
+                        'hide_thread' => 1,
+                        'hide_media'  => 0,
+                        'omit_script' => true,
+                        'dnt'         => true,
+                        'limit'       => 20,
+                        'chrome'      => 'nofooter',
+                    ])->json();
+
+                    return Arr::get($response, 'html', '');
+                } catch (ConnectionException $e) {
+                    return false;
+                }
+            })
+        );
+
+        if ($darkModeEnabled) {
+            $result .= sprintf(
+                $darkModeEnabled ? '<div class="hidden dark:block">%s</div>' : '%s',
+                Cache::rememberForever(md5($url) . ':dark', function () use ($url) {
+                    try {
+                        $response = Http::get('https://publish.twitter.com/oembed', [
+                            'url'         => $url,
+                            'hide_thread' => 1,
+                            'hide_media'  => 0,
+                            'omit_script' => true,
+                            'dnt'         => true,
+                            'limit'       => 20,
+                            'chrome'      => 'nofooter',
+                            'theme'       => 'dark',
+                        ])->json();
+
+                        return Arr::get($response, 'html', '');
+                    } catch (ConnectionException $e) {
+                        return false;
+                    }
+                })
+            );
+        }
 
         // If the result is `false`, means we had a connection error
         // (publish.twitter.com is down) in that case the results should not be
