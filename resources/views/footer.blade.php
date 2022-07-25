@@ -1,7 +1,7 @@
 @props([
-    'desktopClass'  => 'px-8 max-w-7xl hidden lg:flex md:px-10',
-    'mobileClass'   => 'px-8 pb-5 lg:hidden md:px-10',
+    'wrapperClass'  => 'px-8 max-w-7xl flex md:px-10',
     'copyClass'     => '',
+    'noBorder'      => '',
     'copyText'      => null,
     'isArkProduct'  => true,
     'socials'       => null,
@@ -9,23 +9,16 @@
 ])
 
 <div {{ $attributes->merge(['class' => 'border-t bg-theme-secondary-900 border-theme-secondary-800']) }}>
-    <div class="{{ $desktopClass }} flex-col mx-auto">
-        <x-ark-footer-bar-desktop
-            :is-ark-product="$isArkProduct"
-            :copy-class="$copyClass"
-            :copy-text="$copyText"
-            :socials="$socials"
-            :copyright-slot="$copyrightSlot"
-            no-border
-        />
-    </div>
+    <div class="{{ $wrapperClass }} flex-col mx-auto">
+        <div class="flex items-center justify-between @unless ($noBorder) border-t border-theme-secondary-800 @endunless">
+            <x-ark-footer-copyright
+                :is-ark-product="$isArkProduct"
+                :copy-text="$copyText"
+                :class="$copyClass"
+                :copyright-slot="$copyrightSlot"
+            />
 
-    <x-ark-footer-bar-mobile
-        :class="$mobileClass"
-        :is-ark-product="$isArkProduct"
-        :copy-class="$copyClass"
-        :copy-text="$copyText"
-        :socials="$socials"
-        :copyright-slot="$copyrightSlot"
-    />
+            <x-ark-footer-social :networks="$socials" />
+        </div>
+    </div>
 </div>
