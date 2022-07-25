@@ -7,19 +7,15 @@ namespace Tests\Blog;
 use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Fortify\Http\Middleware\EnforceTwoFactorAuthentication;
 use ARKEcosystem\Foundation\Providers\BlogServiceProvider;
-use ARKEcosystem\Foundation\Providers\FortifyServiceProvider;
-use ARKEcosystem\Foundation\Providers\HermesServiceProvider;
 use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
 use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Foundation\Bootstrap\LoadConfiguration;
 use Illuminate\Support\Facades\View;
-use Laravel\Fortify\FortifyServiceProvider as LaravelFortifyServiceProvider;
-use Livewire\LivewireServiceProvider;
 use JamesMills\LaravelTimezone\LaravelTimezoneServiceProvider;
+use Livewire\LivewireServiceProvider;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
-use Spatie\ResponseCache\ResponseCacheServiceProvider;
 use Spatie\ResponseCache\Middlewares\DoNotCacheResponse;
+use Spatie\ResponseCache\ResponseCacheServiceProvider;
 use Tests\TestCase as Base;
 
 /**

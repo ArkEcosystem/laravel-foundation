@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\CreateArticle;
+use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Models\Article;
 use ARKEcosystem\Foundation\Blog\Models\User;
 use Illuminate\Http\Testing\File;

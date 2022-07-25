@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Components\ArticleList;
+use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Models\Article;
 use Livewire\Livewire;
 

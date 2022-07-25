@@ -3,9 +3,7 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateArticle;
-use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Models\Article;
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Http\Testing\File;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
