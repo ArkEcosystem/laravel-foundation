@@ -18,6 +18,10 @@ return [
     'dark_theme'    => 'Dark Theme',
     'follow_link'   => 'Follow Link',
 
+    // Blog
+
+    'edit_article' => 'Edit Article',
+
     // Hermes
     'mark_all_as_read'   => 'Mark all as read',
     'show_all'           => 'Show all',
