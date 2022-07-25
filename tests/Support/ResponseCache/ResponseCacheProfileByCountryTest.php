@@ -6,13 +6,13 @@ use ARKEcosystem\Foundation\Support\ResponseCache\ResponseCacheProfileByCountry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-it('has a suffix for guest user if comes from europe ', function () {
+it('has a suffix for a guest user if user is from europe ', function () {
     $suffix = (new ResponseCacheProfileByCountry())->useCacheNameSuffix(new Request());
 
     expect($suffix)->toBe('european');
 });
 
-it('has a suffix for guest user if doesnt not come from europe ', function () {
+it('has a suffix for a guest user if user is not from europe ', function () {
     $request = new Request();
 
     $request->headers->replace(['cf-ipcountry' => 'MX']);
@@ -24,7 +24,7 @@ it('has a suffix for guest user if doesnt not come from europe ', function () {
     expect($suffix)->toBe('non-european');
 });
 
-it('has a suffix for auth user', function () {
+it('has a suffix for authenticated users', function () {
     Auth::shouldReceive('check')
         ->andReturn(true)
         ->shouldReceive('id')
