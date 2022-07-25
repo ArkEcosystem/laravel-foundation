@@ -27,8 +27,10 @@
     ],
 ])
 
-<div class="flex space-x-3 leading-6">
-    @foreach($networks as $network)
-        <x-ark-social-link :url="$network['url']" :icon="$network['icon']" data-safe-external />
-    @endforeach
-</div>
+@if(!empty($networks))
+    <div class="flex space-x-3 leading-6">
+        @foreach($networks as $network)
+            <x-ark-social-link :url="$network['url']" :icon="$network['icon']" data-safe-external />
+        @endforeach
+    </div>
+@endif

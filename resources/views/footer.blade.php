@@ -10,7 +10,7 @@
 
 <div {{ $attributes->merge(['class' => 'border-t bg-theme-secondary-900 border-theme-secondary-800']) }}>
     <div class="{{ $wrapperClass }} flex-col mx-auto">
-        <div class="flex items-center justify-between @unless ($noBorder) border-t border-theme-secondary-800 @endunless">
+        <div class="flex flex-col items-start lg:flex-row lg:items-center justify-between space-y-3 lg:space-y-0 py-5 @unless ($noBorder) border-t border-theme-secondary-800 @endunless">
             <x-ark-footer-copyright
                 :is-ark-product="$isArkProduct"
                 :copy-text="$copyText"

@@ -4,7 +4,7 @@
     'copyrightSlot' => null,
 ])
 
-<div {{ $attributes->merge(['class' => 'pt-5 pb-4 lg:pb-5 space-y-3 font-semibold text-sm text-theme-secondary-700 sm:space-y-0 sm:space-x-1 leading-6']) }}>
+<div {{ $attributes->merge(['class' => 'space-y-3 font-semibold text-sm text-theme-secondary-700 sm:space-y-0 sm:space-x-1 leading-6']) }}>
     <span>
         {{ date('Y') }} &copy; {{ $copyText }}
     </span>
