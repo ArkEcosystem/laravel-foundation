@@ -28,6 +28,6 @@ php artisan vendor:publish --provider="ARKEcosystem\Foundation\Providers\BlogSer
 "post-autoload-dump": [
     "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
     "@php artisan package:discover --ansi",
-    "@php artisan vendor:publish --provider=\"ARKEcosystem\\UserInterface\\BlogServiceProvider\" --tag=\"config\" --tag=\"blog-migrations\""
+    "@php artisan vendor:publish --provider=\"ARKEcosystem\\Foundation\\Providers\\BlogServiceProvider\" --tag=\"config\" --tag=\"blog-migrations\""
 ],
 ```
