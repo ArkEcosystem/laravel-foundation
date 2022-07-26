@@ -11,9 +11,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class User extends BaseUser implements HasMedia
 {
+    use HasSlug;
     use HasFactory;
     use Notifiable;
     use InteractsWithMedia;
@@ -27,6 +30,18 @@ class User extends BaseUser implements HasMedia
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function articles(): HasMany
+    {
+        return $this->hasMany(Article::class, 'user_id');
+    }
+
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('name_slug');
+    }
 
     public function photo() : string
     {
