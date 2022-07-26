@@ -2,8 +2,8 @@
 
 <section class="w-full bg-theme-background">
     <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row lg:px-10 bg-theme-background">
-        <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-500">
-            <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-700">
+        <div class="flex flex-col text-sm font-semibold text-theme-secondary-500">
+            <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-500">
                 <div class="flex items-center pr-3 space-x-2 border-r border-theme-secondary-800">
                     <div class="object-contain overflow-hidden w-4 h-4 rounded">
                         <img src="{{ $article->author->photo() }}" />
