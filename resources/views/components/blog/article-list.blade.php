@@ -1,7 +1,7 @@
 <section>
     @if ($author)
         <section class="bg-theme-background">
-            <div class="w-full content-container flex flex-col py-6 md:py-8">
+            <div class="flex flex-col py-6 w-full md:py-8 content-container">
                 <x-ark-blog.author-header
                     :author="$author"
                     :count="$this->authorArticleCount"
