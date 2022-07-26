@@ -9,6 +9,7 @@ use ARKEcosystem\Foundation\Blog\Components\Concerns\HasPagination;
 use ARKEcosystem\Foundation\Blog\Components\Concerns\IsSortable;
 use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Models\Article;
+use ARKEcosystem\Foundation\Blog\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
