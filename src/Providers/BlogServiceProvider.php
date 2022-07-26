@@ -50,6 +50,8 @@ class BlogServiceProvider extends ServiceProvider
             $blade->component('ark::components.blog.placeholder-article-entry', 'ark-blog.placeholder-article-entry');
             $blade->component('ark::components.blog.related-article-entry', 'ark-blog.related-article-entry');
             $blade->component('ark::components.blog.related-articles', 'ark-blog.related-articles');
+            $blade->component('ark::components.blog.sort', 'ark-blog.sort');
+            $blade->component('ark::components.blog.search-input', 'ark-blog.search-input');
         });
     }
 
@@ -79,7 +81,7 @@ class BlogServiceProvider extends ServiceProvider
                     Route::get('/kiosk/articles/{article:slug}', [KioskController::class, 'show'])->name('kiosk.article');
 
                     Route::get('/kiosk/users', [UserController::class, 'index'])->name('kiosk.users');
-                    Route::view('/kiosk/users/create', 'kiosk.users.create')->name('kiosk.users.create');
+                    Route::view('/kiosk/users/create', 'ark::pages.blog.kiosk.users.create')->name('kiosk.users.create');
                     Route::get('/kiosk/users/{user}', [UserController::class, 'edit'])->name('kiosk.user');
                 });
             });
