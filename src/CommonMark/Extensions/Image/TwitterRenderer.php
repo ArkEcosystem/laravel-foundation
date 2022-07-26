@@ -7,8 +7,8 @@ namespace ARKEcosystem\Foundation\CommonMark\Extensions\Image;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Http;
 
 final class TwitterRenderer
 {
