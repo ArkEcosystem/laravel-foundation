@@ -8,6 +8,7 @@ use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Config;
 
 final class TwitterRenderer
 {
@@ -15,7 +16,7 @@ final class TwitterRenderer
     {
         $url = 'https://twitter.com/'.$url->getId();
 
-        $darkModeEnabled = false;
+        $darkModeEnabled = Config::get('ui.dark-mode.enabled', false);
 
         $result = sprintf(
             $darkModeEnabled ? '<div class="dark:hidden">%s</div>' : '%s',
