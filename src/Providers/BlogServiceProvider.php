@@ -45,6 +45,7 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->callAfterResolving(BladeCompiler::class, function (BladeCompiler $blade) {
             $blade->component('ark::components.blog.article-content', 'ark-blog.article-content');
+            $blade->component('ark::components.blog.author-header', 'ark-blog.author-header');
             $blade->component('ark::components.blog.category-badge', 'ark-blog.category-badge');
             $blade->component('ark::components.blog.blog-entry', 'ark-blog.blog-entry');
             $blade->component('ark::components.blog.header', 'ark-blog.header');
