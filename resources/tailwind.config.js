@@ -245,38 +245,33 @@ module.exports = {
             });
         }),
     ],
-    purge: {
-        mode: "all",
-        content: [
-            "./resources/views/**/*.blade.php",
-            "./vendor/arkecosystem/foundation/resources/views/**/*.blade.php",
-            "./vendor/arkecosystem/fortify/resources/views/**/*.blade.php",
-            "./vendor/arkecosystem/hermes/resources/views/**/*.blade.php",
-            "./resources/js/**/*.js",
-            "./resources/js/**/*.vue",
-            "./app/**/*.php",
+    content: [
+        "./resources/views/**/*.blade.php",
+        "./vendor/arkecosystem/foundation/resources/views/**/*.blade.php",
+        "./vendor/arkecosystem/fortify/resources/views/**/*.blade.php",
+        "./vendor/arkecosystem/hermes/resources/views/**/*.blade.php",
+        "./resources/js/**/*.js",
+        "./resources/js/**/*.vue",
+        "./app/**/*.php",
+    ],
+    safelist: {
+        standard: [
+            /horizontal$/,
+            /alert-/,
+            /swiper-/,
+            /toast-/,
+            /^hljs/,
+            /^media-library/,
+
+            /* pikaday classes */
+            /^pika-/,
+            /is-selected/,
+            /is-today/,
+            /is-disabled/,
+            /is-hidden/,
+            /is-bound/,
         ],
-        options: {
-            safelist: {
-                standard: [
-                    /horizontal$/,
-                    /alert-/,
-                    /swiper-/,
-                    /toast-/,
-                    /^hljs/,
-                    /^media-library/,
 
-                    /* pikaday classes */
-                    /^pika-/,
-                    /is-selected/,
-                    /is-today/,
-                    /is-disabled/,
-                    /is-hidden/,
-                    /is-bound/,
-                ],
-
-                deep: [/tippy-/, /\[data-expandable\]/, /simple-markdown$/],
-            },
-        },
+        deep: [/tippy-/, /\[data-expandable\]/, /simple-markdown$/],
     },
 };
