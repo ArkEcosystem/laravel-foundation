@@ -209,22 +209,9 @@ module.exports = {
         }),
     },
     plugins: [
-        plugin(function ({ addVariant, e }) {
-            addVariant("inverted", ({ modifySelectors, separator }) => {
-                modifySelectors(
-                    ({ className }) =>
-                        `.inverted .${e(`inverted${separator}${className}`)}`
-                );
-            });
-
-            addVariant("inverted-hover", ({ modifySelectors, separator }) => {
-                modifySelectors(
-                    ({ className }) =>
-                        `.inverted .${e(
-                            `inverted${separator}hover${separator}${className}`
-                        )}:hover`
-                );
-            });
+        plugin(function ({ addVariant }) {
+            addVariant("inverted", ".inverted &")
+            addVariant("inverted-hover", ".inverted &:hover")
         }),
     ],
     content: [
