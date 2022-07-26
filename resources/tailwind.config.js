@@ -226,7 +226,6 @@ module.exports = {
         },
     },
     plugins: [
-        require("@tailwindcss/ui"),
         plugin(function ({ addVariant, e }) {
             addVariant("inverted", ({ modifySelectors, separator }) => {
                 modifySelectors(
