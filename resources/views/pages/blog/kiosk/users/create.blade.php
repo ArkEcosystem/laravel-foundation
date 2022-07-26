@@ -2,6 +2,6 @@
 
 @section('content')
     <x-ark-container>
-        @livewire("kiosk.create-user")
+        <livewire:kiosk-create-user />
     </x-ark-container>
 @endsection
