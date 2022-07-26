@@ -22,6 +22,8 @@ final class ArticleList extends Component
 
     public const PER_PAGE = 10;
 
+    public ?User $author = null;
+
     public string $term = '';
 
     public string $categoryQueryString = '';
@@ -51,7 +53,7 @@ final class ArticleList extends Component
         ]);
     }
 
-    public function mount(Request $request) : void
+    public function mount(Request $request, ?User $author = null) : void
     {
         $this->categories    = collect(Category::cases())->map->value->toArray();
         $this->sortDirection = $request->query('order') === 'asc' ? 'asc' : 'desc';
@@ -73,6 +75,11 @@ final class ArticleList extends Component
         }
     }
 
+    public function getAuthorArticleCountProperty(): ?int
+    {
+        return $this->author?->articles()->count();
+    }
+
     public function updatingTerm() : void
     {
         $this->resetPage();
@@ -87,7 +94,9 @@ final class ArticleList extends Component
     {
         $query = Article::published();
 
-        if ($featured !== null) {
+        if ($this->author) {
+            $query->where('user_id', $this->author->id);
+        } else if ($featured !== null) {
             $query->where('id', '!=', $featured->id);
         }
 
