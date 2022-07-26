@@ -13,6 +13,7 @@ use ARKEcosystem\Foundation\Blog\Components\Kiosk\DeleteUser;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateArticle;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateUser;
 use ARKEcosystem\Foundation\Blog\Controllers\ArticleController;
+use ARKEcosystem\Foundation\Blog\Controllers\AuthorController;
 use ARKEcosystem\Foundation\Blog\Controllers\KioskController;
 use ARKEcosystem\Foundation\Blog\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -72,6 +73,7 @@ class BlogServiceProvider extends ServiceProvider
         Route::middleware('web')->group(function () {
             Route::get('/blog', [ArticleController::class, 'index'])->name('blog');
             Route::get('/blog/{article:slug}', [ArticleController::class, 'show'])->name('article');
+            Route::get('/authors/{author:name_slug}', AuthorController::class)->name('author');
 
             Route::middleware(['doNotCacheResponse'])->group(function () {
                 Route::view('/kiosk', 'ark::pages.blog.kiosk.dashboard')->name('kiosk')->middleware('auth');
