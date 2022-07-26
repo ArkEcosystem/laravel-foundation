@@ -96,7 +96,7 @@ final class ArticleList extends Component
 
         if ($this->author) {
             $query->where('user_id', $this->author->id);
-        } else if ($featured !== null) {
+        } elseif ($featured !== null) {
             $query->where('id', '!=', $featured->id);
         }
 
