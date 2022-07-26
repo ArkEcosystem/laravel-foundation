@@ -39,6 +39,10 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../config/blog.php' => config_path('blog.php'),
         ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../../database/migrations/blog' => database_path('migrations'),
+        ], 'blog-migrations');
     }
 
     private function registerBladeComponents(): void
