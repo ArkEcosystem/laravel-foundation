@@ -11,10 +11,10 @@
         <x-ark-container>
             <div>
                 <div id="article-list" class="flex relative justify-between items-center pb-8 sm:initial">
-                    <x-general.sort />
+                    <x-ark-blog.sort />
 
                     <div class="flex justify-between items-center space-x-8 sm:relative sm:justify-end sm:divide-x divide-theme-primary-100">
-                        <x-general.search-input name="term" />
+                        <x-ark-blog.search-input name="term" />
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
 
                 @if ($articles->hasPages())
                     <div class="flex justify-center mt-8">
-                        {{ $articles->links('vendor.ark.pagination') }}
+                        {{ $articles->links('ark::pagination') }}
                     </div>
                 @endif
 

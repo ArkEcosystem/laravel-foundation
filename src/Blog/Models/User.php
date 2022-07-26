@@ -6,14 +6,13 @@ namespace ARKEcosystem\Foundation\Blog\Models;
 
 use ARKEcosystem\Foundation\Blog\Models\Factories\UserFactory;
 use ARKEcosystem\Foundation\Fortify\Models\User as BaseUser;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-final class User extends BaseUser implements HasMedia
+class User extends BaseUser implements HasMedia
 {
     use HasFactory;
     use Notifiable;
