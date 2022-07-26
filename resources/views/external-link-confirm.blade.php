@@ -48,7 +48,7 @@
                 </x-ark-alert>
             </div>
 
-            <p class="dark:text-theme-secondary-500 text-theme-secondary-700">@lang('ui::general.external_link_disclaimer')</p>
+            <p class="text-theme-secondary-700 dark:text-theme-secondary-500">@lang('ui::general.external_link_disclaimer')</p>
 
             <x-ark-checkbox
                 name="confirmation"
