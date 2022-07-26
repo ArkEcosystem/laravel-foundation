@@ -208,26 +208,6 @@ module.exports = {
             },
         }),
     },
-    variants: {
-        boxShadow: ["dark", "responsive", "hover", "focus", "inverted"],
-        divideColor: ["dark", "responsive", "hover", "focus"],
-        opacity: ["dark", "responsive", "hover", "focus"],
-        display: ["dark", "responsive"],
-        extend: {
-            margin: ["focus-visible"],
-            padding: ["focus-visible", "last"],
-            backgroundColor: ["inverted", "inverted-hover"],
-            borderRadius: ["focus-visible"],
-            borderWidth: ["focus-visible"],
-            borderColor: ["inverted", "inverted-hover", "focus-visible"],
-            ringColor: ["focus-visible"],
-            ringWidth: ["focus-visible"],
-            textDecoration: ["focus-visible"],
-            textColor: ["inverted", "inverted-hover"],
-            transitionProperty: ["focus-visible"],
-            zIndex: ["focus-visible"],
-        },
-    },
     plugins: [
         plugin(function ({ addVariant, e }) {
             addVariant("inverted", ({ modifySelectors, separator }) => {
