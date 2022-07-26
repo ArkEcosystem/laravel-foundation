@@ -2,14 +2,21 @@
 
 <section class="w-full bg-theme-background">
     <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row lg:px-10 bg-theme-background">
-        <div class="w-full">
+        <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-500">
             <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-700">
                 <div class="flex items-center pr-3 space-x-2 border-r border-theme-secondary-800">
                     <div class="object-contain overflow-hidden w-4 h-4 rounded">
                         <img src="{{ $article->author->photo() }}" />
                     </div>
 
-                    <div class="hidden sm:inline-flex">{{ $article->author->name }}</div>
+                    <a
+                        href="{{ route('author', ['name' => $article->author->name_slug]) }}"
+                        class="hidden sm:inline-flex group link link-dark"
+                    >
+                        <span class="group-hover:text-theme-primary-500">
+                            {{ $article->author->name }}
+                        </span>
+                    </a>
                 </div>
 
                 <div class="pr-3 border-r border-theme-secondary-800">
