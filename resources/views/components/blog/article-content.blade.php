@@ -10,7 +10,7 @@
                     </div>
 
                     <a
-                        href="{{ route('author', ['name' => $article->author->name_slug]) }}"
+                        href="{{ route('author', $article->author) }}"
                         class="hidden sm:inline-flex group link link-dark"
                     >
                         <span class="group-hover:text-theme-primary-500">
