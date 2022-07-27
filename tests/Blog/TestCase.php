@@ -9,7 +9,6 @@ use ARKEcosystem\Foundation\Fortify\Http\Middleware\EnforceTwoFactorAuthenticati
 use ARKEcosystem\Foundation\Providers\BlogServiceProvider;
 use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
 use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\View;
 use JamesMills\LaravelTimezone\LaravelTimezoneServiceProvider;
 use Livewire\LivewireServiceProvider;
