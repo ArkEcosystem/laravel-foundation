@@ -1,942 +1,935 @@
-/* Table Styling */
-.table-container table {
-    @apply w-full h-full text-left;
-}
+@layer components {
+    /* Table Styling */
+    .table-container table {
+        @apply w-full h-full text-left;
+    }
 
-.table-container table thead {
-    @apply text-sm font-semibold text-theme-secondary-500;
-}
+    .table-container table thead {
+        @apply text-sm font-semibold text-theme-secondary-500;
+    }
 
-.table-container table thead tr {
-    @apply text-left border-b border-theme-secondary-300;
-}
+    .table-container table thead tr {
+        @apply text-left border-b border-theme-secondary-300;
+    }
 
-.dark .table-container table tbody tr,
-.dark .table-container table thead th:not(:last-child)::after,
-.dark .table-container table thead tr {
-    @apply border-theme-secondary-800;
-}
+    .dark .table-container table tbody tr,
+    .dark .table-container table thead th:not(:last-child)::after,
+    .dark .table-container table thead tr {
+        @apply border-theme-secondary-800;
+    }
 
-.table-container table thead th {
-    @apply relative px-3 py-3;
-}
+    .table-container table thead th {
+        @apply relative px-3 py-3;
+    }
 
-.table-container table thead th::after {
-    height: 50%;
-    @apply absolute right-0 border-l border-theme-secondary-300 top-1/4;
-}
+    .table-container table thead th::after {
+        height: 50%;
+        @apply absolute right-0 border-l border-theme-secondary-300 top-1/4;
+    }
 
-.table-container table thead th:not(:last-child):not(.last-cell)::after {
-    content: "";
-}
-
-@screen sm {
-    .table-container table thead th.last-cell-sm::after {
+    .table-container table thead th:not(:last-child):not(.last-cell)::after {
         content: "";
     }
-}
 
-@screen md {
-    .table-container table thead th.last-cell-md::after {
+    @screen sm {
+        .table-container table thead th.last-cell-sm::after {
+            content: "";
+        }
+    }
+
+    @screen md {
+        .table-container table thead th.last-cell-md::after {
+            content: "";
+        }
+    }
+
+    @screen lg {
+        .table-container table thead th.last-cell-lg::after {
+            content: "";
+        }
+    }
+
+    @screen xl {
+        .table-container table thead th.last-cell-xl::after {
+            content: "";
+        }
+    }
+
+    .table-container table tbody td {
+        @apply px-3 py-4 leading-5;
+    }
+
+    .table-container table tbody tr {
+        @apply border-b border-dashed border-theme-secondary-300;
+    }
+
+    .table-container table tbody tr:last-child {
+        @apply border-0;
+    }
+
+    .dark .table-container {
+        @apply text-theme-secondary-500;
+    }
+
+    /* Table List */
+    .table-list-mobile-row {
+        @apply flex flex-col w-full py-6 space-y-6 border-t border-theme-secondary-300;
+    }
+    .table-list-mobile-row:first-child {
+        @apply pt-0 border-t-0;
+    }
+    .dark .table-list-mobile-row {
+        @apply border-theme-secondary-800;
+    }
+
+    .table-list-mobile-row > div:not(.table-list-mobile-name) {
+        @apply flex justify-between w-full;
+    }
+
+    .table-list-mobile-name {
+        @apply flex items-center mb-2 space-x-2 text-lg;
+    }
+
+    @screen md {
+        .table-list-mobile {
+            @apply hidden;
+        }
+    }
+
+    /* Table Scrollbar */
+    .table-container .table-wrapper {
+        scrollbar-color: #e5f0f8 #bad6f0;
+    }
+
+    .table-container .table-wrapper::-webkit-scrollbar {
+        @apply rounded-lg bg-theme-primary-100;
+        width: 6px;
+        height: 6px;
+    }
+
+    .table-container .table-wrapper::-webkit-scrollbar-thumb {
+        @apply rounded-lg bg-theme-primary-200;
+    }
+
+    /* Table highlight & hover effect (requires to use `<x-ark-tables.cell` instead of a `td`) */
+    .table-container table tbody td.hoverable-cell {
+        @apply px-0 py-0.5;
+    }
+
+    .table-container table tbody tr {
+        @apply outline-none;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell:first-child
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell.first-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell:last-child
+        > div.table-cell-bg:before,
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell.last-cell
+        > div.table-cell-bg::before {
         content: "";
+        @apply absolute top-0 block w-4 h-full border-t border-b border-transparent;
     }
-}
 
-@screen lg {
-    .table-container table thead th.last-cell-lg::after {
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell:first-child
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell.first-cell
+        > div.table-cell-bg::before {
+        @apply left-0 -ml-4 border-l rounded-l-xl;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell:last-child
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell.last-cell
+        > div.table-cell-bg::before {
+        @apply right-0 -mr-4 border-r rounded-r-xl;
+    }
+
+    .table-container table > tbody > tr > td.hoverable-cell {
+        @apply relative;
+    }
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-content {
+        @apply relative flex items-center px-3;
+    }
+
+    .table-container table > tbody > tr > td.hoverable-cell > div.table-cell-bg {
+        @apply absolute top-0 left-0 w-full h-full border-t-2 border-b-2 border-white;
+    }
+
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply border-theme-secondary-900;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell.text-right
+        > div.table-cell-content {
+        @apply justify-end;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-bg:after {
         content: "";
+        @apply absolute top-0 bottom-0 left-0 right-0 w-full h-full border-t border-b border-transparent pointer-events-none;
     }
-}
 
-@screen xl {
-    .table-container table thead th.last-cell-xl::after {
-        content: "";
-    }
-}
-
-.table-container table tbody td {
-    @apply px-3 py-4 leading-5;
-}
-
-.table-container table tbody tr {
-    @apply border-b border-dashed border-theme-secondary-300;
-}
-
-.table-container table tbody tr:last-child {
-    @apply border-0;
-}
-
-.dark .table-container {
-    @apply text-theme-secondary-500;
-}
-
-/* Table List */
-.table-list-mobile-row {
-    @apply flex flex-col w-full py-6 space-y-6 border-t border-theme-secondary-300;
-}
-.table-list-mobile-row:first-child {
-    @apply pt-0 border-t-0;
-}
-.dark .table-list-mobile-row {
-    @apply border-theme-secondary-800;
-}
-
-.table-list-mobile-row > div:not(.table-list-mobile-name) {
-    @apply flex justify-between w-full;
-}
-
-.table-list-mobile-name {
-    @apply flex items-center mb-2 space-x-2 text-lg;
-}
-
-@screen md {
-    .table-list-mobile {
-        @apply hidden;
-    }
-}
-
-/* Table Scrollbar */
-.table-container .table-wrapper {
-    scrollbar-color: #e5f0f8 #bad6f0;
-}
-
-.table-container .table-wrapper::-webkit-scrollbar {
-    @apply rounded-lg bg-theme-primary-100;
-    width: 6px;
-    height: 6px;
-}
-
-.table-container .table-wrapper::-webkit-scrollbar-thumb {
-    @apply rounded-lg bg-theme-primary-200;
-}
-
-/* Table highlight & hover effect (requires to use `<x-ark-tables.cell` instead of a `td`) */
-.table-container table tbody td.hoverable-cell {
-    @apply px-0 py-0.5;
-}
-
-.table-container table tbody tr {
-    @apply outline-none;
-}
-
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell:first-child
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell.first-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell:last-child
-    > div.table-cell-bg:before,
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell.last-cell
-    > div.table-cell-bg::before {
-    content: "";
-    @apply absolute top-0 block w-4 h-full border-t border-b border-transparent;
-}
-
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell:first-child
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell.first-cell
-    > div.table-cell-bg::before {
-    @apply left-0 -ml-4 border-l rounded-l-xl;
-}
-
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell:last-child
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell.last-cell
-    > div.table-cell-bg::before {
-    @apply right-0 -mr-4 border-r rounded-r-xl;
-}
-
-.table-container table > tbody > tr > td.hoverable-cell {
-    @apply relative;
-}
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell
-    > div.table-cell-content {
-    @apply relative flex items-center px-3;
-}
-
-.table-container table > tbody > tr > td.hoverable-cell > div.table-cell-bg {
-    @apply absolute top-0 left-0 w-full h-full border-t-2 border-b-2 border-white;
-}
-
-.dark
-    .table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply border-theme-secondary-900;
-}
-
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell.text-right
-    > div.table-cell-content {
-    @apply justify-end;
-}
-
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell.text-left
-    > div.table-cell-content {
-    @apply justify-start;
-}
-
-.table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell
-    > div.table-cell-bg:after {
-    content: "";
-    @apply absolute top-0 bottom-0 left-0 right-0 w-full h-full border-t border-b border-transparent pointer-events-none;
-}
-
-.table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell:first-child
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell.first-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell:last-child
-    > div.table-cell-bg:before,
-.table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell.last-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-secondary-100;
-}
-
-.table-container
-    table
-    > tbody
-    > tr:focus
-    > td.hoverable-cell:first-child
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr:focus
-    > td.hoverable-cell.first-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr:focus
-    > td.hoverable-cell:last-child
-    > div.table-cell-bg:before,
-.table-container
-    table
-    > tbody
-    > tr:focus
-    > td.hoverable-cell.last-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr:focus
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-secondary-100;
-}
-
-.table-container
-    table
-    > tbody
-    > tr[data-danger]:hover
-    > td.hoverable-cell:first-child
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-danger]:hover
-    > td.hoverable-cell.first-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-danger]:hover
-    > td.hoverable-cell:last-child
-    > div.table-cell-bg:before,
-.table-container
-    table
-    > tbody
-    > tr[data-danger]:hover
-    > td.hoverable-cell.last-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-danger]:hover
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-danger-100;
-}
-
-.table-container
-    table
-    > tbody
-    > tr[data-warning]:hover
-    > td.hoverable-cell:first-child
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-warning]:hover
-    > td.hoverable-cell.first-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-warning]:hover
-    > td.hoverable-cell:last-child
-    > div.table-cell-bg:before,
-.table-container
-    table
-    > tbody
-    > tr[data-warning]:hover
-    > td.hoverable-cell.last-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-warning]:hover
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-warning-100;
-}
-
-.table-container
-    table
-    > tbody
-    > tr[data-info]:hover
-    > td.hoverable-cell:first-child
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-info]:hover
-    > td.hoverable-cell.first-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-info]:hover
-    > td.hoverable-cell:last-child
-    > div.table-cell-bg:before,
-.table-container
-    table
-    > tbody
-    > tr[data-info]:hover
-    > td.hoverable-cell.last-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-info]:hover
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-info-100;
-}
-
-.table-container
-    table
-    > tbody
-    > tr[data-success]:hover
-    > td.hoverable-cell:first-child
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-success]:hover
-    > td.hoverable-cell.first-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-success]:hover
-    > td.hoverable-cell:last-child
-    > div.table-cell-bg:before,
-.table-container
-    table
-    > tbody
-    > tr[data-success]:hover
-    > td.hoverable-cell.last-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-success]:hover
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-success-100;
-}
-
-.dark
-    .table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell:first-child
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell.first-cell
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell:last-child
-    > div.table-cell-bg:before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell.last-cell
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr:hover
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-black !important;
-}
-
-.table-container table thead th:last-child,
-.table-container table thead th.last-until-xl,
-.table-container table thead th.last-until-lg,
-.table-container table thead th.last-until-md,
-.table-container table thead th.last-until-sm,
-.table-container table tbody td.hoverable-cell:last-child .table-cell-content {
-    @apply pr-0;
-}
-
-.table-container table thead th:first-child,
-.table-container table tbody td.hoverable-cell:first-child .table-cell-content {
-    @apply pl-0;
-}
-
-@screen sm {
     .table-container
         table
         > tbody
-        > tr
-        > td.hoverable-cell.last-cell-sm
-        > div.table-cell-bg::before {
-        content: none;
-    }
+        > tr:hover
+        > td.hoverable-cell:first-child
+        > div.table-cell-bg::before,
     .table-container
         table
         > tbody
-        > tr
-        > td.hoverable-cell.first-cell-sm
-        > div.table-cell-bg::before {
-        content: none;
-    }
-
-    .table-container table thead th.last-until-sm {
-        @apply pr-3;
-    }
-}
-
-@screen md {
+        > tr:hover
+        > td.hoverable-cell.first-cell
+        > div.table-cell-bg::before,
     .table-container
         table
         > tbody
-        > tr
-        > td.hoverable-cell.last-cell-md
-        > div.table-cell-bg::before {
-        content: none;
-    }
+        > tr:hover
+        > td.hoverable-cell:last-child
+        > div.table-cell-bg:before,
     .table-container
         table
         > tbody
-        > tr
-        > td.hoverable-cell.first-cell-md
-        > div.table-cell-bg::before {
-        content: none;
-    }
-
-    .table-container table thead th.last-until-md {
-        @apply pr-3;
-    }
-}
-
-@screen lg {
+        > tr:hover
+        > td.hoverable-cell.last-cell
+        > div.table-cell-bg::before,
     .table-container
         table
         > tbody
-        > tr
-        > td.hoverable-cell.last-cell-lg
-        > div.table-cell-bg::before {
-        content: none;
+        > tr:hover
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-secondary-100;
     }
+
     .table-container
         table
         > tbody
-        > tr
-        > td.hoverable-cell.first-cell-lg
-        > div.table-cell-bg::before {
-        content: none;
-    }
-
-    .table-container table thead th.last-until-lg {
-        @apply pr-3;
-    }
-}
-
-@screen xl {
+        > tr:focus
+        > td.hoverable-cell:first-child
+        > div.table-cell-bg::before,
     .table-container
         table
         > tbody
-        > tr
-        > td.hoverable-cell.last-cell-xl
-        > div.table-cell-bg::before {
-        content: none;
-    }
+        > tr:focus
+        > td.hoverable-cell.first-cell
+        > div.table-cell-bg::before,
     .table-container
         table
         > tbody
-        > tr
-        > td.hoverable-cell.first-cell-xl
+        > tr:focus
+        > td.hoverable-cell:last-child
+        > div.table-cell-bg:before,
+    .table-container
+        table
+        > tbody
+        > tr:focus
+        > td.hoverable-cell.last-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr:focus
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-secondary-100;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr[data-danger]:hover
+        > td.hoverable-cell:first-child
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-danger]:hover
+        > td.hoverable-cell.first-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-danger]:hover
+        > td.hoverable-cell:last-child
+        > div.table-cell-bg:before,
+    .table-container
+        table
+        > tbody
+        > tr[data-danger]:hover
+        > td.hoverable-cell.last-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-danger]:hover
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-danger-100;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr[data-warning]:hover
+        > td.hoverable-cell:first-child
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-warning]:hover
+        > td.hoverable-cell.first-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-warning]:hover
+        > td.hoverable-cell:last-child
+        > div.table-cell-bg:before,
+    .table-container
+        table
+        > tbody
+        > tr[data-warning]:hover
+        > td.hoverable-cell.last-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-warning]:hover
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-warning-100;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr[data-info]:hover
+        > td.hoverable-cell:first-child
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-info]:hover
+        > td.hoverable-cell.first-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-info]:hover
+        > td.hoverable-cell:last-child
+        > div.table-cell-bg:before,
+    .table-container
+        table
+        > tbody
+        > tr[data-info]:hover
+        > td.hoverable-cell.last-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-info]:hover
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-info-100;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr[data-success]:hover
+        > td.hoverable-cell:first-child
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-success]:hover
+        > td.hoverable-cell.first-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-success]:hover
+        > td.hoverable-cell:last-child
+        > div.table-cell-bg:before,
+    .table-container
+        table
+        > tbody
+        > tr[data-success]:hover
+        > td.hoverable-cell.last-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-success]:hover
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-success-100;
+    }
+
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr:hover
+        > td.hoverable-cell:first-child
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr:hover
+        > td.hoverable-cell.first-cell
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr:hover
+        > td.hoverable-cell:last-child
+        > div.table-cell-bg:before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr:hover
+        > td.hoverable-cell.last-cell
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr:hover
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-black !important;
+    }
+
+    .table-container table thead th:last-child,
+    .table-container table thead th.last-until-xl,
+    .table-container table thead th.last-until-lg,
+    .table-container table thead th.last-until-md,
+    .table-container table thead th.last-until-sm,
+    .table-container table tbody td.hoverable-cell:last-child .table-cell-content {
+        @apply pr-0;
+    }
+
+    .table-container table thead th:first-child,
+    .table-container table tbody td.hoverable-cell:first-child .table-cell-content {
+        @apply pl-0;
+    }
+
+    @screen sm {
+        .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell.last-cell-sm
+            > div.table-cell-bg::before {
+            content: none;
+        }
+        .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell.first-cell-sm
+            > div.table-cell-bg::before {
+            content: none;
+        }
+
+        .table-container table thead th.last-until-sm {
+            @apply pr-3;
+        }
+    }
+
+    @screen md {
+        .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell.last-cell-md
+            > div.table-cell-bg::before {
+            content: none;
+        }
+        .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell.first-cell-md
+            > div.table-cell-bg::before {
+            content: none;
+        }
+
+        .table-container table thead th.last-until-md {
+            @apply pr-3;
+        }
+    }
+
+    @screen lg {
+        .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell.last-cell-lg
+            > div.table-cell-bg::before {
+            content: none;
+        }
+        .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell.first-cell-lg
+            > div.table-cell-bg::before {
+            content: none;
+        }
+
+        .table-container table thead th.last-until-lg {
+            @apply pr-3;
+        }
+    }
+
+    @screen xl {
+        .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell.last-cell-xl
+            > div.table-cell-bg::before {
+            content: none;
+        }
+        .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell.first-cell-xl
+            > div.table-cell-bg::before {
+            content: none;
+        }
+
+        .table-container table thead th.last-until-xl {
+            @apply pr-3;
+        }
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr[data-warning]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-warning]
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-warning-50;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr[data-info]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-info]
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-primary-50;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr[data-success]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-success]
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-success-50;
+    }
+
+    .table-container
+        table
+        > tbody
+        > tr[data-danger]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .table-container
+        table
+        > tbody
+        > tr[data-danger]
+        > td.hoverable-cell
+        > div.table-cell-bg {
+        @apply bg-theme-danger-50;
+    }
+
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-warning]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-warning]
+        > td.hoverable-cell
+        > div.table-cell-bg::after {
+        @apply border-theme-warning-500;
+    }
+
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-info]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-info]
+        > td.hoverable-cell
+        > div.table-cell-bg::after {
+        @apply border-theme-primary-600;
+    }
+
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-success]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-success]
+        > td.hoverable-cell
+        > div.table-cell-bg::after {
+        @apply border-theme-success-600;
+    }
+
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-danger]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-danger]
+        > td.hoverable-cell
+        > div.table-cell-bg::after {
+        @apply border-theme-danger-300;
+    }
+
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-warning]
+        > td.hoverable-cell
+        > div.table-cell-bg,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-danger]
+        > td.hoverable-cell
+        > div.table-cell-bg,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-info]
+        > td.hoverable-cell
+        > div.table-cell-bg,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-success]
+        > td.hoverable-cell
+        > div.table-cell-bg,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-warning]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-info]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-success]
+        > td.hoverable-cell
+        > div.table-cell-bg::before,
+    .dark
+        .table-container
+        table
+        > tbody
+        > tr[data-danger]
+        > td.hoverable-cell
         > div.table-cell-bg::before {
-        content: none;
+        @apply bg-transparent;
     }
 
-    .table-container table thead th.last-until-xl {
-        @apply pr-3;
-    }
-}
-
-.table-container
-    table
-    > tbody
-    > tr[data-warning]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-warning]
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-warning-50;
-}
-
-.table-container
-    table
-    > tbody
-    > tr[data-info]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-info]
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-primary-50;
-}
-
-.table-container
-    table
-    > tbody
-    > tr[data-success]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-success]
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-success-50;
-}
-
-.table-container
-    table
-    > tbody
-    > tr[data-danger]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.table-container
-    table
-    > tbody
-    > tr[data-danger]
-    > td.hoverable-cell
-    > div.table-cell-bg {
-    @apply bg-theme-danger-50;
-}
-
-.dark
+    /* Compact tables */
     .table-container
-    table
-    > tbody
-    > tr[data-warning]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-warning]
-    > td.hoverable-cell
-    > div.table-cell-bg::after {
-    @apply border-theme-warning-500;
-}
-
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-info]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-info]
-    > td.hoverable-cell
-    > div.table-cell-bg::after {
-    @apply border-theme-primary-600;
-}
-
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-success]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-success]
-    > td.hoverable-cell
-    > div.table-cell-bg::after {
-    @apply border-theme-success-600;
-}
-
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-danger]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-danger]
-    > td.hoverable-cell
-    > div.table-cell-bg::after {
-    @apply border-theme-danger-300;
-}
-
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-warning]
-    > td.hoverable-cell
-    > div.table-cell-bg,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-danger]
-    > td.hoverable-cell
-    > div.table-cell-bg,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-info]
-    > td.hoverable-cell
-    > div.table-cell-bg,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-success]
-    > td.hoverable-cell
-    > div.table-cell-bg,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-warning]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-info]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-success]
-    > td.hoverable-cell
-    > div.table-cell-bg::before,
-.dark
-    .table-container
-    table
-    > tbody
-    > tr[data-danger]
-    > td.hoverable-cell
-    > div.table-cell-bg::before {
-    @apply bg-transparent;
-}
-
-/* Compact tables */
-.table-container
-    table:not(.table-compact)
-    > tbody
-    > tr
-    > td.hoverable-cell
-    > div.table-cell-content,
-body:not(.table-compact)
-    .table-container
-    > tbody
-    > tr
-    > td.hoverable-cell
-    > div.table-cell-content {
-    @apply py-4;
-}
-
-.table-container
-    table.table-compact
-    > tbody
-    > tr
-    > td.hoverable-cell
-    > div.table-cell-content,
-body.table-compact
-    .table-container
-    table
-    > tbody
-    > tr
-    > td.hoverable-cell
-    > div.table-cell-content {
-    @apply py-3;
-}
-
-@screen sm {
-    .table-container
-        table.table-compact.table-compact-until-sm
+        table:not(.table-compact)
         > tbody
         > tr
         > td.hoverable-cell
         > div.table-cell-content,
-    body.table-compact.table-compact-until-sm
+    body:not(.table-compact)
         .table-container
-        table
         > tbody
         > tr
         > td.hoverable-cell
         > div.table-cell-content {
         @apply py-4;
     }
-}
 
-@screen md {
     .table-container
-        table.table-compact.table-compact-until-md
+        table.table-compact
         > tbody
         > tr
         > td.hoverable-cell
         > div.table-cell-content,
-    body.table-compact.table-compact-until-md
+    body.table-compact
         .table-container
         table
         > tbody
         > tr
         > td.hoverable-cell
         > div.table-cell-content {
-        @apply py-4;
+        @apply py-3;
     }
-}
 
-@screen lg {
-    .table-container
-        table.table-compact.table-compact-until-lg
-        > tbody
-        > tr
-        > td.hoverable-cell
-        > div.table-cell-content,
-    body.table-compact.table-compact-until-lg
+    @screen sm {
         .table-container
-        table
-        > tbody
-        > tr
-        > td.hoverable-cell
-        > div.table-cell-content {
-        @apply py-4;
+            table.table-compact.table-compact-until-sm
+            > tbody
+            > tr
+            > td.hoverable-cell
+            > div.table-cell-content,
+        body.table-compact.table-compact-until-sm
+            .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell
+            > div.table-cell-content {
+            @apply py-4;
+        }
     }
-}
 
-@screen xl {
-    .table-container
-        table.table-compact.table-compact-until-xl
-        > tbody
-        > tr
-        > td.hoverable-cell
-        > div.table-cell-content,
-    body.table-compact.table-compact-until-xl
+    @screen md {
         .table-container
-        table
-        > tbody
-        > tr
-        > td.hoverable-cell
-        > div.table-cell-content {
-        @apply py-4;
+            table.table-compact.table-compact-until-md
+            > tbody
+            > tr
+            > td.hoverable-cell
+            > div.table-cell-content,
+        body.table-compact.table-compact-until-md
+            .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell
+            > div.table-cell-content {
+            @apply py-4;
+        }
     }
-}
 
-/**
-* To use sticky headers you will need to manually define the `top` CSS property
-* inside a `.table-container table.sticky-headers th` class according to your
-* needs
-*/
-.table-container table.sticky-headers th {
-    @apply sticky bg-white z-5 bg-clip-padding;
-    box-shadow: inset 0 -1px 0 var(--theme-color-secondary-300);
-    /* Define this on your local project CSS file */
-    /* top: 80px; */
-}
-
-.dark .table-container table.sticky-headers th {
-    box-shadow: inset 0 -1px 0 var(--theme-color-secondary-800);
-}
-
-.table-container table.sticky-headers th:first-child:before,
-.table-container table.sticky-headers th:last-child:before,
-.table-container table.sticky-headers th.last-cell:before {
-    content: "";
-    @apply absolute top-0 w-4 h-full bg-white border-0 border-theme-secondary-300;
-}
-.dark .table-container table.sticky-headers th:first-child:before,
-.dark .table-container table.sticky-headers th:last-child:before {
-    @apply bg-theme-secondary-900 border-theme-secondary-800;
-}
-
-.table-container table.sticky-headers th:first-child:before,
-.table-container table.sticky-headers th.first-cell:before {
-    @apply left-0 -ml-4;
-}
-
-.table-container table.sticky-headers th:last-child:before,
-.table-container table.sticky-headers th.last-cell:before {
-    @apply right-0 -mr-4;
-}
-
-.dark .table-container table.sticky-headers th.last-cell:before {
-    @apply bg-theme-secondary-900;
-}
-
-@screen xl {
-    .table-container table.sticky-headers th.last-cell-xl:before {
-        height: 50%;
-        @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
+    @screen lg {
+        .table-container
+            table.table-compact.table-compact-until-lg
+            > tbody
+            > tr
+            > td.hoverable-cell
+            > div.table-cell-content,
+        body.table-compact.table-compact-until-lg
+            .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell
+            > div.table-cell-content {
+            @apply py-4;
+        }
     }
-}
 
-@screen lg {
-    .table-container table.sticky-headers th.last-cell-lg:before {
-        height: 50%;
-        @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
+    @screen xl {
+        .table-container
+            table.table-compact.table-compact-until-xl
+            > tbody
+            > tr
+            > td.hoverable-cell
+            > div.table-cell-content,
+        body.table-compact.table-compact-until-xl
+            .table-container
+            table
+            > tbody
+            > tr
+            > td.hoverable-cell
+            > div.table-cell-content {
+            @apply py-4;
+        }
     }
-}
 
-@screen md {
-    .table-container table.sticky-headers th.last-cell-md:before {
-        height: 50%;
-        @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
+    /**
+    * To use sticky headers you will need to manually define the `top` CSS property
+    * inside a `.table-container table.sticky-headers th` class according to your
+    * needs
+    */
+    .table-container table.sticky-headers th {
+        @apply sticky bg-white z-5 bg-clip-padding;
+        box-shadow: inset 0 -1px 0 var(--theme-color-secondary-300);
+        /* Define this on your local project CSS file */
+        /* top: 80px; */
     }
-}
 
-@screen sm {
-    .table-container table.sticky-headers th.last-cell-sm:before {
-        height: 50%;
-        @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
+    .dark .table-container table.sticky-headers th {
+        box-shadow: inset 0 -1px 0 var(--theme-color-secondary-800);
     }
-}
 
-.dark .table-container table.sticky-headers th {
-    @apply bg-theme-secondary-900;
-}
+    .table-container table.sticky-headers th:first-child:before,
+    .table-container table.sticky-headers th:last-child:before,
+    .table-container table.sticky-headers th.last-cell:before {
+        content: "";
+        @apply absolute top-0 w-4 h-full bg-white border-0 border-theme-secondary-300;
+    }
+    .dark .table-container table.sticky-headers th:first-child:before,
+    .dark .table-container table.sticky-headers th:last-child:before {
+        @apply bg-theme-secondary-900 border-theme-secondary-800;
+    }
 
-.table-container table.sticky-headers thead tr {
-    @apply border-none;
+    .table-container table.sticky-headers th:first-child:before,
+    .table-container table.sticky-headers th.first-cell:before {
+        @apply left-0 -ml-4;
+    }
+
+    .table-container table.sticky-headers th:last-child:before,
+    .table-container table.sticky-headers th.last-cell:before {
+        @apply right-0 -mr-4;
+    }
+
+    .dark .table-container table.sticky-headers th.last-cell:before {
+        @apply bg-theme-secondary-900;
+    }
+
+    @screen xl {
+        .table-container table.sticky-headers th.last-cell-xl:before {
+            height: 50%;
+            @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
+        }
+    }
+
+    @screen lg {
+        .table-container table.sticky-headers th.last-cell-lg:before {
+            height: 50%;
+            @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
+        }
+    }
+
+    @screen md {
+        .table-container table.sticky-headers th.last-cell-md:before {
+            height: 50%;
+            @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
+        }
+    }
+
+    @screen sm {
+        .table-container table.sticky-headers th.last-cell-sm:before {
+            height: 50%;
+            @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
+        }
+    }
+
+    .dark .table-container table.sticky-headers th {
+        @apply bg-theme-secondary-900;
+    }
+
+    .table-container table.sticky-headers thead tr {
+        @apply border-none;
+    }
 }
