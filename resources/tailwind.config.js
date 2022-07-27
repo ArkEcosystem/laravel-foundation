@@ -211,8 +211,8 @@ module.exports = {
     },
     plugins: [
         plugin(function ({ addVariant }) {
-            addVariant("inverted", ".inverted &")
-            addVariant("inverted-hover", ".inverted &:hover")
+            addVariant("inverted", ".inverted &");
+            addVariant("inverted-hover", ".inverted &:hover");
         }),
     ],
     content: [
