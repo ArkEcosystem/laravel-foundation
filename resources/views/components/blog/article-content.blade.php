@@ -1,19 +1,19 @@
 @props (['article'])
 
 <section class="w-full bg-theme-background">
-    <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row lg:px-10 bg-theme-background">
+    <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row md:px-10 bg-theme-background">
         <div class="flex flex-col text-sm font-semibold text-theme-secondary-500">
             <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-500">
-                <div class="flex items-center pr-3 space-x-2 border-r border-theme-secondary-800">
-                    <div class="object-contain overflow-hidden w-4 h-4 rounded">
-                        <img src="{{ $article->author->photo() }}" />
-                    </div>
-
+                <div class="pr-3 border-r border-theme-secondary-800">
                     <a
                         href="{{ route('author', $article->author) }}"
-                        class="hidden sm:inline-flex group link link-dark"
+                        class="flex items-center space-x-2 group link link-dark"
                     >
-                        <span class="group-hover:text-theme-primary-500">
+                        <div class="object-contain overflow-hidden w-4 h-4 rounded">
+                            <img src="{{ $article->author->photo() }}" />
+                        </div>
+
+                        <span class="hidden sm:inline-flex group-hover:text-theme-primary-500">
                             {{ $article->author->name }}
                         </span>
                     </a>
@@ -51,7 +51,7 @@
 </section>
 
 <section class="bg-hero-50">
-    <div class="py-8 px-8 mx-auto lg:max-w-7xl">
+    <div class="py-8 px-8 mx-auto md:px-10 lg:max-w-7xl">
         <div class="flex relative justify-center">
             <img src="{{ asset($article->banner()) }}" class="w-full h-full rounded-xl" />
 
@@ -65,7 +65,7 @@
     </div>
 </section>
 
-<section class="px-8 pb-8 mx-auto space-y-8 w-full max-w-5xl lg:px-10">
+<section class="px-8 pb-8 mx-auto space-y-8 w-full max-w-5xl md:px-10">
     <article class="article-content documentation-content">
         @markdown ($article->body)
     </article>
