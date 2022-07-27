@@ -37,12 +37,12 @@ it('gets the response from the cache if set', function () {
 
 it('returns an empty string if receives an invalid response', function () {
     $response = [
-      'invalid' => 'invalid',
-  ];
+        'invalid' => 'invalid',
+    ];
 
     Http::fake([
-      'publish.twitter.com/*' => $response,
-  ]);
+        'publish.twitter.com/*' => $response,
+    ]);
 
     $mediaUrl = new MediaUrl('twitter', 'arkecosystem/status/1234');
 
@@ -53,10 +53,10 @@ it('returns an empty string if receives an invalid response', function () {
 
 it('returns an empty string if twitter server is down', function () {
     Http::fake([
-      'publish.twitter.com/*' => function () {
-          throw new ConnectionException();
-      },
-  ]);
+        'publish.twitter.com/*' => function () {
+            throw new ConnectionException();
+        },
+    ]);
 
     $mediaUrl = new MediaUrl('twitter', 'arkecosystem/status/1234');
 
@@ -69,23 +69,23 @@ it('caches the response for 5 minutes if server is down', function () {
     $id       = 'arkecosystem/status/1234';
     $cacheKey = md5('https://twitter.com/'.$id);
 
-    Cache::shouldReceive('rememberForever')
-    ->once()
-    ->with($cacheKey, \Closure::class)
-    ->andReturn(false)
-    ->shouldReceive('forget')
-    ->once()
-    ->with($cacheKey)
-    ->shouldReceive('remember')
-    ->with($cacheKey, Carbon::class, \Closure::class)
-    ->once()
-    ->andReturn('');
-
     Http::fake([
-      'publish.twitter.com/*' => function () {
-          throw new ConnectionException();
-      },
-  ]);
+        'publish.twitter.com/*' => function () {
+            throw new ConnectionException();
+        },
+    ]);
+
+    Cache::shouldReceive('rememberForever')
+        ->once()
+        ->with($cacheKey, \Closure::class)
+        ->andReturn(null)
+        ->shouldReceive('forget')
+        ->once()
+        ->with($cacheKey)
+        ->shouldReceive('remember')
+        ->with($cacheKey, Carbon::class, \Closure::class)
+        ->once()
+        ->andReturn('');
 
     $mediaUrl = new MediaUrl('twitter', $id);
 
