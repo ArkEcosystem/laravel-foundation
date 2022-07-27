@@ -19,7 +19,7 @@ final class TwitterRenderer
 
         $darkEmbed = null;
         $embed     = self::getEmbed($url);
-        $result = sprintf(
+        $result    = sprintf(
             $darkModeEnabled ? '<div class="dark:hidden">%s</div>' : '%s',
             $embed
         );
@@ -78,7 +78,7 @@ final class TwitterRenderer
 
                 return Arr::get($response, 'html', '');
             } catch (ConnectionException $e) {
-                return null;
+                return;
             }
         });
     }
