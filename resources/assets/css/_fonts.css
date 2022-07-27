@@ -1,15 +1,19 @@
-html {
-    font-family: "Inter", sans-serif;
-}
-
-@supports (font-variation-settings: normal) {
+@layer base {
     html {
-        font-family: "Inter var", sans-serif;
+        font-family: "Inter", sans-serif;
+    }
+
+    @supports (font-variation-settings: normal) {
+        html {
+            font-family: "Inter var", sans-serif;
+        }
     }
 }
 
-.semibold {
-    font-family: "Inter Semibold";
+@layer utilities {
+    .semibold {
+        font-family: "Inter Semibold";
+    }
 }
 
 /* FiraMono */
