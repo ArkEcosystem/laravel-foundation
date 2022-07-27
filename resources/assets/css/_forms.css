@@ -1,358 +1,366 @@
-/* General */
-input[type="password"]::-ms-reveal {
-    display: none;
+@layer base {
+    /* General */
+    input[type="password"]::-ms-reveal {
+        display: none;
+    }
 }
 
-.input-label {
-    @apply flex text-sm font-semibold leading-5 text-theme-secondary-700 transition-default dark:text-theme-secondary-500;
+@layer components {
+    .input-label {
+        @apply flex text-sm font-semibold leading-5 text-theme-secondary-700 transition-default dark:text-theme-secondary-500;
+    }
+
+    .input-label--toggle {
+        @apply mr-3 text-base font-semibold leading-5 text-theme-secondary-700 transition-default;
+    }
+
+    .input-wrapper {
+        @apply relative mt-2 rounded shadow-sm text-theme-secondary-900;
+    }
+    .dark .input-wrapper {
+        @apply text-theme-secondary-200;
+    }
+
+    .input-tooltip {
+        @apply flex items-center justify-center w-4 h-4 ml-2 text-sm text-white rounded-full bg-theme-secondary-700;
+    }
+
+    .input-text {
+        @apply block w-full form-input transition-default mr-6;
+
+        /* Note: need this to override form-input padding */
+        padding: 0.75rem 1rem;
+    }
+    .dark :not(.light).input-text {
+        @apply bg-theme-secondary-900 border-theme-secondary-700;
+    }
+    .input-text.shifted {
+        /* Note: need this to override form-input padding */
+        padding: 0.75rem 3.25rem 0.75rem 0.75rem;
+    }
+
+    .dark .input-text::placeholder,
+    .dark .input-text-with-prefix::placeholder,
+    .dark .input-text-with-suffix::placeholder {
+        @apply text-theme-secondary-700;
+    }
+
+    .input-rich-select .form-input {
+        /* Note: need this to override form-input padding */
+        padding: 0.75rem 1rem;
+    }
+
+    .input-group:focus-within .input-label,
+    .input-group:hover .input-label {
+        @apply text-theme-primary-600;
+    }
+
+    .input-group:focus-within .input-wrapper-with-prefix,
+    .input-group:focus-within .input-wrapper-with-suffix,
+    .input-group:focus-within .input-text,
+    .input-group:focus-within .form-select {
+        @apply border-theme-primary-600;
+    }
+
+    .input-group:focus-within .input-text-with-prefix:read-only,
+    .input-group:focus-within .input-text-with-suffix:read-only,
+    .input-group:focus-within .input-text-with-icon:read-only,
+    .input-text-with-icon:read-only,
+    .input-group:focus-within .input-text:read-only,
+    .input-text:read-only,
+    .input-text-with-prefix:read-only,
+    .input-text-with-suffix:read-only {
+        @apply cursor-not-allowed border-theme-secondary-400 bg-theme-secondary-100 dark:bg-theme-secondary-800 dark:text-theme-secondary-500;
+    }
+
+    .input-group:focus-within .input-text-with-prefix.cursor-default:read-only,
+    .input-group:focus-within .input-text-with-suffix.cursor-default:read-only,
+    .input-group:focus-within .input-text-with-icon.cursor-default:read-only,
+    .input-text-with-icon.cursor-default:read-only,
+    .input-group:focus-within .input-text.cursor-default:read-only,
+    .input-text.cursor-default:read-only,
+    .input-text-with-prefix.cursor-default:read-only,
+    .input-text-with-suffix.cursor-default:read-only {
+        cursor: default;
+    }
+
+    .dark .form-select {
+        @apply bg-theme-secondary-900 border-theme-secondary-700 text-theme-secondary-200;
+    }
+
+    /** Input with icon button **/
+    .input-wrapper-with-icon {
+        @apply relative mt-2 shadow-sm text-theme-secondary-900;
+    }
+
+    .input-text-with-icon {
+        @apply input-text;
+    }
+
+    /** Input icon */
+    .input-icon {
+        @apply absolute inset-y-0 flex items-center;
+    }
+
+    /** Input with icon prefix **/
+    .input-prefix-icon,
+    .input-prefix,
+    .input-suffix {
+        @apply flex items-center;
+    }
+
+    .input-prefix,
+    .input-suffix {
+        @apply px-4;
+    }
+
+    .input-prefix {
+        @apply rounded-l;
+    }
+    .input-suffix {
+        @apply rounded-r;
+    }
+    .input-text--error .input-suffix {
+        @apply ml-10;
+    }
+    .input-text--error .input-suffix .input-icon {
+        @apply right-auto left-0 -ml-13;
+    }
+
+    .input-text-with-prefix,
+    .input-text-with-suffix {
+        @apply block w-full border-0 rounded outline-none appearance-none transition-default border-theme-danger-500 dark:bg-theme-secondary-900;
+
+        /* Note: need this to override form-input padding */
+        padding: 0.75rem 1rem;
+    }
+
+    .input-wrapper-with-prefix,
+    .input-wrapper-with-suffix {
+        @apply flex bg-white border rounded border-theme-secondary-300 dark:border-theme-secondary-700 dark:bg-theme-secondary-900;
+    }
+
+    .input-wrapper-with-prefix .input-prefix-icon {
+        @apply text-theme-secondary-500 dark:text-theme-secondary-700;
+    }
+    .input-wrapper-with-prefix--dirty .input-prefix-icon,
+    .input-wrapper-with-prefix:focus-within .input-prefix-icon {
+        @apply text-theme-primary-500 dark:text-theme-primary-600;
+    }
+    .input-wrapper-with-prefix .input-prefix {
+        @apply border-r dark:border-theme-secondary-700;
+    }
+    .input-wrapper-with-suffix .input-suffix {
+        @apply border-l;
+    }
+    .input-wrapper-with-prefix .input-prefix,
+    .input-wrapper-with-suffix .input-suffix {
+        @apply select-none text-theme-secondary-500 border-theme-secondary-300 dark:border-theme-secondary-700;
+    }
+
+    /* Radio buttons */
+    .input-radio {
+        @apply w-4 h-4 transition duration-150 ease-in-out text-theme-success-600;
+    }
+
+    .input-radio[disabled] {
+        @apply border-theme-secondary-300 bg-theme-secondary-100 text-theme-secondary-300;
+    }
+
+    .input-radio:checked[disabled] {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='gray' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+    }
+
+    .form-radio:checked.radio-checkmark {
+        @apply text-theme-success-500;
+        padding: 2px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 17 13'%3E%3Cpath d='M13.9.2L6.4 7.4 2.9 4 .4 6.4l6 5.8 10-9.6L13.9.2z'/%3E%3C/svg%3E");
+        background-origin: content-box;
+    }
+
+    /* Checkboxes */
+    .input-checkbox {
+        @apply w-4 h-4 transition duration-150 ease-in-out text-theme-success-600 border-theme-secondary-300 border-2 dark:border-theme-secondary-800 dark:bg-transparent;
+    }
+
+    .dark .input-checkbox:checked {
+        @apply bg-theme-success-600 border-theme-success-600;
+    }
+
+    .input-checkbox[disabled] {
+        @apply border-theme-secondary-300 bg-theme-secondary-100 text-theme-secondary-300;
+    }
+
+    .input-checkbox:checked[disabled] {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='gray' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+    }
+
+    /* Switch (toggle alternative) */
+    .input-switch-button-left {
+        @apply translate-x-full bg-theme-primary-600;
+    }
+
+    .input-switch-button-right {
+        @apply translate-x-0 bg-theme-primary-600;
+    }
+
+    .input-switch-button-left:hover,
+    .input-switch-button-right:hover {
+        @apply ring;
+    }
+
+    /* Errors */
+    .input-group:focus-within .input-label--error,
+    .input-group:hover .input-label--error,
+    .input-label--error {
+        @apply text-theme-danger-500;
+    }
+    .dark .input-group:focus-within .input-label--error,
+    .dark .input-group:hover .input-label--error,
+    .dark .input-label--error {
+        @apply text-theme-danger-400;
+    }
+
+    .input-text-with-icon--error,
+    .input-text--error {
+        @apply border-theme-danger-500;
+    }
+
+    .input-text-with-icon--error,
+    .input-text--error:not(.input-wrapper-with-suffix) {
+        @apply mr-0 pr-10;
+    }
+    .dark .input-text-with-icon--error,
+    .dark .input-text--error {
+        @apply border-theme-danger-400;
+    }
+    .input-text--error.shifted {
+        @apply pr-24;
+    }
+
+    .input-group:focus-within .input-text-with-icon--error,
+    .input-text-with-icon--error:focus,
+    .input-group:focus-within .input-text--error,
+    .input-text--error:focus {
+        @apply border-theme-danger-300 ring-theme-danger-300;
+    }
+
+    .input-text-with-icon--error::placeholder,
+    .input-text--error::placeholder {
+        @apply text-theme-danger-300;
+    }
+
+    .input-help--error {
+        @apply mt-2 text-sm text-theme-danger-500;
+    }
+
+    /* Tags */
+    /* purgecss ignore */
+    .tags-input-focus {
+        @apply border-theme-primary-600;
+        box-shadow: 0 0 0 1px var(--theme-color-primary-600);
+    }
+
+    .taggle_list {
+        @apply flex flex-wrap -mb-1;
+    }
+
+    .taggle_list li {
+        @apply inline mb-1 mr-2 font-medium align-baseline whitespace-nowrap;
+    }
+
+    .taggle_list .taggle {
+        @apply flex items-center pl-2 pr-1 space-x-2 overflow-auto rounded bg-theme-primary-100 dark:bg-theme-secondary-800;
+        padding-top: 0.25rem !important;
+        padding-bottom: 0.25rem !important;
+    }
+
+    .taggle_list .taggle .close {
+        @apply items-center p-1 text-lg leading-3 no-underline rounded cursor-pointer pointer-events-none right-2 text-theme-secondary-900 bg-theme-primary-200 whitespace-nowrap dark:bg-theme-secondary-700;
+    }
+
+    .taggle_list .taggle:hover {
+        @apply py-2 transition-all duration-150;
+    }
+
+    .taggle_list .taggle:hover > .close {
+        @apply opacity-100 pointer-events-auto;
+    }
+
+    .taggle_list .taggle .close:hover {
+        @apply text-theme-primary-600 dark:text-theme-secondary-200;
+    }
+
+    .taggle_placeholder {
+        @apply absolute top-0 left-0 max-w-full p-3 truncate rounded pointer-events-none text-theme-secondary-400 dark:text-theme-secondary-700;
+    }
+
+    .taggle_input {
+        @apply max-w-full my-1 bg-transparent;
+    }
+
+    .taggle_sizer {
+        @apply absolute invisible p-0 m-0;
+        top: -500px;
+        z-index: -1;
+    }
+
+    .taggle_text {
+        @apply truncate text-theme-primary-600 dark:text-theme-secondary-200;
+    }
+
+    .taggle {
+        @apply space-x-2 bg-theme-primary-100 dark:bg-theme-secondary-800;
+    }
+
+    .disabled-tags-input .tags-input-focus {
+        @apply border-theme-secondary-200 dark:border-theme-secondary-800;
+        box-shadow: 0 0 0 1px var(--theme-color-secondary-200);
+    }
+
+    .dark .disabled-tags-input .tags-input-focus {
+        box-shadow: 0 0 0 1px var(--theme-color-secondary-800);
+    }
+
+    .disabled-tags-input .taggle > .close {
+        pointer-events: all;
+    }
+
+    .disabled-tags-input .taggle_input,
+    .disabled-tags-input .taggle_list,
+    .disabled-tags-input .taggle_placeholder,
+    .disabled-tags-input > div {
+        @apply bg-theme-secondary-100 dark:bg-theme-secondary-900;
+    }
+
+    .disabled-tags-input:not(.disabled-tags-input-add) .taggle_list .taggle {
+        @apply pr-2;
+    }
+
+    .disabled-tags-input:not(.disabled-tags-input-add) .taggle > .close {
+        @apply hidden;
+    }
 }
 
-.input-label--toggle {
-    @apply mr-3 text-base font-semibold leading-5 text-theme-secondary-700 transition-default;
+@layer utilities {
+    /* Disable arrows from numeric input */
+    /* Chrome, Safari, Edge, Opera */
+    .hide-number-input-arrows input::-webkit-outer-spin-button,
+    .hide-number-input-arrows input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    .hide-number-input-arrows input[type="number"] {
+        -moz-appearance: textfield;
+    }
 }
 
-.input-wrapper {
-    @apply relative mt-2 rounded shadow-sm text-theme-secondary-900;
-}
-.dark .input-wrapper {
-    @apply text-theme-secondary-200;
-}
-
-.input-tooltip {
-    @apply flex items-center justify-center w-4 h-4 ml-2 text-sm text-white rounded-full bg-theme-secondary-700;
-}
-
-.input-text {
-    @apply block w-full form-input transition-default mr-6;
-
-    /* Note: need this to override form-input padding */
-    padding: 0.75rem 1rem;
-}
-.dark :not(.light).input-text {
-    @apply bg-theme-secondary-900 border-theme-secondary-700;
-}
-.input-text.shifted {
-    /* Note: need this to override form-input padding */
-    padding: 0.75rem 3.25rem 0.75rem 0.75rem;
-}
-
-.dark .input-text::placeholder,
-.dark .input-text-with-prefix::placeholder,
-.dark .input-text-with-suffix::placeholder {
-    @apply text-theme-secondary-700;
-}
-
-.input-rich-select .form-input {
-    /* Note: need this to override form-input padding */
-    padding: 0.75rem 1rem;
-}
-
-.input-group:focus-within .input-label,
-.input-group:hover .input-label {
-    @apply text-theme-primary-600;
-}
-
-.input-group:focus-within .input-wrapper-with-prefix,
-.input-group:focus-within .input-wrapper-with-suffix,
-.input-group:focus-within .input-text,
-.input-group:focus-within .form-select {
-    @apply border-theme-primary-600;
-}
-
-.input-group:focus-within .input-text-with-prefix:read-only,
-.input-group:focus-within .input-text-with-suffix:read-only,
-.input-group:focus-within .input-text-with-icon:read-only,
-.input-text-with-icon:read-only,
-.input-group:focus-within .input-text:read-only,
-.input-text:read-only,
-.input-text-with-prefix:read-only,
-.input-text-with-suffix:read-only {
-    @apply cursor-not-allowed border-theme-secondary-400 bg-theme-secondary-100 dark:bg-theme-secondary-800 dark:text-theme-secondary-500;
-}
-
-.input-group:focus-within .input-text-with-prefix.cursor-default:read-only,
-.input-group:focus-within .input-text-with-suffix.cursor-default:read-only,
-.input-group:focus-within .input-text-with-icon.cursor-default:read-only,
-.input-text-with-icon.cursor-default:read-only,
-.input-group:focus-within .input-text.cursor-default:read-only,
-.input-text.cursor-default:read-only,
-.input-text-with-prefix.cursor-default:read-only,
-.input-text-with-suffix.cursor-default:read-only {
-    cursor: default;
-}
-
-.dark .form-select {
-    @apply bg-theme-secondary-900 border-theme-secondary-700 text-theme-secondary-200;
-}
-
-/** Input with icon button **/
-.input-wrapper-with-icon {
-    @apply relative mt-2 shadow-sm text-theme-secondary-900;
-}
-
-.input-text-with-icon {
-    @apply input-text;
-}
-
-/** Input icon */
-.input-icon {
-    @apply absolute inset-y-0 flex items-center;
-}
-
-/** Input with icon prefix **/
-.input-prefix-icon,
-.input-prefix,
-.input-suffix {
-    @apply flex items-center;
-}
-
-.input-prefix,
-.input-suffix {
-    @apply px-4;
-}
-
-.input-prefix {
-    @apply rounded-l;
-}
-.input-suffix {
-    @apply rounded-r;
-}
-.input-text--error .input-suffix {
-    @apply ml-10;
-}
-.input-text--error .input-suffix .input-icon {
-    @apply right-auto left-0 -ml-13;
-}
-
-.input-text-with-prefix,
-.input-text-with-suffix {
-    @apply block w-full border-0 rounded outline-none appearance-none transition-default border-theme-danger-500 dark:bg-theme-secondary-900;
-
-    /* Note: need this to override form-input padding */
-    padding: 0.75rem 1rem;
-}
-
-.input-wrapper-with-prefix,
-.input-wrapper-with-suffix {
-    @apply flex bg-white border rounded border-theme-secondary-300 dark:border-theme-secondary-700 dark:bg-theme-secondary-900;
-}
-
-.input-wrapper-with-prefix .input-prefix-icon {
-    @apply text-theme-secondary-500 dark:text-theme-secondary-700;
-}
-.input-wrapper-with-prefix--dirty .input-prefix-icon,
-.input-wrapper-with-prefix:focus-within .input-prefix-icon {
-    @apply text-theme-primary-500 dark:text-theme-primary-600;
-}
-.input-wrapper-with-prefix .input-prefix {
-    @apply border-r dark:border-theme-secondary-700;
-}
-.input-wrapper-with-suffix .input-suffix {
-    @apply border-l;
-}
-.input-wrapper-with-prefix .input-prefix,
-.input-wrapper-with-suffix .input-suffix {
-    @apply select-none text-theme-secondary-500 border-theme-secondary-300 dark:border-theme-secondary-700;
-}
-
-/* Radio buttons */
-.input-radio {
-    @apply w-4 h-4 transition duration-150 ease-in-out text-theme-success-600;
-}
-
-.input-radio[disabled] {
-    @apply border-theme-secondary-300 bg-theme-secondary-100 text-theme-secondary-300;
-}
-
-.input-radio:checked[disabled] {
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='gray' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
-}
-
-.form-radio:checked.radio-checkmark {
-    @apply text-theme-success-500;
-    padding: 2px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 17 13'%3E%3Cpath d='M13.9.2L6.4 7.4 2.9 4 .4 6.4l6 5.8 10-9.6L13.9.2z'/%3E%3C/svg%3E");
-    background-origin: content-box;
-}
-
-/* Checkboxes */
-.input-checkbox {
-    @apply w-4 h-4 transition duration-150 ease-in-out text-theme-success-600 border-theme-secondary-300 border-2 dark:border-theme-secondary-800 dark:bg-transparent;
-}
-
-.dark .input-checkbox:checked {
-    @apply bg-theme-success-600 border-theme-success-600;
-}
-
-.input-checkbox[disabled] {
-    @apply border-theme-secondary-300 bg-theme-secondary-100 text-theme-secondary-300;
-}
-
-.input-checkbox:checked[disabled] {
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='gray' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
-}
-
-/* Switch (toggle alternative) */
-.input-switch-button-left {
-    @apply translate-x-full bg-theme-primary-600;
-}
-
-.input-switch-button-right {
-    @apply translate-x-0 bg-theme-primary-600;
-}
-
-.input-switch-button-left:hover,
-.input-switch-button-right:hover {
-    @apply ring;
-}
-
-/* Errors */
-.input-group:focus-within .input-label--error,
-.input-group:hover .input-label--error,
-.input-label--error {
-    @apply text-theme-danger-500;
-}
-.dark .input-group:focus-within .input-label--error,
-.dark .input-group:hover .input-label--error,
-.dark .input-label--error {
-    @apply text-theme-danger-400;
-}
-
-.input-text-with-icon--error,
-.input-text--error {
-    @apply border-theme-danger-500;
-}
-
-.input-text-with-icon--error,
-.input-text--error:not(.input-wrapper-with-suffix) {
-    @apply mr-0 pr-10;
-}
-.dark .input-text-with-icon--error,
-.dark .input-text--error {
-    @apply border-theme-danger-400;
-}
-.input-text--error.shifted {
-    @apply pr-24;
-}
-
-.input-group:focus-within .input-text-with-icon--error,
-.input-text-with-icon--error:focus,
-.input-group:focus-within .input-text--error,
-.input-text--error:focus {
-    @apply border-theme-danger-300 ring-theme-danger-300;
-}
-
-.input-text-with-icon--error::placeholder,
-.input-text--error::placeholder {
-    @apply text-theme-danger-300;
-}
-
-.input-help--error {
-    @apply mt-2 text-sm text-theme-danger-500;
-}
-
-/* Tags */
-/* purgecss ignore */
-.tags-input-focus {
-    @apply border-theme-primary-600;
-    box-shadow: 0 0 0 1px var(--theme-color-primary-600);
-}
-
-.taggle_list {
-    @apply flex flex-wrap -mb-1;
-}
-
-.taggle_list li {
-    @apply inline mb-1 mr-2 font-medium align-baseline whitespace-nowrap;
-}
-
-.taggle_list .taggle {
-    @apply flex items-center pl-2 pr-1 space-x-2 overflow-auto rounded bg-theme-primary-100 dark:bg-theme-secondary-800;
-    padding-top: 0.25rem !important;
-    padding-bottom: 0.25rem !important;
-}
-
-.taggle_list .taggle .close {
-    @apply items-center p-1 text-lg leading-3 no-underline rounded cursor-pointer pointer-events-none right-2 text-theme-secondary-900 bg-theme-primary-200 whitespace-nowrap dark:bg-theme-secondary-700;
-}
-
-.taggle_list .taggle:hover {
-    @apply py-2 transition-all duration-150;
-}
-
-.taggle_list .taggle:hover > .close {
-    @apply opacity-100 pointer-events-auto;
-}
-
-.taggle_list .taggle .close:hover {
-    @apply text-theme-primary-600 dark:text-theme-secondary-200;
-}
-
-.taggle_placeholder {
-    @apply absolute top-0 left-0 max-w-full p-3 truncate rounded pointer-events-none text-theme-secondary-400 dark:text-theme-secondary-700;
-}
-
-.taggle_input {
-    @apply max-w-full my-1 bg-transparent;
-}
-
-.taggle_sizer {
-    @apply absolute invisible p-0 m-0;
-    top: -500px;
-    z-index: -1;
-}
-
-.taggle_text {
-    @apply truncate text-theme-primary-600 dark:text-theme-secondary-200;
-}
-
-.taggle {
-    @apply space-x-2 bg-theme-primary-100 dark:bg-theme-secondary-800;
-}
-
-.disabled-tags-input .tags-input-focus {
-    @apply border-theme-secondary-200 dark:border-theme-secondary-800;
-    box-shadow: 0 0 0 1px var(--theme-color-secondary-200);
-}
-
-.dark .disabled-tags-input .tags-input-focus {
-    box-shadow: 0 0 0 1px var(--theme-color-secondary-800);
-}
-
-.disabled-tags-input .taggle > .close {
-    pointer-events: all;
-}
-
-.disabled-tags-input .taggle_input,
-.disabled-tags-input .taggle_list,
-.disabled-tags-input .taggle_placeholder,
-.disabled-tags-input > div {
-    @apply bg-theme-secondary-100 dark:bg-theme-secondary-900;
-}
-
-.disabled-tags-input:not(.disabled-tags-input-add) .taggle_list .taggle {
-    @apply pr-2;
-}
-
-.disabled-tags-input:not(.disabled-tags-input-add) .taggle > .close {
-    @apply hidden;
-}
-
-/* Disable arrows from numeric input */
-/* Chrome, Safari, Edge, Opera */
-.hide-number-input-arrows input::-webkit-outer-spin-button,
-.hide-number-input-arrows input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-.hide-number-input-arrows input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-/* Hides native eye icon for revealing password */
-input[type="password"]::-ms-reveal,
-input[type="password"]::-ms-clear {
-    display: none;
+@layer base {
+    /* Hides native eye icon for revealing password */
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+        display: none;
+    }
 }
