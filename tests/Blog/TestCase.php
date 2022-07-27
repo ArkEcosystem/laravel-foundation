@@ -39,10 +39,6 @@ class TestCase extends Base
         $app->router->aliasMiddleware('doNotCacheResponse', DoNotCacheResponse::class);
         $app->router->aliasMiddleware('two-factor', EnforceTwoFactorAuthentication::class);
 
-        $app->booting(function () {
-            AliasLoader::getInstance()->alias('BlogCategory', Category::class);
-        });
-
         View::addLocation(realpath(__DIR__.'/blade-views'));
     }
 
@@ -59,6 +55,13 @@ class TestCase extends Base
             MediaLibraryServiceProvider::class,
             ResponseCacheServiceProvider::class,
             LaravelTimezoneServiceProvider::class,
+        ];
+    }
+
+    protected function getPackageAliases($app)
+    {
+        return [
+            'BlogCategory' => Category::class,
         ];
     }
 }
