@@ -3,6 +3,7 @@
     'name',
     'children' => [],
     'topLevel' => false,
+    'topBorder' => true,
     'first' => false,
     'borderless' => false,
 ])
@@ -17,6 +18,17 @@
         ])></div>
 
         <div class="w-full lg:h-auto h-13">
+            @if ($topBorder)
+                <div class="flex">
+                    <x-ark-divider
+                        :class="Arr::toCssClasses([
+                            'mx-8 lg:ml-5 lg:mr-0',
+                            'hidden lg:block' => $onDocs,
+                        ])"
+                    />
+                </div>
+            @endif
+
             <div @class([
                 'lg:rounded-r w-full pl-8 lg:pl-6',
                 'text-theme-primary-600 bg-theme-primary-100 lg:my-1' => $onDocs,
@@ -47,7 +59,7 @@
     </div>
 @else
     @if (count($children) === 0)
-        <div class="relative pr-0 ml-5 -mr-5 border-l lg:mx-0 sidebar-link border-theme-secondary-300">
+        <div class="relative pr-0 -mr-5 border-l lg:mx-0 sidebar-link border-theme-secondary-300">
             <div @class([
                 'absolute h-full -left-2.5px z-10 border-l-4 rounded-lg',
                 'border-theme-primary-600' => $onDocs,

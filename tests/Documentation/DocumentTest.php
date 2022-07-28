@@ -50,6 +50,9 @@ it('should not highlight intro in sidebar', function () {
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '\s+<div class="flex">\s+'.
+        '\s+<hr class="w-full border-none bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-800 h-px mx-8 lg:ml-5 lg:mr-0" \/>\s+'.
+        '\s+<\/div>\s+'.
         '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
@@ -64,12 +67,18 @@ it('should highlight intro in sidebar when at root category url', function () {
 
     expect(Blade::render($document->body))->not->toMatch(
         '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '\s+<div class="flex">\s+'.
+        '\s+<hr class="w-full border-none bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-800 h-px mx-8 lg:ml-5 lg:mr-0" \/>\s+'.
+        '\s+<\/div>\s+'.
         '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class=".+bg-theme-primary-600.+"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '\s+<div class="flex">\s+'.
+        '\s+<hr class="w-full border-none bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-800 h-px mx-8 lg:ml-5 lg:mr-0 hidden lg:block" \/>\s+'.
+        '\s+<\/div>\s+'.
         '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
         '<a\s+href="\/docs\/intro"\s+class="block flex items-center py-4 w-full font-semibold leading-tight lg:w-58 lg:py-3"/'
     );
@@ -95,6 +104,9 @@ it('should highlight intro in sidebar when at category intro url', function () {
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class=".+bg-theme-primary-600.+"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '\s+<div class="flex">\s+'.
+        '\s+<hr class="w-full border-none bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-800 h-px mx-8 lg:ml-5 lg:mr-0 hidden lg:block" \/>\s+'.
+        '\s+<\/div>\s+'.
         '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-primary-600 bg-theme-primary-100 lg:my-1">\s+'.
         '<a\s+href="\/docs\/intro"\s+class="block flex items-center py-4 w-full font-semibold leading-tight lg:w-58 lg:py-3"/'
     );
@@ -114,6 +126,9 @@ it('should highlight different page in sidebar', function () {
 
     expect(Blade::render($document->body))->toMatch(
         '/<div class="w-1 -mr-1 z-10"><\/div>\s+<div class="w-full lg:h-auto h-13">\s+'.
+        '\s+<div class="flex">\s+'.
+        '\s+<hr class="w-full border-none bg-theme-secondary-300 text-theme-secondary-300 dark:bg-theme-secondary-800 h-px mx-8 lg:ml-5 lg:mr-0" \/>\s+'.
+        '\s+<\/div>\s+'.
         '<div class="lg:rounded-r w-full pl-8 lg:pl-6 text-theme-secondary-900 hover:text-theme-primary-600">\s+'.
         '<a\s+href="\/docs\/intro"/'
     );
@@ -131,14 +146,14 @@ it('should expand getting started section in sidebar', function () {
 
     expect(Blade::render($document->body))->not->toMatch(
         '/<div\s+class="flex flex-col min-w-0 sidebar-group"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
-        '<button\s+type="button"\s+class="flex items-center justify-between mx-5 lg:mx-0 lg:pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
+        '<button\s+type="button"\s+class="flex items-center justify-between lg:pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Transactions/'
     );
 
     expect(Blade::render($document->body))->toMatch(
         '/<div\s+class="flex flex-col min-w-0 sidebar-group"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
-        '<button\s+type="button"\s+class="flex items-center justify-between mx-5 lg:mx-0 lg:pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
+        '<button\s+type="button"\s+class="flex items-center justify-between lg:pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Getting Started/'
     );
@@ -151,14 +166,14 @@ it('should expand transactions section in sidebar', function () {
 
     expect(Blade::render($document->body))->not->toMatch(
         '/<div\s+class="flex flex-col min-w-0 sidebar-group"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
-        '<button\s+type="button"\s+class="flex items-center justify-between mx-5 lg:mx-0 lg:pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
+        '<button\s+type="button"\s+class="flex items-center justify-between lg:pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Getting Started/'
     );
 
     expect(Blade::render($document->body))->toMatch(
         '/<div\s+class="flex flex-col min-w-0 sidebar-group"\s+x-data="{ open: true }"\s+:class="{ \'last:pb-4\': ! open }"\s+x-cloak\s+>\s+'.
-        '<button\s+type="button"\s+class="flex items-center justify-between mx-5 lg:mx-0 lg:pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
+        '<button\s+type="button"\s+class="flex items-center justify-between lg:pr-5 py-4 border-theme-secondary-300 group border-t"\s+'.
         '@click.prevent="open = ! open"\s+>\s+'.
         '<h2 class="mb-0 text-base font-semibold text-left accordion-heading text-theme-secondary-900 group-hover:text-theme-primary-600">\s+Transactions/'
     );
