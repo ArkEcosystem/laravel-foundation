@@ -6,7 +6,7 @@
 <div class="flex flex-col items-center sm:flex-row sm:justify-between">
     <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
         <div class="object-contain overflow-hidden rounded-xl w-15 h-15">
-            @if (! $author->photo())
+            @if ($author->photo())
                 <img src="{{ $author->photo() }}" />
             @else
                 <x-ark-avatar
