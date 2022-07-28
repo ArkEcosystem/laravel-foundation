@@ -9,6 +9,7 @@ module.exports = {
         extend: {
             spacing: {
                 13: "3.25rem",
+                15: "3.75rem",
             },
             borderRadius: {
                 "2.5xl": "1.25rem",
