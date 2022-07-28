@@ -17,8 +17,8 @@
     @unless($noIcon)
         <x-ark-icon
             name="arrows.arrow-external"
-            :size="$small ? 'xs' : 'sm'"
-            :class="'flex-shrink-0 inline relative ml-0.5 ' . ($small ? '-top-1 -mt-0.5' : '-mt-1.5')"
+            size="xs"
+            class="inline relative -top-1 flex-shrink-0 ml-0.5 -mt-0.5 text-theme-secondary-500"
         />
     @endunless
 </a>

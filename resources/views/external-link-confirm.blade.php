@@ -48,12 +48,12 @@
                 </x-ark-alert>
             </div>
 
-            <p>@lang('ui::general.external_link_disclaimer')</p>
+            <p class="text-theme-secondary-700 dark:text-theme-secondary-500">@lang('ui::general.external_link_disclaimer')</p>
 
             <x-ark-checkbox
                 name="confirmation"
                 alpine="toggle"
-                label-classes="text-theme-secondary-700 select-none font-semibold"
+                label-classes="text-theme-secondary-700 dark:text-theme-secondary-500 select-none font-semibold"
             >
                 @slot('label')
                     @lang('ui::forms.do_not_show_message_again')

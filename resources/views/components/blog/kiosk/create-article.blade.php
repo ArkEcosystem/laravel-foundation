@@ -1,7 +1,7 @@
 <div class="space-y-6">
     <x-ark-select :errors="$errors" name="state.user_id" required>
         <option value="" disabled selected>Select user...</option>
-        @foreach(App\Models\User::orderBy('name')->cursor() as $user)
+        @foreach(ARKEcosystem\Foundation\Blog\Models\User::orderBy('name')->cursor() as $user)
             <option value="{{ $user->id }}">
                 {{ $user->name }}
             </option>
