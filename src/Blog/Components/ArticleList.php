@@ -9,6 +9,7 @@ use ARKEcosystem\Foundation\Blog\Components\Concerns\HasPagination;
 use ARKEcosystem\Foundation\Blog\Components\Concerns\IsSortable;
 use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Models\Article;
+use ARKEcosystem\Foundation\Blog\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -21,6 +22,8 @@ final class ArticleList extends Component
     use IsSortable;
 
     public const PER_PAGE = 10;
+
+    public ?User $author = null;
 
     public string $term = '';
 
@@ -51,7 +54,7 @@ final class ArticleList extends Component
         ]);
     }
 
-    public function mount(Request $request) : void
+    public function mount(Request $request, ?User $author = null) : void
     {
         $this->categories    = collect(Category::cases())->map->value->toArray();
         $this->sortDirection = $request->query('order') === 'asc' ? 'asc' : 'desc';
@@ -73,6 +76,11 @@ final class ArticleList extends Component
         }
     }
 
+    public function getAuthorArticleCountProperty(): ?int
+    {
+        return $this->author?->articles()->count();
+    }
+
     public function updatingTerm() : void
     {
         $this->resetPage();
@@ -87,7 +95,9 @@ final class ArticleList extends Component
     {
         $query = Article::published();
 
-        if ($featured !== null) {
+        if ($this->author) {
+            $query->where('user_id', $this->author->id);
+        } elseif ($featured !== null) {
             $query->where('id', '!=', $featured->id);
         }
 

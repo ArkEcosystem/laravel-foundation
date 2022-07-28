@@ -41,7 +41,7 @@ mix.webpackConfig({
 "post-autoload-dump": [
     "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
     "@php artisan package:discover --ansi",
-    "@php artisan vendor:publish --provider=\"ARKEcosystem\\UserInterface\\UserInterfaceServiceProvider\" --tag=\"css\" --tag=\"fonts\""
+    "@php artisan vendor:publish --provider=\"ARKEcosystem\\Foundation\\Providers\\UserInterfaceServiceProvider\" --tag=\"css\" --tag=\"fonts\""
 ],
 ```
 

@@ -13,6 +13,7 @@ use ARKEcosystem\Foundation\Blog\Components\Kiosk\DeleteUser;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateArticle;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateUser;
 use ARKEcosystem\Foundation\Blog\Controllers\ArticleController;
+use ARKEcosystem\Foundation\Blog\Controllers\AuthorController;
 use ARKEcosystem\Foundation\Blog\Controllers\KioskController;
 use ARKEcosystem\Foundation\Blog\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -38,12 +39,17 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../config/blog.php' => config_path('blog.php'),
         ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../../database/migrations/blog' => database_path('migrations'),
+        ], 'blog-migrations');
     }
 
     private function registerBladeComponents(): void
     {
         $this->callAfterResolving(BladeCompiler::class, function (BladeCompiler $blade) {
             $blade->component('ark::components.blog.article-content', 'ark-blog.article-content');
+            $blade->component('ark::components.blog.author-header', 'ark-blog.author-header');
             $blade->component('ark::components.blog.category-badge', 'ark-blog.category-badge');
             $blade->component('ark::components.blog.blog-entry', 'ark-blog.blog-entry');
             $blade->component('ark::components.blog.header', 'ark-blog.header');
@@ -72,6 +78,7 @@ class BlogServiceProvider extends ServiceProvider
         Route::middleware('web')->group(function () {
             Route::get('/blog', [ArticleController::class, 'index'])->name('blog');
             Route::get('/blog/{article:slug}', [ArticleController::class, 'show'])->name('article');
+            Route::get('/authors/{author:name_slug}', AuthorController::class)->name('author');
 
             Route::middleware(['doNotCacheResponse'])->group(function () {
                 Route::view('/kiosk', 'ark::pages.blog.kiosk.dashboard')->name('kiosk')->middleware('auth');

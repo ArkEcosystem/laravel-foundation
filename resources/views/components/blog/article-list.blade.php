@@ -1,5 +1,14 @@
 <section>
-    @if ($featuredArticle)
+    @if ($author)
+        <section class="bg-theme-background">
+            <div class="flex flex-col py-6 w-full md:py-8 content-container">
+                <x-ark-blog.author-header
+                    :author="$author"
+                    :count="$this->authorArticleCount"
+                />
+            </div>
+        </section>
+    @elseif ($featuredArticle)
         <section class="bg-theme-background">
             <x-ark-container>
                 <x-ark-blog.header :article="$featuredArticle" />
