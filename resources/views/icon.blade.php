@@ -16,6 +16,7 @@
         '3xl'  => 'w-15 h-15',
         'base' => 'w-5 h-5',
         'full' => 'w-full h-full',
+        'none' => '',
     ];
 
     if (empty($size) || in_array($size, array_keys($sizes))) {
