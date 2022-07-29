@@ -1,15 +1,22 @@
 @props (['article'])
 
 <section class="w-full bg-theme-background">
-    <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row lg:px-10 bg-theme-background">
-        <div class="w-full">
-            <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-700">
-                <div class="flex items-center pr-3 space-x-2 border-r border-theme-secondary-800">
-                    <div class="object-contain overflow-hidden w-4 h-4 rounded">
-                        <img src="{{ $article->author->photo() }}" />
-                    </div>
+    <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row md:px-10 bg-theme-background">
+        <div class="flex flex-col w-full text-sm font-semibold text-theme-secondary-500">
+            <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-500">
+                <div class="pr-3 border-r border-theme-secondary-800">
+                    <a
+                        href="{{ route('author', $article->author) }}"
+                        class="flex items-center space-x-2 group link link-dark"
+                    >
+                        <div class="object-contain overflow-hidden w-4 h-4 rounded">
+                            <img src="{{ $article->author->photo() }}" />
+                        </div>
 
-                    <div class="hidden sm:inline-flex">{{ $article->author->name }}</div>
+                        <span class="hidden sm:inline-flex group-hover:text-theme-primary-500">
+                            {{ $article->author->name }}
+                        </span>
+                    </a>
                 </div>
 
                 <div class="pr-3 border-r border-theme-secondary-800">
@@ -21,7 +28,7 @@
                 </div>
             </div>
 
-            <h1 class="mt-4 header-2" style="margin-bottom: 0">
+            <h1 class="mt-4" style="margin-bottom: 0">
                 <span class="text-theme-secondary-200">{{ $article->title }}</span>
             </h1>
         </div>
@@ -44,7 +51,7 @@
 </section>
 
 <section class="bg-hero-50">
-    <div class="py-8 px-8 mx-auto lg:max-w-7xl">
+    <div class="py-8 px-8 mx-auto md:px-10 lg:max-w-7xl">
         <div class="flex relative justify-center">
             <img src="{{ asset($article->banner()) }}" class="w-full h-full rounded-xl" />
 
@@ -58,7 +65,7 @@
     </div>
 </section>
 
-<section class="px-8 pb-8 mx-auto space-y-8 w-full max-w-5xl lg:px-10">
+<section class="px-8 pb-8 mx-auto space-y-8 w-full max-w-5xl md:px-10">
     <article class="article-content documentation-content">
         @markdown ($article->body)
     </article>

@@ -9,7 +9,6 @@ use ARKEcosystem\Foundation\Fortify\Http\Middleware\EnforceTwoFactorAuthenticati
 use ARKEcosystem\Foundation\Providers\BlogServiceProvider;
 use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
 use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\View;
 use JamesMills\LaravelTimezone\LaravelTimezoneServiceProvider;
 use Livewire\LivewireServiceProvider;
@@ -28,6 +27,7 @@ class TestCase extends Base
         parent::setUp();
 
         $this->withoutMix();
+        $this->loadMigrationsFrom(dirname(__DIR__).'/database/migrations');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
@@ -37,10 +37,6 @@ class TestCase extends Base
 
         $app->router->aliasMiddleware('doNotCacheResponse', DoNotCacheResponse::class);
         $app->router->aliasMiddleware('two-factor', EnforceTwoFactorAuthentication::class);
-
-        $app->booting(function () {
-            AliasLoader::getInstance()->alias('BlogCategory', Category::class);
-        });
 
         View::addLocation(realpath(__DIR__.'/blade-views'));
     }
@@ -58,6 +54,13 @@ class TestCase extends Base
             MediaLibraryServiceProvider::class,
             ResponseCacheServiceProvider::class,
             LaravelTimezoneServiceProvider::class,
+        ];
+    }
+
+    protected function getPackageAliases($app)
+    {
+        return [
+            'BlogCategory' => Category::class,
         ];
     }
 }
