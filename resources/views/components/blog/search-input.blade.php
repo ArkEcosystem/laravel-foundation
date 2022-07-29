@@ -1,30 +1,40 @@
 @props ([
     'name',
+    'disabled' => false
 ])
 
 <div
-    x-data="{
-        searchOpen: false,
-        init() {
-            this.$watch('searchOpen', (searchOpen) => {
-                if (searchOpen) {
-                    this.$nextTick(() => {
-                        this.$refs.searchInput.focus();
-                    });
-                }
-            });
-        }
-    }"
     class="flex items-center sm:relative"
-    @click="searchOpen = true"
-    @click.outside="searchOpen = false"
+    @unless ($disabled)
+        x-data="{
+            searchOpen: false,
+            init() {
+                this.$watch('searchOpen', (searchOpen) => {
+                    if (searchOpen) {
+                        this.$nextTick(() => {
+                            this.$refs.searchInput.focus();
+                        });
+                    }
+                });
+            }
+        }"
+        @click="searchOpen = true"
+        @click.outside="searchOpen = false"
+    @endunless
 >
-    <div class="flex items-center space-x-2 font-semibold cursor-pointer text-theme-primary-300 transition-default hover:text-theme-primary-500">
+    <div
+        @class([
+            "flex items-center space-x-2 font-semibold",
+            "transition-default hover:text-theme-primary-500 text-theme-primary-300 cursor-pointer" => ! $disabled,
+            "text-theme-secondary-500" => $disabled,
+        ])
+    >
         <span class="text-sm">
             @lang('general.search')
         </span>
         <x-ark-icon name="magnifying-glass" />
     </div>
+    @unless ($disabled)
     <div
         x-show="searchOpen"
         x-transition:enter="transition ease-out duration-100"
@@ -46,4 +56,5 @@
         />
         <x-ark-icon name="magnifying-glass" class="text-theme-secondary-500" />
     </div>
+    @endunless
 </div>

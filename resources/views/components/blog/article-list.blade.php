@@ -20,10 +20,10 @@
         <x-ark-container>
             <div>
                 <div id="article-list" class="flex relative justify-between items-center pb-8 sm:initial">
-                    <x-ark-blog.sort />
+                    <x-ark-blog.sort :disabled="$articles->isEmpty() && $term === ''" />
 
                     <div class="flex justify-between items-center space-x-8 sm:relative sm:justify-end sm:divide-x divide-theme-primary-100">
-                        <x-ark-blog.search-input name="term" />
+                        <x-ark-blog.search-input name="term" :disabled="$articles->isEmpty() && $term === ''" />
                     </div>
                 </div>
 
