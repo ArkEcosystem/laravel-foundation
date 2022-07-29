@@ -99,11 +99,12 @@ class BlogServiceProvider extends ServiceProvider
             });
         });
     }
+
     private function registerModelMorphs(): void
     {
         Relation::morphMap([
             'blog_article' => Article::class,
-            'blog_user' => User::class,
+            'blog_user'    => User::class,
         ]);
     }
 }
