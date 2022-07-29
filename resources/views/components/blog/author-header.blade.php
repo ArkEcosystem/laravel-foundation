@@ -28,9 +28,9 @@
         </div>
     </div>
 
-    <div class="text-xs font-semibold">
+    <div class="font-semibold">
         <div class="flex hidden flex-col space-y-2 text-right sm:block">
-            <div>
+            <div class="text-xs">
                 @lang('ui::pages.blog.articles')
             </div>
 
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="mt-3 sm:hidden text-theme-secondary-500">
+        <div class="mt-3 text-sm sm:hidden text-theme-secondary-500">
             @lang('ui::pages.blog.articles_count', ['count' => $count])
         </div>
     </div>
