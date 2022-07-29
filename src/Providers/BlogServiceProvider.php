@@ -16,9 +16,6 @@ use ARKEcosystem\Foundation\Blog\Controllers\ArticleController;
 use ARKEcosystem\Foundation\Blog\Controllers\AuthorController;
 use ARKEcosystem\Foundation\Blog\Controllers\KioskController;
 use ARKEcosystem\Foundation\Blog\Controllers\UserController;
-use ARKEcosystem\Foundation\Blog\Models\Article;
-use ARKEcosystem\Foundation\Blog\Models\User;
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -35,8 +32,6 @@ class BlogServiceProvider extends ServiceProvider
         $this->registerLivewireComponents();
 
         $this->registerRoutes();
-
-        $this->registerModelMorphs();
     }
 
     private function registerPublishers(): void
@@ -98,12 +93,5 @@ class BlogServiceProvider extends ServiceProvider
                 });
             });
         });
-    }
-    private function registerModelMorphs(): void
-    {
-        Relation::morphMap([
-            'blog_article' => Article::class,
-            'blog_user' => User::class,
-        ]);
     }
 }
