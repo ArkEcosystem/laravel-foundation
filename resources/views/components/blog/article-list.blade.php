@@ -23,7 +23,7 @@
                     <x-ark-blog.sort />
 
                     <div class="flex justify-between items-center space-x-8 sm:relative sm:justify-end sm:divide-x divide-theme-primary-100">
-                        <x-ark-blog.search-input name="term" />
+                        <x-ark-blog.search-input name="term" :disabled="$articles->isEmpty() && $term === ''" />
                     </div>
                 </div>
 
