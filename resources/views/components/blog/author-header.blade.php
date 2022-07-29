@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="mt-3 sm:hidden text-theme-secondary-500 text-sm">
+        <div class="mt-3 text-sm sm:hidden text-theme-secondary-500">
             @lang('ui::pages.blog.articles_count', ['count' => $count])
         </div>
     </div>
