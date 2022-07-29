@@ -59,7 +59,7 @@
 
 .cc_div #s-bns #s-rall-bn,
 .cc_div #s-bns #s-sv-bn {
-    @apply button-secondary;
+    @apply button-secondary dark:button-tertiary dark:hover:text-white dark:hover:bg-theme-primary-700 dark:hover:transition-default;
 }
 
 .cc_div #s-bns #s-rall-bn:hover,
@@ -148,16 +148,6 @@
 .dark #s-cnt .b-bn .b-tl,
 .dark #s-bl table tr {
     @apply hover:bg-theme-secondary-800;
-}
-
-.dark .cc_div #s-bns #s-rall-bn,
-.dark .cc_div #s-bns #s-sv-bn {
-    @apply button-tertiary;
-}
-
-.dark .cc_div #s-bns #s-rall-bn:hover,
-.dark .cc_div #s-bns #s-sv-bn:hover {
-    @apply text-white bg-theme-primary-700 transition-default;
 }
 
 .dark #s-bl table tr {

@@ -1,5 +1,7 @@
-.transition-default {
-    transition: all 0.1s ease-in;
+@layer utilities {
+    .transition-default {
+        transition: all 0.1s ease-in;
+    }
 }
 
 /** Spinning */

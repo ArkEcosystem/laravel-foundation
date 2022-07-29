@@ -78,7 +78,7 @@
 .simple-markdown a:hover {
     @apply underline text-theme-primary-700;
 }
-.simple-markdown a.no-underline:hover {
+.simple-markdown a:is(.no-underline):hover {
     text-decoration: none;
 }
 

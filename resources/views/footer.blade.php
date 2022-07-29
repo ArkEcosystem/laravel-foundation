@@ -6,9 +6,10 @@
     'isArkProduct'  => true,
     'socials'       => null,
     'copyrightSlot' => null,
+    'backgroundColor' => 'bg-theme-secondary-900',
 ])
 
-<div {{ $attributes->merge(['class' => 'border-t bg-theme-secondary-900 border-theme-secondary-800']) }}>
+<div {{ $attributes->class('border-t border-theme-secondary-800')->class($backgroundColor) }}>
     <div class="{{ $wrapperClass }} flex-col mx-auto">
         <div class="flex flex-col items-start lg:flex-row lg:items-center justify-between space-y-3 lg:space-y-0 py-5 @if ($border) border-t border-theme-secondary-800 @endunless">
             <x-ark-footer-copyright
