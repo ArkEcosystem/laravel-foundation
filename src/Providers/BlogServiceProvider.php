@@ -44,6 +44,8 @@ class BlogServiceProvider extends ServiceProvider
 
     private function registerPublishers(): void
     {
+        $this->loadViewsFrom(__DIR__.'/../../resources/views/pages/blog', 'blog');
+
         $this->publishes([
             __DIR__.'/../../config/blog.php' => config_path('blog.php'),
         ], 'config');
