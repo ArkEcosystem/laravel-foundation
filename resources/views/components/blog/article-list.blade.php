@@ -62,11 +62,17 @@
                     @else
                         <div class="p-6 text-center rounded-lg border border-theme-secondary-300 text-theme-secondary-700">
                             @if ($author)
-                                @lang('ui::pages.blog.no_author_articles')
-                            @elseif ($term !== '')
-                                @lang('ui::pages.blog.no_results')
+                                @if ($term !== '')
+                                    @lang('ui::pages.blog.no_author_results')
+                                @else
+                                    @lang('ui::pages.blog.no_author_articles')
+                                @endif
                             @else
-                                @lang('ui::pages.blog.no_articles')
+                                @if ($term !== '')
+                                    @lang('ui::pages.blog.no_results')
+                                @else
+                                    @lang('ui::pages.blog.no_articles')
+                                @endif
                             @endif
                         </div>
                     @endif
