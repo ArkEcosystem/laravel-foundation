@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ARKEcosystem\Foundation\DataBags\Contracts;
+namespace ARKEcosystem\Foundation\Blog\Controllers\Contracts;
 
 use App\Models\Article;
 use Illuminate\Contracts\Support\Renderable;
