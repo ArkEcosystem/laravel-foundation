@@ -5,13 +5,17 @@
                 <x-ark-blog.author-header
                     :author="$author"
                     :count="$this->authorArticleCount"
+                    :header-gradient="$headerGradient"
                 />
             </div>
         </section>
     @elseif ($featuredArticle)
         <section class="bg-theme-blog-background">
             <x-ark-container>
-                <x-ark-blog.header :article="$featuredArticle" />
+                <x-ark-blog.header
+                    :article="$featuredArticle"
+                    :header-gradient="$headerGradient"
+                />
             </x-ark-container>
         </section>
     @endif

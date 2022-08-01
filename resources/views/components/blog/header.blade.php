@@ -1,4 +1,7 @@
-@props (['article'])
+@props ([
+    'article',
+    'headerGradient' => null,
+])
 
 <div class="flex flex-col items-center lg:flex-row lg:space-x-12">
     <div class="flex flex-col lg:w-1/2">
@@ -13,8 +16,26 @@
         </div>
 
         <h2 class="header-1">
-            <a href="{{ $article->url() }}" class="leading-normal text-theme-secondary-200">
-                {{ $article->title }}
+            <a
+                href="{{ $article->url() }}"
+                @class([
+                    'leading-normal',
+                    'text-theme-secondary-200' => empty($headerGradient),
+                ])
+            >
+                @if (! empty($headerGradient))
+                    <x-ark-gradient-text
+                        :from="$headerGradient[0]"
+                        :via="$headerGradient[1]"
+                        :to="$headerGradient[2]"
+                        animationSpeed="25s"
+                        animated
+                    >
+                        {{ $article->title }}
+                    </x-ark-gradient-text>
+                @else
+                    {{ $article->title }}
+                @endif
             </a>
         </h2>
 
