@@ -1,4 +1,7 @@
-@props (['article'])
+@props ([
+    'article',
+    'header' => null,
+])
 
 <section class="w-full bg-theme-blog-background">
     <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row md:px-10 bg-theme-blog-background">
@@ -28,9 +31,13 @@
                 </div>
             </div>
 
-            <h1 class="mt-4" style="margin-bottom: 0">
-                <span class="text-theme-secondary-200">{{ $article->title }}</span>
-            </h1>
+            @if ($header)
+                {{ $header }}
+            @else
+                <h1 class="mt-4" style="margin-bottom: 0">
+                    <span class="text-theme-secondary-200">{{ $article->title }}</span>
+                </h1>
+            @endif
         </div>
 
         @if (Auth::user())
