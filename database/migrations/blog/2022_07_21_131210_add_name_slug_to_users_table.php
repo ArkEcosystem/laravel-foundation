@@ -10,8 +10,10 @@ final class AddNameSlugToUsersTable extends Migration
 {
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('name_slug')->unique();
-        });
+        if (! Schema::hasColumn('users', 'name_slug')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->string('name_slug')->nullable()->unique();
+            });
+        }
     }
 }
