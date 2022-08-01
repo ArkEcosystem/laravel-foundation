@@ -75,6 +75,9 @@ module.exports = {
             white: "#ffffff",
             transparent: "transparent",
 
+            // Product specific
+            "theme-blog-background": "var(--theme-color-blog-background)",
+
             // Tailwind overrides
             "theme-primary-50": "var(--theme-color-primary-50)",
             "theme-primary-100": "var(--theme-color-primary-100)",
