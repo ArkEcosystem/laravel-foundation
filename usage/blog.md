@@ -32,7 +32,7 @@ php artisan vendor:publish --provider="ARKEcosystem\Foundation\Providers\BlogSer
 ],
 ```
 
-3. If necessary, create a migration for articles and user media
+3. If necessary, create a migration to update references to articles and users on the media table
 
 
 ```bash
