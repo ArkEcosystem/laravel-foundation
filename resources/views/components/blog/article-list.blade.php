@@ -23,7 +23,21 @@
                     <x-ark-blog.sort :disabled="$articles->isEmpty() && $term === ''" />
 
                     <div class="flex justify-between items-center space-x-8 sm:relative sm:justify-end sm:divide-x divide-theme-primary-100">
-                        <x-ark-blog.search-input name="term" :disabled="$articles->isEmpty() && $term === ''" />
+                        <x-ark-blog.search-input
+                            name="term"
+                            :disabled="$articles->isEmpty() && $term === ''"
+                        />
+
+                        @if (config('blog.show_filter'))
+                            <div class="sm:pl-4">
+                                <x-ark-blog.filter-dropdown
+                                    name="searchCategories"
+                                    :search-categories="$searchCategories"
+                                    :categories="$categories"
+                                    :disabled="$articles->isEmpty() && $term === ''"
+                                />
+                            </div>
+                        @endif
                     </div>
                 </div>
 
