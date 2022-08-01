@@ -14,9 +14,9 @@ use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateArticle;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateUser;
 use ARKEcosystem\Foundation\Blog\Controllers\ArticleController;
 use ARKEcosystem\Foundation\Blog\Controllers\AuthorController;
+use ARKEcosystem\Foundation\Blog\Controllers\Contracts\ArticleController as ArticleControllerContract;
 use ARKEcosystem\Foundation\Blog\Controllers\KioskController;
 use ARKEcosystem\Foundation\Blog\Controllers\UserController;
-use ARKEcosystem\Foundation\Blog\Controllers\Contracts\ArticleController as ArticleControllerContract;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -37,6 +37,11 @@ class BlogServiceProvider extends ServiceProvider
         $this->registerRoutes();
     }
 
+    protected function registerContracts(): void
+    {
+        $this->app->singleton(ArticleControllerContract::class, ArticleController::class);
+    }
+
     private function registerPublishers(): void
     {
         $this->publishes([
@@ -46,11 +51,6 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../database/migrations/blog' => database_path('migrations'),
         ], 'blog-migrations');
-    }
-
-    protected function registerContracts(): void
-    {
-        $this->app->singleton(ArticleControllerContract::class, ArticleController::class);
     }
 
     private function registerBladeComponents(): void
