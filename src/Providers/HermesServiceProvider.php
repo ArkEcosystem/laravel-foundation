@@ -65,7 +65,7 @@ class HermesServiceProvider extends ServiceProvider
             ], 'hermes-views');
 
             $this->publishes([
-                __DIR__.'/../../database/migrations' => database_path('migrations'),
+                __DIR__.'/../../database/migrations/hermes' => database_path('migrations'),
             ], 'hermes-migrations');
         }
     }

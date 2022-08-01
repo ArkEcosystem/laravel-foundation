@@ -20,7 +20,7 @@ final class TwitterRenderer
         $darkEmbed = null;
         $embed     = self::getEmbed($url);
         $result    = sprintf(
-            $darkModeEnabled ? '<div class="dark:hidden">%s</div>' : '%s',
+            $darkModeEnabled ? '<div class="twitter-embed-wrapper">%s</div>' : '%s',
             $embed
         );
 
@@ -28,7 +28,7 @@ final class TwitterRenderer
             $darkEmbed = self::getEmbed($url, true);
 
             $result .= sprintf(
-                '<div class="hidden dark:block">%s</div>',
+                '<div class="twitter-embed-wrapper twitter-embed-wrapper-dark">%s</div>',
                 $darkEmbed
             );
         }
