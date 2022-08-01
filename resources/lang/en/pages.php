@@ -81,7 +81,7 @@ return [
         'related'            => 'Latest Articles',
         'no_results'         => 'We could not find any articles matching your search criteria, please try again!',
         'no_articles'        => 'There are currently no articles available. Please check back later.',
-        'no_author_articles' => 'The author hasn\'t published any articles yet.',
+        'no_author_articles' => 'This author hasn\'t published any articles yet.',
         'view-all'           => 'View all',
         'author'             => 'Author',
         'articles'           => 'Articles',
