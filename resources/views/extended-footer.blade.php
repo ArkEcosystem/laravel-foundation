@@ -7,13 +7,12 @@
                 <div>@lang('ui::pages.extended-footer.help.description')</div>
             </div>
 
-
             <x-ark-divider class="my-6" color-class="bg-theme-secondary-800" />
 
             <x-footer.socials class="hidden lg:block" />
         </div>
 
-        {{-- <livewire:footer-contact /> --}}
+        <livewire:footer-contact-form />
 
         <x-ark-divider class="my-6 lg:hidden" color-class="bg-theme-secondary-800" />
 
