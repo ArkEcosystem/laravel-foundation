@@ -14,7 +14,7 @@
     <button
         type="button"
         @class([
-            'flex items-center justify-between mx-5 lg:mx-0 lg:pr-5 py-4 border-theme-secondary-300 group',
+            'flex items-center justify-between lg:pr-5 py-4 border-theme-secondary-300 group',
             'border-t' => ! $borderless,
         ])
         @click.prevent="open = ! open"
