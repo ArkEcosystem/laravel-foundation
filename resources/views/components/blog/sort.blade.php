@@ -4,7 +4,7 @@
 
 <div class="flex space-x-2 text-sm font-medium">
     <span class="leading-none text-theme-secondary-900">
-        @lang('general.sort_by'):
+        @lang('ui::pages.blog.sort_by'):
     </span>
 
     <div class="flex items-center divide-x divide-theme-primary-100">
@@ -19,7 +19,7 @@
             @endunless
         >
             <span class="leading-none">
-                @lang('general.date')
+                @lang('ui::pages.blog.date')
             </span>
 
             @if($this->sortDirection === 'asc')

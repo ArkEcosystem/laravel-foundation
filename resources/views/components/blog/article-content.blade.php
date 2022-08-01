@@ -71,7 +71,7 @@
     </article>
 
     <div class="flex items-center pt-8 space-x-3 font-semibold border-t border-theme-secondary-200 text-theme-secondary-900">
-        <div>{{ trans('general.share') }}:</div>
+        <div>@lang('ui::pages.blog.share'):</div>
 
         <div class="flex items-center space-x-2">
             <x-ark-social-square

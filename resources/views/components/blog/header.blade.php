@@ -8,7 +8,7 @@
             </span>
 
             <span>
-                {{ formatReadTime($article->reading_time) }} {{ trans('ui::pages.blog.read') }}
+                {{ formatReadTime($article->reading_time) }} @lang('ui::pages.blog.read')
             </span>
         </div>
 
@@ -32,7 +32,7 @@
         </div>
 
         <div class="flex flex-col mt-8 space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
-            <a href="{{ $article->url() }}" class="button-primary">{{ trans('actions.read_more') }}</a>
+            <a href="{{ $article->url() }}" class="button-primary">@lang('ui::actions.read_more')</a>
         </div>
     </div>
 

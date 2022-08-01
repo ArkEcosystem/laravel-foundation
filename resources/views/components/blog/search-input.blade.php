@@ -30,7 +30,7 @@
         ])
     >
         <span class="text-sm">
-            @lang('general.search')
+            @lang('ui::pages.blog.search')
         </span>
         <x-ark-icon name="magnifying-glass" />
     </div>
