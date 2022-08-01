@@ -235,6 +235,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::docs.sidebar-group', 'ark-docs-sidebar-group');
             $blade->component('ark::docs.sidebar-link', 'ark-docs-sidebar-link');
 
+            $blade->component('ark::pages.content-section', 'ark-pages-content-section');
             $blade->component('ark::pages.contact', 'ark-pages-contact');
             $blade->component('ark::pages.documentation', 'ark-pages-documentation');
             $blade->component('ark::pages.includes.cookie-banner', 'ark-pages-includes-cookie-banner');
