@@ -19,7 +19,11 @@
 
             <x-ark-icon
                 name="sliders-vertical"
-                class="text-theme-primary-300 transition-default hover:text-theme-primary-500"
+                :class="Arr::toCssClasses([
+                    'transition-default',
+                    'text-theme-primary-300 hover:text-theme-primary-500' => ! $disabled,
+                    'text-theme-secondary-500 cursor-default' => $disabled,
+                ])"
             />
         </x-slot>
 
