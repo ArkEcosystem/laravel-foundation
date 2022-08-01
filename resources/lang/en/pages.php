@@ -80,6 +80,7 @@ return [
         'read'               => 'read',
         'related'            => 'Latest Articles',
         'no_results'         => 'We could not find any articles matching your search criteria, please try again!',
+        'no_author_results'  => 'We could not find any articles matching your search criteria for this author, please try again!',
         'no_articles'        => 'There are currently no articles available. Please check back later.',
         'no_author_articles' => 'The author hasn\'t published any articles yet.',
         'view-all'           => 'View all',
