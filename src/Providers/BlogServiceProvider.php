@@ -66,6 +66,7 @@ class BlogServiceProvider extends ServiceProvider
             $blade->component('ark::components.blog.related-articles', 'ark-blog.related-articles');
             $blade->component('ark::components.blog.sort', 'ark-blog.sort');
             $blade->component('ark::components.blog.search-input', 'ark-blog.search-input');
+            $blade->component('ark::components.blog.filter-dropdown', 'ark-blog.filter-dropdown');
         });
     }
 
