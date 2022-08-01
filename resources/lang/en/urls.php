@@ -16,4 +16,8 @@ return [
     'nodem'         => 'https://nodem.io/',
     'protokol'      => 'https://www.protokol.com/',
     'marketsquare'  => 'https://marketsquare.io/',
+    'socials' => [
+        'github'  => 'https://github.com/ardenthq',
+        'twitter' => 'https://twitter.com/Ardent_HQ',
+    ],
 ];

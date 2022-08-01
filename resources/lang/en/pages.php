@@ -24,6 +24,28 @@ return [
         ],
     ],
 
+    'extended-footer' => [
+        'all_rights_reserved' => 'All rights reserved',
+        'copyright'           => 'Made with ♥ by',
+        'how_can_we_help'     => 'How can we help?',
+
+        'contact' => [
+            'title'       => 'Contact Our Team',
+            'description' => 'We\'d be happy to answer your questions.',
+            'success'     => 'Thank you for contacting us – we will get back to you soon!',
+        ],
+
+        'socials' => [
+            'title'       => 'We’re on social networks.',
+            'description' => 'Follow us and subscribe on social media to stay up to date on the latest product updates, new releases, and all things Ardent!',
+        ],
+
+        'help' => [
+            'title'       => 'Let Us Help',
+            'description' => 'Whether you want to learn more about Ardent, need help, or just want to say Hello, get in touch and a member of the team will follow up with you.',
+        ],
+    ],
+
     // Hermes
     'notifications' => [
         'page_title' => 'Notifications',
