@@ -47,7 +47,9 @@
                         @endforeach
                     @else
                         <div class="p-6 text-center rounded-lg border border-theme-secondary-300 text-theme-secondary-700">
-                            @if ($term !== '')
+                            @if ($author)
+                                @lang('ui::pages.blog.no_author_articles')
+                            @elseif ($term !== '')
                                 @lang('ui::pages.blog.no_results')
                             @else
                                 @lang('ui::pages.blog.no_articles')
