@@ -16,6 +16,7 @@ use ARKEcosystem\Foundation\Blog\Controllers\ArticleController;
 use ARKEcosystem\Foundation\Blog\Controllers\AuthorController;
 use ARKEcosystem\Foundation\Blog\Controllers\KioskController;
 use ARKEcosystem\Foundation\Blog\Controllers\UserController;
+use ARKEcosystem\Foundation\Blog\Controllers\Contracts\ArticleController as ArticleControllerContract;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -26,6 +27,8 @@ class BlogServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerPublishers();
+
+        $this->registerContracts();
 
         $this->registerBladeComponents();
 
@@ -43,6 +46,11 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../database/migrations/blog' => database_path('migrations'),
         ], 'blog-migrations');
+    }
+
+    protected function registerContracts(): void
+    {
+        $this->app->singleton(ArticleControllerContract::class, ArticleController::class);
     }
 
     private function registerBladeComponents(): void
@@ -76,8 +84,8 @@ class BlogServiceProvider extends ServiceProvider
     private function registerRoutes(): void
     {
         Route::middleware('web')->group(function () {
-            Route::get('/blog', [ArticleController::class, 'index'])->name('blog');
-            Route::get('/blog/{article:slug}', [ArticleController::class, 'show'])->name('article');
+            Route::get('/blog', [resolve(ArticleControllerContract::class)::class, 'index'])->name('blog');
+            Route::get('/blog/{article:slug}', [resolve(ArticleControllerContract::class)::class, 'show'])->name('article');
             Route::get('/authors/{author:name_slug}', AuthorController::class)->name('author');
 
             Route::middleware(['doNotCacheResponse'])->group(function () {
