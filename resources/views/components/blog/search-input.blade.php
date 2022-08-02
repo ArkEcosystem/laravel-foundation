@@ -4,7 +4,7 @@
 ])
 
 <div
-    class="flex items-center sm:relative"
+    class="flex items-center md:relative"
     @unless ($disabled)
         x-data="{
             searchOpen: false,
