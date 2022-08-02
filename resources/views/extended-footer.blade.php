@@ -3,8 +3,7 @@
         <div class="flex-1">
             <div class="space-y-4">
                 <h3 class="text-theme-secondary-200">@lang ('pages.extended-footer.help.title')</h3>
-
-                <div>@lang ('pages.extended-footer.help.description')</div>
+                <p>@lang ('pages.extended-footer.help.description')</p>
             </div>
 
             <x-ark-divider class="my-6" color-class="bg-theme-secondary-800" />

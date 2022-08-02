@@ -30,7 +30,7 @@
         <x-ark-textarea
             name="contact:message"
             model="state.message"
-            :placeholder="trans('ui::pages.extended-footer.how_can_we_help')"
+            :placeholder="trans('ui::pages.extended-footer.contact.placeholder')"
             rows="1"
         />
     </div>
