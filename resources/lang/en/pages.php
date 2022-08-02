@@ -33,6 +33,7 @@ return [
             'title'       => 'Contact Our Team',
             'description' => 'We\'d be happy to answer your questions.',
             'success'     => 'Thank you for contacting us – we will get back to you soon!',
+            'subject'     => 'Contact Form Submitted',
         ],
 
         'socials' => [
