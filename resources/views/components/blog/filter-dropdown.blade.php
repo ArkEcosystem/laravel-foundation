@@ -5,7 +5,7 @@
     'disabled' => false,
 ])
 
-<div class="flex relative justify-center items-center w-10 h-10">
+<div class="flex sm:relative justify-center items-center w-10 h-10">
     <x-ark-dropdown
         wrapper-class="inline-block items-center text-left sm:absolute"
         dropdown-classes="left-0 sm:left-auto w-auto sm:w-80"
