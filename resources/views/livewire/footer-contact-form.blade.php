@@ -52,7 +52,7 @@
 
         <button
             type="submit"
-            class="w-full button-primary"
+            class="w-full"
             wire:loading.remove
             wire:target="send"
         >

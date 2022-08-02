@@ -243,3 +243,7 @@ body {
 .extended-footer-contact textarea[readonly] {
     @apply text-theme-secondary-700 bg-theme-secondary-800 border-theme-secondary-700;
 }
+
+.extended-footer-contact button[type="submit"] {
+    @apply button-primary;
+}
