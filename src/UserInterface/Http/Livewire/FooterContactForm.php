@@ -6,9 +6,9 @@ namespace ARKEcosystem\Foundation\UserInterface\Http\Livewire;
 
 use ARKEcosystem\Foundation\UserInterface\Components\Concerns\HandleToast;
 use ARKEcosystem\Foundation\UserInterface\Mail\ContactFormSubmitted;
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\View\View;
 use Livewire\Component;
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
 use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
@@ -26,17 +26,17 @@ final class FooterContactForm extends Component
         'message' => '',
     ];
 
-    public function mount(): void
+    public function mount() : void
     {
         $this->extraFields = new HoneypotData();
     }
 
-    public function render(): View
+    public function render() : Renderable
     {
-        return view('livewire.footer-contact');
+        return view('ark::livewire.footer-contact-form');
     }
 
-    public function send(): void
+    public function send() : void
     {
         $this->protectAgainstSpam();
 
@@ -44,17 +44,17 @@ final class FooterContactForm extends Component
             'contact:name'    => $this->state['name'],
             'contact:email'   => $this->state['email'],
             'contact:message' => $this->state['message'],
-        ], rules: $this->validationRules())->validate();
+        ], rules: $this->validationRules(), messages: $this->validationMessages())->validate();
 
-        Mail::send(new ContactFormSubmitted($this->state + [
-            'subject' => 'Contact Form Submitted',
-        ]));
+        Mail::send(new ContactFormSubmitted(array_merge($this->state, [
+            'subject' => trans('ui::pages.extended-footer.contact.subject'),
+        ])));
 
-        $this->toast(trans('ui::pages.footer.contact.success'));
+        $this->toast(trans('ui::pages.extended-footer.contact.success'));
         $this->resetForm();
     }
 
-    private function resetForm(): void
+    private function resetForm() : void
     {
         $this->state = [
             'name'    => '',
@@ -69,6 +69,16 @@ final class FooterContactForm extends Component
             'contact:name'    => ['required', 'max:64'],
             'contact:email'   => ['required', 'email'],
             'contact:message' => ['required', 'max:2048'],
+        ];
+    }
+
+    private function validationMessages() : array
+    {
+        return [
+            '*.required'          => trans('ui::validation.extended-footer-contact.required'),
+            'contact:name.max'    => trans('ui::validation.extended-footer-contact.max'),
+            'contact:email.email' => trans('ui::validation.extended-footer-contact.email'),
+            'contact:message.max' => trans('ui::validation.extended-footer-contact.max'),
         ];
     }
 }
