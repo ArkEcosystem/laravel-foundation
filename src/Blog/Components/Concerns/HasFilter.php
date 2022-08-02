@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Blog\Components\Concerns;
 
+use Illuminate\Support\Arr;
+
 trait HasFilter
 {
     /**
@@ -28,6 +30,11 @@ trait HasFilter
         $this->resetCategories();
 
         $this->resetPage();
+    }
+
+    public function getIsDirtyProperty() : bool
+    {
+        return Arr::sort($this->searchCategories) !== Arr::sort($this->pendingCategories);
     }
 
     private function resetCategories() : void

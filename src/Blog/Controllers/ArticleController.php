@@ -8,7 +8,7 @@ use ARKEcosystem\Foundation\Blog\Models\Article;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
-final class ArticleController
+class ArticleController
 {
     public function index(Request $request) : Renderable
     {

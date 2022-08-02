@@ -1,6 +1,7 @@
 @props ([
     'author',
     'count',
+    'headerGradient' => null,
 ])
 
 <div class="flex flex-col items-center sm:flex-row sm:justify-between">
@@ -22,15 +23,30 @@
                 @lang('ui::pages.blog.author')
             </div>
 
-            <div class="text-2xl font-bold text-white">
-                {{ $author->name }}
+            <div @class([
+                'text-2xl font-bold',
+                'text-white' => empty($headerGradient),
+            ])>
+                @if (! empty($headerGradient))
+                    <x-ark-gradient-text
+                        :from="$headerGradient[0]"
+                        :via="$headerGradient[1]"
+                        :to="$headerGradient[2]"
+                        animationSpeed="25s"
+                        animated
+                    >
+                        {{ $author->name }}
+                    </x-ark-gradient-text>
+                @else
+                    {{ $author->name }}
+                @endif
             </div>
         </div>
     </div>
 
-    <div class="text-xs font-semibold">
+    <div class="font-semibold">
         <div class="flex hidden flex-col space-y-2 text-right sm:block">
-            <div>
+            <div class="text-xs">
                 @lang('ui::pages.blog.articles')
             </div>
 
@@ -39,7 +55,7 @@
             </div>
         </div>
 
-        <div class="mt-3 sm:hidden text-theme-secondary-500">
+        <div class="mt-3 text-sm sm:hidden text-theme-secondary-500">
             @lang('ui::pages.blog.articles_count', ['count' => $count])
         </div>
     </div>

@@ -372,3 +372,13 @@
         @apply pb-6;
     }
 }
+
+/* purgecss start ignore */
+.twitter-embed-wrapper {
+    @apply dark:hidden flex flex-col items-center;
+}
+
+.twitter-embed-wrapper.twitter-embed-wrapper-dark {
+    @apply hidden dark:flex;
+}
+/* purgecss end ignore */
