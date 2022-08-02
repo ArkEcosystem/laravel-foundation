@@ -1,4 +1,7 @@
-@props (['article'])
+@props ([
+    'article',
+    'headerGradient' => null,
+])
 
 <div class="flex flex-col items-center lg:flex-row lg:space-x-12">
     <div class="flex flex-col lg:w-1/2">
@@ -8,13 +11,31 @@
             </span>
 
             <span>
-                {{ formatReadTime($article->reading_time) }} {{ trans('ui::pages.blog.read') }}
+                {{ formatReadTime($article->reading_time) }} @lang('ui::pages.blog.read')
             </span>
         </div>
 
         <h2 class="header-1">
-            <a href="{{ $article->url() }}" class="leading-normal text-theme-secondary-200">
-                {{ $article->title }}
+            <a
+                href="{{ $article->url() }}"
+                @class([
+                    'leading-normal',
+                    'text-theme-secondary-200' => empty($headerGradient),
+                ])
+            >
+                @if (! empty($headerGradient))
+                    <x-ark-gradient-text
+                        :from="$headerGradient[0]"
+                        :via="$headerGradient[1]"
+                        :to="$headerGradient[2]"
+                        animationSpeed="25s"
+                        animated
+                    >
+                        {{ $article->title }}
+                    </x-ark-gradient-text>
+                @else
+                    {{ $article->title }}
+                @endif
             </a>
         </h2>
 
@@ -32,7 +53,7 @@
         </div>
 
         <div class="flex flex-col mt-8 space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
-            <a href="{{ $article->url() }}" class="button-primary">{{ trans('actions.read_more') }}</a>
+            <a href="{{ $article->url() }}" class="button-primary">@lang('ui::actions.read_more')</a>
         </div>
     </div>
 

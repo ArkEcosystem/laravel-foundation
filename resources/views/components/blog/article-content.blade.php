@@ -1,7 +1,10 @@
-@props (['article'])
+@props ([
+    'article',
+    'header' => null,
+])
 
-<section class="w-full bg-theme-background">
-    <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row md:px-10 bg-theme-background">
+<section class="w-full bg-theme-blog-background">
+    <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row md:px-10 bg-theme-blog-background">
         <div class="flex flex-col w-full text-sm font-semibold text-theme-secondary-500">
             <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-500">
                 <div class="pr-3 border-r border-theme-secondary-800">
@@ -28,9 +31,13 @@
                 </div>
             </div>
 
-            <h1 class="mt-4" style="margin-bottom: 0">
-                <span class="text-theme-secondary-200">{{ $article->title }}</span>
-            </h1>
+            @if ($header)
+                {{ $header }}
+            @else
+                <h1 class="mt-4" style="margin-bottom: 0">
+                    <span class="text-theme-secondary-200">{{ $article->title }}</span>
+                </h1>
+            @endif
         </div>
 
         @if (Auth::user())
@@ -71,7 +78,7 @@
     </article>
 
     <div class="flex items-center pt-8 space-x-3 font-semibold border-t border-theme-secondary-200 text-theme-secondary-900">
-        <div>{{ trans('general.share') }}:</div>
+        <div>@lang('ui::pages.blog.share'):</div>
 
         <div class="flex items-center space-x-2">
             <x-ark-social-square

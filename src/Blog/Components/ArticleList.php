@@ -29,6 +29,8 @@ final class ArticleList extends Component
 
     public string $categoryQueryString = '';
 
+    public ?array $headerGradient = null;
+
     /**
      * @var string[]
      */
@@ -54,7 +56,7 @@ final class ArticleList extends Component
         ]);
     }
 
-    public function mount(Request $request, ?User $author = null) : void
+    public function mount(Request $request, ?array $headerGradient = null) : void
     {
         $this->categories    = collect(Category::cases())->map->value->toArray();
         $this->sortDirection = $request->query('order') === 'asc' ? 'asc' : 'desc';

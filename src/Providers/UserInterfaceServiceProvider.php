@@ -287,6 +287,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::footer-social', 'ark-footer-social');
             $blade->component('ark::footer', 'ark-footer');
             $blade->component('ark::extended-footer', 'ark-extended-footer');
+            $blade->component('ark::gradient-text', 'ark-gradient-text');
             $blade->component('ark::horizontal-divider', 'ark-horizontal-divider');
             $blade->component('ark::icon', 'ark-icon');
             $blade->component('ark::icon-link', 'ark-icon-link');

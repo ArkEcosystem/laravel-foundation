@@ -29,6 +29,7 @@
                 <x-ark-blog.related-articles
                     :article="$article"
                     :articles="$articles"
+                    :has-additional="$hasAdditional ?? false"
                 />
             </x-ark-container>
         @endif

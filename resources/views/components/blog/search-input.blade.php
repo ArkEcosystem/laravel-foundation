@@ -30,7 +30,7 @@
         ])
     >
         <span class="text-sm">
-            @lang('general.search')
+            @lang('ui::pages.blog.search')
         </span>
         <x-ark-icon name="magnifying-glass" />
     </div>
@@ -43,7 +43,7 @@
         x-transition:leave="transition ease-in duration-75"
         x-transition:leave-start="transform opacity-100 scale-100"
         x-transition:leave-end="transform opacity-0 scale-95"
-        class="flex absolute right-0 left-0 bottom-5 z-30 items-center p-8 -mr-1 space-x-3 w-full bg-white rounded-lg shadow-lg origin-bottom-right sm:bottom-0 sm:left-auto sm:mr-12 sm:w-search"
+        class="flex absolute right-0 left-0 bottom-5 z-30 items-center p-8 -mr-1 space-x-3 w-full bg-white rounded-lg shadow-lg origin-bottom-right sm:bottom-0 sm:left-auto sm:mr-12 sm:w-136"
         x-cloak
     >
         <input

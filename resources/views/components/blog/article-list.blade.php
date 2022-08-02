@@ -1,17 +1,21 @@
 <section>
     @if ($author)
-        <section class="bg-theme-background">
+        <section class="bg-theme-blog-background">
             <div class="flex flex-col py-6 w-full md:py-8 content-container">
                 <x-ark-blog.author-header
                     :author="$author"
                     :count="$this->authorArticleCount"
+                    :header-gradient="$headerGradient"
                 />
             </div>
         </section>
     @elseif ($featuredArticle)
-        <section class="bg-theme-background">
+        <section class="bg-theme-blog-background">
             <x-ark-container>
-                <x-ark-blog.header :article="$featuredArticle" />
+                <x-ark-blog.header
+                    :article="$featuredArticle"
+                    :header-gradient="$headerGradient"
+                />
             </x-ark-container>
         </section>
     @endif
@@ -23,7 +27,21 @@
                     <x-ark-blog.sort :disabled="$articles->isEmpty() && $term === ''" />
 
                     <div class="flex justify-between items-center space-x-8 sm:relative sm:justify-end sm:divide-x divide-theme-primary-100">
-                        <x-ark-blog.search-input name="term" :disabled="$articles->isEmpty() && $term === ''" />
+                        <x-ark-blog.search-input
+                            name="term"
+                            :disabled="$articles->isEmpty() && $term === ''"
+                        />
+
+                        @if (config('blog.show_filter'))
+                            <div class="sm:pl-4">
+                                <x-ark-blog.filter-dropdown
+                                    name="searchCategories"
+                                    :search-categories="$searchCategories"
+                                    :categories="$categories"
+                                    :disabled="$articles->isEmpty() && $term === ''"
+                                />
+                            </div>
+                        @endif
                     </div>
                 </div>
 
