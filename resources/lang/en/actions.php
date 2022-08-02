@@ -19,7 +19,8 @@ return [
     'follow_link'   => 'Follow Link',
 
     // Blog
-
+    'apply'        => 'Apply',
+    'reset'        => 'Reset',
     'edit_article' => 'Edit Article',
 
     // Hermes

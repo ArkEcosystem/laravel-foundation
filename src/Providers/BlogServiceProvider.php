@@ -14,6 +14,7 @@ use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateArticle;
 use ARKEcosystem\Foundation\Blog\Components\Kiosk\UpdateUser;
 use ARKEcosystem\Foundation\Blog\Controllers\ArticleController;
 use ARKEcosystem\Foundation\Blog\Controllers\AuthorController;
+use ARKEcosystem\Foundation\Blog\Controllers\Contracts\ArticleController as ArticleControllerContract;
 use ARKEcosystem\Foundation\Blog\Controllers\KioskController;
 use ARKEcosystem\Foundation\Blog\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,8 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->registerPublishers();
 
+        $this->registerContracts();
+
         $this->registerBladeComponents();
 
         $this->registerLivewireComponents();
@@ -34,8 +37,15 @@ class BlogServiceProvider extends ServiceProvider
         $this->registerRoutes();
     }
 
+    protected function registerContracts(): void
+    {
+        $this->app->singleton(ArticleControllerContract::class, ArticleController::class);
+    }
+
     private function registerPublishers(): void
     {
+        $this->loadViewsFrom(__DIR__.'/../../resources/views/pages/blog', 'blog');
+
         $this->publishes([
             __DIR__.'/../../config/blog.php' => config_path('blog.php'),
         ], 'config');
@@ -58,6 +68,7 @@ class BlogServiceProvider extends ServiceProvider
             $blade->component('ark::components.blog.related-articles', 'ark-blog.related-articles');
             $blade->component('ark::components.blog.sort', 'ark-blog.sort');
             $blade->component('ark::components.blog.search-input', 'ark-blog.search-input');
+            $blade->component('ark::components.blog.filter-dropdown', 'ark-blog.filter-dropdown');
         });
     }
 
@@ -76,8 +87,8 @@ class BlogServiceProvider extends ServiceProvider
     private function registerRoutes(): void
     {
         Route::middleware('web')->group(function () {
-            Route::get('/blog', [ArticleController::class, 'index'])->name('blog');
-            Route::get('/blog/{article:slug}', [ArticleController::class, 'show'])->name('article');
+            Route::get('/blog', [resolve(ArticleControllerContract::class)::class, 'index'])->name('blog');
+            Route::get('/blog/{article:slug}', [resolve(ArticleControllerContract::class)::class, 'show'])->name('article');
             Route::get('/authors/{author:name_slug}', AuthorController::class)->name('author');
 
             Route::middleware(['doNotCacheResponse'])->group(function () {

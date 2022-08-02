@@ -52,6 +52,7 @@ module.exports = {
                 "21": "5.25rem",
                 "58": "14.5rem",
                 "120": "30rem",
+                "136": "34rem",
             },
             zIndex: {
                 "5": 5,
@@ -74,6 +75,9 @@ module.exports = {
             black: "#121213",
             white: "#ffffff",
             transparent: "transparent",
+
+            // Product specific
+            "theme-blog-background": "var(--theme-color-blog-background)",
 
             // Tailwind overrides
             "theme-primary-50": "var(--theme-color-primary-50)",
