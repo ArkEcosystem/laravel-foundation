@@ -71,6 +71,6 @@
             @endunless
         </div>
 
-        @include('ark::inputs.includes.input-error')
+        <x-ark::inputs.input-error :name="$name" :errors="$errors" />
     </div>
 </div>

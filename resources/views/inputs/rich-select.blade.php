@@ -159,5 +159,5 @@ $initialText = $grouped
         </div>
     </div>
 
-    @include('ark::inputs.includes.input-error')
+    <x-ark::inputs.input-error :name="$name ?? null" :errors="$errors" />
 </div>
