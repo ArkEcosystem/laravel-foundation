@@ -72,8 +72,10 @@ const CustomChart = (
         },
 
         themeMode() {
-            if (theme.mode === 'auto') {
-                return ['light', 'dark'].includes(localStorage.theme) ? localStorage.theme : 'light';
+            if (theme.mode === "auto") {
+                return ["light", "dark"].includes(localStorage.theme)
+                    ? localStorage.theme
+                    : "light";
             }
 
             return theme.mode;
@@ -204,10 +206,13 @@ const CustomChart = (
                             label: (context) =>
                                 this.getCurrencyValue(context.raw),
                             labelTextColor: (context) =>
-                                getFontConfig("tooltip", this.themeMode()).fontColor,
+                                getFontConfig("tooltip", this.themeMode())
+                                    .fontColor,
                         },
-                        backgroundColor: getFontConfig("tooltip", this.themeMode())
-                            .backgroundColor,
+                        backgroundColor: getFontConfig(
+                            "tooltip",
+                            this.themeMode()
+                        ).backgroundColor,
                     },
                 },
                 hover: {
