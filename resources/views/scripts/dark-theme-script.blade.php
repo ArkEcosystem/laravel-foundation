@@ -34,6 +34,10 @@
                 _theme = 'light';
             }
 
+            if (!('theme' in localStorage)) {
+                localStorage.theme = _theme;
+            }
+
             /**
              * Emit a custom `theme-changed` event.
              */

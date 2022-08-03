@@ -71,6 +71,16 @@ const CustomChart = (
             this.chart.update();
         },
 
+        themeMode() {
+            if (theme.mode === "auto") {
+                return ["light", "dark"].includes(localStorage.theme)
+                    ? localStorage.theme
+                    : "light";
+            }
+
+            return theme.mode;
+        },
+
         loadData() {
             const datasets = [];
 
@@ -85,7 +95,7 @@ const CustomChart = (
 
             values.forEach((value, key) => {
                 let themeName = value.type === "bar" ? "grey" : theme.name;
-                let graphic = getInfoFromThemeName(themeName, theme.mode);
+                let graphic = getInfoFromThemeName(themeName, this.themeMode());
                 let backgroundColor = graphic.backgroundColor;
                 if (backgroundColor.hasOwnProperty("gradient")) {
                     backgroundColor = makeGradient(
@@ -139,7 +149,7 @@ const CustomChart = (
                     display: grid && key === 0,
                     type: "linear",
                     ticks: {
-                        ...getFontConfig("axis", theme.mode),
+                        ...getFontConfig("axis", this.themeMode()),
                         padding: 15,
                         display: grid && key === 0,
                         suggestedMax: range.max,
@@ -149,7 +159,7 @@ const CustomChart = (
                     grid: {
                         display: grid && key === 0,
                         drawBorder: false,
-                        color: getAxisThemeConfig(theme.mode).y.color,
+                        color: getAxisThemeConfig(this.themeMode()).y.color,
                     },
                 });
             });
@@ -196,10 +206,13 @@ const CustomChart = (
                             label: (context) =>
                                 this.getCurrencyValue(context.raw),
                             labelTextColor: (context) =>
-                                getFontConfig("tooltip", theme.mode).fontColor,
+                                getFontConfig("tooltip", this.themeMode())
+                                    .fontColor,
                         },
-                        backgroundColor: getFontConfig("tooltip", theme.mode)
-                            .backgroundColor,
+                        backgroundColor: getFontConfig(
+                            "tooltip",
+                            this.themeMode()
+                        ).backgroundColor,
                     },
                 },
                 hover: {
@@ -220,12 +233,12 @@ const CustomChart = (
                             display: grid,
                             includeBounds: true,
                             padding: 10,
-                            ...getFontConfig("axis", theme.mode),
+                            ...getFontConfig("axis", this.themeMode()),
                         },
                         grid: {
                             display: grid,
                             drawBorder: false,
-                            color: getAxisThemeConfig(theme.mode).x.color,
+                            color: getAxisThemeConfig(this.themeMode()).x.color,
                         },
                     },
                 },
