@@ -1,24 +1,103 @@
 @props([
-    'wrapperClass'  => 'px-8 max-w-7xl flex md:px-10',
-    'copyClass'     => '',
-    'border'        => false,
-    'copyText'      => null,
-    'isArkProduct'  => true,
-    'socials'       => null,
-    'copyrightSlot' => null,
+    'wrapperClass'  => 'px-8 max-w-7xl md:px-10',
+    'backgroundColor' => 'bg-theme-secondary-900',
+    'linkClass' => 'underline hover:no-underline transition-default hover:text-theme-secondary-200',
+    'name' => null,
+    'url' => null,
+    'creator' => null,
+    'creatorUrl' => null,
+    'arkProduct' => false,
+    'reservedRights' => true,
+    'policy' => [],
+    'terms' => [],
+    'socials' => [
+        [
+            'icon' => 'brands.solid.twitter',
+            'url' => trans('ui::urls.twitter')
+        ],
+        [
+            'icon' => 'brands.solid.linkedin',
+            'url' => trans('ui::urls.linkedin')
+        ],
+        [
+            'icon' => 'brands.solid.facebook',
+            'url' => trans('ui::urls.facebook')
+        ],
+        [
+            'icon' => 'brands.solid.youtube',
+            'url' => trans('ui::urls.youtube')
+        ],
+        [
+            'icon' => 'brands.solid.github',
+            'url' => trans('ui::urls.github')
+        ],
+        [
+            'icon' => 'brands.solid.telegram',
+            'url' => trans('ui::urls.telegram')
+        ],
+    ],
 ])
 
-<div {{ $attributes->merge(['class' => 'border-t bg-theme-secondary-900 border-theme-secondary-800']) }}>
-    <div class="{{ $wrapperClass }} flex-col mx-auto">
-        <div class="flex flex-col items-start lg:flex-row lg:items-center justify-between space-y-3 lg:space-y-0 py-5 @if ($border) border-t border-theme-secondary-800 @endunless">
-            <x-ark-footer-copyright
-                :is-ark-product="$isArkProduct"
-                :copy-text="$copyText"
-                :class="$copyClass"
-                :copyright-slot="$copyrightSlot"
-            />
+<div {{ $attributes->class('border-t border-theme-secondary-800')->class($backgroundColor) }}>
+    <div class="{{ $wrapperClass }} mx-auto">
+        <div class="lg:flex space-y-4 lg:space-y-0 items-center justify-between py-5">
+            <div class="text-sm font-semibold break-words leading-6">
+                <span>
+                    {{ date('Y') }}
+                    &copy;
+                    @if ($name && ! $url)
+                        {{ $name }}
+                    @elseif ($name && $url)
+                        <a href="{{ $url }}">{{ $name }}</a>
+                    @elseif ($creator)
+                        <span>
+                            Made with ♥ by <a href="{{ $creatorUrl }}" class="{{ $linkClass }}">{{ $creator }}</a>
+                        </span>
+                    @endif
+                </span>
 
-            <x-ark-footer-social :networks="$socials" />
+                @if ($creator && $name)
+                    <span class="mx-0.5">|</span>
+                    <span>
+                        Made with ♥ by <a href="{{ $creatorUrl }}" class="{{ $linkClass }}">{{ $creator }}</a>
+                    </span>
+                @endif
+
+                @if ($arkProduct)
+                    <span class="mx-0.5">|</span>
+                    <div>
+                        <x-ark-icon
+                            name="networks.ark-square"
+                            class="inline-block mr-1 -mt-1 ark-logo-red"
+                        />
+
+                        <span>An <a href="https://ark.io" class="{{ $linkClass }}">ARK.io</a> product</span>
+                    </div>
+                @endif
+
+                @if ($reservedRights)
+                    <span class="mx-0.5">|</span>
+                    <span>All rights reserved</span>
+                @endif
+
+                @if (isset($policy['url'], $policy['label']))
+                    <span class="mx-0.5">|</span>
+                    <a href="{{ $policy['url'] }}" class="{{ $linkClass }}">{{ $policy['label'] }}</a>
+                @endif
+
+                @if (isset($terms['url'], $terms['label']))
+                    <span class="mx-0.5">|</span>
+                    <a href="{{ $terms['url'] }}" class="{{ $linkClass }}">{{ $terms['label'] }}</a>
+                @endif
+            </div>
+
+            @if (count($socials) > 0)
+                <div class="flex space-x-3 leading-6">
+                    @foreach ($socials as $network)
+                        <x-ark-social-link :url="$network['url']" :icon="$network['icon']" data-safe-external />
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
 </div>
