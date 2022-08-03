@@ -95,7 +95,7 @@ return [
     ],
 
     'footer' => [
-        'rights' => 'All rights reserved',
+        'rights'         => 'All rights reserved',
         'made_with_love' => 'Made with ♥ by',
     ],
 ];
