@@ -51,7 +51,7 @@
                         <a href="{{ $url }}">{{ $name }}</a>
                     @elseif (isset($creator['label']) || is_string($creator))
                         <span>
-                            Made with ♥ by <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
+                            @lang ('ui::pages.footer.made_with_love') <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
                         </span>
                     @endif
                 </span>
@@ -59,7 +59,7 @@
                 @if ((is_string($creator) || isset($creator['label'])) && $name)
                     <span class="mx-0.5">|</span>
                     <span>
-                        Made with ♥ by <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
+                        @lang ('ui::pages.footer.made_with_love') <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
                     </span>
                 @endif
 
@@ -77,7 +77,7 @@
 
                 @if ($reservedRights)
                     <span class="mx-0.5">|</span>
-                    <span>All rights reserved</span>
+                    <span>@lang ('ui::pages.footer.rights')</span>
                 @endif
 
                 @if (isset($policy['url'], $policy['label']))
