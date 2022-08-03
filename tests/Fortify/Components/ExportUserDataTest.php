@@ -3,10 +3,10 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Fortify\Components\ExportUserData;
-use function Tests\createUserModel;
 use Illuminate\Support\Facades\Bus;
 use Livewire\Livewire;
 use Spatie\PersonalDataExport\Jobs\CreatePersonalDataExportJob;
+use function Tests\createUserModel;
 
 it('can export the user data', function () {
     Bus::fake();

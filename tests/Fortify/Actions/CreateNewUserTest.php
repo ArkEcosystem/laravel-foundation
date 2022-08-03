@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Fortify\Actions\CreateNewUser;
 use ARKEcosystem\Foundation\Fortify\Models;
-use function Tests\expectValidationError;
 use Illuminate\Contracts\Validation\UncompromisedVerifier;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
+use function Tests\expectValidationError;
 use Tests\Fortify\stubs\TestUser;
 
 beforeEach(function () {
