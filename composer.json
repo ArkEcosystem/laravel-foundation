@@ -28,6 +28,7 @@
         "illuminate/mail": "^8.73|^9.0",
         "illuminate/support": "^8.73|^9.0",
         "illuminate/view": "^8.73|^9.0",
+        "jamesmills/laravel-timezone": "^1.11",
         "jasonmccreary/laravel-test-assertions": "^2.0",
         "jenssegers/agent": "^2.6",
         "johnkary/phpunit-speedtrap": "^4.0",
@@ -59,7 +60,9 @@
         "spatie/laravel-newsletter": "^4.10",
         "spatie/laravel-package-tools": "^1.9",
         "spatie/laravel-personal-data-export": "^3.0|^4.0",
+        "spatie/laravel-responsecache": "^7.3",
         "spatie/laravel-schemaless-attributes": "^2.1",
+        "spatie/laravel-sluggable": "^3.4",
         "spatie/pest-plugin-snapshots": "^1.1",
         "spatie/regex": "^3.1",
         "spatie/yaml-front-matter": "^2.0",
@@ -110,7 +113,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "treeware/plant": true
         }
     },
     "require-dev": {

@@ -1797,7 +1797,7 @@
                 function () {
                     _addClass(html_dom, "show--settings");
                     settings_container.setAttribute("aria-hidden", "false");
-                    settings_close_btn_container.style = "display: block";
+                    settings_close_btn_container.removeAttribute("style");
                     settings_modal_visible = true;
 
                     /**

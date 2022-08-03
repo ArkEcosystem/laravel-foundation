@@ -100,7 +100,7 @@ code.hljs .hljs-ln-n {
 }
 
 .documentation-content code {
-    @apply px-2 py-1 font-normal rounded bg-theme-secondary-200 text-theme-secondary-900;
+    @apply px-2 py-1 font-normal rounded bg-theme-secondary-200 text-theme-secondary-900 dark:bg-theme-secondary-800 dark:text-theme-secondary-400;
 }
 
 .documentation-content pre.hljs {
@@ -188,6 +188,10 @@ code.hljs .hljs-ln-n {
     @apply border rounded-xl border-theme-secondary-300 overflow-hidden dark:border-theme-secondary-800;
 }
 
+.documentation-content > .twitter-tweet {
+    @apply mx-auto;
+}
+
 .documentation-content .image-container .twitter-tweet {
     overflow: hidden;
     /* This style within the negative margin on the `.twitter-tweet iframe` is
@@ -203,6 +207,11 @@ code.hljs .hljs-ln-n {
 /* Image caption */
 .documentation-content .image-caption {
     @apply relative block mx-auto text-theme-secondary-800 dark:text-theme-secondary-200 border-l-2 border-theme-secondary-300 text-sm px-3 mt-3 italic text-center dark:border-theme-secondary-800;
+}
+
+.documentation-content .image-caption .external-link svg {
+    @apply w-2.5 h-2.5;
+    margin-top: -0.25rem;
 }
 
 /* Misc */
@@ -362,3 +371,13 @@ main .documentation-content .heading-permalink:hover {
 .documentation-content dl dd {
     @apply pb-6;
 }
+
+/* purgecss start ignore */
+.twitter-embed-wrapper {
+    @apply dark:hidden flex flex-col items-center;
+}
+
+.twitter-embed-wrapper.twitter-embed-wrapper-dark {
+    @apply hidden dark:flex;
+}
+/* purgecss end ignore */

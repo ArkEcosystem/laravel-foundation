@@ -41,7 +41,7 @@ mix.webpackConfig({
 "post-autoload-dump": [
     "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
     "@php artisan package:discover --ansi",
-    "@php artisan vendor:publish --provider=\"ARKEcosystem\\UserInterface\\UserInterfaceServiceProvider\" --tag=\"css\" --tag=\"fonts\""
+    "@php artisan vendor:publish --provider=\"ARKEcosystem\\Foundation\\Providers\\UserInterfaceServiceProvider\" --tag=\"css\" --tag=\"fonts\""
 ],
 ```
 
@@ -148,7 +148,7 @@ We use components because they contain the CSS classes and HTML needed to build 
 
 
 | Props        | Default | Description                                                                                                               |
-|--------------|---------|---------------------------------------------------------------------------------------------------------------------------|
+| ------------ | ------- | ------------------------------------------------------------------------------------------------------------------------- |
 | sticky       | `false` | If set it will keep the header on top                                                                                     |
 | tableClass   | `null`  | CSS classes to add to the `table` tag                                                                                     |
 | noContainer  | `false` | If set it will remove the container that wraps the table                                                                  |
@@ -159,7 +159,7 @@ We use components because they contain the CSS classes and HTML needed to build 
 #### Table `<x-art-tables.row` props
 
 | Props   | Default | Description                                                            |
-|---------|---------|------------------------------------------------------------------------|
+| ------- | ------- | ---------------------------------------------------------------------- |
 | success | `false` | If set it will add a green background to the row                       |
 | info    | `false` | If set it will add a background according to the main color to the row |
 | danger  | `false` | If set it will add a red background to the row                         |
@@ -169,7 +169,7 @@ We use components because they contain the CSS classes and HTML needed to build 
 #### Table `<x-art-tables.header` props
 
 | Props      | Default | Description                                                                                       |
-|------------|---------|---------------------------------------------------------------------------------------------------|
+| ---------- | ------- | ------------------------------------------------------------------------------------------------- |
 | responsive | `false` | If set it will hide the column according on the breakpoint that is added on the `breakpoint` prop |
 | breakpoint | `lg`    | In which breakpoint it will hide the column                                                       |
 | firstOn    | `null`  | In which screen sizes this column will be the first one (`xl`, `lg`, etc)                         |
@@ -180,7 +180,7 @@ We use components because they contain the CSS classes and HTML needed to build 
 #### Table `<x-art-tables.cell` props
 
 | Props      | Default | Description                                                                                       |
-|------------|---------|---------------------------------------------------------------------------------------------------|
+| ---------- | ------- | ------------------------------------------------------------------------------------------------- |
 | responsive | `false` | If set it will hide the column according on the breakpoint that is added on the `breakpoint` prop |
 | breakpoint | `lg`    | In which breakpoint it will hide the column                                                       |
 | firstOn    | `null`  | In which screen sizes this column will be the first one (`xl`, `lg`, etc)                         |
@@ -735,6 +735,36 @@ window.Pagination = Pagination
 <x-ark-pagination :results="$results"  />
 ```
 
+### Cookie banner
+
+1. Add the banner component with the required `domain` and the rest of optional parameters.
+
+```html
+<x-ark-pages-includes-cookie-banner
+    :domain="$cookieDomain"
+    :contact-url="$cookieContactUrl"
+    :disable-outside-click="$disableCookieOutsideClick"
+    :overlay-cross-button="$overlayCookieCrossButton"
+/>
+```
+
+2. Import the cookie banner script in your main js file (usually `resources/js/app.js`)
+
+```js
+import CookieBanner from "@ui/js/cookie-banner";
+window.CookieBanner = CookieBanner;
+```
+
+1. Add the cookieconsent library into your `webpack.mix.js` file
+
+```js
+mix.copy(
+    "vendor/arkecosystem/foundation/resources/assets/js/cookieconsent.js",
+    "public/js/cookie-consent.js"
+)
+```
+
+
 ### External Link Confirmation modal
 
 1. Install `body-scroll-lock` and `focus-trap`:
@@ -980,7 +1010,7 @@ Basically, it uses vanilla javascript to listen to events and uses Local Storage
 Emits one of these events from Livewire or AlpineJs (scroll down for examples).
 
 | events          | params | description                                                                   |
-|-----------------|--------|-------------------------------------------------------------------------------|
+| --------------- | ------ | ----------------------------------------------------------------------------- |
 | setThemeMode    | theme  | It sets the given theme name.                                                 |
 | setOSThemeMode  |        | It sets the theme preference from O.S.                                        |
 | toggleThemeMode |        | It toggles the theme from light to dark and vice-versa without persisting it. |

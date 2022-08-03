@@ -237,6 +237,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::docs.share-links', 'ark-docs-share-links');
             $blade->component('ark::docs.sidebar-group', 'ark-docs-sidebar-group');
             $blade->component('ark::docs.sidebar-link', 'ark-docs-sidebar-link');
+            $blade->component('ark::docs.sidebar-subheading', 'ark-docs-sidebar-subheading');
 
             $blade->component('ark::pages.contact', 'ark-pages-contact');
             $blade->component('ark::pages.documentation', 'ark-pages-documentation');
@@ -286,6 +287,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::footer-copyright', 'ark-footer-copyright');
             $blade->component('ark::footer-social', 'ark-footer-social');
             $blade->component('ark::footer', 'ark-footer');
+            $blade->component('ark::gradient-text', 'ark-gradient-text');
             $blade->component('ark::horizontal-divider', 'ark-horizontal-divider');
             $blade->component('ark::icon', 'ark-icon');
             $blade->component('ark::icon-link', 'ark-icon-link');

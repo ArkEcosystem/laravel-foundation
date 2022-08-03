@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Laravel\Fortify\Features;
+use Spatie\ResponseCache\Middlewares\DoNotCacheResponse;
 
 return [
 
@@ -88,7 +89,7 @@ return [
     |
     */
 
-    'middleware' => ['web'],
+    'middleware' => ['web', DoNotCacheResponse::class],
 
     'middlewares' => [
         'account_settings' => [
