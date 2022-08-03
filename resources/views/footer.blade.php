@@ -49,7 +49,7 @@
                     <a href="{{ $url }}" class="transition-default hover:text-theme-secondary-200">{{ $name }}</a>
                 @elseif (isset($creator['label']) || is_string($creator))
                     <span>
-                        @lang ('ui::pages.footer.made_with_love') <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
+                        @lang ('ui::pages.footer.made_with_love') <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}" target="_blank" rel="noopener">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
                     </span>
                 @endif
             </span>
@@ -57,7 +57,7 @@
             @if ((is_string($creator) || isset($creator['label'])) && $name)
                 <span class="mx-0.5">|</span>
                 <span>
-                    @lang ('ui::pages.footer.made_with_love') <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
+                    @lang ('ui::pages.footer.made_with_love') <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}" target="_blank" rel="noopener">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
                 </span>
             @endif
 
