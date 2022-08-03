@@ -4,12 +4,11 @@
     'linkClass' => 'underline hover:no-underline transition-default hover:text-theme-secondary-200',
     'name' => null,
     'url' => null,
-    'creator' => [],
-    'creatorUrl' => null,
+    'creator' => [], // Needs `url` and `label` to display the "Made by"...
     'arkProduct' => false,
-    'reservedRights' => true,
-    'policy' => [],
-    'terms' => [],
+    'reservedRights' => true, // Show "All rights reserved"...
+    'policy' => [], // Needs `url` and `label` to display the Privacy Policy link...
+    'terms' => [], // Needs `url` and `label` to display the Terms of Service link...
     'socials' => [
         [
             'icon' => 'brands.solid.twitter',
