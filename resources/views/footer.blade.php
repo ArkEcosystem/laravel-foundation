@@ -40,8 +40,8 @@
 
 <div {{ $attributes->class('border-t border-theme-secondary-800')->class($backgroundColor) }}>
     <div class="{{ $wrapperClass }} mx-auto">
-        <div class="lg:flex space-y-4 lg:space-y-0 items-center justify-between py-5">
-            <div class="text-sm font-semibold break-words leading-6">
+        <div class="justify-between items-center py-5 space-y-4 lg:flex lg:space-y-0">
+            <div class="text-sm font-semibold leading-6 break-words">
                 <span>
                     {{ date('Y') }}
                     &copy;
