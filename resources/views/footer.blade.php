@@ -4,7 +4,7 @@
     'linkClass' => 'underline hover:no-underline transition-default hover:text-theme-secondary-200',
     'name' => null,
     'url' => null,
-    'creator' => null,
+    'creator' => [],
     'creatorUrl' => null,
     'arkProduct' => false,
     'reservedRights' => true,
@@ -49,17 +49,17 @@
                         {{ $name }}
                     @elseif ($name && $url)
                         <a href="{{ $url }}">{{ $name }}</a>
-                    @elseif ($creator)
+                    @elseif (isset($creator['label']) || is_string($creator))
                         <span>
-                            Made with ♥ by <a href="{{ $creatorUrl }}" class="{{ $linkClass }}">{{ $creator }}</a>
+                            Made with ♥ by <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
                         </span>
                     @endif
                 </span>
 
-                @if ($creator && $name)
+                @if ((is_string($creator) || isset($creator['label'])) && $name)
                     <span class="mx-0.5">|</span>
                     <span>
-                        Made with ♥ by <a href="{{ $creatorUrl }}" class="{{ $linkClass }}">{{ $creator }}</a>
+                        Made with ♥ by <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
                     </span>
                 @endif
 
