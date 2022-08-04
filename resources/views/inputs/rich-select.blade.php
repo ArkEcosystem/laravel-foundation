@@ -159,5 +159,5 @@ $initialText = $grouped
         </div>
     </div>
 
-    <x-ark::inputs.input-error :name="$name ?? null" :errors="$errors" />
+    <x-ark::inputs.input-error :name="$name ?? null" />
 </div>

@@ -47,5 +47,5 @@
         </div>
     </div>
 
-    <x-ark::inputs.input-error :name="$name" :errors="$errors" />
+    <x-ark::inputs.input-error :name="$name" />
 </div>
