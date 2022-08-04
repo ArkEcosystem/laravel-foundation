@@ -3,7 +3,7 @@
     'name',
     'children' => [],
     'topLevel' => false,
-    'topBorder' => true,
+    'topBorder' => false,
     'first' => false,
     'borderless' => false,
 ])
