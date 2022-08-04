@@ -5,8 +5,8 @@
     'name' => null,
     'url' => null,
     'creator' => [], // Needs `url` and `label` to display the "Made by"...
-    'arkProduct' => false,
-    'reservedRights' => true, // Show "All rights reserved"...
+    'isArkProduct' => false,
+    'hasReservedRights' => true, // Show "All rights reserved"...
     'policy' => [], // Needs `url` and `label` to display the Privacy Policy link...
     'terms' => [], // Needs `url` and `label` to display the Terms of Service link...
     'socials' => [
@@ -61,7 +61,7 @@
                 </span>
             @endif
 
-            @if ($arkProduct)
+            @if ($isArkProduct)
                 <span class="mx-0.5">|</span>
                 <div>
                     <x-ark-icon
@@ -73,7 +73,7 @@
                 </div>
             @endif
 
-            @if ($reservedRights)
+            @if ($hasReservedRights)
                 <span class="mx-0.5">|</span>
                 <span>@lang ('ui::pages.footer.rights')</span>
             @endif
