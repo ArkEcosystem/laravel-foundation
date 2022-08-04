@@ -13,7 +13,7 @@ beforeEach(function () {
 
     Storage::fake('docs');
 
-    app('files')->copyDirectory(__DIR__.'/fixtures/', Storage::disk('docs')->getAdapter()->getPathPrefix());
+    app('files')->copyDirectory(__DIR__.'/fixtures/', Storage::disk('docs')->path('/'));
 });
 
 function createMockRequest(string $path)

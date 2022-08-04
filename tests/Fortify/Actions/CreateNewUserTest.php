@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Fortify\Actions\CreateNewUser;
 use ARKEcosystem\Foundation\Fortify\Models;
+use function Tests\expectValidationError;
 use Illuminate\Contracts\Validation\UncompromisedVerifier;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
-use function Tests\expectValidationError;
 use Tests\Fortify\stubs\TestUser;
 
 beforeEach(function () {
@@ -308,5 +308,5 @@ it('should validate correctly with alt username set to email', function () {
         'password'              => $this->validPassword,
         'password_confirmation' => $this->validPassword,
         'terms'                 => true,
-    ]))->toThrow('The given data was invalid.');
+    ]))->toThrow('The email must be a valid email address.');
 });
