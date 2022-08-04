@@ -106,7 +106,7 @@
 
             @if (! $slot->isEmpty())
                 <span class="mx-0.5">|</span>
-                <div>{{ $slot }}</div>
+                <span>{{ $slot }}</span>
             @endif
         </div>
 
