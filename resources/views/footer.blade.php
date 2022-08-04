@@ -2,9 +2,9 @@
     'wrapperClass'  => 'px-8 max-w-7xl md:px-10',
     'backgroundColor' => 'bg-theme-secondary-900',
     'linkClass' => 'underline hover:no-underline transition-default hover:text-theme-secondary-200',
-    'name' => null,
-    'url' => null,
     'creator' => [], // Needs `url` and `label` to display the "Made by"...
+    'copyrightName' => null,
+    'copyrightUrl' => null,
     'isArkProduct' => false,
     'hasReservedRights' => true, // Show "All rights reserved"...
     'policy' => [], // Needs `url` and `label` to display the Privacy Policy link...
@@ -43,10 +43,10 @@
             <span>
                 {{ date('Y') }}
                 &copy;
-                @if ($name && ! $url)
-                    {{ $name }}
-                @elseif ($name && $url)
-                    <a href="{{ $url }}" class="transition-default hover:text-theme-secondary-200">{{ $name }}</a>
+                @if ($copyrightName && ! $copyrightUrl)
+                    {{ $copyrightName }}
+                @elseif ($copyrightName && $copyrightUrl)
+                    <a href="{{ $copyrightUrl }}" class="transition-default hover:text-theme-secondary-200">{{ $copyrightName }}</a>
                 @elseif (isset($creator['label']) || is_string($creator))
                     <span>
                         @lang ('ui::pages.footer.made_with_love') <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}" target="_blank" rel="noopener">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
@@ -54,7 +54,7 @@
                 @endif
             </span>
 
-            @if ((is_string($creator) || isset($creator['label'])) && $name)
+            @if ((is_string($creator) || isset($creator['label'])) && $copyrightName)
                 <span class="mx-0.5">|</span>
                 <span>
                     @lang ('ui::pages.footer.made_with_love') <a href="{{ $creator['url'] ?? url('/') }}" class="{{ $linkClass }}" target="_blank" rel="noopener">{{ is_string($creator) ? $creator : $creator['label'] }}</a>
