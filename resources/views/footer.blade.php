@@ -55,9 +55,7 @@
                             @if ($creator['newWindow'] ?? false)
                             target="_blank" rel="noopener"
                             @endif
-                        >
-                            {{ is_string($creator) ? $creator : $creator['label'] }}
-                        </a>
+                        >{{ is_string($creator) ? $creator : $creator['label'] }}</a>
                     </span>
                 @endif
             </span>
@@ -71,9 +69,7 @@
                         @if ($creator['newWindow'] ?? false)
                         target="_blank" rel="noopener"
                         @endif
-                    >
-                        {{ is_string($creator) ? $creator : $creator['label'] }}
-                    </a>
+                    >{{ is_string($creator) ? $creator : $creator['label'] }}</a>
                 </span>
             @endif
 
