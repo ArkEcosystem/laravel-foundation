@@ -16,6 +16,7 @@ use ARKEcosystem\Foundation\UserInterface\Components\Toast;
 use ARKEcosystem\Foundation\UserInterface\Components\TruncateMiddle;
 use ARKEcosystem\Foundation\UserInterface\Http\Controllers\ImageCropController;
 use ARKEcosystem\Foundation\UserInterface\Http\Controllers\WysiwygControlller;
+use ARKEcosystem\Foundation\UserInterface\Http\Livewire\FooterContactForm;
 use ARKEcosystem\Foundation\UserInterface\UI;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -236,6 +237,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::docs.sidebar-link', 'ark-docs-sidebar-link');
             $blade->component('ark::docs.sidebar-subheading', 'ark-docs-sidebar-subheading');
 
+            $blade->component('ark::pages.content-section', 'ark-pages-content-section');
             $blade->component('ark::pages.contact', 'ark-pages-contact');
             $blade->component('ark::pages.documentation', 'ark-pages-documentation');
             $blade->component('ark::pages.includes.cookie-banner', 'ark-pages-includes-cookie-banner');
@@ -280,6 +282,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::external-link-confirm', 'ark-external-link-confirm');
             $blade->component('ark::flash', 'ark-flash');
             $blade->component('ark::footer', 'ark-footer');
+            $blade->component('ark::extended-footer', 'ark-extended-footer');
             $blade->component('ark::gradient-text', 'ark-gradient-text');
             $blade->component('ark::horizontal-divider', 'ark-horizontal-divider');
             $blade->component('ark::icon', 'ark-icon');
@@ -357,6 +360,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
      */
     private function registerLivewireComponents(): void
     {
+        Livewire::component('footer-contact-form', FooterContactForm::class);
         Livewire::component('flash-message', FlashMessage::class);
         Livewire::component('toast', Toast::class);
         Livewire::component('frontend-settings', FrontendSettings::class);

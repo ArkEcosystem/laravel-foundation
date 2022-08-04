@@ -8,6 +8,12 @@ return [
         'invalid_tag'        => 'Only letters and numbers are allowed, the tag must start with a letter and must be between 3 and 30 characters.',
     ],
 
+    'extended-footer-contact' => [
+        'required' => 'This field is required.',
+        'max'      => 'Please keep this field under :max characters.',
+        'email'    => 'This field must be a valid e-mail address.',
+    ],
+
     'tag' => [
         'special_character_start'        => 'The tag must start with a letter.',
         'special_character_end'          => 'The tag must end with a letter.',

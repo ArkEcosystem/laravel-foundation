@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0040048e8da86de9543a7e2de649bd00",
+    "content-hash": "46ee2b8a33825613481b323815018c34",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -9008,16 +9008,16 @@
         },
         {
             "name": "spatie/laravel-honeypot",
-            "version": "4.2.2",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-honeypot.git",
-                "reference": "f01d6fba84c746739fa3cde4593cdaa7831ecc9f"
+                "reference": "f29e3cd612699a2a3a2912da3f638ee987a3d31d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/f01d6fba84c746739fa3cde4593cdaa7831ecc9f",
-                "reference": "f01d6fba84c746739fa3cde4593cdaa7831ecc9f",
+                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/f29e3cd612699a2a3a2912da3f638ee987a3d31d",
+                "reference": "f29e3cd612699a2a3a2912da3f638ee987a3d31d",
                 "shasum": ""
             },
             "require": {
@@ -9032,6 +9032,7 @@
                 "symfony/http-foundation": "^5.1.2|^6.0"
             },
             "require-dev": {
+                "livewire/livewire": "^2.10",
                 "orchestra/testbench": "^6.23|^7.0",
                 "phpunit/phpunit": "^9.4",
                 "spatie/phpunit-snapshot-assertions": "^4.2",
@@ -9069,8 +9070,7 @@
                 "spatie"
             ],
             "support": {
-                "issues": "https://github.com/spatie/laravel-honeypot/issues",
-                "source": "https://github.com/spatie/laravel-honeypot/tree/4.2.2"
+                "source": "https://github.com/spatie/laravel-honeypot/tree/4.3.0"
             },
             "funding": [
                 {
@@ -9078,7 +9078,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2022-03-24T08:09:04+00:00"
+            "time": "2022-05-21T11:49:59+00:00"
         },
         {
             "name": "spatie/laravel-medialibrary",
@@ -14718,5 +14718,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
