@@ -103,6 +103,11 @@
                 <span class="mx-0.5">|</span>
                 <a href="{{ $terms['url'] }}" class="{{ $linkClass }}">{{ $terms['label'] }}</a>
             @endif
+
+            @if (! $slot->isEmpty())
+                <span class="mx-0.5">|</span>
+                <div>{{ $slot }}</div>
+            @endif
         </div>
 
         @if (count($socials) > 0)
