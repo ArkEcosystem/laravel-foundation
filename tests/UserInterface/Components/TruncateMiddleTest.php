@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\UserInterface\Components\TruncateMiddle;
-use Illuminate\Support\Facades\View;
 use function Spatie\Snapshots\assertMatchesSnapshot;
+use Illuminate\Support\Facades\View;
 
 it('should format the given value', function (): void {
     assertMatchesSnapshot((new TruncateMiddle())->render()([
@@ -43,35 +43,35 @@ it('should format the given value', function (): void {
 it('should render when included in a blade view', function (): void {
     View::addLocation(realpath(__DIR__.'/../../blade-views'));
 
-    $this->assertView('truncate-middle', ([
+    $this->vieW('truncate-middle', ([
         'slot' => 'I am a very long string',
-    ]))->contains('I am …tring');
+    ]))->assertSeeText('I am …tring');
 
-    $this->assertView('truncate-middle-with-length', ([
+    $this->vieW('truncate-middle-with-length', ([
         'slot'   => 'I am a very long string',
         'length' => 12,
-    ]))->contains('I am a…string');
+    ]))->assertSeeText('I am a…string');
 
-    $this->assertView('truncate-middle-with-length', ([
+    $this->vieW('truncate-middle-with-length', ([
         'slot'   => 'I am a very long string',
         'length' => 2,
-    ]))->contains('I…g');
+    ]))->assertSeeText('I…g');
 
-    $this->assertView('truncate-middle', ([
+    $this->vieW('truncate-middle', ([
         'slot' => 'short',
-    ]))->contains('short');
+    ]))->assertSeeText('short');
 
-    $this->assertView('truncate-middle-with-length', ([
+    $this->vieW('truncate-middle-with-length', ([
         'slot'   => 'a',
         'length' => 12,
-    ]))->contains('a');
+    ]))->assertSeeText('a');
 
-    $this->assertView('truncate-middle', ([
+    $this->vieW('truncate-middle', ([
         'slot' => 'abcd',
-    ]))->contains('abcd');
+    ]))->assertSeeText('abcd');
 
-    $this->assertView('truncate-middle-with-length', [
+    $this->vieW('truncate-middle-with-length', [
         'slot'   => 'abcdefghijklmnopqrstuvwxyz',
         'length' => 100,
-    ])->contains('abcdefghijklmnopqrstuvwxyz');
+    ])->assertSeeText('abcdefghijklmnopqrstuvwxyz');
 });

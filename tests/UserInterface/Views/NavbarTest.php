@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
+use function Tests\createAttributes;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Route;
-use function Tests\createAttributes;
 use Tests\UserInterface\Mocks\MediaMock;
 
 it('should render the component', function (): void {
@@ -13,7 +13,7 @@ it('should render the component', function (): void {
 
     $this
         ->actingAs(new User())
-        ->assertView('ark::navbar', createAttributes([
+        ->view('ark::navbar', createAttributes([
             'title'      => 'Explorer',
             'navigation' => [
                 [
@@ -28,7 +28,7 @@ it('should render the component', function (): void {
             'profileMenu'      => [],
             'profileMenuClass' => 'unicorn',
         ]))
-        ->contains('http://localhost/post')
-        ->contains('src="https://imgur.com/abc123"')
-        ->contains('unicorn');
+        ->assertSeeHtml('http://localhost/post')
+        ->assertSeeHtml('src="https://imgur.com/abc123"')
+        ->assertSeeHtml('unicorn');
 });

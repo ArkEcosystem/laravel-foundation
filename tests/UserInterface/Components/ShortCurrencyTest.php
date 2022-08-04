@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\UserInterface\Components\ShortCurrency;
-use Illuminate\Support\Facades\View;
 use function Spatie\Snapshots\assertMatchesSnapshot;
+use Illuminate\Support\Facades\View;
 
 it('should format the given value', function (): void {
     assertMatchesSnapshot((new ShortCurrency('USD'))->render()(['slot' => 10]));
@@ -24,16 +24,16 @@ it('should format the given value', function (): void {
 it('should render when included in a blade view', function (): void {
     View::addLocation(realpath(__DIR__.'/../../blade-views'));
 
-    $this->assertView('short-currency', ['slot' => 10])->contains('10 USD');
-    $this->assertView('short-currency', ['slot' => 100])->contains('100 USD');
-    $this->assertView('short-currency', ['slot' => 1000])->contains('1K USD');
-    $this->assertView('short-currency', ['slot' => 10000])->contains('10K USD');
-    $this->assertView('short-currency', ['slot' => 100000])->contains('100K USD');
-    $this->assertView('short-currency', ['slot' => 1000000])->contains('1M USD');
-    $this->assertView('short-currency', ['slot' => 10000000])->contains('10M USD');
-    $this->assertView('short-currency', ['slot' => 100000000])->contains('100M USD');
-    $this->assertView('short-currency', ['slot' => 1000000000])->contains('1B USD');
-    $this->assertView('short-currency', ['slot' => 10000000000])->contains('10B USD');
-    $this->assertView('short-currency', ['slot' => 100000000000])->contains('100B USD');
-    $this->assertView('short-currency', ['slot' => 1000000000000])->contains('1T USD');
+    $this->view('short-currency', ['slot' => 10])->assertSeeText('10 USD');
+    $this->view('short-currency', ['slot' => 100])->assertSeeText('100 USD');
+    $this->view('short-currency', ['slot' => 1000])->assertSeeText('1K USD');
+    $this->view('short-currency', ['slot' => 10000])->assertSeeText('10K USD');
+    $this->view('short-currency', ['slot' => 100000])->assertSeeText('100K USD');
+    $this->view('short-currency', ['slot' => 1000000])->assertSeeText('1M USD');
+    $this->view('short-currency', ['slot' => 10000000])->assertSeeText('10M USD');
+    $this->view('short-currency', ['slot' => 100000000])->assertSeeText('100M USD');
+    $this->view('short-currency', ['slot' => 1000000000])->assertSeeText('1B USD');
+    $this->view('short-currency', ['slot' => 10000000000])->assertSeeText('10B USD');
+    $this->view('short-currency', ['slot' => 100000000000])->assertSeeText('100B USD');
+    $this->view('short-currency', ['slot' => 1000000000000])->assertSeeText('1T USD');
 });
