@@ -22,12 +22,12 @@
         "google/recaptcha": "^1.2",
         "graham-campbell/analyzer": "^3.0",
         "guzzlehttp/guzzle": "^7.4",
-        "illuminate/bus": "^8.73|^9.0",
-        "illuminate/contracts": "^8.73|^9.0",
-        "illuminate/http": "^8.73|^9.0",
-        "illuminate/mail": "^8.73|^9.0",
-        "illuminate/support": "^8.73|^9.0",
-        "illuminate/view": "^8.73|^9.0",
+        "illuminate/bus": "^9.2",
+        "illuminate/contracts": "^9.2",
+        "illuminate/http": "^9.2",
+        "illuminate/mail": "^9.2",
+        "illuminate/support": "^9.2",
+        "illuminate/view": "^9.2",
         "jamesmills/laravel-timezone": "^1.11",
         "jasonmccreary/laravel-test-assertions": "^2.0",
         "jenssegers/agent": "^2.6",
@@ -119,7 +119,7 @@
     },
     "require-dev": {
         "laravel/nova": "^3.30",
-        "spatie/laravel-permission": "^3.16",
+        "spatie/laravel-permission": "^5.3",
         "vyuldashev/nova-permission": "^3.0"
     },
     "suggest": {

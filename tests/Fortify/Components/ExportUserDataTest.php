@@ -3,21 +3,24 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\Fortify\Components\ExportUserData;
+use Illuminate\Support\Facades\Bus;
 use Livewire\Livewire;
 use Spatie\PersonalDataExport\Jobs\CreatePersonalDataExportJob;
 use function Tests\createUserModel;
 
 it('can export the user data', function () {
-    $this->expectsJobs(CreatePersonalDataExportJob::class);
+    Bus::fake();
 
     Livewire::actingAs(createUserModel())
         ->test(ExportUserData::class)
         ->call('export')
         ->assertEmitted('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
+
+    Bus::assertDispatched(CreatePersonalDataExportJob::class);
 });
 
 it('can only export the user data once every 15 min', function () {
-    $this->expectsJobs(CreatePersonalDataExportJob::class);
+    Bus::fake();
 
     $component = Livewire::actingAs(createUserModel())
         ->test(ExportUserData::class)
@@ -30,4 +33,6 @@ it('can only export the user data once every 15 min', function () {
 
     $component->call('export')
         ->assertEmitted('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
+
+    Bus::assertDispatched(CreatePersonalDataExportJob::class);
 });
