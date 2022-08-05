@@ -19,7 +19,7 @@ it('refuses to return json', function () {
         ->andReturnTrue();
 
     (new FailedTwoFactorLoginResponse())->toResponse($request);
-})->throws(ValidationException::class, 'The given data was invalid.');
+})->throws(ValidationException::class);
 
 it('can return redirect back', function () {
     $session = Mockery::mock(\Illuminate\Session\Store::class);

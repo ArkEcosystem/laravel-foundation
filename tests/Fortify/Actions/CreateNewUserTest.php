@@ -308,5 +308,5 @@ it('should validate correctly with alt username set to email', function () {
         'password'              => $this->validPassword,
         'password_confirmation' => $this->validPassword,
         'terms'                 => true,
-    ]))->toThrow('The given data was invalid.');
+    ]))->toThrow('The email must be a valid email address.');
 });
