@@ -26,7 +26,7 @@ it('ignores all non-livewire requests', function () {
 
     $called = false;
 
-    $response = (new DropInvalidLivewireRequests())->handle($request, function () use (&$called) {
+    $response   = (new DropInvalidLivewireRequests())->handle($request, function () use (&$called) {
         $called = true;
 
         return 'Hello world';
