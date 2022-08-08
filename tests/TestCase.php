@@ -16,6 +16,7 @@ use Illuminate\Testing\TestView;
 use Laravel\Fortify\FortifyServiceProvider as LaravelFortifyServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Spatie\Honeypot\HoneypotServiceProvider;
 use Spatie\Newsletter\NewsletterServiceProvider;
 
 /**
@@ -69,6 +70,7 @@ class TestCase extends Orchestra
             LaravelFortifyServiceProvider::class,
             MarkdownServiceProvider::class,
             LivewireServiceProvider::class,
+            HoneypotServiceProvider::class,
             // First-Party
             FortifyServiceProvider::class,
             HermesServiceProvider::class,

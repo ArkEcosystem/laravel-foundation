@@ -35,4 +35,6 @@ it('can only export the user data once every 15 min', function () {
 
     $component->call('export')
         ->assertEmitted('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
+
+    Bus::assertDispatched(CreatePersonalDataExportJob::class);
 });
