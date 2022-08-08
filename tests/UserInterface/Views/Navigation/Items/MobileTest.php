@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use function Tests\createAttributes;
 use Illuminate\Support\Facades\Route;
+use function Tests\createAttributes;
 
 it('should render the component with a single item without query parameters', function (): void {
     Route::view('/', 'ark::navbar.items.mobile')->name('home');

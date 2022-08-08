@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use function Tests\createAttributes;
 use Illuminate\Support\Facades\Route;
+use function Tests\createAttributes;
 
 it('should render the component', function (): void {
     Route::view('/', 'ark::navbar.logo')->name('home');

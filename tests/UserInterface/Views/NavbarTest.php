@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use function Tests\createAttributes;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Route;
+use function Tests\createAttributes;
 use Tests\UserInterface\Mocks\MediaMock;
 
 it('should render the component', function (): void {

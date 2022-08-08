@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use function Tests\createAttributes;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
+use function Tests\createAttributes;
 
 it('should render with an icon', function (): void {
     $this

@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use ARKEcosystem\Foundation\UserInterface\Components\Percentage;
-use function Spatie\Snapshots\assertMatchesSnapshot;
 use Illuminate\Support\Facades\View;
+use function Spatie\Snapshots\assertMatchesSnapshot;
 
 it('should format the given value', function (): void {
     assertMatchesSnapshot((new Percentage())->render()(['slot' => 10]));
