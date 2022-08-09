@@ -281,10 +281,6 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::external-link', 'ark-external-link');
             $blade->component('ark::external-link-confirm', 'ark-external-link-confirm');
             $blade->component('ark::flash', 'ark-flash');
-            $blade->component('ark::footer-bar-desktop', 'ark-footer-bar-desktop');
-            $blade->component('ark::footer-bar-mobile', 'ark-footer-bar-mobile');
-            $blade->component('ark::footer-copyright', 'ark-footer-copyright');
-            $blade->component('ark::footer-social', 'ark-footer-social');
             $blade->component('ark::footer', 'ark-footer');
             $blade->component('ark::extended-footer', 'ark-extended-footer');
             $blade->component('ark::gradient-text', 'ark-gradient-text');
