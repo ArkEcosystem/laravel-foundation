@@ -1,11 +1,16 @@
 const plugin = require("tailwindcss/plugin");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: "class",
 
     theme: {
         extend: {
+            spacing: {
+                13: "3.25rem",
+                15: "3.75rem",
+            },
             borderRadius: {
                 "2.5xl": "1.25rem",
             },
@@ -209,78 +214,39 @@ module.exports = {
             },
         }),
     },
-    variants: {
-        boxShadow: ["dark", "responsive", "hover", "focus", "inverted"],
-        divideColor: ["dark", "responsive", "hover", "focus"],
-        opacity: ["dark", "responsive", "hover", "focus"],
-        display: ["dark", "responsive"],
-        extend: {
-            margin: ["focus-visible"],
-            padding: ["focus-visible", "last"],
-            backgroundColor: ["inverted", "inverted-hover"],
-            borderRadius: ["focus-visible"],
-            borderWidth: ["focus-visible"],
-            borderColor: ["inverted", "inverted-hover", "focus-visible"],
-            ringColor: ["focus-visible"],
-            ringWidth: ["focus-visible"],
-            textDecoration: ["focus-visible"],
-            textColor: ["inverted", "inverted-hover"],
-            transitionProperty: ["focus-visible"],
-            zIndex: ["focus-visible"],
-        },
-    },
     plugins: [
-        require("@tailwindcss/ui"),
-        plugin(function ({ addVariant, e }) {
-            addVariant("inverted", ({ modifySelectors, separator }) => {
-                modifySelectors(
-                    ({ className }) =>
-                        `.inverted .${e(`inverted${separator}${className}`)}`
-                );
-            });
-
-            addVariant("inverted-hover", ({ modifySelectors, separator }) => {
-                modifySelectors(
-                    ({ className }) =>
-                        `.inverted .${e(
-                            `inverted${separator}hover${separator}${className}`
-                        )}:hover`
-                );
-            });
+        plugin(function ({ addVariant }) {
+            addVariant("inverted", ".inverted &");
+            addVariant("inverted-hover", ".inverted &:hover");
         }),
     ],
-    purge: {
-        mode: "all",
-        content: [
-            "./resources/views/**/*.blade.php",
-            "./vendor/arkecosystem/foundation/resources/views/**/*.blade.php",
-            "./vendor/arkecosystem/fortify/resources/views/**/*.blade.php",
-            "./vendor/arkecosystem/hermes/resources/views/**/*.blade.php",
-            "./resources/js/**/*.js",
-            "./resources/js/**/*.vue",
-            "./app/**/*.php",
+    content: [
+        "./resources/views/**/*.blade.php",
+        "./vendor/arkecosystem/foundation/resources/views/**/*.blade.php",
+        "./vendor/arkecosystem/fortify/resources/views/**/*.blade.php",
+        "./vendor/arkecosystem/hermes/resources/views/**/*.blade.php",
+        "./resources/js/**/*.js",
+        "./resources/js/**/*.vue",
+        "./app/**/*.php",
+    ],
+    safelist: {
+        standard: [
+            /horizontal$/,
+            /alert-/,
+            /swiper-/,
+            /toast-/,
+            /^hljs/,
+            /^media-library/,
+
+            /* pikaday classes */
+            /^pika-/,
+            /is-selected/,
+            /is-today/,
+            /is-disabled/,
+            /is-hidden/,
+            /is-bound/,
         ],
-        options: {
-            safelist: {
-                standard: [
-                    /horizontal$/,
-                    /alert-/,
-                    /swiper-/,
-                    /toast-/,
-                    /^hljs/,
-                    /^media-library/,
 
-                    /* pikaday classes */
-                    /^pika-/,
-                    /is-selected/,
-                    /is-today/,
-                    /is-disabled/,
-                    /is-hidden/,
-                    /is-bound/,
-                ],
-
-                deep: [/tippy-/, /\[data-expandable\]/, /simple-markdown$/],
-            },
-        },
+        deep: [/tippy-/, /\[data-expandable\]/, /simple-markdown$/],
     },
 };
