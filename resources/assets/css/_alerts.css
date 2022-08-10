@@ -1,138 +1,144 @@
-/**
- * Light mode
- */
-.alert-wrapper .alert-content-wrapper {
-    @apply flex flex-col rounded-xl overflow-hidden;
-}
+@layer components {
+    /**
+     * Light mode
+     */
+    .alert-wrapper .alert-content-wrapper {
+        @apply flex flex-col rounded-xl overflow-hidden;
+    }
 
-/* title */
-.alert-wrapper .alert-title {
-    @apply m-0 px-4 py-2 flex items-center;
-}
+    /* title */
+    .alert-wrapper .alert-title {
+        @apply m-0 px-4 py-2 flex items-center;
+    }
 
-.alert-wrapper .alert-title .alert-icon {
-    @apply inline-flex w-3.5 h-3.5 mr-2;
-}
+    .alert-wrapper .alert-title .alert-icon {
+        @apply inline-flex w-3.5 h-3.5 mr-2;
+    }
 
-.alert-wrapper .alert-title span {
-    @apply font-semibold text-sm leading-none;
-}
+    .alert-wrapper .alert-title span {
+        @apply font-semibold text-sm leading-none;
+    }
 
-.alert-wrapper .alert-title button {
-    @apply inline-flex ml-auto text-theme-secondary-900;
-}
+    .alert-wrapper .alert-title button {
+        @apply inline-flex ml-auto text-theme-secondary-900;
+    }
 
-.alert-wrapper .alert-title button svg {
-    @apply inline-flex w-3.5 h-3.5;
-}
+    .alert-wrapper .alert-title button svg {
+        @apply inline-flex w-3.5 h-3.5;
+    }
 
-.alert-wrapper.alert-info .alert-title {
-    @apply bg-theme-info-100 text-theme-info-700;
-}
+    .alert-wrapper.alert-info .alert-title {
+        @apply bg-theme-info-100 text-theme-info-700;
+    }
 
-.alert-wrapper.alert-success .alert-title {
-    @apply bg-theme-success-100 text-theme-success-700;
-}
+    .alert-wrapper.alert-success .alert-title {
+        @apply bg-theme-success-100 text-theme-success-700;
+    }
 
-.alert-wrapper.alert-warning .alert-title {
-    @apply bg-theme-warning-100 text-theme-warning-900;
-}
+    .alert-wrapper.alert-warning .alert-title {
+        @apply bg-theme-warning-100 text-theme-warning-900;
+    }
 
-.alert-wrapper.alert-error .alert-title {
-    @apply bg-theme-danger-100 text-theme-danger-700;
-}
+    .alert-wrapper.alert-error .alert-title {
+        @apply bg-theme-danger-100 text-theme-danger-700;
+    }
 
-.alert-wrapper.alert-hint .alert-title {
-    @apply bg-theme-hint-100 text-theme-hint-700;
-}
+    .alert-wrapper.alert-hint .alert-title {
+        @apply bg-theme-hint-100 text-theme-hint-700;
+    }
 
-/* content */
-.alert-wrapper .alert-content {
-    @apply p-4 text-sm text-theme-secondary-900 leading-6;
-}
+    /* content */
+    .alert-wrapper .alert-content {
+        @apply p-4 text-sm text-theme-secondary-900 leading-6;
+    }
 
-.alert-wrapper.alert-info .alert-content {
-    @apply bg-theme-info-50;
-}
+    .alert-wrapper.alert-info .alert-content {
+        @apply bg-theme-info-50;
+    }
 
-.alert-wrapper.alert-success .alert-content {
-    @apply bg-theme-success-50;
-}
+    .alert-wrapper.alert-success .alert-content {
+        @apply bg-theme-success-50;
+    }
 
-.alert-wrapper.alert-warning .alert-content {
-    @apply bg-theme-warning-50;
-}
+    .alert-wrapper.alert-warning .alert-content {
+        @apply bg-theme-warning-50;
+    }
 
-.alert-wrapper.alert-error .alert-content {
-    @apply bg-theme-danger-50;
-}
+    .alert-wrapper.alert-error .alert-content {
+        @apply bg-theme-danger-50;
+    }
 
-.alert-wrapper.alert-hint .alert-content {
-    @apply bg-theme-hint-50;
-}
+    .alert-wrapper.alert-hint .alert-content {
+        @apply bg-theme-hint-50;
+    }
 
-/**
- * Dark mode
- */
+    /**
+     * Dark mode
+     */
 
-/* title */
-.dark .alert-wrapper .alert-title {
-    @apply text-white;
-}
+    /* title */
+    .dark .alert-wrapper .alert-title {
+        @apply text-white;
+    }
 
-.dark .alert-wrapper .alert-title button {
-    @apply text-theme-secondary-200;
-}
+    .dark .alert-wrapper .alert-title button {
+        @apply text-theme-secondary-200;
+    }
 
-.dark .alert-wrapper.alert-info .alert-title {
-    @apply bg-theme-info-700;
-}
+    .dark .alert-wrapper.alert-info .alert-title {
+        @apply bg-theme-info-700;
+    }
 
-.dark .alert-wrapper.alert-success .alert-title {
-    @apply bg-theme-success-700;
-}
+    .dark .alert-wrapper.alert-success .alert-title {
+        @apply bg-theme-success-700;
+    }
 
-.dark .alert-wrapper.alert-warning .alert-title {
-    @apply bg-theme-warning-700;
-}
+    .dark .alert-wrapper.alert-warning .alert-title {
+        @apply bg-theme-warning-700;
+    }
 
-.dark .alert-wrapper.alert-error .alert-title {
-    @apply bg-theme-danger-500;
-}
+    .dark .alert-wrapper.alert-error .alert-title {
+        @apply bg-theme-danger-500;
+    }
 
-.dark .alert-wrapper.alert-hint .alert-title {
-    @apply bg-theme-hint-700;
-}
+    .dark .alert-wrapper.alert-hint .alert-title {
+        @apply bg-theme-hint-700;
+    }
 
-/* content */
-.dark .alert-wrapper .alert-content-wrapper > .alert-title ~ .alert-content {
-    @apply text-theme-secondary-200;
-}
+    /* content */
+    .dark
+        .alert-wrapper
+        .alert-content-wrapper
+        > .alert-title
+        ~ .alert-content {
+        @apply text-theme-secondary-200;
+    }
 
-.dark
-    .alert-wrapper.alert-info
-    .alert-content-wrapper
-    > .alert-title
-    ~ .alert-content,
-.dark
-    .alert-wrapper.alert-success
-    .alert-content-wrapper
-    > .alert-title
-    ~ .alert-content,
-.dark
-    .alert-wrapper.alert-warning
-    .alert-content-wrapper
-    > .alert-title
-    ~ .alert-content,
-.dark
-    .alert-wrapper.alert-error
-    .alert-content-wrapper
-    > .alert-title
-    ~ .alert-content,
-.dark
-    .alert-wrapper.alert-hint
-    .alert-content-wrapper
-    > .alert-title
-    ~ .alert-content {
-    @apply bg-theme-secondary-800;
+    .dark
+        .alert-wrapper.alert-info
+        .alert-content-wrapper
+        > .alert-title
+        ~ .alert-content,
+    .dark
+        .alert-wrapper.alert-success
+        .alert-content-wrapper
+        > .alert-title
+        ~ .alert-content,
+    .dark
+        .alert-wrapper.alert-warning
+        .alert-content-wrapper
+        > .alert-title
+        ~ .alert-content,
+    .dark
+        .alert-wrapper.alert-error
+        .alert-content-wrapper
+        > .alert-title
+        ~ .alert-content,
+    .dark
+        .alert-wrapper.alert-hint
+        .alert-content-wrapper
+        > .alert-title
+        ~ .alert-content {
+        @apply bg-theme-secondary-800;
+    }
 }

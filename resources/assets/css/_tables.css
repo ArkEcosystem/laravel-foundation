@@ -216,7 +216,7 @@
     table
     > tbody
     > tr
-    > td.hoverable-cell.text-left
+    > td.hoverable-cell:is(.text-left)
     > div.table-cell-content {
     @apply justify-start;
 }

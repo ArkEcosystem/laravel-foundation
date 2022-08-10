@@ -90,7 +90,7 @@
             @endif
 
             @if ($icon)
-                <x-ark-icon :name="$icon" :class="Arr::toCssClasses([
+                <x-ark-icon :name="$icon" size="none" :class="Arr::toCssClasses([
                     $iconWidth,
                     $mainIconBreakpoint,
                     'mr-4 h-auto hidden',
