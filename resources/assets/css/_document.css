@@ -1,375 +1,376 @@
-/* highlight.js tweaks */
-code.hljs {
-    @apply px-8 py-6 rounded-xl font-code;
-}
+@layer components {
+    /* highlight.js tweaks */
+    code.hljs {
+        @apply px-8 py-6 rounded-xl font-code;
+    }
 
-code.hljs .hljs-ln-n {
-    @apply pr-4 text-right;
-}
+    code.hljs .hljs-ln-n {
+        @apply pr-4 text-right;
+    }
 
-/* Hightlightjs Badge */
-@media print {
+    /* Hightlightjs Badge */
+    @media print {
+        .code-badge {
+            @apply hidden;
+        }
+    }
+
+    .code-badge-pre {
+        @apply relative;
+    }
+
     .code-badge {
+        @apply absolute top-0 right-0 flex flex-row text-white whitespace-normal bg-transparent;
+        border-radius: 0 0 0 7px;
+    }
+
+    .code-badge a,
+    .code-badge a:hover {
+        text-decoration: none;
+    }
+
+    .code-badge-copy-icon {
+        @apply cursor-pointer;
+    }
+
+    .code-badge-copy-icon,
+    .code-badge-checkmark-icon {
+        margin-right: 10px;
+        margin-top: 10px;
+        width: 13px;
+        height: 15px;
+        fill: #7e8a9c;
+        opacity: 0.8;
+        transition: opacity linear 0.5s;
+    }
+
+    .code-badge-copy-icon:hover {
+        @apply opacity-100;
+    }
+
+    /* Documentation Content */
+    .documentation-content {
+        @apply break-words text-theme-secondary-700 dark:text-theme-secondary-500;
+    }
+
+    .documentation-content h1 {
+        @apply mb-8;
+    }
+
+    .documentation-content h2 {
+        @apply pt-6 mt-6 mb-4 border-t border-theme-secondary-200 dark:border-theme-secondary-800;
+    }
+
+    .documentation-content h3 {
+        @apply mb-4;
+    }
+
+    /* Header Responsiveness */
+    @screen sm {
+        .documentation-content h2 {
+            @apply pt-10 mt-10;
+        }
+    }
+
+    /* Default Bottom Margin */
+    .documentation-content .embed-link,
+    .documentation-content .page-ref,
+    .documentation-content .alert-wrapper,
+    .documentation-content pre,
+    .documentation-content summary,
+    .documentation-content ul,
+    .documentation-content ol,
+    .documentation-content :not(.table-wrapper) table,
+    .documentation-content .table-wrapper,
+    .documentation-content .link-collection,
+    .documentation-content .grid-gallery {
+        @apply mb-6;
+    }
+
+    .documentation-content .accordion table,
+    .documentation-content .accordion .table-wrapper {
+        @apply mb-0;
+    }
+
+    .documentation-content p {
+        @apply mb-6 leading-7;
+    }
+
+    .documentation-content .alert-content-wrapper p {
+        @apply mb-0;
+    }
+
+    .documentation-content code {
+        @apply px-2 py-1 font-normal rounded bg-theme-secondary-200 text-theme-secondary-900 dark:bg-theme-secondary-800 dark:text-theme-secondary-400;
+    }
+
+    .documentation-content pre.hljs {
+        margin-bottom: 0 !important;
+    }
+
+    .documentation-content pre.hljs > code {
+        background-color: inherit !important;
+        color: inherit !important;
+        padding: 0 !important;
+    }
+
+    /* Links */
+    .documentation-content a {
+        @apply font-semibold no-underline text-theme-primary-600 transition-default;
+    }
+
+    .documentation-content a[target="_blank"]:hover {
+        @apply no-underline;
+    }
+
+    .documentation-content a[target="_blank"]:hover > span {
+        @apply underline;
+    }
+
+    .documentation-content a:hover {
+        @apply underline text-theme-primary-700;
+    }
+
+    .documentation-content a:active {
+        @apply text-theme-primary-400;
+    }
+
+    /* Lists */
+    .documentation-content ul {
+        @apply pl-4 list-disc list-outside;
+    }
+
+    .documentation-content ol {
+        @apply pl-4 list-decimal list-outside;
+    }
+
+    .documentation-content ul ul,
+    .documentation-content ol ul {
+        @apply ml-4 list-outside mb-0;
+        list-style-type: circle;
+    }
+
+    .documentation-content ol ol,
+    .documentation-content ul ol {
+        @apply ml-4 list-outside mb-0;
+        list-style-type: lower-latin;
+    }
+
+    .documentation-content ul > li,
+    .documentation-content ol > li {
+        @apply pb-2;
+    }
+
+    /* Divider */
+    .documentation-content hr:not(.custom-separator) {
+        @apply my-6 border-theme-secondary-300 bg-theme-secondary-300 dark:border-theme-secondary-800 dark:bg-theme-secondary-800;
+    }
+
+    /* Image */
+    .documentation-content img {
+        @apply block mx-auto;
+    }
+
+    .documentation-content .image-container {
+        @apply flex flex-col items-center;
+    }
+
+    .documentation-content .video-container {
+        @apply w-full;
+    }
+
+    .documentation-content img,
+    .documentation-content iframe,
+    .documentation-content .typeform-widget,
+    .documentation-content .image-container .twitter-tweet {
+        @apply border rounded-xl border-theme-secondary-300 overflow-hidden dark:border-theme-secondary-800;
+    }
+
+    .documentation-content > .twitter-tweet {
+        @apply mx-auto;
+    }
+
+    .documentation-content .image-container .twitter-tweet {
+        overflow: hidden;
+        /* This style within the negative margin on the `.twitter-tweet iframe` is
+        used to hide the built-in Twitter border in favor of a custom border used
+        on the rest of the embeds.  */
+        max-width: 548px;
+    }
+    .documentation-content .image-container .twitter-tweet iframe {
+        @apply border-0;
+        margin: -1px;
+    }
+
+    /* Image caption */
+    .documentation-content .image-caption {
+        @apply relative block mx-auto text-theme-secondary-800 dark:text-theme-secondary-200 border-l-2 border-theme-secondary-300 text-sm px-3 mt-3 italic text-center dark:border-theme-secondary-800;
+    }
+
+    .documentation-content .image-caption .external-link svg {
+        @apply w-2.5 h-2.5;
+        margin-top: -0.25rem;
+    }
+
+    /* Misc */
+    .documentation-content .embed-link a:hover {
+        @apply no-underline;
+    }
+    .documentation-content .embed-link img {
+        @apply border-none;
+    }
+
+    .documentation-content a.button-secondary:hover {
+        @apply text-white;
+    }
+
+    .documentation-content .page-ref h3 {
+        @apply mb-0;
+    }
+
+    .documentation-content .page-ref .button-secondary {
+        @apply rounded-none;
+    }
+
+    .documentation-content blockquote {
+        @apply block pl-4 border-l-2 text-theme-secondary-500 border-theme-secondary-300 dark:border-theme-secondary-700 dark:text-theme-secondary-700;
+    }
+
+    /* Table */
+    .documentation-content table {
+        @apply w-full text-left;
+    }
+
+    .documentation-content table thead {
+        @apply text-sm font-semibold text-theme-secondary-500;
+    }
+
+    .documentation-content table thead tr {
+        @apply text-left border-b border-theme-secondary-300  dark:border-theme-secondary-800;
+    }
+
+    .documentation-content table thead th {
+        @apply relative px-3 py-3;
+    }
+
+    .documentation-content table thead th:not(:last-child)::after {
+        content: "";
+        height: 50%;
+        @apply absolute right-0 border-l border-theme-secondary-300  dark:border-theme-secondary-800;
+    }
+
+    .documentation-content table tbody td {
+        @apply px-3 py-4 leading-5;
+    }
+
+    .documentation-content table tbody tr {
+        @apply border-b border-dashed border-theme-secondary-300  dark:border-theme-secondary-800;
+    }
+
+    .documentation-content table tbody tr:last-child {
+        @apply border-0;
+    }
+
+    /* Table Scrollbar */
+    .documentation-content .table-wrapper {
+        scrollbar-color: #e5f0f8 #bad6f0;
+    }
+
+    .documentation-content .table-wrapper::-webkit-scrollbar {
+        @apply rounded-lg bg-theme-primary-100;
+        width: 6px;
+        height: 6px;
+    }
+
+    .documentation-content .table-wrapper::-webkit-scrollbar-thumb {
+        @apply rounded-lg bg-theme-primary-200;
+    }
+
+    /* Documentation Sidebar */
+    .documentation-sidebar h2,
+    .documentation-sidebar h3 {
+        @apply pt-8 pl-8 mt-8 text-base font-semibold uppercase border-t text-theme-secondary-500 border-theme-secondary-200;
+        margin-left: 4px;
+    }
+
+    .documentation-sidebar
+        .flex
+        + h2:not(.documentation-sidebar h2:first-of-type) {
+        @apply mt-4;
+    }
+
+    .mobile-menu.documentation-sidebar h2 .heading-permalink {
         @apply hidden;
     }
-}
 
-.code-badge-pre {
-    @apply relative;
-}
-
-.code-badge {
-    @apply absolute top-0 right-0 flex flex-row text-white whitespace-normal bg-transparent;
-    border-radius: 0 0 0 7px;
-}
-
-.code-badge a,
-.code-badge a:hover {
-    text-decoration: none;
-}
-
-.code-badge-copy-icon {
-    @apply cursor-pointer;
-}
-
-.code-badge-copy-icon,
-.code-badge-checkmark-icon {
-    margin-right: 10px;
-    margin-top: 10px;
-    width: 13px;
-    height: 15px;
-    fill: #7e8a9c;
-    opacity: 0.8;
-    transition: opacity linear 0.5s;
-}
-
-.code-badge-copy-icon:hover {
-    @apply opacity-100;
-}
-
-/* Documentation Content */
-.documentation-content {
-    @apply break-words text-theme-secondary-700 dark:text-theme-secondary-500;
-}
-
-.documentation-content h1 {
-    @apply mb-8;
-}
-
-.documentation-content h2 {
-    @apply pt-6 mt-6 mb-4 border-t border-theme-secondary-200 dark:border-theme-secondary-800;
-}
-
-.documentation-content h3 {
-    @apply mb-4;
-}
-
-/* Header Responsiveness */
-@screen sm {
-    .documentation-content h2 {
-        @apply pt-10 mt-10;
+    .mobile-menu.documentation-sidebar h2:first-child {
+        @apply mt-0 pt-2 border-0;
     }
-}
 
-/* Default Bottom Margin */
-.documentation-content .embed-link,
-.documentation-content .page-ref,
-.documentation-content .alert-wrapper,
-.documentation-content pre,
-.documentation-content summary,
-.documentation-content ul,
-.documentation-content ol,
-.documentation-content :not(.table-wrapper) table,
-.documentation-content .table-wrapper,
-.documentation-content .link-collection,
-.documentation-content .grid-gallery {
-    @apply mb-6;
-}
+    /* CommonMark */
+    aside .heading-permalink,
+    .documentation-content .heading-permalink {
+        scroll-margin-top: 120px;
+    }
 
-.documentation-content .accordion table,
-.documentation-content .accordion .table-wrapper {
-    @apply mb-0;
-}
+    aside .heading-permalink {
+        display: none;
+    }
 
-.documentation-content p {
-    @apply mb-6 leading-7;
-}
+    .documentation-content h2 .heading-permalink,
+    .documentation-content h3 .heading-permalink,
+    .documentation-content h4 .heading-permalink,
+    main .documentation-content .heading-permalink {
+        @apply mr-3 text-theme-primary-600 transition-default;
+    }
 
-.documentation-content .alert-content-wrapper p {
-    @apply mb-0;
-}
+    .documentation-content h2 .heading-permalink:hover,
+    .documentation-content h3 .heading-permalink:hover,
+    .documentation-content h4 .heading-permalink:hover,
+    main .documentation-content .heading-permalink:hover {
+        @apply no-underline text-theme-primary-700;
+    }
 
-.documentation-content code {
-    @apply px-2 py-1 font-normal rounded bg-theme-secondary-200 text-theme-secondary-900 dark:bg-theme-secondary-800 dark:text-theme-secondary-400;
-}
-
-.documentation-content pre.hljs {
-    margin-bottom: 0 !important;
-}
-
-.documentation-content pre.hljs > code {
-    background-color: inherit !important;
-    color: inherit !important;
-    padding: 0 !important;
-}
-
-/* Links */
-.documentation-content a {
-    @apply font-semibold no-underline text-theme-primary-600 transition-default;
-}
-
-.documentation-content a[target="_blank"]:hover {
-    @apply no-underline;
-}
-
-.documentation-content a[target="_blank"]:hover > span {
-    @apply underline;
-}
-
-.documentation-content a:hover {
-    @apply underline text-theme-primary-700;
-}
-.documentation-content a.no-underline:hover {
-    text-decoration: none;
-}
-
-.documentation-content a:active {
-    @apply text-theme-primary-400;
-}
-
-/* Lists */
-.documentation-content ul {
-    @apply pl-4 list-disc list-outside;
-}
-
-.documentation-content ol {
-    @apply pl-4 list-decimal list-outside;
-}
-
-.documentation-content ul ul,
-.documentation-content ol ul {
-    @apply ml-4 list-outside mb-0;
-    list-style-type: circle;
-}
-
-.documentation-content ol ol,
-.documentation-content ul ol {
-    @apply ml-4 list-outside mb-0;
-    list-style-type: lower-latin;
-}
-
-.documentation-content ul > li,
-.documentation-content ol > li {
-    @apply pb-2;
-}
-
-/* Divider */
-.documentation-content hr:not(.custom-separator) {
-    @apply my-6 border-theme-secondary-300 bg-theme-secondary-300 dark:border-theme-secondary-800 dark:bg-theme-secondary-800;
-}
-
-/* Image */
-.documentation-content img {
-    @apply block mx-auto;
-}
-
-.documentation-content .image-container {
-    @apply flex flex-col items-center;
-}
-
-.documentation-content .video-container {
-    @apply w-full;
-}
-
-.documentation-content img,
-.documentation-content iframe,
-.documentation-content .typeform-widget,
-.documentation-content .image-container .twitter-tweet {
-    @apply border rounded-xl border-theme-secondary-300 overflow-hidden dark:border-theme-secondary-800;
-}
-
-.documentation-content > .twitter-tweet {
-    @apply mx-auto;
-}
-
-.documentation-content .image-container .twitter-tweet {
-    overflow: hidden;
-    /* This style within the negative margin on the `.twitter-tweet iframe` is
-    used to hide the built-in Twitter border in favor of a custom border used
-    on the rest of the embeds.  */
-    max-width: 548px;
-}
-.documentation-content .image-container .twitter-tweet iframe {
-    @apply border-0;
-    margin: -1px;
-}
-
-/* Image caption */
-.documentation-content .image-caption {
-    @apply relative block mx-auto text-theme-secondary-800 dark:text-theme-secondary-200 border-l-2 border-theme-secondary-300 text-sm px-3 mt-3 italic text-center dark:border-theme-secondary-800;
-}
-
-.documentation-content .image-caption .external-link svg {
-    @apply w-2.5 h-2.5;
-    margin-top: -0.25rem;
-}
-
-/* Misc */
-.documentation-content .embed-link a:hover {
-    @apply no-underline;
-}
-.documentation-content .embed-link img {
-    @apply border-none;
-}
-
-.documentation-content a.button-secondary:hover {
-    @apply text-white;
-}
-
-.documentation-content .page-ref h3 {
-    @apply mb-0;
-}
-
-.documentation-content .page-ref .button-secondary {
-    @apply rounded-none;
-}
-
-.documentation-content blockquote {
-    @apply block pl-4 border-l-2 text-theme-secondary-500 border-theme-secondary-300 dark:border-theme-secondary-700 dark:text-theme-secondary-700;
-}
-
-/* Table */
-.documentation-content table {
-    @apply w-full text-left;
-}
-
-.documentation-content table thead {
-    @apply text-sm font-semibold text-theme-secondary-500;
-}
-
-.documentation-content table thead tr {
-    @apply text-left border-b border-theme-secondary-300  dark:border-theme-secondary-800;
-}
-
-.documentation-content table thead th {
-    @apply relative px-3 py-3;
-}
-
-.documentation-content table thead th:not(:last-child)::after {
-    content: "";
-    height: 50%;
-    @apply absolute right-0 border-l border-theme-secondary-300  dark:border-theme-secondary-800;
-}
-
-.documentation-content table tbody td {
-    @apply px-3 py-4 leading-5;
-}
-
-.documentation-content table tbody tr {
-    @apply border-b border-dashed border-theme-secondary-300  dark:border-theme-secondary-800;
-}
-
-.documentation-content table tbody tr:last-child {
-    @apply border-0;
-}
-
-/* Table Scrollbar */
-.documentation-content .table-wrapper {
-    scrollbar-color: #e5f0f8 #bad6f0;
-}
-
-.documentation-content .table-wrapper::-webkit-scrollbar {
-    @apply rounded-lg bg-theme-primary-100;
-    width: 6px;
-    height: 6px;
-}
-
-.documentation-content .table-wrapper::-webkit-scrollbar-thumb {
-    @apply rounded-lg bg-theme-primary-200;
-}
-
-/* Documentation Sidebar */
-.documentation-sidebar h2,
-.documentation-sidebar h3 {
-    @apply pt-8 pl-8 mt-8 text-base font-semibold uppercase border-t text-theme-secondary-500 border-theme-secondary-200;
-    margin-left: 4px;
-}
-
-.documentation-sidebar .flex + h2:not(.documentation-sidebar h2:first-of-type) {
-    @apply mt-4;
-}
-
-.mobile-menu.documentation-sidebar h2 .heading-permalink {
-    @apply hidden;
-}
-
-.mobile-menu.documentation-sidebar h2:first-child {
-    @apply mt-0 pt-2 border-0;
-}
-
-/* CommonMark */
-aside .heading-permalink,
-.documentation-content .heading-permalink {
-    scroll-margin-top: 120px;
-}
-
-aside .heading-permalink {
-    display: none;
-}
-
-.documentation-content h2 .heading-permalink,
-.documentation-content h3 .heading-permalink,
-.documentation-content h4 .heading-permalink,
-main .documentation-content .heading-permalink {
-    @apply mr-3 text-theme-primary-600 transition-default;
-}
-
-.documentation-content h2 .heading-permalink:hover,
-.documentation-content h3 .heading-permalink:hover,
-.documentation-content h4 .heading-permalink:hover,
-main .documentation-content .heading-permalink:hover {
-    @apply no-underline text-theme-primary-700;
-}
-
-/* Gallery Grid */
-.documentation-content .grid-gallery {
-    @apply grid grid-cols-2 grid-flow-row gap-4;
-}
-
-@screen sm {
+    /* Gallery Grid */
     .documentation-content .grid-gallery {
-        @apply grid-cols-3;
+        @apply grid grid-cols-2 grid-flow-row gap-4;
     }
-}
 
-.documentation-content .grid-gallery p {
-    @apply mb-0;
-}
+    @screen sm {
+        .documentation-content .grid-gallery {
+            @apply grid-cols-3;
+        }
+    }
 
-/* Code Block */
-.custom-code-block {
-    @apply p-8 mb-6 overflow-hidden rounded-xl bg-theme-secondary-800;
-}
+    .documentation-content .grid-gallery p {
+        @apply mb-0;
+    }
 
-.custom-code-block .hljs {
-    @apply overflow-x-auto;
-}
+    /* Code Block */
+    .custom-code-block {
+        @apply p-8 mb-6 overflow-hidden rounded-xl bg-theme-secondary-800;
+    }
 
-.custom-code-block .code-badge {
-    @apply z-10 mt-2 mr-2;
-}
+    .custom-code-block .hljs {
+        @apply overflow-x-auto;
+    }
 
-/* Description List */
-.documentation-content dl {
-    @apply leading-7;
-}
+    .custom-code-block .code-badge {
+        @apply z-10 mt-2 mr-2;
+    }
 
-.documentation-content dl dt {
-    @apply font-semibold pb-1;
-}
+    /* Description List */
+    .documentation-content dl {
+        @apply leading-7;
+    }
 
-.documentation-content dl dd {
-    @apply pb-6;
+    .documentation-content dl dt {
+        @apply font-semibold pb-1;
+    }
+
+    .documentation-content dl dd {
+        @apply pb-6;
+    }
 }
 
 /* purgecss start ignore */

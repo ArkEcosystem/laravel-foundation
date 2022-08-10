@@ -139,7 +139,7 @@ body {
     transform: rotate(-90deg);
 }
 
-@variants hover {
+@layer utilities {
     .size-increase {
         transform: scale(1.02);
     }
@@ -220,7 +220,7 @@ body {
 }
 
 /* Child text wrapping */
-@variants responsive {
+@layer utilities {
     .no-wrap-span-children > span {
         @apply whitespace-nowrap;
     }

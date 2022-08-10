@@ -1,12 +1,13 @@
 const mix = require('laravel-mix');
-const importCss = require('postcss-import');
-const tailwindCss = require('tailwindcss');
 
 class MarkdownPlugin {
-    register(tailwindConfigFile = 'tailwind.config.js', ...args) {
+    register(...args) {
         mix
             .js('vendor/arkecosystem/foundation/resources/assets/js/markdown-editor/markdown-editor.js', 'public/js/markdown-editor.js')
-            .postCss('vendor/arkecosystem/foundation/resources/assets/css/markdown-editor.css', 'public/css', [importCss(), tailwindCss(tailwindConfigFile)])
+            .postCss('vendor/arkecosystem/foundation/resources/assets/css/markdown-editor.css', 'public/css', [
+                require('postcss-import'),
+                require('tailwindcss'),
+            ])
     }
 
     webpackConfig(webpackConfig) {
