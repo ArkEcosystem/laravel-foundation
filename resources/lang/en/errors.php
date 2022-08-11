@@ -3,11 +3,17 @@
 declare(strict_types=1);
 
 return [
-    401 => 'Something went wrong, please try again later or get in touch if the issue persists!',
-    403 => 'Something went wrong, please try again later or get in touch if the issue persists!',
-    404 => 'Something went wrong, please try again later or get in touch if the issue persists!',
-    419 => 'Something went wrong, please try again later or get in touch if the issue persists!',
-    429 => 'Something went wrong, please try again later or get in touch if the issue persists!',
-    500 => 'Something went wrong, please try again later or get in touch if the issue persists!',
-    503 => 'Something went wrong, please try again later or get in touch if the issue persists!',
+    'heading'     => 'Oops, something went wrong ...',
+    'message'     => 'Please try again or get in touch if the issue persists.',
+    '401'         => 'Unauthorized',
+    '403'         => 'Forbidden',
+    '403_heading' => 'Oops, this is a restricted area!',
+    '403_message' => 'You don\'t have the proper security clearance to access this part of the site.',
+    '404'         => 'Not Found',
+    '419'         => 'Page Expired',
+    '429'         => 'Too Many Requests',
+    '500'         => 'Internal Server Error',
+    '503'         => 'Service Unavailable',
+    '503_heading' => config('app.name').' is currently down for scheduled maintenance.',
+    '503_message' => 'We expect to be back soon. Thanks for your patience.',
 ];
