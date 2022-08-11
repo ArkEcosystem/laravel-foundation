@@ -152,11 +152,6 @@ class UserInterfaceServiceProvider extends ServiceProvider
             __DIR__.'/../../resources/assets/images/components' => resource_path('images/vendor/ark'),
         ], 'images');
 
-        $this->publishes([
-            __DIR__.'/../../resources/views/errors'         => resource_path('views/errors'),
-            __DIR__.'/../../resources/assets/images/errors' => resource_path('images/errors'),
-        ], 'error-pages');
-
         // Individual JS files
 
         $this->publishes([
