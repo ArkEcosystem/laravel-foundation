@@ -6,7 +6,8 @@
     @section('image')
         <x-ark-icon
             :name="'app-errors.'.$code"
-            class="w-full h-full light-dark-icon"
+            class="light-dark-icon"
+            size="w-full h-full"
         />
     @endsection
 @endif
