@@ -73,6 +73,11 @@
                 </span>
             @endif
 
+            @if ($hasReservedRights)
+                <span class="mx-0.5">|</span>
+                <span>@lang ('ui::pages.footer.rights')</span>
+            @endif
+
             @if ($isArkProduct)
                 <span class="mx-0.5">|</span>
                 <div class="inline">
@@ -83,11 +88,6 @@
 
                     <span>An <a href="https://ark.io" class="{{ $linkClass }}">ARK.io</a> product</span>
                 </div>
-            @endif
-
-            @if ($hasReservedRights)
-                <span class="mx-0.5">|</span>
-                <span>@lang ('ui::pages.footer.rights')</span>
             @endif
 
             @if (isset($policy['url'], $policy['label']))
