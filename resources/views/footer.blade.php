@@ -75,7 +75,7 @@
 
             @if ($isArkProduct)
                 <span class="mx-0.5">|</span>
-                <div>
+                <div class="inline">
                     <x-ark-icon
                         name="networks.ark-square"
                         class="inline-block mr-1 -mt-1 ark-logo-red"
