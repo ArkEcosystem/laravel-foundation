@@ -60,7 +60,7 @@
     <div class="{{ $heightClass ?? 'h-21'}}"></div>
 
     <nav
-        aria-label="{{ trans('ui::general.primary_navigation') }}"
+        aria-label="@lang ('ui::general.primary_navigation')"
         x-ref="nav"
         @class([
             'fixed top-0 z-30 w-full dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400',
