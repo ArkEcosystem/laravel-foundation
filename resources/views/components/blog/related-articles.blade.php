@@ -6,7 +6,7 @@
 
 <section>
     <div class="flex justify-between items-center">
-        <h3 class="header-2">{{ trans('ui::pages.blog.related', ['category' => $article->category->value]) }}</h3>
+        <h3 class="header-2">@lang ('ui::pages.blog.related', ['category' => $article->category->value])</h3>
 
         @if ($hasAdditional)
             <a href="{{ route('blog', ['category' => $article->category->value]) }}" class="flex items-center space-x-2 font-semibold link">

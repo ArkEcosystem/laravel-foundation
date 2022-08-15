@@ -13,7 +13,7 @@
                 min="1"
                 max="{{ $paginator->lastPage() }}"
                 name="{{ $pageName }}"
-                placeholder="{{ trans('ui::actions.enter_the_page') }}"
+                placeholder="@lang ('ui::actions.enter_the_page')"
                 class="py-2 px-3 w-full bg-transparent dark:text-theme-secondary-200"
                 x-on:blur="blurHandler"
             />
@@ -87,7 +87,7 @@
                     min="1"
                     max="{{ $paginator->lastPage() }}"
                     name="{{ $pageName }}"
-                    placeholder="{{ trans('ui::actions.enter_the_page_number') }}"
+                    placeholder="@lang ('ui::actions.enter_the_page_number')"
                     class="py-2 px-3 w-full bg-transparent dark:text-theme-secondary-200"
                     x-on:blur="blurHandler"
                 />
