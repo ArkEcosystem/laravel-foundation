@@ -153,7 +153,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
         ], 'images');
 
         $this->publishes([
-            __DIR__.'/../../resources/assets/images/errors' => resource_path('images/errors'),
+            __DIR__.'/../../resources/assets/images/errors' => resource_path('icons/errors'),
         ], 'error-pages');
 
         // Individual JS files
