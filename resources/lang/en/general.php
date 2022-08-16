@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 return [
+    'home'                     => 'Home',
     'or'                       => 'or',
     'select-all'               => 'Select All',
     'show_more'                => 'Show more',

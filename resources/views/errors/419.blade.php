@@ -1,1 +1,1 @@
-@include('errors.error', ['errorType' => 419])
+@extends('errors::layout', ['code' => 419])
