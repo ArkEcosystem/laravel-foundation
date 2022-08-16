@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
+use function Tests\createAttributes;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 use PHPUnit\Framework\Assert;
-use function Tests\createAttributes;
 
 it('should render with the given name', function (): void {
     $this
@@ -50,6 +50,17 @@ it('should render with the given model', function (): void {
         ->contains('type="text"')
         ->contains('name="username"')
         ->contains('wire:model="username_model"');
+});
+
+it('should render with the given model, but deferred', function (): void {
+    $this
+        ->assertView('ark::inputs.input-with-icon', createAttributes([
+            'model' => 'username_model',
+            'deferred' => true,
+        ]))
+        ->contains('type="text"')
+        ->contains('name="username"')
+        ->contains('wire:model.defer="username_model"');
 });
 
 it('should render with the given placeholder', function (): void {

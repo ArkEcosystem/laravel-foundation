@@ -22,6 +22,7 @@
                 'inputClass'   => $inputClass ?? '',
                 'noModel'      => $noModel ?? false,
                 'model'        => $model ?? $name,
+                'deferred'     => $deferred ?? false,
             ])
 
             @error($name)

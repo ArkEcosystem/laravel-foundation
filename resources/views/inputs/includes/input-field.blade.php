@@ -9,12 +9,17 @@
     'noModel'        => false,
     'model'          => null,
     'attributes'     => $attributes,
+    'deferred'       => false,
 ])
 
 <input
     class="{{ $inputClass }} {{ $inputTypeClass }} @if ($errors) @error($name) {{ $errorClass }} @enderror @endif"
     @unless ($noModel)
+    @if ($deferred)
+    wire:model.defer="{{ $model ?? $name }}"
+    @else
     wire:model="{{ $model ?? $name }}"
+    @endif
     @endUnless
     {{ $attributes->except([
         'class',

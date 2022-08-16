@@ -30,6 +30,7 @@
                 'inputClass'     => $inputClass ?? '',
                 'noModel'        => $noModel ?? false,
                 'model'          => $model ?? $name,
+                'deferred'       => $deferred ?? false,
                 'attributes'     => $attributes->merge(['x-on:change' => 'isDirty = !! $event.target.value']),
             ])
 
