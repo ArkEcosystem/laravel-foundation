@@ -9,7 +9,6 @@
     'noModel'        => false,
     'model'          => null,
     'keydownEnter'   => null,
-    'max'            => null,
     'attributes'     => $attributes,
     'autocapitalize' => 'none',
 ])
@@ -22,8 +21,6 @@
     @unless ($noModel) wire:model="{{ $model ?? $name }}" @endUnless
     {{-- @TODO: remove --}}
     @if ($keydownEnter) wire:keydown.enter="{{ $keydownEnter }}" @endif
-    {{-- @TODO: remove --}}
-    @if ($max) maxlength="{{ $max }}" @endif
     autocapitalize="{{ $autocapitalize }}"
 
     {{ $attributes->except([
@@ -33,7 +30,6 @@
         'hide-label',
         'errors',
         'id',
-        'max',
         'model',
         'slot',
         'type',

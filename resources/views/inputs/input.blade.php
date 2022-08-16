@@ -23,7 +23,6 @@
                 'noModel'      => $noModel ?? false,
                 'model'        => $model ?? $name,
                 'keydownEnter' => $keydownEnter ?? null,
-                'max'          => $max ?? null,
             ])
 
             @error($name)
