@@ -23,7 +23,6 @@
                     'inputClass'     => $inputClass ?? '',
                     'noModel'        => $noModel ?? false,
                     'model'          => $model ?? $name,
-                    'keydownEnter'   => $keydownEnter ?? null,
                 ])
             </div>
 

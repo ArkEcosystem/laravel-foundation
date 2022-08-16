@@ -85,11 +85,11 @@ it('should render with the given value', function (): void {
         ->contains('value="value"');
 });
 
-it('should render with the given keydownEnter', function (): void {
+it('should render with the given wire:keydown.enter', function (): void {
     $this
         ->assertView('ark::inputs.input-with-prefix', createAttributes([
             'icon'         => 'brands.outline.facebook',
-            'keydownEnter' => 'function',
+            'wire:keydown.enter' => 'function',
         ]))
         ->contains('wire:keydown.enter="function"');
 });
