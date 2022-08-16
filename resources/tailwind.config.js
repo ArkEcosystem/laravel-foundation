@@ -38,6 +38,7 @@ module.exports = {
                 "8xl": "85rem",
                 "1/2": "50%",
                 "2/3": "66%",
+                "error-image": "697px",
                 doc: "51.25rem",
             },
             minWidth: {

@@ -639,23 +639,50 @@ For the available parameters, please refer to the [EXAMPLE.md](EXAMPLE.md#tabs)
 
 There are also default error pages you can use for your Laravel project
 
-1. Run `php artisan vendor:publish --provider="ARKEcosystem\UserInterface\UserInterfaceServiceProvider" --tag="error-pages"`
+1. Run `php artisan vendor:publish --provider="ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider" --tag="error-pages"` to copy across images
 
-2. Add the following snippet to your `menus.php` lang file:
+2. Add contact email to `config/mail.php`:
 
 ```php
-'error' => [
-    '401' => '401 Unauthorized',
-    '404' => '403 Forbidden',
-    '404' => '404 Not Found',
-    '419' => '419 Unauthorized',
-    '429' => '429 Too Many Requests',
-    '500' => '500 Internal Server Error',
-    '503' => '503 Unavailable',
-]
+return [
+    ...
+
+    'contact_email' => 'contact@arkscan.io',
+
+    ...
+];
 ```
 
-3. Please test if the pages work by manually going to a url that should throw an error
+3. Update colours if necessary:
+
+    1. Create `resources/css/_theme.css`
+
+    2. Include theme in base css:
+
+        ```css
+        @import "_tables.css";
+        ```
+
+    3. Add updated colours:
+
+        ```css
+        .light-dark-icon {
+            --icon-error-primary-100: var(--theme-color-danger-100);
+            --icon-error-primary-600: var(--theme-color-danger-400);
+            --icon-error-secondary-300: var(--theme-color-secondary-300);
+            --icon-error-secondary-900: var(--theme-color-secondary-900);
+        }
+
+        .dark .light-dark-icon {
+            --icon-error-primary-100: var(--theme-color-danger-900);
+            --icon-error-primary-600: var(--theme-color-danger-400);
+            --icon-error-secondary-200: var(--theme-color-secondary-800);
+            --icon-error-secondary-300: var(--theme-color-secondary-800);
+            --icon-error-secondary-900: var(--theme-color-secondary-600);
+        }
+        ```
+
+4. If you need to override any error templates, create a copy of them in the vendor folder. E.g. `views/vendor/ark/errors/404.blade.php`
 
 ## Available Components
 
