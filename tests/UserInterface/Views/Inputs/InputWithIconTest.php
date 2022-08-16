@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use function Tests\createAttributes;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 use PHPUnit\Framework\Assert;
+use function Tests\createAttributes;
 
 it('should render with the given name', function (): void {
     $this

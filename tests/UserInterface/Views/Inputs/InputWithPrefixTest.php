@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use function Tests\createAttributes;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 use PHPUnit\Framework\Assert;
+use function Tests\createAttributes;
 
 it('should render with an icon', function (): void {
     $this
@@ -88,7 +88,7 @@ it('should render with the given value', function (): void {
 it('should render with the given wire:keydown.enter', function (): void {
     $this
         ->assertView('ark::inputs.input-with-prefix', createAttributes([
-            'icon'         => 'brands.outline.facebook',
+            'icon'               => 'brands.outline.facebook',
             'wire:keydown.enter' => 'function',
         ]))
         ->contains('wire:keydown.enter="function"');
@@ -97,7 +97,7 @@ it('should render with the given wire:keydown.enter', function (): void {
 it('should render with the given maxlength', function (): void {
     $this
         ->assertView('ark::inputs.input-with-prefix', createAttributes([
-            'icon' => 'brands.outline.facebook',
+            'icon'       => 'brands.outline.facebook',
             'maxlength'  => 1,
         ]))
         ->contains('maxlength="1"');
