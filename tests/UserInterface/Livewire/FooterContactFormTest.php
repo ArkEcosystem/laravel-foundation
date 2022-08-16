@@ -18,12 +18,7 @@ it('should render', function () {
     Livewire::test(FooterContactForm::class)
         ->assertSee(trans('ui::pages.extended-footer.contact.title'))
         ->assertSee(trans('ui::pages.extended-footer.contact.description'), false)
-        ->assertSeeHtml('<input
-    type="text"
-    id="contact:name"
-    name="contact:name"
-    class=" input-text   "
-     wire:model="state.name"');
+        ->assertSeeHtml('type="text" id="contact:name" name="contact:name" autocapitalize="none"');
 });
 
 it('should setup state', function () {
