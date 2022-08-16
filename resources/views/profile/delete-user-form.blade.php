@@ -52,7 +52,7 @@
                 </div>
                 @elseif($confirmName)
                 <div class="flex flex-col mt-4">
-                    <span class="input-label">{{ trans('modals.delete-user.title') }}</span>
+                    <span class="input-label">@lang ('modals.delete-user.title')</span>
                     <div class="mb-2 input-wrapper">
                         <input type="text" value="{{ $this->user->name }}" class="font-semibold text-center input-text" readonly/>
                     </div>

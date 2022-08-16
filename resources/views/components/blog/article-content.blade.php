@@ -27,7 +27,7 @@
                 </div>
 
                 <div>
-                    {{ formatReadTime($article->reading_time) }} {{ trans('ui::pages.blog.read') }}
+                    {{ formatReadTime($article->reading_time) }} @lang ('ui::pages.blog.read')
                 </div>
             </div>
 
