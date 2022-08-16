@@ -10,7 +10,6 @@
     'model'          => null,
     'keydownEnter'   => null,
     'attributes'     => $attributes,
-    'autocapitalize' => 'none',
 ])
 
 <input
@@ -21,10 +20,7 @@
     @unless ($noModel) wire:model="{{ $model ?? $name }}" @endUnless
     {{-- @TODO: remove --}}
     @if ($keydownEnter) wire:keydown.enter="{{ $keydownEnter }}" @endif
-    autocapitalize="{{ $autocapitalize }}"
-
     {{ $attributes->except([
-        'autocapitalize',
         'class',
         'container-class',
         'hide-label',
@@ -35,5 +31,7 @@
         'type',
         'wire:model',
         'keydown-enter',
+    ])->merge([
+        'autocapitalize' => 'none',
     ]) }}
 />
