@@ -1,35 +1,60 @@
-<div class="{{ $class ?? '' }}">
+@props ([
+    'name',
+    'errors' => null, // TODO: remove when #449 is merged...
+    'slot' => null, // TODO: remove when #449 is merged...
+    'id' => null,
+    'model' => null,
+    'label' => null,
+    'deferred' => false,
+    'required' => false,
+    'inputClass' => '',
+    'containerClass' => '',
+    'slotClass' => 'h-full',
+    'auxiliaryTitle' => '',
+    'noModel' => false,
+    'hideLabel' => false,
+    'tooltip' => null,
+])
+
+@php
+    $id ??= $name;
+    $model ??= $name;
+@endphp
+
+<div {{ $attributes->only('class') }}>
     <div class="input-group">
-        @unless ($hideLabel ?? false)
+        @unless ($hideLabel)
             @include('ark::inputs.includes.input-label', [
                 'name'           => $name,
                 'errors'         => $errors,
-                'id'             => $id ?? $name,
-                'label'          => $label ?? null,
-                'tooltip'        => $tooltip ?? null,
-                'required'       => $required ?? false,
-                'auxiliaryTitle' => $auxiliaryTitle ?? '',
+                'id'             => $id,
+                'label'          => $label,
+                'tooltip'        => $tooltip,
+                'required'       => $required,
+                'auxiliaryTitle' => $auxiliaryTitle,
             ])
         @endunless
 
-        <div class="flex input-wrapper-with-icon {{ $containerClass ?? '' }}">
+        <div class="flex input-wrapper-with-icon {{ $containerClass }}">
             <div class="flex-1">
                 @include('ark::inputs.includes.input-field', [
                     'name'           => $name,
                     'errors'         => $errors,
-                    'id'             => $id ?? $name,
+                    'id'             => $id,
                     'inputTypeClass' => 'input-text-with-icon',
                     'errorClass'     => 'input-text-with-icon--error',
-                    'inputClass'     => $inputClass ?? '',
-                    'noModel'        => $noModel ?? false,
-                    'model'          => $model ?? $name,
-                    'deferred'       => $deferred ?? false,
+                    'inputClass'     => $inputClass,
+                    'noModel'        => $noModel,
+                    'model'          => $model,
+                    'deferred'       => $deferred,
                 ])
             </div>
 
+            {{-- TODO: remove when #449 is merged... --}}
+            {{-- @if (! $slot->isEmpty()) --}}
             @if ($slot ?? false)
                 <div>
-                    <div class="flex {{ $slotClass ?? 'h-full' }}">
+                    <div class="flex {{ $slotClass }}">
                         {{ $slot }}
                     </div>
                 </div>

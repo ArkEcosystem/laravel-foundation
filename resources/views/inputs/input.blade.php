@@ -1,16 +1,38 @@
+@props ([
+    'name',
+    'errors' => null, // TODO: remove when #449 is merged...
+    'id' => null,
+    'model' => null,
+    'label' => null,
+    'deferred' => false,
+    'required' => false,
+    'inputClass' => '',
+    'auxiliaryTitle' => '',
+    'noModel' => false,
+    'hideLabel' => false,
+    'tooltip' => null,
+    'tooltipClass' => null,
+    'tooltipType' => null,
+])
+
+@php
+    $id ??= $name;
+    $model ??= $name;
+@endphp
+
 <div {{ $attributes->only('class') }} >
     <div class="input-group">
-        @unless ($hideLabel ?? false)
+        @unless ($hideLabel)
             @include('ark::inputs.includes.input-label', [
                 'name'            => $name,
                 'errors'          => $errors,
-                'id'              => $id ?? $name,
-                'label'           => $label ?? null,
-                'tooltip'         => $tooltip ?? null,
-                'tooltipClass'    => $tooltipClass ?? null,
-                'tooltipType'     => $tooltipType ?? null,
-                'required'        => $required ?? false,
-                'auxiliaryTitle'  => $auxiliaryTitle ?? '',
+                'id'              => $id,
+                'label'           => $label,
+                'tooltip'         => $tooltip,
+                'tooltipClass'    => $tooltipClass,
+                'tooltipType'     => $tooltipType,
+                'required'        => $required,
+                'auxiliaryTitle'  => $auxiliaryTitle,
             ])
         @endunless
 
@@ -18,17 +40,17 @@
             @include('ark::inputs.includes.input-field', [
                 'name'         => $name,
                 'errors'       => $errors,
-                'id'           => $id ?? $name,
-                'inputClass'   => $inputClass ?? '',
-                'noModel'      => $noModel ?? false,
-                'model'        => $model ?? $name,
-                'deferred'     => $deferred ?? false,
+                'id'           => $id,
+                'inputClass'   => $inputClass,
+                'noModel'      => $noModel,
+                'model'        => $model,
+                'deferred'     => $deferred,
             ])
 
             @error($name)
                 @include('ark::inputs.includes.input-error-tooltip', [
                     'error' => $message,
-                    'id' => $id ?? $name,
+                    'id' => $id,
                 ])
             @enderror
         </div>
