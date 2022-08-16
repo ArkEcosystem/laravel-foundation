@@ -12,22 +12,22 @@
 ])
 
 <input
-    type="{{ $type }}"
-    id="{{ $id ?? $name }}"
-    name="{{ $name }}"
     class="{{ $inputClass }} {{ $inputTypeClass }} @if ($errors) @error($name) {{ $errorClass }} @enderror @endif"
-    @unless ($noModel) wire:model="{{ $model ?? $name }}" @endUnless
+    @unless ($noModel)
+    wire:model="{{ $model ?? $name }}"
+    @endUnless
     {{ $attributes->except([
         'class',
         'container-class',
         'hide-label',
         'errors',
-        'id',
         'model',
         'slot',
-        'type',
         'wire:model',
     ])->merge([
+        'type' => $type,
+        'id' => $id ?? $name,
+        'name' => $name,
         'autocapitalize' => 'none',
     ]) }}
 />
