@@ -36,7 +36,7 @@
                 <button
                     type="button"
                     @click="show = false"
-                    aria-label="{{ trans('ui::alert.dismiss') }}"
+                    aria-label="@lang ('ui::alert.dismiss')"
                 >
                     <x-ark-icon name="cross" size="xs" aria-hidden="true" focusable="false" />
                 </button>

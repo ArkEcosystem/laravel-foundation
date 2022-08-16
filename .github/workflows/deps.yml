@@ -2,7 +2,7 @@ name: Dependencies
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 * * 0"
 
 jobs:
   update:
@@ -20,7 +20,15 @@ jobs:
       - name: Install dependencies
         run: composer update --ignore-platform-reqs
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
         with:
-          commit_message: "chore: update dependencies"
-          branch: ${{ github.head_ref }}
+          token: ${{ secrets.GH_TOKEN }}
+          commit-message: "chore: update PHP dependencies"
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: chore/update-php-dependencies
+          delete-branch: true
+          title: "chore: update PHP dependencies"
+          draft: false
