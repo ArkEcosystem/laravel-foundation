@@ -659,28 +659,28 @@ return [
 
     2. Include theme in base css:
 
-    ```css
-    @import "_tables.css";
-    ```
+        ```css
+        @import "_tables.css";
+        ```
 
     3. Add updated colours:
 
-    ```css
-    .light-dark-icon {
-        --icon-error-primary-100: var(--theme-color-danger-100);
-        --icon-error-primary-600: var(--theme-color-danger-400);
-        --icon-error-secondary-300: var(--theme-color-secondary-300);
-        --icon-error-secondary-900: var(--theme-color-secondary-900);
-    }
+        ```css
+        .light-dark-icon {
+            --icon-error-primary-100: var(--theme-color-danger-100);
+            --icon-error-primary-600: var(--theme-color-danger-400);
+            --icon-error-secondary-300: var(--theme-color-secondary-300);
+            --icon-error-secondary-900: var(--theme-color-secondary-900);
+        }
 
-    .dark .light-dark-icon {
-        --icon-error-primary-100: var(--theme-color-danger-900);
-        --icon-error-primary-600: var(--theme-color-danger-400);
-        --icon-error-secondary-200: var(--theme-color-secondary-800);
-        --icon-error-secondary-300: var(--theme-color-secondary-800);
-        --icon-error-secondary-900: var(--theme-color-secondary-600);
-    }
-    ```
+        .dark .light-dark-icon {
+            --icon-error-primary-100: var(--theme-color-danger-900);
+            --icon-error-primary-600: var(--theme-color-danger-400);
+            --icon-error-secondary-200: var(--theme-color-secondary-800);
+            --icon-error-secondary-300: var(--theme-color-secondary-800);
+            --icon-error-secondary-900: var(--theme-color-secondary-600);
+        }
+        ```
 
 4. If you need to override any error templates, create a copy of them in the vendor folder. E.g. `views/vendor/ark/errors/404.blade.php`
 
