@@ -1,5 +1,17 @@
 @extends('layouts.app')
 
+@php
+    $code = match ($code) {
+        401 => 401,
+        403 => 403,
+        404 => 404,
+        419 => 419,
+        429 => 429,
+        503 => 503,
+        default => 500,
+    };
+@endphp
+
 @if ($code ?? null)
     @section('title', trans('ui::errors.'.$code) . ' | '.config('app.name'))
 
