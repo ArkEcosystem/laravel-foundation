@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use function Tests\createAttributes;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use NunoMaduro\LaravelMojito\ViewAssertion;
 use PHPUnit\Framework\Assert;
+use function Tests\createAttributes;
 
 it('should render with an icon', function (): void {
     $this
@@ -70,8 +70,8 @@ it('should render with the given model', function (): void {
 it('should render with the given model, but deferred', function (): void {
     $this
         ->assertView('ark::inputs.input-with-prefix', createAttributes([
-            'icon'  => 'brands.outline.facebook',
-            'model' => 'username_model',
+            'icon'     => 'brands.outline.facebook',
+            'model'    => 'username_model',
             'deferred' => true,
         ]))
         ->contains('type="text"')
