@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\View;
 
 class Handler extends ExceptionHandler
 {
+    use Concerns\OverridesExceptionView;
+
     /**
      * Register the error template hint paths.
      *
