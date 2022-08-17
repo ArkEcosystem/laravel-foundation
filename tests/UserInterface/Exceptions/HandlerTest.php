@@ -61,7 +61,7 @@ it('should use contact route for button if route exists', function ($useRoute): 
         })->name('contact');
     }
 
-    $response = $this->get("/error/404");
+    $response = $this->get('/error/404');
 
     if ($useRoute) {
         $response->assertSeeInOrder([
