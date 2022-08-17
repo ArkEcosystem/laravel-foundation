@@ -13,7 +13,7 @@
     'label' => null,
     'xData' => '{}',
     'height' => '320',
-    'width' => 'w-full min-w-max-content',
+    'width' => 'w-full min-w-max',
 ])
 
 @php
