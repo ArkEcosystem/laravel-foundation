@@ -1,1 +1,1 @@
-@include('errors.error', ['errorType' => 503])
+@extends('errors::layout', ['maintenance' => true, 'code' => 503])

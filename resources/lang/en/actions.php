@@ -17,6 +17,7 @@ return [
     'close'         => 'Close',
     'dark_theme'    => 'Dark Theme',
     'follow_link'   => 'Follow Link',
+    'contact'       => 'Contact',
 
     // Blog
     'apply'        => 'Apply',
