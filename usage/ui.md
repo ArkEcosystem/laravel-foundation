@@ -641,7 +641,7 @@ There are also default error pages you can use for your Laravel project
 
 1. Run `php artisan vendor:publish --provider="ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider" --tag="error-pages"` to copy across images
 
-2. Add contact email to `config/mail.php`:
+2. The error templates check for a `contact` route first. If there is no route, you'll need to add an email address to `config/mail.php`:
 
 ```php
 return [
