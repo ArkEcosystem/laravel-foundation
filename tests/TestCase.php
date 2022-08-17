@@ -80,4 +80,9 @@ class TestCase extends Orchestra
             // CommonMarkServiceProvider::class, // TODO: custom finder from this causes component tests to fail
         ];
     }
+
+    protected function resolveApplicationExceptionHandler($app)
+    {
+        $app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', \Tests\Stubs\ExceptionHandler::class);
+    }
 }
