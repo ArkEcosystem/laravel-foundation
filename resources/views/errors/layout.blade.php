@@ -24,7 +24,14 @@
     @endif
 
     @section('buttons')
-        <a href="mailto:{{ config('mail.contact_email') }}" class="button button-secondary">
+        <a
+            class="button button-secondary"
+            @if (view()->exists('contact'))
+                href="mailto:{{ config('mail.contact_email') }}"
+            @else
+                href="{{ route('contact') }}"
+            @endif
+        >
             @lang('ui::actions.contact')
         </a>
 
