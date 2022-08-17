@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
 it('should show 500 error page if template does not exist', function ($errorCode, $message): void {
