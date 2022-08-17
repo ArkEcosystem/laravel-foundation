@@ -9,6 +9,10 @@
     'cookieContactUrl'          => '/contact',
 ])
 
+@aware([
+    'verticalCenterContent' => false,
+])
+
 <body {{ $attributes }}>
     <div
         id="app"
@@ -21,7 +25,7 @@
         {{ $slot }}
 
         @if ($content === null)
-            <x-ark-pages-includes-layout-content>
+            <x-ark-pages-includes-layout-content :vertical-center="$verticalCenterContent">
                 @yield('content')
             </x-ark-pages-includes-layout-content>
         @else
