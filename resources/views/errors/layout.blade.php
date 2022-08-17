@@ -26,7 +26,7 @@
     @section('buttons')
         <a
             class="button button-secondary"
-            @if (view()->exists('contact'))
+            @if (Route::has('contact'))
                 href="{{ route('contact') }}"
             @else
                 href="mailto:{{ config('mail.contact_email') }}"
