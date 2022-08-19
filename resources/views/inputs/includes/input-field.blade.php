@@ -8,36 +8,31 @@
     'errorClass'     => 'input-text--error',
     'noModel'        => false,
     'model'          => null,
-    'keydownEnter'   => null,
-    'max'            => null,
     'attributes'     => $attributes,
-    'autocapitalize' => 'none',
+    'deferred'       => false,
 ])
 
 <input
-    type="{{ $type }}"
-    id="{{ $id ?? $name }}"
-    name="{{ $name }}"
     class="{{ $inputClass }} {{ $inputTypeClass }} @if ($errors) @error($name) {{ $errorClass }} @enderror @endif"
-    @unless ($noModel) wire:model="{{ $model ?? $name }}" @endUnless
-    {{-- @TODO: remove --}}
-    @if ($keydownEnter) wire:keydown.enter="{{ $keydownEnter }}" @endif
-    {{-- @TODO: remove --}}
-    @if ($max) maxlength="{{ $max }}" @endif
-    autocapitalize="{{ $autocapitalize }}"
-
+    @unless ($noModel)
+    @if ($deferred)
+    wire:model.defer="{{ $model ?? $name }}"
+    @else
+    wire:model="{{ $model ?? $name }}"
+    @endif
+    @endUnless
     {{ $attributes->except([
-        'autocapitalize',
         'class',
         'container-class',
         'hide-label',
         'errors',
-        'id',
-        'max',
         'model',
         'slot',
-        'type',
         'wire:model',
-        'keydown-enter',
+    ])->merge([
+        'type' => $type,
+        'id' => $id ?? $name,
+        'name' => $name,
+        'autocapitalize' => 'none',
     ]) }}
 />

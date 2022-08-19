@@ -36,6 +36,14 @@ it('should render with the given model', function (): void {
         ->assertSeeHtml('wire:model="username_model"');
 });
 
+it('should render with the given model, but deferred', function (): void {
+    $this
+        ->blade('<x-ark::inputs.input-with-icon name="username" model="username_model" deferred />')
+        ->assertSeeHtml('type="text"')
+        ->assertSeeHtml('name="username"')
+        ->assertSeeHtml('wire:model.defer="username_model"');
+});
+
 it('should render with the given placeholder', function (): void {
     $this
         ->blade('<x-ark::inputs.input-with-icon name="username" placeholder="placeholder" />')
@@ -48,15 +56,15 @@ it('should render with the given value', function (): void {
         ->assertSeeHtml('value="value"');
 });
 
-it('should render with the given keydownEnter', function (): void {
+it('should render with the given wire:keydown.enter', function (): void {
     $this
-        ->blade('<x-ark::inputs.input-with-icon name="username" keydownEnter="function" />')
+        ->blade('<x-ark::inputs.input-with-icon name="username" wire:keydown.enter="function" />')
         ->assertSeeHtml('wire:keydown.enter="function"');
 });
 
-it('should render with the given max', function (): void {
+it('should render with the given maxlength', function (): void {
     $this
-        ->blade('<x-ark::inputs.input-with-icon name="username" :max="1" />')
+        ->blade('<x-ark::inputs.input-with-icon name="username" :maxlength="1" />')
         ->assertSeeHtml('maxlength="1"');
 });
 

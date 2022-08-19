@@ -65,6 +65,18 @@ it('should render with the given model', function (): void {
         ->assertSeeHtml('wire:model="username_model"');
 });
 
+it('should render with the given model, but deferred', function (): void {
+    $this
+        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+            'icon'     => 'brands.outline.facebook',
+            'model'    => 'username_model',
+            'deferred' => true,
+        ]))
+        ->contains('type="text"')
+        ->contains('name="username"')
+        ->contains('wire:model.defer="username_model"');
+});
+
 it('should render with the given placeholder', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
@@ -83,20 +95,20 @@ it('should render with the given value', function (): void {
         ->assertSeeHtml('value="value"');
 });
 
-it('should render with the given keydownEnter', function (): void {
+it('should render with the given wire:keydown.enter', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
-            'icon'         => 'brands.outline.facebook',
-            'keydownEnter' => 'function',
+            'icon'               => 'brands.outline.facebook',
+            'wire:keydown.enter' => 'function',
         ]))
         ->assertSeeHtml('wire:keydown.enter="function"');
 });
 
-it('should render with the given max', function (): void {
+it('should render with the given maxlength', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
-            'icon' => 'brands.outline.facebook',
-            'max'  => 1,
+            'icon'       => 'brands.outline.facebook',
+            'maxlength'  => 1,
         ]))
         ->assertSeeHtml('maxlength="1"');
 });
