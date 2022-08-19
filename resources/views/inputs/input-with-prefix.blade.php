@@ -41,8 +41,7 @@
                 'inputClass'     => $inputClass ?? '',
                 'noModel'        => $noModel ?? false,
                 'model'          => $model ?? $name,
-                'keydownEnter'   => $keydownEnter ?? null,
-                'max'            => $max ?? null,
+                'deferred'       => $deferred ?? false,
                 'attributes'     => $attributes->merge(['x-on:change' => 'isDirty = !! $event.target.value']),
             ])
 
