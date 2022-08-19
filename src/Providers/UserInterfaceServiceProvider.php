@@ -206,6 +206,9 @@ class UserInterfaceServiceProvider extends ServiceProvider
     private function registerBladeComponents(): void
     {
         $this->callAfterResolving(BladeCompiler::class, function (BladeCompiler $blade) {
+            // Load every `<x-ark:: />` component from the `ark::` View namespaces...
+            $blade->anonymousComponentNamespace('ark::', 'ark');
+
             $blade->component('ark::inputs.checkbox', 'ark-checkbox');
             $blade->component('ark::inputs.date-picker', 'ark-date-picker');
             $blade->component('ark::inputs.input', 'ark-input');

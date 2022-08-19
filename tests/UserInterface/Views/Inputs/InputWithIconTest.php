@@ -2,240 +2,169 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\MessageBag;
-use Illuminate\Support\ViewErrorBag;
-use NunoMaduro\LaravelMojito\ViewAssertion;
-use PHPUnit\Framework\Assert;
-use function Tests\createAttributes;
-
 it('should render with the given name', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'name' => 'username',
-        ]))
-        ->contains('type="text"')
-        ->contains('name="username"')
-        ->contains('wire:model="username"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" />')
+        ->assertSeeHtml('type="text"')
+        ->assertSeeHtml('name="username"')
+        ->assertSeeHtml('wire:model="username"');
 });
 
 it('should render with the given label', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'label' => 'Fancy Label',
-        ]))
-        ->contains('Fancy Label');
+        ->blade('<x-ark::inputs.input-with-icon name="username" label="Fancy Label" />>')
+        ->assertSee('Fancy Label');
 });
 
 it('should render with the given type', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'type' => 'number',
-        ]))
-        ->contains('type="number"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" type="number" />')
+        ->assertSeeHtml('type="number"');
 });
 
 it('should render with the given id', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'id' => 'uniqueid',
-        ]))
-        ->contains('id="uniqueid"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" id="uniqueid" />')
+        ->assertSeeHtml('id="uniqueid"');
 });
 
 it('should render with the given model', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'model' => 'username_model',
-        ]))
-        ->contains('type="text"')
-        ->contains('name="username"')
-        ->contains('wire:model="username_model"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" model="username_model" />')
+        ->assertSeeHtml('type="text"')
+        ->assertSeeHtml('name="username"')
+        ->assertSeeHtml('wire:model="username_model"');
 });
 
 it('should render with the given model, but deferred', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'model'    => 'username_model',
-            'deferred' => true,
-        ]))
-        ->contains('type="text"')
-        ->contains('name="username"')
-        ->contains('wire:model.defer="username_model"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" model="username_model" deferred />')
+        ->assertSeeHtml('type="text"')
+        ->assertSeeHtml('name="username"')
+        ->assertSeeHtml('wire:model.defer="username_model"');
 });
 
 it('should render with the given placeholder', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'placeholder' => 'placeholder',
-        ]))
-        ->contains('placeholder="placeholder"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" placeholder="placeholder" />')
+        ->assertSeeHtml('placeholder="placeholder"');
 });
 
 it('should render with the given value', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'value' => 'value',
-        ]))
-        ->contains('value="value"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" value="value" />')
+        ->assertSeeHtml('value="value"');
 });
 
 it('should render with the given wire:keydown.enter', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'wire:keydown.enter' => 'function',
-        ]))
-        ->contains('wire:keydown.enter="function"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" wire:keydown.enter="function" />')
+        ->assertSeeHtml('wire:keydown.enter="function"');
 });
 
 it('should render with the given maxlength', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'maxlength' => 1,
-        ]))
-        ->contains('maxlength="1"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" :maxlength="1" />')
+        ->assertSeeHtml('maxlength="1"');
 });
 
 it('should render with the given autocomplete', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'autocomplete' => 'autocomplete',
-        ]))
-        ->contains('autocomplete="autocomplete"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" autocomplete="autocomplete" />')
+        ->assertSeeHtml('autocomplete="autocomplete"');
 });
 
 it('should render as readonly', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'readonly' => true,
-        ]))
-        ->contains('readonly');
+        ->blade('<x-ark::inputs.input-with-icon name="username" readonly />')
+        ->assertSeeHtml('readonly');
 });
 
 it('should render without the label', function (): void {
-    ViewAssertion::macro('doesNotContain', function (string $text) {
-        Assert::assertStringNotContainsString(
-            (string) $text,
-            $this->html,
-            "Failed asserting that the text `{$text}` does not exist within `{$this->html}`."
-        );
-
-        return $this;
-    });
-
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'hideLabel' => true,
-        ]))
-        ->doesNotContain('<label');
+        ->blade('<x-ark::inputs.input-with-icon name="username" :hide-label="true" />')
+        ->assertDontSee('<label', escape: false);
 });
 
 it('should render with the given input mode', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'inputmode' => 'inputmode',
-        ]))
-        ->contains('inputmode="inputmode"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" inputmode="inputmode" />')
+        ->assertSeeHtml('inputmode="inputmode"');
 });
 
 it('should render with the given pattern', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'pattern' => 'pattern',
-        ]))
-        ->contains('pattern="pattern"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" pattern="pattern" />')
+        ->assertSeeHtml('pattern="pattern"');
 });
 
 it('should render with the given class', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'class' => 'class',
-        ]))
-        ->contains('<div class="class">');
+        ->blade('<x-ark::inputs.input-with-icon name="username" class="class" />')
+        ->assertSeeHtml('<div class="class">');
 });
 
 it('should render with the given inputClass', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'inputClass' => 'inputClass',
-        ]))
-        ->contains('class="inputClass');
+        ->blade('<x-ark::inputs.input-with-icon name="username" inputClass="inputClass" />')
+        ->assertSeeHtml('class="inputClass');
 });
 
 it('should render with the given containerClass', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'containerClass' => 'containerClass',
-        ]))
-        ->contains('containerClass"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" containerClass="containerClass" />')
+        ->assertSeeHtml('containerClass"');
 });
 
 it('should render error styling for a label', function (): void {
-    $errors = new ViewErrorBag();
-    $errors->put('default', new MessageBag(['username' => ['required']]));
-
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'errors'     => $errors,
-            'inputClass' => 'inputClass',
-        ]))
-        ->contains('input-label--error');
+        ->withViewErrors([
+            'username' => ['required'],
+        ])
+        ->blade('<x-ark::inputs.input-with-icon name="username" />')
+        ->assertSeeHtml('input-label--error');
 });
 
 it('should render error styling for an input', function (): void {
-    $errors = new ViewErrorBag();
-    $errors->put('default', new MessageBag(['username' => ['required']]));
-
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'errors'     => $errors,
-            'inputClass' => 'inputClass',
-        ]))
-        ->contains('input-text-with-icon--error');
+        ->withViewErrors([
+            'username' => ['required'],
+        ])
+        ->blade('<x-ark::inputs.input-with-icon name="username" />')
+        ->assertSeeHtml('input-text-with-icon--error');
 });
 
 it('should render an error message', function (): void {
-    $errors = new ViewErrorBag();
-    $errors->put('default', new MessageBag(['username' => ['This is required.']]));
-
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'errors'     => $errors,
-            'inputClass' => 'inputClass',
-        ]))
-        ->contains('<p class="input-help--error">This is required.</p>');
+        ->withViewErrors([
+            'username' => ['This is required.'],
+        ])
+        ->blade('<x-ark::inputs.input-with-icon name="username" />')
+        ->assertSeeHtml('<p class="input-help--error">This is required.</p>');
 });
 
 it('should render with the given slot', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'slot'   => 'Hello World',
-        ]))
-        ->contains('Hello World');
+        ->blade('<x-ark::inputs.input-with-icon name="username">Hello World</x-ark::inputs.input-with-icon>')
+        ->assertSeeHtml('Hello World');
 });
 
 it('should render with the given slotClass', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'slot'      => 'Hello World',
-            'slotClass' => 'slotClass',
-        ]))
-        ->contains('Hello World')
-        ->contains('slotClass"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" slotClass="slotClass">Hello World</x-ark::inputs.input-with-icon>')
+        ->assertSeeHtml('Hello World')
+        ->assertSeeHtml('slotClass"');
 });
 
 it('should render a default slotClass', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'slot' => 'Hello World',
-        ]))
-        ->contains('Hello World')
-        ->contains('h-full');
+        ->blade('<x-ark::inputs.input-with-icon name="username">Hello World</x-ark::inputs.input-with-icon>')
+        ->assertSeeHtml('Hello World')
+        ->assertSeeHtml('h-full');
 });
 
 it('should render with the ID as label target', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-icon', createAttributes([
-            'id' => 'id',
-        ]))
-        ->contains('for="id"');
+        ->blade('<x-ark::inputs.input-with-icon name="username" id="id" />')
+        ->assertSeeHtml('for="id"');
 });
