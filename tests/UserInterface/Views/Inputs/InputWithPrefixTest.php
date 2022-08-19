@@ -67,7 +67,7 @@ it('should render with the given model', function (): void {
 
 it('should render with the given model, but deferred', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'     => 'brands.outline.facebook',
             'model'    => 'username_model',
             'deferred' => true,

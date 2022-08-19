@@ -52,7 +52,7 @@ it('should render with the given model', function (): void {
 
 it('should render with the given model, but deferred', function (): void {
     $this
-        ->assertView('ark::inputs.input', createAttributes([
+        ->view('ark::inputs.input', createAttributes([
             'model'    => 'username_model',
             'deferred' => true,
         ]))
