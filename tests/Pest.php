@@ -3,11 +3,10 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use NunoMaduro\LaravelMojito\InteractsWithViews;
 use Tests\Blog\TestCase as BlogTestCase;
 use Tests\TestCase;
 
-uses(TestCase::class, InteractsWithViews::class, RefreshDatabase::class)->in(
+uses(TestCase::class, RefreshDatabase::class)->in(
     'Analysis',
     'CommonMark',
     'DataBags',
