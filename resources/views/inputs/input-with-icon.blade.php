@@ -1,7 +1,5 @@
 @props ([
     'name',
-    'errors' => null, // TODO: remove when #449 is merged...
-    'slot' => null, // TODO: remove when #449 is merged...
     'id' => null,
     'model' => null,
     'label' => null,
