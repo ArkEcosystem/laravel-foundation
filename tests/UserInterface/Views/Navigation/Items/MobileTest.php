@@ -9,22 +9,22 @@ it('should render the component with a single item without query parameters', fu
     Route::view('/', 'ark::navbar.items.mobile')->name('home');
 
     $this
-        ->assertView('ark::navbar.items.mobile', createAttributes([
+        ->view('ark::navbar.items.mobile', createAttributes([
             'navigation' => [
                 ['route' => 'home', 'label' => 'Home'],
             ],
         ]))
-        ->contains('http://localhost');
+        ->assertSeeHtml('http://localhost');
 });
 
 it('should render the component with a single item with query parameters', function (): void {
     Route::view('/', 'ark::navbar.items.mobile')->name('home');
 
     $this
-        ->assertView('ark::navbar.items.mobile', createAttributes([
+        ->view('ark::navbar.items.mobile', createAttributes([
             'navigation' => [
                 ['route' => 'home', 'label' => 'Home', 'params' => ['hello' => 'world']],
             ],
         ]))
-        ->contains('http://localhost?hello=world');
+        ->assertSeeHtml('http://localhost?hello=world');
 });

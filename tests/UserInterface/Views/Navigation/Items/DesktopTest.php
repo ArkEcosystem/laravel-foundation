@@ -9,24 +9,24 @@ it('should render the component with a single item without query parameters', fu
     Route::view('/', 'ark::navbar.items.desktop')->name('home');
 
     $this
-        ->assertView('ark::navbar.items.desktop', createAttributes([
+        ->view('ark::navbar.items.desktop', createAttributes([
             'navigation' => [
                 ['route' => 'home', 'label' => 'Home'],
             ],
         ]))
-        ->contains('http://localhost');
+        ->assertSeeHtml('http://localhost');
 });
 
 it('should render the component with a single item with query parameters', function (): void {
     Route::view('/', 'ark::navbar.items.desktop')->name('home');
 
     $this
-        ->assertView('ark::navbar.items.desktop', createAttributes([
+        ->view('ark::navbar.items.desktop', createAttributes([
             'navigation' => [
                 ['route' => 'home', 'label' => 'Home', 'params' => ['hello' => 'world']],
             ],
         ]))
-        ->contains('http://localhost?hello=world');
+        ->assertSeeHtml('http://localhost?hello=world');
 });
 
 it('should render the component with children', function (): void {
@@ -34,7 +34,7 @@ it('should render the component with children', function (): void {
     Route::view('/post', 'ark::navbar.items.desktop')->name('post');
 
     $this
-        ->assertView('ark::navbar.items.desktop', createAttributes([
+        ->view('ark::navbar.items.desktop', createAttributes([
             'navigation' => [
                 [
                     'route'    => 'home',
@@ -45,5 +45,5 @@ it('should render the component with children', function (): void {
                 ],
             ],
         ]))
-        ->contains('http://localhost/post');
+        ->assertSeeHtml('http://localhost/post');
 });

@@ -18,10 +18,10 @@ it('should format the given value', function (): void {
 it('should render when included in a blade view', function (): void {
     View::addLocation(realpath(__DIR__.'/../../blade-views'));
 
-    $this->assertView('short-percentage', ['slot' => 10.12])->contains('10%');
-    $this->assertView('short-percentage', ['slot' => 100.12])->contains('100%');
-    $this->assertView('short-percentage', ['slot' => 1000.12])->contains('1000%');
-    $this->assertView('short-percentage', ['slot' => 10000.12])->contains('10000%');
-    $this->assertView('short-percentage', ['slot' => 100000.12])->contains('100000%');
-    $this->assertView('short-percentage', ['slot' => 1000000.12])->contains('1000000%');
+    $this->view('short-percentage', ['slot' => 10.12])->assertSeeText('10%');
+    $this->view('short-percentage', ['slot' => 100.12])->assertSeeText('100%');
+    $this->view('short-percentage', ['slot' => 1000.12])->assertSeeText('1000%');
+    $this->view('short-percentage', ['slot' => 10000.12])->assertSeeText('10000%');
+    $this->view('short-percentage', ['slot' => 100000.12])->assertSeeText('100000%');
+    $this->view('short-percentage', ['slot' => 1000000.12])->assertSeeText('1000000%');
 });

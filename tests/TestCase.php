@@ -10,7 +10,9 @@ use ARKEcosystem\Foundation\Providers\HermesServiceProvider;
 use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
 use ARKEcosystem\Foundation\Providers\RulesServiceProvider;
 use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
+use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
 use Illuminate\Support\Facades\View;
+use Illuminate\Testing\TestView;
 use Laravel\Fortify\FortifyServiceProvider as LaravelFortifyServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -22,11 +24,15 @@ use Spatie\Newsletter\NewsletterServiceProvider;
  */
 class TestCase extends Orchestra
 {
+    use InteractsWithViews;
+
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+
+        $this->registerMacros();
     }
 
     protected function defineEnvironment($app)
@@ -43,6 +49,18 @@ class TestCase extends Orchestra
 
         View::addNamespace('ark', realpath(__DIR__.'/../resources/views'));
         View::addLocation(realpath(__DIR__.'/blade-views'));
+
+        $this->withViewErrors([
+            //
+        ]);
+    }
+
+    protected function registerMacros() : void
+    {
+        TestView::macro('assertSeeHtml', function ($value) {
+            /** @var TestView $this */
+            return $this->assertSee($value, escape: false);
+        });
     }
 
     protected function getPackageProviders($app)

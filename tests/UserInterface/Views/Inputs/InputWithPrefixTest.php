@@ -4,67 +4,77 @@ declare(strict_types=1);
 
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
-use NunoMaduro\LaravelMojito\ViewAssertion;
-use PHPUnit\Framework\Assert;
 use function Tests\createAttributes;
 
 it('should render with an icon', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon' => 'brands.outline.facebook',
         ]))
-        ->contains('type="text"')
-        ->contains('name="username"')
-        ->contains('wire:model="username"');
+        ->assertSeeHtml('type="text"')
+        ->assertSeeHtml('name="username"')
+        ->assertSeeHtml('wire:model="username"');
 });
 
 it('should render with the given name', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon' => 'brands.outline.facebook',
             'name' => 'username',
         ]))
-        ->contains('type="text"')
-        ->contains('name="username"')
-        ->contains('wire:model="username"');
+        ->assertSeeHtml('type="text"')
+        ->assertSeeHtml('name="username"')
+        ->assertSeeHtml('wire:model="username"');
 });
 
 it('should render with the given label', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'  => 'brands.outline.facebook',
             'label' => 'Fancy Label',
         ]))
-        ->contains('Fancy Label');
+        ->assertSeeHtml('Fancy Label');
 });
 
 it('should render with the given type', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon' => 'brands.outline.facebook',
             'type' => 'number',
         ]))
-        ->contains('type="number"');
+        ->assertSeeHtml('type="number"');
 });
 
 it('should render with the given id', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon' => 'brands.outline.facebook',
             'id'   => 'uniqueid',
         ]))
-        ->contains('id="uniqueid"');
+        ->assertSeeHtml('id="uniqueid"');
 });
 
 it('should render with the given model', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'  => 'brands.outline.facebook',
             'model' => 'username_model',
         ]))
-        ->contains('type="text"')
-        ->contains('name="username"')
-        ->contains('wire:model="username_model"');
+        ->assertSeeHtml('type="text"')
+        ->assertSeeHtml('name="username"')
+        ->assertSeeHtml('wire:model="username_model"');
+});
+
+it('should render with the given model, but deferred', function (): void {
+    $this
+        ->view('ark::inputs.input-with-prefix', createAttributes([
+            'icon'     => 'brands.outline.facebook',
+            'model'    => 'username_model',
+            'deferred' => true,
+        ]))
+        ->assertSeeHtml('type="text"')
+        ->assertSeeHtml('name="username"')
+        ->assertSeeHtml('wire:model.defer="username_model"');
 });
 
 it('should render with the given model, but deferred', function (): void {
@@ -81,120 +91,110 @@ it('should render with the given model, but deferred', function (): void {
 
 it('should render with the given placeholder', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'        => 'brands.outline.facebook',
             'placeholder' => 'placeholder',
         ]))
-        ->contains('placeholder="placeholder"');
+        ->assertSeeHtml('placeholder="placeholder"');
 });
 
 it('should render with the given value', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'  => 'brands.outline.facebook',
             'value' => 'value',
         ]))
-        ->contains('value="value"');
+        ->assertSeeHtml('value="value"');
 });
 
 it('should render with the given wire:keydown.enter', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'               => 'brands.outline.facebook',
             'wire:keydown.enter' => 'function',
         ]))
-        ->contains('wire:keydown.enter="function"');
+        ->assertSeeHtml('wire:keydown.enter="function"');
 });
 
 it('should render with the given maxlength', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
             'maxlength'  => 1,
         ]))
-        ->contains('maxlength="1"');
+        ->assertSeeHtml('maxlength="1"');
 });
 
 it('should render with the given autocomplete', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'         => 'brands.outline.facebook',
             'autocomplete' => 'autocomplete',
         ]))
-        ->contains('autocomplete="autocomplete"');
+        ->assertSeeHtml('autocomplete="autocomplete"');
 });
 
 it('should render as readonly', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'     => 'brands.outline.facebook',
             'readonly' => true,
         ]))
-        ->contains('readonly');
+        ->assertSeeHtml('readonly');
 });
 
 it('should render without the label', function (): void {
-    ViewAssertion::macro('doesNotContain', function (string $text) {
-        Assert::assertStringNotContainsString(
-            (string) $text,
-            $this->html,
-            "Failed asserting that the text `{$text}` does not exist within `{$this->html}`."
-        );
-
-        return $this;
-    });
-
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'      => 'brands.outline.facebook',
             'hideLabel' => true,
         ]))
-        ->doesNotContain('<label');
+        ->assertDontSee('<label', escape: false);
 });
 
 it('should render with the given input mode', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'      => 'brands.outline.facebook',
             'inputmode' => 'inputmode',
         ]))
-        ->contains('inputmode="inputmode"');
+        ->assertSeeHtml('inputmode="inputmode"');
 });
 
 it('should render with the given pattern', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'    => 'brands.outline.facebook',
             'pattern' => 'pattern',
         ]))
-        ->contains('pattern="pattern"');
+        ->assertSeeHtml('pattern="pattern"');
 });
 
 it('should render with the given class', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'  => 'brands.outline.facebook',
             'class' => 'test-input-class',
         ]))
-        ->contains('class="test-input-class"');
+        ->assertSeeHtml('class="test-input-class"');
 });
 
 it('should render with the given inputClass', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
             'inputClass' => 'inputClass',
         ]))
-        ->contains('class="inputClass');
+        ->assertSeeHtml('class="inputClass');
 });
 
 it('should render with the given containerClass', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'           => 'brands.outline.facebook',
             'containerClass' => 'containerClass',
         ]))
-        ->contains('containerClass"');
+        ->assertSeeHtml('containerClass"');
 });
 
 it('should render error styling for a label', function (): void {
@@ -202,12 +202,12 @@ it('should render error styling for a label', function (): void {
     $errors->put('default', new MessageBag(['username' => ['required']]));
 
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
             'errors'     => $errors,
             'inputClass' => 'inputClass',
         ]))
-        ->contains('input-label--error');
+        ->assertSeeHtml('input-label--error');
 });
 
 it('should render error styling for an input', function (): void {
@@ -215,12 +215,12 @@ it('should render error styling for an input', function (): void {
     $errors->put('default', new MessageBag(['username' => ['required']]));
 
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
             'errors'     => $errors,
             'inputClass' => 'inputClass',
         ]))
-        ->contains('input-text--error');
+        ->assertSeeHtml('input-text--error');
 });
 
 it('should render an error message', function (): void {
@@ -228,19 +228,19 @@ it('should render an error message', function (): void {
     $errors->put('default', new MessageBag(['username' => ['This is required.']]));
 
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
             'errors'     => $errors,
             'inputClass' => 'inputClass',
         ]))
-        ->contains('data-tippy-content="This is required."');
+        ->assertSeeHtml('data-tippy-content="This is required."');
 });
 
 it('should render with the ID as label target', function (): void {
     $this
-        ->assertView('ark::inputs.input-with-prefix', createAttributes([
+        ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon' => 'brands.outline.facebook',
             'id'   => 'id',
         ]))
-        ->contains('for="id"');
+        ->assertSeeHtml('for="id"');
 });

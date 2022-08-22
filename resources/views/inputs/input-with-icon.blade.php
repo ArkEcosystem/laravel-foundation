@@ -50,9 +50,7 @@
                 ])
             </div>
 
-            {{-- TODO: remove when #449 is merged... --}}
-            {{-- @if (! $slot->isEmpty()) --}}
-            @if ($slot ?? false)
+            @if (! $slot->isEmpty())
                 <div>
                     <div class="flex {{ $slotClass }}">
                         {{ $slot }}
@@ -61,6 +59,6 @@
             @endif
         </div>
 
-        @include('ark::inputs.includes.input-error')
+        <x-ark::inputs.input-error :name="$name" />
     </div>
 </div>
