@@ -14,7 +14,7 @@ final class ManagementUserPlaybook extends Playbook
     {
         $users = json_decode((string) file_get_contents(database_path('seeders/app/permissions.json')), true)['users'];
 
-        foreach ($users as $domain => $user) {
+        foreach ($users as $domain  => $user) {
             foreach ($user as $name => $roles) {
                 $rolesSignature = collect($roles)
                     ->map(fn ($role) => '--role='.$role)
