@@ -57,7 +57,7 @@ final class LinkRenderer implements NodeRendererInterface, XmlNodeRendererInterf
                 [
                     'attributes' => new ComponentAttributeBag([]),
                     'name'       => 'arrows.arrow-external',
-                    'class'      => 'inline relative -top-1 flex-shrink-0 ml-0.5 -mt-0.5 text-theme-secondary-500',
+                    'class'      => 'inline relative -top-1 flex-shrink-0 ml-0.5 mt-1 text-theme-secondary-500',
                     'size'       => 'xs',
                 ]
             ));
