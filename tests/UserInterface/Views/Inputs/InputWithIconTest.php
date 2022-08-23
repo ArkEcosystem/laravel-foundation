@@ -44,17 +44,6 @@ it('should render with the given model, but deferred', function (): void {
         ->assertSeeHtml('wire:model.defer="username_model"');
 });
 
-it('should render with the given model, but deferred', function (): void {
-    $this
-        ->view('ark::inputs.input-with-icon', createAttributes([
-            'model'    => 'username_model',
-            'deferred' => true,
-        ]))
-        ->assertSeeHtml('type="text"')
-        ->assertSeeHtml('name="username"')
-        ->assertSeeHtml('wire:model.defer="username_model"');
-});
-
 it('should render with the given placeholder', function (): void {
     $this
         ->blade('<x-ark::inputs.input-with-icon name="username" placeholder="placeholder" />')

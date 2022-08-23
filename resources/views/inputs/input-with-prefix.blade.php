@@ -1,5 +1,6 @@
 @props ([
     'name',
+    'errors' => null,
     'value' => null,
     'id' => null,
     'model' => null,
