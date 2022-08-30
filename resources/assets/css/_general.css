@@ -9,13 +9,7 @@
 
 /* Navbar container */
 .navbar-container {
-    @apply px-8;
-}
-
-@screen md {
-    .navbar-container {
-        @apply px-10;
-    }
+    @apply px-8 md:px-10;
 }
 
 /** Headings with H **/
@@ -23,18 +17,7 @@ h1,
 h2,
 h3,
 h4 {
-    @apply font-bold text-theme-secondary-900;
-}
-
-h1 {
-    @apply font-bold;
-}
-
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4 {
-    @apply text-theme-secondary-200;
+    @apply font-bold text-theme-secondary-900 dark:text-theme-secondary-200 leading-tight;
 }
 
 /** Headings without H **/
@@ -42,29 +25,18 @@ h1 {
 .header-2,
 .header-3,
 .header-4 {
-    @apply font-bold text-theme-secondary-900;
-}
-
-.header-1 {
-    @apply font-bold text-theme-secondary-900;
-}
-
-.dark header-1,
-.dark header-2,
-.dark header-3,
-.dark header-4 {
-    @apply text-theme-secondary-200;
+    @apply font-bold text-theme-secondary-900 dark:text-theme-secondary-200 leading-tight;
 }
 
 /* Heading consistency */
 h1,
 .header-1 {
-    @apply text-3xl mb-1;
+    @apply text-3xl mb-1 md:text-4xl md:mb-2;
 }
 
 h2,
 .header-2 {
-    @apply text-2xl mb-1;
+    @apply text-2xl mb-1 md:text-3xl;
 }
 
 h3,
@@ -74,72 +46,33 @@ h3,
 
 h4,
 .header-4 {
-    @apply text-lg mb-1;
+    @apply text-lg mb-1 md:text-2xl;
 }
 
-/* Header Responsiveness */
-@screen md {
-    h1,
-    .header-1 {
-        @apply text-4xl mb-2;
+@layer base {
+    a:focus,
+    button:focus,
+    textarea:focus,
+    input:focus {
+        @apply outline-none;
     }
 
-    h2,
-    .header-2 {
-        @apply text-3xl;
+    button,
+    img {
+        @apply select-none;
+        -webkit-user-drag: none;
     }
 
-    h3,
-    .header-3 {
-        @apply text-2xl;
+    body {
+        @apply font-sans text-theme-secondary-700 antialiased;
     }
-}
-
-h1,
-.header-1,
-h2,
-.header-2,
-h3,
-.header-3,
-h4,
-.header-4 {
-    @apply leading-tight;
-}
-
-a:focus,
-button:focus,
-textarea:focus,
-input:focus {
-    @apply outline-none;
-}
-
-button,
-img {
-    @apply select-none;
-    -webkit-user-drag: none;
-}
-
-body {
-    @apply font-sans text-theme-secondary-700 antialiased;
-}
-
-.clear-transform {
-    transform: none;
-}
-
-.rotate-90 {
-    transform: rotate(90deg);
-}
-
-.rotate-180 {
-    transform: rotate(180deg);
-}
-
-.rotate-minus-90 {
-    transform: rotate(-90deg);
 }
 
 @layer utilities {
+    .rotate-minus-90 {
+        transform: rotate(-90deg);
+    }
+
     .size-increase {
         transform: scale(1.02);
     }
