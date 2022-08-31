@@ -22,6 +22,9 @@ return [
             'twitter'      => '/(?:https?:)\/\/(?:www\.)?twitter\.com\/(#!\/)?(?<username>[a-zA-Z0-9-_@]+)+/m',
             'weibo'        => '/(?:https?:)\/\/(?:[a-zA-Z0-9-_@]+\.)?weibo\.(com)\/[a-zA-Z0-9]+/m',
             'youtube'      => '/(?:https?:)\/\/((?:www|m)\.)?((?:youtube\.(com?|[a-z]*)(?:\.[a-zA-z]{2})?|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\\\\-]+)(.*)?$/m',
+            'tiktok'       => '/(?:https?:)\/\/(?:www\.)?tiktok\.com\/(#!\/)?(?<username>@[a-zA-Z0-9_.]+)+/m',
+            'opensea'      => '/(?:https?:)\/\/(?:www\.)?opensea\.io\/(#!\/)?(?:collection\/)?(?<username>[a-zA-Z0-9-_]+)+/m',
+            'looksrare'    => '/(?:https?:)\/\/(?:www\.)?looksrare\.org\/(#!\/)?(?:(?:(?:collections)|(?:accounts))\/)(?<username>[a-zA-Z0-9]+)+/m',
         ],
 
         'social_media_name' => [
