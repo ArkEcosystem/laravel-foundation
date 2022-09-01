@@ -38,7 +38,8 @@ return [
         ],
 
         'video_sources' => [
-            'youtube' => '/(?:https?:)\/\/((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/m',
+            'youtube'    => '/(?:https?:)\/\/((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/m',
+            'youtube_id' => '/^[^"&?\/\s]{11}$/',
         ],
 
         'user_mentions' => '/<a[^>]*data-username="([^"]*)"[^>]*>([^<]+)<\/a>/',
