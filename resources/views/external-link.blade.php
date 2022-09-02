@@ -13,7 +13,7 @@
     target="_blank"
     rel="noopener nofollow noreferrer"
 >
-    <span @class($innerClass)">
+    <span @class($innerClass)>
         {{ isset($slot) && trim($slot) ? $slot : $text }}
     </span>
 
