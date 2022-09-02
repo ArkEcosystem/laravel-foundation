@@ -39,6 +39,26 @@ it('should return false if the provided video source is invalid', function () {
     expect(RegEx::videoSource('invalid', 'https://youtube.com/'))->toBeFalse();
 });
 
+it('determines valid youtube video ids', function ($videoId) {
+    expect(RegEx::videoId('youtube', $videoId))->toBeTrue();
+})->with([
+    'dQw4w9WgXcQ',
+    'CQ9VmCN2EsA',
+    's2_OUm1IIp8',
+]);
+
+it('determines invalid youtube video ids', function ($videoId) {
+    expect(RegEx::videoId('youtube', $videoId))->toBeFalse();
+})->with([
+    'XcQ',
+    'CQ9VmCN2EsAaaaa',
+    's2_Om1IIp8"',
+    's2_OU1I&Ip8',
+    's2_OUmI?Ip8',
+    's2_OUmI/Ip8',
+    's2_OUmI Ip8',
+]);
+
 it('extracts the twitter username from a twitter url', function ($url) {
     expect(RegEx::getTwitterUsername($url))->toBe('arkecosystem');
 })->with([
