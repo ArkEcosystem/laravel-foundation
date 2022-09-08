@@ -2,6 +2,7 @@
     'url',
     'text',
     'class'  => 'link font-semibold inline break-words',
+    'innerClass' => '',
     'small'  => false,
     'noIcon' => false,
 ])
@@ -12,7 +13,9 @@
     target="_blank"
     rel="noopener nofollow noreferrer"
 >
-    <span>{{ isset($slot) && trim($slot) ? $slot : $text }}</span>
+    <span @class($innerClass)>
+        {{ isset($slot) && trim($slot) ? $slot : $text }}
+    </span>
 
     @unless($noIcon)
         <x-ark-icon
