@@ -22,6 +22,9 @@ return [
             'twitter'      => '/(?:https?:)\/\/(?:www\.)?twitter\.com\/(#!\/)?(?<username>[a-zA-Z0-9-_@]+)+/m',
             'weibo'        => '/(?:https?:)\/\/(?:[a-zA-Z0-9-_@]+\.)?weibo\.(com)\/[a-zA-Z0-9]+/m',
             'youtube'      => '/(?:https?:)\/\/((?:www|m)\.)?((?:youtube\.(com?|[a-z]*)(?:\.[a-zA-z]{2})?|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\\\\-]+)(.*)?$/m',
+            'tiktok'       => '/(?:https?:)\/\/(?:www\.)?tiktok\.com\/(#!\/)?(?<username>@[a-zA-Z0-9_.]+)+/m',
+            'opensea'      => '/(?:https?:)\/\/(?:www\.)?opensea\.io\/(#!\/)?(?:collection\/)?(?<username>[a-zA-Z0-9-_]+)+/m',
+            'looksrare'    => '/(?:https?:)\/\/(?:www\.)?looksrare\.org\/(#!\/)?(?:(?:(?:collections)|(?:accounts))\/)(?<username>[a-zA-Z0-9]+)+/m',
         ],
 
         'social_media_name' => [
@@ -35,7 +38,8 @@ return [
         ],
 
         'video_sources' => [
-            'youtube' => '/(?:https?:)\/\/((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/m',
+            'youtube'    => '/(?:https?:)\/\/((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/m',
+            'youtube_id' => '/^[^"&?\/\s]{11}$/',
         ],
 
         'user_mentions' => '/<a[^>]*data-username="([^"]*)"[^>]*>([^<]+)<\/a>/',

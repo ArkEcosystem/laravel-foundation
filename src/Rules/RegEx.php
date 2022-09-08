@@ -50,6 +50,15 @@ final class RegEx
         return false;
     }
 
+    public static function videoId(string $service, string $source): bool
+    {
+        if ($service === 'youtube') {
+            return self::validateYoutubeVideoId($source);
+        }
+
+        return false;
+    }
+
     public static function getTwitterUsername(string $source): ? string
     {
         preg_match(config('rules.regex.social_media_link.twitter'), $source, $matches);
@@ -71,5 +80,10 @@ final class RegEx
     private static function validateYoutubeURL(string $source): bool
     {
         return preg_match(config('rules.regex.video_sources.youtube'), $source, $matches) === 1;
+    }
+
+    private static function validateYoutubeVideoId(string $source): bool
+    {
+        return preg_match(config('rules.regex.video_sources.youtube_id'), $source, $matches) === 1;
     }
 }
