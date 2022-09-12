@@ -75,5 +75,8 @@ return [
         'website_url'   => 'The given website URL is not properly formatted. A valid URL must start with http[s]://',
         'weibo_url'     => 'The given URL is not a valid Weibo URL',
         'youtube_url'   => 'The given URL is not a valid YouTube Channel URL',
+        'looksrare_url' => 'The given URL is not a valid LooksRare URL',
+        'opensea_url'   => 'The given URL is not a valid OpenSea URL',
+        'tiktok_url'    => 'The given URL is not a valid TikTok URL',
     ],
 ];
