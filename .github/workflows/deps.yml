@@ -21,6 +21,9 @@ jobs:
                   extensions: mbstring, dom, fileinfo, intl, gd, imagick, bcmath, soap, zip, sqlite
                   coverage: none
 
+            - name: Authenticate Nova
+              run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
+
             - name: Update PHP dependencies
               run: npx @faustbrian/node-composer-check-updates --caret-minor
 
@@ -54,6 +57,9 @@ jobs:
                   php-version: "8.1"
                   extensions: mbstring, dom, fileinfo, intl, gd, imagick, bcmath, soap, zip, sqlite
                   coverage: none
+
+            - name: Authenticate Nova
+              run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
 
             - name: Install PHP dependencies
               run: composer install --no-ansi --no-interaction --no-progress --prefer-dist --optimize-autoloader --ignore-platform-reqs
