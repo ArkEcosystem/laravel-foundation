@@ -21,3 +21,4 @@ parameters:
         - '#Access to an undefined property Spatie\\Activitylog\\Models\\Activity.#'
     checkMissingIterableValueType: false
     reportUnmatchedIgnoredErrors: false
+    checkGenericClassInNonGenericObjectType: false
