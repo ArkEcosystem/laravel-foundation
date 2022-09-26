@@ -26,7 +26,7 @@ jobs:
           coverage: pcov
 
       - name: Authenticate Nova
-        run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_PASSWORD }}
+        run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_USERNAME }} ${{ secrets.NOVA_LICENSE_KEY }}
 
       - name: Install
         run: composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist --optimize-autoloader --ignore-platform-reqs
