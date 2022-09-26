@@ -21,7 +21,7 @@ class Permission extends SpatieModel
     {
         $resources =  collect(Nova::$resources)
             ->filter(fn (string $resource) => str_starts_with($resource, 'App\\Nova\\'))
-            ->map(fn ($resource)           => Str::of($resource)->after('App\\Nova\\')->lower()->plural())
+            ->map(fn ($resource) => Str::of($resource)->after('App\\Nova\\')->lower()->plural())
             ->sort()
             ->values();
 
