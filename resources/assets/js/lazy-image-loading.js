@@ -1,4 +1,4 @@
-function lazyLoad(selector = "[lazy]") {
+export default function lazyLoad(selector = "[lazy]") {
     const svgLookup = {};
 
     let $lazy;
