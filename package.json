@@ -1,10 +1,10 @@
 {
     "dependencies": {
         "@sindresorhus/slugify": "sindresorhus/slugify",
-        "prettier": "^2.0.2"
+        "prettier": "^2.7.1"
     },
     "devDependencies": {
-        "glob": "^7.1.6"
+        "glob": "^7.2.3"
     },
     "scripts": {
         "generate-icon-preview": "node ./scripts/generate-preview"
