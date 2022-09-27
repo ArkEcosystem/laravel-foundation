@@ -10,9 +10,8 @@ const repositionDropdowns = () => {
         }
 
         const bounds = button.getBoundingClientRect();
-        const dropdown = button.parentElement.parentElement.querySelector(
-            ".dropdown"
-        );
+        const dropdown =
+            button.parentElement.parentElement.querySelector(".dropdown");
         if (!dropdown || !dropdown.dataset.height) {
             continue;
         }

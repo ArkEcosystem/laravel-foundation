@@ -41,9 +41,10 @@ function lazyLoad(selector = "[lazy]") {
     registerLazyElements();
 
     function registerLazyElements() {
-        $lazy = (typeof selector === "string"
-            ? [...document.querySelectorAll(selector)]
-            : [...selector]
+        $lazy = (
+            typeof selector === "string"
+                ? [...document.querySelectorAll(selector)]
+                : [...selector]
         ).filter(toApplyLazyLoad);
     }
 

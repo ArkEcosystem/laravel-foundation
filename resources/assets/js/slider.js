@@ -32,9 +32,8 @@ const Slider = {
                     el.removeAttribute("data-custom-tabindex");
                 });
             } else {
-                const focusableElements = this.getKeyboardFocusableElements(
-                    slide
-                );
+                const focusableElements =
+                    this.getKeyboardFocusableElements(slide);
                 focusableElements.forEach(function (el) {
                     el.setAttribute("tabindex", "-1");
                     el.setAttribute("data-custom-tabindex", "true");
