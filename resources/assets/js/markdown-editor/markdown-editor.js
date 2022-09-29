@@ -241,7 +241,8 @@ const MarkdownEditor = (
         initModalhandler(this.editor, "embedPodcastModal", (formData) => {
             const urlOrCode = formData.get("url");
 
-            const regExp = /^.*simplecast.com\/(\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b)/;
+            const regExp =
+                /^.*simplecast.com\/(\b[0-9a-f]{8}\b-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-\b[0-9a-f]{12}\b)/;
             const match = urlOrCode.match(regExp);
             const simpleCastId =
                 match && match.length === 2 ? match[1] : urlOrCode;
@@ -406,8 +407,9 @@ const MarkdownEditor = (
         this.loadingCharsTimeout = setTimeout(async () => {
             this.loadingCharsTimeout = null;
 
-            const csrfToken = document.querySelector('meta[name="csrf-token"]')
-                .content;
+            const csrfToken = document.querySelector(
+                'meta[name="csrf-token"]'
+            ).content;
 
             // The following lines cancels any pending request in favour
             // of the incoming one.

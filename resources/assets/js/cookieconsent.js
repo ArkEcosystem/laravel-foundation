@@ -286,11 +286,13 @@
             }
 
             for (i = 0; i < accept_custom_selection.length; i++) {
-                _addEvent(accept_custom_selection[i], "click", function (
-                    event
-                ) {
-                    _acceptAction(event);
-                });
+                _addEvent(
+                    accept_custom_selection[i],
+                    "click",
+                    function (event) {
+                        _acceptAction(event);
+                    }
+                );
             }
 
             for (i = 0; i < accept_necessary.length; i++) {

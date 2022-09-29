@@ -330,7 +330,7 @@ final class MarkdownParser
 
         collect($attributes)
             ->filter(fn ($attribute) => static::isAttributeAllowedForTag($attribute))
-            ->each(fn ($node)        => $node->parentNode->removeAttribute($node->nodeName));
+            ->each(fn ($node) => $node->parentNode->removeAttribute($node->nodeName));
 
         return $tidy->repairString($dom->saveHTML(), [
             'output-xhtml'   => true,
