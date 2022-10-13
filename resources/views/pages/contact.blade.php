@@ -4,6 +4,8 @@
     'discordUrl' => null,
     'socialIconHoverClass' => 'hover:bg-theme-primary-700 hover:text-white',
     'documentationUrl' => trans('ui::urls.documentation'),
+    'pageTitle' => trans('ui::pages.contact.title'),
+    'pageDescription' => trans('ui::pages.contact.subtitle'),
     'helpTitle' => trans('ui::pages.contact.let_us_help.title'),
     'helpDescription' => trans('ui::pages.contact.let_us_help.description'),
     'additionalTitle' => trans('ui::pages.contact.additional_support.title'),
@@ -19,8 +21,8 @@
 
 <div {{ $attributes }}>
     <x-ark-pages-includes-header
-        :title="trans('ui::pages.contact.title')"
-        :description="trans('ui::pages.contact.subtitle')"
+        :title="$pageTitle"
+        :description="$pageDescription"
     />
 
     <div class="flex flex-col space-y-16 lg:flex-row lg:space-y-0 contact-content dark:text-theme-secondary-500">
@@ -30,14 +32,6 @@
 
                 <div class="mt-4 paragraph-description">
                     {{ $helpDescription }}
-                </div>
-            </div>
-
-            <div>
-                <h3>{{ $additionalTitle }}</h3>
-
-                <div class="mt-4 paragraph-description">
-                    {{ $additionalDescription }}
                 </div>
 
                 <div class="flex flex-col mt-6 space-y-3 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2">
@@ -53,6 +47,14 @@
                             </div>
                         </a>
                     @endif
+                </div>
+            </div>
+
+            <div>
+                <h3>{{ $additionalTitle }}</h3>
+
+                <div class="mt-4 paragraph-description">
+                    {{ $additionalDescription }}
                 </div>
             </div>
 
