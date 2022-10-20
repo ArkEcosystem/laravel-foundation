@@ -10,7 +10,6 @@ use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
 use League\CommonMark\Extension\TaskList\TaskListExtension;
-use League\CommonMark\Normalizer\SlugNormalizer;
 
 /*
  * This file is part of Laravel Markdown.
