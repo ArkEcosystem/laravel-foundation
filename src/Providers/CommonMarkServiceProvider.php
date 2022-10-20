@@ -212,7 +212,20 @@ final class CommonMarkServiceProvider extends ServiceProvider
             $environment->addExtension(resolve($extension));
         }
 
-        $environment->mergeConfig(config('markdown.environment', [
+        $environment->mergeConfig($this->getConfiguration());
+    }
+
+    private function getConfiguration(): array
+    {
+        return array_replace_recursive(
+            $this->getDefaultConfiguration(),
+            Config::get('markdown.environment', [])
+        );
+    }
+
+    private function getDefaultConfiguration(): array
+    {
+        return [
             'external_link' => [
                 'internal_hosts'     => config('app.url'),
                 'open_in_new_window' => true,
@@ -232,6 +245,6 @@ final class CommonMarkServiceProvider extends ServiceProvider
             'slug_normalizer' => [
                 'instance' => new SlugNormalizer(),
             ],
-        ]));
+        ];
     }
 }
