@@ -206,32 +206,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Config
+    | Environment Configuration
     |--------------------------------------------------------------------------
     |
-    | This option specifies the maximum permitted block nesting level.
-    |
+    | The options below are going to be deep merged with the default options
+    | defined on the `src/Providers/CommonMarkServiceProvider.php` file.
     */
-
-    'environment' => [
-        'external_link' => [
-            'internal_hosts'     => config('app.url'),
-            'open_in_new_window' => true,
-            'html_class'         => 'external-link',
-            'nofollow'           => '',
-            'noopener'           => 'external',
-            'noreferrer'         => 'external',
-            'infix'              => ' ',
-        ],
-        'heading_permalink' => [
-            'html_class'      => 'heading-permalink',
-            'id_prefix'       => 'user-content',
-            'insert'          => 'before',
-            'title'           => 'Permalink',
-            'symbol'          => '#',
-        ],
-        'slug_normalizer' => [
-            'instance' => new SlugNormalizer(),
-        ],
-    ],
+    'environment' => [],
 ];
