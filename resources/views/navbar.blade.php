@@ -130,7 +130,7 @@
             @include('ark::navbar.items.mobile', [
                 'mobilePositionClass' => $mobilePositionClass ?? null,
                 'mobileDropdownItemColor' => 'text-theme-secondary-900 hover:text-theme-secondary-900 dark:text-theme-secondary-200 dark:hover:text-theme-secondary-200',
-                'mobileDropdownActiveItemColor' => 'dark:bg-theme-secondary-800 dark:text-theme-secondary-200 text-theme-secondary-900 bg-theme-primary-100',
+                'mobileDropdownActiveItemColor' => 'dark:bg-black dark:text-theme-secondary-200 text-theme-secondary-900 bg-theme-primary-50',
             ])
         @endisset
     </nav>
