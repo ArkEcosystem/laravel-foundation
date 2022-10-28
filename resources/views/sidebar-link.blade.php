@@ -11,6 +11,8 @@
     'attrs' => [],
     'itemClass'       => 'text-theme-secondary-900 hover:text-theme-primary-600 dark:text-theme-secondary-200 dark:hover:text-theme-primary-600',
     'activeItemClass' => 'dark:bg-theme-secondary-800 dark:text-theme-secondary-200 text-theme-primary-600 bg-theme-primary-100',
+    'iconColors' => 'text-theme-primary-300 dark:text-theme-secondary-600 group-hover:text-theme-primary-600',
+    'activeIconColors' => 'text-theme-primary-600 dark:text-theme-secondary-200',
 ])
 
 @php
@@ -50,8 +52,8 @@
             <x-ark-icon
                 :class="Arr::toCssClasses([
                     'mr-1 flex-shrink-0 transition-default',
-                    'text-theme-primary-600 dark:text-theme-secondary-200' => $isCurrent || $active,
-                    'text-theme-primary-300 dark:text-theme-secondary-600 group-hover:text-theme-primary-600' => ! $isCurrent || $active,
+                    $activeIconColors => $isCurrent || $active,
+                    $iconColors => ! $isCurrent || $active,
                 ])"
                 :name="$icon"
             />
@@ -63,8 +65,8 @@
             <x-ark-icon
                 :class="Arr::toCssClasses([
                     'flex-shrink-0 transition-default',
-                    'text-theme-primary-600 dark:text-theme-secondary-200' => $isCurrent || $active,
-                    'text-theme-primary-300 dark:text-theme-secondary-600 group-hover:text-theme-primary-600' => ! $isCurrent || $active,
+                    $activeIconColors => $isCurrent || $active,
+                    $iconColors => ! $isCurrent || $active,
                 ])"
                 :name="$icon"
             />
