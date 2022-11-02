@@ -7,7 +7,7 @@
                     Livewire.emit('dismissToast', '{{ $key }}')
                 }
             }"
-            {{-- x-init="$nextTick(() => setTimeout(() => dismiss(), 5000))" --}}
+            x-init="$nextTick(() => setTimeout(() => dismiss(), 5000))"
             wire:click="dismissToast('{{ $key }}')"
             wire:key="{{ $key }}"
         >
