@@ -11,7 +11,8 @@
         @apply flex items-center justify-center flex-shrink-0 text-white w-12 h-14;
     }
 
-    .toast-button, .toast-spinner {
+    .toast-button,
+    .toast-spinner {
         @apply absolute top-0 right-0 flex items-center justify-center flex-shrink-0 mr-4 rounded sm:top-auto sm:right-auto sm:relative text-theme-secondary-900;
     }
 
