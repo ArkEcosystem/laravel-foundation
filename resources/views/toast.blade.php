@@ -24,20 +24,12 @@
         'info' => 'toast-info',
         'hint' => 'toast-hint',
     ], $type);
-
-    $spinnerColor = Arr::get([
-        'warning' => 'warning-200',
-        'error' => 'danger-200',
-        'danger' => 'danger-200',
-        'success' => 'success-200',
-        'info' => 'primary-200',
-        'hint' => 'hint-200',
-    ], $type);
 @endphp
 
 <div role="alert" aria-live="polite" {{ $attributes->class('toast')->class($toastClass) }}>
     <span class="toast-icon">
         <x-ark-icon :name="$icon" size="sm" />
+        <span class="text-sm font-semibold sm:hidden">@lang ('ui::toasts.'.$type)</span>
     </span>
 
     <div class="toast-body">{{ $message }}</div>
@@ -62,6 +54,6 @@
         wire:target="dismissToast"
         @endif
     >
-        <x-ark-spinner-icon :circle-color="$spinnerColor" :stroke-width="3" />
+        <x-ark-spinner-icon circle-color="spinner" :stroke-width="3" />
     </div>
 </div>
