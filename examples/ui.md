@@ -457,7 +457,7 @@ To configure click events, you may pass `wire-close` or `alpine-close` props to 
     alpine-click="submit" />
 ```
 
-If handling Livewire clicks, you may pass the `target` prop to the component to set which Livewire method is targeted to display loading spinner for. You may read more about Livewire targeting on the [Livewire docs](https://laravel-livewire.com/docs/2.x/loading-states#targeting-actions).
+If handling Livewire clicks, you may pass the `target` prop to the component to set which Livewire method is targeted. When toast is clicked and the targeted method is executed, a loading spinner will be shown instead of the "dismiss" button. You may read more about Livewire targeting on the [Livewire docs](https://laravel-livewire.com/docs/2.x/loading-states#targeting-actions).
 
 ```php
 <x-ark-alert 
