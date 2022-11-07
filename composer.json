@@ -15,6 +15,7 @@
         "php": "^8.0",
         "calebporzio/sushi": "^2.4",
         "danharrin/livewire-rate-limiting": "^1.0",
+        "driftingly/rector-laravel": "^0.14.1",
         "elgigi/commonmark-emoji": "^2.0",
         "ergebnis/phpstan-rules": "^1.0",
         "fakerphp/faker": "^1.20",
@@ -116,7 +117,6 @@
         }
     },
     "require-dev": {
-        "driftingly/rector-laravel": "^0.14.1",
         "laravel/nova": "^4.13",
         "spatie/laravel-permission": "^5.5",
         "vyuldashev/nova-permission": "^3.2"
