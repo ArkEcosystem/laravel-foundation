@@ -6,7 +6,7 @@ use Rector\Config\RectorConfig;
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\Set\ValueObject\SetList;
-use RectorLaravel\Laravel\Set\LaravelSetList;
+use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $parameters = $rectorConfig->parameters();
