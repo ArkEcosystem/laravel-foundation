@@ -1,5 +1,6 @@
 @props([
     'type' => 'info',
+    'title' => null,
     'message' => '',
     'wireClose' => false,
     'alpineClose' => false,
@@ -29,7 +30,7 @@
 <div role="alert" aria-live="polite" {{ $attributes->class('toast')->class($toastClass) }}>
     <span class="toast-icon">
         <x-ark-icon :name="$icon" size="sm" />
-        <span class="text-sm font-semibold sm:hidden">@lang ('ui::toasts.'.$type)</span>
+        <span class="text-sm font-semibold sm:hidden">{{ $title ?? trans('ui::toasts.'.$type) }}</span>
     </span>
 
     <div class="toast-body">{{ $message }}</div>
