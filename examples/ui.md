@@ -428,6 +428,54 @@ You can also get a dismissible alert by specifying `dismissible`, this flag adds
 | dismissible | Whether the alert box is dismissable or not [default=false]                      | no       |
 | title       | Title override instead of using the generic one based on the type [default=null] | no       |
 
+### Toasts
+
+> Note: Requires various icons to be present to properly work. Relies on [Blade SVG](https://github.com/adamwathan/blade-svg) to load them.
+
+Simple inline usage with a string message (if not specified, it sets `type="info"` by default):
+
+`<x-ark-toast message="your-message-here" />`
+
+The available types are: "info", "success", "warning", "error", "question".
+
+Additionally, you can use it as a block and set the content:
+
+```php
+<x-ark-alert type="info" title="Account Updated">
+    <x-slot name="message">
+        Your account has been updated.
+    </x-slot>
+</x-ark-alert>
+```
+
+To configure click events, you may pass `wire-close` or `alpine-close` props to the component depending on whether you want to handle clicks with Livewire or Alpine.
+
+```php
+<x-ark-alert 
+    type="info" 
+    message="Account updated"
+    alpine-click="submit" />
+```
+
+If handling Livewire clicks, you may pass the `target` prop to the component to set which Livewire method is targeted to display loading spinner for. You may read more about Livewire targeting on the [Livewire docs](https://laravel-livewire.com/docs/2.x/loading-states#targeting-actions).
+
+```php
+<x-ark-alert 
+    type="info" 
+    message="Account updated"
+    wire-click="dismiss({{ $id }})"
+    target="dismiss" />
+```
+
+| Parameter    | Description                                                                      | Required |
+| ------------ | -------------------------------------------------------------------------------- | -------- |
+| message      | Alternative to slot #message                                                     | no       |
+| type         | Type of toast box [default=info]                                                 | no       |
+| alpine-click | Alpine.js action to run on click [default=null]                                  | no       |
+| wire-click   | Livewire action to run on click [default=null]                                   | no       |
+| target       | Targeting Livewire method for a loading spinner [default=null]                   | no       |
+| title        | Title override instead of using the generic one based on the type [default=null] | no       |
+
 ### Accordion
 
 | Parameter         | Description                                                      | Required |

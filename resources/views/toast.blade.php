@@ -1,4 +1,4 @@
-@props([
+@props ([
     'type' => 'info',
     'title' => null,
     'message' => '',
@@ -42,7 +42,7 @@
         class="toast-button"
         @if ($target)
         wire:loading.remove
-        wire:target="dismissToast"
+        wire:target="{{ $target }}"
         @endif
     >
         <x-ark-icon name="cross" size="sm" />
@@ -52,7 +52,7 @@
         class="toast-spinner"
         @if ($target)
         wire:loading
-        wire:target="dismissToast"
+        wire:target="{{ $target }}"
         @endif
     >
         <x-ark-spinner-icon circle-color="spinner" :stroke-width="3" />
