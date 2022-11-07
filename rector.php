@@ -5,8 +5,8 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
-use Rector\Laravel\Set\LaravelSetList;
 use Rector\Set\ValueObject\SetList;
+use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $parameters = $rectorConfig->parameters();
@@ -17,7 +17,7 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::PRIVATIZATION,
         SetList::EARLY_RETURN,
         SetList::CODING_STYLE,
-        LaravelSetList::LARAVEL_80,
+        LaravelSetList::LARAVEL_90,
         LaravelSetList::LARAVEL_CODE_QUALITY,
         LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL,
     ]);
