@@ -116,6 +116,7 @@
         }
     },
     "require-dev": {
+        "driftingly/rector-laravel": "^0.14.1",
         "laravel/nova": "^4.13",
         "spatie/laravel-permission": "^5.5",
         "vyuldashev/nova-permission": "^3.2"
