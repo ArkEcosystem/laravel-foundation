@@ -467,6 +467,17 @@ If handling Livewire clicks, you may pass the `target` prop to the component to 
     target="dismiss" />
 ```
 
+Of course, you may pass any additional HTML attributes to the component and they'll be merged with the base HTML attributes in the root element. 
+
+```php
+<x-ark-alert 
+    type="info" 
+    message="Account updated"
+    alpine-click="submit"
+    class="max-w-4xl"
+    aria-label="Toast" />
+```
+
 | Parameter    | Description                                                                      | Required |
 | ------------ | -------------------------------------------------------------------------------- | -------- |
 | message      | Alternative to slot #message                                                     | no       |
