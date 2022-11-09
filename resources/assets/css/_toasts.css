@@ -1,18 +1,19 @@
 @layer components {
     .toast {
-        @apply relative inline-flex flex-col items-center max-w-4xl p-4 text-sm select-none text-theme-secondary-900 dark:text-theme-secondary-500 dark:bg-theme-secondary-800 sm:flex-row sm:space-x-4 rounded-xl;
+        @apply relative inline-flex flex-col sm:flex-row items-center max-w-4xl text-sm select-none text-theme-secondary-900 dark:text-theme-secondary-200 dark:bg-theme-secondary-800 rounded-xl overflow-hidden;
     }
 
     .toast-body {
-        @apply mt-4 text-center sm:pr-6 sm:mt-0 sm:text-left;
+        @apply p-4 text-left mr-4 sm:mt-0;
     }
 
     .toast-icon {
-        @apply flex items-center justify-center flex-shrink-0 text-white rounded w-11 h-11;
+        @apply space-x-2 flex items-center px-4 sm:px-0 py-2 sm:py-0 sm:justify-center flex-shrink-0 text-white w-full sm:w-12 sm:h-14;
     }
 
-    .toast-button {
-        @apply absolute top-0 right-0 flex items-center justify-center flex-shrink-0 m-4 rounded sm:m-0 sm:top-auto sm:right-auto sm:relative w-11 h-11 text-theme-secondary-900;
+    .toast-button,
+    .toast-spinner {
+        @apply absolute sm:relative top-0 sm:top-auto right-0 sm:right-auto m-2.5 sm:my-0 sm:ml-0 flex items-center justify-center flex-shrink-0 mr-4 rounded text-theme-secondary-900 dark:text-white sm:dark:text-theme-secondary-600;
     }
 
     .toast-info {
@@ -32,34 +33,52 @@
     }
 
     .toast-info .toast-icon {
-        @apply bg-theme-primary-600;
+        @apply bg-theme-primary-100 dark:bg-theme-primary-700 text-theme-primary-700 dark:text-white;
     }
     .toast-warning .toast-icon {
-        @apply bg-theme-warning-600;
+        @apply bg-theme-warning-100 dark:bg-theme-warning-700 text-theme-warning-900 dark:text-white;
     }
     .toast-danger .toast-icon {
-        @apply bg-theme-danger-400;
+        @apply bg-theme-danger-100 dark:bg-theme-danger-500 text-theme-danger-700 dark:text-white;
     }
     .toast-hint .toast-icon {
-        @apply bg-theme-hint-500;
+        @apply bg-theme-hint-100 dark:bg-theme-hint-700 text-theme-hint-700 dark:text-white;
     }
     .toast-success .toast-icon {
-        @apply bg-theme-success-600;
+        @apply bg-theme-success-100 dark:bg-theme-success-700 text-theme-success-700 dark:text-white;
     }
 
-    .toast-info .toast-button {
-        @apply bg-theme-primary-100 hover:bg-theme-primary-200 dark:bg-theme-secondary-900 dark:text-theme-secondary-600 dark:hover:bg-theme-secondary-500 dark:hover:text-theme-secondary-400;
+    .dark .toast-info .toast-spinner,
+    .dark .toast-warning .toast-spinner,
+    .dark .toast-danger .toast-spinner,
+    .dark .toast-hint .toast-spinner,
+    .dark .toast-success .toast-spinner {
+        --theme-color-spinner: var(--theme-color-secondary-900);
     }
-    .toast-warning .toast-button {
-        @apply bg-theme-warning-100 hover:bg-theme-warning-200 dark:bg-theme-secondary-900 dark:text-theme-secondary-600 dark:hover:bg-theme-secondary-500 dark:hover:text-theme-secondary-400;
+
+    .toast-info .toast-spinner {
+        @apply text-theme-primary-500 dark:text-theme-primary-600;
+
+        --theme-color-spinner: var(--theme-color-primary-200);
     }
-    .toast-danger .toast-button {
-        @apply bg-theme-danger-100 hover:bg-theme-danger-200 dark:bg-theme-secondary-900 dark:text-theme-secondary-600 dark:hover:bg-theme-secondary-500 dark:hover:text-theme-secondary-400;
+    .toast-warning .toast-spinner {
+        @apply text-theme-warning-500 dark:text-theme-warning-600;
+
+        --theme-color-spinner: var(--theme-color-warning-200);
     }
-    .toast-hint .toast-button {
-        @apply bg-theme-hint-100 hover:bg-theme-hint-200 dark:bg-theme-secondary-900 dark:text-theme-secondary-600 dark:hover:bg-theme-secondary-500 dark:hover:text-theme-secondary-400;
+    .toast-danger .toast-spinner {
+        @apply text-theme-danger-500 dark:text-theme-danger-600;
+
+        --theme-color-spinner: var(--theme-color-danger-200);
     }
-    .toast-success .toast-button {
-        @apply bg-theme-success-100 hover:bg-theme-success-200 dark:bg-theme-secondary-900 dark:text-theme-secondary-600 dark:hover:bg-theme-secondary-500 dark:hover:text-theme-secondary-400;
+    .toast-hint .toast-spinner {
+        @apply text-theme-hint-500 dark:text-theme-hint-600;
+
+        --theme-color-spinner: var(--theme-color-hint-200);
+    }
+    .toast-success .toast-spinner {
+        @apply text-theme-success-500 dark:text-theme-success-600;
+
+        --theme-color-spinner: var(--theme-color-success-200);
     }
 }

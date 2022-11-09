@@ -21,7 +21,7 @@
             <x-ark-icon
                 :name="alertIcon($type)"
                 class="alert-icon"
-                size="xs"
+                size="sm"
             />
 
             <span>
