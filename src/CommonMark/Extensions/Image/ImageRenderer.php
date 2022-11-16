@@ -76,7 +76,7 @@ final class ImageRenderer implements NodeRendererInterface, XmlNodeRendererInter
             $getDimensionsService = new $service;
 
             if ($getDimensionsService instanceof ImageDimensionsStrategy) {
-                $dimensions = $getDimensionsService->getDimensions($url);
+                $dimensions = $getDimensionsService::getDimensionsFromUrl($url);
 
                 if ($dimensions !== null) {
                     $attrs['width']  = $dimensions['width'];

@@ -10,5 +10,5 @@ interface ImageDimensionsStrategy
      * @param string $url
      * @return array<string, string>|null
      */
-    public function getDimensions(string $url): ?array;
+    public static function getDimensionsFromUrl(string $url): ?array;
 }
