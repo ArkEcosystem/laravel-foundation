@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\CommonMark\Extensions\Image;
 
-use Illuminate\Support\Facades\Http;
+use ARKEcosystem\Foundation\CommonMark\Contracts\ImageDimensionsStrategy;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
 use League\CommonMark\Node\Node;
 use League\CommonMark\Renderer\ChildNodeRendererInterface;
@@ -14,7 +14,6 @@ use League\CommonMark\Util\RegexHelper;
 use League\CommonMark\Xml\XmlNodeRendererInterface;
 use League\Config\ConfigurationAwareInterface;
 use League\Config\ConfigurationInterface;
-use ARKEcosystem\Foundation\CommonMark\Contracts\ImageDimensionsStrategy;
 
 final class ImageRenderer implements NodeRendererInterface, XmlNodeRendererInterface, ConfigurationAwareInterface
 {
@@ -68,28 +67,6 @@ final class ImageRenderer implements NodeRendererInterface, XmlNodeRendererInter
         return ContainerRenderer::render($content, $attrs['alt']);
     }
 
-    private function addDimensions(array $attrs, string $url): array
-    {
-        $service = config('markdown.image_dimensions_strategy');
-
-        if ($service !== null) {
-            $getDimensionsService = new $service;
-
-            if ($getDimensionsService instanceof ImageDimensionsStrategy) {
-                $dimensions = $getDimensionsService::getDimensionsFromUrl($url);
-
-                if ($dimensions !== null) {
-                    $attrs['width']  = $dimensions['width'];
-                    $attrs['height'] = $dimensions['height'];
-                }
-            } else {
-                throw new \Exception('The image dimensions strategy must implement the ImageDimensionsStrategy interface.');
-            }
-        }
-
-        return $attrs;
-    }
-
     public function setConfiguration(ConfigurationInterface $configuration): void
     {
         $this->config = $configuration;
@@ -115,5 +92,27 @@ final class ImageRenderer implements NodeRendererInterface, XmlNodeRendererInter
             'destination' => $node->getUrl(),
             'title'       => $node->getTitle() ?? '',
         ];
+    }
+
+    private function addDimensions(array $attrs, string $url): array
+    {
+        $service = config('markdown.image_dimensions_strategy');
+
+        if ($service !== null) {
+            $getDimensionsService = new $service();
+
+            if ($getDimensionsService instanceof ImageDimensionsStrategy) {
+                $dimensions = $getDimensionsService::getDimensionsFromUrl($url);
+
+                if ($dimensions !== null) {
+                    $attrs['width']  = $dimensions['width'];
+                    $attrs['height'] = $dimensions['height'];
+                }
+            } else {
+                throw new \Exception('The image dimensions strategy must implement the ImageDimensionsStrategy interface.');
+            }
+        }
+
+        return $attrs;
     }
 }
