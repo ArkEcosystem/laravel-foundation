@@ -8,7 +8,7 @@ interface ImageDimensionsStrategy
 {
     /**
      * @param string $url
-     * @return array<int, int>|null
+     * @return array<string, string>|null
      */
-    public function getDimensions(string $url): array;
+    public function getDimensions(string $url): ?array;
 }
