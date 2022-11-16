@@ -212,4 +212,15 @@ return [
     | defined on the `src/Providers/CommonMarkServiceProvider.php` file.
     */
     'environment' => [],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Adds a class that can be used to get the dimensions of a specific image
+    |--------------------------------------------------------------------------
+    |
+    | The class must implement the
+    | `ARKEcosystem\Foundation\CommonMark\Contracts\ImageDimensionsStrategy`
+    | interface.
+    */
+    'image_dimensions_strategy' => null,
 ];
