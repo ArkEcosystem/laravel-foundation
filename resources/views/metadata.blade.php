@@ -3,6 +3,19 @@
     'detail' => null,
 ])
 
+@php
+    $metaImage = null;
+
+    if (isset(trans('metatags.'.$page)['dynamicImage'])
+        && file_exists(public_path('meta-images/mix-manifest.json'))
+        && file_exists(public_path('meta-images/' . trans('metatags.'.$page)['dynamicImage']))
+    ) {
+        $metaImage = url(mix('meta-images/' . trans('metatags.'.$page)['dynamicImage'], 'meta-images'));
+    } else if (isset(trans('metatags.'.$page)['image'])) {
+        $metaImage = trans("metatags.{$page}.image", ['detail' => $detail ? Str::camel(Str::slug($detail)) : null]);
+    }
+@endphp
+
 @section('meta-title')
     @lang("metatags.{$page}.title", ['detail' => $detail])
 @endsection
@@ -13,8 +26,9 @@
     @endsection
 @endisset
 
-@isset(trans('metatags.'.$page)['image'])
+
+@if($metaImage !== null)
     @section('meta-image')
-        @lang("metatags.{$page}.image", ['detail' => $detail ? Str::camel(Str::slug($detail)) : null])
+        {{ $metaImage }}
     @endsection
-@endisset
+@endif
