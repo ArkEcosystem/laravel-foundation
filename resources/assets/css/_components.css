@@ -9,7 +9,9 @@
 }
 
 .dropdown-entry,
-.rich-select-dropdown-entry:not(.rich-select-dropdown-entry-selected):not(.rich-select-dropdown-entry-hover) {
+.rich-select-dropdown-entry:not(.rich-select-dropdown-entry-selected):not(
+        .rich-select-dropdown-entry-hover
+    ) {
     @apply text-theme-secondary-900 bg-white dark:text-theme-secondary-200 dark:bg-theme-secondary-800;
 }
 
