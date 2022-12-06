@@ -13,11 +13,11 @@ return [
         ],
         'let_us_help' => [
             'title'       => 'Let Us Help!',
-            'description' => 'Whether you want to learn more about ARK, need help with your Blockchain, or just want to know how ARK technology could work for you, get in touch and a member of the team will follow up with you.',
+            'description' => 'Whether you want to learn more about ARK, need help with your Blockchain, or just want to know how ARK technology could work for you, take a look at our extensive documentation that answers many of the questions.',
         ],
         'additional_support' => [
             'title'       => 'Additional Support',
-            'description' => 'Need more help? Check out our documentation below.',
+            'description' => 'Need more help? You can contact our support team and we can work on resolving your issue or request directly.',
         ],
         'social' => [
             'subtitle' => 'We\'re on social networks',
