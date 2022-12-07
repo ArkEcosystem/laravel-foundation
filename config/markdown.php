@@ -10,7 +10,6 @@ use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\Extension\SmartPunct\SmartPunctExtension;
 use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
 use League\CommonMark\Extension\TaskList\TaskListExtension;
-use League\CommonMark\Normalizer\SlugNormalizer;
 
 /*
  * This file is part of Laravel Markdown.
@@ -206,32 +205,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Config
+    | Environment Configuration
     |--------------------------------------------------------------------------
     |
-    | This option specifies the maximum permitted block nesting level.
-    |
+    | The options below are going to be deep merged with the default options
+    | defined on the `src/Providers/CommonMarkServiceProvider.php` file.
     */
+    'environment' => [],
 
-    'environment' => [
-        'external_link' => [
-            'internal_hosts'     => config('app.url'),
-            'open_in_new_window' => true,
-            'html_class'         => 'external-link',
-            'nofollow'           => '',
-            'noopener'           => 'external',
-            'noreferrer'         => 'external',
-            'infix'              => ' ',
-        ],
-        'heading_permalink' => [
-            'html_class'      => 'heading-permalink',
-            'id_prefix'       => 'user-content',
-            'insert'          => 'before',
-            'title'           => 'Permalink',
-            'symbol'          => '#',
-        ],
-        'slug_normalizer' => [
-            'instance' => new SlugNormalizer(),
-        ],
-    ],
+    /*
+    |--------------------------------------------------------------------------
+    | Adds a class that can be used to get the dimensions of a specific image
+    |--------------------------------------------------------------------------
+    |
+    | The class must implement the
+    | `ARKEcosystem\Foundation\CommonMark\Contracts\ImageDimensionsStrategy`
+    | interface.
+    */
+    'image_dimensions_strategy' => null,
 ];

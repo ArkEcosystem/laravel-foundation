@@ -59,7 +59,7 @@
                         aria-controls="{{ $menuDropdownId }}"
                         x-bind:aria-expanded="openDropdown === '{{ $navItem['label'] }}'"
                     >
-                        <span :class="{ 'text-theme-primary-600': openDropdown === '{{ $navItem['label'] }}' }">
+                        <span class="flex justify-center items-center" :class="{ 'text-theme-primary-600': openDropdown === '{{ $navItem['label'] }}' }">
                             <span class="sr-only">
                                 <span x-show="openDropdown !== '{{ $navItem['label'] }}'">
                                     @lang('ui::actions.open')
@@ -70,7 +70,13 @@
                                 </span>
                             </span>
 
-                            {{ $navItem['label'] }}
+                            @if (array_key_exists('icon', $navItem))
+                                <x-ark-icon :name="$navItem['icon']" />
+                            @endif
+
+                            <span @class(['ml-2' => array_key_exists('icon', $navItem)])>
+                                {{ $navItem['label'] }}
+                            </span>
                         </span>
 
                         <x-ark-chevron-toggle
@@ -125,7 +131,7 @@
                         @endforeach
                     @endif
                     @class([
-                        'inline-flex items-center px-1 pt-px font-semibold leading-5 border-b-2 space-x-3 focus:outline-none transition duration-150 ease-in-out h-full',
+                        'inline-flex items-center px-1 pt-px font-semibold leading-5 border-b-2 space-x-2 focus:outline-none transition duration-150 ease-in-out h-full',
                         'focus-visible:border-b-0 focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && ! $inverted,
                         'focus-visible:rounded' => ! $isCurrentRoute && ! $inverted,
                         'focus-visible:pt-0 focus-visible:-mt-px' => $isCurrentRoute && $inverted,
@@ -143,11 +149,11 @@
                     @click="openDropdown = null;"
                     dusk='navbar-{{ Str::slug($navItem['label']) }}'
                 >
-                    <span>{{ $navItem['label'] }}</span>
-
                     @if (array_key_exists('icon', $navItem))
-                        <x-ark-icon class="text-theme-primary-600" size="sm" :name="$navItem['icon']" />
+                        <x-ark-icon :name="$navItem['icon']" />
                     @endif
+
+                    <span>{{ $navItem['label'] }}</span>
                 </a>
             @endisset
         @endforeach
