@@ -54,7 +54,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->phpVersion(PhpVersion::PHP_81);
 
     $rectorConfig->importNames();
-    $rectorConfig->disableImportShortClasses();
+    $rectorConfig->importShortClasses(false);
 
     if (file_exists($neon = $dir.'/vendor/arkecosystem/foundation/phpstan.neon')) {
         $rectorConfig->phpstanConfig($neon);
