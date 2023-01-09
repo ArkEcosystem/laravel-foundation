@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'wysiwyg' => [
+    'wysiwyg'    => [
         'folder' => 'wysiwyg',
         'disk'   => 'public',
     ],
@@ -17,12 +17,12 @@ return [
     /*
      * Upload image validation.
      */
-    'upload' => [
+    'upload'     => [
         /*
          * Validation applied to a single image upload component.
          */
-        'image-single' => [
-            'accept-mime' => 'image/jpg,image/jpeg,image/png,jpg,png',
+        'image-single'     => [
+            'accept-mime'  => 'image/jpg,image/jpeg,image/png,jpg,png',
             // This filesize is used in the backend validation.
             // Keep in mind that the image is compressed in the frontend component
             // and it will be always less than this value.
@@ -39,7 +39,7 @@ return [
          * Validation applied to a multiple images upload component.
          */
         'image-collection' => [
-            'accept-mime' => 'image/jpg,image/jpeg,image/png,jpg,png',
+            'accept-mime'  => 'image/jpg,image/jpeg,image/png,jpg,png',
             // This filesize is used in the backend validation.
             // Keep in mind that the image is compressed in the frontend component
             // and it will be always less than this value.
@@ -53,7 +53,7 @@ return [
         ],
     ],
 
-    'dark-mode' => [
+    'dark-mode'  => [
         'enabled' => env('DARK_MODE_ENABLED', false),
     ],
 ];
