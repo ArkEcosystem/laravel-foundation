@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'contact' => [
+    'contact'            => [
         'title'               => 'Contact Us',
         'subtitle'            => 'Have questions? Contact our team for additional support.',
         'message_placeholder' => 'How can we help?',
@@ -11,20 +11,20 @@ return [
             'title'       => 'Contact Our Team',
             'description' => 'We\'d be happy to answer your questions.',
         ],
-        'let_us_help' => [
+        'let_us_help'         => [
             'title'       => 'Let Us Help!',
             'description' => 'Whether you want to learn more about ARK, need help with your Blockchain, or just want to know how ARK technology could work for you, take a look at our extensive documentation that answers many of the questions.',
         ],
-        'additional_support' => [
+        'additional_support'  => [
             'title'       => 'Additional Support',
             'description' => 'Need more help? You can contact our support team and we can work on resolving your issue or request directly.',
         ],
-        'social' => [
+        'social'              => [
             'subtitle' => 'We\'re on social networks',
         ],
     ],
 
-    'extended-footer' => [
+    'extended-footer'    => [
         'contact' => [
             'placeholder' => 'How can we help?',
             'title'       => 'Contact Our Team',
@@ -35,12 +35,12 @@ return [
     ],
 
     // Hermes
-    'notifications' => [
+    'notifications'      => [
         'page_title' => 'Notifications',
     ],
 
     // Fortify
-    'user-settings' => [
+    'user-settings'      => [
         '2fa_title'                         => 'Two-Factor Authentication',
         '2fa_description'                   => 'You can update your security settings below. We recommend using 2FA for all users.',
         '2fa_enabled_title'                 => 'You have enabled two-factor authentication',
@@ -75,7 +75,7 @@ return [
         'home_page'   => 'Return Home',
     ],
 
-    'logout-sessions' => [
+    'logout-sessions'    => [
         'title'          => 'Browser Sessions',
         'description'    => 'Manage and logout your active sessions on other browsers and devices. Your most recent sessions are shown below.',
         'content'        => 'If necessary, you may logout of all of your other browser sessions across all of your devices. If you feel your account has been compromised, you should also update your password',
@@ -86,7 +86,7 @@ return [
         'last_active'    => 'Last Active',
     ],
 
-    'blog' => [
+    'blog'               => [
         'read'               => 'read',
         'related'            => 'Latest Articles',
         'no_results'         => 'We could not find any articles matching your search criteria, please try again!',
@@ -104,7 +104,7 @@ return [
         'category'           => 'Category',
     ],
 
-    'footer' => [
+    'footer'             => [
         'rights'         => 'All rights reserved',
         'made_with_love' => 'Made with ♥ by',
     ],

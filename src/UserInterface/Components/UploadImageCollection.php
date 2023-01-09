@@ -75,8 +75,8 @@ trait UploadImageCollection
     public function imageCollectionValidators(): array
     {
         return [
-            'imageCollection'  => ['array', 'max:'.$this->getImageCollectionMaxQuantity()],
-            'temporaryImages'  => function ($attribute, $value, $fail) {
+            'imageCollection'    => ['array', 'max:'.$this->getImageCollectionMaxQuantity()],
+            'temporaryImages'    => function ($attribute, $value, $fail) {
                 $max = $this->getImageCollectionMaxQuantity();
 
                 if (count($value) + count($this->imageCollection) > $max) {

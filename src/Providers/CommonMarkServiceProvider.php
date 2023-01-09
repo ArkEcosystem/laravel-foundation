@@ -226,7 +226,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
     private function getDefaultConfiguration(): array
     {
         return [
-            'external_link' => [
+            'external_link'     => [
                 'internal_hosts'     => config('app.url'),
                 'open_in_new_window' => true,
                 'html_class'         => 'external-link',
@@ -242,7 +242,7 @@ final class CommonMarkServiceProvider extends ServiceProvider
                 'title'           => 'Permalink',
                 'symbol'          => '#',
             ],
-            'slug_normalizer' => [
+            'slug_normalizer'   => [
                 'instance' => new SlugNormalizer(),
             ],
         ];

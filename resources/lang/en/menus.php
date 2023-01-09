@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 return [
-    'menu' => 'Menu',
+    'menu'                   => 'Menu',
 
-    'notifications' => [
+    'notifications'          => [
         'no_notifications'          => 'You have no notifications at this time.',
         'no_filtered_notifications' => 'You have no :filter notifications at this time.',
     ],

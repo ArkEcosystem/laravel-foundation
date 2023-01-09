@@ -17,11 +17,11 @@ return [
         'facebook' => [
             'uri' => 'https://www.facebook.com/sharer/sharer.php',
         ],
-        'twitter' => [
+        'twitter'  => [
             'uri'  => 'https://twitter.com/intent/tweet',
             'text' => 'Default share text',
         ],
-        'reddit' => [
+        'reddit'   => [
             'uri'  => 'https://www.reddit.com/submit',
             'text' => 'Default share text',
         ],

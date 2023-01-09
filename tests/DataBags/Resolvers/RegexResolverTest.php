@@ -21,7 +21,7 @@ it('should match by a glob pattern through a request', function () {
         '|(posts/hello-*)|' => [
             'title' => 'Hello World',
         ],
-        '/(.*)/' => [
+        '/(.*)/'            => [
             'title' => 'Any',
         ],
     ]);

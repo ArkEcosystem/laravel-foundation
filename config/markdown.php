@@ -36,7 +36,7 @@ return [
     |
     */
 
-    'views' => true,
+    'views'                         => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -50,7 +50,7 @@ return [
     |
     */
 
-    'extensions' => [
+    'extensions'                    => [
         AutolinkExtension::class,
         ExternalLinkExtension::class,
         HeadingPermalinkExtension::class,
@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'inlineRenderers' => [],
+    'inlineRenderers'               => [],
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'renderer' => [
+    'renderer'                      => [
         'block_separator' => "\n",
         'inner_separator' => "\n",
         'soft_break'      => "\n",
@@ -107,7 +107,7 @@ return [
     |
     */
 
-    'enable_em' => true,
+    'enable_em'                     => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'enable_strong' => true,
+    'enable_strong'                 => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -133,7 +133,7 @@ return [
     |
     */
 
-    'use_asterisk' => true,
+    'use_asterisk'                  => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -146,7 +146,7 @@ return [
     |
     */
 
-    'use_underscore' => true,
+    'use_underscore'                => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -159,7 +159,7 @@ return [
     |
     */
 
-    'html_input' => '',
+    'html_input'                    => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -172,7 +172,7 @@ return [
     |
     */
 
-    'allow_unsafe_links' => true,
+    'allow_unsafe_links'            => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -185,7 +185,7 @@ return [
     |
     */
 
-    'max_nesting_level' => INF,
+    'max_nesting_level'             => INF,
 
     'link_attributes'               => [],
     'link_renderer_view_attributes' => [],
@@ -201,7 +201,7 @@ return [
     |
     */
 
-    'lazyload_images' => false,
+    'lazyload_images'               => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -211,7 +211,7 @@ return [
     | The options below are going to be deep merged with the default options
     | defined on the `src/Providers/CommonMarkServiceProvider.php` file.
     */
-    'environment' => [],
+    'environment'                   => [],
 
     /*
     |--------------------------------------------------------------------------
@@ -222,5 +222,5 @@ return [
     | `ARKEcosystem\Foundation\CommonMark\Contracts\ImageDimensionsStrategy`
     | interface.
     */
-    'image_dimensions_strategy' => null,
+    'image_dimensions_strategy'     => null,
 ];
