@@ -32,27 +32,27 @@ return [
         ],
     ],
     'modals' => [
-        'embedLink' => [
+        'embedLink'      => [
             'title' => 'Add Embed Link',
             'form'  => [
                 'url'     => 'URL',
                 'caption' => 'Caption',
             ],
         ],
-        'embedTweet' => [
+        'embedTweet'     => [
             'title' => 'Embed Tweet',
             'form'  => [
                 'url'             => 'Tweet URL',
                 'url_placeholder' => 'https://twitter.com/arkecosystem/status/20',
             ],
         ],
-        'embedPodcast' => [
+        'embedPodcast'   => [
             'title' => 'Embed Simplecast Podcast',
             'form'  => [
                 'url' => 'Simplecast URL or ID',
             ],
         ],
-        'embedYoutube' => [
+        'embedYoutube'   => [
             'title' => 'Embed YouTube video',
             'form'  => [
                 'url' => 'Youtube URL or Video ID',
@@ -65,13 +65,13 @@ return [
                 'path' => 'Path',
             ],
         ],
-        'pageReference' => [
+        'pageReference'  => [
             'title' => 'Add Page Reference',
             'form'  => [
                 'url' => 'Reference path or URL',
             ],
         ],
-        'image' => [
+        'image'          => [
             'title' => 'Insert Image',
             'form'  => [
                 'source'            => 'Select image source',
@@ -83,14 +83,14 @@ return [
                 'file_restrictions' => 'Max size :maxSize',
             ],
         ],
-        'link' => [
+        'link'           => [
             'title' => 'Embed link',
             'form'  => [
                 'url'  => 'URL',
                 'text' => 'Link Text',
             ],
         ],
-        'alert' => [
+        'alert'          => [
             'title' => 'Add Alert',
             'form'  => [
                 'type'  => 'Alert type',
@@ -100,7 +100,7 @@ return [
                     'warning' => 'Warning',
                     'danger'  => 'Danger',
                 ],
-                'text' => 'Alert text',
+                'text'  => 'Alert text',
             ],
         ],
     ],

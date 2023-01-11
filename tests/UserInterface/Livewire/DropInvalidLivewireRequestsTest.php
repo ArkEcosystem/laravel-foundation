@@ -44,7 +44,7 @@ it('drops if component is not found', function () {
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
@@ -70,7 +70,7 @@ it('drops if fingerprint ID is missing', function () {
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
@@ -96,7 +96,7 @@ it('drops if fingerprint component name is missing', function () {
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
@@ -122,7 +122,7 @@ it('drops if fingerprint method is missing', function () {
             'method' => '',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
@@ -148,7 +148,7 @@ it('drops if fingerprint path is missing', function () {
             'method' => 'POST',
             'path'   => '',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
@@ -174,7 +174,7 @@ it('drops if checksum is missing', function () {
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => '',
             'htmlHash' => 'some-hash',
         ],
@@ -200,7 +200,7 @@ it('drops if html hash is missing', function () {
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => '',
         ],
@@ -241,11 +241,11 @@ it('drops if fired events do not exist', function () {
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
-        'updates' => [
+        'updates'     => [
             [
                 'payload' => [],
                 'type'    => 'somethingRandom',
@@ -256,7 +256,7 @@ it('drops if fired events do not exist', function () {
                     'id'     => 'dummy-event-id',
                     'params' => 'test',
                 ],
-                'type' => 'fireEvent',
+                'type'    => 'fireEvent',
             ],
             [
                 'payload' => [
@@ -264,7 +264,7 @@ it('drops if fired events do not exist', function () {
                     'id'     => 'dummy-event-id-2',
                     'params' => 'test',
                 ],
-                'type' => 'fireEvent',
+                'type'    => 'fireEvent',
             ],
         ],
     ]);
@@ -292,11 +292,11 @@ it('drops if payload contains any fired event with an empty name', function () {
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
-        'updates' => [
+        'updates'     => [
             [
                 'payload' => [],
                 'type'    => 'somethingRandom',
@@ -307,7 +307,7 @@ it('drops if payload contains any fired event with an empty name', function () {
                     'id'     => 'dummy-event-id',
                     'params' => 'test',
                 ],
-                'type' => 'fireEvent',
+                'type'    => 'fireEvent',
             ],
             [
                 'payload' => [
@@ -315,7 +315,7 @@ it('drops if payload contains any fired event with an empty name', function () {
                     'id'     => 'dummy-event-id-2',
                     'params' => 'test',
                 ],
-                'type' => 'fireEvent',
+                'type'    => 'fireEvent',
             ],
         ],
     ]);
@@ -343,11 +343,11 @@ it('lets through requests if events are valid', function () {
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
-        'updates' => [
+        'updates'     => [
             [
                 'payload' => [],
                 'type'    => 'somethingRandom',
@@ -358,7 +358,7 @@ it('lets through requests if events are valid', function () {
                     'id'     => 'dummy-event-id',
                     'params' => 'test',
                 ],
-                'type' => 'fireEvent',
+                'type'    => 'fireEvent',
             ],
         ],
     ]);
@@ -385,11 +385,11 @@ it('lets through requests if any of the valid events are not specified', functio
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
-        'updates' => [
+        'updates'     => [
             [
                 'payload' => [],
                 'type'    => 'somethingRandom',
@@ -400,7 +400,7 @@ it('lets through requests if any of the valid events are not specified', functio
                     'id'     => 'dummy-event-id',
                     'params' => 'test',
                 ],
-                'type' => 'fireEvent',
+                'type'    => 'fireEvent',
             ],
         ],
     ]);
@@ -427,11 +427,11 @@ it('drops if payload contains any callable methods that do not exist', function 
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
-        'updates' => [
+        'updates'     => [
             [
                 'payload' => [],
                 'type'    => 'somethingRandom',
@@ -442,7 +442,7 @@ it('drops if payload contains any callable methods that do not exist', function 
                     'id'      => 'dummy-method-id',
                     'params'  => 'test',
                 ],
-                'type' => 'callMethod',
+                'type'    => 'callMethod',
             ],
             [
                 'payload' => [
@@ -450,7 +450,7 @@ it('drops if payload contains any callable methods that do not exist', function 
                     'id'      => 'dummy-method-id-2',
                     'params'  => 'test',
                 ],
-                'type' => 'callMethod',
+                'type'    => 'callMethod',
             ],
         ],
     ]);
@@ -478,11 +478,11 @@ it('lets request through if all of the methods are valid', function () {
             'method' => 'POST',
             'path'   => '/dummy',
         ],
-        'serverMemo' => [
+        'serverMemo'  => [
             'checksum' => 'some-checksum',
             'htmlHash' => 'some-hash',
         ],
-        'updates' => [
+        'updates'     => [
             [
                 'payload' => [],
                 'type'    => 'somethingRandom',
@@ -493,7 +493,7 @@ it('lets request through if all of the methods are valid', function () {
                     'id'      => 'dummy-method-id',
                     'params'  => 'test',
                 ],
-                'type' => 'callMethod',
+                'type'    => 'callMethod',
             ],
             [
                 'payload' => [
@@ -501,7 +501,7 @@ it('lets request through if all of the methods are valid', function () {
                     'id'      => 'dummy-method-id-2',
                     'params'  => 'test',
                 ],
-                'type' => 'callMethod',
+                'type'    => 'callMethod',
             ],
         ],
     ]);

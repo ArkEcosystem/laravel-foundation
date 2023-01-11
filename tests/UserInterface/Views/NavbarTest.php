@@ -14,8 +14,8 @@ it('should render the component', function (): void {
     $this
         ->actingAs(new User())
         ->view('ark::navbar', createAttributes([
-            'title'      => 'Explorer',
-            'navigation' => [
+            'title'            => 'Explorer',
+            'navigation'       => [
                 [
                     'route'    => 'home',
                     'label'    => 'Home',
