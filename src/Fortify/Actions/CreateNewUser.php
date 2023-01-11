@@ -54,7 +54,7 @@ class CreateNewUser implements CreatesNewUsers
     public static function createValidationRules(): array
     {
         $rules = [
-            'name' => [
+            'name'                  => [
                 'required',
                 'max:'.Constants::MAX_DISPLAY_NAME_CHARACTERS,
                 'min:'.Constants::MIN_DISPLAY_NAME_CHARACTERS,

@@ -31,22 +31,22 @@ return [
             'twitter' => '/^[a-zA-Z0-9-_@]+$/m',
         ],
 
-        'source_providers' => [
+        'source_providers'  => [
             'bitbucket' => '/(?:https?:)\/\/(?:www\.)?bitbucket\.(com|org)\/(?P<login>[A-z0-9_-]+)(?:\/(?P<repo>[*]+)\/?)?/m',
             'github'    => '/(?:https?:)\/\/(?:www\.)?github\.com\/(?P<login>[A-z0-9_-]+)(?:\/(?P<repo>[*]+)\/?)?/m',
             'gitlab'    => '/(?:https?:)\/\/(?:www\.)?gitlab\.com\/(?P<login>[A-z0-9_-]+)(?:\/(?P<repo>[*]+)\/?)?/m',
         ],
 
-        'video_sources' => [
+        'video_sources'     => [
             'youtube'    => '/(?:https?:)\/\/((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/m',
             'youtube_id' => '/^[^"&?\/\s]{11}$/',
         ],
 
-        'user_mentions' => '/<a[^>]*data-username="([^"]*)"[^>]*>([^<]+)<\/a>/',
+        'user_mentions'     => '/<a[^>]*data-username="([^"]*)"[^>]*>([^<]+)<\/a>/',
 
-        'website' => '/https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.(?<host>[^\s]{1,})/m',
+        'website'           => '/https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.(?<host>[^\s]{1,})/m',
 
-        'www_url_prefix' => '/^www\./',
+        'www_url_prefix'    => '/^www\./',
     ],
 
 ];

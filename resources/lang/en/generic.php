@@ -11,24 +11,24 @@ return [
     'an'          => 'An',
     'type'        => 'Type',
 
-    'pagination' => [
+    'pagination'  => [
         'current_to'   => 'Page :currentPage of :lastPage',
     ],
 
-    'upload' => [
+    'upload'      => [
         'up_to'   => 'up to :size :filesize',
     ],
 
-    'filesize' => [
+    'filesize'    => [
         'mb'   => 'MB',
     ],
 
-    'time' => [
+    'time'        => [
         'hour' => '[0]|[1,*] :value hour',
         'min'  => '[0]|[1,*] :value min',
     ],
 
-    'search' => [
+    'search'      => [
         'no_results' => 'No results found. Refine your search and try again.',
     ],
 ];
