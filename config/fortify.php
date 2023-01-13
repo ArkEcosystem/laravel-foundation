@@ -155,7 +155,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'mail'                    => [
+    'mail' => [
         'default'  => [
             'name'    => env('MAIL_DEFAULT_NAME', 'ARK Ecosystem'),
             'address' => env('MAIL_DEFAULT_ADDRESS', 'noreply@ark.io'),
