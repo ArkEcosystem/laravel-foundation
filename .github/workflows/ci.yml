@@ -20,7 +20,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
 
       - name: Merge Conflict finder
-        uses: olivernybroe/action-conflict-finder@v4
+        uses: olivernybroe/action-conflict-finder@v4.0
 
   unit:
     needs: [conflicts]
