@@ -145,7 +145,7 @@ return [
     */
 
     'models'                  => [
-        'user'       => '',
+        'user' => '',
         'invitation' => '',
     ],
 
