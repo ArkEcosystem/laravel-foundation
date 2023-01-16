@@ -131,6 +131,10 @@
         @apply underline text-theme-primary-700;
     }
 
+    .documentation-content .link-collection a:hover {
+        @apply no-underline;
+    }
+
     .documentation-content a:active {
         @apply text-theme-primary-400;
     }
