@@ -30,11 +30,11 @@ return static function (RectorConfig $rectorConfig): void {
      */
     $rectorConfig->bootstrapFiles([$dir.'/vendor/arkecosystem/foundation/rector-bootstrap.php']);
 
-    $parameters->set(Option::PATHS, [
+    $rectorConfig->paths([
         $dir.'/app',
     ]);
 
-    $parameters->set(Option::SKIP, [
+    $rectorConfig->skip([
         // skip Livewire
         $dir.'/app/Http/Livewire',
         $dir.'/app/App/Blog/Components',
