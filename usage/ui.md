@@ -689,7 +689,6 @@ return [
 - `<x-ark-accordion>`
 - `<x-ark-accordion-group>`
 - `<x-ark-alert>`
-- `<x-ark-breadcrumbs>`
 - `<x-ark-checkbox>`
 - `<x-ark-clipboard>`
 - `<x-ark-dropdown>`

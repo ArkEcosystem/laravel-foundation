@@ -6,13 +6,6 @@
     <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.page-title" />
 @endsection
 
-@section('breadcrumbs')
-    <x-ark-breadcrumbs :crumbs="[
-        ['route' => 'login', 'label' => trans('ui::menu.sign_in')],
-        ['label' => trans('ui::menu.reset_password')],
-    ]" />
-@endsection
-
 @section('content')
     <x-data-bag key="fortify-content" resolver="name" view="ark-fortify::components.component-heading" />
 
