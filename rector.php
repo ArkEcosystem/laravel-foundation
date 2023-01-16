@@ -57,17 +57,19 @@ return static function (RectorConfig $rectorConfig): void {
         $rectorConfig->phpstanConfig($neon);
     }
 
-    $services->remove(\Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector::class);
-    $services->remove(\Rector\Privatization\Rector\Class_\RepeatedLiteralToClassConstantRector::class);
-    $services->remove(\Rector\Privatization\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector::class);
-    $services->remove(\Rector\Privatization\Rector\Class_\ChangeReadOnlyVariableWithDefaultValueToConstantRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\Catch_\CatchExceptionNameMatchingTypeRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\FuncCall\ConsistentPregDelimiterRector::class);
+    $rectorConfig->skip([
+        \Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector::class,
+        \Rector\Privatization\Rector\Class_\RepeatedLiteralToClassConstantRector::class,
+        \Rector\Privatization\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector::class,
+        \Rector\Privatization\Rector\Class_\ChangeReadOnlyVariableWithDefaultValueToConstantRector::class,
+        \Rector\CodingStyle\Rector\Catch_\CatchExceptionNameMatchingTypeRector::class,
+        \Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector::class,
+        \Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector::class,
+        \Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class,
+        \Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector::class,
+        \Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector::class,
+        \Rector\CodingStyle\Rector\FuncCall\ConsistentPregDelimiterRector::class,
+    ]);
 
     // Restoration
     $services->set(\Rector\Restoration\Rector\Property\MakeTypedPropertyNullableIfCheckedRector::class);
