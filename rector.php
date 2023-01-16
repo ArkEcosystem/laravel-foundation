@@ -8,9 +8,7 @@ use Rector\Set\ValueObject\SetList;
 use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $parameters = $rectorConfig->parameters();
-    $services   = $rectorConfig->services();
-    $dir        = getcwd();
+    $dir = getcwd();
 
     $rectorConfig->sets([
         SetList::PRIVATIZATION,
