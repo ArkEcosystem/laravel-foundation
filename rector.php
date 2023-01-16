@@ -37,10 +37,8 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->skip([
         // skip Livewire
         $dir.'/app/Http/Livewire',
-        $dir.'/app/App/Blog/Components',
         $dir.'/app/App/Collaborator/Components',
         $dir.'/app/App/Http/Components',
-        $dir.'/app/App/Platform/Components',
         $dir.'/app/App/SecureShell/Components',
         $dir.'/app/App/Server/Components',
         $dir.'/app/App/Token/Components',
