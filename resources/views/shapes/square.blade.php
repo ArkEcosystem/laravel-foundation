@@ -11,5 +11,7 @@
         $sizeClass,
         $roundedClass,
         'animate-pulse' => $pulse,
-    ]) }}></div>
+    ]) }}>
+        {{ $slot }}
+    </div>
 </div>
