@@ -3,15 +3,12 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\Set\ValueObject\SetList;
 use RectorLaravel\Set\LaravelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
-    $parameters = $rectorConfig->parameters();
-    $services   = $rectorConfig->services();
-    $dir        = getcwd();
+    $dir = getcwd();
 
     $rectorConfig->sets([
         SetList::PRIVATIZATION,
@@ -30,17 +27,15 @@ return static function (RectorConfig $rectorConfig): void {
      */
     $rectorConfig->bootstrapFiles([$dir.'/vendor/arkecosystem/foundation/rector-bootstrap.php']);
 
-    $parameters->set(Option::PATHS, [
+    $rectorConfig->paths([
         $dir.'/app',
     ]);
 
-    $parameters->set(Option::SKIP, [
+    $rectorConfig->skip([
         // skip Livewire
         $dir.'/app/Http/Livewire',
-        $dir.'/app/App/Blog/Components',
         $dir.'/app/App/Collaborator/Components',
         $dir.'/app/App/Http/Components',
-        $dir.'/app/App/Platform/Components',
         $dir.'/app/App/SecureShell/Components',
         $dir.'/app/App/Server/Components',
         $dir.'/app/App/Token/Components',
@@ -60,49 +55,50 @@ return static function (RectorConfig $rectorConfig): void {
         $rectorConfig->phpstanConfig($neon);
     }
 
-    $services->remove(\Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector::class);
-    $services->remove(\Rector\Privatization\Rector\Class_\RepeatedLiteralToClassConstantRector::class);
-    $services->remove(\Rector\Privatization\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector::class);
-    $services->remove(\Rector\Privatization\Rector\Class_\ChangeReadOnlyVariableWithDefaultValueToConstantRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\Catch_\CatchExceptionNameMatchingTypeRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector::class);
-    $services->remove(\Rector\CodingStyle\Rector\FuncCall\ConsistentPregDelimiterRector::class);
+    $rectorConfig->skip([
+        \Rector\Privatization\Rector\Class_\FinalizeClassesWithoutChildrenRector::class,
+        \Rector\Privatization\Rector\Class_\RepeatedLiteralToClassConstantRector::class,
+        \Rector\Privatization\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector::class,
+        \Rector\Privatization\Rector\Class_\ChangeReadOnlyVariableWithDefaultValueToConstantRector::class,
+        \Rector\CodingStyle\Rector\Catch_\CatchExceptionNameMatchingTypeRector::class,
+        \Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector::class,
+        \Rector\CodingStyle\Rector\ClassConst\VarConstantCommentRector::class,
+        \Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class,
+        \Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector::class,
+        \Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector::class,
+        \Rector\CodingStyle\Rector\FuncCall\ConsistentPregDelimiterRector::class,
+    ]);
 
     // Restoration
-    $services->set(\Rector\Restoration\Rector\Property\MakeTypedPropertyNullableIfCheckedRector::class);
+    $rectorConfig->rule(\Rector\Restoration\Rector\Property\MakeTypedPropertyNullableIfCheckedRector::class);
 
     // php5.5
-    $services->set(\Rector\Php55\Rector\FuncCall\GetCalledClassToStaticClassRector::class);
+    $rectorConfig->rule(\Rector\Php55\Rector\FuncCall\GetCalledClassToStaticClassRector::class);
 
     // php7.4
-    $services->set(\Rector\Php74\Rector\Property\TypedPropertyRector::class);
-    $services->set(\Rector\Php74\Rector\FuncCall\ArrayKeyExistsOnPropertyRector::class);
-    $services->set(\Rector\Php74\Rector\Assign\NullCoalescingOperatorRector::class);
-    $services->set(\Rector\Php74\Rector\Property\RestoreDefaultNullToNullableTypePropertyRector::class);
+    $rectorConfig->rule(\Rector\Php74\Rector\FuncCall\ArrayKeyExistsOnPropertyRector::class);
+    $rectorConfig->rule(\Rector\Php74\Rector\Assign\NullCoalescingOperatorRector::class);
+    $rectorConfig->rule(\Rector\Php74\Rector\Property\RestoreDefaultNullToNullableTypePropertyRector::class);
 
     // php8.0
-    $services->set(\Rector\Php80\Rector\FunctionLike\UnionTypesRector::class);
-    $services->set(\Rector\Php80\Rector\NotIdentical\StrContainsRector::class);
-    $services->set(\Rector\Php80\Rector\Identical\StrStartsWithRector::class);
-    $services->set(\Rector\Php80\Rector\Identical\StrEndsWithRector::class);
-    $services->set(\Rector\Php80\Rector\Class_\StringableForToStringRector::class);
-    $services->set(\Rector\Php80\Rector\FuncCall\ClassOnObjectRector::class);
-    $services->set(\Rector\Php80\Rector\Catch_\RemoveUnusedVariableInCatchRector::class);
-    $services->set(\Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector::class);
-    $services->set(\Rector\Php80\Rector\Switch_\ChangeSwitchToMatchRector::class);
-    $services->set(\Rector\DeadCode\Rector\StaticCall\RemoveParentCallWithoutParentRector::class);
-    $services->set(\Rector\Php80\Rector\ClassMethod\FinalPrivateToPrivateVisibilityRector::class);
-    $services->set(\Rector\CodeQuality\Rector\ClassMethod\OptionalParametersAfterRequiredRector::class);
-    $services->set(\Rector\Php80\Rector\FuncCall\Php8ResourceReturnToObjectRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\FunctionLike\UnionTypesRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\NotIdentical\StrContainsRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\Identical\StrStartsWithRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\Identical\StrEndsWithRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\Class_\StringableForToStringRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\FuncCall\ClassOnObjectRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\Catch_\RemoveUnusedVariableInCatchRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\Switch_\ChangeSwitchToMatchRector::class);
+    $rectorConfig->rule(\Rector\DeadCode\Rector\StaticCall\RemoveParentCallWithoutParentRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\ClassMethod\FinalPrivateToPrivateVisibilityRector::class);
+    $rectorConfig->rule(\Rector\CodeQuality\Rector\ClassMethod\OptionalParametersAfterRequiredRector::class);
+    $rectorConfig->rule(\Rector\Php80\Rector\FuncCall\Php8ResourceReturnToObjectRector::class);
 
     // php8.1
-    $services->set(\Rector\Php81\Rector\ClassConst\FinalizePublicClassConstantRector::class);
-    $services->set(\Rector\Php81\Rector\Property\ReadOnlyPropertyRector::class);
-    $services->set(\Rector\Php81\Rector\Class_\SpatieEnumClassToEnumRector::class);
-    $services->set(\Rector\Php81\Rector\FuncCall\Php81ResourceReturnToObjectRector::class);
-    $services->set(\Rector\Php81\Rector\FunctionLike\IntersectionTypesRector::class);
+    $rectorConfig->rule(\Rector\Php81\Rector\ClassConst\FinalizePublicClassConstantRector::class);
+    $rectorConfig->rule(\Rector\Php81\Rector\Property\ReadOnlyPropertyRector::class);
+    $rectorConfig->rule(\Rector\Php81\Rector\Class_\SpatieEnumClassToEnumRector::class);
+    $rectorConfig->rule(\Rector\Php81\Rector\FuncCall\Php81ResourceReturnToObjectRector::class);
+    $rectorConfig->rule(\Rector\Php81\Rector\FunctionLike\IntersectionTypesRector::class);
 };
