@@ -85,18 +85,6 @@ This file contains basic examples and explains the parameters that can be used f
 | title      | used for the "ARK <title>" navbar text                               | yes      |
 | navigation | an array of `route`, `label` pairs for the navbar navigation options | yes      |
 
-### Breadcrumbs
-
-> Note: this works best when using a breadcrumb section in your layout view to which you pass the breadcrumb itself on different pages
-
-```php
-<x-ark-breadcrumbs :crumbs="[
-    ['route' => 'tokens', 'label' => trans('menus.dashboard')],
-    ['route' => 'tokens.welcome', 'label' => trans('menus.onboarding'), 'params' => [$token]],
-    ['route' => 'tokens.identity', 'label' => trans('menus.tokens.identity'), 'params' => [$token]],
-]" />
-```
-
 ### Sidebar Links
 
 > Sidebar links that automatically change class when they correspond to the active route
