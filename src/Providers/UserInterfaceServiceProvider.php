@@ -320,6 +320,7 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::status-circle', 'ark-status-circle');
             $blade->component('ark::svg-lazy', 'ark-svg-lazy');
             $blade->component('ark::toast', 'ark-toast');
+            $blade->component('ark::components.truncate-dynamic', 'ark-truncate-dynamic');
             $blade->component('ark::separator', 'ark-separator');
             $blade->component('ark::shapes.line', 'ark-placeholder-line');
             $blade->component('ark::shapes.square', 'ark-placeholder-square');
