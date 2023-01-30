@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\UserInterface\Components;
 
 use ARKEcosystem\Foundation\UserInterface\Components\Concerns\HandleToast;
+use Carbon\Carbon;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Facades\RateLimiter;
@@ -31,10 +32,11 @@ abstract class ThrottledComponent extends Component
 
         $secondsUntilAvailable = RateLimiter::availableIn($this->getRateLimitKey($throttlingKey));
 
-        $parts = explode(':', gmdate('H:i', $secondsUntilAvailable));
+        $diff = Carbon::createFromTimeStamp($secondsUntilAvailable)->diff(Carbon::createFromTimeStamp(0));
 
-        $hours   = (int) $parts[0];
-        $minutes = (int) $parts[1];
+        $hours   = $diff->h + ($diff->d * 24);
+        $minutes = $diff->i;
+        $seconds = $diff->s;
 
         if ($hours > 0) {
             if ($minutes > 0) {
