@@ -38,7 +38,8 @@ abstract class ThrottledComponent extends Component
 
         if ($hours > 0) {
             if ($minutes > 0) {
-                return sprintf('%s, %s',
+                return sprintf(
+                    '%s, %s',
                     trans_choice('ui::general.amount_hours', $hours, ['amount' => $hours]),
                     trans_choice('ui::general.amount_minutes', $minutes, ['amount' => $minutes]),
                 );
