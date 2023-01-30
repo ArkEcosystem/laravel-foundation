@@ -15,4 +15,9 @@ return [
     'last_updated'             => 'Last updated :time',
     'external_link'            => 'External Link',
     'external_link_disclaimer' => 'You are about to leave '.config('app.name').' to an external website. '.config('app.name').' has no control over the content of this site. Are you sure you wish to continue?',
+
+    // Throttling
+    'amount_hours'             => ':amount hour|:amount hours',
+    'amount_minutes'           => ':amount minute|:amount minutes',
+    'amount_seconds'           => ':amount second|:amount seconds',
 ];
