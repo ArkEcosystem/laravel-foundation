@@ -24,6 +24,7 @@
                     'noModel'        => $noModel ?? false,
                     'model'          => $model ?? $name,
                     'deferred'       => $deferred ?? false,
+                    'debounce'       => $debounce ?? null,
                 ])
             </div>
 

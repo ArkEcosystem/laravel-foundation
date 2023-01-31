@@ -12,6 +12,7 @@
     'alpine'                => false,
     'right'                 => false,
     'deferred'              => false,
+    'debounce'              => null,
 ])
 
 @php
@@ -42,6 +43,10 @@
                 class="focus-visible:ring-2 form-checkbox input-checkbox focus-visible:ring-theme-primary-500"
                 @if ($deferred)
                 wire:model.defer="{{ $model ?? $name }}"
+                @elseif ($debounce === true)
+                wire:model.debounce="{{ $model ?? $name }}"
+                @elseif (is_string($debounce))
+                wire:model.debounce.{{ $debounce }}="{{ $model ?? $name }}"
                 @else
                 wire:model="{{ $model ?? $name }}"
                 @endif
