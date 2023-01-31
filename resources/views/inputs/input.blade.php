@@ -16,13 +16,14 @@
 
         <div class="input-wrapper">
             @include('ark::inputs.includes.input-field', [
-                'name'         => $name,
-                'errors'       => $errors,
-                'id'           => $id ?? $name,
-                'inputClass'   => $inputClass ?? '',
-                'noModel'      => $noModel ?? false,
-                'model'        => $model ?? $name,
-                'deferred'     => $deferred ?? false,
+                'name'       => $name,
+                'errors'     => $errors,
+                'id'         => $id ?? $name,
+                'inputClass' => $inputClass ?? '',
+                'noModel'    => $noModel ?? false,
+                'model'      => $model ?? $name,
+                'deferred'   => $deferred ?? false,
+                'debounce'   => $debounce ?? null,
             ])
 
             @error($name)
