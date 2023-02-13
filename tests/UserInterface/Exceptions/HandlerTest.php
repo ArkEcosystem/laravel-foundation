@@ -18,7 +18,6 @@ it('should show 500 error page if template does not exist', function ($errorCode
 
     $this->assertStringContainsString('<title>'.trans('ui::errors.500').' | Laravel</title>', $response->getContent());
 })->with([
-    [402, 'Oops, something went wrong'],
     [408, 'Oops, something went wrong'],
     [501, 'Oops, something went wrong'],
     [519, 'Oops, something went wrong'],
@@ -38,6 +37,7 @@ it('should show correct error page', function ($errorCode, $message): void {
     $this->assertStringContainsString('<title>'.trans("ui::errors.${errorCode}").' | Laravel</title>', $response->getContent());
 })->with([
     [401, 'Oops, something went wrong'],
+    [402, 'Payment Required'],
     [403, 'Oops, this is a restricted area!'],
     [404, 'Oops, something went wrong'],
     [419, 'Oops, something went wrong'],
