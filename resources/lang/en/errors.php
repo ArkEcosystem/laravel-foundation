@@ -6,6 +6,7 @@ return [
     'heading'     => 'Oops, something went wrong ...',
     'message'     => 'Please try again or get in touch if the issue persists.',
     '401'         => 'Unauthorized',
+    '402'         => 'Payment Required',
     '403'         => 'Forbidden',
     '403_heading' => 'Oops, this is a restricted area!',
     '403_message' => 'You don\'t have the proper security clearance to access this part of the site.',
