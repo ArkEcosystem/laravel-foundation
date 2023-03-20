@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66c5b3274987e0925240f2b1931c60e3",
+    "content-hash": "1e7fcb12e1f74bebb01c5ad42bb8b1e2",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -479,27 +479,26 @@
         },
         {
             "name": "danharrin/livewire-rate-limiting",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danharrin/livewire-rate-limiting.git",
-                "reference": "50ddf2064757c46bea96f84ef73a3d7a9126efcd"
+                "reference": "a55996683cabf2e93893280d602191243b3b80b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danharrin/livewire-rate-limiting/zipball/50ddf2064757c46bea96f84ef73a3d7a9126efcd",
-                "reference": "50ddf2064757c46bea96f84ef73a3d7a9126efcd",
+                "url": "https://api.github.com/repos/danharrin/livewire-rate-limiting/zipball/a55996683cabf2e93893280d602191243b3b80b8",
+                "reference": "a55996683cabf2e93893280d602191243b3b80b8",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^8.0|^9.0|^10.0",
+                "illuminate/support": "^9.0|^10.0",
                 "php": "^8.0"
             },
             "require-dev": {
                 "livewire/livewire": "^2.3",
-                "orchestra/testbench": "^6.2|^7.0|^8.0",
-                "phpunit/phpunit": "^9.4",
-                "symplify/monorepo-builder": "^9.0"
+                "orchestra/testbench": "^7.0|^8.0",
+                "phpunit/phpunit": "^9.0|^10.0"
             },
             "type": "library",
             "autoload": {
@@ -529,7 +528,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-23T17:16:14+00:00"
+            "time": "2023-03-12T12:17:29+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -731,6 +730,49 @@
                 "source": "https://github.com/doctrine/annotations/tree/2.0.1"
             },
             "time": "2023-02-02T22:02:53+00:00"
+        },
+        {
+            "name": "doctrine/deprecations",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/deprecations.git",
+                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
+                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^9",
+                "phpunit/phpunit": "^7.5|^8.5|^9.5",
+                "psr/log": "^1|^2|^3"
+            },
+            "suggest": {
+                "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Deprecations\\": "lib/Doctrine/Deprecations"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
+            "homepage": "https://www.doctrine-project.org/",
+            "support": {
+                "issues": "https://github.com/doctrine/deprecations/issues",
+                "source": "https://github.com/doctrine/deprecations/tree/v1.0.0"
+            },
+            "time": "2022-05-02T15:47:09+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1081,16 +1123,16 @@
         },
         {
             "name": "driftingly/rector-laravel",
-            "version": "0.16.1",
+            "version": "0.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/driftingly/rector-laravel.git",
-                "reference": "5a87d4e8180b2d295aa6077580adf6ff4517e84e"
+                "reference": "5eb5c21eb74cd11413ae2cd8022365edf18e0f7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/5a87d4e8180b2d295aa6077580adf6ff4517e84e",
-                "reference": "5a87d4e8180b2d295aa6077580adf6ff4517e84e",
+                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/5eb5c21eb74cd11413ae2cd8022365edf18e0f7d",
+                "reference": "5eb5c21eb74cd11413ae2cd8022365edf18e0f7d",
                 "shasum": ""
             },
             "require": {
@@ -1109,9 +1151,9 @@
             "description": "Rector upgrades rules for Laravel Framework",
             "support": {
                 "issues": "https://github.com/driftingly/rector-laravel/issues",
-                "source": "https://github.com/driftingly/rector-laravel/tree/0.16.1"
+                "source": "https://github.com/driftingly/rector-laravel/tree/0.17.0"
             },
-            "time": "2023-02-27T17:47:42+00:00"
+            "time": "2023-03-17T00:08:57+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -1498,16 +1540,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.14.4",
+            "version": "v3.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "1b3d9dba63d93b8a202c31e824748218781eae6b"
+                "reference": "d48755372a113bddb99f749e34805d83f3acfe04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/1b3d9dba63d93b8a202c31e824748218781eae6b",
-                "reference": "1b3d9dba63d93b8a202c31e824748218781eae6b",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/d48755372a113bddb99f749e34805d83f3acfe04",
+                "reference": "d48755372a113bddb99f749e34805d83f3acfe04",
                 "shasum": ""
             },
             "require": {
@@ -1574,9 +1616,15 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
+            "keywords": [
+                "Static code analysis",
+                "fixer",
+                "standards",
+                "static analysis"
+            ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.14.4"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.15.1"
             },
             "funding": [
                 {
@@ -1584,7 +1632,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-09T21:49:13+00:00"
+            "time": "2023-03-13T23:26:30+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -2450,23 +2498,23 @@
         },
         {
             "name": "jasonmccreary/laravel-test-assertions",
-            "version": "v2.2.0",
+            "version": "v2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jasonmccreary/laravel-test-assertions.git",
-                "reference": "7bef0bf655b67264177ecd2ca0054a53e863a4c0"
+                "reference": "77d1812dce4438c294e281acade9d52adf4ce0a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jasonmccreary/laravel-test-assertions/zipball/7bef0bf655b67264177ecd2ca0054a53e863a4c0",
-                "reference": "7bef0bf655b67264177ecd2ca0054a53e863a4c0",
+                "url": "https://api.github.com/repos/jasonmccreary/laravel-test-assertions/zipball/77d1812dce4438c294e281acade9d52adf4ce0a0",
+                "reference": "77d1812dce4438c294e281acade9d52adf4ce0a0",
                 "shasum": ""
             },
             "require": {
-                "illuminate/testing": "^8.0|^9.0|^10.0",
+                "illuminate/testing": "^9.0|^10.0",
                 "mockery/mockery": "^1.4.2",
-                "php": ">=7.3|^8.0",
-                "phpunit/phpunit": "^9.3.3"
+                "php": "^8.0",
+                "phpunit/phpunit": "^9.3.3|^10.0"
             },
             "type": "library",
             "extra": {
@@ -2494,9 +2542,9 @@
             "description": "A set of helpful assertions when testing Laravel applications.",
             "support": {
                 "issues": "https://github.com/jasonmccreary/laravel-test-assertions/issues",
-                "source": "https://github.com/jasonmccreary/laravel-test-assertions/tree/v2.2.0"
+                "source": "https://github.com/jasonmccreary/laravel-test-assertions/tree/v2.3"
             },
-            "time": "2023-02-13T14:52:08+00:00"
+            "time": "2023-03-15T16:29:35+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",
@@ -4828,23 +4876,23 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v1.22.5",
+            "version": "v1.22.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "a1a0f049cddb7da097e7450e1a80da4d1a59571e"
+                "reference": "9f6a88232733f9d1e33f49531340f447bd255c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/a1a0f049cddb7da097e7450e1a80da4d1a59571e",
-                "reference": "a1a0f049cddb7da097e7450e1a80da4d1a59571e",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/9f6a88232733f9d1e33f49531340f447bd255c9e",
+                "reference": "9f6a88232733f9d1e33f49531340f447bd255c9e",
                 "shasum": ""
             },
             "require": {
-                "nunomaduro/collision": "^5.11.0|^6.3.0",
+                "nunomaduro/collision": "^5.11.0|^6.4.0",
                 "pestphp/pest-plugin": "^1.1.0",
                 "php": "^7.3 || ^8.0",
-                "phpunit/phpunit": "^9.6.4"
+                "phpunit/phpunit": "^9.6.5"
             },
             "require-dev": {
                 "illuminate/console": "^8.83.27",
@@ -4905,7 +4953,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v1.22.5"
+                "source": "https://github.com/pestphp/pest/tree/v1.22.6"
             },
             "funding": [
                 {
@@ -4933,7 +4981,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-03-03T10:16:59+00:00"
+            "time": "2023-03-17T23:24:14+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -5536,24 +5584,27 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.6.2",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "48f445a408c131e38cab1c235aa6d2bb7a0bb20d"
+                "reference": "1534aea9bde19a5c85c5d1e1f834ab63f4c5dcf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
-                "reference": "48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/1534aea9bde19a5c85c5d1e1f834ab63f4c5dcf5",
+                "reference": "1534aea9bde19a5c85c5d1e1f834ab63f4c5dcf5",
                 "shasum": ""
             },
             "require": {
+                "doctrine/deprecations": "^1.0",
                 "php": "^7.4 || ^8.0",
-                "phpdocumentor/reflection-common": "^2.0"
+                "phpdocumentor/reflection-common": "^2.0",
+                "phpstan/phpdoc-parser": "^1.13"
             },
             "require-dev": {
                 "ext-tokenizer": "*",
+                "phpbench/phpbench": "^1.2",
                 "phpstan/extension-installer": "^1.1",
                 "phpstan/phpstan": "^1.8",
                 "phpstan/phpstan-phpunit": "^1.1",
@@ -5585,9 +5636,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.2"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.7.0"
             },
-            "time": "2022-10-14T12:47:21+00:00"
+            "time": "2023-03-12T10:13:29+00:00"
         },
         {
             "name": "phpmyadmin/sql-parser",
@@ -5796,17 +5847,62 @@
             "time": "2022-10-17T12:59:16+00:00"
         },
         {
-            "name": "phpstan/phpstan",
-            "version": "1.10.6",
+            "name": "phpstan/phpdoc-parser",
+            "version": "1.16.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "50d089a3e0904b0fe7e2cf2d4fd37d427d64235a"
+                "url": "https://github.com/phpstan/phpdoc-parser.git",
+                "reference": "e27e92d939e2e3636f0a1f0afaba59692c0bf571"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/50d089a3e0904b0fe7e2cf2d4fd37d427d64235a",
-                "reference": "50d089a3e0904b0fe7e2cf2d4fd37d427d64235a",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/e27e92d939e2e3636f0a1f0afaba59692c0bf571",
+                "reference": "e27e92d939e2e3636f0a1f0afaba59692c0bf571",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.5",
+                "phpstan/phpstan-phpunit": "^1.1",
+                "phpstan/phpstan-strict-rules": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "symfony/process": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\PhpDocParser\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPDoc parser with support for nullable, intersection and generic types",
+            "support": {
+                "issues": "https://github.com/phpstan/phpdoc-parser/issues",
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.16.1"
+            },
+            "time": "2023-02-07T18:11:17+00:00"
+        },
+        {
+            "name": "phpstan/phpstan",
+            "version": "1.10.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "b10ceb526d9607903c5b2673f1fc8775dbe48975"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b10ceb526d9607903c5b2673f1fc8775dbe48975",
+                "reference": "b10ceb526d9607903c5b2673f1fc8775dbe48975",
                 "shasum": ""
             },
             "require": {
@@ -5835,8 +5931,11 @@
                 "static analysis"
             ],
             "support": {
+                "docs": "https://phpstan.org/user-guide/getting-started",
+                "forum": "https://github.com/phpstan/phpstan/discussions",
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.10.6"
+                "security": "https://github.com/phpstan/phpstan/security/policy",
+                "source": "https://github.com/phpstan/phpstan-src"
             },
             "funding": [
                 {
@@ -5852,20 +5951,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-09T16:55:12+00:00"
+            "time": "2023-03-16T15:24:20+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-deprecation-rules.git",
-                "reference": "bcc1e8cdf81c3da1a2ba9188ee94cd7e2a62e865"
+                "reference": "a22b36b955a2e9a3d39fe533b6c1bb5359f9c319"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-deprecation-rules/zipball/bcc1e8cdf81c3da1a2ba9188ee94cd7e2a62e865",
-                "reference": "bcc1e8cdf81c3da1a2ba9188ee94cd7e2a62e865",
+                "url": "https://api.github.com/repos/phpstan/phpstan-deprecation-rules/zipball/a22b36b955a2e9a3d39fe533b6c1bb5359f9c319",
+                "reference": "a22b36b955a2e9a3d39fe533b6c1bb5359f9c319",
                 "shasum": ""
             },
             "require": {
@@ -5898,9 +5997,9 @@
             "description": "PHPStan rules for detecting usage of deprecated classes, methods, properties, constants and traits.",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-deprecation-rules/issues",
-                "source": "https://github.com/phpstan/phpstan-deprecation-rules/tree/1.1.2"
+                "source": "https://github.com/phpstan/phpstan-deprecation-rules/tree/1.1.3"
             },
-            "time": "2023-01-17T16:14:21+00:00"
+            "time": "2023-03-17T07:50:08+00:00"
         },
         {
             "name": "phpstan/phpstan-strict-rules",
@@ -8829,16 +8928,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.14.1",
+            "version": "1.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "b477dd2f89d0751f0e51ffb3a70181f0bc7ab8df"
+                "reference": "bab62023a4745a61170ad5424184533685e73c2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/b477dd2f89d0751f0e51ffb3a70181f0bc7ab8df",
-                "reference": "b477dd2f89d0751f0e51ffb3a70181f0bc7ab8df",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/bab62023a4745a61170ad5424184533685e73c2d",
+                "reference": "bab62023a4745a61170ad5424184533685e73c2d",
                 "shasum": ""
             },
             "require": {
@@ -8877,7 +8976,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.14.1"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.14.2"
             },
             "funding": [
                 {
@@ -8885,7 +8984,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-01-27T15:33:45+00:00"
+            "time": "2023-03-14T16:41:21+00:00"
         },
         {
             "name": "spatie/laravel-personal-data-export",
@@ -11864,16 +11963,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v6.2.7",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "df9599873fdc2540e6f4291f49be4fcc167e9cbf"
+                "reference": "cf8df288db70003681b729b87a022d436b81035f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/df9599873fdc2540e6f4291f49be4fcc167e9cbf",
-                "reference": "df9599873fdc2540e6f4291f49be4fcc167e9cbf",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/cf8df288db70003681b729b87a022d436b81035f",
+                "reference": "cf8df288db70003681b729b87a022d436b81035f",
                 "shasum": ""
             },
             "require": {
@@ -11883,7 +11982,7 @@
             "conflict": {
                 "doctrine/annotations": "<1.12",
                 "phpdocumentor/reflection-docblock": "<3.2.2",
-                "phpdocumentor/type-resolver": "<1.4.0|>=1.7.0",
+                "phpdocumentor/type-resolver": "<1.4.0",
                 "symfony/dependency-injection": "<5.4",
                 "symfony/property-access": "<5.4",
                 "symfony/property-info": "<5.4",
@@ -11891,7 +11990,7 @@
                 "symfony/yaml": "<5.4"
             },
             "require-dev": {
-                "doctrine/annotations": "^1.12|^2",
+                "doctrine/annotations": "^1.12",
                 "phpdocumentor/reflection-docblock": "^3.2|^4.0|^5.0",
                 "symfony/cache": "^5.4|^6.0",
                 "symfony/config": "^5.4|^6.0",
@@ -11945,7 +12044,7 @@
             "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/serializer/tree/v6.2.7"
+                "source": "https://github.com/symfony/serializer/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -11961,7 +12060,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-24T10:42:00+00:00"
+            "time": "2022-11-02T09:08:04+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -13483,49 +13582,6 @@
             "time": "2023-03-02T19:26:24+00:00"
         },
         {
-            "name": "doctrine/deprecations",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
-                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1|^8.0"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^9",
-                "phpunit/phpunit": "^7.5|^8.5|^9.5",
-                "psr/log": "^1|^2|^3"
-            },
-            "suggest": {
-                "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Deprecations\\": "lib/Doctrine/Deprecations"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
-            "homepage": "https://www.doctrine-project.org/",
-            "support": {
-                "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/v1.0.0"
-            },
-            "time": "2022-05-02T15:47:09+00:00"
-        },
-        {
             "name": "doctrine/event-manager",
             "version": "2.0.0",
             "source": {
@@ -13861,16 +13917,16 @@
         },
         {
             "name": "openspout/openspout",
-            "version": "v4.12.2",
+            "version": "v4.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/openspout/openspout.git",
-                "reference": "90ceeefef3750dd2afab95689ed2107dd576905e"
+                "reference": "e01cab951c04ef184c567a880290997e94386f94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openspout/openspout/zipball/90ceeefef3750dd2afab95689ed2107dd576905e",
-                "reference": "90ceeefef3750dd2afab95689ed2107dd576905e",
+                "url": "https://api.github.com/repos/openspout/openspout/zipball/e01cab951c04ef184c567a880290997e94386f94",
+                "reference": "e01cab951c04ef184c567a880290997e94386f94",
                 "shasum": ""
             },
             "require": {
@@ -13938,7 +13994,7 @@
             ],
             "support": {
                 "issues": "https://github.com/openspout/openspout/issues",
-                "source": "https://github.com/openspout/openspout/tree/v4.12.2"
+                "source": "https://github.com/openspout/openspout/tree/v4.13.0"
             },
             "funding": [
                 {
@@ -13950,20 +14006,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-03T07:45:00+00:00"
+            "time": "2023-03-13T14:32:53+00:00"
         },
         {
             "name": "rap2hpoutre/fast-excel",
-            "version": "v5.1.1",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rap2hpoutre/fast-excel.git",
-                "reference": "05bc956fa6121b239c98960ea9b551116f20b058"
+                "reference": "c6d2b8b707b85f7c43028d3b4cc969388d8b6c17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rap2hpoutre/fast-excel/zipball/05bc956fa6121b239c98960ea9b551116f20b058",
-                "reference": "05bc956fa6121b239c98960ea9b551116f20b058",
+                "url": "https://api.github.com/repos/rap2hpoutre/fast-excel/zipball/c6d2b8b707b85f7c43028d3b4cc969388d8b6c17",
+                "reference": "c6d2b8b707b85f7c43028d3b4cc969388d8b6c17",
                 "shasum": ""
             },
             "require": {
@@ -14012,7 +14068,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rap2hpoutre/fast-excel/issues",
-                "source": "https://github.com/rap2hpoutre/fast-excel/tree/v5.1.1"
+                "source": "https://github.com/rap2hpoutre/fast-excel/tree/v5.2.0"
             },
             "funding": [
                 {
@@ -14020,7 +14076,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-09T15:13:18+00:00"
+            "time": "2023-03-13T14:25:33+00:00"
         },
         {
             "name": "spatie/laravel-permission",
