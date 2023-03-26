@@ -1,7 +1,7 @@
 {
     "dependencies": {
         "@sindresorhus/slugify": "sindresorhus/slugify",
-        "prettier": "^2.8.4"
+        "prettier": "^2.8.7"
     },
     "devDependencies": {
         "glob": "^7.2.3",
