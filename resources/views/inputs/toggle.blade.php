@@ -59,7 +59,7 @@
                 'translate-x-full bg-theme-primary-600': value,
                 'translate-x-0 bg-theme-secondary-300 dark:bg-theme-secondary-700': !value,
             }"
-            class="inline-block absolute left-0 w-4 h-4 bg-white rounded-full transition duration-200 ease-in-out transform cursor-pointer"
+            class="inline-block absolute left-0 w-4 h-4 rounded-full transition duration-200 ease-in-out transform cursor-pointer"
         ></span>
     </span>
 
