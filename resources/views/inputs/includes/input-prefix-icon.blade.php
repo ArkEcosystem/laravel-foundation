@@ -2,6 +2,7 @@
     'icon',
     'position' => 'right',
     'iconClass' => '',
+    'iconSize' => 'base',
 ])
 
 @php
@@ -13,5 +14,5 @@
 @endphp
 
 <div class="input-prefix-icon {{ $positionClasses }} {{ $iconClass }}">
-    <x-ark-icon :name="$icon" />
+    <x-ark-icon :name="$icon" :size="$iconSize" />
 </div>
