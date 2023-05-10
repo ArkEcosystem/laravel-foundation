@@ -17,10 +17,14 @@
 
         <div
             @class([
-                'input-wrapper input-wrapper-with-prefix',
+                'input-wrapper input-wrapper-with-prefix' => ($wrapperClassOverride ?? null) === null,
+                ($wrapperClassOverride ?? null),
                 'input-text--error' => $errors->has($name),
+                $containerClass ?? null,
             ])
-            x-bind:class="{ 'input-wrapper-with-prefix--dirty': !! isDirty }"
+            @unless ($disableDirtyStyling ?? false)
+                x-bind:class="{ 'input-wrapper-with-prefix--dirty': !! isDirty }"
+            @endunless
         >
             @if ($icon ?? false)
                 @include('ark::inputs.includes.input-prefix-icon', [
@@ -37,7 +41,10 @@
                 'name'           => $name,
                 'errors'         => null,
                 'id'             => $id ?? $name,
-                'inputTypeClass' => 'input-text-with-prefix',
+                'inputTypeClass' => Arr::toCssClasses([
+                    'input-text-with-prefix' => ($fieldClassOverride ?? null) === null,
+                    ($fieldClassOverride ?? null),
+                ]),
                 'inputClass'     => $inputClass ?? '',
                 'noModel'        => $noModel ?? false,
                 'model'          => $model ?? $name,
