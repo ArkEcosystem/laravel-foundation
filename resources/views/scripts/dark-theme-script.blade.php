@@ -59,5 +59,9 @@
          * @return {string}
          */
         window.getThemeMode = () => _theme;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            toggleTheme();
+        });
     </script>
 @endif
