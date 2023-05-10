@@ -30,6 +30,7 @@
                 @include('ark::inputs.includes.input-prefix-icon', [
                     'icon'     => $icon,
                     'position' => 'left',
+                    'iconSize' => 'sm'
                 ])
             @elseif($prefix ?? false)
                 <div @class(['input-prefix', $prefixClass ?? 'bg-theme-primary-50 dark:bg-theme-secondary-800'])>
