@@ -32,7 +32,6 @@
         "jamesmills/laravel-timezone": "^1.13",
         "jasonmccreary/laravel-test-assertions": "^2.3",
         "jenssegers/agent": "^2.6",
-        "johnkary/phpunit-speedtrap": "^4.0",
         "laravel/fortify": "^1.17",
         "laravel/telescope": "^4.14",
         "league/commonmark": "^2.4",
