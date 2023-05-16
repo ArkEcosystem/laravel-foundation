@@ -9,11 +9,27 @@
     'buttons' => null,
     'buttonsStyle' => 'modal-buttons',
     'closeButtonOnly' => false,
+    'closeButtonClass' => 'modal-close',
     'wireClose' => false,
     'escToClose' => true,
     'fixedPosition' => false,
-    'paddingClass' => 'p-8 sm:p-10'
+    'paddingClass' => 'p-8 sm:p-10',
+    'breakpoint' => 'md',
+    'wrapperClass' => 'modal-content-wrapper',
+    'contentClass' => 'modal-content',
 ])
+
+@php
+    $fixedPositionClass = [
+        'sm' => 'sm:mx-auto',
+        'md' => 'md:mx-auto',
+    ][$breakpoint] ?? 'md:mx-auto';
+
+    $relativePositionClass = [
+        'sm' => 'sm:m-auto',
+        'md' => 'md:m-auto',
+    ][$breakpoint] ?? 'md:m-auto';
+@endphp
 
 <div class="fixed inset-0 z-50 opacity-75 dark:opacity-50 bg-theme-secondary-900 dark:bg-theme-secondary-800"></div>
 
@@ -36,15 +52,29 @@
     @endif
 >
     <div
-        class="modal-content-wrapper @if($fixedPosition) md:mx-auto @else md:m-auto @endif w-full {{ $class }} {{ $widthClass }}"
-        @if($style) style="{{ $style }}" @endif
+        @class([
+            'w-full',
+            $wrapperClass,
+            $fixedPositionClass => $fixedPosition,
+            $relativePositionClass => ! $fixedPosition,
+            $class,
+            $widthClass,
+        ])
+
+        @if($style)
+            style="{{ $style }}"
+        @endif
     >
-        <div class="modal-content custom-scroll {{ $widthClass }}">
+        <div @class([
+            'custom-scroll',
+            $contentClass,
+            $widthClass,
+        ])>
             <div class="{{ $paddingClass }}">
                 @if($wireClose)
                     <button
                         type="button"
-                        class="modal-close"
+                        @class([$closeButtonClass])
                         @if($wireClose ?? false) wire:click="{{ $wireClose }}" @endif
                     >
                         <x-ark-icon name="cross" size="sm" class="m-auto" />
