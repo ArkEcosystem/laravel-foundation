@@ -38,7 +38,7 @@
 ])
 
 <footer {{ $attributes->class('border-t border-theme-secondary-800')->class($backgroundColor) }}>
-    <div class="{{ $wrapperClass }} mx-auto justify-between items-center py-5 space-y-4 lg:flex lg:space-y-0">
+    <div class="{{ $wrapperClass }} mx-auto justify-between items-center py-5 space-y-4 md-lg:flex lg:flex lg:space-y-0">
         <div class="text-sm font-semibold leading-6 break-words">
             <span>
                 {{ date('Y') }}
