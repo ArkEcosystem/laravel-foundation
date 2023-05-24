@@ -42,6 +42,12 @@
     }
 }
 
+@screen md-lg {
+    .table-container table thead th.last-cell-md-lg::after {
+        content: "";
+    }
+}
+
 @screen lg {
     .table-container table thead th.last-cell-lg::after {
         content: "";
@@ -471,6 +477,7 @@
 .table-container table thead th.last-until-xl,
 .table-container table thead th.last-until-lg,
 .table-container table thead th.last-until-md,
+.table-container table thead th.last-until-md-lg,
 .table-container table thead th.last-until-sm,
 .table-container table tbody td.hoverable-cell:last-child .table-cell-content {
     @apply pr-0;
@@ -523,6 +530,29 @@
     }
 
     .table-container table thead th.last-until-md {
+        @apply pr-3;
+    }
+}
+
+@screen md-lg {
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell.last-cell-md-lg
+        > div.table-cell-bg::before {
+        content: none;
+    }
+    .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell.first-cell-md-lg
+        > div.table-cell-bg::before {
+        content: none;
+    }
+
+    .table-container table thead th.last-until-md-lg {
         @apply pr-3;
     }
 }
@@ -828,6 +858,24 @@ body.table-compact
     }
 }
 
+@screen md-lg {
+    .table-container
+        table.table-compact.table-compact-until-md-lg
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-content,
+    body.table-compact.table-compact-until-md-lg
+        .table-container
+        table
+        > tbody
+        > tr
+        > td.hoverable-cell
+        > div.table-cell-content {
+        @apply py-4;
+    }
+}
+
 @screen lg {
     .table-container
         table.table-compact.table-compact-until-lg
@@ -921,6 +969,13 @@ body.table-compact
 
 @screen md {
     .table-container table.sticky-headers th.last-cell-md:before {
+        height: 50%;
+        @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
+    }
+}
+
+@screen md-lg {
+    .table-container table.sticky-headers th.last-cell-md-lg:before {
         height: 50%;
         @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
     }
