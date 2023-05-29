@@ -255,3 +255,12 @@ it('should render with the ID as label target', function (): void {
         ]))
         ->assertSeeHtml('for="id"');
 });
+
+it('should render the slot content', function (): void {
+    $this
+        ->view('ark::inputs.input-with-prefix', createAttributes([
+            'icon'       => 'brands.outline.facebook',
+            'slot' => '<p>testy</p>',
+        ]))
+        ->assertSeeHtml('<p>testy</p>');
+});
