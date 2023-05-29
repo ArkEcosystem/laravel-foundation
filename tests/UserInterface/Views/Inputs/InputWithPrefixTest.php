@@ -260,7 +260,7 @@ it('should render the slot content', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
-            'slot' => '<p>testy</p>',
+            'slot' => 'test content',
         ]))
-        ->assertSeeHtml('<p>testy</p>');
+        ->assertSeeHtml('test content');
 });
