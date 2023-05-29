@@ -33,7 +33,7 @@ it('should render with the given label', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'  => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'  => '',
             'label' => 'Fancy Label',
         ]))
         ->assertSeeHtml('Fancy Label');
@@ -63,7 +63,7 @@ it('should render with the given model', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'  => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'  => '',
             'model' => 'username_model',
         ]))
         ->assertSeeHtml('type="text"')
@@ -75,7 +75,7 @@ it('should render with the given model, but deferred', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'     => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'     => '',
             'model'    => 'username_model',
             'deferred' => true,
         ]))
@@ -88,7 +88,7 @@ it('should render with the given placeholder', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'        => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'        => '',
             'placeholder' => 'placeholder',
         ]))
         ->assertSeeHtml('placeholder="placeholder"');
@@ -98,7 +98,7 @@ it('should render with the given value', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'  => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'  => '',
             'value' => 'value',
         ]))
         ->assertSeeHtml('value="value"');
@@ -108,7 +108,7 @@ it('should render with the given wire:keydown.enter', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'               => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'               => '',
             'wire:keydown.enter' => 'function',
         ]))
         ->assertSeeHtml('wire:keydown.enter="function"');
@@ -118,7 +118,7 @@ it('should render with the given maxlength', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'       => '',
             'maxlength'  => 1,
         ]))
         ->assertSeeHtml('maxlength="1"');
@@ -128,7 +128,7 @@ it('should render with the given autocomplete', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'         => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'         => '',
             'autocomplete' => 'autocomplete',
         ]))
         ->assertSeeHtml('autocomplete="autocomplete"');
@@ -138,7 +138,7 @@ it('should render as readonly', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'     => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'     => '',
             'readonly' => true,
         ]))
         ->assertSeeHtml('readonly');
@@ -148,7 +148,7 @@ it('should render without the label', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'      => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'      => '',
             'hideLabel' => true,
         ]))
         ->assertDontSee('<label', escape: false);
@@ -158,7 +158,7 @@ it('should render with the given input mode', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'      => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'      => '',
             'inputmode' => 'inputmode',
         ]))
         ->assertSeeHtml('inputmode="inputmode"');
@@ -168,7 +168,7 @@ it('should render with the given pattern', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'    => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'    => '',
             'pattern' => 'pattern',
         ]))
         ->assertSeeHtml('pattern="pattern"');
@@ -178,7 +178,7 @@ it('should render with the given class', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'  => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'  => '',
             'class' => 'test-input-class',
         ]))
         ->assertSeeHtml('class="test-input-class"');
@@ -188,7 +188,7 @@ it('should render with the given inputClass', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'       => '',
             'inputClass' => 'inputClass',
         ]))
         ->assertSeeHtml('class="inputClass');
@@ -198,7 +198,7 @@ it('should render with the given containerClass', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'           => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'           => '',
             'containerClass' => 'containerClass',
         ]))
         ->assertSeeHtml('containerClass"');
@@ -211,7 +211,7 @@ it('should render error styling for a label', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'       => '',
             'errors'     => $errors,
             'inputClass' => 'inputClass',
         ]))
@@ -225,7 +225,7 @@ it('should render error styling for an input', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'       => '',
             'errors'     => $errors,
             'inputClass' => 'inputClass',
         ]))
@@ -239,7 +239,7 @@ it('should render an error message', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
-            'slot' => '',
+            'slot'       => '',
             'errors'     => $errors,
             'inputClass' => 'inputClass',
         ]))
@@ -260,7 +260,7 @@ it('should render the slot content', function (): void {
     $this
         ->view('ark::inputs.input-with-prefix', createAttributes([
             'icon'       => 'brands.outline.facebook',
-            'slot' => 'test content',
+            'slot'       => 'test content',
         ]))
         ->assertSeeHtml('test content');
 });
