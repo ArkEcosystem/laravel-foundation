@@ -17,6 +17,7 @@
     'onClose'                => null,
     'disabled'               => false,
     'withPlacement'          => false,
+    'withoutButton'          => false,
 ])
 
 <div
@@ -56,21 +57,23 @@
     @if($wrapperClass) class="{{ $wrapperClass }}" @endif
     @if($dusk) dusk="{{ $dusk }}" @endif
 >
-    <div>
-        <button
-            type="button"
-            :class="{ '{{ $buttonClassExpanded }}' : {{ $dropdownProperty }}, '{{ $buttonClassClosed }}' : !{{ $dropdownProperty }} }"
-            class="flex items-center focus:outline-none dropdown-button transition-default {{ $buttonClass }}"
-            @if($disabled) disabled @else @click="{{ $dropdownProperty }} = !{{ $dropdownProperty }}" @endif
-            @if($buttonTooltip) data-tippy-content="{{ $buttonTooltip }}" @endif
-        >
-            @if($button ?? false)
-                {{ $button }}
-            @else
-                <x-ark-icon name="ellipsis-vertical" />
-            @endif
-        </button>
-    </div>
+    @unless($withoutButton)
+        <div>
+            <button
+                type="button"
+                :class="{ '{{ $buttonClassExpanded }}' : {{ $dropdownProperty }}, '{{ $buttonClassClosed }}' : !{{ $dropdownProperty }} }"
+                class="flex items-center focus:outline-none dropdown-button transition-default {{ $buttonClass }}"
+                @if($disabled) disabled @else @click="{{ $dropdownProperty }} = !{{ $dropdownProperty }}" @endif
+                @if($buttonTooltip) data-tippy-content="{{ $buttonTooltip }}" @endif
+            >
+                @if($button ?? false)
+                    {{ $button }}
+                @else
+                    <x-ark-icon name="ellipsis-vertical" />
+                @endif
+            </button>
+        </div>
+    @endunless
 
     <div
         x-show="{{ $dropdownProperty }}"
