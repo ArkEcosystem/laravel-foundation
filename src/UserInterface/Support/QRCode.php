@@ -6,9 +6,9 @@ namespace ARKEcosystem\Foundation\UserInterface\Support;
 
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use BaconQrCode\Renderer\ImageRenderer;
+use BaconQrCode\Renderer\RendererStyle\Fill;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
-use BaconQrCode\Renderer\RendererStyle\Fill;
 
 final class QRCode
 {
