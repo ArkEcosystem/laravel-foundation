@@ -1,13 +1,17 @@
-window.clipboard = () => {
+window.clipboard = (withCheckmarks) => {
     return {
         copying: false,
         notSupported: false,
+        showCheckmarks: false,
 
         copy(value) {
             this.copying = true;
 
-            const clipboard = window.navigator.clipboard;
+            if (withCheckmarks) {
+                this.showCheckmarks = true;
+            }
 
+            const clipboard = window.navigator.clipboard;
             if (clipboard && window.isSecureContext) {
                 clipboard.writeText(value).then(
                     () => (this.copying = false),
@@ -29,6 +33,12 @@ window.clipboard = () => {
 
             // fallback to execCommand for older browsers and non-https
             this.copyUsingExec(value);
+
+            if (withCheckmarks) {
+                setTimeout(() => {
+                    this.showCheckmarks = false;
+                }, 5000);
+            }
         },
 
         copyUsingExec(value) {
