@@ -479,6 +479,15 @@
 .table-container table thead th.last-until-md,
 .table-container table thead th.last-until-md-lg,
 .table-container table thead th.last-until-sm,
+.table-container table tbody td.hoverable-cell.last-cell-sm .table-cell-content,
+.table-container table tbody td.hoverable-cell.last-cell-md .table-cell-content,
+.table-container
+    table
+    tbody
+    td.hoverable-cell.last-cell-md-lg
+    .table-cell-content,
+.table-container table tbody td.hoverable-cell.last-cell-lg .table-cell-content,
+.table-container table tbody td.hoverable-cell.last-cell-xl .table-cell-content,
 .table-container table tbody td.hoverable-cell:last-child .table-cell-content {
     @apply pr-0;
 }
@@ -506,6 +515,11 @@
         content: none;
     }
 
+    .table-container
+        table
+        tbody
+        td.hoverable-cell.last-cell-sm
+        .table-cell-content,
     .table-container table thead th.last-until-sm {
         @apply pr-3;
     }
@@ -529,6 +543,11 @@
         content: none;
     }
 
+    .table-container
+        table
+        tbody
+        td.hoverable-cell.last-cell-md
+        .table-cell-content,
     .table-container table thead th.last-until-md {
         @apply pr-3;
     }
@@ -552,6 +571,11 @@
         content: none;
     }
 
+    .table-container
+        table
+        tbody
+        td.hoverable-cell.last-cell-md-lg
+        .table-cell-content,
     .table-container table thead th.last-until-md-lg {
         @apply pr-3;
     }
@@ -575,6 +599,11 @@
         content: none;
     }
 
+    .table-container
+        table
+        tbody
+        td.hoverable-cell.last-cell-lg
+        .table-cell-content,
     .table-container table thead th.last-until-lg {
         @apply pr-3;
     }
@@ -598,6 +627,11 @@
         content: none;
     }
 
+    .table-container
+        table
+        tbody
+        td.hoverable-cell.last-cell-xl
+        .table-cell-content,
     .table-container table thead th.last-until-xl {
         @apply pr-3;
     }
