@@ -18,6 +18,7 @@
     'disabled'               => false,
     'withPlacement'          => false,
     'withoutButton'          => false,
+    'placementFallbacks'     => null,
 ])
 
 <div
@@ -27,6 +28,9 @@
                 onClosed: ({{ $onClose }}),
             @endif
             placement: '{{ $withPlacement }}',
+            @if ($placementFallbacks)
+                placementFallbacks: {{ json_encode($placementFallbacks) }},
+            @endif
         })"
         x-init="init"
     @elseif ($initAlpine)

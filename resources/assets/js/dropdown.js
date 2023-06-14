@@ -58,20 +58,31 @@ const Dropdown = {
                 const dropdown = container.querySelector(".dropdown");
                 const button = container.querySelector(".dropdown-button");
 
+                const modifiers = [
+                    {
+                        name: "preventOverflow",
+                    },
+                    {
+                        name: "offset",
+                        options: {
+                            offset: settings.offset,
+                        },
+                    },
+                ];
+
+                if (settings.placementFallbacks) {
+                    modifiers.push({
+                        name: 'flip',
+                        options: {
+                            fallbackPlacements: settings.placementFallbacks,
+                        },
+                    });
+                }
+
                 this.popperInstance = createPopper(button, dropdown, {
                     strategy: "fixed",
                     placement: settings.placement,
-                    modifiers: [
-                        {
-                            name: "preventOverflow",
-                        },
-                        {
-                            name: "offset",
-                            options: {
-                                offset: settings.offset,
-                            },
-                        },
-                    ],
+                    modifiers,
                 });
 
                 this.$watch(propertyName, (expanded) => {
