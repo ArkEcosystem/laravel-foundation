@@ -72,7 +72,7 @@ const Dropdown = {
 
                 if (settings.placementFallbacks) {
                     modifiers.push({
-                        name: 'flip',
+                        name: "flip",
                         options: {
                             fallbackPlacements: settings.placementFallbacks,
                         },
