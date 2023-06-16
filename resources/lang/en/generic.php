@@ -12,8 +12,7 @@ return [
     'type'        => 'Type',
 
     'pagination'  => [
-        'current_to'       => 'Page :currentPage of :lastPage',
-        'current_to_short' => ':currentPage of :lastPage',
+        'current_to' => 'Page :currentPage of :lastPage',
     ],
 
     'upload'      => [
