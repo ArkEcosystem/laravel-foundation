@@ -14,7 +14,10 @@ window.clipboard = (withCheckmarks) => {
             const clipboard = window.navigator.clipboard;
             if (clipboard && window.isSecureContext) {
                 clipboard.writeText(value).then(
-                    () => (this.copying = false),
+                    () => {
+                        this.copying = false;
+                        this.handleCheckmarks();
+                    },
                     () => {
                         this.copying = false;
 
@@ -34,11 +37,7 @@ window.clipboard = (withCheckmarks) => {
             // fallback to execCommand for older browsers and non-https
             this.copyUsingExec(value);
 
-            if (withCheckmarks) {
-                setTimeout(() => {
-                    this.showCheckmarks = false;
-                }, 5000);
-            }
+            this.handleCheckmarks();
         },
 
         copyUsingExec(value) {
@@ -94,6 +93,14 @@ window.clipboard = (withCheckmarks) => {
             const element = document.querySelector(identifier);
 
             this.copy(element.value);
+        },
+
+        handleCheckmarks() {
+            if (withCheckmarks) {
+                setTimeout(() => {
+                    this.showCheckmarks = false;
+                }, 5000);
+            }
         },
     };
 };
