@@ -22,9 +22,12 @@ trait HasPagination
         return (int) request()->query('page', $this->page);
     }
 
-    public function gotoPage(int $page): void
+    public function gotoPage(int $page, bool $emitEvent = true): void
     {
-        $this->emit('pageChanged');
+        if ($emitEvent) {
+            $this->emit('pageChanged');
+        }
+
         $this->setPage($page);
     }
 }
