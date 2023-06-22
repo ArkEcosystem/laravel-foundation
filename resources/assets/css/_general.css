@@ -184,3 +184,21 @@ h4,
 .extended-footer-contact button[type="submit"] {
     @apply button-primary;
 }
+
+/* Tippy Custom Theme */
+.tippy-box[data-theme~="ark"] {
+    @apply bg-theme-secondary-900;
+}
+
+.tippy-box[data-theme~="ark"] .tippy-arrow {
+    @apply text-theme-secondary-900;
+}
+
+/* Dark Mode Tippy Theme (default Tippy color) */
+.dark .tippy-box[data-theme~="ark"] {
+    @apply bg-[#333333];
+}
+
+.dark .tippy-box[data-theme~="ark"] .tippy-arrow {
+    @apply text-[#333333];
+}

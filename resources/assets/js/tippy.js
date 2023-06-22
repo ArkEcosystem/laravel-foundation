@@ -1,10 +1,12 @@
-import tippy from "tippy.js";
 import "tippy.js/dist/tippy.css";
+
+import tippy from "tippy.js";
 
 const visibleTooltips = [];
 
 /** Enable tooltips for components with this data attribute, and global config options */
 const tooltipSettings = {
+    theme: "ark",
     trigger: "mouseenter focus",
     duration: 0,
     onShown: (instance) => {
@@ -93,6 +95,7 @@ document.addEventListener("scroll", () =>
 
 window.initClipboard = () => {
     tippy(".clipboard", {
+        theme: "ark",
         trigger: "click",
         content: (reference) => reference.getAttribute("tooltip-content"),
         onShow(instance) {
