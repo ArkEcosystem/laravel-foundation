@@ -41,6 +41,21 @@ const initTippy = (parentEl = document.body) => {
             tippyInstances.push(tippy(el, instanceSettings));
         }
     });
+
+    // For HTML version
+    Array.from(parentEl.querySelectorAll("[data-tippy-html-content]")).forEach(
+        (el) => {
+            const instanceSettings = { allowHTML: true, ...tooltipSettings };
+            instanceSettings.content = (reference) =>
+                reference.dataset.tippyHtmlContent;
+
+            if (el._tippy) {
+                el._tippy.setProps(instanceSettings);
+            } else {
+                tippyInstances.push(tippy(el, instanceSettings));
+            }
+        }
+    );
 };
 
 const destroyTippy = (parentEl = document.body) => {
