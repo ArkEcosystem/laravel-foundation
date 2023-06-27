@@ -41,11 +41,28 @@ const initTippy = (parentEl = document.body) => {
             tippyInstances.push(tippy(el, instanceSettings));
         }
     });
+
+    // For HTML version
+    Array.from(parentEl.querySelectorAll("[data-tippy-html-content]")).forEach(
+        (el) => {
+            const instanceSettings = { allowHTML: true, ...tooltipSettings };
+            instanceSettings.content = (reference) =>
+                reference.dataset.tippyHtmlContent;
+
+            if (el._tippy) {
+                el._tippy.setProps(instanceSettings);
+            } else {
+                tippyInstances.push(tippy(el, instanceSettings));
+            }
+        }
+    );
 };
 
 const destroyTippy = (parentEl = document.body) => {
     parentEl
-        .querySelectorAll("[data-tippy-content], [data-tippy-hover]")
+        .querySelectorAll(
+            "[data-tippy-content], [data-tippy-hover], [data-tippy-html-content]"
+        )
         .forEach((el) => {
             if (!el._tippy) {
                 console.error(
@@ -70,7 +87,8 @@ const destroyOutdatedTippyInstances = () => {
             !!el.parentNode &&
             // The element still has the tippy attribute
             (el.getAttribute("data-tippy-hover") ||
-                el.getAttribute("data-tippy-content"))
+                el.getAttribute("data-tippy-content") ||
+                el.getAttribute("data-tippy-html-content"))
         ) {
             collection.push(instance);
         } else {
