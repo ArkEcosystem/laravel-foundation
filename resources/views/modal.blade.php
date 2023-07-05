@@ -17,6 +17,7 @@
     'breakpoint' => 'md',
     'wrapperClass' => 'modal-content-wrapper',
     'contentClass' => 'modal-content',
+    'disableOverlayClose' => false,
 ])
 
 @php
@@ -42,7 +43,7 @@
         data-modal
     @endif
     x-data="Modal.livewire({{ $xData }})"
-    @if(!$closeButtonOnly && $wireClose)
+    @if(!$closeButtonOnly && $wireClose && ! $disableOverlayClose)
         @mousedown.self="$wire.{{ $wireClose }}()"
     @endif
     class="flex overflow-y-auto fixed inset-0 z-50 md:py-10 md:px-8"
