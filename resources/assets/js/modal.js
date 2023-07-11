@@ -87,8 +87,14 @@ const Modal = {
         this.trappedFocus = trap.activate();
         this.trappedElement = el;
 
-        window.addEventListener('pauseFocusTrap', this.pauseFocusTrap.bind(this));
-        window.addEventListener('resumeFocusTrap', this.resumeFocusTrap.bind(this));
+        window.addEventListener(
+            "pauseFocusTrap",
+            this.pauseFocusTrap.bind(this)
+        );
+        window.addEventListener(
+            "resumeFocusTrap",
+            this.resumeFocusTrap.bind(this)
+        );
     },
 
     releaseTrappedFocus() {
@@ -100,20 +106,26 @@ const Modal = {
         this.trappedFocus = null;
         this.trappedElement = null;
 
-        window.removeEventListener('pauseFocusTrap', this.pauseFocusTrap.bind(this));
-        window.removeEventListener('resumeFocusTrap', this.resumeFocusTrap.bind(this));
+        window.removeEventListener(
+            "pauseFocusTrap",
+            this.pauseFocusTrap.bind(this)
+        );
+        window.removeEventListener(
+            "resumeFocusTrap",
+            this.resumeFocusTrap.bind(this)
+        );
     },
 
-    pauseFocusTrap () {
-        if (! this.trappedFocus) {
+    pauseFocusTrap() {
+        if (!this.trappedFocus) {
             return;
         }
 
         this.trappedFocus.pause();
     },
 
-    resumeFocusTrap () {
-        if (! this.trappedFocus) {
+    resumeFocusTrap() {
+        if (!this.trappedFocus) {
             return;
         }
 
