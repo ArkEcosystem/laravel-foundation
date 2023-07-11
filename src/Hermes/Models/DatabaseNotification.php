@@ -6,7 +6,6 @@ namespace ARKEcosystem\Foundation\Hermes\Models;
 
 use ARKEcosystem\Foundation\Fortify\Models\Concerns\HasLocalizedTimestamps;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Notifications\DatabaseNotification as BaseNotification;
 use Illuminate\Support\Arr;
