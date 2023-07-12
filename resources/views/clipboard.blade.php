@@ -38,7 +38,7 @@
         @else
             <div
                 :class="{ 'opacity-0': showCheckmarks }"
-                class="transition-default flex items-center"
+                class="flex items-center transition-default"
             >
                 <x-ark-icon
                     name="copy"
