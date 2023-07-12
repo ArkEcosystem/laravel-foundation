@@ -33,15 +33,19 @@
                 name="copy"
                 size="sm"
             />
+
+            {{ $slot }}
         @else
             <div
                 :class="{ 'opacity-0': showCheckmarks }"
-                class="transition-default"
+                class="flex items-center transition-default"
             >
                 <x-ark-icon
                     name="copy"
                     size="sm"
                 />
+
+                {{ $slot }}
             </div>
 
             <div
