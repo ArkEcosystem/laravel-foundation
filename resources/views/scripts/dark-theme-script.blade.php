@@ -46,9 +46,11 @@
                 bubbles: true,
             }));
 
-            if (window.Livewire) {
-                Livewire.emit('themeChanged', _theme);
-            }
+            @unless (app()->isDownForMaintenance())
+                if (window.Livewire) {
+                    Livewire.emit('themeChanged', _theme);
+                }
+            @endunless
         }
 
         toggleTheme();
