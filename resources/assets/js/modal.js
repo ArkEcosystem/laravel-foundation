@@ -71,9 +71,12 @@ const Modal = {
                 } else {
                     disableBodyScroll(scrollable, settings);
                 }
-            }
+            };
 
-            window.addEventListener("resize", this.bodyResizeDisableScrollLockHandler);
+            window.addEventListener(
+                "resize",
+                this.bodyResizeDisableScrollLockHandler
+            );
         }
     },
 
@@ -87,7 +90,10 @@ const Modal = {
         }
 
         if (this.bodyResizeDisableScrollLockHandler !== null) {
-            window.removeEventListener("resize", this.bodyResizeDisableScrollLockHandler);
+            window.removeEventListener(
+                "resize",
+                this.bodyResizeDisableScrollLockHandler
+            );
 
             this.bodyResizeDisableScrollLockHandler = null;
         }
