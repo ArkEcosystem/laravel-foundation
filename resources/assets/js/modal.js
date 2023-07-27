@@ -11,11 +11,13 @@ const Modal = {
     previousNavPaddingRight: undefined,
     trappedElement: null,
     trappedFocus: null,
+    bodyResizeDisableScrollLockHandler: null,
 
     defaultSettings: {
         reserveScrollBarGap: true,
         reserveNavScrollBarGap: true,
         disableFocusTrap: false,
+        disableScrollLockAtWidth: null,
     },
 
     disableBodyScroll(scrollable, settings = {}) {
@@ -59,6 +61,20 @@ const Modal = {
                 this.trapFocus(scrollable);
             }
         }, 50);
+
+        if (settings.disableScrollLockAtWidth !== null) {
+            this.bodyResizeDisableScrollLockHandler = () => {
+                settings = Object.assign({}, this.defaultSettings, settings);
+
+                if (window.innerWidth >= settings.disableScrollLockAtWidth) {
+                    enableBodyScroll(scrollable, settings);
+                } else {
+                    disableBodyScroll(scrollable, settings);
+                }
+            }
+
+            window.addEventListener("resize", this.bodyResizeDisableScrollLockHandler);
+        }
     },
 
     onModalClosed(scrollable, settings = {}) {
@@ -68,6 +84,12 @@ const Modal = {
 
         if (!document.querySelectorAll("[data-modal]").length) {
             clearAllBodyScrollLocks();
+        }
+
+        if (this.bodyResizeDisableScrollLockHandler !== null) {
+            window.removeEventListener("resize", this.bodyResizeDisableScrollLockHandler);
+
+            this.bodyResizeDisableScrollLockHandler = null;
         }
     },
 
