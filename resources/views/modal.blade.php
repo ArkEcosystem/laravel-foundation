@@ -18,6 +18,7 @@
     'wrapperClass' => 'modal-content-wrapper',
     'contentClass' => 'modal-content',
     'disableOverlayClose' => false,
+    'disableScrollLockAtWidth' => null,
 ])
 
 @php
@@ -42,7 +43,9 @@
     @else
         data-modal
     @endif
-    x-data="Modal.livewire({{ $xData }})"
+    x-data="Modal.livewire({{ $xData }}, {
+        disableScrollLockAtWidth: {{ $disableScrollLockAtWidth }},
+    })"
     @if(!$closeButtonOnly && $wireClose && ! $disableOverlayClose)
         @mousedown.self="$wire.{{ $wireClose }}()"
     @endif
