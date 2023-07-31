@@ -219,10 +219,6 @@
     .modal-content {
         max-width: 100% !important;
     }
-
-    .modal-content-wrapper {
-        max-width: 100% !important;
-    }
 }
 
 @screen md {
