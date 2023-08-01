@@ -2,7 +2,7 @@
     'init' => false,
     'xData' => '{}',
     'class' => '',
-    'widthClass' => 'max-w-2xl',
+    'widthClass' => 'max-w-full md:max-w-2xl',
     'contentClass' => null,
     'title' => null,
     'titleClass' => 'inline-block pb-3 font-bold dark:text-theme-secondary-200',
@@ -15,7 +15,17 @@
     'backdrop' => null,
     'square' => false,
     'hideCross' => false,
+    'padding' => 'p-8 sm:p-10',
+    'breakpoint' => 'md',
+    'closeButtonClass' => 'absolute top-0 right-0 p-0 mt-0 mr-0 w-11 h-11 rounded-none sm:mt-6 sm:mr-6 sm:rounded button button-secondary text-theme-secondary-900',
 ])
+
+@php
+    $contentWrapperBreakpointClass = [
+        'sm' => 'sm:m-auto',
+        'md' => 'md:m-auto',
+    ][$breakpoint] ?? 'md:m-auto';
+@endphp
 
 <div
     {{ $attributes }}
@@ -23,13 +33,14 @@
     data-modal="{{ $name }}"
     x-cloak
     @if($init)
-    x-data="Modal.alpine({{ $xData }}, '{{ $name }}')"
+        x-data="Modal.alpine({{ $xData }}, '{{ $name }}')"
     @else
-    x-data="{{ $xData }}"
+        x-data="{{ $xData }}"
     @endif
+
     @if(!$closeButtonOnly && $escToClose)
-    @keydown.escape="hide"
-    tabindex="0"
+        @keydown.escape="hide"
+        tabindex="0"
     @endif
     x-show="shown"
     class="flex overflow-y-auto fixed inset-0 z-50 md:py-10 md:px-8"
@@ -41,9 +52,14 @@
     @endif
 
     <div
-        class="modal-content-wrapper md:m-auto w-full {{ $class }} {{ $widthClass }}"
+        @class([
+            'w-full',
+            $class,
+            $widthClass,
+            $contentWrapperBreakpointClass,
+        ])"
         @if(! $closeButtonOnly && ! $disableOutsideClick)
-        @click.outside="hide"
+            @click.outside="hide"
         @endif
     >
         <div @class([
@@ -53,14 +69,17 @@
             $widthClass,
             $contentClass,
         ])>
-            <div class="p-8 sm:p-10">
+            <div @class($padding)>
                 @if(! $closeButtonOnly && ! $hideCross)
-                <button
-                    class="modal-close"
-                    @click="hide"
-                >
-                    <x-ark-icon name="cross" size="sm" class="m-auto" />
-                </button>
+                    <button
+                        @class([
+                            'transition-default',
+                            $closeButtonClass,
+                        ])
+                        @click="hide"
+                    >
+                        <x-ark-icon name="cross" size="sm" class="m-auto" />
+                    </button>
                 @endif
 
                 @if ($title)
