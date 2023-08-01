@@ -44,7 +44,9 @@
         data-modal
     @endif
     x-data="Modal.livewire({{ $xData }}, {
-        disableScrollLockAtWidth: {{ $disableScrollLockAtWidth }},
+        @if ($disableScrollLockAtWidth)
+            disableScrollLockAtWidth: {{ $disableScrollLockAtWidth }},
+        @endif
     })"
     @if(!$closeButtonOnly && $wireClose && ! $disableOverlayClose)
         @mousedown.self="$wire.{{ $wireClose }}()"
