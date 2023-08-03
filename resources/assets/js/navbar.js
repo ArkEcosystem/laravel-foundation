@@ -60,7 +60,10 @@ const Navbar = {
                 this.nav = nav;
                 this.header = this.$root;
 
-                window.onscroll = this.onScroll.bind(this);
+                window.addEventListener("scroll", () => {
+                    this.onScroll();
+                });
+
                 this.scrollProgress = this.getScrollProgress();
 
                 this.updateStyles(this.scrollProgress);
