@@ -60,7 +60,7 @@ const Navbar = {
                 this.nav = nav;
                 this.header = this.$root;
 
-                window.addEventListener('scroll', () => {
+                window.addEventListener("scroll", () => {
                     this.onScroll();
                 });
 
