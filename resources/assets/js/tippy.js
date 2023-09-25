@@ -1,6 +1,6 @@
 import "tippy.js/dist/tippy.css";
 
-import tippy from "tippy.js";
+import tippy, { hideAll } from "tippy.js";
 
 const visibleTooltips = [];
 
@@ -133,3 +133,4 @@ if (typeof Livewire !== "undefined") {
 }
 
 window.tippy = tippy;
+window.hideAllTooltips = hideAll;
