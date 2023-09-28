@@ -212,8 +212,10 @@ const CustomChart = (
                             this.getCurrencyValue(value),
                     },
                     grid: {
+                        drawTicks: false,
                         display: grid && key === 0,
                         drawBorder: false,
+                        borderDash: [3, 3],
                         color: getAxisThemeConfig(themeMode()).y.color,
                     },
                 });
@@ -291,7 +293,7 @@ const CustomChart = (
                             ...getFontConfig("axis", themeMode()),
                         },
                         grid: {
-                            display: grid,
+                            display: false,
                             drawBorder: false,
                             color: getAxisThemeConfig(themeMode()).x.color,
                         },
