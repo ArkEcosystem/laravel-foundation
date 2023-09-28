@@ -232,9 +232,14 @@ const CustomChart = (
             }
 
             this.$watch("time", () => this.updateChart());
-            window.addEventListener("resize", () =>
-                window.livewire.emit("updateChart")
-            );
+
+            window.addEventListener('resize', () => {
+                try {
+                    this.chart.resize();
+                } catch (e) {
+                    // Hide resize errors - they don't seem to cause any issues
+                }
+            });
 
             const data = {
                 labels: labels,
