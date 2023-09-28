@@ -51,6 +51,7 @@ const CustomChart = (
         draw() {
             super.draw(arguments);
 
+            // Based on https://stackoverflow.com/a/70245628/3637093
             if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
                 const activePoint = this.chart.tooltip._active[0].element;
                 const ctx = this.chart.ctx;
