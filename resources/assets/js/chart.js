@@ -52,7 +52,6 @@ const CustomChart = (
             super.draw(arguments);
 
             if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
-                console.log(this.chart.tooltip._active[0], this.chart.tooltip._active[1]);
                 const activePoint = this.chart.tooltip._active[0].element;
                 const ctx = this.chart.ctx;
                 const x = activePoint.x;
@@ -62,19 +61,16 @@ const CustomChart = (
                 const left = this.chart.chartArea.left;
                 const right = this.chart.chartArea.right;
 
-                // Set line opts
                 ctx.save();
                 ctx.lineWidth = 1;
                 ctx.setLineDash([3, 3]);
                 ctx.strokeStyle = getCrosshairColor(themeMode());
 
-                // Draw vertical line
                 ctx.beginPath();
                 ctx.moveTo(x, topY);
                 ctx.lineTo(x, bottomY);
                 ctx.stroke();
 
-                // Draw horizontal line
                 ctx.beginPath();
                 ctx.moveTo(left, y);
                 ctx.lineTo(right, y);
