@@ -19,6 +19,8 @@ Chart.register(...registerables);
  * @param {Array<Object{name, mode}>} theme
  * @param {Number} time
  * @param {String} currency
+ * @param {Number} yPadding
+ * @param {Number} xPadding
  * @param {Boolean} showCrosshair
  * @return {Object}
  */
@@ -31,6 +33,8 @@ const CustomChart = (
     theme,
     time,
     currency,
+    yPadding = 15,
+    xPadding = 10,
     showCrosshair = false,
 ) => {
     const themeMode = () => {
@@ -201,7 +205,7 @@ const CustomChart = (
                     type: "linear",
                     ticks: {
                         ...getFontConfig("axis", themeMode()),
-                        padding: 15,
+                        padding: yPadding,
                         display: grid && key === 0,
                         suggestedMax: range.max,
                         callback: (value, index, data) =>
@@ -283,7 +287,7 @@ const CustomChart = (
                         ticks: {
                             display: grid,
                             includeBounds: true,
-                            padding: 10,
+                            padding: xPadding,
                             ...getFontConfig("axis", themeMode()),
                         },
                         grid: {

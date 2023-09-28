@@ -9,6 +9,8 @@
     'grid' => false,
     'tooltips' => false,
     'theme' => collect(['name' => 'grey', 'mode' => 'light']),
+    'yPadding' => 15,
+    'xPadding' => 10,
     'showCrosshair' => false,
 ])
 
@@ -22,6 +24,8 @@
         {{ json_encode($theme->toArray()) }},
         '{{ time() }}',
         '{{ $currency }}',
+        {{ $yPadding }},
+        {{ $xPadding }},
         {{ $showCrosshair ? 'true' : 'false' }}
     )"
     wire:key="{{ $id.time() }}"
