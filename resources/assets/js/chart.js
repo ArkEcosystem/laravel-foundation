@@ -35,7 +35,7 @@ const CustomChart = (
     currency,
     yPadding = 15,
     xPadding = 10,
-    showCrosshair = false,
+    showCrosshair = false
 ) => {
     const themeMode = () => {
         if (theme.mode === "auto") {
@@ -52,7 +52,10 @@ const CustomChart = (
             super.draw(arguments);
 
             // Based on https://stackoverflow.com/a/70245628/3637093
-            if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
+            if (
+                this.chart.tooltip._active &&
+                this.chart.tooltip._active.length
+            ) {
                 const activePoint = this.chart.tooltip._active[0].element;
                 const ctx = this.chart.ctx;
                 const x = activePoint.x;
@@ -82,7 +85,7 @@ const CustomChart = (
         }
     }
 
-    LineWithCrosshair.id = 'lineWithCrosshair';
+    LineWithCrosshair.id = "lineWithCrosshair";
     LineWithCrosshair.defaults = LineController.defaults;
 
     Chart.register(LineWithCrosshair);
@@ -230,7 +233,7 @@ const CustomChart = (
 
             this.$watch("time", () => this.updateChart());
 
-            window.addEventListener('resize', () => {
+            window.addEventListener("resize", () => {
                 try {
                     this.chart.resize();
                 } catch (e) {
@@ -265,13 +268,10 @@ const CustomChart = (
                             label: (context) =>
                                 this.getCurrencyValue(context.raw),
                             labelTextColor: (context) =>
-                                getFontConfig("tooltip", themeMode())
-                                    .fontColor,
+                                getFontConfig("tooltip", themeMode()).fontColor,
                         },
-                        backgroundColor: getFontConfig(
-                            "tooltip",
-                            themeMode()
-                        ).backgroundColor,
+                        backgroundColor: getFontConfig("tooltip", themeMode())
+                            .backgroundColor,
                     },
                 },
                 hover: {
