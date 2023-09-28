@@ -3,9 +3,10 @@ import {
     makeGradient,
     getFontConfig,
     getAxisThemeConfig,
+    getCrosshairColor,
 } from "./chart-theme";
 
-import { Chart, registerables } from "chart.js";
+import { Chart, registerables, LineController } from "chart.js";
 
 Chart.register(...registerables);
 
@@ -18,6 +19,7 @@ Chart.register(...registerables);
  * @param {Array<Object{name, mode}>} theme
  * @param {Number} time
  * @param {String} currency
+ * @param {Boolean} showCrosshair
  * @return {Object}
  */
 const CustomChart = (
@@ -28,8 +30,62 @@ const CustomChart = (
     tooltips,
     theme,
     time,
-    currency
+    currency,
+    showCrosshair = false,
 ) => {
+    const themeMode = () => {
+        if (theme.mode === "auto") {
+            return ["light", "dark"].includes(localStorage.theme)
+                ? localStorage.theme
+                : "light";
+        }
+
+        return theme.mode;
+    };
+
+    class LineWithCrosshair extends LineController {
+        draw() {
+            super.draw(arguments);
+
+            if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
+                console.log(this.chart.tooltip._active[0], this.chart.tooltip._active[1]);
+                const activePoint = this.chart.tooltip._active[0].element;
+                const ctx = this.chart.ctx;
+                const x = activePoint.x;
+                const y = activePoint.y;
+                const topY = this.chart.legend.bottom;
+                const bottomY = this.chart.chartArea.bottom;
+                const left = this.chart.chartArea.left;
+                const right = this.chart.chartArea.right;
+
+                // Set line opts
+                ctx.save();
+                ctx.lineWidth = 1;
+                ctx.setLineDash([3, 3]);
+                ctx.strokeStyle = getCrosshairColor(themeMode());
+
+                // Draw vertical line
+                ctx.beginPath();
+                ctx.moveTo(x, topY);
+                ctx.lineTo(x, bottomY);
+                ctx.stroke();
+
+                // Draw horizontal line
+                ctx.beginPath();
+                ctx.moveTo(left, y);
+                ctx.lineTo(right, y);
+                ctx.stroke();
+
+                ctx.restore();
+            }
+        }
+    }
+
+    LineWithCrosshair.id = 'lineWithCrosshair';
+    LineWithCrosshair.defaults = LineController.defaults;
+
+    Chart.register(LineWithCrosshair);
+
     return {
         time: time,
         chart: null,
@@ -71,16 +127,6 @@ const CustomChart = (
             this.chart.update();
         },
 
-        themeMode() {
-            if (theme.mode === "auto") {
-                return ["light", "dark"].includes(localStorage.theme)
-                    ? localStorage.theme
-                    : "light";
-            }
-
-            return theme.mode;
-        },
-
         loadData() {
             const datasets = [];
 
@@ -95,7 +141,7 @@ const CustomChart = (
 
             values.forEach((value, key) => {
                 let themeName = value.type === "bar" ? "grey" : theme.name;
-                let graphic = getInfoFromThemeName(themeName, this.themeMode());
+                let graphic = getInfoFromThemeName(themeName, themeMode());
                 let backgroundColor = graphic.backgroundColor;
                 if (backgroundColor.hasOwnProperty("gradient")) {
                     backgroundColor = makeGradient(
@@ -104,12 +150,17 @@ const CustomChart = (
                     );
                 }
 
+                let chartType = value.type || "line";
+                if (showCrosshair && chartType === "line") {
+                    chartType = "lineWithCrosshair";
+                }
+
                 datasets.push({
                     fill: true,
                     stack: "combined",
                     label: value.name || "",
                     data: value.data || value,
-                    type: value.type || "line",
+                    type: chartType,
                     backgroundColor:
                         value.type === "bar"
                             ? graphic.borderColor
@@ -149,7 +200,7 @@ const CustomChart = (
                     display: grid && key === 0,
                     type: "linear",
                     ticks: {
-                        ...getFontConfig("axis", this.themeMode()),
+                        ...getFontConfig("axis", themeMode()),
                         padding: 15,
                         display: grid && key === 0,
                         suggestedMax: range.max,
@@ -159,7 +210,7 @@ const CustomChart = (
                     grid: {
                         display: grid && key === 0,
                         drawBorder: false,
-                        color: getAxisThemeConfig(this.themeMode()).y.color,
+                        color: getAxisThemeConfig(themeMode()).y.color,
                     },
                 });
             });
@@ -206,12 +257,12 @@ const CustomChart = (
                             label: (context) =>
                                 this.getCurrencyValue(context.raw),
                             labelTextColor: (context) =>
-                                getFontConfig("tooltip", this.themeMode())
+                                getFontConfig("tooltip", themeMode())
                                     .fontColor,
                         },
                         backgroundColor: getFontConfig(
                             "tooltip",
-                            this.themeMode()
+                            themeMode()
                         ).backgroundColor,
                     },
                 },
@@ -233,12 +284,12 @@ const CustomChart = (
                             display: grid,
                             includeBounds: true,
                             padding: 10,
-                            ...getFontConfig("axis", this.themeMode()),
+                            ...getFontConfig("axis", themeMode()),
                         },
                         grid: {
                             display: grid,
                             drawBorder: false,
-                            color: getAxisThemeConfig(this.themeMode()).x.color,
+                            color: getAxisThemeConfig(themeMode()).x.color,
                         },
                     },
                 },

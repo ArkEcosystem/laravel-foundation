@@ -9,6 +9,7 @@
     'grid' => false,
     'tooltips' => false,
     'theme' => collect(['name' => 'grey', 'mode' => 'light']),
+    'showCrosshair' => false,
 ])
 
 <div
@@ -21,6 +22,7 @@
         {{ json_encode($theme->toArray()) }},
         '{{ time() }}',
         '{{ $currency }}',
+        {{ $showCrosshair ? 'true' : 'false' }}
     )"
     wire:key="{{ $id.time() }}"
     {{ $attributes->only('class') }}
