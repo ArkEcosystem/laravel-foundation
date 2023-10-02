@@ -22,6 +22,8 @@ Chart.register(...registerables);
  * @param {Number} yPadding
  * @param {Number} xPadding
  * @param {Boolean} showCrosshair
+ * @param {CallableFunction} tooltipHandler
+ * @param {CallableFunction} xTicksCallback
  * @return {Object}
  */
 const CustomChart = (
@@ -35,7 +37,9 @@ const CustomChart = (
     currency,
     yPadding = 15,
     xPadding = 10,
-    showCrosshair = false
+    showCrosshair = false,
+    tooltipHandler = null,
+    xTicksCallback = null,
 ) => {
     const themeMode = () => {
         if (theme.mode === "auto") {
@@ -246,7 +250,29 @@ const CustomChart = (
                 datasets: this.loadData(),
             };
 
+            let tooltipOptions = {
+                enabled: tooltips,
+                external: this.tooltip,
+                displayColors: false,
+                callbacks: {
+                    title: (items) => {},
+                    label: (context) =>
+                        this.getCurrencyValue(context.raw),
+                    labelTextColor: (context) =>
+                        getFontConfig("tooltip", themeMode()).fontColor,
+                },
+                backgroundColor: getFontConfig("tooltip", themeMode())
+                    .backgroundColor,
+            };
+            if (tooltipHandler) {
+                tooltipOptions = {
+                    enabled: false,
+                    external: tooltipHandler,
+                };
+            }
+
             const options = {
+                currency,
                 spanGaps: true,
                 normalized: true,
                 responsive: true,
@@ -259,20 +285,7 @@ const CustomChart = (
                 },
                 plugins: {
                     legend: { display: false },
-                    tooltip: {
-                        enabled: tooltips,
-                        external: this.tooltip,
-                        displayColors: false,
-                        callbacks: {
-                            title: (items) => {},
-                            label: (context) =>
-                                this.getCurrencyValue(context.raw),
-                            labelTextColor: (context) =>
-                                getFontConfig("tooltip", themeMode()).fontColor,
-                        },
-                        backgroundColor: getFontConfig("tooltip", themeMode())
-                            .backgroundColor,
-                    },
+                    tooltip: tooltipOptions,
                 },
                 hover: {
                     mode: "nearest",
@@ -302,6 +315,10 @@ const CustomChart = (
                     },
                 },
             };
+
+            if (xTicksCallback) {
+                options.scales.xAxes.ticks.callback = xTicksCallback;
+            }
 
             this.chart = new Chart(this.getCanvasContext(), { data, options });
         },
