@@ -39,7 +39,7 @@ const CustomChart = (
     xPadding = 10,
     showCrosshair = false,
     tooltipHandler = null,
-    xTicksCallback = null,
+    xTicksCallback = null
 ) => {
     const themeMode = () => {
         if (theme.mode === "auto") {
@@ -256,8 +256,7 @@ const CustomChart = (
                 displayColors: false,
                 callbacks: {
                     title: (items) => {},
-                    label: (context) =>
-                        this.getCurrencyValue(context.raw),
+                    label: (context) => this.getCurrencyValue(context.raw),
                     labelTextColor: (context) =>
                         getFontConfig("tooltip", themeMode()).fontColor,
                 },
