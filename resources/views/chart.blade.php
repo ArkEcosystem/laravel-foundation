@@ -9,6 +9,9 @@
     'grid' => false,
     'tooltips' => false,
     'theme' => collect(['name' => 'grey', 'mode' => 'light']),
+    'yPadding' => 15,
+    'xPadding' => 10,
+    'showCrosshair' => false,
 ])
 
 <div
@@ -21,11 +24,17 @@
         {{ json_encode($theme->toArray()) }},
         '{{ time() }}',
         '{{ $currency }}',
+        {{ $yPadding }},
+        {{ $xPadding }},
+        {{ $showCrosshair ? 'true' : 'false' }}
     )"
     wire:key="{{ $id.time() }}"
     {{ $attributes->only('class') }}
 >
-    <div wire:ignore class="relative w-full h-full">
+    <div
+        class="relative w-full h-full"
+        wire:ignore
+    >
         <canvas
             x-ref="{{ $id }}"
             @if($canvasClass) class="{{ $canvasClass }}" @endif

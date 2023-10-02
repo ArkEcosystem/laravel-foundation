@@ -213,21 +213,28 @@ export function getAxisThemeConfig(mode) {
     const config = {
         light: {
             x: {
-                color: "rgba(238,243,245,1)", // theme-secondary-200
+                color: "rgba(219, 222, 229, 1)", // theme-secondary-300
             },
             y: {
-                color: "rgba(238,243,245,1)", // theme-secondary-200
+                color: "rgba(219, 222, 229, 1)", // theme-secondary-300
             },
         },
         dark: {
             x: {
-                color: "rgba(60,66,73,1)", // theme-secondary-800
+                color: "rgba(61, 68, 77, 1)", // theme-dark-700
             },
             y: {
-                color: "rgba(60,66,73,1)", // theme-secondary-800
+                color: "rgba(61, 68, 77, 1)", // theme-dark-700
             },
         },
     };
 
     return config[mode];
+}
+
+export function getCrosshairColor(mode) {
+    return {
+        light: "rgba(99, 114, 130, 1)", // theme-secondary-700,
+        dark: "rgba(164, 177, 188, 1)", // theme-dark-200,
+    }[mode];
 }
