@@ -12,6 +12,8 @@
     'yPadding' => 15,
     'xPadding' => 10,
     'showCrosshair' => false,
+    'tooltipHandler' => null,
+    'ticksCallback' => null,
 ])
 
 <div
@@ -26,7 +28,9 @@
         '{{ $currency }}',
         {{ $yPadding }},
         {{ $xPadding }},
-        {{ $showCrosshair ? 'true' : 'false' }}
+        {{ $showCrosshair ? 'true' : 'false' }},
+        {{ $tooltipHandler ? $tooltipHandler : 'null' }},
+        {{ $ticksCallback ? $ticksCallback : 'null' }}
     )"
     wire:key="{{ $id.time() }}"
     {{ $attributes->only('class') }}
