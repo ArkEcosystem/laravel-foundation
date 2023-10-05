@@ -39,7 +39,7 @@ const CustomChart = (
     xPadding = 10,
     showCrosshair = false,
     tooltipHandler = null,
-    hasDateTimeLabels = false,
+    hasDateTimeLabels = false
 ) => {
     const themeMode = () => {
         if (theme.mode === "auto") {
@@ -321,8 +321,8 @@ const CustomChart = (
                 options.scales.xAxes.ticks.autoSkipPadding = 10;
                 options.scales.xAxes.time = {
                     displayFormats: {
-                        hour: 'HH:00',
-                        day: 'dd.MM',
+                        hour: "HH:00",
+                        day: "dd.MM",
                         month: "MMM yyyy",
                         year: "yyyy",
                     },
