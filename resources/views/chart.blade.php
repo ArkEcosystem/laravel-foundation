@@ -13,7 +13,7 @@
     'xPadding' => 10,
     'showCrosshair' => false,
     'tooltipHandler' => null,
-    'ticksCallback' => null,
+    'hasDateTimeLabels' => null,
 ])
 
 <div
@@ -30,7 +30,7 @@
         {{ $xPadding }},
         {{ $showCrosshair ? 'true' : 'false' }},
         {{ $tooltipHandler ? $tooltipHandler : 'null' }},
-        {{ $ticksCallback ? $ticksCallback : 'null' }}
+        {{ $hasDateTimeLabels ? 'true' : 'false' }},
     )"
     wire:key="{{ $id.time() }}"
     {{ $attributes->only('class') }}
