@@ -22,8 +22,8 @@ Chart.register(...registerables);
  * @param {Number} yPadding
  * @param {Number} xPadding
  * @param {Boolean} showCrosshair
- * @param {CallableFunction} tooltipHandler
- * @param {CallableFunction} xTicksCallback
+ * @param {CallableFunction|null} tooltipHandler
+ * @param {Boolean} hasDateTimeLabels
  * @return {Object}
  */
 const CustomChart = (
@@ -39,7 +39,7 @@ const CustomChart = (
     xPadding = 10,
     showCrosshair = false,
     tooltipHandler = null,
-    xTicksCallback = null
+    hasDateTimeLabels = false
 ) => {
     const themeMode = () => {
         if (theme.mode === "auto") {
@@ -315,8 +315,18 @@ const CustomChart = (
                 },
             };
 
-            if (xTicksCallback) {
-                options.scales.xAxes.ticks.callback = xTicksCallback;
+            if (hasDateTimeLabels) {
+                options.scales.xAxes.type = "time";
+                options.scales.xAxes.ticks.maxRotation = 0;
+                options.scales.xAxes.ticks.autoSkipPadding = 10;
+                options.scales.xAxes.time = {
+                    displayFormats: {
+                        hour: "HH:00",
+                        day: "dd.MM",
+                        month: "MMM yyyy",
+                        year: "yyyy",
+                    },
+                };
             }
 
             this.chart = new Chart(this.getCanvasContext(), { data, options });
