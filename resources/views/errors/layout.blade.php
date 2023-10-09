@@ -14,7 +14,8 @@
 
     @if ($code ?? null)
         @if (View::exists('components.metadata'))
-            <x-metadata
+            <x-dynamic-component
+                component="metadata"
                 :page="$code"
                 :detail="['error' => trans('ui::errors.'.$code)]"
             />
