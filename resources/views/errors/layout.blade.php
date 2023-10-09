@@ -13,7 +13,14 @@
     @endphp
 
     @if ($code ?? null)
-        @section('title', trans('ui::errors.'.$code) . ' | '.config('app.name'))
+        @if (View::exists('components.metadata'))
+            <x-metadata
+                :page="$code"
+                :detail="['error' => trans('ui::errors.'.$code)]"
+            />
+        @else
+            @section('title', trans('ui::errors.'.$code) . ' | '.config('app.name'))
+        @endif
 
         @section('image')
             <x-ark-icon
