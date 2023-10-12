@@ -11,8 +11,8 @@
     'terms' => [], // Needs `url` and `label` to display the Terms of Service link...
     'socials' => [
         [
-            'icon' => 'brands.solid.twitter',
-            'url' => trans('ui::urls.twitter')
+            'icon' => 'brands.x',
+            'url' => trans('ui::urls.x')
         ],
         [
             'icon' => 'brands.solid.linkedin',
