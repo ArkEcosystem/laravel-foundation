@@ -24,6 +24,7 @@ Chart.register(...registerables);
  * @param {Boolean} showCrosshair
  * @param {CallableFunction|null} tooltipHandler
  * @param {Boolean} hasDateTimeLabels
+ * @param {String|null} dateUnitOverride
  * @return {Object}
  */
 const CustomChart = (
@@ -39,7 +40,8 @@ const CustomChart = (
     xPadding = 10,
     showCrosshair = false,
     tooltipHandler = null,
-    hasDateTimeLabels = false
+    hasDateTimeLabels = false,
+    dateUnitOverride = null
 ) => {
     const themeMode = () => {
         if (theme.mode === "auto") {
@@ -318,7 +320,9 @@ const CustomChart = (
             if (hasDateTimeLabels) {
                 options.scales.xAxes.type = "time";
                 options.scales.xAxes.ticks.maxRotation = 0;
-                options.scales.xAxes.ticks.autoSkipPadding = 10;
+                options.scales.xAxes.ticks.autoSkipPadding = 20;
+                options.scales.yAxes.ticks.autoSkipPadding = 15;
+
                 options.scales.xAxes.time = {
                     displayFormats: {
                         hour: "HH:00",
@@ -327,6 +331,10 @@ const CustomChart = (
                         year: "yyyy",
                     },
                 };
+
+                if (dateUnitOverride) {
+                    options.scales.xAxes.time.unit = dateUnitOverride;
+                }
             }
 
             this.chart = new Chart(this.getCanvasContext(), { data, options });
