@@ -14,6 +14,7 @@
     'showCrosshair' => false,
     'tooltipHandler' => null,
     'hasDateTimeLabels' => null,
+    'dateUnitOverride' => null,
 ])
 
 <div
@@ -31,6 +32,11 @@
         {{ $showCrosshair ? 'true' : 'false' }},
         {{ $tooltipHandler ? $tooltipHandler : 'null' }},
         {{ $hasDateTimeLabels ? 'true' : 'false' }},
+        @if ($dateUnitOverride)
+            '{{ $dateUnitOverride }}',
+        @else
+            null,
+        @endif
     )"
     wire:key="{{ $id.time() }}"
     {{ $attributes->only('class') }}
