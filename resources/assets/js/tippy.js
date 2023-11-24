@@ -33,6 +33,9 @@ const initTippy = (parentEl = document.body) => {
             instanceSettings.trigger = "mouseenter";
             instanceSettings.content = (reference) =>
                 reference.dataset.tippyHover;
+        } else {
+            instanceSettings.content = (reference) =>
+                reference.dataset.tippyContent;
         }
 
         if (el._tippy) {
