@@ -191,7 +191,7 @@ export function getFontConfig(type, mode) {
             },
             dark: {
                 ..._default.axis,
-                color: "rgba(99,114,130,1)", // theme-secondary-700
+                color: "rgba(164, 177, 188, 1)", // theme-dark-200
             },
         },
         tooltip: {
