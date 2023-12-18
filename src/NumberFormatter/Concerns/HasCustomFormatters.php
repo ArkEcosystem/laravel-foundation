@@ -29,9 +29,9 @@ trait HasCustomFormatters
             $result = number_format((float) ResolveScientificNotation::execute((float) $value), $decimals ?? 8);
 
             if (Str::contains((string) $result, '.')) {
-                $result = rtrim(rtrim((string)$result, '0'), '.');
+                $result = rtrim(rtrim((string) $result, '0'), '.');
             }
-        } else if (Str::contains((string) $value, ',')) {
+        } elseif (Str::contains((string) $value, ',')) {
             $result = $value;
         }
 
