@@ -25,10 +25,18 @@ trait HasCustomFormatters
     {
         $result = $this->formatWithDecimal((float) $value);
 
-        if (Str::contains((string) $value, ',')) {
-            $result = $value;
-        } elseif (Str::contains((string) $value, '.')) {
+        if (Str::contains((string) $value, '.')) {
             $result = number_format((float) ResolveScientificNotation::execute((float) $value), $decimals ?? 8);
+
+            if (Str::contains((string) $result, '.')) {
+                $result = rtrim(rtrim((string)$result, '0'), '.');
+            }
+        } else if (Str::contains((string) $value, ',')) {
+            $result = $value;
+        }
+
+        // Gets rid of trailing .00 if amount of decimals is 0
+        if ($decimals === 0 && Str::contains((string) $result, '.')) {
             $result = rtrim(rtrim($result, '0'), '.');
         }
 
