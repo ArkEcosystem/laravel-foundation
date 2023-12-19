@@ -193,6 +193,10 @@ export function getFontConfig(type, mode) {
                 ..._default.axis,
                 color: "rgba(164, 177, 188, 1)", // theme-dark-200
             },
+            dim: {
+                ..._default.axis,
+                color: "rgba(158, 179, 219, 1)", // theme-dim-200
+            },
         },
         tooltip: {
             light: {
@@ -202,6 +206,10 @@ export function getFontConfig(type, mode) {
             dark: {
                 fontColor: "rgba(165,173,185,1)", // theme-secondary-500
                 backgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+            },
+            dim: {
+                fontColor: "rgba(158, 179, 219,1)", // theme-dim-200
+                backgroundColor: "rgba(23, 31, 52, 1)", // theme-dim-900
             },
         },
     };
@@ -225,6 +233,14 @@ export function getAxisThemeConfig(mode) {
             },
             y: {
                 color: "rgba(61, 68, 77, 1)", // theme-dark-700
+            },
+        },
+        dim: {
+            x: {
+                color: "rgba(40, 60, 100, 1)", // theme-dim-700
+            },
+            y: {
+                color: "rgba(40, 60, 100, 1)", // theme-dim-700
             },
         },
     };

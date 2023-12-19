@@ -21,7 +21,7 @@ const Navbar = {
             scrollProgress: 0,
             nav: null,
             header: null,
-            dark: false,
+            theme: "light",
             lockBodyBreakpoint: 640,
 
             onScroll() {
@@ -68,7 +68,7 @@ const Navbar = {
 
                 this.updateStyles(this.scrollProgress);
 
-                this.$watch("dark", () =>
+                this.$watch("theme", () =>
                     this.updateStyles(this.getScrollProgress())
                 );
 
@@ -89,16 +89,44 @@ const Navbar = {
                 }
             },
 
+            get themeTransparency() {
+                if (this.theme === 'dark') {
+                    return 0.6;
+                } else if (this.theme === 'dim') {
+                    return 0.6;
+                }
+
+                return 0.22;
+            },
+
+            get themeBorderColor() {
+                if (this.theme === 'dark') {
+                    return [60, 66, 73];
+                } else if (this.theme === 'dim') {
+                    return [40, 60, 100];
+                }
+
+                return [219, 222, 229];
+            },
+
+            get themeBoxShadow() {
+                if (this.theme === 'dark') {
+                    return [18, 18, 19];
+                } else if (this.theme === 'dim') {
+                    return [18, 18, 19];
+                }
+
+                return [192, 200, 207];
+            },
+
             updateShadow(progress) {
-                const maxTransparency = this.dark ? 0.6 : 0.22;
+                const maxTransparency = this.themeTransparency;
                 const shadowTransparency =
                     Math.round(maxTransparency * progress * 100) / 100;
                 const borderTransparency =
                     Math.round((1 - progress) * 100) / 100;
-                const borderColorRgb = this.dark
-                    ? [60, 66, 73]
-                    : [219, 222, 229];
-                const boxShadowRgb = this.dark ? [18, 18, 19] : [192, 200, 207];
+                const borderColorRgb = this.themeBorderColor;
+                const boxShadowRgb = this.themeBoxShadow;
                 this.nav.style.boxShadow = `0px 2px 10px 0px rgba(${boxShadowRgb.join(
                     ", "
                 )}, ${shadowTransparency})`;
