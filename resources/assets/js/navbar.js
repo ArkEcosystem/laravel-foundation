@@ -90,9 +90,9 @@ const Navbar = {
             },
 
             get themeTransparency() {
-                if (this.theme === 'dark') {
+                if (this.theme === "dark") {
                     return 0.6;
-                } else if (this.theme === 'dim') {
+                } else if (this.theme === "dim") {
                     return 0.6;
                 }
 
@@ -100,9 +100,9 @@ const Navbar = {
             },
 
             get themeBorderColor() {
-                if (this.theme === 'dark') {
+                if (this.theme === "dark") {
                     return [60, 66, 73];
-                } else if (this.theme === 'dim') {
+                } else if (this.theme === "dim") {
                     return [40, 60, 100];
                 }
 
@@ -110,9 +110,9 @@ const Navbar = {
             },
 
             get themeBoxShadow() {
-                if (this.theme === 'dark') {
+                if (this.theme === "dark") {
                     return [18, 18, 19];
-                } else if (this.theme === 'dim') {
+                } else if (this.theme === "dim") {
                     return [18, 18, 19];
                 }
 
