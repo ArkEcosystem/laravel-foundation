@@ -22,6 +22,19 @@ function themes() {
                 pointBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
                 pointHoverBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
             },
+            dim: {
+                ..._default,
+                borderColor: "rgba(238,243,245,1)", // theme-secondary-200
+                pointHoverBorderColor: "rgba(238,243,245,1)", // theme-secondary-200
+                backgroundColor: {
+                    gradient: [
+                        { stop: 0, value: "rgba(238,243,245,0.5)" }, // theme-secondary-200
+                        { stop: 1, value: "rgba(238,243,245,0)" }, // theme-secondary-200
+                    ],
+                },
+                pointBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+                pointHoverBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+            },
             light: {
                 ..._default,
                 borderColor: "rgba(33,34,37,1)", // theme-secondary-900
@@ -39,6 +52,19 @@ function themes() {
 
         grey: {
             dark: {
+                ..._default,
+                borderColor: "rgba(126,138,156,1)", // theme-secondary-600
+                pointHoverBorderColor: "rgba(126,138,156,1)", // theme-secondary-600
+                backgroundColor: {
+                    gradient: [
+                        { stop: 0, value: "rgba(126,138,156,1)" }, // theme-secondary-600
+                        { stop: 1, value: "rgba(126,138,156,0)" }, // theme-secondary-600
+                    ],
+                },
+                pointBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+                pointHoverBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+            },
+            dim: {
                 ..._default,
                 borderColor: "rgba(126,138,156,1)", // theme-secondary-600
                 pointHoverBorderColor: "rgba(126,138,156,1)", // theme-secondary-600
@@ -80,6 +106,19 @@ function themes() {
                 pointBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
                 pointHoverBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
             },
+            dim: {
+                ..._default,
+                borderColor: "rgba(255,174,16,1)", // theme-warning-500
+                pointHoverBorderColor: "rgba(255,174,16,1)", // theme-warning-500
+                backgroundColor: {
+                    gradient: [
+                        { stop: 0, value: "rgba(255,174,16,0.5)" }, // theme-warning-500
+                        { stop: 1, value: "rgba(255,174,16,0)" }, // theme-warning-500
+                    ],
+                },
+                pointBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+                pointHoverBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+            },
             light: {
                 ..._default,
                 borderColor: "rgba(255,174,16,1)", // theme-warning-500
@@ -109,6 +148,19 @@ function themes() {
                 pointBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
                 pointHoverBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
             },
+            dim: {
+                ..._default,
+                borderColor: "rgba(40,149,72,1)", // theme-success-600
+                pointHoverBorderColor: "rgba(40,149,72,1)", // theme-success-600
+                backgroundColor: {
+                    gradient: [
+                        { stop: 0, value: "rgba(40,149,72,0.5)" }, // theme-success-600
+                        { stop: 1, value: "rgba(40,149,72,0)" }, // theme-success-600
+                    ],
+                },
+                pointBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+                pointHoverBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+            },
             light: {
                 ..._default,
                 borderColor: "rgba(40,149,72,1)", // theme-success-600
@@ -126,6 +178,19 @@ function themes() {
 
         red: {
             dark: {
+                ..._default,
+                borderColor: "rgba(222,88,70,1)", // theme-danger-400
+                pointHoverBorderColor: "rgba(222,88,70,1)", // theme-danger-400
+                backgroundColor: {
+                    gradient: [
+                        { stop: 0, value: "rgba(222,88,70,0.5)" }, // theme-danger-400
+                        { stop: 1, value: "rgba(222,88,70,0)" }, // theme-danger-400
+                    ],
+                },
+                pointBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+                pointHoverBackgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+            },
+            dim: {
                 ..._default,
                 borderColor: "rgba(222,88,70,1)", // theme-danger-400
                 pointHoverBorderColor: "rgba(222,88,70,1)", // theme-danger-400
@@ -193,6 +258,10 @@ export function getFontConfig(type, mode) {
                 ..._default.axis,
                 color: "rgba(164, 177, 188, 1)", // theme-dark-200
             },
+            dim: {
+                ..._default.axis,
+                color: "rgba(158, 179, 219, 1)", // theme-dim-200
+            },
         },
         tooltip: {
             light: {
@@ -202,6 +271,10 @@ export function getFontConfig(type, mode) {
             dark: {
                 fontColor: "rgba(165,173,185,1)", // theme-secondary-500
                 backgroundColor: "rgba(33,34,37,1)", // theme-secondary-900
+            },
+            dim: {
+                fontColor: "rgba(158, 179, 219,1)", // theme-dim-200
+                backgroundColor: "rgba(23, 31, 52, 1)", // theme-dim-900
             },
         },
     };
@@ -225,6 +298,14 @@ export function getAxisThemeConfig(mode) {
             },
             y: {
                 color: "rgba(61, 68, 77, 1)", // theme-dark-700
+            },
+        },
+        dim: {
+            x: {
+                color: "rgba(40, 60, 100, 1)", // theme-dim-700
+            },
+            y: {
+                color: "rgba(40, 60, 100, 1)", // theme-dim-700
             },
         },
     };

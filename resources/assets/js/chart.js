@@ -45,7 +45,7 @@ const CustomChart = (
 ) => {
     const themeMode = () => {
         if (theme.mode === "auto") {
-            return ["light", "dark"].includes(localStorage.theme)
+            return ["light", "dark", "dim"].includes(localStorage.theme)
                 ? localStorage.theme
                 : "light";
         }

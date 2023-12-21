@@ -28,9 +28,17 @@
         const toggleTheme = () => {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                document.documentElement.classList.remove('dim');
                 _theme = 'dark';
+            } else if (localStorage.theme === 'dim') {
+                document.documentElement.classList.add('dim');
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                _theme = 'dim';
             } else {
                 document.documentElement.classList.remove('dark');
+                document.documentElement.classList.remove('dim');
                 _theme = 'light';
             }
 

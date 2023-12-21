@@ -39,9 +39,9 @@
         x-data="Navbar.dropdown({
             inverted: @js($inverted ?? false),
             invertOnScroll: @js($invertOnScroll ?? false),
-            dark: window.getThemeMode() === 'dark',
+            theme: window.getThemeMode(),
         })"
-        @theme-changed.window="dark = $event.detail.theme === 'dark'"
+        @theme-changed.window="theme = $event.detail.theme"
     @else
         x-data="Navbar.dropdown({
             inverted: @js($inverted ?? false),
