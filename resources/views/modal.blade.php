@@ -19,6 +19,7 @@
     'contentClass' => 'modal-content',
     'disableOverlayClose' => false,
     'disableScrollLockAtWidth' => null,
+    'overlayClass' => null,
 ])
 
 @php
@@ -33,7 +34,10 @@
     ][$breakpoint] ?? 'md:m-auto';
 @endphp
 
-<div class="fixed inset-0 z-50 opacity-75 dark:opacity-50 bg-theme-secondary-900 dark:bg-theme-secondary-800"></div>
+<div @class([
+    'fixed inset-0 z-50 opacity-75 dark:opacity-50 bg-theme-secondary-900 dark:bg-theme-secondary-800',
+    $overlayClass,
+])></div>
 
 <div
     wire:ignore.self
