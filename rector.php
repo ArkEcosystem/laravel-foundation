@@ -36,12 +36,14 @@ use Rector\TypeDeclaration\Rector\ClassMethod\ReturnNeverTypeRector;
 use Rector\ValueObject\PhpVersion;
 
 return static function (RectorConfig $rectorConfig): void {
+    $dir = getcwd();
+
     $rectorConfig->paths([
-        __DIR__.'/app',
+        $dir.'/app',
     ]);
 
     $rectorConfig->bootstrapFiles([
-        __DIR__.'/vendor/nunomaduro/larastan/bootstrap.php',
+        $dir.'/vendor/nunomaduro/larastan/bootstrap.php',
     ]);
 
     $rectorConfig->phpVersion(PhpVersion::PHP_82);
