@@ -59,7 +59,7 @@ final class TwitterRenderer
         }
 
         return Cache::rememberForever($key, function () use ($url, $dark) {
-            $html = null;
+            $html       = null;
             $properties = [
                 'url'         => $url,
                 'hide_thread' => 1,

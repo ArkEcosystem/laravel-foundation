@@ -14,7 +14,7 @@ final class SubscribeToNewsletter
     {
         Validator::make([
             'email' => $email,
-            'list' => $list,
+            'list'  => $list,
         ], [
             'email' => ['required', 'email'],
             'list'  => ['required', 'string', Rule::in(array_keys(config('newsletter.lists')))],

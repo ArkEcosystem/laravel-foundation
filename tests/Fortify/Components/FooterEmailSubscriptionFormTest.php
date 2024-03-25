@@ -8,7 +8,6 @@ use ARKEcosystem\Foundation\Fortify\Components\FooterEmailSubscriptionForm;
 use Illuminate\Support\Facades\Config;
 use Livewire\Livewire;
 use Spatie\Newsletter\Facades\Newsletter;
-
 use function Tests\createUserModel;
 
 it('can render form', function () {

@@ -11,7 +11,7 @@ return [
      */
     'driver' => env('NEWSLETTER_DRIVER', null),
 
-    /**
+    /*
      * These arguments will be given to the driver.
      */
     'driver_arguments' => [
