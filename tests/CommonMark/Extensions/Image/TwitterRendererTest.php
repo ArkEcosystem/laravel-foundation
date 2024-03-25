@@ -58,6 +58,15 @@ it('returns an empty string if twitter server is down', function () {
         },
     ]);
 
+    Cache::shouldReceive('rememberForever')
+        ->once()
+        ->andReturn(null)
+        ->shouldReceive('forget')
+        ->once()
+        ->shouldReceive('remember')
+        ->once()
+        ->andReturn('');
+
     $mediaUrl = new MediaUrl('twitter', 'arkecosystem/status/1234');
 
     $subject = new TwitterRenderer();

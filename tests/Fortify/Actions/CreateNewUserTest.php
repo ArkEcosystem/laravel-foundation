@@ -119,7 +119,7 @@ it('should require a valid email', function () {
         'password'              => $this->validPassword,
         'password_confirmation' => $this->validPassword,
         'terms'                 => true,
-    ]), 'email', 'The email must be a valid email address.');
+    ]), 'email', 'The email field must be a valid email address.');
 });
 
 it('should require the terms to be accepted', function () {
@@ -132,7 +132,7 @@ it('should require the terms to be accepted', function () {
         'password'              => $this->validPassword,
         'password_confirmation' => $this->validPassword,
         'terms'                 => false,
-    ]), 'terms', 'The terms must be accepted.');
+    ]), 'terms', 'The terms field must be accepted.');
 });
 
 it('password should match the confirmation', function () {
@@ -145,7 +145,7 @@ it('password should match the confirmation', function () {
         'password'              => $this->validPassword,
         'password_confirmation' => 'password',
         'terms'                 => true,
-    ]), 'password_confirmation', 'The password confirmation and password must match.');
+    ]), 'password_confirmation', 'The password confirmation field must match password.');
 });
 
 it('password should be equal to or longer than 12 characters', function () {
@@ -158,7 +158,7 @@ it('password should be equal to or longer than 12 characters', function () {
         'password'              => 'Sec$r2t',
         'password_confirmation' => 'Sec$r2t',
         'terms'                 => true,
-    ]), 'password', 'The password must be at least 12 characters.');
+    ]), 'password', 'The password field must be at least 12 characters.');
 });
 
 it('password should require an uppercase letter', function () {
@@ -171,7 +171,7 @@ it('password should require an uppercase letter', function () {
         'password'              => 'sec$r2t12345',
         'password_confirmation' => 'sec$r2t12345',
         'terms'                 => true,
-    ]), 'password', 'The password must contain at least one uppercase and one lowercase letter.');
+    ]), 'password', 'The password field must contain at least one uppercase and one lowercase letter.');
 });
 
 it('password should require one number', function () {
@@ -184,7 +184,7 @@ it('password should require one number', function () {
         'password'              => 'sec$%Asfhhdfhfdhgd',
         'password_confirmation' => 'sec$%Asfhhdfhfdhgd',
         'terms'                 => true,
-    ]), 'password', 'The password must contain at least one number.');
+    ]), 'password', 'The password field must contain at least one number.');
 });
 
 it('password should require one special character', function () {
@@ -197,7 +197,7 @@ it('password should require one special character', function () {
         'password'              => 'sec23Asfhhdfhfdhgd',
         'password_confirmation' => 'sec23Asfhhdfhfdhgd',
         'terms'                 => true,
-    ]), 'password', 'The password must contain at least one symbol.');
+    ]), 'password', 'The password field must contain at least one symbol.');
 });
 
 it('handles the invitation parameter', function () {
@@ -308,5 +308,5 @@ it('should validate correctly with alt username set to email', function () {
         'password'              => $this->validPassword,
         'password_confirmation' => $this->validPassword,
         'terms'                 => true,
-    ]))->toThrow('The email must be a valid email address.');
+    ]))->toThrow('The email field must be a valid email address.');
 });

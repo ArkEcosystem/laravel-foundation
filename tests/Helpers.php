@@ -60,7 +60,7 @@ function createBrowserSessionForUser(string $ip, User $user, int $unixTime): str
     return $random_id;
 }
 
-function expectValidationError(Closure $callback, string $key, string $reason)
+function expectValidationError(Closure $callback, string $key, string $reason): void
 {
     try {
         $callback();

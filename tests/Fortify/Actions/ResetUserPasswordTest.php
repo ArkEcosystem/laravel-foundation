@@ -30,7 +30,7 @@ it('should throw an exception if the password is too short', function () {
 
     expectValidationError(fn () => resolve(ResetUserPassword::class)->reset($user, [
         'password' => 'pass',
-    ]), 'password', 'The password must be at least 12 characters.');
+    ]), 'password', 'The password field must be at least 12 characters.');
 });
 
 it('should throw an exception if the password is too weak', function () {
@@ -38,7 +38,7 @@ it('should throw an exception if the password is too weak', function () {
 
     expectValidationError(fn () => resolve(ResetUserPassword::class)->reset($user, [
         'password' => 'weak',
-    ]), 'password', 'The password must be at least 12 characters.');
+    ]), 'password', 'The password field must be at least 12 characters.');
 });
 
 it('should throw an exception if the password is not confirmed', function () {
@@ -47,7 +47,7 @@ it('should throw an exception if the password is not confirmed', function () {
     expectValidationError(fn () => resolve(ResetUserPassword::class)->reset($user, [
         'password'              => 'Pas3w05d&123456',
         'password_confirmation' => null,
-    ]), 'password_confirmation', 'The password confirmation and password must match.');
+    ]), 'password_confirmation', 'The password confirmation field must match password.');
 });
 
 it('should throw an exception if the password confirmation does not match', function () {
@@ -56,7 +56,7 @@ it('should throw an exception if the password confirmation does not match', func
     expectValidationError(fn () => resolve(ResetUserPassword::class)->reset($user, [
         'password'              => 'Pas3w05d&123456',
         'password_confirmation' => 'password',
-    ]), 'password_confirmation', 'The password confirmation and password must match.');
+    ]), 'password_confirmation', 'The password confirmation field must match password.');
 });
 
 it('should throw an exception if the password is the same', function () {

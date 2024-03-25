@@ -7,6 +7,7 @@ namespace Tests\Components;
 use ARKEcosystem\Foundation\Fortify\Components\FooterEmailSubscriptionForm;
 use Illuminate\Support\Facades\Config;
 use Livewire\Livewire;
+use Spatie\Newsletter\Facades\Newsletter;
 use function Tests\createUserModel;
 
 it('can render form', function () {
@@ -24,9 +25,7 @@ it('should handle duplicate entries', function () {
     Config::set('newsletter.apiKey', 'test-test');
     Config::set('newsletter.lists.subscribers.id', 'list-id');
 
-    $this
-        ->mock(\Spatie\Newsletter\Newsletter::class)
-        ->shouldReceive('isSubscribed')
+    Newsletter::shouldReceive('isSubscribed')
         ->andReturn(true)
         ->once();
 
@@ -48,13 +47,11 @@ it('should handle subscription', function () {
     Config::set('newsletter.apiKey', 'test-test');
     Config::set('newsletter.lists.subscribers.id', 'list-id');
 
-    $this
-        ->mock(\Spatie\Newsletter\Newsletter::class)
-        ->shouldReceive('isSubscribed')
+    Newsletter::shouldReceive('isSubscribed')
         ->andReturn(false)
-        ->once()
-        ->mock(\Spatie\Newsletter\Newsletter::class)
-        ->shouldReceive('subscribePending')
+        ->once();
+
+    Newsletter::shouldReceive('subscribePending')
         ->andReturn(true)
         ->once();
 

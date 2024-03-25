@@ -42,7 +42,7 @@ it('should throw an exception if the new password is too short', function () {
         'current_password'      => 'password',
         'password'              => 'Pas3w05d&',
         'password_confirmation' => 'Pas3w05d&',
-    ]), 'password', 'The password must be at least 12 characters.');
+    ]), 'password', 'The password field must be at least 12 characters.');
 });
 
 it('should throw an exception if the new password is too weak', function () {
@@ -51,7 +51,7 @@ it('should throw an exception if the new password is too weak', function () {
     expectValidationError(fn () => resolve(UpdateUserPassword::class)->update($user, [
         'current_password' => 'password',
         'password'         => 'weak',
-    ]), 'password', 'The password must be at least 12 characters.');
+    ]), 'password', 'The password field must be at least 12 characters.');
 });
 
 it('should throw an exception if the new password is not confirmed', function () {
@@ -61,7 +61,7 @@ it('should throw an exception if the new password is not confirmed', function ()
         'current_password'      => 'password',
         'password'              => 'Pas3w05d&123456',
         'password_confirmation' => null,
-    ]), 'password_confirmation', 'The password confirmation and password must match.');
+    ]), 'password_confirmation', 'The password confirmation field must match password.');
 });
 
 it('should throw an exception if the new password confirmation does not match', function () {
@@ -71,5 +71,5 @@ it('should throw an exception if the new password confirmation does not match', 
         'current_password'      => 'password',
         'password'              => 'Pas3w05d&123456',
         'password_confirmation' => 'password',
-    ]), 'password_confirmation', 'The password confirmation and password must match.');
+    ]), 'password_confirmation', 'The password confirmation field must match password.');
 });
