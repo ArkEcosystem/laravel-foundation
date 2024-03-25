@@ -20,7 +20,7 @@ final class FooterEmailSubscriptionForm extends Component
         $this->subscribe = false;
         $this->status    = null;
 
-        $this->subscribed = SubscribeToNewsletter::execute($this->email, config('newsletter.defaultListName'));
+        $this->subscribed = SubscribeToNewsletter::execute($this->email, config('newsletter.default_list_name'));
 
         if ($this->subscribed) {
             $this->status = trans('ui::messages.subscription.pending');
