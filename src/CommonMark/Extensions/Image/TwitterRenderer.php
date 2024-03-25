@@ -51,7 +51,7 @@ final class TwitterRenderer
         return $result;
     }
 
-    private static function getEmbed(string $url, bool $dark = false)
+    private static function getEmbed(string $url, bool $dark = false): ?string
     {
         $key = md5($url);
         if ($dark) {
@@ -59,27 +59,30 @@ final class TwitterRenderer
         }
 
         return Cache::rememberForever($key, function () use ($url, $dark) {
+            $html = null;
+            $properties = [
+                'url'         => $url,
+                'hide_thread' => 1,
+                'hide_media'  => 0,
+                'omit_script' => true,
+                'dnt'         => true,
+                'limit'       => 20,
+                'chrome'      => 'nofooter',
+            ];
+
+            if ($dark) {
+                $properties['theme'] = 'dark';
+            }
+
             try {
-                $properties = [
-                    'url'         => $url,
-                    'hide_thread' => 1,
-                    'hide_media'  => 0,
-                    'omit_script' => true,
-                    'dnt'         => true,
-                    'limit'       => 20,
-                    'chrome'      => 'nofooter',
-                ];
-
-                if ($dark) {
-                    $properties['theme'] = 'dark';
-                }
-
                 $response = Http::get('https://publish.twitter.com/oembed', $properties)->json();
 
-                return Arr::get($response, 'html', '');
+                $html = Arr::get($response, 'html', '');
             } catch (ConnectionException $e) {
-                return;
+                //
             }
+
+            return $html;
         });
     }
 }
