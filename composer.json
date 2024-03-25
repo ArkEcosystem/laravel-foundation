@@ -119,6 +119,7 @@
         "orchestra/testbench": "^8.22",
         "pestphp/pest-plugin-parallel": "^1.2",
         "spatie/laravel-permission": "^5.10",
+        "spatie/mailcoach-sdk-php": "^1.4",
         "vyuldashev/nova-permission": "^3.2"
     },
     "suggest": {

@@ -6,13 +6,16 @@ namespace ARKEcosystem\Foundation\Fortify\Actions;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Spatie\Newsletter\NewsletterFacade as Newsletter;
+use Spatie\Newsletter\Facades\Newsletter;
 
 final class SubscribeToNewsletter
 {
     public static function execute(?string $email, string $list): bool
     {
-        Validator::make(compact('email', 'list'), [
+        Validator::make([
+            'email' => $email,
+            'list' => $list,
+        ], [
             'email' => ['required', 'email'],
             'list'  => ['required', 'string', Rule::in(array_keys(config('newsletter.lists')))],
         ])->validate();
