@@ -25,5 +25,5 @@ it('the success json response', function () {
     $response = $response->toResponse($request);
 
     expect($response->getStatusCode())->toBe(200);
-    expect($response->getData('message'))->toBe(['message' => 'We have emailed your password reset link!']);
+    expect($response->getData('message'))->toBe(['message' => 'We have emailed your password reset link.']);
 });
