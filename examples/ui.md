@@ -189,10 +189,13 @@ yarn add -D compressorjs
 @endpush
 ```
 
-3. Open `webpack.mix.js` file and copy the `compress-image.js` script into the public folder:
+3. Open `vite.config.js` file and copy the `compress-image.js` script into the public folder:
 ```js
-mix
-    .js('vendor/arkecosystem/foundation/resources/assets/js/compress-image.js', 'public/js/compress-image.js')
+laravel([
+    ...
+
+    'vendor/arkecosystem/foundation/resources/assets/js/compress-image.js',
+])
 ```
 
 #### Crop functionality (optional)
@@ -212,8 +215,11 @@ mix
 3. Copy the `crop-image.js` script into the public folder:
 
 ```js
-mix
-    .js('vendor/arkecosystem/foundation/resources/assets/js/crop-image.js', 'public/js/crop-image.js')
+laravel([
+    ...
+
+    'vendor/arkecosystem/foundation/resources/assets/js/crop-image.js',
+])
 ```
 
 #### How to use
@@ -288,10 +294,13 @@ yarn add -D compressorjs
 @endpush
 ```
 
-3. Open `webpack.mix.js` file and copy the `compress-image.js` script into the public folder:
+3. Open `vite.config.js` file and copy the `compress-image.js` script into the public folder:
 ```js
-mix
-    .js('vendor/arkecosystem/foundation/resources/assets/js/compress-image.js', 'public/js/compress-image.js')
+laravel([
+    ...
+
+    'vendor/arkecosystem/foundation/resources/assets/js/compress-image.js',
+])
 ```
 
 #### Sort functionality (optional)
@@ -880,9 +889,13 @@ import CustomChart from "@ui/js/chart.js";
 window.CustomChart = CustomChart;
 ```
 
-3. On `webpack.mix.js` extract `chart.js` module:
+3. On `vite.config.js` extract `chart.js` module:
 ```js
-mix.extract(['chart.js']);
+laravel([
+    ...
+
+    'vendor/arkecosystem/foundation/resources/assets/js/chart.js',
+])
 ```
 
 4. Use the component:

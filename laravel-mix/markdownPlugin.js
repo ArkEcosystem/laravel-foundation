@@ -1,3 +1,5 @@
+// TODO: refactor to work with vite - https://app.clickup.com/t/86dtberve
+
 const mix = require('laravel-mix');
 
 class MarkdownPlugin {

@@ -3,7 +3,7 @@
     @section('title', trans('metatags.blog.article-title', ['title' => $article->title]))
 
     @push('scripts')
-        {{-- <script src="{{ mix('js/prism.js') }}"></script> --}}
+        {{-- @vite('resources/js/prism.js') --}}
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     @endpush
 

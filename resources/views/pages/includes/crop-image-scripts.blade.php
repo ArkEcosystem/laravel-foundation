@@ -1,1 +1,1 @@
-<script src="{{ mix('js/crop-image.js') }}"></script>
+@vite('resources/js/crop-image.js')

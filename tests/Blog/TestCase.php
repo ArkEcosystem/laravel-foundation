@@ -26,7 +26,7 @@ class TestCase extends Base
     {
         parent::setUp();
 
-        $this->withoutMix();
+        $this->withoutVite();
         $this->loadMigrationsFrom(dirname(__DIR__).'/database/migrations');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
