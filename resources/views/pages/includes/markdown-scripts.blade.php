@@ -1,6 +1,6 @@
 @props(['toolbar' => 'basic'])
-<script src="{{ mix('js/markdown-editor.js') }}"></script>
-<link rel="stylesheet" href="{{ mix('css/markdown-editor.css') }}">
+
+@vite(['resources/js/markdown-editor.js', 'resources/css/markdown-editor.css'])
 
 @unless($toolbar === 'basic')
     @include('ark::inputs.includes.markdown.embed-link-modal')

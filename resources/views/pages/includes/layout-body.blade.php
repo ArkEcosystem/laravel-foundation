@@ -50,9 +50,7 @@
     @stack('footer')
 
     <!-- Scripts -->
-    <script src="{{ mix('js/manifest.js') }}" defer></script>
-    <script src="{{ mix('js/vendor.js') }}" defer></script>
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    @vite('resources/js/app.js')
 
     @if (config('tracking.analytics.key') && Visitor::isEuropean())
         <x-ark-pages-includes-cookie-banner

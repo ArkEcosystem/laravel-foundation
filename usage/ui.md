@@ -19,15 +19,22 @@ Since this package relies on a few 3rd party packages, you will need to have the
 2. Import the vendor css assets in your `app.css` file
 3. Import the vendor `tailwind.config.js` file in your own tailwind config and build on top of that if you need additional changes
 4. Use the components in your project with `<x-ark-component>`
-5. Add the following snippet to your `webpack.mix.js` file to be able to use the `@ui` alias:
+5. Add the following snippet to your `vite.config.js` file to be able to use the `@ui` alias:
 
 ```js
-mix.webpackConfig({
+defineConfig({
+    ...
+
     resolve: {
         alias: {
-            '@ui': path.resolve(__dirname, 'vendor/arkecosystem/foundation/resources/assets/')
-        }
-    }
+            "@ui": path.resolve(
+                __dirname,
+                "vendor/arkecosystem/foundation/resources/assets/"
+            ),
+        },
+    },
+
+    ...
 })
 ...
 ```
@@ -57,17 +64,21 @@ The navigation bar makes use of our own PHP implementation of [picasso](https://
 
 ### Clipboard
 
-1. Add clipboard to Laravel Mix config
+1. Add clipboard to `vite.config.js` config
 
 ```js
-.copy('vendor/arkecosystem/foundation/resources/assets/js/clipboard.js', 'public/js/clipboard.js')
+laravel([
+    ...
+
+    'vendor/arkecosystem/foundation/resources/assets/js/clipboard.js',
+])
 ```
 
 2. Add clipboard to any pages that need it
 
 ```blade
 @push('scripts')
-    <script src="{{ mix('js/clipboard.js')}}"></script>
+    @vite('resources/js/clipboard.js')
 @endpush
 ```
 
@@ -211,6 +222,7 @@ Assigning to the `window` object is now done in the markdown script itself, ther
 3. Configure webpack.mix with the markdown plugin
 
 ```js
+// TODO: update to vite config - https://app.clickup.com/t/86dtberve
 // Import the following script in the `webpack.mix.js` file
 require('./vendor/arkecosystem/foundation/laravel-mix/markdownPlugin.js');
 
@@ -260,14 +272,19 @@ Accepts `full` for all the plugins and `basic` for only text related buttons.
 
 ### Tags input
 
-1. Add taggle dependency `yarn add taggle` and ensure to copy the scripts to the public directory:
+1. Add taggle dependency `yarn add taggle`
+
+2. Update `vite.config.js`:
 
 ```js
-// webpack.mix.js file
-    mix.copy('node_modules/taggle/dist/taggle.min.js', 'public/js/taggle.js')
+laravel([
+    ...
+
+    'node_modules/taggle/dist/taggle.min.js',
+])
 ```
 
-2. Add the Tags script to the main js file
+3. Add the Tags script to the main js file
 
 ```js
 import Tags from "@ui/js/tags";
@@ -275,15 +292,15 @@ import Tags from "@ui/js/tags";
 window.Tags = Tags;
 ```
 
-3. Ensure to import the taggle scripts
+4. Ensure to import the taggle scripts
 
 ```html
 @push('scripts')
-    <script src="{{ mix('js/taggle.js')}}"></script>
+    @vite('resources/js/taggle.js')
 @endpush
 ```
 
-4. Use the component like the rest of the components. It accepts `tags` and `allowed-tags` props.
+5. Use the component like the rest of the components. It accepts `tags` and `allowed-tags` props.
 
 ```html
 <x-ark-tags :tags="['tag1', 'tag2']" name="tags" :allowed-tags="['taga', 'tagb']" />
@@ -291,14 +308,19 @@ window.Tags = Tags;
 
 ### User tagger input
 
-1. Add tributejs dependency `yarn add tributejs`  and ensure to copy the scripts to the public directory:
+1. Add tributejs dependency `yarn add tributejs`
+
+2. Update `vite.config.js`:
 
 ```js
-// webpack.mix.js file
-    mix.copy('node_modules/tributejs/dist/tribute.min.js', 'public/js/tribute.js')
+laravel([
+    ...
+
+    'node_modules/tributejs/dist/tribute.min.js',
+])
 ```
 
-2. Import the user tagger script into the main js file and import the styles in your css file
+3. Import the user tagger script into the main js file and import the styles in your css file
 
 ```js
 import "@ui/js/user-tagger.js";
@@ -308,15 +330,15 @@ import "@ui/js/user-tagger.js";
 @import "../../vendor/arkecosystem/foundation/resources/assets/css/_user_tagger.css";
 ```
 
-3. Ensure to import the tributejs scripts in the places where the component will be used
+4. Ensure to import the tributejs scripts in the places where the component will be used
 
 ```html
 @push('scripts')
-    <script src="{{ mix('js/tribute.js')}}"></script>
+    @vite('resources/js/tribute.js')
 @endpush
 ```
 
-4. Use the component like you use the textarea input
+5. Use the component like you use the textarea input
 
 ```html
 <x-ark-user-tagger
@@ -330,7 +352,7 @@ import "@ui/js/user-tagger.js";
 >{{ $body }}</x-ark-user-tagger>
 ```
 
-5. This component makes a GET request to the `/api/users/autocomplete` endpoint with the query as `q`, that query should be used to search the users and should return them in the following format:
+6. This component makes a GET request to the `/api/users/autocomplete` endpoint with the query as `q`, that query should be used to search the users and should return them in the following format:
 
 Note: You can change the the URL by using the `endpoint` prop.
 
@@ -350,7 +372,7 @@ Note: You can change the the URL by using the `endpoint` prop.
 ]
 ```
 
-6. The component accepts a `usersInContext` prop that expects an array of usernames. These usernames will be sent in the search query request as  `context` and can be used to show those users first in the response. Useful to show the user in the conversation first.
+7. The component accepts a `usersInContext` prop that expects an array of usernames. These usernames will be sent in the search query request as  `context` and can be used to show those users first in the response. Useful to show the user in the conversation first.
 
 #### Livewire modals
 
@@ -481,17 +503,21 @@ Tippy will now automatically work with our usual tooltip locations. If you need 
 yarn add -D swiper
 ```
 
-2. Add swiper to Laravel Mix config
+2. Add swiper to `vite.config.js`
 
 ```js
-.copy('node_modules/swiper/swiper-bundle.min.js', 'public/js/swiper.js')
+laravel([
+    ...
+
+    'node_modules/swiper/swiper-bundle.min.js',
+])
 ```
 
 3. Add swiper to any pages that need it
 
 ```blade
 @push('scripts')
-    <script src="{{ mix('js/swiper.js')}}"></script>
+    @vite('resources/js/swiper-bundle.min.js')
 @endpush
 ```
 
@@ -543,17 +569,21 @@ Livewire::component('notifications-indicator', NotificationsIndicator::class);
 
 ### Prism Codeblock
 
-1. Add prism js to Laravel webpack mix
+1. Add prism js to `vite.config.js`
 
 ```js
-.js('vendor/arkecosystem/foundation/resources/assets/js/prism.js', 'public/js')
+laravel([
+    ...
+
+    'vendor/arkecosystem/foundation/resources/assets/js/prism.js',
+])
 ```
 
 2. Add prism to any pages that need it
 
 ```blade
 @push('scripts')
-    <script src="{{ mix('js/prism.js')}}"></script>
+    @vite('resources/js/prism.js')
 @endpush
 ```
 
@@ -777,17 +807,18 @@ window.Pagination = Pagination
 2. Import the cookie banner script in your main js file (usually `resources/js/app.js`)
 
 ```js
-import CookieBanner from "@ui/js/cookie-banner";
+import CookieBanner from "@ui/js/cookiebanner";
 window.CookieBanner = CookieBanner;
 ```
 
-1. Add the cookieconsent library into your `webpack.mix.js` file
+1. Add the cookieconsent library into your `vite.config.js` file
 
 ```js
-mix.copy(
-    "vendor/arkecosystem/foundation/resources/assets/js/cookieconsent.js",
-    "public/js/cookie-consent.js"
-)
+laravel([
+    ...
+
+    'vendor/arkecosystem/foundation/resources/assets/js/cookieconsent.js',
+])
 ```
 
 

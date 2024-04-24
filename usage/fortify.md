@@ -116,7 +116,7 @@ private function registerDataBags(): void
 
 ```blade
 @push('scripts')
-    <script src="{{ mix('js/file-download.js')}}"></script>
+    @vite('resources/js/file-download.js')
 @endpush
 ```
 

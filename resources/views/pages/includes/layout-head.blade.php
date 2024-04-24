@@ -45,7 +45,7 @@
     {{ $slot }}
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @vite('resources/css/app.css')
     @livewireStyles
 
     @if (config('tracking.analytics.key') && Visitor::isEuropean())

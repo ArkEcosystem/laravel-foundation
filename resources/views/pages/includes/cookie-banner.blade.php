@@ -19,7 +19,8 @@
     $initMethods[] = sprintf("init({ appName: '%s', domain: '%s', contactUrl: '%s' })", config("app.name"), $domain, $contactUrl);
 @endphp
 
-<script src="{{ mix('js/cookie-consent.js') }}"></script>
+@vite('resources/js/cookie-consent.js')
+
 <script>
     window.addEventListener('load', () => CookieBanner.{!! implode('.', $initMethods) !!});
 </script>
