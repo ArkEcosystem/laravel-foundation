@@ -19,6 +19,7 @@
     'withPlacement'          => false,
     'withoutButton'          => false,
     'placementFallbacks'     => null,
+    'contentClass'           => 'py-1',
 ])
 
 <div
@@ -96,7 +97,13 @@
         @if ($height) data-height="{{ $height }}" @endif
     >
         <div class="{{ $dropdownContentClasses }}" x-cloak>
-            <div class="py-1" @if($closeOnClick ?? true) @click="{{ $dropdownProperty }} = !{{ $dropdownProperty }}" @endif>
+            <div
+                @class($contentClass)
+
+                @if($closeOnClick ?? true)
+                    @click="{{ $dropdownProperty }} = !{{ $dropdownProperty }}"
+                @endif
+            >
                 {{ $slot }}
             </div>
         </div>
