@@ -1,0 +1,1 @@
+https://twitter.com/intent/tweet?text=Awesome+Article&url=https://blog.my-website.com

@@ -65,7 +65,7 @@ jobs:
         run: composer install --no-ansi --no-interaction --no-suggest --no-progress --prefer-dist --optimize-autoloader --ignore-platform-reqs
 
       - name: Run Tests
-        run: composer test
+        run: composer test --parallel
         env:
             DB_CONNECTION: pgsql
             DB_HOST: 127.0.0.1
