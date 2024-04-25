@@ -42,7 +42,7 @@ it('can upload a photo from path', function () {
 });
 
 it('cannot upload a photo with invalid extension', function () {
-    $photo = UploadedFile::fake()->create('logo.gif', 1000, 'image/gif');
+    $photo = UploadedFile::fake()->image('logo.gif', 150, 150)->size(10000);
 
     Livewire::actingAs(MediaUser::fake())
         ->test(UpdateProfilePhotoForm::class)
