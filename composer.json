@@ -114,7 +114,7 @@
         }
     },
     "require-dev": {
-        "laravel/nova": "^4.13",
+        "laravel/nova": "4.33.0",
         "orchestra/testbench": "^8.22",
         "spatie/laravel-permission": "^5.10",
         "spatie/mailcoach-sdk-php": "^1.4",
