@@ -8,7 +8,7 @@
     }
 
     .toast-icon {
-        @apply space-x-2 flex items-center px-4 sm:px-0 py-2 sm:py-0 sm:justify-center flex-shrink-0 text-white w-full sm:w-12 sm:h-14;
+        @apply space-x-2 flex items-center px-4 sm:px-0 py-2 sm:py-0 sm:justify-center flex-shrink-0 text-white w-full sm:w-12 sm:h-full;
     }
 
     .toast-button,
