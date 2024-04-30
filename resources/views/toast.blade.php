@@ -1,10 +1,11 @@
 @props ([
     'type' => 'info',
     'title' => null,
-    'message' => '',
+    'message' => null,
     'wireClose' => false,
     'alpineClose' => false,
     'target' => null,
+    'hideSpinner' => false,
 ])
 
 @php
@@ -27,13 +28,19 @@
     ], $type);
 @endphp
 
-<div role="alert" aria-live="polite" {{ $attributes->class('toast')->class($toastClass) }}>
+<div role="alert" aria-live="polite" {{ $attributes->class(['toast', $toastClass]) }}>
     <span class="toast-icon">
         <x-ark-icon :name="$icon" size="sm" />
         <span class="text-sm font-semibold sm:hidden">{{ $title ?? trans('ui::toasts.'.$type) }}</span>
     </span>
 
-    <div class="toast-body">{{ $message }}</div>
+    <div class="toast-body">
+        @if ($message)
+            {{ $message }}
+        @else
+            {!! $slot !!}
+        @endif
+    </div>
 
     <button
         @if ($wireClose) wire:click="{{ $wireClose }}" @endif
@@ -48,13 +55,15 @@
         <x-ark-icon name="cross" size="sm" />
     </button>
 
-    <div
-        class="toast-spinner"
-        @if ($target)
-        wire:loading
-        wire:target="{{ $target }}"
-        @endif
-    >
-        <x-ark-spinner-icon circle-color="spinner" :stroke-width="3" />
-    </div>
+    @unless ($hideSpinner)
+        <div
+            class="toast-spinner"
+            @if ($target)
+            wire:loading
+            wire:target="{{ $target }}"
+            @endif
+        >
+            <x-ark-spinner-icon circle-color="spinner" :stroke-width="3" />
+        </div>
+    @endunless
 </div>
