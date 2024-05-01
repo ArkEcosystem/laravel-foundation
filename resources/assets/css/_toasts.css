@@ -3,6 +3,10 @@
         @apply relative inline-flex flex-col sm:flex-row items-center max-w-4xl text-sm select-none text-theme-secondary-900 dark:text-theme-secondary-200 dark:bg-theme-secondary-800 rounded-xl overflow-hidden;
     }
 
+    .toast__titled {
+        @apply relative inline-flex flex-col items-center max-w-4xl text-sm select-none text-theme-secondary-900 dark:text-theme-secondary-200 dark:bg-theme-secondary-800 rounded-xl overflow-hidden;
+    }
+
     .toast-body {
         @apply p-4 text-left mr-4 sm:mt-0;
     }
@@ -11,9 +15,18 @@
         @apply space-x-2 flex items-center px-4 sm:px-0 py-2 sm:py-0 sm:justify-center flex-shrink-0 text-white w-full sm:w-12 sm:h-full;
     }
 
+    .toast-icon__titled {
+        @apply space-x-2 flex items-center px-4 py-2 flex-shrink-0 text-white w-full;
+    }
+
     .toast-button,
     .toast-spinner {
         @apply absolute sm:relative top-0 sm:top-auto right-0 sm:right-auto m-2.5 sm:my-0 sm:ml-0 flex items-center justify-center flex-shrink-0 mr-4 rounded text-theme-secondary-900 dark:text-white sm:dark:text-theme-secondary-600;
+    }
+
+    .toast-button__titled,
+    .toast-spinner__titled {
+        @apply absolute top-0 right-0 m-2.5 flex items-center justify-center flex-shrink-0 mr-4 rounded text-theme-secondary-900 dark:text-white sm:dark:text-theme-secondary-600;
     }
 
     .toast-info {
@@ -32,19 +45,24 @@
         @apply bg-theme-success-50;
     }
 
-    .toast-info .toast-icon {
+    .toast-info .toast-icon,
+    .toast-info .toast-icon__titled {
         @apply bg-theme-primary-100 dark:bg-theme-primary-700 text-theme-primary-700 dark:text-white;
     }
-    .toast-warning .toast-icon {
+    .toast-warning .toast-icon,
+    .toast-warning .toast-icon__titled {
         @apply bg-theme-warning-100 dark:bg-theme-warning-700 text-theme-warning-900 dark:text-white;
     }
-    .toast-danger .toast-icon {
+    .toast-danger .toast-icon,
+    .toast-danger .toast-icon__titled {
         @apply bg-theme-danger-100 dark:bg-theme-danger-500 text-theme-danger-700 dark:text-white;
     }
-    .toast-hint .toast-icon {
+    .toast-hint .toast-icon,
+    .toast-hint .toast-icon__titled {
         @apply bg-theme-hint-100 dark:bg-theme-hint-700 text-theme-hint-700 dark:text-white;
     }
-    .toast-success .toast-icon {
+    .toast-success .toast-icon,
+    .toast-success .toast-icon__titled {
         @apply bg-theme-success-100 dark:bg-theme-success-700 text-theme-success-700 dark:text-white;
     }
 
