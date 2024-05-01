@@ -8,7 +8,7 @@
     }
 
     .toast-body {
-        @apply p-4 text-left mr-4 sm:mt-0;
+        @apply p-4 text-left sm:mt-0;
     }
 
     .toast-icon {

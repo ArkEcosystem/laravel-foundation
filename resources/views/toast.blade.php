@@ -55,7 +55,10 @@
         </span>
     </span>
 
-    <div class="toast-body">
+    <div @class([
+        'toast-body',
+        'mr-4' => ! $hideSpinner,
+    ])>
         @if ($message)
             {{ $message }}
         @else
