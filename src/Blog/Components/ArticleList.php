@@ -40,10 +40,10 @@ final class ArticleList extends Component
      * @var mixed
      */
     protected $queryString = [
-        'term'                => ['except' => '', 'as' => 'q'],
-        'sortDirection'       => ['except' => 'desc', 'as' => 'order'],
-        'categoryQueryString' => ['except' => '', 'as' => 'category'],
-        'page'                => ['except' => 1],
+        'term'                => ['as' => 'q'],
+        'sortDirection'       => ['as' => 'order'],
+        'categoryQueryString' => ['as' => 'category'],
+        'page',
     ];
 
     public function render() : Renderable
