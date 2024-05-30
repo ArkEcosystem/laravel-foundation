@@ -12,17 +12,6 @@ trait HasPagination
 
     public int $page = 1;
 
-    /**
-     * Livewire's WithPagination trait checks whether there's an `updatedPaginators` method
-     * and it will fire after page has changed if the method exists.
-     *
-     * @return void
-     */
-    public function updatedPaginators() : void
-    {
-        $this->dispatch('pageChanged');
-    }
-
     public function __get($property): mixed
     {
         if ($property === 'page') {
@@ -47,5 +36,16 @@ trait HasPagination
         }
 
         throw new \Exception('Property ['.$property.'] does not exist.');
+    }
+
+    /**
+     * Livewire's WithPagination trait checks whether there's an `updatedPaginators` method
+     * and it will fire after page has changed if the method exists.
+     *
+     * @return void
+     */
+    public function updatedPaginators() : void
+    {
+        $this->dispatch('pageChanged');
     }
 }
