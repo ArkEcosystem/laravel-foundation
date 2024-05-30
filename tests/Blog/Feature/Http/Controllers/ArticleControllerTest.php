@@ -12,6 +12,16 @@ it('should render blog', function () {
         ->assertViewHas('request');
 });
 
+it('should handle pagination', function () {
+    Article::factory(50)->create();
+
+    $this->get(route('blog', ['page' => 3]))
+        ->assertOk()
+        ->assertViewIs('ark::pages.blog.index')
+        ->assertViewHas('request')
+        ->assertSee('Page 3 of 5');
+});
+
 it('can render an article page', function () {
     $article = Article::factory()->create();
 
