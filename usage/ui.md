@@ -345,7 +345,7 @@ import "@ui/js/user-tagger.js";
     name="body"
     :placeholder="trans('forms.review.create_message_length')"
     rows="5"
-    wire:model="body"
+    wire:model.live="body"
     maxlength="1000"
     required
     hide-label

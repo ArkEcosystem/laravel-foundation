@@ -13,7 +13,7 @@ it('should render with the given name', function (): void {
         ]))
         ->assertSeeHtml('type="text"')
         ->assertSeeHtml('name="username"')
-        ->assertSeeHtml('wire:model="username"');
+        ->assertSeeHtml('wire:model.live="username"');
 });
 
 it('should render with the given label', function (): void {
@@ -47,7 +47,7 @@ it('should render with the given model', function (): void {
         ]))
         ->assertSeeHtml('type="text"')
         ->assertSeeHtml('name="username"')
-        ->assertSeeHtml('wire:model="username_model"');
+        ->assertSeeHtml('wire:model.live="username_model"');
 });
 
 it('should render with the given model, but deferred', function (): void {
@@ -58,7 +58,7 @@ it('should render with the given model, but deferred', function (): void {
         ]))
         ->assertSeeHtml('type="text"')
         ->assertSeeHtml('name="username"')
-        ->assertSeeHtml('wire:model.defer="username_model"');
+        ->assertSeeHtml('wire:model="username_model"');
 });
 
 it('should render with the given placeholder', function (): void {

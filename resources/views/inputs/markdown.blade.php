@@ -49,7 +49,7 @@
                     style="display: none"
                     id="{{ $id ? $id : $name }}"
                     name="{{ $name }}"
-                    wire:model="{{ $model ? $model : $name }}"
+                    wire:model.live="{{ $model ? $model : $name }}"
                 ></textarea>
 
                 <div wire:ignore x-ref="editor" class="dark:text-theme-secondary-500"></div>

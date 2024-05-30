@@ -7,7 +7,7 @@ it('should render with the given name', function (): void {
         ->blade('<x-ark::inputs.input-with-icon name="username" />')
         ->assertSeeHtml('type="text"')
         ->assertSeeHtml('name="username"')
-        ->assertSeeHtml('wire:model="username"');
+        ->assertSeeHtml('wire:model.live="username"');
 });
 
 it('should render with the given label', function (): void {
@@ -33,7 +33,7 @@ it('should render with the given model', function (): void {
         ->blade('<x-ark::inputs.input-with-icon name="username" model="username_model" />')
         ->assertSeeHtml('type="text"')
         ->assertSeeHtml('name="username"')
-        ->assertSeeHtml('wire:model="username_model"');
+        ->assertSeeHtml('wire:model.live="username_model"');
 });
 
 it('should render with the given model, but deferred', function (): void {
@@ -41,7 +41,7 @@ it('should render with the given model, but deferred', function (): void {
         ->blade('<x-ark::inputs.input-with-icon name="username" model="username_model" deferred />')
         ->assertSeeHtml('type="text"')
         ->assertSeeHtml('name="username"')
-        ->assertSeeHtml('wire:model.defer="username_model"');
+        ->assertSeeHtml('wire:model="username_model"');
 });
 
 it('should render with the given placeholder', function (): void {
