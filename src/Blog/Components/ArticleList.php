@@ -43,7 +43,6 @@ final class ArticleList extends Component
         'term'                => ['as' => 'q'],
         'sortDirection'       => ['as' => 'order'],
         'categoryQueryString' => ['as' => 'category'],
-        'page',
     ];
 
     public function render() : Renderable
