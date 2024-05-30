@@ -21,7 +21,7 @@
 <div
     x-data="CompressImage(
         'image-collection-upload-{{ $id }}',
-        @entangle($attributes->wire('model')),
+        @entangle($attributes->wire('model')).live,
         {{ $minWidth }},
         {{ $minHeight }},
         {{ $maxWidth }},

@@ -40,7 +40,7 @@
     @if($withCrop)
     x-data="CropImage(
         {{ $cropOptions }},
-        @entangle($attributes->wire('model')),
+        @entangle($attributes->wire('model')).live,
         'image-single-upload-{{ $id }}',
         'image-single-crop-{{ $id }}',
         'crop-modal-{{ $id }}',
@@ -59,7 +59,7 @@
     @else
     x-data="CompressImage(
         'image-single-upload-{{ $id }}',
-        @entangle($attributes->wire('model')),
+        @entangle($attributes->wire('model')).live,
         {{ $minWidth }},
         {{ $minHeight }},
         {{ $maxWidth }},
