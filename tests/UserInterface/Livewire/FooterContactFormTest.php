@@ -121,18 +121,12 @@ it('should prevent requests too quickly', function () {
 
     $component = Livewire::test(FooterContactForm::class);
 
-    try {
-        $component
-            ->set('state.name', 'Bob')
-            ->set('state.email', 'bob@bob.com')
-            ->set('state.message', 'Testing 123')
-            ->call('send')
-            ->assertHasNoErrors();
-
-        $this->fail('Expected spam to be detected, but no spam was detected.');
-    } catch (HttpException $e) {
-        expect($e->getMessage())->toBe('Spam detected.');
-    }
+    $component
+        ->set('state.name', 'Bob')
+        ->set('state.email', 'bob@bob.com')
+        ->set('state.message', 'Testing 123')
+        ->call('send')
+        ->assertHasNoErrors();
 
     Mail::assertNotQueued(ContactFormSubmitted::class);
 
@@ -141,7 +135,7 @@ it('should prevent requests too quickly', function () {
     $component->call('send')->assertHasNoErrors();
 
     Mail::assertQueued(ContactFormSubmitted::class, 1);
-});
+})->throws('Spam detected.');
 
 it('should prevent requests using honeypot', function () {
     Mail::fake();
@@ -160,15 +154,7 @@ it('should prevent requests using honeypot', function () {
 
     $this->travel(3)->seconds();
 
-    $this->withoutExceptionHandling();
-
-    try {
-        $component->call('send');
-
-        $this->fail('Expected spam to be detected, but no spam was detected.');
-    } catch (HttpException $e) {
-        expect($e->getMessage())->toBe('Spam detected.');
-    }
+    $component->instance()->send();
 
     Mail::assertNotQueued(ContactFormSubmitted::class);
 
@@ -177,4 +163,4 @@ it('should prevent requests using honeypot', function () {
         ->assertStatus(200);
 
     Mail::assertQueued(ContactFormSubmitted::class, 1);
-});
+})->throws('Spam detected.');

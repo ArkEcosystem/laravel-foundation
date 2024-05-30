@@ -27,7 +27,7 @@ it('can interact with the form', function () {
         ->set('password', 'abcd1234ABCD%')
         ->set('password_confirmation', 'abcd1234ABCD%')
         ->call('updatePassword')
-        ->assertDispatchedBrowserEvent('updated-password')
+        ->assertDispatched('updated-password')
         ->assertDispatched('toastMessage', [trans('ui::pages.user-settings.password_updated'), 'success']);
 });
 

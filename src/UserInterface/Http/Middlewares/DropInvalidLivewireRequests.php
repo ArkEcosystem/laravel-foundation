@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\Exceptions\ComponentNotFoundException;
+use Livewire\Features\SupportEvents\SupportEvents;
 use Livewire\Livewire;
 
 final class DropInvalidLivewireRequests
@@ -104,7 +105,7 @@ final class DropInvalidLivewireRequests
         $component = $this->resolveComponentInstance($request);
 
         abort_if($this->fireableEvents($request)->diff(
-            $component->getEventsBeingListenedFor()
+            SupportEvents::getListenerEventNames($component)
         )->isNotEmpty(), 403);
     }
 
