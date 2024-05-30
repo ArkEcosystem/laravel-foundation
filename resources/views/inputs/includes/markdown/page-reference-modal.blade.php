@@ -5,7 +5,7 @@
     width-class="max-w-lg"
 >
     @slot('description')
-        <form id="pageReferenceModalForm" @submit.prevent="Livewire.emit('pageReferenceModal', $event)" class="space-y-4">
+        <form id="pageReferenceModalForm" @submit.prevent="Livewire.dispatch('pageReferenceModal', $event)" class="space-y-4">
 
             <x-ark-input
                 type="text"

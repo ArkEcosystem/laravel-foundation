@@ -14,7 +14,7 @@ it('can export the user data', function () {
     Livewire::actingAs(createUserModel())
         ->test(ExportUserData::class)
         ->call('export')
-        ->assertEmitted('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
+        ->assertDispatched('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
 
     Bus::assertDispatched(CreatePersonalDataExportJob::class);
 });
@@ -25,14 +25,14 @@ it('can only export the user data once every 15 min', function () {
     $component = Livewire::actingAs(createUserModel())
         ->test(ExportUserData::class)
         ->call('export')
-        ->assertEmitted('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success'])
+        ->assertDispatched('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success'])
         ->call('export')
-        ->assertNotEmitted('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
+        ->assertNotDispatched('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
 
     $this->travel(16)->minutes();
 
     $component->call('export')
-        ->assertEmitted('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
+        ->assertDispatched('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
 
     Bus::assertDispatched(CreatePersonalDataExportJob::class);
 });

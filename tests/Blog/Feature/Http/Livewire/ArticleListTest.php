@@ -234,7 +234,7 @@ it('resets the page when search term changes', function () {
             ->assertSet('term', 'hello')
             ->set('term', 'something-else')
             ->assertSet('page', 1)
-            ->assertEmitted('pageChanged');
+            ->assertDispatched('pageChanged');
 });
 
 it('resets the page when order changes', function () {
@@ -249,7 +249,7 @@ it('resets the page when order changes', function () {
             ->call('sort')
             ->assertSet('page', 1)
             ->assertSet('sortDirection', 'desc')
-            ->assertEmitted('pageChanged');
+            ->assertDispatched('pageChanged');
 });
 
 it('can search articles', function () {

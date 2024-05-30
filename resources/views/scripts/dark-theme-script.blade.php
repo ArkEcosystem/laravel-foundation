@@ -56,7 +56,7 @@
 
             @unless (app()->isDownForMaintenance())
                 if (window.Livewire) {
-                    Livewire.emit('themeChanged', _theme);
+                    Livewire.dispatch('themeChanged', _theme);
                 }
             @endunless
         }

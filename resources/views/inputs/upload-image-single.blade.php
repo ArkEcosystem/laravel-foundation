@@ -72,7 +72,7 @@
     @endif
     x-on:livewire-upload-start="isUploading = true"
     x-on:livewire-upload-finish="isUploading = false"
-    x-on:livewire-upload-error="isUploading = false; livewire.emit('uploadError', '{{ $uploadErrorMessage }}');"
+    x-on:livewire-upload-error="isUploading = false; livewire.dispatch('uploadError', '{{ $uploadErrorMessage }}');"
     class="flex-shrink-0 relative {{ $dimensions }}"
 >
     <div @class([
@@ -165,10 +165,10 @@
         close-button-only
         x-data="Modal.alpine({
             onShown() {
-                Livewire.emit('cropModalShown', '{{ $id }}');
+                Livewire.dispatch('cropModalShown', '{{ $id }}');
             },
             onBeforeHide() {
-                Livewire.emit('cropModalBeforeHide', '{{ $id }}');
+                Livewire.dispatch('cropModalBeforeHide', '{{ $id }}');
             }
         }, 'crop-modal-{{ $id }}', { disableFocusTrap: true })"
     >
@@ -191,11 +191,11 @@
         @endslot
 
         @slot('buttons')
-            <button type="button" class="{{ $cropCancelButtonClass }}" @click="Livewire.emit('discardCroppedImage')" dusk="crop-cancel-button">
+            <button type="button" class="{{ $cropCancelButtonClass }}" @click="Livewire.dispatch('discardCroppedImage')" dusk="crop-cancel-button">
                 {{ $cropCancelButton }}
             </button>
 
-            <button type="button" class="{{ $cropSaveButtonClass }}" @click="Livewire.emit('saveCroppedImage')" dusk="crop-save-button">
+            <button type="button" class="{{ $cropSaveButtonClass }}" @click="Livewire.dispatch('saveCroppedImage')" dusk="crop-save-button">
                 @if($cropSaveIcon)
                     <x-ark-icon :name="$cropSaveIcon" size="sm" class="inline my-auto mr-2"/>
                 @endif

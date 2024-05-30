@@ -393,7 +393,7 @@ You can disable the focus trap by passing a parameter in the second argument:
 
 There's a few ways you can make use of the new modals in conjunction with Alpine:
 
-For JS-only modals, you need to use the `<x-ark-js-modal />` component. You need to initiate the modal with a name (using the `name` attribute) and it can be opened by calling `Livewire.emit('openModal', 'name-of-my-modal')`
+For JS-only modals, you need to use the `<x-ark-js-modal />` component. You need to initiate the modal with a name (using the `name` attribute) and it can be opened by calling `Livewire.dispatch('openModal', 'name-of-my-modal')`
 
 ```html
 <x-ark-js-modal name="name-of-my-modal'">
@@ -402,7 +402,7 @@ For JS-only modals, you need to use the `<x-ark-js-modal />` component. You need
     @endslot
 </x-ark-js-modal>
 
-<button onclick="Livewire.emit('openModal', 'name-of-my-modal')">Open modal</button>
+<button onclick="Livewire.dispatch('openModal', 'name-of-my-modal')">Open modal</button>
 ```
 
 Alternatively, if you wrap the modal inside another Alpine component, you can use the `Modal.alpine()` method to init the modal (don't forget to call the `init` method on `x-init`).
@@ -1103,22 +1103,22 @@ class ThemeSwitcher extends Livewire
 
     public function dark(): void
     {
-        $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'dark']);
+        $this->dispatch('setThemeMode', ['theme' => 'dark']);
     }
 
     public function light(): void
     {
-        $this->dispatchBrowserEvent('setThemeMode', ['theme' => 'light']);
+        $this->dispatch('setThemeMode', ['theme' => 'light']);
     }
 
     public function os(): void
     {
-        $this->dispatchBrowserEvent('setOSThemeMode');
+        $this->dispatch('setOSThemeMode');
     }
 
     public function toggle(): void
     {
-        $this->dispatchBrowserEvent('toggleThemeMode');
+        $this->dispatch('toggleThemeMode');
     }
 }
 ```

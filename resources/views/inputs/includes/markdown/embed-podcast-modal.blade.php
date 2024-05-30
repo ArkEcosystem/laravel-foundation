@@ -5,7 +5,7 @@
     width-class="max-w-lg"
 >
     @slot('description')
-        <form id="embedPodcastModalForm" @submit.prevent="Livewire.emit('embedPodcastModal', $event)">
+        <form id="embedPodcastModalForm" @submit.prevent="Livewire.dispatch('embedPodcastModal', $event)">
             <x-ark-input
                 type="text"
                 name="url"

@@ -40,7 +40,7 @@ class DeleteUserForm extends Component
 
     public function confirmUserDeletion()
     {
-        $this->dispatchBrowserEvent('confirming-delete-user');
+        $this->dispatch('confirming-delete-user');
 
         $this->openModal();
     }

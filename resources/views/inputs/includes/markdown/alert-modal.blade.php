@@ -5,7 +5,7 @@
     width-class="max-w-lg"
 >
     @slot('description')
-        <form id="alertModalForm" @submit.prevent="Livewire.emit('alertModal', $event)" class="space-y-4">
+        <form id="alertModalForm" @submit.prevent="Livewire.dispatch('alertModal', $event)" class="space-y-4">
             <x-ark-select
                 name="type"
                 :label="trans('ui::markdown.modals.alert.form.type')"

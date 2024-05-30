@@ -74,7 +74,7 @@ class TwoFactorAuthenticationForm extends Component
 
         // Not used on this component internally but useful to send a message
         // to other components that the user enabled 2FA.
-        $this->emit('twoFactorAuthenticationEnabled');
+        $this->dispatch('twoFactorAuthenticationEnabled');
     }
 
     public function showRecoveryCodes(): void
@@ -98,14 +98,14 @@ class TwoFactorAuthenticationForm extends Component
         $this->generateSecretKey();
         $this->closeDisableConfirmPassword();
 
-        $this->emit('toastMessage', [
+        $this->dispatch('toastMessage', [
             trans('ui::messages.2fa_disabled'),
             'success',
         ]);
 
         // Not used on this component internally but useful to send a message
         // to other components that the user disabled 2FA.
-        $this->emit('twoFactorAuthenticationDisabled');
+        $this->dispatch('twoFactorAuthenticationDisabled');
     }
 
     public function getEnabledProperty(): bool

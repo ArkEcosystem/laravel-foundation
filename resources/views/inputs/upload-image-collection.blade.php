@@ -33,7 +33,7 @@
     )"
     x-on:livewire-upload-start="isUploading = true"
     x-on:livewire-upload-finish="isUploading = false"
-    x-on:livewire-upload-error="isUploading = false; livewire.emit('uploadError', '{{ $uploadErrorMessage }}');"
+    x-on:livewire-upload-error="isUploading = false; livewire.dispatch('uploadError', '{{ $uploadErrorMessage }}');"
     class="relative z-0 space-y-8"
 >
     <div class="rounded-xl p-1.5 border-2 border-dashed border-theme-primary-100 dark:border-theme-secondary-800 relative {{ $dimensions }} group">

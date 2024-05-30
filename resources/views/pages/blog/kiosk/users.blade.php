@@ -58,7 +58,7 @@
                                                 <button
                                                     type="button"
                                                     class="flex items-center space-x-1 text-sm font-medium text-theme-danger-600"
-                                                    @click="window.livewire.emit('triggerUserDelete', {{ $user->id }})"
+                                                    @click="window.Livewire.dispatch('triggerUserDelete', {{ $user->id }})"
                                                 >
                                                     <x-ark-icon name="trash" size="sm" />
 

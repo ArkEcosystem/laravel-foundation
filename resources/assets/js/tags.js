@@ -176,7 +176,7 @@ const Tags = (
     },
     displayLivewireToast(validationMessage) {
         if (typeof livewire !== "undefined") {
-            livewire.emit("toastMessage", [validationMessage, "warning"]);
+            livewire.dispatch("toastMessage", [validationMessage, "warning"]);
         }
     },
     hideTooltip() {
