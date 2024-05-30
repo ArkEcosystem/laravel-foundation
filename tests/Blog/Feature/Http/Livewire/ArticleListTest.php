@@ -62,7 +62,7 @@ it('sets sort direction based on the query parameter when mounted', function () 
             ->assertSet('sortDirection', 'desc')
             ->call('sort')
             ->assertSet('sortDirection', 'asc')
-            ->set('page', 2)
+            ->call('setPage', 2)
             ->call('sort')
             ->assertSet('sortDirection', 'desc')
             ->assertSet('page', 1);
@@ -86,7 +86,7 @@ it('can apply filter', function () {
                 Category::Updates->value         => false,
                 Category::Tutorials->value       => false,
             ])
-            ->set('page', 2)
+            ->call('setPage', 2)
             ->call('applyFilter')
             ->assertSet('page', 1)
             ->assertSet('pendingCategories', [
@@ -121,7 +121,7 @@ it('can reset filter', function () {
                 Category::Updates->value         => true,
                 Category::Tutorials->value       => false,
             ])
-            ->set('page', 2)
+            ->call('setPage', 2)
             ->call('resetFilter')
             ->assertSet('page', 1)
             ->assertSet('pendingCategories', [
@@ -228,13 +228,17 @@ it('resets the page when search term changes', function () {
         'category' => Category::Editorials,
     ]);
 
-    Livewire::withQueryParams(['page' => 3, 'q' => 'hello'])
-            ->test(ArticleList::class)
-            ->assertSet('page', 3)
-            ->assertSet('term', 'hello')
-            ->set('term', 'something-else')
-            ->assertSet('page', 1)
-            ->assertDispatched('pageChanged');
+    $component = Livewire::withQueryParams(['page' => 3, 'q' => 'hello'])
+        ->test(ArticleList::class);
+
+    expect($component->instance()->getPage())->toBe(3);
+
+    $component->assertSet('term', 'hello')
+        ->set('term', 'something-else');
+
+    expect($component->instance()->getPage())->toBe(1);
+
+    $component->assertDispatched('pageChanged');
 });
 
 it('resets the page when order changes', function () {
@@ -242,14 +246,18 @@ it('resets the page when order changes', function () {
         'category' => Category::Editorials,
     ]);
 
-    Livewire::withQueryParams(['page' => 3, 'order' => 'asc'])
-            ->test(ArticleList::class)
-            ->assertSet('page', 3)
-            ->assertSet('sortDirection', 'asc')
-            ->call('sort')
-            ->assertSet('page', 1)
-            ->assertSet('sortDirection', 'desc')
-            ->assertDispatched('pageChanged');
+    $component = Livewire::withQueryParams(['page' => 3, 'order' => 'asc'])
+        ->test(ArticleList::class);
+
+    expect($component->instance()->getPage())->toBe(3);
+
+    $component->assertSet('sortDirection', 'asc')
+        ->call('sort');
+
+    expect($component->instance()->getPage())->toBe(1);
+
+    $component->assertSet('sortDirection', 'desc')
+        ->assertDispatched('pageChanged');
 });
 
 it('can search articles', function () {
