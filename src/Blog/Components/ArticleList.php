@@ -52,7 +52,7 @@ final class ArticleList extends Component
 
         return view('ark::components.blog.article-list', [
             'articles'        => $this->articles($featuredArticle),
-            'featuredArticle' => $this->page <= 1 ? $featuredArticle : null,
+            'featuredArticle' => $this->getPage() <= 1 ? $featuredArticle : null,
         ]);
     }
 

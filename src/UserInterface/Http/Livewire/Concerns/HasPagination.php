@@ -13,13 +13,13 @@ trait HasPagination
     public function resolvePage()
     {
         if (request()->exists('page') && ! is_numeric(request()->query('page'))) {
-            $this->page = 1;
+            $this->setPage(1);
 
-            return $this->page;
+            return 1;
         }
         // The "page" query string item should only be available
         // from within the original component mount run.
-        return (int) request()->query('page', $this->page);
+        return (int) request()->query('page', $this->getPage());
     }
 
     public function gotoPage(int $page, bool $emitEvent = true): void
