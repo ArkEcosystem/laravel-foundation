@@ -6,7 +6,6 @@ use ARKEcosystem\Foundation\UserInterface\Http\Livewire\FooterContactForm;
 use ARKEcosystem\Foundation\UserInterface\Mail\ContactFormSubmitted;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Livewire;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 beforeEach(function () {
     config([
