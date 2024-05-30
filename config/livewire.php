@@ -157,4 +157,72 @@ return [
 
     'render_on_redirect'    => true,
 
+    /*
+    |---------------------------------------------------------------------------
+    | Eloquent Model Binding
+    |---------------------------------------------------------------------------
+    |
+    | Previous versions of Livewire supported binding directly to eloquent model
+    | properties using wire:model by default. However, this behavior has been
+    | deemed too "magical" and has therefore been put under a feature flag.
+    |
+    */
+
+    'legacy_model_binding' => false,
+
+    /*
+    |---------------------------------------------------------------------------
+    | Auto-inject Frontend Assets
+    |---------------------------------------------------------------------------
+    |
+    | By default, Livewire automatically injects its JavaScript and CSS into the
+    | <head> and <body> of pages containing Livewire components. By disabling
+    | this behavior, you need to use @livewireStyles and @livewireScripts.
+    |
+    */
+
+    'inject_assets' => true,
+
+    /*
+    |---------------------------------------------------------------------------
+    | Navigate (SPA mode)
+    |---------------------------------------------------------------------------
+    |
+    | By adding `wire:navigate` to links in your Livewire application, Livewire
+    | will prevent the default link handling and instead request those pages
+    | via AJAX, creating an SPA-like effect. Configure this behavior here.
+    |
+    */
+
+    'navigate' => [
+        'show_progress_bar' => true,
+        'progress_bar_color' => '#2299dd',
+    ],
+
+    /*
+    |---------------------------------------------------------------------------
+    | HTML Morph Markers
+    |---------------------------------------------------------------------------
+    |
+    | Livewire intelligently "morphs" existing HTML into the newly rendered HTML
+    | after each update. To make this process more reliable, Livewire injects
+    | "markers" into the rendered Blade surrounding @if, @class & @foreach.
+    |
+    */
+
+    'inject_morph_markers' => true,
+
+    /*
+    |---------------------------------------------------------------------------
+    | Pagination Theme
+    |---------------------------------------------------------------------------
+    |
+    | When enabling Livewire's pagination feature by using the `WithPagination`
+    | trait, Livewire will use Tailwind templates to render pagination views
+    | on the page. If you want Bootstrap CSS, you can specify: "bootstrap"
+    |
+    */
+
+    'pagination_theme' => 'tailwind',
+
 ];
