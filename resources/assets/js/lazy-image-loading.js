@@ -172,7 +172,11 @@ export default function lazyLoad(selector = "[lazy]") {
     }
 
     function registerLivewireObserver() {
-        Livewire.hook("message.processed", () => registerLazyElements());
+        Livewire.hook("commit", ({ succeed }) => {
+            succeed(() => {
+                registerLazyElements();
+            });
+        });
     }
 }
 

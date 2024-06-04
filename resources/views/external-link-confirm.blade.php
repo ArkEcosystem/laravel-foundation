@@ -138,8 +138,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
     }
 
-    Livewire.hook("message.processed", function (message, component) {
-        initExternalLinkConfirm();
+    Livewire.hook("commit", ({ succeed }) => {
+        succeed(() => {
+            initExternalLinkConfirm();
+        });
     });
 
     initExternalLinkConfirm();
