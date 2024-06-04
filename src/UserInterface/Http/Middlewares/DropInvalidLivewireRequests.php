@@ -11,6 +11,7 @@ use Livewire\Component;
 use Livewire\Exceptions\ComponentNotFoundException;
 use Livewire\Features\SupportEvents\SupportEvents;
 use Livewire\Livewire;
+use Livewire\Mechanisms\HandleRequests\HandleRequests;
 
 final class DropInvalidLivewireRequests
 {
@@ -24,22 +25,13 @@ final class DropInvalidLivewireRequests
             return $next($request);
         }
 
+        if (! app(HandleRequests::class)->isLivewireRequest()) {
+            abort(403);
+        }
+
         if (! $this->containsValidPayload($request)) {
-            // Throwing 404 Not Found for some reason doesn't work as Livewire doesn't know how to intercept the 404,
-            // as it actually expects a response.(I guess as this wasn't working before with 404).
-            // If 403 is thrown, Livewire knows to actually throw back 403 to browser.
             abort(403);
         }
-
-        if (! $this->isValidComponent($request->input('fingerprint.name'))) {
-            abort(403);
-        }
-
-        if ($this->fireableEvents($request)->isNotEmpty()) {
-            $this->ensureFireableEventsAreValid($request);
-        }
-
-        $this->ensureCallableMethodsExist($request);
 
         return $next($request);
     }
@@ -88,8 +80,7 @@ final class DropInvalidLivewireRequests
      */
     private function containsValidPayload(Request $request) : bool
     {
-        return $request->filled(['fingerprint.id', 'fingerprint.method', 'fingerprint.name', 'fingerprint.path'])
-            && $request->filled(['serverMemo.checksum', 'serverMemo.htmlHash']);
+        return $request->filled(['components.0.calls', 'components.0.snapshot', '_token']);
     }
 
     /**
