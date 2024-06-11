@@ -39,7 +39,7 @@
         <x-ark-footer />
     @endif
 
-    @livewireScripts
+    @livewireScriptConfig
 
     @livewire('toast')
 
