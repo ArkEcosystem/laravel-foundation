@@ -33,7 +33,7 @@ class ExportUserData extends Component
 
         $this->dispatch('toastMessage', [
             'message' => trans('ui::pages.user-settings.data_exported'),
-            'type' => 'success',
+            'type'    => 'success',
         ]);
     }
 

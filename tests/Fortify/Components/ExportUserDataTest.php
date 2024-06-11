@@ -16,7 +16,7 @@ it('can export the user data', function () {
         ->call('export')
         ->assertDispatched('toastMessage', [
             'message' => trans('ui::pages.user-settings.data_exported'),
-            'type' => 'success',
+            'type'    => 'success',
         ]);
 
     Bus::assertDispatched(CreatePersonalDataExportJob::class);
@@ -30,12 +30,12 @@ it('can only export the user data once every 15 min', function () {
         ->call('export')
         ->assertDispatched('toastMessage', [
             'message' => trans('ui::pages.user-settings.data_exported'),
-            'type' => 'success',
+            'type'    => 'success',
         ])
         ->call('export')
         ->assertNotDispatched('toastMessage', [
             'message' => trans('ui::pages.user-settings.data_exported'),
-            'type' => 'success',
+            'type'    => 'success',
         ]);
 
     $this->travel(16)->minutes();
@@ -43,7 +43,7 @@ it('can only export the user data once every 15 min', function () {
     $component->call('export')
         ->assertDispatched('toastMessage', [
             'message' => trans('ui::pages.user-settings.data_exported'),
-            'type' => 'success',
+            'type'    => 'success',
         ]);
 
     Bus::assertDispatched(CreatePersonalDataExportJob::class);

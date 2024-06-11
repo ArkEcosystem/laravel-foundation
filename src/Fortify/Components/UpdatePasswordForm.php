@@ -49,7 +49,7 @@ class UpdatePasswordForm extends Component
 
         $this->dispatch('toastMessage', [
             'message' => trans('ui::pages.user-settings.password_updated'),
-            'type' => 'success',
+            'type'    => 'success',
         ]);
     }
 

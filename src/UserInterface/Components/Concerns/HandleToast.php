@@ -10,7 +10,7 @@ trait HandleToast
     {
         $this->dispatch('toastMessage', [
             'message' => $message,
-            'type' => $type,
+            'type'    => $type,
         ]);
     }
 }

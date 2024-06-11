@@ -30,7 +30,7 @@ it('can interact with the form', function () {
         ->assertDispatched('updated-password')
         ->assertDispatched('toastMessage', [
             'message' => trans('ui::pages.user-settings.password_updated'),
-            'type' => 'success',
+            'type'    => 'success',
         ]);
 });
 
