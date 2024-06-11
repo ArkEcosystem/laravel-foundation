@@ -49,7 +49,10 @@ class UpdateProfileInformationForm extends Component
 
         $this->dispatch('refresh-navigation-dropdown');
 
-        $this->dispatch('toastMessage', [trans('ui::pages.user-settings.profile_updated'), 'success']);
+        $this->dispatch('toastMessage', [
+            'message' => trans('ui::pages.user-settings.profile_updated'),
+            'type' => 'success',
+        ]);
     }
 
     /**

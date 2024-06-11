@@ -4,7 +4,7 @@
             class="flex z-20 cursor-pointer"
             x-data="{
                 dismiss() {
-                    Livewire.dispatch('dismissToast', '{{ $key }}')
+                    Livewire.dispatch('dismissToast', {id: '{{ $key }}'})
                 }
             }"
             x-init="$nextTick(() => setTimeout(() => dismiss(), 5000))"

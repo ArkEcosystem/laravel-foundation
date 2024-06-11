@@ -28,7 +28,10 @@ it('can interact with the form', function () {
         ->set('password_confirmation', 'abcd1234ABCD%')
         ->call('updatePassword')
         ->assertDispatched('updated-password')
-        ->assertDispatched('toastMessage', [trans('ui::pages.user-settings.password_updated'), 'success']);
+        ->assertDispatched('toastMessage', [
+            'message' => trans('ui::pages.user-settings.password_updated'),
+            'type' => 'success',
+        ]);
 });
 
 it('clears password rules on update', function () {

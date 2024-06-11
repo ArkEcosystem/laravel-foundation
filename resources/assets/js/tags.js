@@ -174,9 +174,9 @@ const Tags = (
 
         return window.livewire.find(element.getAttribute("wire:id"));
     },
-    displayLivewireToast(validationMessage) {
+    displayLivewireToast(message) {
         if (typeof livewire !== "undefined") {
-            livewire.dispatch("toastMessage", [validationMessage, "warning"]);
+            livewire.dispatch("toastMessage", {message, type: "warning"});
         }
     },
     hideTooltip() {

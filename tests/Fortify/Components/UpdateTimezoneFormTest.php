@@ -49,7 +49,10 @@ it('should be able to update the timezone', function () {
         ->call('updateTimezone')
         ->assertSet('timezone', 'Europe/Amsterdam')
         ->assertSee(') Europe/Amsterdam')
-        ->assertDispatched('toastMessage', [trans('ui::pages.user-settings.timezone_updated'), 'success']);
+        ->assertDispatched('toastMessage', [
+            'message' => trans('ui::pages.user-settings.timezone_updated'),
+            'type' => 'success',
+        ]);
 
     $this->assertDatabaseHas('users', [
         'timezone' => 'Europe/Amsterdam',

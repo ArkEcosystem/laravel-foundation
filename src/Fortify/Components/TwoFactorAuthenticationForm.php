@@ -99,8 +99,8 @@ class TwoFactorAuthenticationForm extends Component
         $this->closeDisableConfirmPassword();
 
         $this->dispatch('toastMessage', [
-            trans('ui::messages.2fa_disabled'),
-            'success',
+            'message' => trans('ui::messages.2fa_disabled'),
+            'type' => 'success',
         ]);
 
         // Not used on this component internally but useful to send a message

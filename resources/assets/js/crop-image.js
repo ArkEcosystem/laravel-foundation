@@ -132,7 +132,7 @@ const CropImage = (
 
                     Object.values(errors.getAll()).forEach((bags) => {
                         [...bags].forEach(({ value }) =>
-                            Livewire.dispatch("toastMessage", [value, "danger"])
+                            Livewire.dispatch("toastMessage", {message: value, type: "danger"})
                         );
                     });
                 });
