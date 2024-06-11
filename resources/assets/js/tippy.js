@@ -127,14 +127,14 @@ window.initClipboard = () => {
     });
 };
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     if (typeof Livewire !== "undefined") {
         Livewire.hook("commit", ({ component, succeed }) => {
             succeed(() => {
                 destroyOutdatedTippyInstances(component.el);
 
                 initTippy(component.el);
-            })
+            });
         });
     }
 });
