@@ -51,7 +51,7 @@ class UpdateProfileInformationForm extends Component
 
         $this->dispatch('toastMessage', [
             'message' => trans('ui::pages.user-settings.profile_updated'),
-            'type' => 'success',
+            'type'    => 'success',
         ]);
     }
 

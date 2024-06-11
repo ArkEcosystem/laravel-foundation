@@ -48,7 +48,7 @@ class UpdateTimezoneForm extends Component
 
         $this->dispatch('toastMessage', [
             'message' => trans('ui::pages.user-settings.timezone_updated'),
-            'type' => 'success',
+            'type'    => 'success',
         ]);
     }
 }

@@ -9,7 +9,7 @@ it('can_see_a_toast', function () {
     Livewire::test(Toast::class)
         ->dispatch('toastMessage', [
             'message' => 'Hello',
-            'type' => 'info',
+            'type'    => 'info',
         ])
         ->assertSee('Hello') // body
         ->assertSee('button') // close button

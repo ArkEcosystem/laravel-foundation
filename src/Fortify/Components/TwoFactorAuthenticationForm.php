@@ -100,7 +100,7 @@ class TwoFactorAuthenticationForm extends Component
 
         $this->dispatch('toastMessage', [
             'message' => trans('ui::messages.2fa_disabled'),
-            'type' => 'success',
+            'type'    => 'success',
         ]);
 
         // Not used on this component internally but useful to send a message
