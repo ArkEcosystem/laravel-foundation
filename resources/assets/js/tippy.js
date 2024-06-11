@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     initTippy(component.el);
                 });
-            })
+            });
         });
     }
 });
