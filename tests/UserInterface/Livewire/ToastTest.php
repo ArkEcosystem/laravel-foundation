@@ -7,10 +7,7 @@ use Livewire\Livewire;
 
 it('can_see_a_toast', function () {
     Livewire::test(Toast::class)
-        ->dispatch('toastMessage', [
-            'message' => 'Hello',
-            'type'    => 'info',
-        ])
+        ->dispatch('toastMessage', 'Hello', 'info')
         ->assertSee('Hello') // body
         ->assertSee('button') // close button
         ->assertSee('span'); // icon
