@@ -36,7 +36,7 @@
                 type="radio"
                 class="sr-only"
                 value="{{ $option['id'] }}"
-                wire:model="{{ $wireModel }}"
+                wire:model.live="{{ $wireModel }}"
                 @if($this->{$wireModel ?? $id} === $option['id'])
                     checked="checked"
                 @endif
@@ -47,7 +47,7 @@
                 name="{{ $option['id'] }}"
                 type="checkbox"
                 class="form-checkbox tile-selection-checkbox"
-                wire:model="{{ $wireModel }}"
+                wire:model.live="{{ $wireModel }}"
                 wire:key="{{ $option['id'] }}"
                 @if($isDisabled && ! $option['checked'])
                     disabled

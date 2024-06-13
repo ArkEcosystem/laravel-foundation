@@ -13,6 +13,6 @@ it('can interact with the form', function () {
         ->test(UpdateProfileInformationForm::class)
         ->assertSet('state', $user->toArray())
         ->call('updateProfileInformation')
-        ->assertEmitted('saved')
-        ->assertEmitted('refresh-navigation-dropdown');
+        ->assertDispatched('saved')
+        ->assertDispatched('refresh-navigation-dropdown');
 });

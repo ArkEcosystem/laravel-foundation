@@ -127,13 +127,19 @@ window.initClipboard = () => {
     });
 };
 
-if (typeof Livewire !== "undefined") {
-    Livewire.hook("message.processed", (message, component) => {
-        destroyOutdatedTippyInstances(component.el);
+document.addEventListener("DOMContentLoaded", function () {
+    if (typeof Livewire !== "undefined") {
+        Livewire.hook("commit", ({ component, succeed }) => {
+            succeed(() => {
+                Alpine.nextTick(() => {
+                    destroyOutdatedTippyInstances();
 
-        initTippy(component.el);
-    });
-}
+                    initTippy(component.el);
+                });
+            });
+        });
+    }
+});
 
 window.tippy = tippy;
 window.hideAllTooltips = hideAll;

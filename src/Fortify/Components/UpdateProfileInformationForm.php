@@ -45,11 +45,14 @@ class UpdateProfileInformationForm extends Component
 
         $updater->update(Auth::user(), $this->state);
 
-        $this->emit('saved');
+        $this->dispatch('saved');
 
-        $this->emit('refresh-navigation-dropdown');
+        $this->dispatch('refresh-navigation-dropdown');
 
-        $this->emit('toastMessage', [trans('ui::pages.user-settings.profile_updated'), 'success']);
+        $this->dispatch('toastMessage', [
+            'message' => trans('ui::pages.user-settings.profile_updated'),
+            'type'    => 'success',
+        ]);
     }
 
     /**

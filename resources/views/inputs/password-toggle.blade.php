@@ -34,7 +34,7 @@
                     'input-text shifted',
                     'input-text--error' => $errors->has($name),
                 ])
-                wire:model="{{ $model ?? $name }}"
+                wire:model.live="{{ $model ?? $name }}"
                 @if($max ?? false) maxlength="{{ $max }}" @endif
                 @if($value ?? false) value="{{ $value }}" @endif
                 @if($autofocus ?? false) autofocus @endif

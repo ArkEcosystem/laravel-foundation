@@ -36,7 +36,7 @@
     }"
 >
     @slot('description')
-        <form id="linkCollectionModalForm" @submit.prevent="Livewire.emit('linkCollectionModal', $event)" class="space-y-4">
+        <form id="linkCollectionModalForm" @submit.prevent="Livewire.dispatch('linkCollectionModal', $event)" class="space-y-4">
             <template x-for="(link, index) in links" x-key="`${link.id}:${index}`">
                 <div class="flex space-x-4" >
                     <x-ark-input

@@ -34,7 +34,7 @@ class FrontendSettings extends Component
         $this->state['darkTheme'] = $darkMode;
         $this->saveSettings();
 
-        $this->dispatchBrowserEvent('setThemeMode', [
+        $this->dispatch('setThemeMode', [
             'theme' => $darkMode === true ? 'dark' : 'light',
         ]);
     }

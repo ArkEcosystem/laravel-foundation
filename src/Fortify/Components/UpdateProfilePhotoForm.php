@@ -8,7 +8,7 @@ use ARKEcosystem\Foundation\Fortify\Components\Concerns\InteractsWithUser;
 use ARKEcosystem\Foundation\UserInterface\Components\UploadImageSingle;
 use Illuminate\View\View;
 use Livewire\Component;
-use Livewire\TemporaryUploadedFile;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class UpdateProfilePhotoForm extends Component
 {

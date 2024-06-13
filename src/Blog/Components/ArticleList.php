@@ -40,10 +40,9 @@ final class ArticleList extends Component
      * @var mixed
      */
     protected $queryString = [
-        'term'                => ['except' => '', 'as' => 'q'],
-        'sortDirection'       => ['except' => 'desc', 'as' => 'order'],
-        'categoryQueryString' => ['except' => '', 'as' => 'category'],
-        'page'                => ['except' => 1],
+        'term'                => ['as' => 'q'],
+        'sortDirection'       => ['as' => 'order'],
+        'categoryQueryString' => ['as' => 'category'],
     ];
 
     public function render() : Renderable
@@ -52,7 +51,7 @@ final class ArticleList extends Component
 
         return view('ark::components.blog.article-list', [
             'articles'        => $this->articles($featuredArticle),
-            'featuredArticle' => $this->page <= 1 ? $featuredArticle : null,
+            'featuredArticle' => $this->getPage() <= 1 ? $featuredArticle : null,
         ]);
     }
 

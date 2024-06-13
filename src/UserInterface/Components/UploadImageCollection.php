@@ -7,7 +7,7 @@ namespace ARKEcosystem\Foundation\UserInterface\Components;
 use ARKEcosystem\Foundation\UserInterface\Components\Concerns\HandleUploadError;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Livewire\TemporaryUploadedFile;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 
 trait UploadImageCollection

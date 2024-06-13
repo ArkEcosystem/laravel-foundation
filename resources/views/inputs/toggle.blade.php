@@ -69,7 +69,7 @@
         name="{{ $name }}"
         class="hidden"
         x-model="value"
-        @unless($noModel) wire:model="{{ $model ?? $name }}" @endunless
+        @unless($noModel) wire:model.live="{{ $model ?? $name }}" @endunless
         @if($alpineClick) @click="{{ $alpineClick }}" @endif
         {{ $attributes->except('class') }}
     />

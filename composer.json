@@ -35,7 +35,7 @@
         "laravel/fortify": "^1.21",
         "laravel/telescope": "^5.0",
         "league/commonmark": "^2.4",
-        "livewire/livewire": "^2.12",
+        "livewire/livewire": "^3.0",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^7.0",
         "nunomaduro/larastan": "^2.6",

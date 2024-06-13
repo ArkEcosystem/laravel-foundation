@@ -25,7 +25,8 @@ beforeEach(function () {
 
 it('can interact with the form', function () {
     Livewire::actingAs($this->user)
-        ->test(LogoutOtherBrowserSessionsForm::class);
+        ->test(LogoutOtherBrowserSessionsForm::class)
+        ->assertSee('Logout Other Browser Sessions');
 });
 
 it('shows only 3 browser sessions', function () {
@@ -36,7 +37,10 @@ it('shows only 3 browser sessions', function () {
 
     actingAs($this->user);
 
-    Session::shouldReceive('getId')->andReturn($session_1);
+    Session::shouldReceive('getId')
+        ->andReturn($session_1)
+        ->shouldReceive('token')
+        ->andReturn('csrf-token');
 
     livewire(LogoutOtherBrowserSessionsForm::class)
         ->assertSee('1.1.1.1')
@@ -55,7 +59,10 @@ it('removes all other browser sessions for this user', function () {
 
     Session::shouldReceive('get');
     Session::shouldReceive('forget');
-    Session::shouldReceive('getId')->andReturn($session_1);
+    Session::shouldReceive('getId')
+        ->andReturn($session_1)
+        ->shouldReceive('token')
+        ->andReturn('csrf-token');
 
     livewire(LogoutOtherBrowserSessionsForm::class)
         ->call('confirmLogout')
@@ -88,7 +95,10 @@ it('should not delete browser sessions of other users', function () {
 
     Session::shouldReceive('get');
     Session::shouldReceive('forget');
-    Session::shouldReceive('getId')->andReturn($session_1);
+    Session::shouldReceive('getId')
+        ->andReturn($session_1)
+        ->shouldReceive('token')
+        ->andReturn('csrf-token');
 
     livewire(LogoutOtherBrowserSessionsForm::class)
         ->call('confirmLogout')

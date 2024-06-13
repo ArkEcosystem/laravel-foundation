@@ -18,6 +18,6 @@ trait HasPagination
      */
     public function updatedPaginators() : void
     {
-        $this->emit('pageChanged');
+        $this->dispatch('pageChanged');
     }
 }

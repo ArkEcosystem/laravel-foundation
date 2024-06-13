@@ -22,6 +22,6 @@ trait HasModal
 
     public function modalClosed(): void
     {
-        $this->emitSelf('modalClosed');
+        $this->dispatch('modalClosed')->self();
     }
 }

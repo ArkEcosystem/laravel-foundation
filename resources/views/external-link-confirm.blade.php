@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 e.stopPropagation();
 
-                Livewire.emit('openModal', 'external-link-confirm', link.getAttribute('href'));
+                Livewire.dispatch('openModal', 'external-link-confirm', link.getAttribute('href'));
             };
 
             link.addEventListener("auxclick", (event) => {
@@ -138,8 +138,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         });
     }
 
-    Livewire.hook("message.processed", function (message, component) {
-        initExternalLinkConfirm();
+    Livewire.hook("commit", ({ succeed }) => {
+        succeed(() => {
+            initExternalLinkConfirm();
+        });
     });
 
     initExternalLinkConfirm();

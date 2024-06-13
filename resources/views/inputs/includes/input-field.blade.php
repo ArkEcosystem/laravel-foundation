@@ -17,13 +17,13 @@
     class="{{ $inputClass }} {{ $inputTypeClass }} @if ($errors) @error($name) {{ $errorClass }} @enderror @endif"
     @unless ($noModel)
     @if ($deferred)
-    wire:model.defer="{{ $model ?? $name }}"
+    wire:model="{{ $model ?? $name }}"
     @elseif ($debounce === true)
     wire:model.debounce="{{ $model ?? $name }}"
     @elseif (is_string($debounce))
     wire:model.debounce.{{ $debounce }}="{{ $model ?? $name }}"
     @else
-    wire:model="{{ $model ?? $name }}"
+    wire:model.live="{{ $model ?? $name }}"
     @endif
     @endUnless
     {{ $attributes->except([

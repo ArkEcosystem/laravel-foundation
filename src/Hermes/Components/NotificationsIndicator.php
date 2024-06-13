@@ -27,7 +27,7 @@ final class NotificationsIndicator extends Component
 
         $this->notificationsUnread = false;
 
-        $this->emit('notificationsCountUpdated');
+        $this->dispatch('notificationsCountUpdated');
     }
 
     public function render(): View

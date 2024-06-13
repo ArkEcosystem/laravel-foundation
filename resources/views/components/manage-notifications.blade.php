@@ -113,13 +113,13 @@
                     <div
                         role="button"
                         class="flex flex-col sm:flex-row rounded-xl space-y-4 sm:space-y-0 sm:space-x-4 {{ $this->getStateColor($notification) }} px-6 py-5 cursor-pointer"
-                        wire:click="$emit('markAsRead', '{{ $notification->id }}')"
+                        wire:click="$dispatch('markAsRead', '{{ $notification->id }}')"
                     >
                         <div class="flex flex-shrink-0 justify-between">
                             @if ($this->isNotificationSelected($notification->id))
                                 <button
                                     type="button"
-                                    wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"
+                                    wire:click.stop="$dispatch('setNotification', '{{ $notification->id }}')"
                                     class="flex justify-center items-center w-5 h-5 text-white rounded cursor-pointer box-border bg-theme-success-600"
                                 >
                                     <x-ark-icon name="check-mark-bold" size="2xs" />
@@ -132,7 +132,7 @@
                                         'dark:border-theme-secondary-600' => $notification->unread(),
                                         'dark:border-theme-secondary-800' => ! $notification->unread(),
                                     ])
-                                    wire:click.stop="$emit('setNotification', '{{ $notification->id }}')"
+                                    wire:click.stop="$dispatch('setNotification', '{{ $notification->id }}')"
                                 ></button>
                             @endif
 
@@ -168,7 +168,7 @@
                                                 <button
                                                     type="button"
                                                     class="sm:mr-2 focus-visible:rounded transition-default"
-                                                    wire:click.stop="$emit('markAsUnstarred', '{{ $notification->id }}')"
+                                                    wire:click.stop="$dispatch('markAsUnstarred', '{{ $notification->id }}')"
                                                 >
                                                     <x-ark-icon name="star-filled" size="sm" class="text-theme-warning-200" />
                                                 </button>
@@ -176,7 +176,7 @@
                                                 <button
                                                     type="button"
                                                     class="sm:mr-2 focus-visible:rounded transition-default"
-                                                    wire:click.stop="$emit('markAsStarred', '{{ $notification->id }}')"
+                                                    wire:click.stop="$dispatch('markAsStarred', '{{ $notification->id }}')"
                                                 >
                                                     <x-ark-icon name="star" size="sm" class="text-theme-secondary-300" />
                                                 </button>

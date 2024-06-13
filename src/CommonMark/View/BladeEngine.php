@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ARKEcosystem\Foundation\CommonMark\View;
 
 use Illuminate\Support\Str;
-use Livewire\LivewireViewCompilerEngine;
+use Livewire\Mechanisms\ExtendBlade\ExtendedCompilerEngine;
 
-final class BladeEngine extends LivewireViewCompilerEngine
+final class BladeEngine extends ExtendedCompilerEngine
 {
     /**
      * Get the evaluated contents of the view.

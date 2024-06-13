@@ -5,7 +5,7 @@
         <div>
             <div class="flex flex-1">
                 <x-ark-input
-                    wire:model.defer="email"
+                    wire:model="email"
                     no-model
                     type="email"
                     name="email"

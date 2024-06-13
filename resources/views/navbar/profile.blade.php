@@ -95,7 +95,7 @@
             <x-ark-toggle
                 name="darkTheme"
                 default="window.getThemeMode() === 'dark'"
-                alpine-click="Livewire.emit('settings.set-dark-mode', value)"
+                alpine-click="Livewire.dispatch('settings.set-dark-mode', {darkMode: value})"
                 no-model
                 hide-label
                 backdrop-color="bg-theme-secondary-300 dark:bg-theme-secondary-700"

@@ -34,7 +34,7 @@
         type="checkbox"
         name="{{ $name }}"
         class="hidden"
-        wire:model="{{ $model ?? $name }}"
+        wire:model.live="{{ $model ?? $name }}"
         @if($alpineClick ?? false) x-on:click="{{ $alpineClick }}" @endif
         @if($default ?? false) checked @endif
     />

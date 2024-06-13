@@ -8,7 +8,7 @@ $options = collect($hours)
 @endphp
 
 <x-ark-rich-select
-    wire:model="{{ $name ?? $id }}"
+    wire:model.live="{{ $name ?? $id }}"
     :initial-value="$time ?? '00:00'"
     :options="$options"
     dropdown-list-class="max-h-48"

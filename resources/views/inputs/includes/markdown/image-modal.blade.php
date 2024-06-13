@@ -13,7 +13,7 @@
     }" --}}
 >
     @slot('description')
-        <form id="imageModalForm" @submit.prevent="Livewire.emit('imageModal', $event)">
+        <form id="imageModalForm" @submit.prevent="Livewire.dispatch('imageModal', $event)">
             {{-- @TODO: Add file upload --}}
             {{-- <div class="mb-4 w-full">
                 <div class="input-group">
