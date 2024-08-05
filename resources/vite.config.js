@@ -1,15 +1,15 @@
 import { loadEnv } from "vite";
-import fs from 'fs';
+import fs from "fs";
 import { homedir } from "os";
 import { resolve } from "path";
 
 export function getValetHome() {
-    let valetPath = resolve(homedir(), '.config/valet');
+    let valetPath = resolve(homedir(), ".config/valet");
     if (fs.existsSync(valetPath)) {
         return valetPath;
     }
 
-    valetPath = resolve(homedir(), '.valet');
+    valetPath = resolve(homedir(), ".valet");
     if (fs.existsSync(valetPath)) {
         return valetPath;
     }
@@ -24,7 +24,7 @@ export function detectServerConfig(mode) {
         return;
     }
 
-    const host = loadEnv(mode, process.cwd()).VITE_HOST ?? 'localhost';
+    const host = loadEnv(mode, process.cwd()).VITE_HOST ?? "localhost";
     let keyPath = resolve(valetPath, `Certificates/${host}.key`);
     let certificatePath = resolve(valetPath, `Certificates/${host}.crt`);
 
