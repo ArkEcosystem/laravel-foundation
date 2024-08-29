@@ -26,7 +26,7 @@ trait HasCustomFormatters
         $result = $this->formatWithDecimal((float) $value);
 
         if (Str::contains((string) $value, '.')) {
-            $result = number_format((float) ResolveScientificNotation::execute((float) $value), $decimals ?? 8);
+            $result = number_format((float) ResolveScientificNotation::execute((float) $value), $decimals ?? config('currencies.decimals.crypto', 8));
 
             if (Str::contains((string) $result, '.')) {
                 $result = rtrim(rtrim((string) $result, '0'), '.');
