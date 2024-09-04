@@ -5,7 +5,7 @@
         type="radio"
         class="form-radio input-radio"
         value="{{ $value ?? '' }}"
-        wire:model="{{ $model ?? $name }}"
+        wire:model.live="{{ $model ?? $name }}"
         @if($checked ?? '') checked @endif
         @if($disabled ?? '') disabled @endif
     />

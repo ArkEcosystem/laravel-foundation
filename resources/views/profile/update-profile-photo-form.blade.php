@@ -5,7 +5,7 @@
             :dimensions="$dimensions"
             :readonly="$readonly"
             :image="$this->user->photo"
-            wire:model="imageSingle"
+            wire:model.live="imageSingle"
             :upload-text="__('ui::forms.upload-avatar.upload_avatar')"
             :delete-tooltip="__('ui::forms.upload-avatar.delete_avatar')"
             :with-crop="$withCrop"

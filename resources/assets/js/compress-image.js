@@ -73,10 +73,10 @@ const CompressImage = (
 
                     Object.values(errors.getAll()).forEach((bags) => {
                         [...bags].forEach(({ value }) =>
-                            Livewire.emit("toastMessage", [
-                                `${value} - ${file.name}`,
-                                "danger",
-                            ])
+                            Livewire.dispatch("toastMessage", {
+                                message: `${value} - ${file.name}`,
+                                type: "danger",
+                            })
                         );
                     });
                 });

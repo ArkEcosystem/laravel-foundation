@@ -55,7 +55,7 @@ class LogoutOtherBrowserSessionsForm extends Component
 
         $this->closeModal();
 
-        $this->emit('loggedOut');
+        $this->dispatch('loggedOut');
     }
 
     public function getSessionsProperty(): Collection

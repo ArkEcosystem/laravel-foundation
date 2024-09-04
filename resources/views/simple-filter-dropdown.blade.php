@@ -25,7 +25,7 @@
     ])"
     :icon-class="$iconClass"
     :initial-value="$initialValue"
-    wire:model="{{ $model }}"
+    wire:model.live="{{ $model }}"
     :options="$options"
     :width="$width"
     :x-data="$mobile ? '{

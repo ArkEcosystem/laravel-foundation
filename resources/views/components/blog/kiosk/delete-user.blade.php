@@ -16,7 +16,7 @@
                 <x-ark-input
                     type="text"
                     name="userEmailConfirmation"
-                    wire:model="userEmailConfirmation"
+                    wire:model.live="userEmailConfirmation"
                     :errors="$errors"
                     placeholder="Enter user's email"
                     hide-label

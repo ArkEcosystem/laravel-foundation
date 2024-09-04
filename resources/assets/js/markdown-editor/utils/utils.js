@@ -68,7 +68,7 @@ export const initModalhandler = (editor, modalName, getReplacement) => {
 
         Alpine.raw(editor).replaceSelection(replacement);
 
-        Livewire.emit("closeModal", modalName);
+        Livewire.dispatch("closeModal", modalName);
 
         form.reset();
 

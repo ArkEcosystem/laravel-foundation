@@ -42,7 +42,7 @@
                 x-ref="input"
                 type="hidden"
                 id="{{ $id ?? $name }}"
-                wire:model="{{ $model ?? $name }}"
+                wire:model.live="{{ $model ?? $name }}"
                 name="{{ $name }}"
             />
 

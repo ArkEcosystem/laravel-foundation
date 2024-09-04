@@ -67,7 +67,7 @@
                                                 <button
                                                     type="button"
                                                     class="flex items-center space-x-1 text-sm font-medium text-theme-danger-600"
-                                                    @click="window.livewire.emit('triggerArticleDelete', {{ $article->id }})"
+                                                    @click="window.livewire.dispatch('triggerArticleDelete', {id: {{ $article->id }}})"
                                                 >
                                                     <x-ark-icon name="trash" size="sm" />
 

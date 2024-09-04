@@ -204,7 +204,7 @@ const MarkdownEditor = (
         }
     },
     openModal(modelName) {
-        Livewire.emit("openModal", modelName);
+        Livewire.dispatch("openModal", modelName);
     },
     initModals() {
         initModalhandler(this.editor, "imageModal", (formData) => {

@@ -68,13 +68,13 @@ const CropImage = (
         this.uploadEl = document.getElementById($uploadID);
 
         Livewire.on("discardCroppedImage", () => {
-            Livewire.emit("closeModal", $modalID);
+            Livewire.dispatch("closeModal", $modalID);
 
             this.discardImage();
         });
 
         Livewire.on("saveCroppedImage", () => {
-            Livewire.emit("closeModal", $modalID);
+            Livewire.dispatch("closeModal", $modalID);
 
             this.saveCroppedImage();
             this.discardImage();
@@ -132,7 +132,10 @@ const CropImage = (
 
                     Object.values(errors.getAll()).forEach((bags) => {
                         [...bags].forEach(({ value }) =>
-                            Livewire.emit("toastMessage", [value, "danger"])
+                            Livewire.dispatch("toastMessage", {
+                                message: value,
+                                type: "danger",
+                            })
                         );
                     });
                 });
@@ -193,7 +196,7 @@ const CropImage = (
     },
 
     openCropModal() {
-        Livewire.emit("openModal", $modalID);
+        Livewire.dispatch("openModal", $modalID);
     },
 });
 

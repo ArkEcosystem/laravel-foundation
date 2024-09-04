@@ -55,9 +55,11 @@
             }));
 
             @unless (app()->isDownForMaintenance())
+
                 if (window.Livewire) {
-                    Livewire.emit('themeChanged', _theme);
+                    Livewire.dispatch('themeChanged', {newValue: _theme});
                 }
+
             @endunless
         }
 

@@ -8,6 +8,9 @@ trait HandleToast
 {
     public function toast(string $message, string $type = 'success'): void
     {
-        $this->emit('toastMessage', [$message, $type]);
+        $this->dispatch('toastMessage', [
+            'message' => $message,
+            'type'    => $type,
+        ]);
     }
 }

@@ -44,10 +44,13 @@ class UpdatePasswordForm extends Component
         $this->password              = '';
         $this->password_confirmation = '';
 
-        $this->dispatchBrowserEvent('updated-password');
+        $this->dispatch('updated-password');
         $this->resetRules();
 
-        $this->emit('toastMessage', [trans('ui::pages.user-settings.password_updated'), 'success']);
+        $this->dispatch('toastMessage', [
+            'message' => trans('ui::pages.user-settings.password_updated'),
+            'type'    => 'success',
+        ]);
     }
 
     public function updated(string $property): void

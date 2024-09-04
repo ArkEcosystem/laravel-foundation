@@ -31,7 +31,10 @@ class ExportUserData extends Component
 
         dispatch(new CreatePersonalDataExportJob($this->user));
 
-        $this->emit('toastMessage', [trans('ui::pages.user-settings.data_exported'), 'success']);
+        $this->dispatch('toastMessage', [
+            'message' => trans('ui::pages.user-settings.data_exported'),
+            'type'    => 'success',
+        ]);
     }
 
     public function rateLimitReached(): bool

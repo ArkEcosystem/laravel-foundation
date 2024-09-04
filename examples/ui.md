@@ -172,7 +172,7 @@ This file contains basic examples and explains the parameters that can be used f
 ### Upload Single Image
 This component renders an input file for a single image upload.
 ```html
-<x-ark-upload-image-single id="profile" :image="$image" wire:model="imageSingle" />
+<x-ark-upload-image-single id="profile" :image="$image" wire:model.live="imageSingle" />
 ```
 > It requires the use of a Livewire Component.
 > There is a trait that can be used with your Livewire Component `\ARKEcosystem\UserInterface\Components\UploadImageSingle`.
@@ -227,7 +227,7 @@ laravel([
 <x-ark-upload-image-single
     id="profile"
     :image="$image"
-    wire:model="imageSingle"
+    wire:model.live="imageSingle"
     dimensions="w-64 h-64"
     upload-text="Upload Screenshot"
     delete-tooltip="Delete Screenshot"
@@ -277,7 +277,7 @@ laravel([
 ### Upload Multiple Images
 This component renders an input file for a multiple image upload.
 ```html
-<x-ark-upload-image-collection id="media" :image="$imageCollection" wire:model="tempCollection" />
+<x-ark-upload-image-collection id="media" :image="$imageCollection" wire:model.live="tempCollection" />
 ```
 > It requires the use of a Livewire Component.
 > There is a trait that can be used with your Livewire Component `\ARKEcosystem\UserInterface\Components\UploadImageCollection`.
@@ -338,7 +338,7 @@ public function imagesReordered(array $ids): void
 <x-ark-upload-image-collection
     id="media"
     :image="$imageCollection"
-    wire:model="tempCollection"
+    wire:model.live="tempCollection"
     dimensions="w-64 h-64"
     upload-text="Upload Screenshot"
     delete-tooltip="Delete Screenshot"
