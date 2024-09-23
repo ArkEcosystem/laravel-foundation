@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50f2356eb505984698604cc9b51f0ec1",
+    "content-hash": "eaed31dee9dea07e5aba420be5c7cd7f",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1688,6 +1688,59 @@
                 "source": "https://github.com/google/recaptcha"
             },
             "time": "2023-02-18T17:41:46+00:00"
+        },
+        {
+            "name": "graham-campbell/analyzer",
+            "version": "4.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexbarnsley/GrahamCampbell-Analyzer.git",
+                "reference": "0d30166261732bbff4c89394e2a2b0126a647b49"
+            },
+            "require": {
+                "nikic/php-parser": "^5.0",
+                "php": "^7.4.15 || ^8.0.2",
+                "phpdocumentor/reflection-common": "^2.2",
+                "phpdocumentor/reflection-docblock": "^5.3",
+                "phpdocumentor/type-resolver": "^1.7.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^11.0"
+            },
+            "suggest": {
+                "phpunit/phpunit": "Required to use the analysis trait."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Analyzer\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "GrahamCampbell\\Tests\\Analyzer\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                }
+            ],
+            "description": "Checks if referenced classes really exist.",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "analysis",
+                "analyzer",
+                "classes",
+                "testing"
+            ],
+            "time": "2024-09-23T13:21:09+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -12753,59 +12806,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "graham-campbell/analyzer",
-            "version": "4.2.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/alexbarnsley/GrahamCampbell-Analyzer.git",
-                "reference": "0d30166261732bbff4c89394e2a2b0126a647b49"
-            },
-            "require": {
-                "nikic/php-parser": "^5.0",
-                "php": "^7.4.15 || ^8.0.2",
-                "phpdocumentor/reflection-common": "^2.2",
-                "phpdocumentor/reflection-docblock": "^5.3",
-                "phpdocumentor/type-resolver": "^1.7.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^11.0"
-            },
-            "suggest": {
-                "phpunit/phpunit": "Required to use the analysis trait."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Analyzer\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "GrahamCampbell\\Tests\\Analyzer\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "hello@gjcampbell.co.uk",
-                    "homepage": "https://github.com/GrahamCampbell"
-                }
-            ],
-            "description": "Checks if referenced classes really exist.",
-            "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "analysis",
-                "analyzer",
-                "classes",
-                "testing"
-            ],
-            "time": "2024-09-23T13:21:09+00:00"
-        },
         {
             "name": "laravel/tinker",
             "version": "v2.9.0",
