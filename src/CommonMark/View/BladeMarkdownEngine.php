@@ -17,15 +17,15 @@ final class BladeMarkdownEngine extends CompilerEngine
     /**
      * The markdown instance.
      *
-     * @var \League\CommonMark\MarkdownConverterInterface
+     * @var MarkdownConverterInterface
      */
     private $markdown;
 
     /**
      * Create a new instance.
      *
-     * @param \Illuminate\View\Compilers\CompilerInterface  $compiler
-     * @param \League\CommonMark\MarkdownConverterInterface $markdown
+     * @param CompilerInterface  $compiler
+     * @param MarkdownConverterInterface $markdown
      *
      * @return void
      */
@@ -59,7 +59,7 @@ final class BladeMarkdownEngine extends CompilerEngine
     /**
      * Return the markdown instance.
      *
-     * @return \League\CommonMark\MarkdownConverterInterface
+     * @return MarkdownConverterInterface
      */
     public function getMarkdown()
     {

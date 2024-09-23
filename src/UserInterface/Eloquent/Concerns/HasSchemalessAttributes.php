@@ -15,7 +15,7 @@ trait HasSchemalessAttributes
     /**
      * Scope the query to include the meta attributes.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function scopeWithExtraAttributes(): Builder
     {

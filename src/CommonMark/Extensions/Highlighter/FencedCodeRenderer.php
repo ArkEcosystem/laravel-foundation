@@ -18,10 +18,10 @@ final class FencedCodeRenderer implements NodeRendererInterface, XmlNodeRenderer
 {
     use DecodesHtmlEntities;
 
-    /** @var \ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\CodeBlockHighlighter */
+    /** @var CodeBlockHighlighter */
     private $highlighter;
 
-    /** @var \League\CommonMark\Extension\CommonMark\Renderer\Block\FencedCodeRenderer */
+    /** @var BaseFencedCodeRenderer */
     private $baseRenderer;
 
     public function __construct()

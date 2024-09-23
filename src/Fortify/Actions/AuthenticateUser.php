@@ -17,7 +17,7 @@ class AuthenticateUser
     protected Request $request;
 
     /**
-     * @var \Illuminate\Http\Request
+     * @var Request
      */
     public function __construct(Request $request)
     {

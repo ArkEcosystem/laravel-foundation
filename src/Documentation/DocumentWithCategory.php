@@ -100,6 +100,7 @@ class DocumentWithCategory extends Base
         $value = strip_tags(htmlspecialchars_decode($value));
         // Remove new lines
         $value = (string) preg_replace("#(^[\r\n]*|[\r\n]+)[\\s\t]*[\r\n]+#", '', $value);
+
         // Limit length
         return Str::limit($value, $limit);
     }
@@ -110,6 +111,7 @@ class DocumentWithCategory extends Base
         $value = trim($value);
         // Remove FrontMatter
         $value = YamlFrontMatter::parse($value)->body();
+
         // Convert to HTML
         return (string) Markdown::convertToHtml($value);
     }

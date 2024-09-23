@@ -28,14 +28,14 @@ final class PhpMarkdownEngine extends PhpEngine
     /**
      * The markdown instance.
      *
-     * @var \League\CommonMark\MarkdownConverterInterface
+     * @var MarkdownConverterInterface
      */
     private $markdown;
 
     /**
      * Create a new instance.
      *
-     * @param \League\CommonMark\MarkdownConverterInterface $markdown
+     * @param MarkdownConverterInterface $markdown
      *
      * @return void
      */
@@ -62,7 +62,7 @@ final class PhpMarkdownEngine extends PhpEngine
     /**
      * Return the markdown instance.
      *
-     * @return \League\CommonMark\MarkdownConverterInterface
+     * @return MarkdownConverterInterface
      */
     public function getMarkdown()
     {
