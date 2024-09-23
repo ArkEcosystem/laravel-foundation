@@ -12732,7 +12732,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/alexbarnsley/GrahamCampbell-Analyzer.git",
-                "reference": "98cc0be6fcd161b7a8d63353960b97914fa21402"
+                "reference": "0d30166261732bbff4c89394e2a2b0126a647b49"
             },
             "require": {
                 "nikic/php-parser": "^5.0",
@@ -12777,7 +12777,7 @@
                 "classes",
                 "testing"
             ],
-            "time": "2024-09-19T23:15:52+00:00"
+            "time": "2024-09-23T13:21:09+00:00"
         },
         {
             "name": "laravel/tinker",
