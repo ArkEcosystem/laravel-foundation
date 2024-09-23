@@ -86,13 +86,13 @@ it('caches the response for 5 minutes if server is down', function () {
 
     Cache::shouldReceive('rememberForever')
         ->once()
-        ->with($cacheKey, \Closure::class)
+        ->with($cacheKey, Closure::class)
         ->andReturn(null)
         ->shouldReceive('forget')
         ->once()
         ->with($cacheKey)
         ->shouldReceive('remember')
-        ->with($cacheKey, Carbon::class, \Closure::class)
+        ->with($cacheKey, Carbon::class, Closure::class)
         ->once()
         ->andReturn('');
 

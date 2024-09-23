@@ -26,7 +26,7 @@ class UpdatePasswordForm extends Component
     /**
      * Update the user's password.
      *
-     * @param \Laravel\Fortify\Contracts\UpdatesUserPasswords $updater
+     * @param UpdatesUserPasswords $updater
      *
      * @return void
      */

@@ -25,14 +25,14 @@ final class MarkdownDirective
     /**
      * The markdown instance.
      *
-     * @var \League\CommonMark\MarkdownConverterInterface
+     * @var MarkdownConverterInterface
      */
     private $markdown;
 
     /**
      * Create a new markdown directive instance.
      *
-     * @param \League\CommonMark\MarkdownConverterInterface $markdown
+     * @param MarkdownConverterInterface $markdown
      *
      * @return void
      */

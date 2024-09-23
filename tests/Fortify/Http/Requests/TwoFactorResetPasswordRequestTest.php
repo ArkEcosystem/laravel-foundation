@@ -143,7 +143,7 @@ it('throws an exception if email not found', function () {
 
     $this->mock(FailedTwoFactorLoginResponse::class)
         ->shouldReceive('toResponse')
-        ->andReturn(new \Symfony\Component\HttpFoundation\Response());
+        ->andReturn(new Symfony\Component\HttpFoundation\Response());
 
     $request = app(TwoFactorResetPasswordRequest::class);
 

@@ -49,7 +49,7 @@ final class UserFactory extends Factory
     /**
      * Indicate that the user has suername.
      *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     * @return Factory
      */
     public function withUsername()
     {

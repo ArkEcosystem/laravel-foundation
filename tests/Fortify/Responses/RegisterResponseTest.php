@@ -28,7 +28,7 @@ it('can return json', function () {
 
 it('redirects to the accept invite route', function () {
     Config::set('fortify.models.invitation', \Tests\Fortify\stubs\TestUser::class);
-    Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
+    Config::set('fortify.models.user', User::class);
     Config::set('fortify.accept_invitation_route', 'invitations.accept');
 
     $user = User::factory()->create();
@@ -70,7 +70,7 @@ it('redirects to the accept invite route', function () {
 
 it('redirects to the root url if no route for accept an invitation is set and the user is not an instance of MustVerifyMail', function () {
     Config::set('fortify.models.invitation', \Tests\Fortify\stubs\TestUser::class);
-    Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
+    Config::set('fortify.models.user', User::class);
     Config::set('fortify.accept_invitation_route', null);
 
     $user = User::factory()->create();
@@ -94,7 +94,7 @@ it('redirects to the root url if no route for accept an invitation is set and th
 
 it('can redirect on the verification.notice page if no route for accept an invitation is set and the user is an instance of MustVerifyMail', function () {
     Config::set('fortify.models.invitation', \Tests\Fortify\stubs\TestUser::class);
-    Config::set('fortify.models.user', \ARKEcosystem\Foundation\Fortify\Models\User::class);
+    Config::set('fortify.models.user', User::class);
     Config::set('fortify.accept_invitation_route', null);
 
     $user = User::factory()->create();

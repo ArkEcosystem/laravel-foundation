@@ -35,7 +35,7 @@ class UpdateProfileInformationForm extends Component
     /**
      * Update the user's profile information.
      *
-     * @param \Laravel\Fortify\Contracts\UpdatesUserProfileInformation $updater
+     * @param UpdatesUserProfileInformation $updater
      *
      * @return void
      */

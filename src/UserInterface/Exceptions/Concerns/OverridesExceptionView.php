@@ -11,7 +11,7 @@ trait OverridesExceptionView
     /**
      * Get the view used to render HTTP exceptions.
      *
-     * @param  \Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
+     * @param  HttpExceptionInterface  $e
      * @return string|null
      */
     protected function getHttpExceptionView(HttpExceptionInterface $e)
