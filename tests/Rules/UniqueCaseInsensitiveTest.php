@@ -19,13 +19,14 @@ it('should include trashed data', function () {
     $user = User::factory()->create(['username' => 'johndoe']);
     $user->delete();
 
-    expect($this->subject->withTrashed()->passes(null, 'johndoe'))->toBeTrue();
+    expect($this->subject->withTrashed()->passes(null, 'johndoe'))->toBeFalse();
 });
 
 it('should exclude trashed data by default', function () {
     $user = User::factory()->create(['username' => 'johndoe']);
+    $user->delete();
 
-    expect($this->subject->withTrashed()->passes(null, 'johndoe'))->toBeFalse();
+    expect($this->subject->passes(null, 'johndoe'))->toBeTrue();
 });
 
 it('should exclude specified data', function () {

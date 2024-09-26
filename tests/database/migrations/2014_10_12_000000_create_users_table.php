@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name')->index();
+            $table->string('name_slug')->nullable(false)->unique();
             $table->string('username')->index()->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -23,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('timezone')->default('UTC')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 }
