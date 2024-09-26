@@ -11,7 +11,6 @@ uses(TestCase::class, RefreshDatabase::class)->in(
     'CommonMark',
     'DataBags',
     'Documentation',
-    'Fortify',
     'NumberFormatter',
     'Rules',
     'Support',

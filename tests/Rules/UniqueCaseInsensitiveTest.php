@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use ARKEcosystem\Foundation\Fortify\Models\User;
+use ARKEcosystem\Foundation\Blog\Models\User;
 use ARKEcosystem\Foundation\Rules\UniqueCaseInsensitive;
 
 beforeEach(function (): void {

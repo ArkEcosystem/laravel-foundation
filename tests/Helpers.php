@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use ARKEcosystem\Foundation\Fortify\Models\User;
+use ARKEcosystem\Foundation\Blog\Models\User;
 use Carbon\Carbon;
 use Closure;
 use Illuminate\Support\Facades\DB;

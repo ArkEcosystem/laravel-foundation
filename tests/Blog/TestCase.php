@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\Blog;
 
 use ARKEcosystem\Foundation\Blog\Enums\Category;
-use ARKEcosystem\Foundation\Fortify\Http\Middleware\EnforceTwoFactorAuthentication;
+use ARKEcosystem\Foundation\Blog\Http\Middleware\EnforceTwoFactorAuthentication;
 use ARKEcosystem\Foundation\Providers\BlogServiceProvider;
 use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
 use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
