@@ -85,12 +85,6 @@
             ]
         }
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
-        }
-    ],
     "scripts": {
         "format": [
             "vendor/bin/php-cs-fixer fix"
@@ -114,15 +108,7 @@
         }
     },
     "require-dev": {
-        "laravel/nova": "^4.13",
         "orchestra/testbench": "^8.22",
-        "spatie/laravel-permission": "^5.10",
-        "spatie/mailcoach-sdk-php": "^1.4",
-        "vyuldashev/nova-permission": "^3.2"
-    },
-    "suggest": {
-        "laravel/nova": "Needed for backend management of data",
-        "spatie/laravel-permission": "Needed for nova permissions & roles",
-        "vyuldashev/nova-permission": "Needed for nova permissions & roles"
+        "spatie/mailcoach-sdk-php": "^1.4"
     }
 }
