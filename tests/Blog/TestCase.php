@@ -9,6 +9,7 @@ use ARKEcosystem\Foundation\Blog\Http\Middleware\EnforceTwoFactorAuthentication;
 use ARKEcosystem\Foundation\Providers\BlogServiceProvider;
 use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
 use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\View;
 use JamesMills\LaravelTimezone\LaravelTimezoneServiceProvider;
 use Livewire\LivewireServiceProvider;
@@ -22,11 +23,14 @@ use Tests\TestCase as Base;
  */
 class TestCase extends Base
 {
+    use RefreshDatabase;
+
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->withoutVite();
+
         $this->loadMigrationsFrom(dirname(__DIR__).'/database/migrations');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
@@ -62,5 +66,11 @@ class TestCase extends Base
         return [
             'BlogCategory' => Category::class,
         ];
+    }
+
+    protected function afterRefreshingDatabase()
+    {
+        $this->loadMigrationsFrom(dirname(__DIR__).'/database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 }
