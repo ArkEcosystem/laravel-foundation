@@ -227,7 +227,6 @@ module.exports = {
     content: [
         "./resources/views/**/*.blade.php",
         "./vendor/arkecosystem/foundation/resources/views/**/*.blade.php",
-        "./vendor/arkecosystem/fortify/resources/views/**/*.blade.php",
         "./vendor/arkecosystem/hermes/resources/views/**/*.blade.php",
         "./resources/js/**/*.js",
         "./resources/js/**/*.vue",

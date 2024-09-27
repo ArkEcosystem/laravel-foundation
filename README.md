@@ -25,7 +25,6 @@ Require with composer: `composer require arkecosystem/foundation`
 
 - [CommonMark](/usage/commonmark.md)
 - [Documentation](/usage/documentation.md)
-- [Fortify](/usage/fortify.md)
 - [Hermes](/usage/hermes.md)
 - [Stan](/usage/stan.md)
 - [UI](/usage/ui.md)
@@ -34,7 +33,6 @@ Require with composer: `composer require arkecosystem/foundation`
 ## Examples
 
 - [CommonMark](/examples/commonmark.md)
-- [Fortify](/examples/fortify.md)
 - [Hermes](/examples/hermes.md)
 - [UI](/examples/ui.md)
 

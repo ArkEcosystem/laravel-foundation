@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ARKEcosystem\Foundation\Hermes\Components;
 
-use ARKEcosystem\Foundation\Fortify\Components\Concerns\InteractsWithUser;
+use ARKEcosystem\Foundation\Blog\Components\Concerns\InteractsWithUser;
 use ARKEcosystem\Foundation\Hermes\Enums\NotificationFilterEnum;
 use Illuminate\Contracts\View\View;
 use Illuminate\Notifications\DatabaseNotification;
