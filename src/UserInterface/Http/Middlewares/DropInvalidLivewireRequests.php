@@ -37,7 +37,7 @@ final class DropInvalidLivewireRequests
      * built-in `hasValidSignature` method.
      * (`/livewire/upload-file?expires={timestamp}&signature={signature}`).
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
      * @return bool
      */
@@ -53,7 +53,7 @@ final class DropInvalidLivewireRequests
     /**
      * A valid Livewire request should contain fingerprint data (ID, method) and stuff like checksum.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
      * @return bool
      */

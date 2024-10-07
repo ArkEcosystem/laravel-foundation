@@ -14,7 +14,7 @@ use League\CommonMark\Xml\XmlNodeRendererInterface;
 
 final class IndentedCodeRenderer implements NodeRendererInterface, XmlNodeRendererInterface
 {
-    /** @var \ARKEcosystem\Foundation\CommonMark\Extensions\Highlighter\CodeBlockHighlighter */
+    /** @var CodeBlockHighlighter */
     private $highlighter;
 
     public function __construct()

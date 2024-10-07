@@ -33,7 +33,7 @@ trait PathEvaluationTrait
      * @param string $path
      * @param array  $data
      *
-     * @throws \Throwable
+     * @throws Throwable
      *
      * @return string
      */

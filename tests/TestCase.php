@@ -80,6 +80,6 @@ class TestCase extends Orchestra
 
     protected function resolveApplicationExceptionHandler($app)
     {
-        $app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', \Tests\Stubs\ExceptionHandler::class);
+        $app->singleton('Illuminate\Contracts\Debug\ExceptionHandler', Stubs\ExceptionHandler::class);
     }
 }

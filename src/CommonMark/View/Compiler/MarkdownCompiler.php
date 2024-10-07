@@ -28,15 +28,15 @@ final class MarkdownCompiler extends Compiler implements CompilerInterface
     /**
      * The markdown instance.
      *
-     * @var \League\CommonMark\MarkdownConverterInterface
+     * @var MarkdownConverterInterface
      */
     private $markdown;
 
     /**
      * Create a new instance.
      *
-     * @param \League\CommonMark\MarkdownConverterInterface $markdown
-     * @param \Illuminate\Filesystem\Filesystem             $files
+     * @param MarkdownConverterInterface $markdown
+     * @param Filesystem             $files
      * @param string                                        $cachePath
      *
      * @return void
@@ -65,7 +65,7 @@ final class MarkdownCompiler extends Compiler implements CompilerInterface
     /**
      * Return the filesystem instance.
      *
-     * @return \Illuminate\Filesystem\Filesystem
+     * @return Filesystem
      */
     public function getFiles()
     {
@@ -75,7 +75,7 @@ final class MarkdownCompiler extends Compiler implements CompilerInterface
     /**
      * Return the markdown instance.
      *
-     * @return \League\CommonMark\MarkdownConverterInterface
+     * @return MarkdownConverterInterface
      */
     public function getMarkdown()
     {

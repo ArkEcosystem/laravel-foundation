@@ -9,12 +9,12 @@ use Illuminate\Support\Arr;
 trait HasFilter
 {
     /**
-     * @var array<string, boolean>
+     * @var array<string, bool>
      */
     public array $searchCategories = [];
 
     /**
-     * @var array<string, boolean>
+     * @var array<string, bool>
      */
     public array $pendingCategories = [];
 

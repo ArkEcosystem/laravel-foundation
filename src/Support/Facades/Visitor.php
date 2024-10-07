@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @method static self isEuropean()
  *
- * @see \ARKEcosystem\Foundation\Support\Services\Visitor
+ * @see Service
  */
 class Visitor extends Facade
 {
