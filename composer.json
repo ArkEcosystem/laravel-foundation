@@ -72,24 +72,6 @@
             ]
         }
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
-        },
-        {
-            "url": "https://github.com/alexbarnsley/laravel-timezone.git",
-            "type": "git"
-        },
-        {
-            "url": "https://github.com/alexbarnsley/GrahamCampbell-Analyzer.git",
-            "type": "git"
-        },
-        {
-            "url": "https://github.com/alexbarnsley/spatie-pest-plugin-snapshots.git",
-            "type": "git"
-        }
-    ],
     "scripts": {
         "format": [
             "vendor/bin/php-cs-fixer fix"
@@ -114,11 +96,6 @@
     },
     "require-dev": {
         "orchestra/testbench": "^9.1",
-        "spatie/laravel-permission": "^6.9",
         "spatie/mailcoach-sdk-php": "^1.4"
-    },
-    "suggest": {
-        "spatie/laravel-permission": "Needed for nova permissions & roles",
-        "vyuldashev/nova-permission": "Needed for nova permissions & roles"
     }
 }

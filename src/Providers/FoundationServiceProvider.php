@@ -24,13 +24,8 @@ class FoundationServiceProvider extends ServiceProvider
         $this->app->register(StanServiceProvider::class);
         $this->app->register(CommonMarkServiceProvider::class);
         $this->app->register(HermesServiceProvider::class);
-        $this->app->register(FortifyServiceProvider::class);
         $this->app->register(RulesServiceProvider::class);
         $this->app->register(UserInterfaceServiceProvider::class);
         $this->app->register(StringMacroServiceProvider::class);
-
-        if (class_exists('\Laravel\Nova\Nova')) {
-            $this->app->register(NovaServiceProvider::class);
-        }
     }
 }

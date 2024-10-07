@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use ARKEcosystem\Foundation\Providers\CommonMarkServiceProvider;
-use ARKEcosystem\Foundation\Providers\FortifyServiceProvider;
 use ARKEcosystem\Foundation\Providers\HermesServiceProvider;
 use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
 use ARKEcosystem\Foundation\Providers\RulesServiceProvider;
@@ -13,7 +11,7 @@ use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
 use Illuminate\Support\Facades\View;
 use Illuminate\Testing\TestView;
-use Laravel\Fortify\FortifyServiceProvider as LaravelFortifyServiceProvider;
+use Laravel\Fortify\FortifyServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Honeypot\HoneypotServiceProvider;
@@ -67,12 +65,11 @@ class TestCase extends Orchestra
     {
         return [
             // Third-Party
-            LaravelFortifyServiceProvider::class,
+            FortifyServiceProvider::class,
             MarkdownServiceProvider::class,
             LivewireServiceProvider::class,
             HoneypotServiceProvider::class,
             // First-Party
-            FortifyServiceProvider::class,
             HermesServiceProvider::class,
             NewsletterServiceProvider::class,
             RulesServiceProvider::class,
