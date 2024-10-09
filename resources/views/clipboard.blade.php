@@ -1,5 +1,6 @@
 @props ([
-    'value',
+    'value'           => null,
+    'alpineProperty'  => null,
     'class'           => 'h-10 w-12',
     'copyInput'       => false,
     'noStyling'       => false,
@@ -22,10 +23,14 @@
             $class,
         ])
         tooltip-content="{{ $tooltipContent }}"
-        @if($copyInput)
-            x-on:click="copyFromInput('{{ $value }}')"
+        @if($alpineProperty)
+            x-on:click="copy({{ $alpineProperty }})"
         @else
-            x-on:click="copy('{{ $value }}')"
+            @if($copyInput)
+                x-on:click="copyFromInput('{{ $value }}')"
+            @else
+                x-on:click="copy('{{ $value }}')"
+            @endif
         @endif
     >
         @unless ($withCheckmarks)
