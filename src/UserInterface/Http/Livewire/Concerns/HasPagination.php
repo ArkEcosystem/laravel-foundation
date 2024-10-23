@@ -17,6 +17,7 @@ trait HasPagination
 
             return 1;
         }
+
         // The "page" query string item should only be available
         // from within the original component mount run.
         return (int) request()->query('page', $this->getPage());

@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static self rememberForever(string $key, Closure $callback, array $tags = [])
  * @method static self forget(string $key): void
  *
- * @see \ARKEcosystem\Foundation\Support\Services\CacheStore
+ * @see Service
  */
 final class CacheStore extends Facade
 {
