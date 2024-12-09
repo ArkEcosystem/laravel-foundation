@@ -50,8 +50,7 @@
 
         @if ($icon && $iconAlignment === 'left')
             <x-ark-icon
-                :class="Arr::toCssClasses([
-                    'mr-1 flex-shrink-0 transition-default',
+                :class="Arr::toCssClasses(['mr-1 flex-shrink-0 transition-default',
                     $activeIconColors => $isCurrent || $active,
                     $iconColors => ! $isCurrent || $active,
                 ])"
@@ -63,8 +62,7 @@
 
         @if ($icon && $iconAlignment === 'right')
             <x-ark-icon
-                :class="Arr::toCssClasses([
-                    'flex-shrink-0 transition-default',
+                :class="Arr::toCssClasses(['flex-shrink-0 transition-default',
                     $activeIconColors => $isCurrent || $active,
                     $iconColors => ! $isCurrent || $active,
                 ])"
