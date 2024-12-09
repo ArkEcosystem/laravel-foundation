@@ -8,8 +8,7 @@
     'editOption' => true,
 ])
 
-<x-ark-container :container-class="Arr::toCssClasses([
-    'flex-col pb-8',
+<x-ark-container :container-class="Arr::toCssClasses(['flex-col pb-8',
     'pt-8 md:pt-8' => $compact,
     'pt-10 md:pt-12' => ! $compact,
 ])">

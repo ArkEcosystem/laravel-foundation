@@ -21,8 +21,7 @@
             @if ($topBorder)
                 <div class="flex">
                     <x-ark-divider
-                        :class="Arr::toCssClasses([
-                            'mx-8 lg:ml-5 lg:mr-0',
+                        :class="Arr::toCssClasses(['mx-8 lg:ml-5 lg:mr-0',
                             'hidden lg:block' => $onDocs,
                         ])"
                     />
@@ -48,8 +47,7 @@
             @unless ($borderless)
                 <div class="flex">
                     <x-ark-divider
-                        :class="Arr::toCssClasses([
-                            'sidebar-link-divider mx-8 lg:ml-5 lg:mr-0',
+                        :class="Arr::toCssClasses(['sidebar-link-divider mx-8 lg:ml-5 lg:mr-0',
                             'hidden lg:block' => $onDocs,
                         ])"
                     />

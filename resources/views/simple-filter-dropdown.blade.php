@@ -11,16 +11,13 @@
 ])
 
 <x-ark-rich-select
-    :wrapper-class="Arr::toCssClasses([
-        'p-2 w-full rounded-xl border md:p-0 md:w-auto md:border-0 border-theme-primary-100 dark:border-theme-secondary-800',
+    :wrapper-class="Arr::toCssClasses(['p-2 w-full rounded-xl border md:p-0 md:w-auto md:border-0 border-theme-primary-100 dark:border-theme-secondary-800',
         $wrapperClass,
     ])"
-    :dropdown-class="Arr::toCssClasses([
-        'right-0 mt-2 origin-top-right',
+    :dropdown-class="Arr::toCssClasses(['right-0 mt-2 origin-top-right',
         $dropdownClass,
     ])"
-    :button-class="Arr::toCssClasses([
-        'flex relative items-center py-4 mr-10 w-full font-semibold text-left md:inline md:items-end md:px-8 focus:outline-none text-theme-secondary-900 dark:text-theme-secondary-200',
+    :button-class="Arr::toCssClasses(['flex relative items-center py-4 mr-10 w-full font-semibold text-left md:inline md:items-end md:px-8 focus:outline-none text-theme-secondary-900 dark:text-theme-secondary-200',
         $buttonClass,
     ])"
     :icon-class="$iconClass"
