@@ -14,7 +14,9 @@
          * Set the given theme ('light' or 'dark').
          */
         document.addEventListener('setThemeMode', (e) => {
-            localStorage.theme = e.detail.theme;
+            // Latest version of livewire send the detail as an array
+            theme = Array.isArray(e.detail) ? e.detail[0].theme : e.detail.theme;
+            localStorage.theme = theme;
             toggleTheme();
         });
 
