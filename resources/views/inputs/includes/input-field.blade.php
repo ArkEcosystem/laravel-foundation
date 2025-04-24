@@ -19,9 +19,9 @@
     @if ($deferred)
     wire:model="{{ $model ?? $name }}"
     @elseif ($debounce === true)
-    wire:model.debounce="{{ $model ?? $name }}"
+    wire:model.live.debounce="{{ $model ?? $name }}"
     @elseif (is_string($debounce))
-    wire:model.debounce.{{ $debounce }}="{{ $model ?? $name }}"
+    wire:model.live.debounce.{{ $debounce }}="{{ $model ?? $name }}"
     @else
     wire:model.live="{{ $model ?? $name }}"
     @endif
