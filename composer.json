@@ -24,6 +24,7 @@
         "guzzlehttp/guzzle": "^7.7",
         "jamesmills/laravel-timezone": "dev-master",
         "jenssegers/agent": "^2.6",
+        "larastan/larastan": "^2.9",
         "laravel/fortify": "^1.21",
         "laravel/framework": "^11.45",
         "laravel/telescope": "^5.0",
@@ -94,7 +95,6 @@
         }
     },
     "require-dev": {
-        "larastan/larastan": "^2.9",
         "orchestra/testbench": "^9.1",
         "spatie/mailcoach-sdk-php": "^1.4"
     }
