@@ -15,6 +15,7 @@
     'initAlpine'             => true,
     'closeOnBlur'            => true,
     'onClose'                => null,
+    'onOpen'                 => null,
     'disabled'               => false,
     'withPlacement'          => false,
     'withoutButton'          => false,
@@ -28,6 +29,9 @@
             @if($onClose)
                 onClosed: ({{ $onClose }}),
             @endif
+            @if($onOpen)
+                onOpened: ({{ $onOpen }}),
+            @endif
             placement: '{{ $withPlacement }}',
             @if ($placementFallbacks)
                 placementFallbacks: {{ json_encode($placementFallbacks) }},
@@ -39,6 +43,12 @@
         x-init="$watch('{{ $dropdownProperty }}', (expanded) => {
             if (expanded) {
                 $nextTick(() => {
+                    @if($onOpen)
+                        $nextTick(() => {
+                            ({{ $onOpen }})($el);
+                        });
+                    @endif
+
                     $el.querySelectorAll('img[onload]').forEach(img => {
                         if (img.onload) {
                             img.onload();
