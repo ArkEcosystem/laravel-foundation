@@ -1,6 +1,7 @@
 import { createPopper } from "@popperjs/core";
 
 const Dropdown = {
+    previousValue: null,
     defaultSettings: {
         onOpened: null,
         onClosed: null,
@@ -86,6 +87,12 @@ const Dropdown = {
                 });
 
                 this.$watch(propertyName, (expanded) => {
+                    if (this.previousValue === expanded) {
+                        return;
+                    }
+
+                    this.previousValue = expanded;
+
                     if (expanded) {
                         this.preAdjustDropdownPosition(dropdown);
 
