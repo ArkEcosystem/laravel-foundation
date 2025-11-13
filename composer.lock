@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09aa10c3060b09a6274d984817e9dd45",
+    "content-hash": "97dd199c3352ca806ff642814f12b3df",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -9285,26 +9285,31 @@
         },
         {
             "name": "spatie/pest-plugin-snapshots",
-            "version": "dev-main",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/alexbarnsley/spatie-pest-plugin-snapshots.git",
-                "reference": "35a21f130b648b2f02f378a2040162fa443af834"
+                "url": "https://github.com/spatie/pest-plugin-snapshots.git",
+                "reference": "103a6746709a79033510d891c6393821fc3905d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/pest-plugin-snapshots/zipball/103a6746709a79033510d891c6393821fc3905d5",
+                "reference": "103a6746709a79033510d891c6393821fc3905d5",
+                "shasum": ""
             },
             "require": {
-                "pestphp/pest": "^3.0",
+                "pestphp/pest": "^2.0|^3.0|^4.0",
                 "php": "^8.1",
                 "spatie/phpunit-snapshot-assertions": "^5.1"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Spatie\\Snapshots\\Concerns\\": "./src/Concerns/"
-                },
                 "files": [
                     "src/Functions.php"
                 ],
+                "psr-4": {
+                    "Spatie\\Snapshots\\Concerns\\": "./src/Concerns/"
+                },
                 "exclude-from-classmap": [
                     "../phpunit-snapshot-assertions/src/Concerns/SnapshotDirectoryAware.php",
                     "../phpunit-snapshot-assertions/src/Concerns/SnapshotIdAware.php",
@@ -9312,14 +9317,7 @@
                     "vendor/spatie/phpunit-snapshot-assertions/src/Concerns/SnapshotIdAware.php"
                 ]
             },
-            "scripts": {
-                "test": [
-                    "pest"
-                ],
-                "test-coverage": [
-                    "vendor/bin/pest --coverage"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -9331,7 +9329,21 @@
                 "snapshots",
                 "spatie"
             ],
-            "time": "2024-09-19T23:24:09+00:00"
+            "support": {
+                "issues": "https://github.com/spatie/pest-plugin-snapshots/issues",
+                "source": "https://github.com/spatie/pest-plugin-snapshots/tree/2.2.1"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-08-24T20:38:51+00:00"
         },
         {
             "name": "spatie/phpunit-snapshot-assertions",
@@ -14243,8 +14255,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "graham-campbell/analyzer": 20,
-        "jamesmills/laravel-timezone": 20,
-        "spatie/pest-plugin-snapshots": 20
+        "jamesmills/laravel-timezone": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
