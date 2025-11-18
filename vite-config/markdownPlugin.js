@@ -31,7 +31,7 @@ async function processCssFile(src, dest) {
     }
 }
 
-const createMarkdownPlugin = () => {
+const createMarkdownPlugin = (force = false) => {
     return {
         name: "markdown-plugin",
         async buildStart() {
@@ -83,6 +83,12 @@ const createMarkdownPlugin = () => {
             for (const operation of fileOperations) {
                 const { src, dest, type } = operation;
                 const destDir = dirname(dest);
+
+                if (!force && existsSync(dest)) {
+                    console.log(`ℹ Skipping existing file: ${dest}`);
+
+                    continue;
+                }
 
                 // Ensure destination directory exists
                 if (!existsSync(destDir)) {
