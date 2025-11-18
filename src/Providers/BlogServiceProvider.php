@@ -93,7 +93,7 @@ class BlogServiceProvider extends ServiceProvider
 
             Route::middleware(['doNotCacheResponse'])->group(function () {
                 Route::view('/kiosk', 'ark::pages.blog.kiosk.dashboard')->name('kiosk')->middleware('auth');
-                Route::middleware(['auth', 'two-factor'])->group(function () {
+                Route::middleware(['auth'])->group(function () { //Route::middleware(['auth', 'two-factor'])->group(function () {
                     Route::get('/kiosk/articles', [KioskController::class, 'index'])->name('kiosk.articles');
                     Route::view('/kiosk/articles/create', 'ark::pages.blog.kiosk.articles.create')->name('kiosk.articles.create');
                     Route::get('/kiosk/articles/{article:slug}', [KioskController::class, 'show'])->name('kiosk.article');
