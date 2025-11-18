@@ -20,9 +20,9 @@
                 </a>
             </div>
 
-            <div class="px-4 pt-5 mt-5 border-t lg:pt-8 lg:mt-8 border-theme-secondary-200">
+            {{-- <div class="px-4 pt-5 mt-5 border-t lg:pt-8 lg:mt-8 border-theme-secondary-200">
                 <livewire:profile.two-factor-authentication-form />
-            </div>
+            </div> --}}
         </div>
     </x-ark-container>
 @endsection
