@@ -13,6 +13,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title inertia>{!! trim(View::yieldContent('title', $defaultName)) !!}</title>
+
     @if (config('ui.dark-mode.enabled') === true)
         <x-ark-dark-theme-script />
     @endif
@@ -29,6 +31,13 @@
     @else
         {{ $favicons }}
     @endunless
+
+    <!-- Meta --->
+    <x-ark-metadata-tags>
+        <x-slot name="title">@yield('meta-title', trans('metatags.home.title'))</x-slot>
+        <x-slot name="description">@yield('meta-description', trans('metatags.home.description'))</x-slot>
+        <x-slot name="image">@yield('meta-image', trans('metatags.home.image'))</x-slot>
+    </x-ark-metadata-tags>
 
     <!-- Fonts -->
     <x-ark-font-loader src="https://rsms.me/inter/inter.css" />
