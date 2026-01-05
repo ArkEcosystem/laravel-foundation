@@ -4,6 +4,7 @@
     'themeColor',
     'defaultName' => config('app.name', 'ARK'),
     'viewport' => 'width=device-width, initial-scale=1.0',
+    'inertia' => null,
 ])
 
 <head>
@@ -13,7 +14,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{!! trim(View::yieldContent('title', $defaultName)) !!}</title>
+    <title :inertia="$inertia">{!! trim(View::yieldContent('title', $defaultName)) !!}</title>
 
     @if (config('ui.dark-mode.enabled') === true)
         <x-ark-dark-theme-script />
