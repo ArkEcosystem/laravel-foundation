@@ -47,7 +47,10 @@
 
     <!-- Styles -->
     @vite('resources/css/app.css')
-    @livewireStyles
+
+    @if (! $inertia)
+        @livewireStyles
+    @endif
 
     @if (config('tracking.analytics.key') && Visitor::isEuropean())
         <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.5.1/dist/cookieconsent.css" rel="stylesheet">
