@@ -4,7 +4,8 @@
     'themeColor',
     'defaultName' => config('app.name', 'ARK'),
     'viewport' => 'width=device-width, initial-scale=1.0',
-    'inertia' => false,
+    'usesLivewire' => true,
+    'usesInertia' => false,
 ])
 
 <head>
@@ -14,7 +15,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title{!! $inertia ? ' inertia' : '' !!}>{!! trim(View::yieldContent('title', $defaultName)) !!}</title>
+    <title{!! $usesInertia ? ' inertia' : '' !!}>{!! trim(View::yieldContent('title', $defaultName)) !!}</title>
 
     @if (config('ui.dark-mode.enabled') === true)
         <x-ark-dark-theme-script />
@@ -47,7 +48,10 @@
 
     <!-- Styles -->
     @vite('resources/css/app.css')
-    @livewireStyles
+
+    @if ($usesLivewire)
+        @livewireStyles
+    @endif
 
     @if (config('tracking.analytics.key') && Visitor::isEuropean())
         <link href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.5.1/dist/cookieconsent.css" rel="stylesheet">
