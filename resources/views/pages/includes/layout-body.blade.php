@@ -7,7 +7,7 @@
     'disableCookieOutsideClick' => false,
     'overlayCookieCrossButton'  => false,
     'cookieContactUrl'          => '/contact',
-    'inertia' => false,
+    'usesLivewire'              => true,
 ])
 
 @aware([
@@ -40,7 +40,7 @@
         <x-ark-footer />
     @endif
 
-    @if (! $inertia)
+    @if ($usesLivewire)
         @livewireScriptConfig
 
         @livewire('toast')
