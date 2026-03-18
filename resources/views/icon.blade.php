@@ -32,4 +32,4 @@
     }
 @endphp
 
-@svg($name, collect([$size, $style, $class])->filter()->join(' '), ['wire:key' => Str::random(8)])
+@svg($name, collect([$size, $style, $class])->filter()->join(' '), $attributes->merge(['wire:key' => Str::random(8)])->all())
