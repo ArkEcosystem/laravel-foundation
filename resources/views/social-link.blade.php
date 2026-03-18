@@ -10,7 +10,10 @@
     target="_blank"
     rel="noopener noreferrer"
     class="rounded transition-default hover:text-theme-secondary-200"
-    @if ($label) aria-label="{{ $label }}" @endif
+    @if ($label)
+        aria-label="{{ $label }}"
+        title="{{ $label }}"
+    @endif
 >
     <x-ark-icon :name="$icon" size="sm" aria-hidden="true" />
 
