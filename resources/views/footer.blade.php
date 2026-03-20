@@ -109,7 +109,7 @@
         @if (count($socials) > 0)
             <nav class="flex space-x-3 leading-6">
                 @foreach ($socials as $network)
-                    <x-ark-social-link :url="$network['url']" :icon="$network['icon']" data-safe-external />
+                    <x-ark-social-link :url="$network['url']" :icon="$network['icon']" :label="$network['label'] ?? null" data-safe-external />
                 @endforeach
             </nav>
         @endif
