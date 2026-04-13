@@ -14,6 +14,15 @@ it('can render user kiosk', function () {
         ->assertViewHas('users', fn ($users) => $users->getCollection()->count() === 2);
 });
 
+it('uses a livewire v3 compatible dispatch payload for user deletion', function () {
+    $other = User::factory()->create();
+
+    $this->actingAs(User::factory()->create(['two_factor_secret' => 'code']))
+        ->get(route('kiosk.users'))
+        ->assertOk()
+        ->assertSee(sprintf("\$dispatch('triggerUserDelete', {id: %d})", $other->id), false);
+});
+
 it('can render a user update page', function () {
     $user = User::factory()->create();
 

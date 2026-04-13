@@ -14,6 +14,15 @@ it('can render kiosk', function () {
         ->assertViewIs('ark::pages.blog.kiosk.articles');
 });
 
+it('uses a livewire v3 compatible dispatch payload for article deletion', function () {
+    $article = Article::factory()->create();
+
+    $this->actingAs(User::factory()->create(['two_factor_secret' => 'code']))
+        ->get(route('kiosk.articles'))
+        ->assertOk()
+        ->assertSee(sprintf("\$dispatch('triggerArticleDelete', {id: %d})", $article->id), false);
+});
+
 it('can render an article page', function () {
     $article = Article::factory()->create();
 
