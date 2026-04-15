@@ -2,9 +2,10 @@ parameters:
     paths:
         - ../../../app
     excludePaths:
-        # MarketSquare
-        - ../../../app/App/Console/Playbooks
-        - ../../../app/App/Nova/*
+        analyseAndScan:
+            # MarketSquare
+            - ../../../app/App/Console/Playbooks (?)
+            - ../../../app/App/Nova/* (?)
     level: 8
     ignoreErrors:
         - '#is not allowed to extend#'
