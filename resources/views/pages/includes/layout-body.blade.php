@@ -8,6 +8,7 @@
     'overlayCookieCrossButton'  => false,
     'cookieContactUrl'          => '/contact',
     'usesLivewire'              => true,
+    'contentInnerClass'         => null,
 ])
 
 @aware([
@@ -26,7 +27,10 @@
         {{ $slot }}
 
         @if ($content === null)
-            <x-ark-pages-includes-layout-content :vertical-center="$verticalCenterContent">
+            <x-ark-pages-includes-layout-content
+                :vertical-center="$verticalCenterContent"
+                :inner-class="$contentInnerClass"
+            >
                 @yield('content')
             </x-ark-pages-includes-layout-content>
         @else
