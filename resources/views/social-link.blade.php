@@ -2,14 +2,14 @@
     'url',
     'icon',
     'label' => null,
+    'class' => 'hover:text-theme-primary-700',
 ])
 
 <a
-    {{ $attributes }}
+    {{ $attributes->class(['rounded transition-default', $class]) }}
     href="{{ $url }}"
     target="_blank"
     rel="noopener noreferrer"
-    class="rounded transition-default hover:text-theme-secondary-200"
     @if ($label)
         aria-label="{{ $label }}"
         title="{{ $label }}"

@@ -1,7 +1,8 @@
 @props([
-    'wrapperClass'  => 'px-8 max-w-7xl md:px-10',
+    'wrapperClass'  => 'px-8 max-w-7xl md:px-10 py-5',
     'backgroundColor' => 'bg-theme-secondary-900',
     'linkClass' => 'underline hover:no-underline transition-default hover:text-theme-secondary-200',
+    'copyrightClass' => 'hover:text-theme-secondary-200',
     'copyrightName' => null,
     'copyrightUrl' => null,
     'creator' => [], // Needs `url` and `label` to display the "Made by"... Add `newWindow` to indicate whether to open the page in the new window or not...
@@ -38,7 +39,7 @@
 ])
 
 <footer {{ $attributes->class('border-t border-theme-secondary-800')->class($backgroundColor) }}>
-    <div class="{{ $wrapperClass }} mx-auto justify-between items-center py-5 space-y-4 md-lg:flex md-lg:space-y-0">
+    <div class="{{ $wrapperClass }} mx-auto justify-between items-center space-y-4 md-lg:flex md-lg:space-y-0">
         <div class="text-sm font-semibold leading-6 break-words">
             <span>
                 {{ date('Y') }}
@@ -46,7 +47,12 @@
                 @if ($copyrightName && ! $copyrightUrl)
                     {{ $copyrightName }}
                 @elseif ($copyrightName && $copyrightUrl)
-                    <a href="{{ $copyrightUrl }}" class="transition-default hover:text-theme-secondary-200">{{ $copyrightName }}</a>
+                    <a
+                        href="{{ $copyrightUrl }}"
+                        @class(['transition-default', $copyrightClass])
+                    >
+                        {{ $copyrightName }}
+                    </a>
                 @elseif (isset($creator['label']) || is_string($creator))
                     <span>
                         @lang ('ui::pages.footer.made_with_love') <a
