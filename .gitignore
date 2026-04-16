@@ -54,3 +54,4 @@ Temporary Items
 # End of https://www.gitignore.io/api/macos,laravel
 
 auth.json
+.phpunit.cache/
