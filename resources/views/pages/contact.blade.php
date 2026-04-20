@@ -79,7 +79,7 @@
             <h3>{{ $formTitle }}</h3>
             <div class="mt-4">{{ $formDescription }}</div>
 
-            <form id="contact-form" method="POST" action="{{ route('contact') }}#contact-form" class="flex flex-col flex-1 space-y-8" enctype="multipart/form-data">
+            <form id="contact-form" method="POST" action="{{ route('contact') }}#contact-form" class="flex flex-col flex-1 mt-8 space-y-8" enctype="multipart/form-data">
                 @csrf
 
                 @honeypot
