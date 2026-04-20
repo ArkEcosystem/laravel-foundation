@@ -41,7 +41,7 @@ const CustomChart = (
     showCrosshair = false,
     tooltipHandler = null,
     hasDateTimeLabels = false,
-    dateUnitOverride = null
+    dateUnitOverride = null,
 ) => {
     const themeMode = () => {
         if (theme.mode === "auto") {
@@ -156,7 +156,7 @@ const CustomChart = (
                 if (backgroundColor.hasOwnProperty("gradient")) {
                     backgroundColor = makeGradient(
                         this.getCanvas(),
-                        backgroundColor.gradient
+                        backgroundColor.gradient,
                     );
                 }
 

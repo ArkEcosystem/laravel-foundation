@@ -45,7 +45,7 @@ export function highlightJsBadge(opt) {
         }
 
         var hudText = document.querySelector(
-            options.templateSelector
+            options.templateSelector,
         ).innerHTML;
 
         var $codes = document.querySelectorAll("pre>code.hljs-copy");

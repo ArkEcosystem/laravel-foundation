@@ -81,9 +81,9 @@
 .cc_div {
     font-size: 16px;
     font-weight: 400;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-        "Segoe UI Symbol";
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -135,7 +135,9 @@
 .c--anim #s-inr,
 #cs-ov,
 #cm-ov {
-    transition: visibility 0.25s linear, opacity 0.25s ease,
+    transition:
+        visibility 0.25s linear,
+        opacity 0.25s ease,
         transform 0.25s ease !important;
 }
 
@@ -146,12 +148,18 @@
 /* start transitions */
 .c--anim #cm.bar.slide,
 .c--anim .bar.slide #s-inr {
-    transition: visibility 0.4s ease, opacity 0.4s ease, transform 0.4s ease !important;
+    transition:
+        visibility 0.4s ease,
+        opacity 0.4s ease,
+        transform 0.4s ease !important;
 }
 
 .c--anim #cm.bar.slide + #cm-ov,
 .c--anim .bar.slide + #cs-ov {
-    transition: visibility 0.4s ease, opacity 0.4s ease, transform 0.4s ease !important;
+    transition:
+        visibility 0.4s ease,
+        opacity 0.4s ease,
+        transform 0.4s ease !important;
 }
 
 #cm.bar.slide,
@@ -680,7 +688,9 @@ CookieConsent settings modal
     position: absolute;
     background: #919ea6;
     background: var(--cc-toggle-bg-off);
-    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
     pointer-events: none;
 }
 

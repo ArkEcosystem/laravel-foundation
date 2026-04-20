@@ -18,10 +18,10 @@ const Tabs = (defaultSelected = "", extraData = {}, onSelected = () => {}) => {
                 e.keyCode === 37
                     ? index - 1
                     : e.keyCode === 39
-                    ? index + 1
-                    : e.keyCode === 40
-                    ? "down"
-                    : null;
+                      ? index + 1
+                      : e.keyCode === 40
+                        ? "down"
+                        : null;
 
             if (dir !== null) {
                 if (dir === "down") {

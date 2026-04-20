@@ -5,7 +5,7 @@ const handleFetchSuccessResponse = (response) => {
         // Means the CSRF Token is no longer valid
     } else if (status === 419) {
         alert(
-            "Session expired. You will need to refresh the browser to continue uploading images."
+            "Session expired. You will need to refresh the browser to continue uploading images.",
         );
     } else {
         throw new Error(response);
@@ -40,7 +40,7 @@ export const uploadImage = (blob, csrfToken) => {
 export const getWordsAndCharactersCount = (
     markdown,
     csrfToken,
-    cancelSignal
+    cancelSignal,
 ) => {
     const formData = new FormData();
     formData.append("markdown", markdown);
@@ -80,7 +80,7 @@ export const initModalhandler = (editor, modalName, getReplacement) => {
                 [
                     currentSelection[0][0],
                     currentSelection[0][1] + replacement.length,
-                ]
+                ],
             );
         }, 500);
     });

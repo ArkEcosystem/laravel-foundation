@@ -22,16 +22,16 @@ window.clipboard = (withCheckmarks) => {
                         this.copying = false;
 
                         console.error(
-                            "Failed to copy contents to the clipboard."
+                            "Failed to copy contents to the clipboard.",
                         );
-                    }
+                    },
                 );
 
                 return;
             }
 
             console.warn(
-                "Using fallback due to lack of navigator support or HTTPS in this browser"
+                "Using fallback due to lack of navigator support or HTTPS in this browser",
             );
 
             // fallback to execCommand for older browsers and non-https

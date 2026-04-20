@@ -13,7 +13,7 @@
 
     .button-tag {
         @apply break-words button-secondary;
-        @apply py-0.5 px-3 text-left !important;
+        @apply py-0.5! px-3! text-left!;
     }
 
     .button-outline {
@@ -22,7 +22,7 @@
 
     .button-tag-outline {
         @apply button-outline;
-        @apply py-0.5 px-3 !important;
+        @apply py-0.5! px-3!;
     }
 
     .button-primary:disabled,

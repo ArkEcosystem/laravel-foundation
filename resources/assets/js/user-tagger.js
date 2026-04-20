@@ -2,7 +2,7 @@ window.UserTagger = (
     endpoint,
     contextUsers,
     maxLength = null,
-    plainText = false
+    plainText = false,
 ) => {
     const options = {
         selectClass: "highlighted",
@@ -127,7 +127,7 @@ window.UserTagger = (
                 new Event("input", {
                     bubbles: true,
                     cancelable: true,
-                })
+                }),
             );
         },
 

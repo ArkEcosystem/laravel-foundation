@@ -18,7 +18,7 @@ const MarkdownEditor = (
     name,
     height = null,
     charsLimit = "0",
-    extraData = {}
+    extraData = {},
 ) => ({
     name: name,
     editor: null,
@@ -263,7 +263,7 @@ const MarkdownEditor = (
             });
 
             return `<x-link-collection\n\tlinks="[\n\t\t${links.join(
-                ",\n\t\t"
+                ",\n\t\t",
             )},\n\t]"\n/>`;
         });
 
@@ -363,12 +363,12 @@ const MarkdownEditor = (
                     fromMarks.some(
                         (mark) =>
                             mark.type.name === "heading" &&
-                            mark.attrs.level === headingLevel
+                            mark.attrs.level === headingLevel,
                     ) ||
                     toMarks.some(
                         (mark) =>
                             mark.type.name === "heading" &&
-                            mark.attrs.level === headingLevel
+                            mark.attrs.level === headingLevel,
                     )
                 );
             }
@@ -378,12 +378,12 @@ const MarkdownEditor = (
                     fromMarks.some(
                         (mark) =>
                             mark.type.name === name ||
-                            mark.type.name === "tableCell"
+                            mark.type.name === "tableCell",
                     ) ||
                     toMarks.some(
                         (mark) =>
                             mark.type.name === name ||
-                            mark.type.name === "tableCell"
+                            mark.type.name === "tableCell",
                     )
                 );
             }
@@ -408,7 +408,7 @@ const MarkdownEditor = (
             this.loadingCharsTimeout = null;
 
             const csrfToken = document.querySelector(
-                'meta[name="csrf-token"]'
+                'meta[name="csrf-token"]',
             ).content;
 
             // The following lines cancels any pending request in favour
@@ -422,13 +422,13 @@ const MarkdownEditor = (
                 const { characters, words } = await getWordsAndCharactersCount(
                     markdown,
                     csrfToken,
-                    this.loadingCharsAbortController.signal
+                    this.loadingCharsAbortController.signal,
                 );
 
                 this.charsCount = characters;
                 this.wordsCount = words;
                 this.readMinutes = Math.round(
-                    this.wordsCount / AVERAGE_WORDS_READ_PER_MINUTE
+                    this.wordsCount / AVERAGE_WORDS_READ_PER_MINUTE,
                 );
             } catch (e) {}
 
@@ -439,16 +439,16 @@ const MarkdownEditor = (
         this.showMobileMenu = false;
 
         const scroll = document.querySelector(
-            ".ark-markdown-editor-toolbar:not(.ark-markdown-editor-toolbar-mobile) > div"
+            ".ark-markdown-editor-toolbar:not(.ark-markdown-editor-toolbar-mobile) > div",
         );
         const mobile = document.querySelector(
-            ".ark-markdown-editor-toolbar-mobile > div"
+            ".ark-markdown-editor-toolbar-mobile > div",
         );
         const items = Array.from(
-            scroll.querySelectorAll(".markdown-navbar-item")
+            scroll.querySelectorAll(".markdown-navbar-item"),
         );
         const mobileItems = Array.from(
-            mobile.querySelectorAll(".markdown-navbar-item")
+            mobile.querySelectorAll(".markdown-navbar-item"),
         );
         const moreButton = scroll.querySelector(".markdown-navbar-more");
 

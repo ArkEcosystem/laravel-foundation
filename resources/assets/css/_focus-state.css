@@ -1,9 +1,9 @@
 @layer base {
     #newsletter input[type="email"] {
-        @apply rounded-l rounded-r-none border-none !important;
+        @apply rounded-l! rounded-r-none! border-none!;
     }
     #newsletter button[type="submit"] {
-        @apply rounded-l-none rounded-r px-4 !important;
+        @apply rounded-l-none! rounded-r! px-4!;
     }
 
     .review-content a,

@@ -74,7 +74,7 @@ export default class ErrorBag {
 
         _bag.splice(
             _bag.findIndex((obj) => obj.key === key),
-            1
+            1,
         );
     }
 

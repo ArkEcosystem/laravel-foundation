@@ -1,11 +1,11 @@
 const Slider = {
     getKeyboardFocusableElements(el) {
         var elements = el.querySelectorAll(
-            'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+            'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
         );
 
         return Array.from(elements).filter(
-            (el) => !el.hasAttribute("disabled")
+            (el) => !el.hasAttribute("disabled"),
         );
     },
 
@@ -25,7 +25,7 @@ const Slider = {
         slides.forEach((slide) => {
             if (this.elementIsVisibleIn(sliderWrapper, slide)) {
                 const elements = slide.querySelectorAll(
-                    "[data-custom-tabindex]"
+                    "[data-custom-tabindex]",
                 );
                 elements.forEach(function (el) {
                     el.removeAttribute("tabindex");
