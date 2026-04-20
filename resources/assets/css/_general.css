@@ -68,18 +68,16 @@ h4,
     }
 }
 
-@layer utilities {
-    .clear-transform {
-        transform: none;
-    }
+@utility clear-transform {
+    transform: none;
+}
 
-    .rotate-minus-90 {
-        transform: rotate(-90deg);
-    }
+@utility rotate-minus-90 {
+    transform: rotate(-90deg);
+}
 
-    .size-increase {
-        transform: scale(1.02);
-    }
+@utility size-increase {
+    transform: scale(1.02);
 }
 
 .paragraph-description {
