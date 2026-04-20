@@ -59,7 +59,7 @@
     @apply rounded-lg bg-theme-primary-200;
 }
 
-.custom-scroll {
+@utility custom-scroll {
     scrollbar-color: #bad6f0 transparent;
 }
 
@@ -124,7 +124,7 @@
 }
 
 /** Links **/
-.link {
+@utility link {
     @apply no-underline cursor-pointer text-theme-primary-600 transition-default;
 }
 .link.read-only {
@@ -391,7 +391,7 @@
     @apply grid grid-cols-3 gap-3;
 }
 
-.tile-link {
+@utility tile-link {
     @apply relative bg-white cursor-pointer select-none rounded-xl h-30 transition-default dark:bg-theme-secondary-900;
 }
 .tile-link:not(.tile-link-disabled) {

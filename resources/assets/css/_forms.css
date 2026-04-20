@@ -22,7 +22,7 @@ input[type="password"]::-ms-reveal {
     @apply flex items-center justify-center w-4 h-4 ml-2 text-sm text-white rounded-full bg-theme-secondary-700;
 }
 
-.input-text {
+@utility input-text {
     @apply block w-full form-input transition-default mr-6;
 
     /* Note: need this to override form-input padding */

@@ -4,7 +4,7 @@
  * Needs to be pulled out and reproduced properly to our classes.
  */
 
-.form-input {
+@utility form-input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

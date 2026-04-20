@@ -1,5 +1,5 @@
 /* Custom content container */
-.content-container {
+@utility content-container {
     @apply flex px-8 mx-auto md:px-10 lg:max-w-7xl;
 }
 
@@ -36,6 +36,11 @@ h1,
 
 h2,
 .header-2 {
+    @apply text-2xl mb-1 md:text-3xl;
+}
+
+@utility header-2 {
+    @apply font-bold text-theme-secondary-900 dark:text-theme-secondary-200 leading-tight;
     @apply text-2xl mb-1 md:text-3xl;
 }
 

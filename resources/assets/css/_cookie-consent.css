@@ -1,5 +1,5 @@
 /* purgecss start ignore */
-.cookie-banner-theme {
+@utility cookie-banner-theme {
     --cc-bg: var(--theme-color-white);
     --cc-btn-primary-bg: var(--theme-color-primary-600);
     --cc-btn-primary-text: var(--theme-color-white);
