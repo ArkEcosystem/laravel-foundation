@@ -1,7 +1,7 @@
 @props([
     'title'        => null,
     'description'  => null,
-    'contentClass' => 'flex flex-col items-center text-center space-y-4 contact-header',
+    'contentClass' => 'flex flex-col items-center text-center gap-4 contact-header',
 ])
 
 <div {{ $attributes->class('bg-theme-secondary-100 dark:bg-black') }}>
