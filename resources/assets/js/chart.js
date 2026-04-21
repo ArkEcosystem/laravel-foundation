@@ -55,7 +55,7 @@ const CustomChart = (
 
     class LineWithCrosshair extends LineController {
         draw() {
-            super.draw(arguments);
+            super.draw(...arguments);
 
             // Based on https://stackoverflow.com/a/70245628/3637093
             if (
@@ -220,9 +220,11 @@ const CustomChart = (
                     grid: {
                         drawTicks: false,
                         display: grid && key === 0,
-                        drawBorder: false,
-                        borderDash: [3, 3],
                         color: getAxisThemeConfig(themeMode()).y.color,
+                    },
+                    border: {
+                        display: false,
+                        dash: [3, 3],
                     },
                 });
             });
@@ -257,7 +259,7 @@ const CustomChart = (
                 external: this.tooltip,
                 displayColors: false,
                 callbacks: {
-                    title: (items) => {},
+                    title: () => "",
                     label: (context) => this.getCurrencyValue(context.raw),
                     labelTextColor: (context) =>
                         getFontConfig("tooltip", themeMode()).fontColor,
@@ -294,11 +296,11 @@ const CustomChart = (
                     axis: "x",
                 },
                 scales: {
-                    yAxes: {
+                    y: {
                         ...this.loadYAxes()[0],
                         position: "right",
                     },
-                    xAxes: {
+                    x: {
                         display: grid,
                         type: "category",
                         labels: labels,
@@ -310,20 +312,22 @@ const CustomChart = (
                         },
                         grid: {
                             display: false,
-                            drawBorder: false,
                             color: getAxisThemeConfig(themeMode()).x.color,
+                        },
+                        border: {
+                            display: false,
                         },
                     },
                 },
             };
 
             if (hasDateTimeLabels) {
-                options.scales.xAxes.type = "time";
-                options.scales.xAxes.ticks.maxRotation = 0;
-                options.scales.xAxes.ticks.autoSkipPadding = 20;
-                options.scales.yAxes.ticks.autoSkipPadding = 15;
+                options.scales.x.type = "time";
+                options.scales.x.ticks.maxRotation = 0;
+                options.scales.x.ticks.autoSkipPadding = 20;
+                options.scales.y.ticks.autoSkipPadding = 15;
 
-                options.scales.xAxes.time = {
+                options.scales.x.time = {
                     displayFormats: {
                         hour: "HH:00",
                         day: "dd.MM",
@@ -333,7 +337,7 @@ const CustomChart = (
                 };
 
                 if (dateUnitOverride) {
-                    options.scales.xAxes.time.unit = dateUnitOverride;
+                    options.scales.x.time.unit = dateUnitOverride;
                 }
             }
 
