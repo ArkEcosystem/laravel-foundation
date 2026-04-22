@@ -221,7 +221,7 @@
     }
 }
 
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .modal-content {
         @apply mx-auto rounded-2.5xl shadow-2xl;
     }
@@ -249,7 +249,7 @@
     @apply bg-theme-secondary-700 text-theme-secondary-400;
 }
 
- @media (width >= theme(--breakpoint-lg)) {
+@media (width >= theme(--breakpoint-lg)) {
     .modal-content,
     .modal-content-square {
         @apply w-full;
@@ -264,7 +264,7 @@
     @apply mb-3;
 }
 
- @media (width >= theme(--breakpoint-sm)) {
+@media (width >= theme(--breakpoint-sm)) {
     .modal-buttons {
         @apply flex-row;
     }
@@ -440,7 +440,7 @@
     @apply hidden;
 }
 
- @media (width >= theme(--breakpoint-sm)) {
+@media (width >= theme(--breakpoint-sm)) {
     .tile-link-sm .tile-link-title {
         @apply block;
     }
@@ -454,7 +454,7 @@
     }
 }
 
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .tile-link-md {
         @apply h-22;
     }
@@ -506,7 +506,7 @@
     @apply text-left w-full flex justify-between items-center rounded;
 }
 
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .accordion {
         @apply mx-0;
     }

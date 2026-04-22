@@ -30,31 +30,31 @@
     content: "";
 }
 
- @media (width >= theme(--breakpoint-sm)) {
+@media (width >= theme(--breakpoint-sm)) {
     .table-container table thead th.last-cell-sm::after {
         content: "";
     }
 }
 
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .table-container table thead th.last-cell-md::after {
         content: "";
     }
 }
 
- @media (width >= theme(--breakpoint-md-lg)) {
+@media (width >= theme(--breakpoint-md-lg)) {
     .table-container table thead th.last-cell-md-lg::after {
         content: "";
     }
 }
 
- @media (width >= theme(--breakpoint-lg)) {
+@media (width >= theme(--breakpoint-lg)) {
     .table-container table thead th.last-cell-lg::after {
         content: "";
     }
 }
 
- @media (width >= theme(--breakpoint-xl)) {
+@media (width >= theme(--breakpoint-xl)) {
     .table-container table thead th.last-cell-xl::after {
         content: "";
     }
@@ -95,7 +95,7 @@
     @apply flex items-center mb-2 space-x-2 text-lg;
 }
 
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .table-list-mobile {
         @apply hidden;
     }
@@ -497,7 +497,7 @@
     @apply pl-0;
 }
 
- @media (width >= theme(--breakpoint-sm)) {
+@media (width >= theme(--breakpoint-sm)) {
     .table-container
         table
         > tbody
@@ -525,7 +525,7 @@
     }
 }
 
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .table-container
         table
         > tbody
@@ -553,7 +553,7 @@
     }
 }
 
- @media (width >= theme(--breakpoint-md-lg)) {
+@media (width >= theme(--breakpoint-md-lg)) {
     .table-container
         table
         > tbody
@@ -581,7 +581,7 @@
     }
 }
 
- @media (width >= theme(--breakpoint-lg)) {
+@media (width >= theme(--breakpoint-lg)) {
     .table-container
         table
         > tbody
@@ -609,7 +609,7 @@
     }
 }
 
- @media (width >= theme(--breakpoint-xl)) {
+@media (width >= theme(--breakpoint-xl)) {
     .table-container
         table
         > tbody
@@ -856,7 +856,7 @@ body.table-compact
     @apply py-3;
 }
 
- @media (width >= theme(--breakpoint-sm)) {
+@media (width >= theme(--breakpoint-sm)) {
     .table-container
         table.table-compact.table-compact-until-sm
         > tbody
@@ -874,7 +874,7 @@ body.table-compact
     }
 }
 
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .table-container
         table.table-compact.table-compact-until-md
         > tbody
@@ -892,7 +892,7 @@ body.table-compact
     }
 }
 
- @media (width >= theme(--breakpoint-md-lg)) {
+@media (width >= theme(--breakpoint-md-lg)) {
     .table-container
         table.table-compact.table-compact-until-md-lg
         > tbody
@@ -910,7 +910,7 @@ body.table-compact
     }
 }
 
- @media (width >= theme(--breakpoint-lg)) {
+@media (width >= theme(--breakpoint-lg)) {
     .table-container
         table.table-compact.table-compact-until-lg
         > tbody
@@ -928,7 +928,7 @@ body.table-compact
     }
 }
 
- @media (width >= theme(--breakpoint-xl)) {
+@media (width >= theme(--breakpoint-xl)) {
     .table-container
         table.table-compact.table-compact-until-xl
         > tbody
@@ -987,35 +987,35 @@ body.table-compact
     @apply bg-theme-secondary-900;
 }
 
- @media (width >= theme(--breakpoint-xl)) {
+@media (width >= theme(--breakpoint-xl)) {
     .table-container table.sticky-headers th.last-cell-xl:before {
         height: 50%;
         @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
     }
 }
 
- @media (width >= theme(--breakpoint-lg)) {
+@media (width >= theme(--breakpoint-lg)) {
     .table-container table.sticky-headers th.last-cell-lg:before {
         height: 50%;
         @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
     }
 }
 
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .table-container table.sticky-headers th.last-cell-md:before {
         height: 50%;
         @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
     }
 }
 
- @media (width >= theme(--breakpoint-md-lg)) {
+@media (width >= theme(--breakpoint-md-lg)) {
     .table-container table.sticky-headers th.last-cell-md-lg:before {
         height: 50%;
         @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;
     }
 }
 
- @media (width >= theme(--breakpoint-sm)) {
+@media (width >= theme(--breakpoint-sm)) {
     .table-container table.sticky-headers th.last-cell-sm:before {
         height: 50%;
         @apply absolute right-0 w-auto mr-0 border-l border-r-0 top-1/4;

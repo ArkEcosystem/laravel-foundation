@@ -25,7 +25,7 @@
     @apply mt-5;
 }
 
- @media (width >= theme(--breakpoint-xl)) {
+@media (width >= theme(--breakpoint-xl)) {
     .swiper.slider-multirow > .swiper-wrapper {
         @apply flex-wrap;
     }
@@ -39,7 +39,7 @@
     @apply mx-0;
 }
 
- @media (width >= theme(--breakpoint-sm)) {
+@media (width >= theme(--breakpoint-sm)) {
     .swiper.slider-show-view-all:not(.slider-pagination-bottom)
         .swiper-pagination-bullets
         .swiper-pagination-bullet:last-child {
@@ -102,7 +102,7 @@ span.swiper-pagination-bullet-active {
     @apply hidden;
 }
 
- @media (width >= theme(--breakpoint-sm)) {
+@media (width >= theme(--breakpoint-sm)) {
     .swiper-wrapper.grid.sm\:grid-cols-1 .swiper-slide:nth-child(n + 0),
     .swiper-wrapper.grid.sm\:grid-cols-2 .swiper-slide:nth-child(n + 0),
     .swiper-wrapper.grid.sm\:grid-cols-3 .swiper-slide:nth-child(n + 0),
@@ -118,7 +118,7 @@ span.swiper-pagination-bullet-active {
     }
 }
 
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .swiper-wrapper.grid.md\:grid-cols-1 .swiper-slide:nth-child(n + 0),
     .swiper-wrapper.grid.md\:grid-cols-2 .swiper-slide:nth-child(n + 0),
     .swiper-wrapper.grid.md\:grid-cols-3 .swiper-slide:nth-child(n + 0),
@@ -134,7 +134,7 @@ span.swiper-pagination-bullet-active {
     }
 }
 
- @media (width >= theme(--breakpoint-lg)) {
+@media (width >= theme(--breakpoint-lg)) {
     .swiper-wrapper.grid.lg\:grid-cols-1 .swiper-slide:nth-child(n + 0),
     .swiper-wrapper.grid.lg\:grid-cols-2 .swiper-slide:nth-child(n + 0),
     .swiper-wrapper.grid.lg\:grid-cols-3 .swiper-slide:nth-child(n + 0),
@@ -150,7 +150,7 @@ span.swiper-pagination-bullet-active {
     }
 }
 
- @media (width >= theme(--breakpoint-xl)) {
+@media (width >= theme(--breakpoint-xl)) {
     .swiper-wrapper.grid.xl\:grid-cols-1 .swiper-slide:nth-child(n + 0),
     .swiper-wrapper.grid.xl\:grid-cols-2 .swiper-slide:nth-child(n + 0),
     .swiper-wrapper.grid.xl\:grid-cols-3 .swiper-slide:nth-child(n + 0),

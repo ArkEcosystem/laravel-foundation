@@ -14,7 +14,7 @@
 }
 
 /* Line number */
- @media (width >= theme(--breakpoint-md)) {
+@media (width >= theme(--breakpoint-md)) {
     .ark-markdown-editor.with-line-numbers .ProseMirror {
         @apply pl-18;
     }
