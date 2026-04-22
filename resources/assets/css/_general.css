@@ -18,7 +18,7 @@
     h2,
     h3,
     h4 {
-        @apply font-bold text-theme-secondary-900 dark:text-theme-secondary-200 leading-tight;
+        @apply font-bold text-theme-secondary-900 dark:text-theme-secondary-200! leading-tight;
     }
 
     /** Headings without H **/
@@ -26,7 +26,7 @@
     .header-2,
     .header-3,
     .header-4 {
-        @apply font-bold text-theme-secondary-900 dark:text-theme-secondary-200 leading-tight;
+        @apply font-bold text-theme-secondary-900 dark:text-theme-secondary-200! leading-tight;
     }
 
     /* Heading consistency */
