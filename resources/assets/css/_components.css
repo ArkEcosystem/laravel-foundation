@@ -221,7 +221,7 @@
     }
 }
 
-@screen md {
+@media (width >= theme(--breakpoint-md)) {
     .modal-content {
         @apply mx-auto rounded-2.5xl shadow-2xl;
     }
@@ -249,7 +249,7 @@
     @apply bg-theme-secondary-700 text-theme-secondary-400;
 }
 
-@screen lg {
+@media (width >= theme(--breakpoint-lg)) {
     .modal-content,
     .modal-content-square {
         @apply w-full;
@@ -264,7 +264,7 @@
     @apply mb-3;
 }
 
-@screen sm {
+@media (width >= theme(--breakpoint-sm)) {
     .modal-buttons {
         @apply flex-row;
     }
@@ -313,7 +313,7 @@
 }
 
 /** Circled Icon **/
-.circled-icon {
+@utility circled-icon {
     @apply flex items-center justify-center border-2 rounded-full w-11 h-11;
 }
 
@@ -440,7 +440,7 @@
     @apply hidden;
 }
 
-@screen sm {
+@media (width >= theme(--breakpoint-sm)) {
     .tile-link-sm .tile-link-title {
         @apply block;
     }
@@ -454,7 +454,7 @@
     }
 }
 
-@screen md {
+@media (width >= theme(--breakpoint-md)) {
     .tile-link-md {
         @apply h-22;
     }
@@ -506,7 +506,7 @@
     @apply text-left w-full flex justify-between items-center rounded;
 }
 
-@screen md {
+@media (width >= theme(--breakpoint-md)) {
     .accordion {
         @apply mx-0;
     }

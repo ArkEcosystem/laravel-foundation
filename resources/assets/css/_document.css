@@ -260,7 +260,11 @@
     .documentation-content table thead th:not(:last-child)::after {
         content: "";
         height: 50%;
-        @apply absolute right-0 border-l border-theme-secondary-300  dark:border-theme-secondary-800;
+        @apply absolute right-0 border-l border-theme-secondary-300;
+    }
+
+    .dark .documentation-content table thead th:not(:last-child)::after {
+        @apply border-theme-secondary-800;
     }
 
     .documentation-content table tbody td {
@@ -340,7 +344,7 @@
         @apply grid grid-cols-2 grid-flow-row gap-4;
     }
 
-    @screen sm {
+    @media (width >= theme(--breakpoint-sm)) {
         .documentation-content .grid-gallery {
             @apply grid-cols-3;
         }
