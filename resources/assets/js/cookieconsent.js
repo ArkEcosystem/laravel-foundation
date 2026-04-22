@@ -170,7 +170,7 @@
 
             _log(
                 "CookieConsent [CONFIG]: received_config_settings ",
-                user_config
+                user_config,
             );
 
             if (typeof user_config["cookie_expiration"] === "number")
@@ -230,7 +230,7 @@
                     navigator &&
                     ((navigator.userAgent &&
                         /bot|crawl|spider|slurp|teoma/i.test(
-                            navigator.userAgent
+                            navigator.userAgent,
                         )) ||
                         navigator.webdriver);
             }
@@ -249,12 +249,12 @@
             _log(
                 "CookieConsent [LANG]: auto_language strategy is '" +
                     _config.auto_language +
-                    "'"
+                    "'",
             );
 
             _config.current_lang = _resolveCurrentLang(
                 user_config.languages,
-                user_config["current_lang"]
+                user_config["current_lang"],
             );
         };
 
@@ -291,7 +291,7 @@
                     "click",
                     function (event) {
                         _acceptAction(event);
-                    }
+                    },
                 );
             }
 
@@ -312,7 +312,7 @@
                         data_role +
                         '"], button[data-cc="' +
                         data_role +
-                        '"]'
+                        '"]',
                 );
             }
 
@@ -342,7 +342,7 @@
                 if (
                     Object.prototype.hasOwnProperty.call(
                         all_languages,
-                        _config.current_lang
+                        _config.current_lang,
                     )
                 ) {
                     return _config.current_lang;
@@ -376,7 +376,7 @@
                 // ie might throw exception due to complex unsupported selector => a:not([tabindex="-1"])
                 try {
                     var focusable_elems = modal.querySelectorAll(
-                        allowed_focusable_types.join(':not([tabindex="-1"]), ')
+                        allowed_focusable_types.join(':not([tabindex="-1"]), '),
                     );
                     var attr,
                         len = focusable_elems.length,
@@ -392,7 +392,7 @@
                             if (
                                 !focus_first &&
                                 focusable_elems[i + 1].getAttribute(
-                                    "data-focus"
+                                    "data-focus",
                                 ) !== "0"
                             ) {
                                 focus_first = focusable_elems[i + 1];
@@ -403,7 +403,7 @@
                     }
                 } catch (e) {
                     return modal.querySelectorAll(
-                        allowed_focusable_types.join(", ")
+                        allowed_focusable_types.join(", "),
                     );
                 }
 
@@ -428,7 +428,7 @@
             if (consent_modal_exists) {
                 _getAllFocusableElements(
                     consent_modal,
-                    consent_modal_focusable
+                    consent_modal_focusable,
                 );
             }
         };
@@ -493,12 +493,12 @@
                             user_config.languages[lang]["consent_modal"][
                                 "revision_message"
                             ] ||
-                            ""
+                            "",
                     );
                 } else {
                     description = description.replace(
                         "{{revision_message}}",
-                        ""
+                        "",
                     );
                 }
             }
@@ -507,7 +507,7 @@
                 consent_modal_description = _createNode("div");
                 consent_modal_description.id = "c-txt";
                 consent_modal_inner_inner.appendChild(
-                    consent_modal_description
+                    consent_modal_description,
                 );
             }
 
@@ -536,7 +536,7 @@
                     _addEvent(consent_primary_btn, "click", function () {
                         _cookieconsent.hide();
                         _log(
-                            "CookieConsent [ACCEPT]: cookie_consent was accepted!"
+                            "CookieConsent [ACCEPT]: cookie_consent was accepted!",
                         );
                         _cookieconsent.accept(_accept_type);
                     });
@@ -677,7 +677,7 @@
                             _cookieconsent.hideSettings(0);
                         }
                     },
-                    true
+                    true,
                 );
             } else {
                 new_settings_blocks = _createNode("div");
@@ -689,7 +689,7 @@
                 "aria-label",
                 user_config.languages[lang]["settings_modal"][
                     "close_btn_label"
-                ] || "Close"
+                ] || "Close",
             );
 
             all_blocks =
@@ -729,7 +729,7 @@
                     block_desc.className = "p";
                     block_desc.insertAdjacentHTML(
                         "beforeend",
-                        description_data
+                        description_data,
                     );
                 }
 
@@ -770,7 +770,7 @@
                         block_title_btn.setAttribute("aria-expanded", "false");
                         block_title_btn.setAttribute(
                             "aria-controls",
-                            accordion_id
+                            accordion_id,
                         );
                     }
 
@@ -795,7 +795,7 @@
                         if (
                             _inArray(
                                 saved_cookie_content["categories"],
-                                cookie_category
+                                cookie_category,
                             ) > -1
                         ) {
                             block_switch.checked = true;
@@ -813,7 +813,7 @@
                         if (toggle_data["enabled"])
                             !new_settings_blocks &&
                                 default_enabled_categories.push(
-                                    cookie_category
+                                    cookie_category,
                                 );
                     } else {
                         !new_settings_blocks && toggle_states.push(false);
@@ -858,30 +858,30 @@
                                         _addClass(block_section, "act");
                                         btn.setAttribute(
                                             "aria-expanded",
-                                            "true"
+                                            "true",
                                         );
                                         accordion.setAttribute(
                                             "aria-hidden",
-                                            "false"
+                                            "false",
                                         );
                                     } else {
                                         _removeClass(block_section, "act");
                                         btn.setAttribute(
                                             "aria-expanded",
-                                            "false"
+                                            "false",
                                         );
                                         accordion.setAttribute(
                                             "aria-hidden",
-                                            "true"
+                                            "true",
                                         );
                                     }
                                 },
-                                false
+                                false,
                             );
                         })(
                             block_table_container,
                             block_section,
-                            block_title_btn
+                            block_title_btn,
                         );
                 } else {
                     /**
@@ -955,11 +955,11 @@
                                 // Allow html inside table cells
                                 td_tmp.insertAdjacentHTML(
                                     "beforeend",
-                                    cookie_table_data[n][new_column_key]
+                                    cookie_table_data[n][new_column_key],
                                 );
                                 td_tmp.setAttribute(
                                     "data-column",
-                                    obj[new_column_key]
+                                    obj[new_column_key],
                                 );
 
                                 tr.appendChild(td_tmp);
@@ -1063,7 +1063,7 @@
                 // replace entire existing cookie category blocks with the new cookie categories new blocks (in a different language)
                 settings_inner.replaceChild(
                     new_settings_blocks,
-                    settings_blocks
+                    settings_blocks,
                 );
                 settings_blocks = new_settings_blocks;
                 return;
@@ -1130,7 +1130,7 @@
              */
             var new_validated_lang = _getValidatedLanguage(
                 lang,
-                user_config.languages
+                user_config.languages,
             );
 
             /**
@@ -1149,7 +1149,7 @@
                 _log(
                     "CookieConsent [LANGUAGE]: curr_lang: '" +
                         new_validated_lang +
-                        "'"
+                        "'",
                 );
 
                 return true;
@@ -1198,13 +1198,13 @@
                     var category_just_disabled =
                         _inArray(
                             changed_settings,
-                            curr_block["toggle"]["value"]
+                            curr_block["toggle"]["value"],
                         ) > -1;
                     if (
                         !toggle_states[++count] &&
                         Object.prototype.hasOwnProperty.call(
                             curr_block,
-                            "cookie_table"
+                            "cookie_table",
                         ) &&
                         (clearOnFirstAction || category_just_disabled)
                     ) {
@@ -1246,22 +1246,22 @@
                                 ) {
                                     if (
                                         all_cookies_array[n].match(
-                                            curr_cookie_name
+                                            curr_cookie_name,
                                         )
                                     ) {
                                         found_cookies.push(
-                                            all_cookies_array[n]
+                                            all_cookies_array[n],
                                         );
                                     }
                                 }
                             } else {
                                 var found_index = _inArray(
                                     all_cookies_array,
-                                    curr_cookie_name
+                                    curr_cookie_name,
                                 );
                                 if (found_index > -1)
                                     found_cookies.push(
-                                        all_cookies_array[found_index]
+                                        all_cookies_array[found_index],
                                     );
                             }
 
@@ -1269,7 +1269,7 @@
                                 "CookieConsent [AUTOCLEAR]: search cookie: '" +
                                     curr_cookie_name +
                                     "', found:",
-                                found_cookies
+                                found_cookies,
                             );
 
                             // If cookie exists -> delete it
@@ -1277,7 +1277,7 @@
                                 _eraseCookies(
                                     found_cookies,
                                     curr_cookie_path,
-                                    domains
+                                    domains,
                                 );
                                 curr_block["toggle"]["reload"] === "on_clear" &&
                                     (reload_page = true);
@@ -1351,7 +1351,7 @@
 
                 _setCookie(
                     _config.cookie_name,
-                    JSON.stringify(saved_cookie_content)
+                    JSON.stringify(saved_cookie_content),
                 );
                 _manageExistingScripts();
             }
@@ -1365,7 +1365,7 @@
                 if (typeof onFirstAction === "function")
                     onFirstAction(
                         _cookieconsent.getUserPreferences(),
-                        saved_cookie_content
+                        saved_cookie_content,
                     );
 
                 if (typeof onAccept === "function")
@@ -1406,7 +1406,7 @@
                 (!error
                     ? console.log(
                           print_msg,
-                          optional_param !== undefined ? optional_param : " "
+                          optional_param !== undefined ? optional_param : " ",
                       )
                     : console.error(print_msg, optional_param || ""));
         };
@@ -1437,13 +1437,13 @@
             } else if (_config.auto_language === "document") {
                 return _getValidatedLanguage(
                     document.documentElement.lang,
-                    languages
+                    languages,
                 );
             } else {
                 if (typeof requested_language === "string") {
                     return (_config.current_lang = _getValidatedLanguage(
                         requested_language,
-                        languages
+                        languages,
                     ));
                 }
             }
@@ -1451,7 +1451,7 @@
             _log(
                 "CookieConsent [LANG]: setting current_lang = '" +
                     _config.current_lang +
-                    "'"
+                    "'",
             );
             return _config.current_lang; // otherwise return default
         };
@@ -1467,7 +1467,7 @@
             _log(
                 "CookieConsent [LANG]: detected_browser_lang = '" +
                     browser_lang +
-                    "'"
+                    "'",
             );
             return browser_lang.toLowerCase();
         };
@@ -1561,7 +1561,7 @@
                             }
                         }
                     },
-                    true
+                    true,
                 );
             }
         };
@@ -1594,7 +1594,7 @@
                 allowed_transitions,
                 layout,
                 position,
-                transition
+                transition,
             ) {
                 position = (position && position.split(" ")) || [];
 
@@ -1627,7 +1627,7 @@
                     ["zoom", "slide"],
                     consent_modal_options["layout"],
                     consent_modal_options["position"],
-                    consent_modal_options["transition"]
+                    consent_modal_options["transition"],
                 );
             }
 
@@ -1639,7 +1639,7 @@
                     ["zoom", "slide"],
                     settings_modal_options["layout"],
                     settings_modal_options["position"],
-                    settings_modal_options["transition"]
+                    settings_modal_options["transition"],
                 );
             }
         };
@@ -1653,7 +1653,7 @@
             if (cookie_consent_accepted || _config.mode === "opt-in")
                 var allowed_categories =
                     JSON.parse(
-                        _getCookie(_config.cookie_name, "one", true) || "{}"
+                        _getCookie(_config.cookie_name, "one", true) || "{}",
                     )["categories"] || [];
             // mode is 'opt-out'
             else var allowed_categories = default_enabled_categories;
@@ -1674,7 +1674,7 @@
 
                 // Retrieve cookie value (if set)
                 saved_cookie_content = JSON.parse(
-                    _getCookie(_config.cookie_name, "one", true) || "{}"
+                    _getCookie(_config.cookie_name, "one", true) || "{}",
                 );
 
                 // Backwards compatibility
@@ -1692,7 +1692,7 @@
                     // Re-save it so it's updated to the new categories approach
                     _setCookie(
                         _config.cookie_name,
-                        JSON.stringify(saved_cookie_content)
+                        JSON.stringify(saved_cookie_content),
                     );
                 }
 
@@ -1761,7 +1761,7 @@
                             _config.use_rfc_cookie;
                         _setCookie(
                             _config.cookie_name,
-                            JSON.stringify(saved_cookie_content)
+                            JSON.stringify(saved_cookie_content),
                         );
                     }
 
@@ -1779,13 +1779,13 @@
                         "CookieConsent [CONFIG] mode='" +
                             _config.mode +
                             "', default enabled categories:",
-                        default_enabled_categories
+                        default_enabled_categories,
                     );
                     _manageExistingScripts(default_enabled_categories);
                 }
             } else {
                 _log(
-                    "CookieConsent [NOTICE]: cookie consent already attached to body!"
+                    "CookieConsent [NOTICE]: cookie consent already attached to body!",
                 );
             }
         };
@@ -1826,7 +1826,7 @@
 
                     _log("CookieConsent [SETTINGS]: show settings_modal");
                 },
-                delay > 0 ? delay : 0
+                delay > 0 ? delay : 0,
             );
         };
 
@@ -1841,7 +1841,7 @@
 
             // get all the scripts with "cookie-category" attribute
             var scripts = document.querySelectorAll(
-                "script[" + _config.script_selector + "]"
+                "script[" + _config.script_selector + "]",
             );
             var accepted_categories =
                 must_enable_categories ||
@@ -1858,7 +1858,7 @@
                 if (index < scripts.length) {
                     var curr_script = scripts[index];
                     var curr_script_category = curr_script.getAttribute(
-                        _config.script_selector
+                        _config.script_selector,
                     );
 
                     /**
@@ -1890,7 +1890,7 @@
                                 destination.setAttribute(
                                     attr_name,
                                     source[attr_name] ||
-                                        source.getAttribute(attr_name)
+                                        source.getAttribute(attr_name),
                                 );
                             }
                         })(fresh_script, curr_script);
@@ -1928,7 +1928,7 @@
                         // Replace current "sleeping" script with the new "revived" one
                         curr_script.parentNode.replaceChild(
                             fresh_script,
-                            curr_script
+                            curr_script,
                         );
 
                         /**
@@ -1987,7 +1987,7 @@
                 saved_cookie_content["data"] = cookie_data;
                 _setCookie(
                     _config.cookie_name,
-                    JSON.stringify(saved_cookie_content)
+                    JSON.stringify(saved_cookie_content),
                 );
             }
 
@@ -2053,7 +2053,7 @@
         _cookieconsent.get = function (field, cookie_name) {
             var cookie = JSON.parse(
                 _getCookie(cookie_name || _config.cookie_name, "one", true) ||
-                    "{}"
+                    "{}",
             );
 
             return cookie[field];
@@ -2098,7 +2098,7 @@
             var necessary_categories_length = readonly_categories.filter(
                 function (readonly) {
                     return readonly === true;
-                }
+                },
             ).length;
 
             // calculate accept type based on accepted/rejected categories
@@ -2161,7 +2161,7 @@
                         attrs[i] &&
                             script.setAttribute(
                                 attrs[i]["name"],
-                                attrs[i]["value"]
+                                attrs[i]["value"],
                             );
                     }
                 }
@@ -2235,7 +2235,7 @@
 
                         _log("CookieConsent [MODAL]: show consent_modal");
                     },
-                    delay > 0 ? delay : create_modal ? 30 : 0
+                    delay > 0 ? delay : create_modal ? 30 : 0,
                 );
             }
         };
@@ -2400,7 +2400,7 @@
 
             var date = new Date();
             date.setTime(
-                date.getTime() + 1000 * (cookie_expiration * 24 * 60 * 60)
+                date.getTime() + 1000 * (cookie_expiration * 24 * 60 * 60),
             );
             var expires = "; expires=" + date.toUTCString();
 
@@ -2434,7 +2434,7 @@
                     value +
                     "' was set! Expires after " +
                     cookie_expiration +
-                    " days"
+                    " days",
             );
         };
 
@@ -2452,7 +2452,7 @@
 
             if (filter === "one") {
                 found = document.cookie.match(
-                    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+                    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)",
                 );
                 found = found ? (get_value ? found.pop() : name) : "";
 
@@ -2509,7 +2509,7 @@
                         "' path: '" +
                         path +
                         "' domain:",
-                    domains
+                    domains,
                 );
             }
         };
@@ -2587,7 +2587,7 @@
                 ? el.classList.remove(className)
                 : (el.className = el.className.replace(
                       new RegExp("(\\s|^)" + className + "(\\s|$)"),
-                      " "
+                      " ",
                   ));
         };
 
@@ -2601,7 +2601,7 @@
                 return el.classList.contains(className);
             }
             return !!el.className.match(
-                new RegExp("(\\s|^)" + className + "(\\s|$)")
+                new RegExp("(\\s|^)" + className + "(\\s|$)"),
             );
         };
 

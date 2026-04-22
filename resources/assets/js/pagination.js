@@ -6,7 +6,7 @@ const Pagination = (pageName, lastPage) => ({
             if (search) {
                 this.$nextTick(() => {
                     const searchInputs = this.$el.querySelectorAll(
-                        `input[name=${pageName}]`
+                        `input[name=${pageName}]`,
                     );
                     searchInputs.forEach((input) => {
                         input.focus();

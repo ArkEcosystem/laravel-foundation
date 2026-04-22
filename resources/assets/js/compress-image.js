@@ -38,7 +38,7 @@ const CompressImage = (
     $quality = 0.8,
     $endpoint = "/cropper/upload-image",
     $convertSize = 5000000,
-    $disableConvertSize = false
+    $disableConvertSize = false,
 ) => ({
     model: $model,
     isUploading: false,
@@ -76,7 +76,7 @@ const CompressImage = (
                             Livewire.dispatch("toastMessage", {
                                 message: `${value} - ${file.name}`,
                                 type: "danger",
-                            })
+                            }),
                         );
                     });
                 });

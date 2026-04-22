@@ -12,7 +12,7 @@ input[type="password"]::-ms-reveal {
 }
 
 .input-wrapper {
-    @apply relative mt-2 rounded shadow-sm text-theme-secondary-900;
+    @apply relative mt-2 rounded shadow-xs text-theme-secondary-900;
 }
 .dark .input-wrapper {
     @apply text-theme-secondary-200;
@@ -22,11 +22,15 @@ input[type="password"]::-ms-reveal {
     @apply flex items-center justify-center w-4 h-4 ml-2 text-sm text-white rounded-full bg-theme-secondary-700;
 }
 
-.input-text {
+@utility input-text {
     @apply block w-full form-input transition-default mr-6;
 
     /* Note: need this to override form-input padding */
     padding: 0.75rem 1rem;
+}
+.input-text::placeholder {
+    color: #a0aec0;
+    opacity: 1;
 }
 .dark :not(.light).input-text {
     @apply bg-theme-secondary-900 border-theme-secondary-700;
@@ -87,7 +91,7 @@ input[type="password"]::-ms-reveal {
 
 /** Input with icon button **/
 .input-wrapper-with-icon {
-    @apply relative mt-2 shadow-sm text-theme-secondary-900;
+    @apply relative mt-2 shadow-xs text-theme-secondary-900;
 }
 
 .input-text-with-icon {

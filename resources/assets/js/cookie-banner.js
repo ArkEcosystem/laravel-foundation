@@ -112,7 +112,7 @@ const CookieBanner = {
 
             removeAnalytics = () => {
                 const analyticsScript = document.getElementById(
-                    "google_analytics_script"
+                    "google_analytics_script",
                 );
                 analyticsScript.remove();
 
@@ -126,9 +126,8 @@ const CookieBanner = {
                     this.options.trackingAnalytics.domain || document.domain;
                 this.cookieConsent.eraseCookies(cookieNames, "/", host);
 
-                window[
-                    `ga-disable-${this.options.trackingAnalytics.key}`
-                ] = true;
+                window[`ga-disable-${this.options.trackingAnalytics.key}`] =
+                    true;
             };
         }
 
@@ -181,7 +180,7 @@ const CookieBanner = {
                                     .header.title,
                                 description:
                                     this.options.lang.settingsModal.blocks.header.description(
-                                        appName
+                                        appName,
                                     ),
                             },
                             {
@@ -229,7 +228,7 @@ const CookieBanner = {
                                     .footer.title,
                                 description:
                                     this.options.lang.settingsModal.blocks.footer.description(
-                                        contactUrl
+                                        contactUrl,
                                     ),
                             },
                         ],
@@ -273,7 +272,7 @@ const CookieBanner = {
             // Append a third button to manage cookies preferences
             cookieBannerText.insertAdjacentHTML(
                 "beforeend",
-                '&nbsp;<button type="button" onclick="CookieBanner.showSettings()" data-cc="c-settings" class="preferences-button">Manage Preferences</button>'
+                '&nbsp;<button type="button" onclick="CookieBanner.showSettings()" data-cc="c-settings" class="preferences-button">Manage Preferences</button>',
             );
         }
     },

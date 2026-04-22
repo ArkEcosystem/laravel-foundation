@@ -470,7 +470,7 @@
     > tr:hover
     > td.hoverable-cell
     > div.table-cell-bg {
-    @apply bg-black !important;
+    @apply bg-black!;
 }
 
 .table-container table thead th:last-child,

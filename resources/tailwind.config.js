@@ -204,7 +204,7 @@ export default {
             DEFAULT: {
                 select: {
                     icon: (
-                        iconColor
+                        iconColor,
                     ) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 16 15">
                         <path fill="${iconColor}" d="M3.9 5.4L.7 1.9C.4 1.6.4 1.1.7.8s.7-.3 1 0l2.8 2.9L7.2.8c.3-.3.7-.3 1 0s.3.8 0 1.1L5 5.4c-.3.3-.7.3-1.1 0h0z"/>
                     </svg>`,

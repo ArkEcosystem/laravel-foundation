@@ -29,7 +29,7 @@ export const uploadImage = (blob, url, csrfToken, fieldName = "image") => {
             } else if (status === 419) {
                 // Means the CSRF Token is no longer valid
                 throw new Error(
-                    "Session expired. You will need to refresh the browser to continue uploading images."
+                    "Session expired. You will need to refresh the browser to continue uploading images.",
                 );
             } else {
                 response.text().then((text) => {
@@ -65,7 +65,7 @@ export const imageValidator = (inputFile, rules = []) => {
         if (image.width < target) {
             errorBag.add(
                 getCallerName(),
-                `The image should be at least ${target}x${target}px`
+                `The image should be at least ${target}x${target}px`,
             );
         }
     };
@@ -74,7 +74,7 @@ export const imageValidator = (inputFile, rules = []) => {
         if (image.height < target) {
             errorBag.add(
                 getCallerName(),
-                `The image should be at least ${target}x${target}px`
+                `The image should be at least ${target}x${target}px`,
             );
         }
     };
@@ -83,7 +83,7 @@ export const imageValidator = (inputFile, rules = []) => {
         if (image.width > target) {
             errorBag.add(
                 getCallerName(),
-                `The image should be no bigger than ${target}x${target}px`
+                `The image should be no bigger than ${target}x${target}px`,
             );
         }
     };
@@ -92,7 +92,7 @@ export const imageValidator = (inputFile, rules = []) => {
         if (image.height > target) {
             errorBag.add(
                 getCallerName(),
-                `The image should be no bigger than ${target}x${target}px`
+                `The image should be no bigger than ${target}x${target}px`,
             );
         }
     };
@@ -103,7 +103,7 @@ export const imageValidator = (inputFile, rules = []) => {
         if (size < target) {
             errorBag.add(
                 getCallerName(),
-                `The image should be at least ${target}MB`
+                `The image should be at least ${target}MB`,
             );
         }
     };
@@ -114,7 +114,7 @@ export const imageValidator = (inputFile, rules = []) => {
         if (size > target) {
             errorBag.add(
                 getCallerName(),
-                `The image should be no bigger than ${target}MB`
+                `The image should be no bigger than ${target}MB`,
             );
         }
     };

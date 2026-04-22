@@ -8,7 +8,7 @@
 
     /* title */
     .alert-wrapper .alert-title {
-        @apply m-0 px-4 py-2 flex items-center;
+        @apply m-0 px-4 py-2 flex items-center text-base font-normal;
     }
 
     .alert-wrapper .alert-title .alert-icon {

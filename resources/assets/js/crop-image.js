@@ -26,7 +26,7 @@ const CropImage = (
     $fillColor = "#fff",
     $imageSmoothingEnabled = true,
     $imageSmoothingQuality = "high",
-    $endpoint = "/cropper/upload-image"
+    $endpoint = "/cropper/upload-image",
 ) => ({
     model: $model,
     cropper: null,
@@ -135,7 +135,7 @@ const CropImage = (
                             Livewire.dispatch("toastMessage", {
                                 message: value,
                                 type: "danger",
-                            })
+                            }),
                         );
                     });
                 });

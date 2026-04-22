@@ -75,7 +75,7 @@ const Modal = {
 
             window.addEventListener(
                 "resize",
-                this.bodyResizeDisableScrollLockHandler
+                this.bodyResizeDisableScrollLockHandler,
             );
         }
     },
@@ -92,7 +92,7 @@ const Modal = {
         if (this.bodyResizeDisableScrollLockHandler !== null) {
             window.removeEventListener(
                 "resize",
-                this.bodyResizeDisableScrollLockHandler
+                this.bodyResizeDisableScrollLockHandler,
             );
 
             this.bodyResizeDisableScrollLockHandler = null;
@@ -117,11 +117,11 @@ const Modal = {
 
         window.addEventListener(
             "pauseFocusTrap",
-            this.pauseFocusTrap.bind(this)
+            this.pauseFocusTrap.bind(this),
         );
         window.addEventListener(
             "resumeFocusTrap",
-            this.resumeFocusTrap.bind(this)
+            this.resumeFocusTrap.bind(this),
         );
     },
 
@@ -136,11 +136,11 @@ const Modal = {
 
         window.removeEventListener(
             "pauseFocusTrap",
-            this.pauseFocusTrap.bind(this)
+            this.pauseFocusTrap.bind(this),
         );
         window.removeEventListener(
             "resumeFocusTrap",
-            this.resumeFocusTrap.bind(this)
+            this.resumeFocusTrap.bind(this),
         );
     },
 
@@ -270,7 +270,7 @@ const Modal = {
                     window
                         .getComputedStyle(container)
                         .getPropertyValue("padding-right"),
-                    10
+                    10,
                 );
                 this.previousPaddingRight = container.style.paddingRight;
                 container.style.paddingRight = `${
@@ -299,7 +299,7 @@ const Modal = {
                     window
                         .getComputedStyle(navbar)
                         .getPropertyValue("padding-right"),
-                    10
+                    10,
                 );
                 this.previousNavPaddingRight = navbar.style.paddingRight;
                 navbar.style.paddingRight = `${

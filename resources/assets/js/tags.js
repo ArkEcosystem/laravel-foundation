@@ -9,7 +9,7 @@ const Tags = (
     removeDisabled = false,
     disabledInputTooltip = "",
     maxTags = null,
-    preserveCase = false
+    preserveCase = false,
 ) => ({
     onTagRemove: null,
     onInput: null,
@@ -67,7 +67,7 @@ const Tags = (
                         tag.length > maximumCharaters
                     ) {
                         this.displayLivewireToast(
-                            "The tag must be between 3 and 30 characters."
+                            "The tag must be between 3 and 30 characters.",
                         );
 
                         return false;
@@ -75,7 +75,7 @@ const Tags = (
 
                     if (withSpecialCharsAtStart.test(tag)) {
                         this.displayLivewireToast(
-                            "The tag must start with a letter."
+                            "The tag must start with a letter.",
                         );
 
                         return false;
@@ -83,7 +83,7 @@ const Tags = (
 
                     if (withSpecialCharsAtEnd.test(tag)) {
                         this.displayLivewireToast(
-                            "The tag must end with a letter."
+                            "The tag must end with a letter.",
                         );
 
                         return false;
@@ -91,7 +91,7 @@ const Tags = (
 
                     if (withConsecutiveSpecialChars.test(tag)) {
                         this.displayLivewireToast(
-                            "The tag must not contain consecutive special characters."
+                            "The tag must not contain consecutive special characters.",
                         );
 
                         return false;
@@ -99,7 +99,7 @@ const Tags = (
 
                     if (!allowedCharacters.test(tag)) {
                         this.displayLivewireToast(
-                            "The tag contains forbidden special characters."
+                            "The tag contains forbidden special characters.",
                         );
 
                         return false;

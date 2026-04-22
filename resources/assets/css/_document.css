@@ -57,7 +57,7 @@
         @apply mb-8;
     }
 
-    .documentation-content h2 {
+    .documentation-content h2:not(.alert-title) {
         @apply pt-6 mt-6 mb-4 border-t border-theme-secondary-200 dark:border-theme-secondary-800;
     }
 
@@ -66,8 +66,8 @@
     }
 
     /* Header Responsiveness */
-    @screen sm {
-        .documentation-content h2 {
+    @media (min-width: 40rem) {
+        .documentation-content h2:not(.alert-title) {
             @apply pt-10 mt-10;
         }
     }

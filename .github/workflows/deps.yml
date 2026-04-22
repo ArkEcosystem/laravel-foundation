@@ -9,7 +9,7 @@ jobs:
     php:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
               with:
                   ref: ${{ github.head_ref }}
                   token: ${{ secrets.GH_TOKEN }}
@@ -17,7 +17,7 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: "8.3"
+                  php-version: "8.5"
                   extensions: mbstring, dom, fileinfo, intl, gd, imagick, bcmath, soap, zip, sqlite
                   coverage: none
 
@@ -32,7 +32,7 @@ jobs:
 
             - name: Create Pull Request
               id: cpr
-              uses: peter-evans/create-pull-request@v4
+              uses: peter-evans/create-pull-request@v7
               with:
                   token: ${{ secrets.GH_TOKEN }}
                   commit-message: "chore: update PHP dependencies"
@@ -46,7 +46,7 @@ jobs:
     js:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
               with:
                   ref: ${{ github.head_ref }}
                   token: ${{ secrets.GH_TOKEN }}
@@ -54,7 +54,7 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: "8.3"
+                  php-version: "8.5"
                   extensions: mbstring, dom, fileinfo, intl, gd, imagick, bcmath, soap, zip, sqlite
                   coverage: none
 
@@ -64,6 +64,10 @@ jobs:
             - name: Install PHP dependencies
               run: composer install --no-ansi --no-interaction --no-progress --prefer-dist --optimize-autoloader --ignore-platform-reqs
 
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+
             - name: Update JS dependencies
               run: npx npm-check-updates --configFilePath ./
 
@@ -72,7 +76,7 @@ jobs:
 
             - name: Create Pull Request
               id: cpr
-              uses: peter-evans/create-pull-request@v4
+              uses: peter-evans/create-pull-request@v7
               with:
                   token: ${{ secrets.GH_TOKEN }}
                   commit-message: "chore: update JavaScript dependencies"

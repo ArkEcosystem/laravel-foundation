@@ -163,7 +163,7 @@ export default function lazyLoad(selector = "[lazy]") {
                 setTimeout(() => {
                     for (const container of containers) {
                         [...container.querySelectorAll(selector)].forEach(
-                            applyLazy
+                            applyLazy,
                         );
                     }
                 }, timeout);
@@ -193,7 +193,7 @@ function isScrolledIntoView(el) {
     if (
         [rect.top, rect.left, rect.bottom, rect.right].reduce(
             (a, b) => a + b,
-            0
+            0,
         ) === 0
     ) {
         return;

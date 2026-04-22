@@ -69,7 +69,7 @@ const Navbar = {
                 this.updateStyles(this.scrollProgress);
 
                 this.$watch("theme", () =>
-                    this.updateStyles(this.getScrollProgress())
+                    this.updateStyles(this.getScrollProgress()),
                 );
 
                 this.$watch("open", (open) => {
@@ -128,10 +128,10 @@ const Navbar = {
                 const borderColorRgb = this.themeBorderColor;
                 const boxShadowRgb = this.themeBoxShadow;
                 this.nav.style.boxShadow = `0px 2px 10px 0px rgba(${boxShadowRgb.join(
-                    ", "
+                    ", ",
                 )}, ${shadowTransparency})`;
                 this.nav.style.borderColor = `rgba(${borderColorRgb.join(
-                    ", "
+                    ", ",
                 )}, ${borderTransparency})`;
             },
 

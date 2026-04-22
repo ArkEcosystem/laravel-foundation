@@ -24,7 +24,7 @@ let tippyInstances = [];
 
 const initTippy = (parentEl = document.body) => {
     Array.from(
-        parentEl.querySelectorAll("[data-tippy-content], [data-tippy-hover]")
+        parentEl.querySelectorAll("[data-tippy-content], [data-tippy-hover]"),
     ).forEach((el) => {
         const instanceSettings = { ...tooltipSettings };
 
@@ -57,20 +57,20 @@ const initTippy = (parentEl = document.body) => {
             } else {
                 tippyInstances.push(tippy(el, instanceSettings));
             }
-        }
+        },
     );
 };
 
 const destroyTippy = (parentEl = document.body) => {
     parentEl
         .querySelectorAll(
-            "[data-tippy-content], [data-tippy-hover], [data-tippy-html-content]"
+            "[data-tippy-content], [data-tippy-hover], [data-tippy-html-content]",
         )
         .forEach((el) => {
             if (!el._tippy) {
                 console.error(
                     "Tippy tooltip instance not found. Ensure all tippy instances are properly initialized.",
-                    el
+                    el,
                 );
                 return;
             }
@@ -111,7 +111,7 @@ window.initTippy = initTippy;
 window.destroyTippy = destroyTippy;
 
 document.addEventListener("scroll", () =>
-    visibleTooltips.forEach((instance) => instance.hide(0))
+    visibleTooltips.forEach((instance) => instance.hide(0)),
 );
 
 window.initClipboard = () => {
