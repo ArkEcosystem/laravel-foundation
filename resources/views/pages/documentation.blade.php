@@ -6,6 +6,7 @@
     'isTutorial' => false,
     'compact' => false,
     'editOption' => true,
+    'shareLinks' => true,
 ])
 
 <x-ark-container :container-class="Arr::toCssClasses(['flex-col pb-8', 'pt-8 md:pt-8' => $compact, 'pt-10 md:pt-12' => !$compact])">
@@ -72,7 +73,9 @@
                     @endif
                 </div>
 
-                <x-ark-docs-share-links :document="$document" />
+                @if ($shareLinks)
+                    <x-ark-docs-share-links :document="$document" />
+                @endif
             </div>
         </main>
     </div>
