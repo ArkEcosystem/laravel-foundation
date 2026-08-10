@@ -12,7 +12,7 @@ it('should render the component', function (): void {
         ->view('ark::navbar.logo', createAttributes([
             'title' => 'Explorer',
         ]))
-        ->assertSeeHtml('<div class="hidden ml-6 text-lg lg:block"><span class="font-black text-theme-secondary-900">ARK</span> Explorer</div>');
+        ->assertSeeHtml("<div class=\"ml-6 hidden text-lg lg:block\"><span class=\"font-black text-theme-secondary-900\">ARK</span>\n                Explorer</div>");
 });
 
 it('should render the [logo] slot', function (): void {
