@@ -17,39 +17,27 @@
     'dateUnitOverride' => null,
 ])
 
-<div
-    x-data="CustomChart(
-        '{{ $id }}',
-        {{ $data }},
-        {{ $labels }},
-        '{{ $grid }}',
-        '{{ $tooltips }}',
-        {{ json_encode($theme->toArray()) }},
-        '{{ time() }}',
-        '{{ $currency }}',
-        {{ $yPadding }},
-        {{ $xPadding }},
-        {{ $showCrosshair ? 'true' : 'false' }},
-        {{ $tooltipHandler ? $tooltipHandler : 'null' }},
-        {{ $hasDateTimeLabels ? 'true' : 'false' }},
-        @if ($dateUnitOverride)
-            '{{ $dateUnitOverride }}',
+<div x-data="CustomChart(
+    '{{ $id }}',
+    {{ $data }},
+    {{ $labels }},
+    '{{ $grid }}',
+    '{{ $tooltips }}',
+    {{ json_encode($theme->toArray()) }},
+    '{{ time() }}',
+    '{{ $currency }}',
+    {{ $yPadding }},
+    {{ $xPadding }},
+    {{ $showCrosshair ? 'true' : 'false' }},
+    {{ $tooltipHandler ? $tooltipHandler : 'null' }},
+    {{ $hasDateTimeLabels ? 'true' : 'false' }},
+    @if ($dateUnitOverride) '{{ $dateUnitOverride }}',
         @else
-            null,
-        @endif
-    )"
-    wire:key="{{ $id.time() }}"
-    {{ $attributes->only('class') }}
->
-    <div
-        class="relative w-full h-full"
-        wire:ignore
-    >
-        <canvas
-            x-ref="{{ $id }}"
-            @if($canvasClass) class="{{ $canvasClass }}" @endif
-            @if($width) width="{{ $width }}" @endif
-            @if($height) height="{{ $height }}" @endif
-        ></canvas>
+            null, @endif
+)" wire:key="{{ $id . time() }}" {{ $attributes->only('class') }}>
+    <div class="relative h-full w-full" wire:ignore>
+        <canvas x-ref="{{ $id }}" @if ($canvasClass) class="{{ $canvasClass }}" @endif
+            @if ($width) width="{{ $width }}" @endif
+            @if ($height) height="{{ $height }}" @endif></canvas>
     </div>
 </div>

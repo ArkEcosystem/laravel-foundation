@@ -1,15 +1,16 @@
-@props (['article'])
+@props(['article'])
 
-<a href="{{ $article->url() }}" class="flex flex-1 h-full focus-indicator">
-    <div class="flex overflow-hidden flex-col h-full bg-white rounded-lg cursor-pointer hover:shadow-lg transition-default hover:size-increase">
+<a href="{{ $article->url() }}" class="focus-indicator flex h-full flex-1">
+    <div
+        class="transition-default hover:size-increase flex h-full cursor-pointer flex-col overflow-hidden rounded-lg bg-white hover:shadow-lg">
         <div class="relative h-auto">
-            <img src="{{ asset($article->banner()) }}" class="w-full h-full" />
+            <img src="{{ asset($article->banner()) }}" class="h-full w-full" />
         </div>
 
-        <div class="flex flex-1 items-center py-6 px-8 border-t border-theme-secondary-300">
+        <div class="flex flex-1 items-center border-t border-theme-secondary-300 px-8 py-6">
             <div>
-                <div class="flex mb-2 space-x-3 text-sm font-semibold text-theme-secondary-500">
-                    <div class="pr-3 border-r border-theme-secondary-200">
+                <div class="mb-2 flex space-x-3 text-sm font-semibold text-theme-secondary-500">
+                    <div class="border-r border-theme-secondary-200 pr-3">
                         {{ $article->created_at->format('jS M Y') }}
                     </div>
                     <div>

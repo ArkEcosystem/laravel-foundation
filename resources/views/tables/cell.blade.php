@@ -13,27 +13,27 @@
 
 <td {{ $attributes->merge([
     'class' =>
-        'hoverable-cell'
-        . ($responsive && !$breakpoint ? ' hidden lg:table-cell' : '')
-        . ($responsive && $breakpoint === 'xl' ? ' hidden xl:table-cell' : '')
-        . ($responsive && $breakpoint === 'lg' ? ' hidden lg:table-cell' : '')
-        . ($responsive && $breakpoint === 'md-lg' ? ' hidden md-lg:table-cell' : '')
-        . ($responsive && $breakpoint === 'md' ? ' hidden md:table-cell' : '')
-        . ($responsive && $breakpoint === 'sm' ? ' hidden sm:table-cell' : '')
-        . ($lastOn === 'sm' ? ' last-cell last-cell-sm' : '')
-        . ($lastOn === 'md' ? ' last-cell last-cell-md' : '')
-        . ($lastOn === 'md-lg' ? ' last-cell last-cell-md-lg' : '')
-        . ($lastOn === 'lg' ? ' last-cell last-cell-lg' : '')
-        . ($lastOn === 'xl' ? ' last-cell last-cell-xl' : '')
-        . ($firstOn === 'sm' ? ' first-cell first-cell-sm' : '')
-        . ($firstOn === 'md' ? ' first-cell first-cell-md' : '')
-        . ($firstOn === 'md-lg' ? ' first-cell first-cell-md-lg' : '')
-        . ($firstOn === 'lg' ? ' first-cell first-cell-lg' : '')
-        . ($firstOn === 'xl' ? ' first-cell first-cell-xl' : '')
-        . ' ' . $class
+        'hoverable-cell' .
+        ($responsive && !$breakpoint ? ' hidden lg:table-cell' : '') .
+        ($responsive && $breakpoint === 'xl' ? ' hidden xl:table-cell' : '') .
+        ($responsive && $breakpoint === 'lg' ? ' hidden lg:table-cell' : '') .
+        ($responsive && $breakpoint === 'md-lg' ? ' hidden md-lg:table-cell' : '') .
+        ($responsive && $breakpoint === 'md' ? ' hidden md:table-cell' : '') .
+        ($responsive && $breakpoint === 'sm' ? ' hidden sm:table-cell' : '') .
+        ($lastOn === 'sm' ? ' last-cell last-cell-sm' : '') .
+        ($lastOn === 'md' ? ' last-cell last-cell-md' : '') .
+        ($lastOn === 'md-lg' ? ' last-cell last-cell-md-lg' : '') .
+        ($lastOn === 'lg' ? ' last-cell last-cell-lg' : '') .
+        ($lastOn === 'xl' ? ' last-cell last-cell-xl' : '') .
+        ($firstOn === 'sm' ? ' first-cell first-cell-sm' : '') .
+        ($firstOn === 'md' ? ' first-cell first-cell-md' : '') .
+        ($firstOn === 'md-lg' ? ' first-cell first-cell-md-lg' : '') .
+        ($firstOn === 'lg' ? ' first-cell first-cell-lg' : '') .
+        ($firstOn === 'xl' ? ' first-cell first-cell-xl' : '') .
+        ' ' .
+        $class,
 ]) }}
-    @if ($colspan) colspan="{{ $colspan }}" @endif
->
+    @if ($colspan) colspan="{{ $colspan }}" @endif>
     <div class="table-cell-bg"></div>
     <div class="table-cell-content">
         {{ $slot }}

@@ -4,11 +4,12 @@
         "prettier": "^3.9.4"
     },
     "devDependencies": {
-        "glob": "^13.0.6",
+        "@shufo/prettier-plugin-blade": "^1.16.2",
+        "@tailwindcss/postcss": "^4.3.2",
         "body-scroll-lock": "4.0.0-beta.0",
         "focus-trap": "^8.2.2",
+        "glob": "^13.0.6",
         "tailwindcss": "^4.3.2",
-        "@tailwindcss/postcss": "^4.3.2",
         "tippy.js": "^6.3.7"
     },
     "scripts": {

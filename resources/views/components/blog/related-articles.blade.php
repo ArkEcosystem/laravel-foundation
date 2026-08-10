@@ -1,22 +1,19 @@
-@props ([
-    'articles',
-    'article',
-    'hasAdditional' => false,
-])
+@props(['articles', 'article', 'hasAdditional' => false])
 
 <section>
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
         <h3 class="header-2">@lang ('ui::pages.blog.related', ['category' => $article->category->value])</h3>
 
         @if ($hasAdditional)
-            <a href="{{ route('blog', ['category' => $article->category->value]) }}" class="flex items-center space-x-2 font-semibold link">
+            <a href="{{ route('blog', ['category' => $article->category->value]) }}"
+                class="link flex items-center space-x-2 font-semibold">
                 <span>@lang('ui::pages.blog.view_all')</span>
                 <x-ark-icon name="arrows.chevron-right-small" size="xs" />
             </a>
         @endif
     </div>
 
-    <div class="mt-6 footer-article-list">
+    <div class="footer-article-list mt-6">
         @foreach ($articles as $article)
             @if ($loop->index === 2)
                 <div class="hidden xl:block">

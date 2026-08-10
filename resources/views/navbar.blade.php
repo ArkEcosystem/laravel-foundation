@@ -35,8 +35,7 @@
 @endphp
 
 <header
-    @if(config('ui.dark-mode.enabled') === true)
-        x-data="Navbar.dropdown({
+    @if (config('ui.dark-mode.enabled') === true) x-data="Navbar.dropdown({
             inverted: @js($inverted ?? false),
             invertOnScroll: @js($invertOnScroll ?? false),
             theme: window.getThemeMode(),
@@ -46,41 +45,32 @@
         x-data="Navbar.dropdown({
             inverted: @js($inverted ?? false),
             invertOnScroll: @js($invertOnScroll ?? false),
-        })"
-    @endif
->
-    <div
-        x-show="openDropdown !== null || open"
-        class="overflow-y-auto fixed inset-0 z-30 opacity-75 bg-theme-secondary-900 {{ $backdropClass }}"
-        @click="openDropdown = null; open = false;"
-        x-cloak
-    ></div>
+        })" @endif>
+    <div x-show="openDropdown !== null || open"
+        class="{{ $backdropClass }} fixed inset-0 z-30 overflow-y-auto bg-theme-secondary-900 opacity-75"
+        @click="openDropdown = null; open = false;" x-cloak></div>
 
     {{-- Spacer for the sticky navbar  --}}
-    <div class="{{ $heightClass ?? 'h-21'}}"></div>
+    <div class="{{ $heightClass ?? 'h-21' }}"></div>
 
-    <nav
-        aria-label="@lang ('ui::general.primary_navigation')"
-        x-ref="nav"
-        @class([
-            'fixed top-0 z-30 w-full dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400',
-            'inverted:shadow-header-smooth' => $inverted,
-            'border-b' => !isset($noBorder) || !$noBorder,
-            $backgroundColor,
-            $invertedBorder,
-        ])
-        dusk="navigation-bar"
-    >
-        <div class="relative z-10 navbar-container border-theme-secondary-300">
-            <div class="flex relative justify-between {{ $heightClass ?? 'h-21'}}">
+    <nav aria-label="@lang ('ui::general.primary_navigation')" x-ref="nav" @class([
+        'fixed top-0 z-30 w-full dark:bg-theme-secondary-900 dark:border-theme-secondary-800 transition duration-400',
+        'inverted:shadow-header-smooth' => $inverted,
+        'border-b' => !isset($noBorder) || !$noBorder,
+        $backgroundColor,
+        $invertedBorder,
+    ])
+        dusk="navigation-bar">
+        <div class="navbar-container relative z-10 border-theme-secondary-300">
+            <div class="{{ $heightClass ?? 'h-21' }} relative flex justify-between">
                 @include('ark::navbar.logo')
 
                 @isset($middle)
                     {{ $middle }}
                 @endisset
 
-                <div class="flex justify-end items-center h-full">
-                    <div class="flex flex-1 justify-end items-center h-full">
+                <div class="flex h-full items-center justify-end">
+                    <div class="flex h-full flex-1 items-center justify-end">
                         @isset($desktop)
                             {{ $desktop }}
                         @else
@@ -88,24 +78,19 @@
                         @endisset
                     </div>
 
-                    @if(! isset($noSeparator))
+                    @if (!isset($noSeparator))
                         <span @class([
-                            $separatorClasses ?? 'hidden pr-6 border-l ml-7 h-7 transition duration-400',
+                            $separatorClasses ??
+                            'hidden pr-6 border-l ml-7 h-7 transition duration-400',
                             $invertedSeparator,
                             $separatorBreakpointClass,
                         ])></span>
                     @endif
 
-                    <div class="flex inset-y-0 right-0 items-center">
-                        @if(is_array($navigation))
-                            <x-ark-navbar-hamburger
-                                :inverted="$inverted"
-                                :breakpoint="$breakpoint ?? 'md'"
-                                :color="$hamburgerColor ?? null"
-                                :invertedColor="$invertedHamburgerColor ?? null"
-                                :no-separator="$noSeparator ?? $noHamburgerSeparator ?? null"
-                                :separator-class="$hamburgerSeparatorClass ?? null"
-                            />
+                    <div class="inset-y-0 right-0 flex items-center">
+                        @if (is_array($navigation))
+                            <x-ark-navbar-hamburger :inverted="$inverted" :breakpoint="$breakpoint ?? 'md'" :color="$hamburgerColor ?? null"
+                                :invertedColor="$invertedHamburgerColor ?? null" :no-separator="$noSeparator ?? ($noHamburgerSeparator ?? null)" :separator-class="$hamburgerSeparatorClass ?? null" />
                         @endif
 
                         @isset($content)
@@ -116,8 +101,8 @@
                     </div>
                 </div>
 
-                @isset ($end)
-                    <div class="flex flex-1 justify-end items-center">
+                @isset($end)
+                    <div class="flex flex-1 items-center justify-end">
                         {{ $end }}
                     </div>
                 @endisset
@@ -129,8 +114,10 @@
         @else
             @include('ark::navbar.items.mobile', [
                 'mobilePositionClass' => $mobilePositionClass ?? null,
-                'mobileDropdownItemColor' => 'text-theme-secondary-900 hover:text-theme-secondary-900 dark:text-theme-secondary-200 dark:hover:text-theme-secondary-200',
-                'mobileDropdownActiveItemColor' => 'dark:bg-black dark:text-theme-secondary-200 text-theme-secondary-900 bg-theme-primary-50',
+                'mobileDropdownItemColor' =>
+                    'text-theme-secondary-900 hover:text-theme-secondary-900 dark:text-theme-secondary-200 dark:hover:text-theme-secondary-200',
+                'mobileDropdownActiveItemColor' =>
+                    'dark:bg-black dark:text-theme-secondary-200 text-theme-secondary-900 bg-theme-primary-50',
             ])
         @endisset
     </nav>

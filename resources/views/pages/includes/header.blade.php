@@ -1,6 +1,6 @@
 @props([
-    'title'        => null,
-    'description'  => null,
+    'title' => null,
+    'description' => null,
     'contentClass' => 'flex flex-col items-center text-center gap-4 contact-header',
 ])
 

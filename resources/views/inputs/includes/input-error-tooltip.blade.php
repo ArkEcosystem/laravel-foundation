@@ -1,22 +1,13 @@
-@props([
-    'error',
-    'id',
-    'shifted' => false,
-])
+@props(['error', 'id', 'shifted' => false])
 
-<button
-    type="button"
-    wire:key="{{ md5($id.$error) }}"
-    @class([
-        'px-4 input-icon focus-visible:rounded',
-        'right-13' => $shifted,
-        'right-0'  => ! $shifted,
-    ])
-    data-tippy-content="{{ $error }}"
-    onclick="document.getElementById('{{ $id }}').focus()"
->
+<button type="button" wire:key="{{ md5($id . $error) }}" @class([
+    'px-4 input-icon focus-visible:rounded',
+    'right-13' => $shifted,
+    'right-0' => !$shifted,
+])
+    data-tippy-content="{{ $error }}" onclick="document.getElementById('{{ $id }}').focus()">
     <x-ark-icon name="circle.exclamation-mark" class="text-theme-danger-500" />
-    @if($shifted)
-        <div class="w-px h-5 transform translate-x-4 bg-theme-secondary-300 dark:bg-theme-secondary-800">&nbsp;</div>
+    @if ($shifted)
+        <div class="h-5 w-px translate-x-4 transform bg-theme-secondary-300 dark:bg-theme-secondary-800">&nbsp;</div>
     @endif
 </button>

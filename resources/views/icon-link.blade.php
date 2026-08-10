@@ -1,17 +1,8 @@
-@props([
-    'href',
-    'target' => '_self',
-    'rel'    => '',
-    'hideIcon' => false,
-])
+@props(['href', 'target' => '_self', 'rel' => '', 'hideIcon' => false])
 
-<a
-    href="{{ $href }}"
-    target="{{ $target }}"
-    rel="{{ $rel }}"
-    class="flex items-center space-x-2 font-semibold link"
->
-    @unless($hideIcon)
+<a href="{{ $href }}" target="{{ $target }}" rel="{{ $rel }}"
+    class="link flex items-center space-x-2 font-semibold">
+    @unless ($hideIcon)
         <span><x-ark-icon name="arrows.arrow-external" size="sm" /></span>
     @endunless
 

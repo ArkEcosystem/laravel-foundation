@@ -1,33 +1,17 @@
 <div class="read-more-container">
-    <div
-        x-data="ReadMore({ value: {{ json_encode($content) }}, })"
-        :class="{ 'flex': ! showMore }"
-        x-on:resize.window="truncate()"
-        x-cloak
-    >
-        <div
-            :class="{ truncate: ! showMore }"
-            class="read-more-content"
-        >
+    <div x-data="ReadMore({ value: {{ json_encode($content) }}, })" :class="{ 'flex': !showMore }" x-on:resize.window="truncate()" x-cloak>
+        <div :class="{ truncate: !showMore }" class="read-more-content">
             {{ $content }}
         </div>
 
-        <div
-            class="inline-block whitespace-nowrap"
-        >
-            <div
-                x-show="showMore"
-                class="mt-2 border-b border-dashed read-more-collapse link link-no-underline"
-                @click="showMore = false && hideOptionAndTruncate()"
-            >
+        <div class="inline-block whitespace-nowrap">
+            <div x-show="showMore" class="read-more-collapse link link-no-underline mt-2 border-b border-dashed"
+                @click="showMore = false && hideOptionAndTruncate()">
                 @lang('ui::actions.show_less')
             </div>
 
-            <div
-                x-show="! showMore && showExpand"
-                class="ml-2 border-b border-dashed read-more-expand link link-no-underline"
-                @click="showAll"
-            >
+            <div x-show="! showMore && showExpand"
+                class="read-more-expand link link-no-underline ml-2 border-b border-dashed" @click="showAll">
                 @lang('ui::actions.read_more')
             </div>
         </div>

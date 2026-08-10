@@ -1,34 +1,34 @@
 @props([
     'id',
-    'title'           => null,
-    'titleClass'      => 'text-2xl',
-    'titleTooltip'    => null,
-    'viewAllUrl'      => null,
-    'viewAllClass'    => '',
-    'hideNavigation'  => false,
-    'hideBullets'     => false,
-    'topPagination'   => false,
+    'title' => null,
+    'titleClass' => 'text-2xl',
+    'titleTooltip' => null,
+    'viewAllUrl' => null,
+    'viewAllClass' => '',
+    'hideNavigation' => false,
+    'hideBullets' => false,
+    'topPagination' => false,
     'paginationClass' => '',
-    'headerClass'     => 'flex flex-col mb-6 space-y-4 sm:space-y-0 sm:flex-row sm:items-center',
-    'wrapperClass'    => null,
-    'rows'            => 1,
-    'columns'         => 5,
-    'breakpoints'     => null,
-    'spaceBetween'    => 0,
-    'loop'            => false,
-    'allowTouch'      => true,
-    'autoplay'        => false,
-    'autoplayDelay'   => 3000,
-    'hideViewAll'     => false,
-    'shadowSpacing'   => false,
-    'autoHeight'      => false,
+    'headerClass' => 'flex flex-col mb-6 space-y-4 sm:space-y-0 sm:flex-row sm:items-center',
+    'wrapperClass' => null,
+    'rows' => 1,
+    'columns' => 5,
+    'breakpoints' => null,
+    'spaceBetween' => 0,
+    'loop' => false,
+    'allowTouch' => true,
+    'autoplay' => false,
+    'autoplayDelay' => 3000,
+    'hideViewAll' => false,
+    'shadowSpacing' => false,
+    'autoHeight' => false,
 ])
 
 @php
     $columns = $columns ? (int) $columns : $columns;
-    $rows    = $rows ? (int) $rows : $rows;
+    $rows = $rows ? (int) $rows : $rows;
 
-    if ($breakpoints === null ) {
+    if ($breakpoints === null) {
         if ($columns > 1) {
             $breakpoints = [
                 '375' => [
@@ -40,15 +40,15 @@
                     'slidesPerView' => $columns - 2 > 0 ? $columns - 2 : 3,
                 ],
                 '1024' => [
-                    'slidesPerGroup' =>  $columns - 1 > 0 ? $columns - 1 : 4,
-                    'slidesPerView' =>  $columns - 1 > 0 ? $columns - 1 : 4,
+                    'slidesPerGroup' => $columns - 1 > 0 ? $columns - 1 : 4,
+                    'slidesPerView' => $columns - 1 > 0 ? $columns - 1 : 4,
                 ],
                 '1280' => [
                     'slidesPerGroup' => $columns,
                     'slidesPerView' => $columns,
                 ],
             ];
-        } else  {
+        } else {
             $breakpoints = [
                 '1024' => [
                     'slidesPerGroup' => $columns,
@@ -63,7 +63,7 @@
         }
     }
 
-    $hasViewAll = $viewAllUrl && ! $hideViewAll;
+    $hasViewAll = $viewAllUrl && !$hideViewAll;
 
     $classesPerBreakpoint = collect([
         '0' => [
@@ -95,35 +95,29 @@
     ]);
 
     $gridClasses = $classesPerBreakpoint
-        ->map(fn ($classes, $breakpoint) => Arr::get($classes, Arr::get($breakpoints, $breakpoint . '.slidesPerView', '')))
-        ->filter(fn($className) => !!$className)->join(' ');
+        ->map(
+            fn($classes, $breakpoint) => Arr::get($classes, Arr::get($breakpoints, $breakpoint . '.slidesPerView', '')),
+        )
+        ->filter(fn($className) => !!$className)
+        ->join(' ');
 @endphp
 
 <div class="w-full">
-    <div class="relative @unless($hideNavigation) px-10 @endunless">
-        <div
-            id="swiper-{{ $id }}"
-            class="swiper
-                @unless ($topPagination) slider-pagination-bottom @endunless
-                @if ($hasViewAll) slider-show-view-all @endif
-                @if ($shadowSpacing) px-5 @endif
-                @if ($rows > 1) slider-multirow @endif"
-        >
+    <div class="@unless ($hideNavigation) px-10 @endunless relative">
+        <div id="swiper-{{ $id }}"
+            class="swiper @unless ($topPagination) slider-pagination-bottom @endunless @if ($hasViewAll) slider-show-view-all @endif @if ($shadowSpacing) px-5 @endif @if ($rows > 1) slider-multirow @endif">
             @include('ark::includes.slider.header')
 
-            <div
-                @class([
-                    'swiper-wrapper grid grid-cols-1',
-                    'px-5 pt-5 -mx-5 -mt-5' => $shadowSpacing,
-                    $gridClasses,
-                    $wrapperClass,
-                ])
-                style="gap: {{ $spaceBetween }}px"
-            >
+            <div @class([
+                'swiper-wrapper grid grid-cols-1',
+                'px-5 pt-5 -mx-5 -mt-5' => $shadowSpacing,
+                $gridClasses,
+                $wrapperClass,
+            ]) style="gap: {{ $spaceBetween }}px">
                 {{ $slot }}
             </div>
 
-            @unless($topPagination)
+            @unless ($topPagination)
                 <div class="swiper-pagination {{ $paginationClass }}"></div>
             @endunless
         </div>

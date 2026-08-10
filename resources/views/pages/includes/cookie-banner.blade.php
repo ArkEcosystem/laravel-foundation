@@ -1,9 +1,4 @@
-@props([
-    'domain',
-    'disableOutsideClick' => false,
-    'overlayCrossButton'  => false,
-    'contactUrl'          => '/contact',
-])
+@props(['domain', 'disableOutsideClick' => false, 'overlayCrossButton' => false, 'contactUrl' => '/contact'])
 
 @php
     $initMethods = [];
@@ -14,9 +9,18 @@
         $initMethods[] = 'overlayCrossButton()';
     }
     if (config('tracking.analytics.key')) {
-        $initMethods[] = sprintf("withtrackingAnalytics('%s', '%s')", config('tracking.analytics.key'), config('tracking.analytics.domain'));
+        $initMethods[] = sprintf(
+            "withtrackingAnalytics('%s', '%s')",
+            config('tracking.analytics.key'),
+            config('tracking.analytics.domain'),
+        );
     }
-    $initMethods[] = sprintf("init({ appName: '%s', domain: '%s', contactUrl: '%s' })", config("app.name"), $domain, $contactUrl);
+    $initMethods[] = sprintf(
+        "init({ appName: '%s', domain: '%s', contactUrl: '%s' })",
+        config('app.name'),
+        $domain,
+        $contactUrl,
+    );
 @endphp
 
 @vite('resources/js/cookie-consent.js')

@@ -14,33 +14,21 @@
 
     @if ($code ?? null)
         @if (View::exists('components.metadata'))
-            <x-dynamic-component
-                component="metadata"
-                :page="$code"
-                :detail="['error' => trans('ui::errors.'.$code)]"
-            />
+            <x-dynamic-component component="metadata" :page="$code" :detail="['error' => trans('ui::errors.' . $code)]" />
         @else
-            @section('title', trans('ui::errors.'.$code) . ' | '.config('app.name'))
+            @section('title', trans('ui::errors.' . $code) . ' | ' . config('app.name'))
         @endif
 
         @section('image')
-            <x-ark-icon
-                :name="'app-errors.'.$code"
-                class="light-dark-icon"
-                size="w-full h-full"
-            />
+            <x-ark-icon :name="'app-errors.' . $code" class="light-dark-icon" size="w-full h-full" />
         @endsection
     @endif
 
     @section('buttons')
-        <a
-            class="button button-secondary"
-            @if (Route::has('contact'))
-                href="{{ route('contact') }}"
+        <a class="button button-secondary"
+            @if (Route::has('contact')) href="{{ route('contact') }}"
             @else
-                href="mailto:{{ config('mail.contact_email') }}"
-            @endif
-        >
+                href="mailto:{{ config('mail.contact_email') }}" @endif>
             @lang('ui::actions.contact')
         </a>
 
@@ -50,22 +38,22 @@
     @endsection
 
     @section('content')
-        <x-ark-container class="flex m-auto w-full md:items-center">
+        <x-ark-container class="m-auto flex w-full md:items-center">
             <div class="text-center">
                 <div class="mx-auto max-w-error-image">
                     @yield('image')
                 </div>
 
-                @if($maintenance ?? false)
-                    <h1 class="px-2 mt-8 xl:px-0 header-2">
+                @if ($maintenance ?? false)
+                    <h1 class="header-2 mt-8 px-2 xl:px-0">
                         @lang('ui::errors.503_heading')
                     </h1>
 
-                    <p class="px-8 mt-4 leading-loose dark:text-theme-secondary-500">
+                    <p class="mt-4 px-8 leading-loose dark:text-theme-secondary-500">
                         @lang('ui::errors.503_message')
                     </p>
                 @else
-                    <h1 class="mt-8 header-2">
+                    <h1 class="header-2 mt-8">
                         @yield('heading', trans('ui::errors.heading'))
                     </h1>
 
@@ -73,7 +61,7 @@
                         @yield('message', trans('ui::errors.message'))
                     </p>
 
-                    <div class="flex flex-col mt-8 space-y-3 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-3">
+                    <div class="mt-8 flex flex-col space-y-3 sm:flex-row sm:justify-center sm:space-x-3 sm:space-y-0">
                         @yield('buttons')
                     </div>
                 @endif

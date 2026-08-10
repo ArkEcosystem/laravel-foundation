@@ -1,22 +1,19 @@
 @props([
     'name',
     'errors',
-    'id'               => null,
-    'label'            => null,
-    'tooltip'          => null,
-    'tooltipClass'     => null,
-    'tooltipType'      => 'info',
-    'required'         => false,
-    'auxiliaryTitle'   => '',
+    'id' => null,
+    'label' => null,
+    'tooltip' => null,
+    'tooltipClass' => null,
+    'tooltipType' => 'info',
+    'required' => false,
+    'auxiliaryTitle' => '',
 ])
 
-<label
-    for="{{ $id ?? $name }}"
-    @class([
-        'items-center input-label',
-        'input-label--error' => $errors->has($name),
-    ])
->
+<label for="{{ $id ?? $name }}" @class([
+    'items-center input-label',
+    'input-label--error' => $errors->has($name),
+])>
     {{ $label ? $label : trans('forms.' . $name) }}
 
     @if (!empty($auxiliaryTitle))
@@ -24,7 +21,7 @@
     @endif
 
     @if ($required)
-        <div class="p-px mb-3 ml-px w-1 h-1 rounded-full bg-theme-danger-400"></div>
+        <div class="mb-3 ml-px h-1 w-1 rounded-full bg-theme-danger-400 p-px"></div>
     @endif
 
     @if ($tooltip)
