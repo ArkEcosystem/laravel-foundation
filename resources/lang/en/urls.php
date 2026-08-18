@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 return [
     'discord-msq'   => 'https://marketsquare.io/discord',
-    'twitter'       => 'https://twitter.ark.io/',
+    'x'             => 'https://x.com/ArkEcosystem',
+    'twitter'       => 'https://x.com/ArkEcosystem', // kept for older consumers still on `ui::urls.twitter`
     'linkedin'      => 'https://www.linkedin.com/company/ark-ecosystem',
-    'facebook'      => 'https://facebook.ark.io/',
-    'youtube'       => 'https://youtube.ark.io/',
+    'facebook'      => 'https://www.facebook.com/ArkEcosystem/',
+    'youtube'       => 'https://www.youtube.com/channel/UCpc2k6zOOutGT9y56urDClg',
     'github'        => 'https://github.com/ArkEcosystem',
     'telegram'      => 'https://t.me/arkannouncements',
     'documentation' => 'https://ark.dev',
