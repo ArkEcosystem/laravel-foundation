@@ -12,11 +12,8 @@
     'style' => '',
 ])
 
-<ol data-expandable
-    x-data="{ expanded: false }"
-    :class="{ 'show-all': expanded }"
-    style="--expandable-total-count: {{ $total }};{{ $style }}"
-    x-init="$watch('expanded', (expanded) => {
+<ol data-expandable x-data="{ expanded: false }" :class="{ 'show-all': expanded }"
+    style="--expandable-total-count: {{ $total }};{{ $style }}" x-init="$watch('expanded', (expanded) => {
         if (expanded) {
             $nextTick(() => {
                 $el.querySelectorAll('img[onload]').forEach(img => {
@@ -27,12 +24,10 @@
                 });
             })
         }
-    })"
-    {{ $attributes }}
->
+    })" {{ $attributes }}>
     {{ $slot }}
 
-    @isset ($placeholder)
+    @isset($placeholder)
         @for ($i = 0; $i < $placeholderCount; $i++)
             <li data-placeholder wire:key="expandable-placeholder-{{ Str::random(6) }}">
                 {{ $placeholder }}
@@ -45,13 +40,10 @@
     @endisset
 
     @empty($showMore)
-        <button
-            data-trigger class="{{ $triggerClass }}"
-            @click="expanded = !expanded"
+        <button data-trigger class="{{ $triggerClass }}" @click="expanded = !expanded"
             @isset($triggerDusk)
                 dusk="{{ $triggerDusk }}"
-            @endisset
-        >
+            @endisset>
             <span data-collapsed class="{{ $collapsedClass }}" x-show="!expanded">
                 {{ $collapsed }}
             </span>

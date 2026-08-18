@@ -15,26 +15,26 @@
                 loop: {{ $loop ? 'true' : 'false' }},
                 loopFillGroupWithBlank: true,
                 @if ($autoplay)
-                autoplay: {
-                    delay: {{ $autoplayDelay }},
-                },
+                    autoplay: {
+                        delay: {{ $autoplayDelay }},
+                    },
                 @endif
                 @unless ($hideBullets)
-                pagination: {
-                    el: '#swiper-{{ $id }} .swiper-pagination',
-                    clickable: true
-                },
+                    pagination: {
+                        el: '#swiper-{{ $id }} .swiper-pagination',
+                        clickable: true
+                    },
                 @endif
                 @unless ($hideNavigation)
-                navigation: {
-                    nextEl: '.swiper-{{ $id }}-pagination.swiper-button-next',
-                    prevEl: '.swiper-{{ $id }}-pagination.swiper-button-prev'
-                },
+                    navigation: {
+                        nextEl: '.swiper-{{ $id }}-pagination.swiper-button-next',
+                        prevEl: '.swiper-{{ $id }}-pagination.swiper-button-prev'
+                    },
                 @endunless
                 watchOverflow: true,
                 allowTouchMove: {{ $allowTouch ? 'true' : 'false' }},
                 on: {
-                    beforeInit: function () {
+                    beforeInit: function() {
                         const wrapper = this.$el[0].querySelector('.swiper-wrapper');
                         wrapper.classList.remove('grid');
                         wrapper.removeAttribute('style');
@@ -43,15 +43,15 @@
             });
 
             document.addEventListener('DOMContentLoaded', function() {
-                swiper.on('init', function () {
+                swiper.on('init', function() {
                     Slider.disableTabIndexOfInvisibleElements(this.$el[0], this.slides);
                 });
 
-                swiper.on('slideChangeTransitionEnd', function () {
+                swiper.on('slideChangeTransitionEnd', function() {
                     Slider.disableTabIndexOfInvisibleElements(this.$el[0], this.slides);
                 });
 
-                swiper.on('snapGridLengthChange', function () {
+                swiper.on('snapGridLengthChange', function() {
                     Slider.disableTabIndexOfInvisibleElements(this.$el[0], this.slides);
                 });
 
@@ -59,7 +59,7 @@
             });
         };
 
-        @if($delayInit)
+        @if ($delayInit)
             if (window.sliders === undefined) {
                 window.sliders = {};
             }

@@ -1,1 +1,1 @@
-<div class="w-full {{ $heightClass ?? 'h-4' }} bg-theme-secondary-100" ></div>
+<div class="{{ $heightClass ?? 'h-4' }} w-full bg-theme-secondary-100"></div>

@@ -9,15 +9,14 @@
 ])
 
 <div {{ $attributes->merge(['class' => 'tabs-wrapper']) }}
-    @unless($noData)
+    @unless ($noData)
         x-data="Tabs(
             '{{ $defaultSelected }}',
             {{ $xData }}
-            @if($onSelected) , {{ $onSelected }} @endif
+            @if ($onSelected) , {{ $onSelected }} @endif
         )"
-    @endunless
->
-    @if($tabsTrigger)
+    @endunless>
+    @if ($tabsTrigger)
         {{ $tabsTrigger }}
     @else
         <ul role="tablist" class="tabs {{ $tablistClass }}">

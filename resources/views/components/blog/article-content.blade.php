@@ -1,28 +1,24 @@
-@props ([
-    'article',
-    'header' => null,
-])
+@props(['article', 'header' => null])
 
 <section class="w-full bg-theme-blog-background">
-    <div class="flex flex-col justify-between items-center px-8 pt-8 mx-auto max-w-5xl md:flex-row md:px-10 bg-theme-blog-background">
-        <div class="flex flex-col w-full text-sm font-semibold text-theme-secondary-500">
+    <div
+        class="mx-auto flex max-w-5xl flex-col items-center justify-between bg-theme-blog-background px-8 pt-8 md:flex-row md:px-10">
+        <div class="flex w-full flex-col text-sm font-semibold text-theme-secondary-500">
             <div class="flex items-center space-x-2 text-sm font-semibold text-theme-secondary-500">
-                <div class="pr-3 border-r border-theme-secondary-800">
-                    <a
-                        href="{{ route('author', $article->author) }}"
-                        class="flex items-center space-x-2 group link link-dark"
-                    >
-                        <div class="object-contain overflow-hidden w-4 h-4 rounded">
+                <div class="border-r border-theme-secondary-800 pr-3">
+                    <a href="{{ route('author', $article->author) }}"
+                        class="link link-dark group flex items-center space-x-2">
+                        <div class="h-4 w-4 overflow-hidden rounded object-contain">
                             <img src="{{ $article->author->photo() }}" />
                         </div>
 
-                        <span class="hidden sm:inline-flex group-hover:text-theme-primary-500">
+                        <span class="hidden group-hover:text-theme-primary-500 sm:inline-flex">
                             {{ $article->author->name }}
                         </span>
                     </a>
                 </div>
 
-                <div class="pr-3 border-r border-theme-secondary-800">
+                <div class="border-r border-theme-secondary-800 pr-3">
                     {{ $article->created_at->format('jS M Y') }}
                 </div>
 
@@ -41,11 +37,8 @@
         </div>
 
         @if (Auth::user())
-            <div class="justify-end mt-6 w-full md:mt-0 md:w-auto">
-                <a
-                    href="{{ route('kiosk.article', $article) }}"
-                    class="w-full button-primary"
-                >
+            <div class="mt-6 w-full justify-end md:mt-0 md:w-auto">
+                <a href="{{ route('kiosk.article', $article) }}" class="button-primary w-full">
                     <div class="flex justify-center space-x-2 whitespace-nowrap">
                         <x-ark-icon name="pencil" size="sm" />
 
@@ -58,46 +51,35 @@
 </section>
 
 <section class="bg-hero-50">
-    <div class="py-8 px-8 mx-auto md:px-10 lg:max-w-7xl">
-        <div class="flex relative justify-center">
-            <img src="{{ asset($article->banner()) }}" class="w-full h-full rounded-xl" />
+    <div class="mx-auto px-8 py-8 md:px-10 lg:max-w-7xl">
+        <div class="relative flex justify-center">
+            <img src="{{ asset($article->banner()) }}" class="h-full w-full rounded-xl" />
 
             @if (config('blog.show_category_badge', false))
-                <x-ark-blog.category-badge
-                    :category="$article->category"
-                    class="absolute top-0 right-0 mt-4 mr-4"
-                />
+                <x-ark-blog.category-badge :category="$article->category" class="absolute right-0 top-0 mr-4 mt-4" />
             @endif
         </div>
     </div>
 </section>
 
-<section class="px-8 pb-8 mx-auto space-y-8 w-full max-w-5xl md:px-10">
+<section class="mx-auto w-full max-w-5xl space-y-8 px-8 pb-8 md:px-10">
     <article class="article-content documentation-content">
         @markdown ($article->body)
     </article>
 
-    <div class="flex items-center pt-8 space-x-3 font-semibold border-t border-theme-secondary-200 text-theme-secondary-900">
+    <div
+        class="flex items-center space-x-3 border-t border-theme-secondary-200 pt-8 font-semibold text-theme-secondary-900">
         <div>@lang('ui::pages.blog.share'):</div>
 
         <div class="flex items-center space-x-2">
-            <x-ark-social-square
-                :url="$article->shareUrlReddit()"
-                icon="brands.reddit"
-                hoverClass="hover:bg-theme-primary-700 hover:text-white"
-            />
+            <x-ark-social-square :url="$article->shareUrlReddit()" icon="brands.reddit"
+                hoverClass="hover:bg-theme-primary-700 hover:text-white" />
 
-            <x-ark-social-square
-                :url="$article->shareUrlTwitter()"
-                icon="brands.twitter"
-                hoverClass="hover:bg-theme-primary-700 hover:text-white"
-            />
+            <x-ark-social-square :url="$article->shareUrlTwitter()" icon="brands.twitter"
+                hoverClass="hover:bg-theme-primary-700 hover:text-white" />
 
-            <x-ark-social-square
-                :url="$article->shareUrlFacebook()"
-                icon="brands.facebook"
-                hoverClass="hover:bg-theme-primary-700 hover:text-white"
-            />
+            <x-ark-social-square :url="$article->shareUrlFacebook()" icon="brands.facebook"
+                hoverClass="hover:bg-theme-primary-700 hover:text-white" />
         </div>
     </div>
 </section>

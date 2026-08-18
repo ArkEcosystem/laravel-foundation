@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @push('scripts')
-    <script src="{{ asset('js/file-download.js')}}"></script>
+    <script src="{{ asset('js/file-download.js') }}"></script>
 @endpush
 
 @section('content')
     <x-ark-container>
-        <div class="my-8 mx-auto md:w-3/4 lg:w-3/5 xl:w-1/2">
+        <div class="mx-auto my-8 md:w-3/4 lg:w-3/5 xl:w-1/2">
             <h1 class="mx-4 text-2xl font-bold md:text-4xl">Dashboard</h1>
             <div class="mx-4 mt-2 text-theme-secondary-700">Manage your profile and things.</div>
 
-            <div class="flex items-center px-4 mt-5 space-x-4 lg:mt-8">
+            <div class="mt-5 flex items-center space-x-4 px-4 lg:mt-8">
                 <a href="{{ route('kiosk.users') }}" class="button-primary">
                     Users
                 </a>

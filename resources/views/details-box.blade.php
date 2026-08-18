@@ -13,13 +13,14 @@
     'verticalPosition' => 'center',
 ])
 
-<div {{ $attributes->class([
-    'flex detail-box',
-    'flex-row-reverse' => $reverse,
-    'items-start' => $verticalPosition === 'top',
-    'items-center' => $verticalPosition === 'center',
-    'items-end' => $verticalPosition === 'bottom',
-]) }}>
+<div
+    {{ $attributes->class([
+        'flex detail-box',
+        'flex-row-reverse' => $reverse,
+        'items-start' => $verticalPosition === 'top',
+        'items-center' => $verticalPosition === 'center',
+        'items-end' => $verticalPosition === 'bottom',
+    ]) }}>
     @if ($iconWrapper)
         {{ $iconWrapper }}
     @elseif ($icon || $iconRaw)
@@ -56,7 +57,7 @@
         </span>
 
         <div @if ($tooltip) data-tippy-content="{{ $tooltip }}" @endif>
-            @if((string) $slot === "")
+            @if ((string) $slot === '')
                 <span class="font-semibold text-theme-secondary-700 dark:text-theme-secondary-200">
                     @lang('generic.not_specified')
                 </span>

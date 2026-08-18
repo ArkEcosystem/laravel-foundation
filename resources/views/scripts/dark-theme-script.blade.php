@@ -1,4 +1,4 @@
-@if(config('ui.dark-mode.enabled') === true)
+@if (config('ui.dark-mode.enabled') === true)
     <script>
         let _theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
@@ -29,7 +29,8 @@
         });
 
         const toggleTheme = () => {
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                    '(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
                 document.documentElement.classList.remove('light');
                 document.documentElement.classList.remove('dim');
@@ -53,16 +54,19 @@
              * Emit a custom `theme-changed` event.
              */
             document.documentElement.dispatchEvent(new CustomEvent('theme-changed', {
-                detail: {theme: _theme},
+                detail: {
+                    theme: _theme
+                },
                 bubbles: true,
             }));
 
             @unless (app()->isDownForMaintenance())
 
                 if (window.Livewire) {
-                    Livewire.dispatch('themeChanged', {newValue: _theme});
+                    Livewire.dispatch('themeChanged', {
+                        newValue: _theme
+                    });
                 }
-
             @endunless
         }
 

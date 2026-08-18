@@ -1,7 +1,4 @@
-@props([
-    'time',
-    'class' => null,
-])
+@props(['time', 'class' => null])
 
 <div @class([
     'text-sm flex space-x-2 items-center text-theme-secondary-500 font-semibold',

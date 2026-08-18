@@ -1,8 +1,4 @@
-@props([
-    'title',
-    'description',
-    'image' => null,
-])
+@props(['title', 'description', 'image' => null])
 
 <meta name="description" content="{!! trim(htmlentities($description)) !!}" />
 

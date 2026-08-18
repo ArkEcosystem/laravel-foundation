@@ -1,10 +1,10 @@
 @props([
-    'inverted'       => false,
-    'noSeparator'    => false,
+    'inverted' => false,
+    'noSeparator' => false,
     'separatorClass' => null,
-    'breakpoint'     => 'md',
-    'color'          => 'hover:bg-theme-primary-400 hover:text-white text-theme-secondary-900',
-    'invertedColor'  => 'inverted:text-theme-secondary-900 inverted:hover:text-theme-primary-700 text-theme-primary-100',
+    'breakpoint' => 'md',
+    'color' => 'hover:bg-theme-primary-400 hover:text-white text-theme-secondary-900',
+    'invertedColor' => 'inverted:text-theme-secondary-900 inverted:hover:text-theme-primary-700 text-theme-primary-100',
 ])
 
 @php
@@ -22,20 +22,16 @@
     };
 
     $invertedColour = match ($inverted) {
-        true => 'inverted:hover:bg-theme-primary-100 '.$invertedColor,
+        true => 'inverted:hover:bg-theme-primary-100 ' . $invertedColor,
         false => $color,
     };
 @endphp
 
-<div class="flex items-center {{ $breakpointClass }}">
-    <button
-        @click="open = !open"
-        aria-label="@lang('ui::menu.navigation')"
-        @class([
-            'inline-flex relative justify-center items-center py-2 px-3 h-11 rounded-md transition ease-in-out md:px-5 duration-400',
-            $invertedColour,
-        ])
-    >
+<div class="{{ $breakpointClass }} flex items-center">
+    <button @click="open = !open" aria-label="@lang('ui::menu.navigation')" @class([
+        'inline-flex relative justify-center items-center py-2 px-3 h-11 rounded-md transition ease-in-out md:px-5 duration-400',
+        $invertedColour,
+    ])>
         <span :class="{ 'hidden': open, 'inline-flex': !open }">
             <x-ark-icon name="menu" />
         </span>
@@ -45,7 +41,7 @@
         </span>
     </button>
 
-    @unless($noSeparator)
+    @unless ($noSeparator)
         <span @class([
             'block pr-6 md:pr-8 ml-3 h-7 border-l transition duration-400',
             $invertedSeparator,

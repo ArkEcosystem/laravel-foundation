@@ -1,14 +1,14 @@
 @props([
-    'includes'                  => null,
-    'footer'                    => null,
-    'content'                   => null,
-    'cookieDomain'              => null,
-    'wrapperClass'              => 'bg-white',
+    'includes' => null,
+    'footer' => null,
+    'content' => null,
+    'cookieDomain' => null,
+    'wrapperClass' => 'bg-white',
     'disableCookieOutsideClick' => false,
-    'overlayCookieCrossButton'  => false,
-    'cookieContactUrl'          => '/contact',
-    'usesLivewire'              => true,
-    'contentInnerClass'         => null,
+    'overlayCookieCrossButton' => false,
+    'cookieContactUrl' => '/contact',
+    'usesLivewire' => true,
+    'contentInnerClass' => null,
 ])
 
 @aware([
@@ -16,21 +16,15 @@
 ])
 
 <body {{ $attributes }}>
-    <div
-        id="app"
-        @class([
-            'flex flex-col antialiased',
-            $wrapperClass,
-            'dark:bg-theme-secondary-900' => config('ui.dark-mode.enabled') === true,
-        ])
-    >
+    <div id="app" @class([
+        'flex flex-col antialiased',
+        $wrapperClass,
+        'dark:bg-theme-secondary-900' => config('ui.dark-mode.enabled') === true,
+    ])>
         {{ $slot }}
 
         @if ($content === null)
-            <x-ark-pages-includes-layout-content
-                :vertical-center="$verticalCenterContent"
-                :inner-class="$contentInnerClass"
-            >
+            <x-ark-pages-includes-layout-content :vertical-center="$verticalCenterContent" :inner-class="$contentInnerClass">
                 @yield('content')
             </x-ark-pages-includes-layout-content>
         @else
@@ -60,18 +54,16 @@
     @vite('resources/js/app.js')
 
     @if (config('tracking.analytics.key') && Visitor::isEuropean())
-        <x-ark-pages-includes-cookie-banner
-            :domain="$cookieDomain"
-            :contact-url="$cookieContactUrl"
-            :disable-outside-click="$disableCookieOutsideClick"
-            :overlay-cross-button="$overlayCookieCrossButton"
-        />
+        <x-ark-pages-includes-cookie-banner :domain="$cookieDomain" :contact-url="$cookieContactUrl" :disable-outside-click="$disableCookieOutsideClick" :overlay-cross-button="$overlayCookieCrossButton" />
     @elseif (config('tracking.analytics.key'))
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('tracking.analytics.key') }}"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
             gtag('js', new Date());
 
             gtag('config', '{{ config('tracking.analytics.key') }}');

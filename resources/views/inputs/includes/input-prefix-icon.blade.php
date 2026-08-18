@@ -1,9 +1,4 @@
-@props([
-    'icon',
-    'position' => 'right',
-    'iconClass' => '',
-    'iconSize' => 'base',
-])
+@props(['icon', 'position' => 'right', 'iconClass' => '', 'iconSize' => 'base'])
 
 @php
     $positionClasses = [

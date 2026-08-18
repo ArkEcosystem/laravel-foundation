@@ -1,4 +1,4 @@
-@props ([
+@props([
     'type' => 'line',
     'spacing' => 8,
 ])
@@ -25,8 +25,9 @@
     };
 @endphp
 
-<hr {{ $attributes->class([
-    $typeClass,
-    $spacingClass,
-    'custom-separator border-theme-secondary-300 dark:border-theme-secondary-800',
-]) }} />
+<hr
+    {{ $attributes->class([
+        $typeClass,
+        $spacingClass,
+        'custom-separator border-theme-secondary-300 dark:border-theme-secondary-800',
+    ]) }} />

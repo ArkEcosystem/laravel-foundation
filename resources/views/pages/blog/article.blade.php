@@ -1,5 +1,4 @@
 @component('layouts.app')
-
     @section('title', trans('metatags.blog.article-title', ['title' => $article->title]))
 
     @push('scripts')
@@ -13,26 +12,21 @@
         <meta property="og:image" content="{{ asset($article->banner()) }}" />
     @endpush
 
-    @section('meta-title', $article->title)
+@section('meta-title', $article->title)
 
-    @section('meta-description')
-        {!! $article->excerpt(120) !!}
-    @endsection
+@section('meta-description')
+    {!! $article->excerpt(120) !!}
+@endsection
 
-    @section('meta-image', asset($article->banner()))
+@section('meta-image', asset($article->banner()))
 
-    @section('content')
-        <x-ark-blog.article-content :article="$article" />
+@section('content')
+    <x-ark-blog.article-content :article="$article" />
 
-        @if ($articles->isNotEmpty())
-            <x-ark-container class="bg-theme-secondary-100">
-                <x-ark-blog.related-articles
-                    :article="$article"
-                    :articles="$articles"
-                    :has-additional="$hasAdditional ?? false"
-                />
-            </x-ark-container>
-        @endif
-    @endsection
-
+    @if ($articles->isNotEmpty())
+        <x-ark-container class="bg-theme-secondary-100">
+            <x-ark-blog.related-articles :article="$article" :articles="$articles" :has-additional="$hasAdditional ?? false" />
+        </x-ark-container>
+    @endif
+@endsection
 @endcomponent

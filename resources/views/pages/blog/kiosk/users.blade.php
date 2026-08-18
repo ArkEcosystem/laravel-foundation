@@ -14,52 +14,54 @@
 
         <div class="flex flex-col">
             <div class="overflow-x-auto">
-                <div class="inline-block py-2 min-w-full align-middle">
+                <div class="inline-block min-w-full py-2 align-middle">
                     <div class="overflow-hidden sm:rounded-lg">
                         <table class="min-w-full">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="py-3 pr-6 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    <th scope="col"
+                                        class="text-gray-500 py-3 pr-6 text-left text-xs font-medium uppercase tracking-wider">
                                         Name
                                     </th>
-                                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    <th scope="col"
+                                        class="text-gray-500 px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                         Date Created
                                     </th>
                                     <th scope="col" class="relative py-3 pl-6"></th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-theme-secondary-200">
-                                @foreach($users as $user)
+                            <tbody class="divide-y divide-theme-secondary-200 bg-white">
+                                @foreach ($users as $user)
                                     <tr>
-                                        <td class="py-4 pr-6 whitespace-nowrap">
+                                        <td class="whitespace-nowrap py-4 pr-6">
                                             <div class="flex items-center">
-                                                <div class="flex-shrink-0 w-10 h-10">
-                                                    <img class="w-10 h-10 rounded-full" src="{{ $user->photo() }}" alt="">
+                                                <div class="h-10 w-10 flex-shrink-0">
+                                                    <img class="h-10 w-10 rounded-full" src="{{ $user->photo() }}"
+                                                        alt="">
                                                 </div>
                                                 <div class="ml-4">
-                                                    <div class="font-medium text-gray-900">
+                                                    <div class="text-gray-900 font-medium">
                                                         {{ $user->name }}
                                                     </div>
 
-                                                    <div class="mt-1 text-sm text-gray-600">
+                                                    <div class="text-gray-600 mt-1 text-sm">
                                                         {{ $user->email }}
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="py-4 px-6 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">
+                                        <td class="whitespace-nowrap px-6 py-4">
+                                            <div class="text-gray-900 text-sm">
                                                 {{ $user->created_at->toDayDateTimeString() }}
                                             </div>
                                         </td>
-                                        <td class="py-4 pl-6 text-sm font-medium text-right whitespace-nowrap" x-data>
-                                            <div class="flex justify-end items-center space-x-8">
-                                                <a href="{{ route('kiosk.user', $user) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                                <button
-                                                    type="button"
+                                        <td class="whitespace-nowrap py-4 pl-6 text-right text-sm font-medium" x-data>
+                                            <div class="flex items-center justify-end space-x-8">
+                                                <a href="{{ route('kiosk.user', $user) }}"
+                                                    class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                <button type="button"
                                                     class="flex items-center space-x-1 text-sm font-medium text-theme-danger-600"
-                                                    @click="$dispatch('triggerUserDelete', {id: {{ $user->id }}})"
-                                                >
+                                                    @click="$dispatch('triggerUserDelete', {id: {{ $user->id }}})">
                                                     <x-ark-icon name="trash" size="sm" />
 
                                                     <span>Remove</span>
@@ -75,8 +77,8 @@
             </div>
         </div>
 
-        <div class="flex justify-center mt-6">
-            {{ $users->links("ark::pagination-url") }}
+        <div class="mt-6 flex justify-center">
+            {{ $users->links('ark::pagination-url') }}
         </div>
 
         <livewire:kiosk-delete-user />

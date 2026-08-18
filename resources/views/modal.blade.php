@@ -23,15 +23,17 @@
 ])
 
 @php
-    $fixedPositionClass = [
-        'sm' => 'sm:mx-auto',
-        'md' => 'md:mx-auto',
-    ][$breakpoint] ?? 'md:mx-auto';
+    $fixedPositionClass =
+        [
+            'sm' => 'sm:mx-auto',
+            'md' => 'md:mx-auto',
+        ][$breakpoint] ?? 'md:mx-auto';
 
-    $relativePositionClass = [
-        'sm' => 'sm:m-auto',
-        'md' => 'md:m-auto',
-    ][$breakpoint] ?? 'md:m-auto';
+    $relativePositionClass =
+        [
+            'sm' => 'sm:m-auto',
+            'md' => 'md:m-auto',
+        ][$breakpoint] ?? 'md:m-auto';
 @endphp
 
 <div @class([
@@ -39,54 +41,29 @@
     $overlayClass,
 ])></div>
 
-<div
-    wire:ignore.self
-    x-ref="modal"
-    @if($name)
-        data-modal="{{ $name }}"
+<div wire:ignore.self x-ref="modal"
+    @if ($name) data-modal="{{ $name }}"
     @else
-        data-modal
-    @endif
+        data-modal @endif
     x-data="Modal.livewire({{ $xData }}, {
-        @if ($disableScrollLockAtWidth)
-            disableScrollLockAtWidth: {{ $disableScrollLockAtWidth }},
-        @endif
-    })"
-    @if(!$closeButtonOnly && $wireClose && ! $disableOverlayClose)
-        @mousedown.self="$wire.{{ $wireClose }}()"
-    @endif
-    class="flex overflow-y-auto fixed inset-0 z-50 md:py-10 md:px-8"
-    @if(!$closeButtonOnly && $escToClose)
-        wire:keydown.escape="{{ $wireClose }}"
-        tabindex="0"
-    @endif
->
-    <div
-        @class([
-            'w-full',
-            $wrapperClass,
-            $fixedPositionClass => $fixedPosition,
-            $relativePositionClass => ! $fixedPosition,
-            $class,
-            $widthClass,
-        ])
-
-        @if($style)
-            style="{{ $style }}"
-        @endif
-    >
-        <div @class([
-            'custom-scroll',
-            $contentClass,
-            $widthClass,
-        ])>
+        @if ($disableScrollLockAtWidth) disableScrollLockAtWidth: {{ $disableScrollLockAtWidth }}, @endif
+    })" @if (!$closeButtonOnly && $wireClose && !$disableOverlayClose) @mousedown.self="$wire.{{ $wireClose }}()" @endif
+    class="fixed inset-0 z-50 flex overflow-y-auto md:px-8 md:py-10"
+    @if (!$closeButtonOnly && $escToClose) wire:keydown.escape="{{ $wireClose }}"
+        tabindex="0" @endif>
+    <div @class([
+        'w-full',
+        $wrapperClass,
+        $fixedPositionClass => $fixedPosition,
+        $relativePositionClass => !$fixedPosition,
+        $class,
+        $widthClass,
+    ]) @if ($style) style="{{ $style }}" @endif>
+        <div @class(['custom-scroll', $contentClass, $widthClass])>
             <div class="{{ $paddingClass }}">
-                @if($wireClose)
-                    <button
-                        type="button"
-                        @class([$closeButtonClass])
-                        @if($wireClose ?? false) wire:click="{{ $wireClose }}" @endif
-                    >
+                @if ($wireClose)
+                    <button type="button" @class([$closeButtonClass])
+                        @if ($wireClose ?? false) wire:click="{{ $wireClose }}" @endif>
                         <x-ark-icon name="cross" size="sm" class="m-auto" />
                     </button>
                 @endif
@@ -99,8 +76,8 @@
 
                 {{ $description }}
 
-                @if($buttons ?? false)
-                    <div class="mt-8 text-right {{ $buttonsStyle }}">
+                @if ($buttons ?? false)
+                    <div class="{{ $buttonsStyle }} mt-8 text-right">
                         {{ $buttons }}
                     </div>
                 @endif

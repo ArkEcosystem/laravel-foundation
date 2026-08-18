@@ -1,5 +1,5 @@
 @props([
-    'disabled' => false
+    'disabled' => false,
 ])
 
 <div class="flex space-x-2 text-sm font-medium">
@@ -8,21 +8,19 @@
     </span>
 
     <div class="flex items-center divide-x divide-theme-primary-100">
-        <span
-            @class([
-                "flex items-center px-2 space-x-1",
-                "cursor-pointer" => !$disabled,
-                "text-theme-secondary-500" => $disabled,
-            ])
+        <span @class([
+            'flex items-center px-2 space-x-1',
+            'cursor-pointer' => !$disabled,
+            'text-theme-secondary-500' => $disabled,
+        ])
             @unless ($disabled)
                 wire:click="sort"
-            @endunless
-        >
+            @endunless>
             <span class="leading-none">
                 @lang('ui::pages.blog.date')
             </span>
 
-            @if($this->sortDirection === 'asc')
+            @if ($this->sortDirection === 'asc')
                 <x-ark-icon name="arrows.chevron-up-small" size="xs" />
             @else
                 <x-ark-icon name="arrows.chevron-down-small" size="xs" />

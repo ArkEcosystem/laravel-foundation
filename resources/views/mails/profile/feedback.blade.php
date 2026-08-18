@@ -1,6 +1,5 @@
 @component('mail::message')
+    {{ $message }}
 
-{{ $message }}
-
-@lang('ui::mails.footer', ['applicationName' => config('app.name')])
+    @lang('ui::mails.footer', ['applicationName' => config('app.name')])
 @endcomponent

@@ -2,7 +2,7 @@
 
 @vite(['resources/js/markdown-editor.js', 'resources/css/markdown-editor.css'])
 
-@unless($toolbar === 'basic')
+@unless ($toolbar === 'basic')
     @include('ark::inputs.includes.markdown.embed-link-modal')
     @include('ark::inputs.includes.markdown.embed-tweet-modal')
     @include('ark::inputs.includes.markdown.embed-podcast-modal')

@@ -3,7 +3,7 @@
 ])
 
 <div {{ $attributes->except('containerClass') }}>
-    <div class="py-8 w-full content-container {{ $containerClass }}">
+    <div class="content-container {{ $containerClass }} w-full py-8">
         {{ $slot }}
     </div>
 </div>

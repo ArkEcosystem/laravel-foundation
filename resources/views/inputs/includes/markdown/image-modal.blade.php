@@ -1,17 +1,11 @@
-<x-ark-js-modal
-    init
-    name="imageModal"
-    :title="trans('ui::markdown.modals.image.title')"
-    width-class="max-w-lg"
-    {{-- @TODO: Image upload handling related code --}}
+<x-ark-js-modal init name="imageModal" :title="trans('ui::markdown.modals.image.title')" width-class="max-w-lg" {{-- @TODO: Image upload handling related code --}}
     {{-- x-data="{
         source: 'file',
         imageHandler(e) {
             e.preventDefault();
             const files = e.target.files;
         }
-    }" --}}
->
+    }" --}}>
     @slot('description')
         <form id="imageModalForm" @submit.prevent="Livewire.dispatch('imageModal', $event)">
             {{-- @TODO: Add file upload --}}
@@ -43,12 +37,7 @@
                 <input type="hidden" name="source" x-bind:value="source" />
             </div> --}}
 
-            <x-ark-input
-                type="text"
-                name="image"
-                :label="trans('ui::markdown.modals.image.form.image')"
-                class="w-full"
-            />
+            <x-ark-input type="text" name="image" :label="trans('ui::markdown.modals.image.form.image')" class="w-full" />
 
             {{-- @TODO: Add file upload --}}
             {{-- <template x-if="source === 'file'">
@@ -78,12 +67,7 @@
                 </div>
             </template> --}}
 
-            <x-ark-input
-                type="text"
-                name="description"
-                :label="trans('ui::markdown.modals.image.form.description')"
-                class="mt-4 w-full"
-            />
+            <x-ark-input type="text" name="description" :label="trans('ui::markdown.modals.image.form.description')" class="mt-4 w-full" />
         </form>
     @endslot
 
@@ -97,4 +81,3 @@
         </button>
     @endslot
 </x-ark-js-modal>
-

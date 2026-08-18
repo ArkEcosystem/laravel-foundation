@@ -1,20 +1,12 @@
-@props ([
-    'author',
-    'count',
-    'headerGradient' => null,
-])
+@props(['author', 'count', 'headerGradient' => null])
 
 <div class="flex flex-col items-center sm:flex-row sm:justify-between">
-    <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-        <div class="object-contain overflow-hidden rounded-xl w-15 h-15">
+    <div class="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+        <div class="h-15 w-15 overflow-hidden rounded-xl object-contain">
             @if ($author->photo())
                 <img src="{{ $author->photo() }}" />
             @else
-                <x-ark-avatar
-                    :identifier="$author->name"
-                    class="w-15 h-15"
-                    show-identifier-letters
-                />
+                <x-ark-avatar :identifier="$author->name" class="h-15 w-15" show-identifier-letters />
             @endif
         </div>
 
@@ -23,18 +15,10 @@
                 @lang('ui::pages.blog.author')
             </div>
 
-            <div @class([
-                'text-2xl font-bold',
-                'text-white' => empty($headerGradient),
-            ])>
-                @if (! empty($headerGradient))
-                    <x-ark-gradient-text
-                        :from="$headerGradient[0]"
-                        :via="$headerGradient[1]"
-                        :to="$headerGradient[2]"
-                        animationSpeed="25s"
-                        animated
-                    >
+            <div @class(['text-2xl font-bold', 'text-white' => empty($headerGradient)])>
+                @if (!empty($headerGradient))
+                    <x-ark-gradient-text :from="$headerGradient[0]" :via="$headerGradient[1]" :to="$headerGradient[2]" animationSpeed="25s"
+                        animated>
                         {{ $author->name }}
                     </x-ark-gradient-text>
                 @else
@@ -55,7 +39,7 @@
             </div>
         </div>
 
-        <div class="mt-3 text-sm sm:hidden text-theme-secondary-500">
+        <div class="mt-3 text-sm text-theme-secondary-500 sm:hidden">
             @lang('ui::pages.blog.articles_count', ['count' => $count])
         </div>
     </div>
