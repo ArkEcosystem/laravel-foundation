@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.4",
+        "php": "^8.5",
         "calebporzio/sushi": "^2.4",
         "danharrin/livewire-rate-limiting": "^2.0",
         "driftingly/rector-laravel": "^0.21",
