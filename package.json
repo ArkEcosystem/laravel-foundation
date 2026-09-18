@@ -1,5 +1,5 @@
 {
-    "packageManager": "pnpm@11.27.0",
+    "packageManager": "pnpm@12.4.2",
     "dependencies": {
         "@sindresorhus/slugify": "sindresorhus/slugify",
         "prettier": "^3.9.4"
