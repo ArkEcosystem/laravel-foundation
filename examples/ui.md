@@ -179,7 +179,7 @@ This component renders an input file for a single image upload.
 
 1. Install `Compressorjs`
 ```bash
-yarn add -D compressorjs
+pnpm add -D compressorjs
 ```
 
 2. Import the following scripts inside the `<head>` tag of your template.
@@ -210,7 +210,7 @@ laravel([
 
 2. Add `cropperjs` as a dependency.
 
-`yarn add cropperjs`
+`pnpm add cropperjs`
 
 3. Copy the `crop-image.js` script into the public folder:
 
@@ -284,7 +284,7 @@ This component renders an input file for a multiple image upload.
 
 1. Install `Compressorjs`
 ```bash
-yarn add -D compressorjs
+pnpm add -D compressorjs
 ```
 
 2. Import the following scripts inside the `<head>` tag of your template.
@@ -306,7 +306,7 @@ laravel([
 #### Sort functionality (optional)
 1. Install `Livewire Sortable`
 ```bash
-yarn add -D livewire-sortable
+pnpm add -D livewire-sortable
 ```
 
 2. Add the following snippet to your `resources/app.js`
@@ -842,20 +842,20 @@ Here follow you can see an example on how to use it:
 1. Install the npm dependencies
 
 ```bash
-yarn add chart.js@^3.6.0
+pnpm add chart.js@^3.6.0
 ```
 
 Or if you need to update to the latest major version instead
 
 ```bash
-yarn upgrade chart.js -L
+pnpm update chart.js --latest
 ```
 
 When using dates, these additional dependencies will be required :
 
 ```bash
-yarn add date-fns
-yarn add chartjs-adapter-date-fns
+pnpm add date-fns
+pnpm add chartjs-adapter-date-fns
 ```
 
 You will then need to import these in your `.js` chart file :
