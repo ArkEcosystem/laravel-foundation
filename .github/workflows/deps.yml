@@ -9,7 +9,7 @@ jobs:
     php:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
               with:
                   ref: ${{ github.head_ref }}
                   token: ${{ secrets.GH_TOKEN }}
@@ -32,7 +32,7 @@ jobs:
 
             - name: Create Pull Request
               id: cpr
-              uses: peter-evans/create-pull-request@v7
+              uses: peter-evans/create-pull-request@v8
               with:
                   token: ${{ secrets.GH_TOKEN }}
                   commit-message: "chore: update PHP dependencies"
@@ -46,7 +46,7 @@ jobs:
     js:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
               with:
                   ref: ${{ github.head_ref }}
                   token: ${{ secrets.GH_TOKEN }}
@@ -64,19 +64,22 @@ jobs:
             - name: Install PHP dependencies
               run: composer install --no-ansi --no-interaction --no-progress --prefer-dist --optimize-autoloader --ignore-platform-reqs
 
-            - uses: actions/setup-node@v4
+            - uses: pnpm/action-setup@v6
+
+            - uses: actions/setup-node@v7
               with:
                   node-version: 24
+                  cache: pnpm
 
             - name: Update JS dependencies
               run: npx npm-check-updates --configFilePath ./
 
             - name: Install Updated JS dependencies
-              run: yarn --ignore-engines
+              run: pnpm install --no-frozen-lockfile
 
             - name: Create Pull Request
               id: cpr
-              uses: peter-evans/create-pull-request@v7
+              uses: peter-evans/create-pull-request@v8
               with:
                   token: ${{ secrets.GH_TOKEN }}
                   commit-message: "chore: update JavaScript dependencies"

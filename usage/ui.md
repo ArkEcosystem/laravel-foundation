@@ -85,7 +85,7 @@ laravel([
 3. Install `tippy.js`
 
 ```bash
-yarn add tippy.js
+pnpm add tippy.js
 ```
 
 4. Add the following snippet to your `resources/app.js`
@@ -109,8 +109,8 @@ window.initClipboard = () => {
 1. Install `body-scroll-lock` and `focus-trap`
 
 ```bash
-yarn add body-scroll-lock
-yarn add focus-trap
+pnpm add body-scroll-lock
+pnpm add focus-trap
 ```
 
 2. Import the modal script in your `resources/js/app.js` file
@@ -206,7 +206,7 @@ We use components because they contain the CSS classes and HTML needed to build 
 1. Install the npm dependencies
 
 ```bash
-yarn add @toast-ui/editor@3.1.1
+pnpm add @toast-ui/editor@3.1.1
 ```
 
 2. Ensure to import the markdown script inside the `<head>` tag of your template.
@@ -272,7 +272,7 @@ Accepts `full` for all the plugins and `basic` for only text related buttons.
 
 ### Tags input
 
-1. Add taggle dependency `yarn add taggle`
+1. Add taggle dependency `pnpm add taggle`
 
 2. Update `vite.config.js`:
 
@@ -308,7 +308,7 @@ window.Tags = Tags;
 
 ### User tagger input
 
-1. Add tributejs dependency `yarn add tributejs`
+1. Add tributejs dependency `pnpm add tributejs`
 
 2. Update `vite.config.js`:
 
@@ -481,7 +481,7 @@ Modal.alpine(
 1. Install `tippy.js`
 
 ```bash
-yarn add tippy.js
+pnpm add tippy.js
 ```
 
 2. Add to `app.js`
@@ -500,7 +500,7 @@ Tippy will now automatically work with our usual tooltip locations. If you need 
 1. Install `swiper`
 
 ```bash
-yarn add -D swiper
+pnpm add -D swiper
 ```
 
 2. Add swiper to `vite.config.js`
@@ -540,7 +540,7 @@ window.Slider = Slider
 1. Install `pikaday`
 
 ```bash
-yarn add -D pikaday
+pnpm add -D pikaday
 ```
 
 2. Include pikaday CSS
@@ -596,7 +596,7 @@ laravel([
 4. Install `prism.js`
 
 ```bash
-yarn add -D prism-themes prismjs
+pnpm add -D prism-themes prismjs
 ```
 
 5. Add the following snippet to `resources/prism.js`
@@ -615,7 +615,7 @@ document.addEventListener("DOMContentLoaded", () => {
 1. Install `Livewire Sortable`
 
 ```bash
-yarn add -D livewire-sortable
+pnpm add -D livewire-sortable
 ```
 
 2. Add the following snippet to your `resources/app.js`
@@ -827,8 +827,8 @@ laravel([
 1. Install `body-scroll-lock` and `focus-trap`:
 
 ```bash
-yarn add body-scroll-lock
-yarn add focus-trap
+pnpm add body-scroll-lock
+pnpm add focus-trap
 ```
 
 2. Import the modal script in your `resources/js/app.js` file:
@@ -979,7 +979,7 @@ Afterwards you can add new components to the local package and use it in your pr
 
 If you need to add, replace or delete an icon:
 - move the new icon in or remove it from `/resources/assets/icons`
-- run `yarn run generate-icon-preview`
+- run `pnpm run generate-icon-preview`
 - open `icons.html` and check if the icon is present
 
 ## Tailwind Configuration

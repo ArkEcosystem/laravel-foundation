@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GH_TOKEN }}
@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: composer update --ignore-platform-reqs
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: update dependencies"
           branch: ${{ github.head_ref }}
