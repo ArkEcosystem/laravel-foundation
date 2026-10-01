@@ -170,14 +170,14 @@ importers:
         specifier: sindresorhus/slugify
         version: https://codeload.github.com/sindresorhus/slugify/tar.gz/4355e631a6982411003ccd6e54f25376e2541c61
       prettier:
-        specifier: ^3.9.4
-        version: 3.9.7
+        specifier: ^3.9.9
+        version: 3.9.9
     devDependencies:
       '@shufo/prettier-plugin-blade':
         specifier: ^1.16.2
         version: 1.16.2
       '@tailwindcss/postcss':
-        specifier: ^4.3.2
+        specifier: ^4.3.3
         version: 4.3.3
       body-scroll-lock:
         specifier: 4.0.0-beta.0
@@ -189,7 +189,7 @@ importers:
         specifier: ^13.0.6
         version: 13.0.6
       tailwindcss:
-        specifier: ^4.3.2
+        specifier: ^4.3.3
         version: 4.3.3
       tippy.js:
         specifier: ^6.3.7
@@ -901,8 +901,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  prettier@3.9.7:
-    resolution: {integrity: sha512-T3mF5P7HFzZVLDQuCUNtJj6WK1pcpLMweMNUVwGb01bLNkH9AkKxtZvmInw8K6bnn2O3d6/5RHl6zSHiBAD0Og==}
+  prettier@3.9.9:
+    resolution: {integrity: sha512-Z/CJHIkdujO/OtN7nXUii0Rf3VT5SRuhjBA82Xvu2XhBUgX3nhP67T0LHceBdQLex7OOFGTox+Q5Yg8Jk2Qivg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -1138,11 +1138,11 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@prettier/plugin-php@0.24.0(prettier@3.9.7)':
+  '@prettier/plugin-php@0.24.0(prettier@3.9.9)':
     dependencies:
       linguist-languages: 8.2.0
       php-parser: 3.5.0
-      prettier: 3.9.7
+      prettier: 3.9.9
 
   '@shufo/prettier-plugin-blade@1.16.2':
     dependencies:
@@ -1279,7 +1279,7 @@ snapshots:
 
   blade-formatter@1.44.4:
     dependencies:
-      '@prettier/plugin-php': 0.24.0(prettier@3.9.7)
+      '@prettier/plugin-php': 0.24.0(prettier@3.9.9)
       '@shufo/tailwindcss-class-sorter': 3.0.1
       aigle: 1.14.1
       ajv: 8.20.0
@@ -1293,7 +1293,7 @@ snapshots:
       js-beautify: 1.15.4
       lodash: 4.18.1
       php-parser: 3.5.0
-      prettier: 3.9.7
+      prettier: 3.9.9
       string-replace-async: 2.0.0
       tailwindcss: 3.4.19
       vscode-oniguruma: 1.7.0
@@ -1701,7 +1701,7 @@ snapshots:
 
   prettier@3.8.1: {}
 
-  prettier@3.9.7: {}
+  prettier@3.9.9: {}
 
   proto-list@1.2.4: {}
 
