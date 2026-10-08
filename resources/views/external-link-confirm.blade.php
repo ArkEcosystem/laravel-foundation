@@ -51,7 +51,10 @@
     </x-slot>
 
     <x-slot name="backdrop">
-        <x-modal.close-button click="hide" class="fixed right-0 top-0 z-20" />
+        <button type="button" @click="hide"
+            class="button button-secondary transition-default fixed right-0 top-0 z-20 h-11 w-11 rounded-none p-0 text-theme-secondary-900 sm:mr-6 sm:mt-6 sm:rounded">
+            <x-ark-icon name="cross" size="sm" class="m-auto" />
+        </button>
 
         <div
             class="fixed inset-0 flex h-screen w-screen flex-col bg-white bg-opacity-90 backdrop-blur-xl backdrop-filter dark:bg-black dark:bg-opacity-95">
