@@ -6,6 +6,7 @@ namespace ARKEcosystem\Foundation\Blog\Components\Kiosk;
 
 use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Models\Article;
+use ARKEcosystem\Foundation\Support\Timezone;
 use ARKEcosystem\Foundation\UserInterface\Components\Concerns\HandleToast;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\UploadedFile;
@@ -13,7 +14,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
-use JamesMills\LaravelTimezone\Facades\Timezone;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -48,7 +48,7 @@ final class CreateArticle extends Component
         ]);
 
         if ($this->state['published_at'] !== '' && $this->state['published_at'] !== null) {
-            $this->state['published_at'] = Timezone::convertFromLocal($this->state['published_at']);
+            $this->state['published_at'] = Timezone::fromLocal($this->state['published_at']);
         } else {
             $this->state['published_at'] = null;
         }
