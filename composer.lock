@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ce082e86d38b69fa7f8962ea06cf32f",
+    "content-hash": "6297b47f71add2fd405d902a1fcf4a16",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2349,68 +2349,6 @@
                 "source": "https://github.com/iamcal/SQLParser/tree/v0.7"
             },
             "time": "2026-01-28T22:20:33+00:00"
-        },
-        {
-            "name": "jamesmills/laravel-timezone",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/peoplelikeushomeexchange/laravel-timezone.git",
-                "reference": "1b3c12f38c71864a99ff0fc3b668f8991d945265"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/peoplelikeushomeexchange/laravel-timezone/zipball/1b3c12f38c71864a99ff0fc3b668f8991d945265",
-                "reference": "1b3c12f38c71864a99ff0fc3b668f8991d945265",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "5.6.*|5.7.*|5.8.*|^6|^7|^8|^9|^10.0|^11.0|^12.0|^13.0",
-                "nesbot/carbon": "^1.0|^2.0|^3.0",
-                "php": ">=7.4",
-                "torann/geoip": "^3.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.12|^3.14"
-            },
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "JamesMills\\LaravelTimezone\\LaravelTimezoneServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JamesMills\\LaravelTimezone\\": "src/",
-                    "JamesMills\\LaravelTimezone\\Database\\Seeds\\": "database/seeds/"
-                }
-            },
-            "scripts": {
-                "pre-package-install": [
-                    "@php artisan config:clear"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "James Mills",
-                    "email": "james@jamesmills.co.uk"
-                }
-            ],
-            "description": "Timezone storage and retrieval for Laravel",
-            "keywords": [
-                "laravel",
-                "timezone"
-            ],
-            "support": {
-                "source": "https://github.com/peoplelikeushomeexchange/laravel-timezone/tree/master"
-            },
-            "time": "2026-04-04T03:39:37+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",
@@ -14766,9 +14704,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "jamesmills/laravel-timezone": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

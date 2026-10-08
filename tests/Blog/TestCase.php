@@ -11,7 +11,6 @@ use ARKEcosystem\Foundation\Providers\MarkdownServiceProvider;
 use ARKEcosystem\Foundation\Providers\UserInterfaceServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\View;
-use JamesMills\LaravelTimezone\LaravelTimezoneServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 use Spatie\ResponseCache\Middlewares\DoNotCacheResponse;
@@ -57,7 +56,6 @@ class TestCase extends Base
             LivewireServiceProvider::class,
             MediaLibraryServiceProvider::class,
             ResponseCacheServiceProvider::class,
-            LaravelTimezoneServiceProvider::class,
         ];
     }
 
