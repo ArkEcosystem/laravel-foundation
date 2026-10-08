@@ -112,6 +112,8 @@ it('should validate fields on send', function () {
 it('should prevent requests too quickly', function () {
     Mail::fake();
 
+    $this->freezeTime();
+
     config([
         'honeypot.enabled' => true,
     ]);
