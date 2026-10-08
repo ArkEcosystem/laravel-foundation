@@ -7,6 +7,7 @@ namespace ARKEcosystem\Foundation\Blog\Components\Kiosk;
 use ARKEcosystem\Foundation\Blog\Enums\Category;
 use ARKEcosystem\Foundation\Blog\Models\Article;
 use ARKEcosystem\Foundation\Blog\Models\User;
+use ARKEcosystem\Foundation\Support\Timezone;
 use ARKEcosystem\Foundation\UserInterface\Components\Concerns\HandleToast;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Collection;
@@ -15,7 +16,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Enum;
-use JamesMills\LaravelTimezone\Facades\Timezone;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -53,8 +53,7 @@ final class UpdateArticle extends Component
         $this->users = User::orderBy('name')->withTrashed()->get();
 
         if ($article->published_at !== null) {
-            // @phpstan-ignore-next-line
-            $this->state['published_at'] = Timezone::convertToLocal($article->published_at, 'Y-m-d\TH:i');
+            $this->state['published_at'] = Timezone::toLocal($article->published_at)->format('Y-m-d\TH:i');
         }
     }
 
@@ -70,7 +69,7 @@ final class UpdateArticle extends Component
         ]);
 
         if ($this->state['published_at'] !== '' && $this->state['published_at'] !== null) {
-            $this->state['published_at'] = Timezone::convertFromLocal($this->state['published_at']);
+            $this->state['published_at'] = Timezone::fromLocal($this->state['published_at']);
         } else {
             $this->state['published_at'] = null;
         }

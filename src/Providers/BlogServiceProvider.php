@@ -17,6 +17,9 @@ use ARKEcosystem\Foundation\Blog\Controllers\AuthorController;
 use ARKEcosystem\Foundation\Blog\Controllers\Contracts\ArticleController as ArticleControllerContract;
 use ARKEcosystem\Foundation\Blog\Controllers\KioskController;
 use ARKEcosystem\Foundation\Blog\Controllers\UserController;
+use ARKEcosystem\Foundation\Blog\Listeners\UpdateUserTimezone;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
@@ -35,6 +38,8 @@ class BlogServiceProvider extends ServiceProvider
         $this->registerLivewireComponents();
 
         $this->registerRoutes();
+
+        $this->registerListeners();
     }
 
     protected function registerContracts(): void
@@ -104,5 +109,10 @@ class BlogServiceProvider extends ServiceProvider
                 });
             });
         });
+    }
+
+    private function registerListeners(): void
+    {
+        Event::listen(Login::class, UpdateUserTimezone::class);
     }
 }
