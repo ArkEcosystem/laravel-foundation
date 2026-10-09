@@ -332,6 +332,19 @@ class UserInterfaceServiceProvider extends ServiceProvider
             $blade->component('ark::tabs.tab', 'ark-tab');
             $blade->component('ark::tabs.panel', 'ark-tab-panel');
 
+            // Blog
+            $blade->component('ark::components.blog.article-content', 'ark-blog.article-content');
+            $blade->component('ark::components.blog.author-header', 'ark-blog.author-header');
+            $blade->component('ark::components.blog.category-badge', 'ark-blog.category-badge');
+            $blade->component('ark::components.blog.blog-entry', 'ark-blog.blog-entry');
+            $blade->component('ark::components.blog.header', 'ark-blog.header');
+            $blade->component('ark::components.blog.placeholder-article-entry', 'ark-blog.placeholder-article-entry');
+            $blade->component('ark::components.blog.related-article-entry', 'ark-blog.related-article-entry');
+            $blade->component('ark::components.blog.related-articles', 'ark-blog.related-articles');
+            $blade->component('ark::components.blog.sort', 'ark-blog.sort');
+            $blade->component('ark::components.blog.search-input', 'ark-blog.search-input');
+            $blade->component('ark::components.blog.filter-dropdown', 'ark-blog.filter-dropdown');
+
             // Navigation
             $blade->component('ark::navbar', 'ark-navbar');
             $blade->component('ark::navbar.link-mobile', 'ark-navbar-link-mobile');

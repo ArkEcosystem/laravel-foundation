@@ -22,7 +22,6 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
 
 class BlogServiceProvider extends ServiceProvider
@@ -32,8 +31,6 @@ class BlogServiceProvider extends ServiceProvider
         $this->registerPublishers();
 
         $this->registerContracts();
-
-        $this->registerBladeComponents();
 
         $this->registerLivewireComponents();
 
@@ -58,23 +55,6 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../database/migrations/blog' => database_path('migrations'),
         ], 'blog-migrations');
-    }
-
-    private function registerBladeComponents(): void
-    {
-        $this->callAfterResolving(BladeCompiler::class, function (BladeCompiler $blade) {
-            $blade->component('ark::components.blog.article-content', 'ark-blog.article-content');
-            $blade->component('ark::components.blog.author-header', 'ark-blog.author-header');
-            $blade->component('ark::components.blog.category-badge', 'ark-blog.category-badge');
-            $blade->component('ark::components.blog.blog-entry', 'ark-blog.blog-entry');
-            $blade->component('ark::components.blog.header', 'ark-blog.header');
-            $blade->component('ark::components.blog.placeholder-article-entry', 'ark-blog.placeholder-article-entry');
-            $blade->component('ark::components.blog.related-article-entry', 'ark-blog.related-article-entry');
-            $blade->component('ark::components.blog.related-articles', 'ark-blog.related-articles');
-            $blade->component('ark::components.blog.sort', 'ark-blog.sort');
-            $blade->component('ark::components.blog.search-input', 'ark-blog.search-input');
-            $blade->component('ark::components.blog.filter-dropdown', 'ark-blog.filter-dropdown');
-        });
     }
 
     private function registerLivewireComponents(): void
