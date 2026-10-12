@@ -13,7 +13,9 @@ class DocumentationServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadViewsFrom(storage_path('app/public/docs'), 'docs');
+        if (is_dir($docsPath = storage_path('app/public/docs'))) {
+            $this->loadViewsFrom($docsPath, 'docs');
+        }
 
         Request::macro('onDocs', function ($slug = null, bool $checkGroup = false) {
             if (empty($slug)) {
