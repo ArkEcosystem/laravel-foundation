@@ -35,7 +35,7 @@
             class="absolute bottom-5 left-0 right-0 z-30 -mr-1 flex w-full origin-bottom-right items-center space-x-3 rounded-lg bg-white p-8 shadow-lg sm:bottom-0 sm:left-auto sm:mr-12 sm:w-136"
             x-cloak>
             <input x-ref="searchInput" type="text" placeholder="Search" class="w-full" maxlength="30"
-                wire:model.debounce.500ms="{{ $name }}" />
+                wire:model.live.debounce.500ms="{{ $name }}" />
             <x-ark-icon name="magnifying-glass" class="text-theme-secondary-500" />
         </div>
     @endunless
