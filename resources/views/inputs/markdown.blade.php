@@ -73,11 +73,13 @@
                             </span>
                         @endif
                         @if ($showReadingTime)
-                            <span
-                                class="border-l-2 border-theme-secondary-200 px-4 dark:border-theme-secondary-700">@lang
-                                ('ui::forms.wysiwyg.reading_time'): <strong><span x-text="readMinutes"
-                                        x-bind:class="{ 'opacity-75': loadingCharsCount }"></span> @lang
-                                    ('ui::forms.wysiwyg.min')</strong></span>
+                            <span class="border-l-2 border-theme-secondary-200 px-4 dark:border-theme-secondary-700">
+                                @lang ('ui::forms.wysiwyg.reading_time'):
+                                <strong>
+                                    <span x-text="readMinutes" x-bind:class="{ 'opacity-75': loadingCharsCount }"></span>
+                                    @lang ('ui::forms.wysiwyg.min')
+                                </strong>
+                            </span>
                         @endif
                     </div>
                 @endif

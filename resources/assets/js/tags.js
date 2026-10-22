@@ -172,11 +172,11 @@ const Tags = (
     getLivewireComponent() {
         const element = this.$el.closest("[wire\\:id]");
 
-        return window.livewire.find(element.getAttribute("wire:id"));
+        return Livewire.find(element.getAttribute("wire:id"));
     },
     displayLivewireToast(message) {
-        if (typeof livewire !== "undefined") {
-            livewire.dispatch("toastMessage", { message, type: "warning" });
+        if (typeof Livewire !== "undefined") {
+            Livewire.dispatch("toastMessage", { message, type: "warning" });
         }
     },
     hideTooltip() {
