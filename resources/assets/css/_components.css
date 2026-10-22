@@ -151,60 +151,62 @@
 }
 
 /** Pagination **/
-.pagination-wrapper {
-    @apply flex flex-col;
-}
-
-/* Removes the spinner on the number input */
-.pagination-wrapper input::-webkit-outer-spin-button,
-.pagination-wrapper input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    @apply m-0;
-}
-
-.pagination-wrapper input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-.pagination-pages-mobile {
-    @apply flex justify-center px-2 mb-3 rounded bg-theme-primary-100;
-}
-
-.pagination-button-mobile {
-    @apply flex justify-center flex-1;
-}
-
-.pagination-pages {
-    @apply hidden px-2 rounded bg-theme-primary-100;
-}
-
-.dark .pagination-pages-mobile {
-    @apply bg-theme-secondary-800;
-}
-
-.dark .pagination-pages {
-    @apply bg-theme-secondary-800;
-}
-
-@media screen and (min-width: 450px) {
+@layer components {
     .pagination-wrapper {
-        @apply block;
+        @apply flex flex-col;
     }
+
+    /* Removes the spinner on the number input */
+    .pagination-wrapper input::-webkit-outer-spin-button,
+    .pagination-wrapper input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        @apply m-0;
+    }
+
+    .pagination-wrapper input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
     .pagination-pages-mobile {
-        @apply hidden;
+        @apply flex justify-center px-2 mb-3 rounded bg-theme-primary-100;
     }
 
     .pagination-button-mobile {
-        @apply flex-initial;
+        @apply flex justify-center flex-1;
     }
 
     .pagination-pages {
-        @apply flex;
+        @apply hidden px-2 rounded bg-theme-primary-100;
     }
-}
-@media screen and (max-width: 451px) {
-    .pagination-form-desktop {
-        @apply hidden;
+
+    .dark .pagination-pages-mobile {
+        @apply bg-theme-secondary-800;
+    }
+
+    .dark .pagination-pages {
+        @apply bg-theme-secondary-800;
+    }
+
+    @media screen and (min-width: 450px) {
+        .pagination-wrapper {
+            @apply block;
+        }
+        .pagination-pages-mobile {
+            @apply hidden;
+        }
+
+        .pagination-button-mobile {
+            @apply flex-initial;
+        }
+
+        .pagination-pages {
+            @apply flex;
+        }
+    }
+    @media screen and (max-width: 451px) {
+        .pagination-form-desktop {
+            @apply hidden;
+        }
     }
 }
 
