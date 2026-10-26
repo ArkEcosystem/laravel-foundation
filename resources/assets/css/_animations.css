@@ -131,3 +131,14 @@
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
+
+/** Gradient Text **/
+.gradient-title-moving {
+    background-size: 400%;
+}
+
+@keyframes move-bg {
+    to {
+        background-position: 400% 0;
+    }
+}
