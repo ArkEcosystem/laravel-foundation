@@ -32,15 +32,15 @@ return [
 
     /*
     |---------------------------------------------------------------------------
-    | Layout
+    | Page Layout
     |---------------------------------------------------------------------------
     | The view that will be used as the layout when rendering a single component
-    | as an entire page via `Route::get('/post/create', CreatePost::class);`.
+    | as an entire page via `Route::livewire('/post/create', CreatePost::class);`.
     | In this case, the view returned by CreatePost will render into $slot.
     |
     */
 
-    'layout'                => 'layouts.app',
+    'component_layout'      => 'layouts.app',
 
     /*
     |---------------------------------------------------------------------------
@@ -52,7 +52,26 @@ return [
     |
     */
 
-    'lazy_placeholder' => null,
+    'component_placeholder' => null,
+
+    /*
+    |---------------------------------------------------------------------------
+    | Make Command
+    |---------------------------------------------------------------------------
+    | This value determines the default configuration for the artisan make command.
+    | Class-based components are kept as the default to match existing apps.
+    |
+    */
+
+    'make_command' => [
+        'type'  => 'class', // Options: 'sfc', 'mfc', 'class'
+        'emoji' => false,
+        'with'  => [
+            'js'   => false,
+            'css'  => false,
+            'test' => false,
+        ],
+    ],
 
     /*
     |---------------------------------------------------------------------------

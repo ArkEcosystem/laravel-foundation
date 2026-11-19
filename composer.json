@@ -27,7 +27,7 @@
         "laravel/framework": "^13.0",
         "laravel/telescope": "^5.0",
         "league/commonmark": "^2.7",
-        "livewire/livewire": "^3.0",
+        "livewire/livewire": "^4.0",
         "mockery/mockery": "^1.6",
         "pestphp/pest": "^5.0",
         "phpstan/extension-installer": "^1.3",
