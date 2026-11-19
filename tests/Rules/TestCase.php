@@ -13,6 +13,7 @@ use Laravel\Fortify\FortifyServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Spatie\Honeypot\HoneypotServiceProvider;
 use Spatie\Newsletter\NewsletterServiceProvider;
+use Spatie\Sluggable\SluggableServiceProvider;
 use Tests\TestCase as Base;
 
 /**
@@ -40,6 +41,7 @@ class TestCase extends Base
             MarkdownServiceProvider::class,
             LivewireServiceProvider::class,
             HoneypotServiceProvider::class,
+            SluggableServiceProvider::class,
             // First-Party
             HermesServiceProvider::class,
             NewsletterServiceProvider::class,
