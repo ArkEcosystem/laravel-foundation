@@ -197,7 +197,7 @@ class Document extends Model
         // Limit length
         $value = Str::limit($value, 256);
         // Highlight
-        $value = preg_replace("/\b([a-z]*${term}[a-z]*)\b/i", '<span class="bg-theme-warning-100">$1</span>', $value);
+        $value = preg_replace("/\b([a-z]*{$term}[a-z]*)\b/i", '<span class="bg-theme-warning-100">$1</span>', $value);
 
         return $value;
     }
