@@ -512,8 +512,7 @@ MARKDOWN;
 HTML;
 
     $html = <<<'HTML'
-<p>alert(document.cookie)</p>
-
+alert(document.cookie)
 HTML;
 
     $this->mock(MarkdownConverterInterface::class)

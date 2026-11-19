@@ -320,8 +320,10 @@ final class MarkdownParser
 
         try {
             libxml_use_internal_errors(true);
-            // Needs a XML encoding declaration to ensure is treated as UTF-8
-            $dom->loadHTML('<?xml encoding="utf-8" ?>'.$html);
+            // Needs a XML encoding declaration to ensure is treated as UTF-8.
+            // The HTML is wrapped in a container so top-level text is parsed the
+            // same on every libxml version (older versions wrap it in an implied `<p>`).
+            $dom->loadHTML('<?xml encoding="utf-8" ?><div>'.$html.'</div>');
         } catch (Exception $e) {
             return '';
         }
@@ -332,7 +334,14 @@ final class MarkdownParser
             ->filter(fn ($attribute) => static::isAttributeAllowedForTag($attribute))
             ->each(fn ($node) => $node->parentNode->removeAttribute($node->nodeName));
 
-        return $tidy->repairString($dom->saveHTML(), [
+        // The first `div` in document order is always the container added above
+        $container = $dom->getElementsByTagName('div')->item(0);
+
+        $html = collect($container?->childNodes ?? [])
+            ->map(fn ($node) => $dom->saveHTML($node))
+            ->implode('');
+
+        return $tidy->repairString($html, [
             'output-xhtml'   => true,
             'show-body-only' => true,
         ], 'utf8');
