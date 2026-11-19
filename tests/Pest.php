@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Blog\TestCase as BlogTestCase;
 use Tests\Rules\TestCase as RulesTestCase;
 use Tests\TestCase;
+use Tests\WithoutLivewire\TestCase as WithoutLivewireTestCase;
 
 uses(TestCase::class, RefreshDatabase::class)->in(
     'Analysis',
@@ -18,3 +19,4 @@ uses(TestCase::class, RefreshDatabase::class)->in(
 );
 uses(BlogTestCase::class)->in('Blog');
 uses(RulesTestCase::class)->in('Rules');
+uses(WithoutLivewireTestCase::class)->in('WithoutLivewire');

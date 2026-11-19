@@ -9,6 +9,7 @@ use ARKEcosystem\Foundation\Hermes\Components\NotificationsIndicator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Livewire\LivewireServiceProvider;
 
 class HermesServiceProvider extends ServiceProvider
 {
@@ -88,6 +89,11 @@ class HermesServiceProvider extends ServiceProvider
      */
     public function registerLivewireComponents(): void
     {
+        // Apps that don't use Livewire (e.g. it is in `dont-discover`) never load its provider
+        if (! $this->app->providerIsLoaded(LivewireServiceProvider::class)) {
+            return;
+        }
+
         Livewire::component('manage-notifications', ManageNotifications::class);
         Livewire::component('notifications-indicator', NotificationsIndicator::class);
     }

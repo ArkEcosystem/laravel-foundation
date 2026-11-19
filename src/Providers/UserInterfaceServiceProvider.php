@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Livewire\Livewire;
+use Livewire\LivewireServiceProvider;
 use Spatie\Flash\Flash;
 
 class UserInterfaceServiceProvider extends ServiceProvider
@@ -376,6 +377,11 @@ class UserInterfaceServiceProvider extends ServiceProvider
      */
     private function registerLivewireComponents(): void
     {
+        // Apps that don't use Livewire (e.g. it is in `dont-discover`) never load its provider
+        if (! $this->app->providerIsLoaded(LivewireServiceProvider::class)) {
+            return;
+        }
+
         Livewire::component('footer-contact-form', FooterContactForm::class);
         Livewire::component('flash-message', FlashMessage::class);
         Livewire::component('toast', Toast::class);
