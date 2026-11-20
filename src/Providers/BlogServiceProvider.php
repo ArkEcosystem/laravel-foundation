@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Livewire\LivewireServiceProvider;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -59,6 +60,11 @@ class BlogServiceProvider extends ServiceProvider
 
     private function registerLivewireComponents(): void
     {
+        // Apps that don't use Livewire (e.g. it is in `dont-discover`) never load its provider
+        if (! $this->app->providerIsLoaded(LivewireServiceProvider::class)) {
+            return;
+        }
+
         Livewire::component('blog-article-list', ArticleList::class);
         Livewire::component('kiosk-articles', Articles::class);
         Livewire::component('kiosk-create-article', CreateArticle::class);

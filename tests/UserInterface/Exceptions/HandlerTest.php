@@ -13,7 +13,7 @@ it('should show 500 error page if template does not exist', function ($errorCode
         abort($code);
     });
 
-    $response = $this->get("/error/${errorCode}")
+    $response = $this->get("/error/{$errorCode}")
         ->assertSeeText($message);
 
     $this->assertStringContainsString('<title>'.trans('ui::errors.500').' | Laravel</title>', $response->getContent());
@@ -31,10 +31,10 @@ it('should show correct error page', function ($errorCode, $message): void {
         abort($code);
     });
 
-    $response = $this->get("/error/${errorCode}")
+    $response = $this->get("/error/{$errorCode}")
         ->assertSeeText($message);
 
-    $this->assertStringContainsString('<title>'.trans("ui::errors.${errorCode}").' | Laravel</title>', $response->getContent());
+    $this->assertStringContainsString('<title>'.trans("ui::errors.{$errorCode}").' | Laravel</title>', $response->getContent());
 })->with([
     [401, 'Oops, something went wrong'],
     [402, 'Payment Required'],

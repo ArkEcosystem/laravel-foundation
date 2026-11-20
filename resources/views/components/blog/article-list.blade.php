@@ -77,7 +77,8 @@
                     @endif
 
                     <script>
-                        document.addEventListener('livewire:init', () => Livewire.on('pageChanged', () => scrollToQuery('#article-list', 'header')));
+                        document.addEventListener('livewire:init', () => Livewire.on('pageChanged', () => scrollToQuery('#article-list',
+                            'header')));
                     </script>
                 </div>
             </x-ark-container>

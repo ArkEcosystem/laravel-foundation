@@ -15,6 +15,7 @@ use Livewire\LivewireServiceProvider;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 use Spatie\ResponseCache\Middlewares\DoNotCacheResponse;
 use Spatie\ResponseCache\ResponseCacheServiceProvider;
+use Spatie\Sluggable\SluggableServiceProvider;
 use Tests\TestCase as Base;
 
 /**
@@ -56,6 +57,7 @@ class TestCase extends Base
             LivewireServiceProvider::class,
             MediaLibraryServiceProvider::class,
             ResponseCacheServiceProvider::class,
+            SluggableServiceProvider::class,
         ];
     }
 
